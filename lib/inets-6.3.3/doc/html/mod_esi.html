@@ -333,20 +333,20 @@
 <!-- refpage --><center><h1>mod_esi</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">mod_esi</div>
+<div class="REFBODY">mod_esi</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Erlang Server Interface</div>
+<div class="REFBODY">Erlang Server Interface</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>This module defines the Erlang Server Interface (ESI) API.
     It is a more efficient way of writing Erlang scripts
     for your <span class="code">Inets</span> web server than writing them as common CGI scripts.</p>
 
     <a name="deliver"></a>
-  </div>
+  </p></div>
 
- <h3><a name="idm45717574818976">DATA TYPES</a></h3>
-<div class="REFBODY rb-3">
+ <h3><a name="idm45565221552512">DATA TYPES</a></h3>
+<div class="REFBODY">
     
     <p>The following data types are used in the functions for mod_esi:</p>
 
@@ -400,25 +400,20 @@
  </div>
 
  <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-   <div class="func">
-<div class="func-title">
-<a name="deliver-2"></a><span class="bold_code bc-9">deliver(SessionID, Data) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+   <p><a name="deliver-2"></a><span class="bold_code">deliver(SessionID, Data) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">SessionID = term()</span><br>
+<span class="bold_code">SessionID = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Data = string() | io_list() | binary()</span><br>
+<span class="bold_code">Data = string() | io_list() | binary()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
      </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
        <a name="deliver"></a>
        <p>This function is <strong>only</strong> intended to be used from
        functions called by the Erl Scheme interface to deliver
@@ -438,35 +433,28 @@
        </p></div>
 </div>
      </p></div>
-</div>
-</div>
- </div>
+ 
   
- <h3><a name="idm45717574792208">ESI Callback Functions</a></h3>
-<div class="REFBODY rb-3">
+ <h3><a name="idm45565221525744">ESI Callback Functions</a></h3>
+<div class="REFBODY">
    
  </div>
 
  <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-   <div class="func">
-<div class="func-title">
-<a name="Module:Function-3"></a><span class="bold_code bc-9">Module:Function(SessionID, Env, Input)-&gt; _ </span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+   <p><a name="Module:Function-3"></a><span class="bold_code">Module:Function(SessionID, Env, Input)-&gt; _ </span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
        <div class="REFTYPES">
-<span class="bold_code bc-11">SessionID = term()</span><br>
+<span class="bold_code">SessionID = term()</span><br>
 </div>
        <div class="REFTYPES">
-<span class="bold_code bc-11">Env = env()</span><br>
+<span class="bold_code">Env = env()</span><br>
 </div>
        <div class="REFTYPES">
-<span class="bold_code bc-11">Input = string()</span><br>
+<span class="bold_code">Input = string()</span><br>
 </div>
      </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p><span class="code">Module</span> must be found in the code path and export
         <span class="code">Function</span> with an arity of three. An <span class="code">erlScriptAlias</span> must
         also be set up in the configuration file for the web server.</p>
@@ -488,36 +476,28 @@
         <strong>end of HTTP header</strong>, that is, <span class="code">"\r\n\r\n",</span>
         the server assumes that no HTTP header fields will be generated.</p>
       </p></div>
-</div>
-</div>
 
-   <div class="func">
-<div class="func-title">
-<a name="Module:Function-2"></a><span class="bold_code bc-9">Module:Function(Env, Input)-&gt; Response </span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+   <p><a name="Module:Function-2"></a><span class="bold_code">Module:Function(Env, Input)-&gt; Response </span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
        <div class="REFTYPES">
-<span class="bold_code bc-11">Env = env()</span><br>
+<span class="bold_code">Env = env()</span><br>
 </div>
        <div class="REFTYPES">
-<span class="bold_code bc-11">Input = string()</span><br>
+<span class="bold_code">Input = string()</span><br>
 </div>
        <div class="REFTYPES">
-<span class="bold_code bc-11">Response = string()</span><br>
+<span class="bold_code">Response = string()</span><br>
 </div>
      </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This callback format consumes much memory, as the
         whole response must be generated before it is sent to the
         user. This function is deprecated and is only kept for backwards
         compatibility.
         For new development, use <span class="code">Module:Function/3</span>.</p>
       </p></div>
-</div>
-</div>
- </div>
+ 
  
 </div>
 <div class="footer">

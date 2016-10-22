@@ -78,8 +78,8 @@
 <li><a href="diameter_soc.html">
               Top of chapter
             </a></li>
-<li title="RFC 6733"><a href="diameter_soc.html#idp46109380464368">RFC 6733</a></li>
-<li title="RFC 3539"><a href="diameter_soc.html#idp46109379276480">RFC 3539</a></li>
+<li title="RFC 6733"><a href="diameter_soc.html#idp46355812443376">RFC 6733</a></li>
+<li title="RFC 3539"><a href="diameter_soc.html#idp46355812398496">RFC 3539</a></li>
 </ul>
 </li>
 </ul>
@@ -102,7 +102,7 @@ This chapter provides a short overview of the application.</p>
 <p>
 A Diameter node is implemented by configuring a <strong>service</strong> and
 one or more <strong>transports</strong> using the interface module
-<span class="bold_code bc-19"><a href="diameter.html">diameter</a></span>.
+<span class="bold_code"><a href="diameter.html">diameter</a></span>.
 The service configuration defines the Diameter applications to be
 supported by the node and, typically, the capabilities that it should
 send to remote peers at capabilities exchange upon the establishment
@@ -110,11 +110,11 @@ of transport connections.
 A transport is configured on a service and provides protocol-specific
 send/receive functionality by way of a transport interface defined by
 diameter and implemented by a transport module.
-The diameter application provides two transport modules: <span class="bold_code bc-19"><a href="diameter_tcp.html">diameter_tcp</a></span> and <span class="bold_code bc-19"><a href="diameter_sctp.html">diameter_sctp</a></span> for transport over TCP
-(using <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html');">gen_tcp</a></span>) and SCTP
-(using <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_sctp.html');">gen_sctp</a></span>) respectively.
+The diameter application provides two transport modules: <span class="bold_code"><a href="diameter_tcp.html">diameter_tcp</a></span> and <span class="bold_code"><a href="diameter_sctp.html">diameter_sctp</a></span> for transport over TCP
+(using <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html');">gen_tcp</a></span>) and SCTP
+(using <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_sctp.html');">gen_sctp</a></span>) respectively.
 Other transports can be provided by any module that implements
-diameter's <span class="bold_code bc-19"><a href="diameter_transport.html">transport interface</a></span>.</p>
+diameter's <span class="bold_code"><a href="diameter_transport.html">transport interface</a></span>.</p>
 
 <p>
 While a service typically implements a single Diameter node (as
@@ -124,7 +124,7 @@ used to implement more than one Diameter node.</p>
 
 <p>
 Each Diameter application defined on a service is configured with a
-callback module that implements the <span class="bold_code bc-19"><a href="diameter_app.html">application interface</a></span> through which
+callback module that implements the <span class="bold_code"><a href="diameter_app.html">application interface</a></span> through which
 diameter communicates the connectivity of remote peers, requests peer
 selection for outgoing requests, and communicates the reception of
 incoming Diameter request and answer messages.
@@ -137,7 +137,7 @@ Each Diameter application is also configured with a
 dictionary module
 that provide encode/decode functionality for outgoing/incoming
 Diameter messages belonging to the application.
-A dictionary module is generated from a <span class="bold_code bc-19"><a href="diameter_dict.html">dictionary file</a></span> using the <span class="bold_code bc-19"><a href="diameterc.html">diameterc</a></span> utility.
+A dictionary module is generated from a <span class="bold_code"><a href="diameter_dict.html">dictionary file</a></span> using the <span class="bold_code"><a href="diameterc.html">diameterc</a></span> utility.
 Dictionaries for the RFC 6733 Diameter Common Messages, Base
 Accounting and Relay applications are provided with the diameter
 application.</p>

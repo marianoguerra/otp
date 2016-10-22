@@ -150,93 +150,74 @@
 <!-- refpage --><center><h1>CosEventDomainAdmin_EventDomainFactory</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">CosEventDomainAdmin_EventDomainFactory</div>
+<div class="REFBODY">CosEventDomainAdmin_EventDomainFactory</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">This module implements an Event Domain Factory interface, which  is used to create new Event Domain instances.</div>
+<div class="REFBODY">This module implements an Event Domain Factory interface, which  is used to create new Event Domain instances.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>To get access to all definitions include necessary <span class="code">hrl</span> files by using:<br><span class="code">-include_lib("cosEventDomain/include/*.hrl").</span></p>
-  </div>
+  </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="create_event_domain-3"></a><span class="bold_code bc-9">create_event_domain(Factory, QoS, Admin) -&gt; Reply</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="create_event_domain-3"></a><span class="bold_code">create_event_domain(Factory, QoS, Admin) -&gt; Reply</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Factory     = #objref</span><br>
+<span class="bold_code">Factory     = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">QoS         = CosNotification::QoSProperties</span><br>
+<span class="bold_code">QoS         = CosNotification::QoSProperties</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Admin       = CosNotification::AdminProperties</span><br>
+<span class="bold_code">Admin       = CosNotification::AdminProperties</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reply       = {EventDomain, DomainID} |  {'EXCEPTION', #'CosNotification_UnsupportedQoS'{}} | {'EXCEPTION', #'CosNotification_UnsupportedAdmin'{}}</span><br>
+<span class="bold_code">Reply       = {EventDomain, DomainID} |  {'EXCEPTION', #'CosNotification_UnsupportedQoS'{}} | {'EXCEPTION', #'CosNotification_UnsupportedAdmin'{}}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">EventDomain = #objref</span><br>
+<span class="bold_code">EventDomain = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>To create a new EventDomain this operation is used. If it is not
           possible to support the given <span class="code">QoSProperties</span> or <span class="code">AdminProperties</span>
           an exception is raised, which list the properties not supported. For more
           information see the <span class="code">cosNotification</span> user's guide.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_all_domains-1"></a><span class="bold_code bc-9">get_all_domains(Factory) -&gt; DomainIDSeq</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_all_domains-1"></a><span class="bold_code">get_all_domains(Factory) -&gt; DomainIDSeq</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Factory     = #objref</span><br>
+<span class="bold_code">Factory     = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">DomainIDSeq = [long()]</span><br>
+<span class="bold_code">DomainIDSeq = [long()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This function returns a DomainID sequence of all domains associated with the
           target object.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_event_domain-2"></a><span class="bold_code bc-9">get_event_domain(Factory, DomainID) -&gt; Reply</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_event_domain-2"></a><span class="bold_code">get_event_domain(Factory, DomainID) -&gt; Reply</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Factory     = #objref</span><br>
+<span class="bold_code">Factory     = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">DomainID    = long()</span><br>
+<span class="bold_code">DomainID    = long()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reply       = EventDomain | {'EXCEPTION', #'CosEventDomainAdmin_DomainNotFound'{}}</span><br>
+<span class="bold_code">Reply       = EventDomain | {'EXCEPTION', #'CosEventDomainAdmin_DomainNotFound'{}}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">EventDomain = #objref</span><br>
+<span class="bold_code">EventDomain = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This operation returns the EventDomain object associated with the
           given DomainID. If no such binding exists an exception is raised.</p>
       </p></div>
-</div>
-</div>
-  </div>
+  
   
 </div>
 <div class="footer">

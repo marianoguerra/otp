@@ -1717,279 +1717,209 @@
 <!-- refpage --><center><h1>ordsets</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">ordsets</div>
+<div class="REFBODY">ordsets</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Functions for manipulating sets as ordered lists.
+<div class="REFBODY">Functions for manipulating sets as ordered lists.
   </div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>Sets are collections of elements with no duplicate elements.
       An <span class="code">ordset</span> is a representation of a set, where an ordered
       list is used to store the elements of the set. An ordered list
       is more efficient than an unordered list.</p>
 
     <p>This module provides the same interface as the
-      <span class="bold_code bc-19"><a href="sets.html"><span class="code">sets(3)</span></a></span> module
+      <span class="bold_code"><a href="sets.html"><span class="code">sets(3)</span></a></span> module
       but with a defined representation. One difference is
       that while <span class="code">sets</span> considers two elements as different if they
       do not match (<span class="code">=:=</span>), this module considers two elements as
       different if and only if they do not compare equal (<span class="code">==</span>).</p>
-  </div>
+  </p></div>
 
-  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
-<div class="data-types-body">
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-ordset">ordset(T)</a> = [T]</span><div class="REFBODY data-type-desc"><p><p>As returned by
-        <span class="bold_code data-type-ref"><a href="#new-0"><span class="code">new/0</span></a></span>.</p></p></div>
-</div>
-  </div>
+  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
+    <p>
+      <span class="bold_code"><a name="type-ordset">ordset(T)</a> = [T]</span><br></p>
+<div class="REFBODY"><p><p>As returned by
+        <span class="bold_code"><a href="#new-0"><span class="code">new/0</span></a></span>.</p></p></div>
+  
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="add_element-2"></a><span class="bold_code func-name">add_element(Element, Ordset1) -&gt; Ordset2</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Element = E</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Ordset1 = <span class="bold_code data-type-ref"><a href="#type-ordset">ordset</a></span>(T)</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Ordset2 = <span class="bold_code data-type-ref"><a href="#type-ordset">ordset</a></span>(T | E)</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="add_element-2"></a><span class="bold_code">add_element(Element, Ordset1) -&gt; Ordset2</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Element = E</span></div>
+<div class="REFTYPES"><span class="bold_code">Ordset1 = <span class="bold_code"><a href="#type-ordset">ordset</a></span>(T)</span></div>
+<div class="REFTYPES"><span class="bold_code">Ordset2 = <span class="bold_code"><a href="#type-ordset">ordset</a></span>(T | E)</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns a new ordered set formed from <span class="code">Ordset1</span>
           with <span class="code">Element</span> inserted.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="del_element-2"></a><span class="bold_code func-name">del_element(Element, Ordset1) -&gt; Ordset2</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Element = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Ordset1 = Ordset2 = <span class="bold_code data-type-ref"><a href="#type-ordset">ordset</a></span>(T)</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="del_element-2"></a><span class="bold_code">del_element(Element, Ordset1) -&gt; Ordset2</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Element = term()</span></div>
+<div class="REFTYPES"><span class="bold_code">Ordset1 = Ordset2 = <span class="bold_code"><a href="#type-ordset">ordset</a></span>(T)</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns <span class="code">Ordset1</span>, but with
           <span class="code">Element</span> removed.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="filter-2"></a><span class="bold_code func-name">filter(Pred, Ordset1) -&gt; Ordset2</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Pred = fun((Element :: T) -&gt; boolean())</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Ordset1 = Ordset2 = <span class="bold_code data-type-ref"><a href="#type-ordset">ordset</a></span>(T)</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="filter-2"></a><span class="bold_code">filter(Pred, Ordset1) -&gt; Ordset2</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Pred = fun((Element :: T) -&gt; boolean())</span></div>
+<div class="REFTYPES"><span class="bold_code">Ordset1 = Ordset2 = <span class="bold_code"><a href="#type-ordset">ordset</a></span>(T)</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Filters elements in <span class="code">Ordset1</span> with boolean function
           <span class="code">Pred</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="fold-3"></a><span class="bold_code func-name">fold(Function, Acc0, Ordset) -&gt; Acc1</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Function = <br>    fun((Element :: T, AccIn :: term()) -&gt; AccOut :: term())</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Ordset = <span class="bold_code data-type-ref"><a href="#type-ordset">ordset</a></span>(T)</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Acc0 = Acc1 = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="fold-3"></a><span class="bold_code">fold(Function, Acc0, Ordset) -&gt; Acc1</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Function = <br>    fun((Element :: T, AccIn :: term()) -&gt; AccOut :: term())</span></div>
+<div class="REFTYPES"><span class="bold_code">Ordset = <span class="bold_code"><a href="#type-ordset">ordset</a></span>(T)</span></div>
+<div class="REFTYPES"><span class="bold_code">Acc0 = Acc1 = term()</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Folds <span class="code">Function</span> over every element in
           <span class="code">Ordset</span> and returns the final value of the
           accumulator.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="from_list-1"></a><span class="bold_code func-name">from_list(List) -&gt; Ordset</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">List = [T]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Ordset = <span class="bold_code data-type-ref"><a href="#type-ordset">ordset</a></span>(T)</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="from_list-1"></a><span class="bold_code">from_list(List) -&gt; Ordset</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">List = [T]</span></div>
+<div class="REFTYPES"><span class="bold_code">Ordset = <span class="bold_code"><a href="#type-ordset">ordset</a></span>(T)</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns an ordered set of the elements in <span class="code">List</span>.
         </p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="intersection-1"></a><span class="bold_code func-name">intersection(OrdsetList) -&gt; Ordset</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">OrdsetList = [<span class="bold_code data-type-ref"><a href="#type-ordset">ordset</a></span>(term()), ...]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Ordset = <span class="bold_code data-type-ref"><a href="#type-ordset">ordset</a></span>(term())</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="intersection-1"></a><span class="bold_code">intersection(OrdsetList) -&gt; Ordset</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">OrdsetList = [<span class="bold_code"><a href="#type-ordset">ordset</a></span>(term()), ...]</span></div>
+<div class="REFTYPES"><span class="bold_code">Ordset = <span class="bold_code"><a href="#type-ordset">ordset</a></span>(term())</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the intersection of the non-empty list of sets.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="intersection-2"></a><span class="bold_code func-name">intersection(Ordset1, Ordset2) -&gt; Ordset3</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Ordset1 = Ordset2 = Ordset3 = <span class="bold_code data-type-ref"><a href="#type-ordset">ordset</a></span>(term())</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="intersection-2"></a><span class="bold_code">intersection(Ordset1, Ordset2) -&gt; Ordset3</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Ordset1 = Ordset2 = Ordset3 = <span class="bold_code"><a href="#type-ordset">ordset</a></span>(term())</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the intersection of <span class="code">Ordset1</span> and
           <span class="code">Ordset2</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="is_disjoint-2"></a><span class="bold_code func-name">is_disjoint(Ordset1, Ordset2) -&gt; boolean()</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Ordset1 = Ordset2 = <span class="bold_code data-type-ref"><a href="#type-ordset">ordset</a></span>(term())</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="is_disjoint-2"></a><span class="bold_code">is_disjoint(Ordset1, Ordset2) -&gt; boolean()</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Ordset1 = Ordset2 = <span class="bold_code"><a href="#type-ordset">ordset</a></span>(term())</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns <span class="code">true</span> if <span class="code">Ordset1</span> and
           <span class="code">Ordset2</span> are disjoint (have no elements in common),
           otherwise <span class="code">false</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="is_element-2"></a><span class="bold_code func-name">is_element(Element, Ordset) -&gt; boolean()</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Element = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Ordset = <span class="bold_code data-type-ref"><a href="#type-ordset">ordset</a></span>(term())</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="is_element-2"></a><span class="bold_code">is_element(Element, Ordset) -&gt; boolean()</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Element = term()</span></div>
+<div class="REFTYPES"><span class="bold_code">Ordset = <span class="bold_code"><a href="#type-ordset">ordset</a></span>(term())</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns <span class="code">true</span> if <span class="code">Element</span> is an element of
           <span class="code">Ordset</span>, otherwise <span class="code">false</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="is_set-1"></a><span class="bold_code func-name">is_set(Ordset) -&gt; boolean()</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Ordset = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="is_set-1"></a><span class="bold_code">is_set(Ordset) -&gt; boolean()</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Ordset = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns <span class="code">true</span> if <span class="code">Ordset</span> is an ordered set
           of elements, otherwise <span class="code">false</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="is_subset-2"></a><span class="bold_code func-name">is_subset(Ordset1, Ordset2) -&gt; boolean()</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Ordset1 = Ordset2 = <span class="bold_code data-type-ref"><a href="#type-ordset">ordset</a></span>(term())</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="is_subset-2"></a><span class="bold_code">is_subset(Ordset1, Ordset2) -&gt; boolean()</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Ordset1 = Ordset2 = <span class="bold_code"><a href="#type-ordset">ordset</a></span>(term())</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns <span class="code">true</span> when every element of <span class="code">Ordset1</span>
           is also a member of <span class="code">Ordset2</span>, otherwise
           <span class="code">false</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="new-0"></a><span class="bold_code func-name">new() -&gt; []</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="new-0"></a><span class="bold_code">new() -&gt; []</span><br></p>
+<div class="REFBODY"><p>
         <p>Returns a new empty ordered set.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="size-1"></a><span class="bold_code func-name">size(Ordset) -&gt; integer() &gt;= 0</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Ordset = <span class="bold_code data-type-ref"><a href="#type-ordset">ordset</a></span>(term())</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="size-1"></a><span class="bold_code">size(Ordset) -&gt; integer() &gt;= 0</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Ordset = <span class="bold_code"><a href="#type-ordset">ordset</a></span>(term())</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the number of elements in <span class="code">Ordset</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="subtract-2"></a><span class="bold_code func-name">subtract(Ordset1, Ordset2) -&gt; Ordset3</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Ordset1 = Ordset2 = Ordset3 = <span class="bold_code data-type-ref"><a href="#type-ordset">ordset</a></span>(term())</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="subtract-2"></a><span class="bold_code">subtract(Ordset1, Ordset2) -&gt; Ordset3</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Ordset1 = Ordset2 = Ordset3 = <span class="bold_code"><a href="#type-ordset">ordset</a></span>(term())</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns only the elements of <span class="code">Ordset1</span> that are not
           also elements of <span class="code">Ordset2</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="to_list-1"></a><span class="bold_code func-name">to_list(Ordset) -&gt; List</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Ordset = <span class="bold_code data-type-ref"><a href="#type-ordset">ordset</a></span>(T)</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">List = [T]</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="to_list-1"></a><span class="bold_code">to_list(Ordset) -&gt; List</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Ordset = <span class="bold_code"><a href="#type-ordset">ordset</a></span>(T)</span></div>
+<div class="REFTYPES"><span class="bold_code">List = [T]</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the elements of <span class="code">Ordset</span> as a list.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="union-1"></a><span class="bold_code func-name">union(OrdsetList) -&gt; Ordset</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">OrdsetList = [<span class="bold_code data-type-ref"><a href="#type-ordset">ordset</a></span>(T)]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Ordset = <span class="bold_code data-type-ref"><a href="#type-ordset">ordset</a></span>(T)</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="union-1"></a><span class="bold_code">union(OrdsetList) -&gt; Ordset</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">OrdsetList = [<span class="bold_code"><a href="#type-ordset">ordset</a></span>(T)]</span></div>
+<div class="REFTYPES"><span class="bold_code">Ordset = <span class="bold_code"><a href="#type-ordset">ordset</a></span>(T)</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the merged (union) set of the list of sets.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="union-2"></a><span class="bold_code func-name">union(Ordset1, Ordset2) -&gt; Ordset3</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Ordset1 = <span class="bold_code data-type-ref"><a href="#type-ordset">ordset</a></span>(T1)</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Ordset2 = <span class="bold_code data-type-ref"><a href="#type-ordset">ordset</a></span>(T2)</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Ordset3 = <span class="bold_code data-type-ref"><a href="#type-ordset">ordset</a></span>(T1 | T2)</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="union-2"></a><span class="bold_code">union(Ordset1, Ordset2) -&gt; Ordset3</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Ordset1 = <span class="bold_code"><a href="#type-ordset">ordset</a></span>(T1)</span></div>
+<div class="REFTYPES"><span class="bold_code">Ordset2 = <span class="bold_code"><a href="#type-ordset">ordset</a></span>(T2)</span></div>
+<div class="REFTYPES"><span class="bold_code">Ordset3 = <span class="bold_code"><a href="#type-ordset">ordset</a></span>(T1 | T2)</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the merged (union) set of <span class="code">Ordset1</span> and
           <span class="code">Ordset2</span>.</p>
-      </p></div></div>
-</div>
-  </div>
+      </p></div>
+  
 
-  <h3><a name="idm45461564436016">See Also</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46007670869696">See Also</a></h3>
+<div class="REFBODY">
     
-    <p><span class="bold_code bc-19"><a href="gb_sets.html"><span class="code">gb_sets(3)</span></a></span>,
-      <span class="bold_code bc-19"><a href="sets.html"><span class="code">sets(3)</span></a></span></p>
+    <p><span class="bold_code"><a href="gb_sets.html"><span class="code">gb_sets(3)</span></a></span>,
+      <span class="bold_code"><a href="sets.html"><span class="code">sets(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

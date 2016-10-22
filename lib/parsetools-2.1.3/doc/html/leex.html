@@ -90,11 +90,11 @@
 <!-- refpage --><center><h1>leex</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">leex</div>
+<div class="REFBODY">leex</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Lexical analyzer generator for Erlang</div>
+<div class="REFBODY">Lexical analyzer generator for Erlang</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>A regular expression based lexical analyzer generator for
       Erlang, similar to lex or flex.</p>
     <div class="note">
@@ -102,9 +102,9 @@
 <div class="content"><p><p>The Leex module should be considered experimental
       as it will be subject to changes in future releases.</p></p></div>
 </div>
-  </div>
-  <h3><a name="idm45031357267856">DATA TYPES</a></h3>
-<div class="REFBODY rb-3">
+  </p></div>
+  <h3><a name="idm46612924779008">DATA TYPES</a></h3>
+<div class="REFBODY">
     
     <div class="example"><pre>
 ErrorInfo = {ErrorLine,module(),error_descriptor()}
@@ -112,46 +112,41 @@ ErrorLine = integer()
 Token = tuple()</pre></div>
   </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="file-2"></a><span class="bold_code bc-9">file(FileName, [, Options]) -&gt; LeexRet</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="file-2"></a><span class="bold_code">file(FileName, [, Options]) -&gt; LeexRet</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">FileName = filename()</span><br>
+<span class="bold_code">FileName = filename()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Options = Option | [Option]</span><br>
+<span class="bold_code">Options = Option | [Option]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Option = - see below -</span><br>
+<span class="bold_code">Option = - see below -</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">LeexRet = {ok, Scannerfile}
+<span class="bold_code">LeexRet = {ok, Scannerfile}
                    | {ok, Scannerfile, Warnings}
                    | error
                    | {error, Errors, Warnings}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Scannerfile = filename()</span><br>
+<span class="bold_code">Scannerfile = filename()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Warnings = Errors = [{filename(), [ErrorInfo]}]</span><br>
+<span class="bold_code">Warnings = Errors = [{filename(), [ErrorInfo]}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">ErrorInfo  = {ErrorLine, module(), Reason}</span><br>
+<span class="bold_code">ErrorInfo  = {ErrorLine, module(), Reason}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">ErrorLine = integer()</span><br>
+<span class="bold_code">ErrorLine = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = - formatable by format_error/1 -</span><br>
+<span class="bold_code">Reason = - formatable by format_error/1 -</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Generates a lexical analyzer from the definition in the input
           file. The input file has the extension <span class="code">.xrl</span>. This is
           added to the filename if it is not given. The resulting module
@@ -229,58 +224,45 @@ Token = tuple()</pre></div>
           <span class="code">Scannerfile</span> name, unless the extension is already
           there.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="format_error-1"></a><span class="bold_code bc-9">format_error(ErrorInfo) -&gt; Chars</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="format_error-1"></a><span class="bold_code">format_error(ErrorInfo) -&gt; Chars</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Chars = [char() | Chars]</span><br>
+<span class="bold_code">Chars = [char() | Chars]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns a string which describes the error
           <span class="code">ErrorInfo</span> returned when there is an error in a
           regular expression.</p>
       </p></div>
-</div>
-</div>
-  </div>
+  
   
 
-  <h3><a name="idm45031357285264">GENERATED SCANNER EXPORTS</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46612924854000">GENERATED SCANNER EXPORTS</a></h3>
+<div class="REFBODY">
     
     <p>The following functions are exported by the generated scanner.</p>
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="string-1"></a><span class="bold_code bc-9">string(String) -&gt; StringRet</span><br><a name="string-2"></a><span class="bold_code bc-9">string(String, StartLine) -&gt; StringRet</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="string-1"></a><span class="bold_code">string(String) -&gt; StringRet</span><br><a name="string-2"></a><span class="bold_code">string(String, StartLine) -&gt; StringRet</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">String = string()</span><br>
+<span class="bold_code">String = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">StringRet = {ok,Tokens,EndLine} | ErrorInfo</span><br>
+<span class="bold_code">StringRet = {ok,Tokens,EndLine} | ErrorInfo</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tokens = [Token]</span><br>
+<span class="bold_code">Tokens = [Token]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">EndLine = StartLine = integer()</span><br>
+<span class="bold_code">EndLine = StartLine = integer()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Scans <span class="code">String</span> and returns all the tokens in it, or an
           error.</p>
         <div class="note">
@@ -289,38 +271,32 @@ Token = tuple()</pre></div>
           <span class="code">String</span> are consumed.</p></p></div>
 </div>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="token-2"></a><span class="bold_code bc-9">token(Cont, Chars) -&gt; {more,Cont1} | {done,TokenRet,RestChars}
-      </span><br><a name="token-3"></a><span class="bold_code bc-9">token(Cont, Chars, StartLine) -&gt; {more,Cont1} 
+    <p><a name="token-2"></a><span class="bold_code">token(Cont, Chars) -&gt; {more,Cont1} | {done,TokenRet,RestChars}
+      </span><br><a name="token-3"></a><span class="bold_code">token(Cont, Chars, StartLine) -&gt; {more,Cont1} 
              | {done,TokenRet,RestChars}
-      </span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+      </span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Cont = [] | Cont1</span><br>
+<span class="bold_code">Cont = [] | Cont1</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Cont1 = tuple()</span><br>
+<span class="bold_code">Cont1 = tuple()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Chars = RestChars = string() | eof</span><br>
+<span class="bold_code">Chars = RestChars = string() | eof</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TokenRet = {ok, Token, EndLine} 
+<span class="bold_code">TokenRet = {ok, Token, EndLine} 
                     | {eof, EndLine}
                     | ErrorInfo</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">StartLine = EndLine = integer()</span><br>
+<span class="bold_code">StartLine = EndLine = integer()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This is a re-entrant call to try and scan one token from
           <span class="code">Chars</span>. If there are enough characters in <span class="code">Chars</span>
           to either scan a token or detect an error then this will be
@@ -337,41 +313,35 @@ Token = tuple()</pre></div>
 io:request(InFile, {get_until,Prompt,Module,token,[Line]})
   -&gt; TokenRet</pre></div>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="tokens-2"></a><span class="bold_code bc-9">tokens(Cont, Chars) -&gt; {more,Cont1} | {done,TokensRet,RestChars}
-      </span><br><a name="tokens-3"></a><span class="bold_code bc-9">tokens(Cont, Chars, StartLine) -&gt; 
+    <p><a name="tokens-2"></a><span class="bold_code">tokens(Cont, Chars) -&gt; {more,Cont1} | {done,TokensRet,RestChars}
+      </span><br><a name="tokens-3"></a><span class="bold_code">tokens(Cont, Chars, StartLine) -&gt; 
                {more,Cont1} | {done,TokensRet,RestChars}
-      </span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+      </span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Cont = [] | Cont1</span><br>
+<span class="bold_code">Cont = [] | Cont1</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Cont1 = tuple()</span><br>
+<span class="bold_code">Cont1 = tuple()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Chars = RestChars = string() | eof</span><br>
+<span class="bold_code">Chars = RestChars = string() | eof</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TokensRet = {ok, Tokens, EndLine} 
+<span class="bold_code">TokensRet = {ok, Tokens, EndLine} 
                      | {eof, EndLine}
                      | ErrorInfo</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tokens = [Token]</span><br>
+<span class="bold_code">Tokens = [Token]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">StartLine = EndLine = integer()</span><br>
+<span class="bold_code">StartLine = EndLine = integer()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This is a re-entrant call to try and scan tokens from
           <span class="code">Chars</span>. If there are enough characters in <span class="code">Chars</span>
           to either scan tokens or detect an error then this will be
@@ -399,12 +369,10 @@ io:request(InFile, {get_until,Prompt,Module,token,[Line]})
 io:request(InFile, {get_until,Prompt,Module,tokens,[Line]})
   -&gt; TokensRet</pre></div>
       </p></div>
-</div>
-</div>
-  </div>
+  
 
-  <h3><a name="idm45031357529200">Input File Format</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46612925238304">Input File Format</a></h3>
+<div class="REFBODY">
     
     <p>Erlang style comments starting with a <span class="code">%</span> are allowed in
       scanner files. A definition file has the following format:</p>
@@ -532,8 +500,8 @@ D = [0-9]
       visible in the whole file.</p>
   </div>
   
-  <h3><a name="idm45031357467248">Regular Expressions</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46612924580304">Regular Expressions</a></h3>
+<div class="REFBODY">
     
  
     <p>The regular expressions allowed here is a subset of the set

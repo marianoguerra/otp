@@ -646,19 +646,19 @@
 <!-- refpage --><center><h1>wrap_log_reader</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">wrap_log_reader</div>
+<div class="REFBODY">wrap_log_reader</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">A service to read internally formatted wrap disk logs.
+<div class="REFBODY">A service to read internally formatted wrap disk logs.
   </div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>This module makes it possible to read internally formatted
       wrap disk logs, see
-      <span class="bold_code bc-19"><a href="disk_log.html"><span class="code">disk_log(3)</span></a></span>.
+      <span class="bold_code"><a href="disk_log.html"><span class="code">disk_log(3)</span></a></span>.
       <span class="code">wrap_log_reader</span> does not
       interfere with <span class="code">disk_log</span> activities; there is however a bug in this
       version of the <span class="code">wrap_log_reader</span>, see section
-      <span class="bold_code data-type-ref"><a href="#bugs">Known Limitations</a></span>.</p>
+      <span class="bold_code"><a href="#bugs">Known Limitations</a></span>.</p>
     <p>A wrap disk log file consists of many files, called index files. A log
       file can be opened and closed. Also, a single index file can be opened
       separately. If a non-existent or non-internally formatted file is opened,
@@ -668,31 +668,26 @@
       are not logged on all nodes. <span class="code">wrap_log_reader</span> only reads the log on
       the called node; it is up to the user to be sure that all items
       are read.</p>
-  </div>
+  </p></div>
 
-  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
-<div class="data-types-body">
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-continuation">continuation()</a></span><div class="REFBODY data-type-desc"><p>
+  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
+    <p>
+      <span class="bold_code"><a name="type-continuation">continuation()</a></span><br></p>
+<div class="REFBODY"><p>
         <p>Continuation returned by <span class="code">open/1,2</span> or <span class="code">chunk/1,2</span>.</p>
       </p></div>
-</div>
-  </div>
+  
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="chunk-1"></a><span class="bold_code func-name">chunk(Continuation) -&gt; chunk_ret()</span><a name="chunk-2"></a><span class="bold_code func-name">chunk(Continuation, N) -&gt; chunk_ret()</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Continuation = <span class="bold_code data-type-ref"><a href="#type-continuation">continuation()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">N = infinity | integer() &gt;= 1</span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">chunk_ret() = <br>    {Continuation2, Terms :: [term()]} |<br>    {Continuation2,<br>     Terms :: [term()],<br>     Badbytes :: integer() &gt;= 0} |<br>    {Continuation2, eof} |<br>    {error, Reason :: term()}</span><br>
+    <p><a name="chunk-1"></a><span class="bold_code">chunk(Continuation) -&gt; chunk_ret()</span><br><a name="chunk-2"></a><span class="bold_code">chunk(Continuation, N) -&gt; chunk_ret()</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Continuation = <span class="bold_code"><a href="#type-continuation">continuation()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">N = infinity | integer() &gt;= 1</span></div>
+<div class="REFTYPES">
+      <span class="bold_code">chunk_ret() = <br>    {Continuation2, Terms :: [term()]} |<br>    {Continuation2,<br>     Terms :: [term()],<br>     Badbytes :: integer() &gt;= 0} |<br>    {Continuation2, eof} |<br>    {error, Reason :: term()}</span><br>
 </div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Enables to efficiently read the
           terms that are appended to a log. Minimises disk
           I/O by reading 64 kilobyte chunks from the file.</p>
@@ -724,34 +719,26 @@
           to this function. This is because the log can wrap and delete
           the file into which the continuation points. To ensure
           this does not occur, the log can be blocked during the search.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="close-1"></a><span class="bold_code func-name">close(Continuation) -&gt; ok | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Continuation = <span class="bold_code data-type-ref"><a href="#type-continuation">continuation()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = <span class="bold_code bc-15"><a href="file.html#type-posix">file:posix()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="close-1"></a><span class="bold_code">close(Continuation) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Continuation = <span class="bold_code"><a href="#type-continuation">continuation()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="file.html#type-posix">file:posix()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Closes a log file properly.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="open-1"></a><span class="bold_code func-name">open(Filename) -&gt; open_ret()</span><a name="open-2"></a><span class="bold_code func-name">open(Filename, N) -&gt; open_ret()</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Filename = string() | atom()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">N = integer()</span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">open_ret() = <br>    {ok, Continuation :: <span class="bold_code data-type-ref"><a href="#type-continuation">continuation()</a></span>} |<br>    {error, Reason :: tuple()}</span><br>
+    <p><a name="open-1"></a><span class="bold_code">open(Filename) -&gt; open_ret()</span><br><a name="open-2"></a><span class="bold_code">open(Filename, N) -&gt; open_ret()</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Filename = string() | atom()</span></div>
+<div class="REFTYPES"><span class="bold_code">N = integer()</span></div>
+<div class="REFTYPES">
+      <span class="bold_code">open_ret() = <br>    {ok, Continuation :: <span class="bold_code"><a href="#type-continuation">continuation()</a></span>} |<br>    {error, Reason :: tuple()}</span><br>
 </div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p><span class="code">Filename</span> specifies the name of the file to be
           read.</p>
         <p><span class="code">N</span> specifies the index of the file to be read.
@@ -762,12 +749,11 @@
           <span class="code">Continuation</span>
           is to be used when chunking or closing the file.</p>
         <p>Returns <span class="code">{error, Reason}</span> for all errors.</p>
-      </p></div></div>
-</div>
-  </div>
+      </p></div>
+  
 
-  <h3><a name="idm45917634807904">Known Limitations</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46525668411248">Known Limitations</a></h3>
+<div class="REFBODY">
     
     <a name="bugs"></a>
     <p>This version of <span class="code">wrap_log_reader</span> does not detect if
@@ -779,10 +765,10 @@
       <span class="code">disk_log</span>.</p>
   </div>
 
-  <h3><a name="idm45917634803152">See Also</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46525668406496">See Also</a></h3>
+<div class="REFBODY">
     
-    <p><span class="bold_code bc-19"><a href="disk_log.html"><span class="code">disk_log(3)</span></a></span></p>
+    <p><span class="bold_code"><a href="disk_log.html"><span class="code">disk_log(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

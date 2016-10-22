@@ -228,15 +228,15 @@
 <!-- refpage --><center><h1>ssh_channel</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">ssh_channel</div>
+<div class="REFBODY">ssh_channel</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">-behaviour(ssh_channel).
+<div class="REFBODY">-behaviour(ssh_channel).
   </div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>SSH services (clients and servers) are implemented as channels
     that are multiplexed over an SSH connection and communicates over
-    the <span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc4254.txt"> SSH
+    the <span class="bold_code"><a href="http://www.ietf.org/rfc/rfc4254.txt"> SSH
     Connection Protocol</a></span>. This module provides a callback API
     that takes care of generic channel aspects, such as flow control
     and close messages. It lets the callback functions take care of
@@ -257,10 +257,10 @@
     <span class="code">ssh_channel</span> behaviour.
     </p></p></div>
 </div>
-  </div>
+  </p></div>
 
-  <h3><a name="idm45749166454512">DATA TYPES</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45964127733888">DATA TYPES</a></h3>
+<div class="REFBODY">
     
 
     <p>Type definitions that are used more than once in this module,
@@ -282,124 +282,101 @@
       <dt><strong><span class="code">ssh_data_type_code() =</span></strong></dt>
       <dd><p><span class="code">1</span> ("stderr") | <span class="code">0</span> ("normal") are
       the valid values,
-      see <span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc4254.txt">RFC 4254</a></span>
+      see <span class="bold_code"><a href="http://www.ietf.org/rfc/rfc4254.txt">RFC 4254</a></span>
       Section 5.2</p></dd>
     </dl>
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="call-2"></a><span class="bold_code bc-9">call(ChannelRef, Msg) -&gt;</span><br><a name="call-3"></a><span class="bold_code bc-9">call(ChannelRef, Msg, Timeout) -&gt; Reply | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="call-2"></a><span class="bold_code">call(ChannelRef, Msg) -&gt;</span><br><a name="call-3"></a><span class="bold_code">call(ChannelRef, Msg, Timeout) -&gt; Reply | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">ChannelRef = pid() </span><br>
+<span class="bold_code">ChannelRef = pid() </span><br>
 </div>
-	<div class="REFBODY rb-1">As returned by <span class="bold_code data-type-ref"><a href="#start_link-4">ssh_channel:start_link/4</a></span>
-</div>
-	<div class="REFTYPES">
-<span class="bold_code bc-11">Msg = term()</span><br>
+	<div class="REFBODY">As returned by <span class="bold_code"><a href="#start_link-4">ssh_channel:start_link/4</a></span>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Timeout = timeout()</span><br>
+<span class="bold_code">Msg = term()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Reply = term()</span><br>
+<span class="bold_code">Timeout = timeout()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Reason = closed | timeout</span><br>
+<span class="bold_code">Reply = term()</span><br>
+</div>
+	<div class="REFTYPES">
+<span class="bold_code">Reason = closed | timeout</span><br>
 </div>
 
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 	<p>Makes a synchronous call to the channel process by sending
 	a message and waiting until a reply arrives, or a time-out
-	occurs. The channel calls <span class="bold_code data-type-ref"><a href="#Module:handle_call-3">Module:handle_call/3</a></span>
+	occurs. The channel calls <span class="bold_code"><a href="#Module:handle_call-3">Module:handle_call/3</a></span>
 	to handle the message. If the channel process does not exist,
 	<span class="code">{error, closed}</span> is returned.
 	</p>
       </p></div>
-</div>
-</div>
     
-    <div class="func">
-<div class="func-title">
-<a name="cast-2"></a><span class="bold_code bc-9">cast(ChannelRef, Msg) -&gt; ok </span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="cast-2"></a><span class="bold_code">cast(ChannelRef, Msg) -&gt; ok </span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">ChannelRef = pid()</span><br>
+<span class="bold_code">ChannelRef = pid()</span><br>
 </div>
-	<div class="REFBODY rb-1">As returned by <span class="bold_code data-type-ref"><a href="#start_link-4">ssh_channel:start_link/4</a></span>
+	<div class="REFBODY">As returned by <span class="bold_code"><a href="#start_link-4">ssh_channel:start_link/4</a></span>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Msg = term()</span><br>
+<span class="bold_code">Msg = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 	<p>Sends an asynchronous message to the channel process and
 	returns ok immediately, ignoring if the destination node or
 	channel process does not exist. The channel calls
-	<span class="bold_code data-type-ref"><a href="#Module:handle_cast-2">Module:handle_cast/2</a></span>
+	<span class="bold_code"><a href="#Module:handle_cast-2">Module:handle_cast/2</a></span>
 	 to handle the message.
 	</p>
       </p></div>
-</div>
-</div>
 
-       <div class="func">
-<div class="func-title">
-<a name="enter_loop-1"></a><span class="bold_code bc-9">enter_loop(State) -&gt; _ </span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+       <p><a name="enter_loop-1"></a><span class="bold_code">enter_loop(State) -&gt; _ </span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">State = term()</span><br>
+<span class="bold_code">State = term()</span><br>
 </div>
-	<div class="REFBODY rb-1">as returned by <span class="bold_code data-type-ref"><a href="#init-1">ssh_channel:init/1</a></span>
+	<div class="REFBODY">as returned by <span class="bold_code"><a href="#init-1">ssh_channel:init/1</a></span>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 	<p>Makes an existing process an <span class="code">ssh_channel</span>
 	process. Does not return, instead the calling process
 	enters the <span class="code">ssh_channel</span> process receive loop and become an
 	<span class="code">ssh_channel process</span>. The process must have been started using
-	one of the start functions in <span class="code">proc_lib</span>, see the <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','proc_lib.html');">proc_lib(3)</a></span> manual page in STDLIB.
+	one of the start functions in <span class="code">proc_lib</span>, see the <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','proc_lib.html');">proc_lib(3)</a></span> manual page in STDLIB.
 	The user is responsible for any initialization of the process
-	and must call <span class="bold_code data-type-ref"><a href="#init-1">ssh_channel:init/1</a></span>.
+	and must call <span class="bold_code"><a href="#init-1">ssh_channel:init/1</a></span>.
 	</p>
       </p></div>
-</div>
-</div>
     
-    <div class="func">
-<div class="func-title">
-<a name="init-1"></a><span class="bold_code bc-9">init(Options) -&gt; {ok, State} |  {ok, State, Timeout} | {stop, Reason} </span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="init-1"></a><span class="bold_code">init(Options) -&gt; {ok, State} |  {ok, State, Timeout} | {stop, Reason} </span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Options = [{Option, Value}]</span><br>
+<span class="bold_code">Options = [{Option, Value}]</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">State = term()</span><br>
+<span class="bold_code">State = term()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Timeout = timeout()</span><br>
+<span class="bold_code">Timeout = timeout()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 	<p>
 	  The following options must be present:
 	</p>
@@ -411,7 +388,7 @@
 	  <dd><p>The list of arguments to the <span class="code">init</span> function of the callback module.</p></dd>
 
 	  <dt><strong><span class="code">{cm, connection_ref()}</span></strong></dt>
-	  <dd><p>Reference to the <span class="code">ssh</span> connection as returned by <span class="bold_code bc-15"><a href="ssh.html#connect-3">ssh:connect/3</a></span></p></dd>
+	  <dd><p>Reference to the <span class="code">ssh</span> connection as returned by <span class="bold_code"><a href="ssh.html#connect-3">ssh:connect/3</a></span></p></dd>
 	  
 	  <dt><strong><span class="code">{channel_id, channel_id()}</span></strong></dt>
 	  <dd><p>Id of the <span class="code">ssh</span> channel.</p></dd>
@@ -429,121 +406,102 @@
 	  </p></div>
 </div>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="reply-2"></a><span class="bold_code bc-9">reply(Client, Reply) -&gt; _</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="reply-2"></a><span class="bold_code">reply(Client, Reply) -&gt; _</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Client = opaque()</span><br>
+<span class="bold_code">Client = opaque()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reply = term()</span><br>
+<span class="bold_code">Reply = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This function can be used by a channel to send a
         reply to a client that called <span class="code">call/[2,3]</span> when the reply
         cannot be defined in the return value of
-	<span class="bold_code data-type-ref"><a href="#Module:handle_call-3">Module:handle_call/3</a></span>.</p>
+	<span class="bold_code"><a href="#Module:handle_call-3">Module:handle_call/3</a></span>.</p>
         <p><span class="code">Client</span> must be the <span class="code">From</span> argument provided to
           the callback function <span class="code">handle_call/3</span>.
 	  <span class="code">Reply</span> is an arbitrary term,
 	  which is given back to the client as the return value of
-          <span class="bold_code data-type-ref"><a href="#call-2">ssh_channel:call/[2,3].</a></span></p>
+          <span class="bold_code"><a href="#call-2">ssh_channel:call/[2,3].</a></span></p>
       </p></div>
-</div>
-</div>
     
-    <div class="func">
-<div class="func-title">
-<a name="start-4"></a><span class="bold_code bc-9">start(SshConnection, ChannelId, ChannelCb, CbInitArgs) -&gt; </span><br><a name="start_link-4"></a><span class="bold_code bc-9">start_link(SshConnection, ChannelId, ChannelCb, CbInitArgs) -&gt;
-      {ok, ChannelRef} | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="start-4"></a><span class="bold_code">start(SshConnection, ChannelId, ChannelCb, CbInitArgs) -&gt; </span><br><a name="start_link-4"></a><span class="bold_code">start_link(SshConnection, ChannelId, ChannelCb, CbInitArgs) -&gt;
+      {ok, ChannelRef} | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">SshConnection = ssh_connection_ref()</span><br>
+<span class="bold_code">SshConnection = ssh_connection_ref()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">ChannelId = ssh_channel_id()</span><br>
+<span class="bold_code">ChannelId = ssh_channel_id()</span><br>
 </div>
-	<div class="REFBODY rb-1">As returned by
-	<span class="bold_code bc-15"><a href="ssh_connection.html#session_channel-2">ssh_connection:session_channel/[2,4]</a></span>.</div>
+	<div class="REFBODY">As returned by
+	<span class="bold_code"><a href="ssh_connection.html#session_channel-2">ssh_connection:session_channel/[2,4]</a></span>.</div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">ChannelCb = atom()</span><br>
+<span class="bold_code">ChannelCb = atom()</span><br>
 </div>
-	<div class="REFBODY rb-1">Name of the module implementing the service-specific parts
+	<div class="REFBODY">Name of the module implementing the service-specific parts
 	of the channel.</div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">CbInitArgs = [term()]</span><br>
+<span class="bold_code">CbInitArgs = [term()]</span><br>
 </div>
-	<div class="REFBODY rb-1">Argument list for the <span class="code">init</span> function in the callback module.</div>
+	<div class="REFBODY">Argument list for the <span class="code">init</span> function in the callback module.</div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">ChannelRef = pid()</span><br>
+<span class="bold_code">ChannelRef = pid()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 	<p>Starts a process that handles an SSH channel. It is
 	called internally, by the <span class="code">ssh</span> daemon, or explicitly by the <span class="code">ssh</span>
 	client implementations. The behavior sets the
 	<span class="code">trap_exit</span> flag to <span class="code">true</span>.
 	</p>
       </p></div>
-</div>
-</div>
     
-  </div>
+  
   
   <h3>
-<a name="cb_timeouts"></a><a name="idm45749166389024">CALLBACK TIME-OUTS</a>
+<a name="cb_timeouts"></a><a name="idm45964127668400">CALLBACK TIME-OUTS</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
 
     <p>The time-out values that can be returned by the callback functions
-    have the same semantics as in a <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','gen_server.html');">gen_server</a></span>.
-    If the time-out occurs, <span class="bold_code data-type-ref"><a href="#Module:handle_msg-2">handle_msg/2</a></span>
+    have the same semantics as in a <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','gen_server.html');">gen_server</a></span>.
+    If the time-out occurs, <span class="bold_code"><a href="#Module:handle_msg-2">handle_msg/2</a></span>
     is called as <span class="code">handle_msg(timeout, State)</span>.</p>
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="Module:code_change-3"></a><span class="bold_code bc-9">Module:code_change(OldVsn, State, Extra) -&gt; {ok,
-      NewState}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:code_change-3"></a><span class="bold_code">Module:code_change(OldVsn, State, Extra) -&gt; {ok,
+      NewState}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">OldVsn = term()</span><br>
+<span class="bold_code">OldVsn = term()</span><br>
 </div>
-	<div class="REFBODY rb-1">In the case of an upgrade, <span class="code">OldVsn</span> is <span class="code">Vsn</span>, and
+	<div class="REFBODY">In the case of an upgrade, <span class="code">OldVsn</span> is <span class="code">Vsn</span>, and
 	in the case of a downgrade, <span class="code">OldVsn</span> is
 	<span class="code">{down,Vsn}</span>. <span class="code">Vsn</span> is defined by the <span class="code">vsn</span>
 	attribute(s) of the old version of the callback module
 	<span class="code">Module</span>. If no such attribute is defined, the version is
 	the checksum of the BEAM file.</div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">State = term()</span><br>
+<span class="bold_code">State = term()</span><br>
 </div>
-	<div class="REFBODY rb-1">Internal state of the channel.</div>
+	<div class="REFBODY">Internal state of the channel.</div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Extra = term()</span><br>
+<span class="bold_code">Extra = term()</span><br>
 </div>
-	<div class="REFBODY rb-1">Passed "as-is" from the <span class="code">{advanced,Extra}</span>
+	<div class="REFBODY">Passed "as-is" from the <span class="code">{advanced,Extra}</span>
 	part of the update instruction.</div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 	<p>Converts process state when code is changed.</p>
 
 	<p>This function is called by a client-side channel when it
@@ -553,7 +511,7 @@
 	<span class="code">Change={advanced,Extra}</span>, is given in the <span class="code">appup</span>
 	file. For more information, refer to Section 9.11.6
 	Release Handling Instructions in the
-	<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','release_handling.html#instr');">System Documentation</a></span>.
+	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','release_handling.html#instr');">System Documentation</a></span>.
 	</p>
 
 	<div class="note">
@@ -569,137 +527,113 @@
 </div>
 	  
       </p></div>
-</div>
-</div>
     
-    <div class="func">
-<div class="func-title">
-<a name="Module:init-1"></a><span class="bold_code bc-9">Module:init(Args) -&gt; {ok, State} | {ok, State, timeout()} |
-      {stop, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:init-1"></a><span class="bold_code">Module:init(Args) -&gt; {ok, State} | {ok, State, timeout()} |
+      {stop, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Args = term()</span><br>
+<span class="bold_code">Args = term()</span><br>
 </div>
-	<div class="REFBODY rb-1">Last argument to <span class="code">ssh_channel:start_link/4</span>.</div>
+	<div class="REFBODY">Last argument to <span class="code">ssh_channel:start_link/4</span>.</div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">State = term()</span><br>
+<span class="bold_code">State = term()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 	<p>Makes necessary initializations and returns the initial channel
 	state if the initializations succeed.
 	</p>
 	<p>For more detailed information on time-outs, see Section
-	<span class="bold_code data-type-ref"><a href="#cb_timeouts">CALLBACK TIME-OUTS</a></span>. </p>
+	<span class="bold_code"><a href="#cb_timeouts">CALLBACK TIME-OUTS</a></span>. </p>
       </p></div>
-</div>
-</div>
    
-    <div class="func">
-<div class="func-title">
-<a name="Module:handle_call-3"></a><span class="bold_code bc-9">Module:handle_call(Msg, From, State) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:handle_call-3"></a><span class="bold_code">Module:handle_call(Msg, From, State) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Msg = term()</span><br>
+<span class="bold_code">Msg = term()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">From = opaque()</span><br>
+<span class="bold_code">From = opaque()</span><br>
 </div>
-	<div class="REFBODY rb-1">Is to be used as argument to
-	<span class="bold_code data-type-ref"><a href="#reply-2">ssh_channel:reply/2</a></span>
-</div>
-	<div class="REFTYPES">
-<span class="bold_code bc-11">State = term()</span><br>
+	<div class="REFBODY">Is to be used as argument to
+	<span class="bold_code"><a href="#reply-2">ssh_channel:reply/2</a></span>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Result = {reply, Reply, NewState} | {reply, Reply, NewState, timeout()}
+<span class="bold_code">State = term()</span><br>
+</div>
+	<div class="REFTYPES">
+<span class="bold_code">Result = {reply, Reply, NewState} | {reply, Reply, NewState, timeout()}
 	| {noreply, NewState} | {noreply , NewState, timeout()}
 	| {stop, Reason, Reply, NewState} | {stop, Reason, NewState} </span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Reply = term()</span><br>
+<span class="bold_code">Reply = term()</span><br>
 </div>
-	<div class="REFBODY rb-1">Will be the return value of <span class="bold_code data-type-ref"><a href="#call-2">ssh_channel:call/[2,3]</a></span>
-</div>
-	<div class="REFTYPES">
-<span class="bold_code bc-11">NewState = term()</span><br>
+	<div class="REFBODY">Will be the return value of <span class="bold_code"><a href="#call-2">ssh_channel:call/[2,3]</a></span>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">NewState = term()</span><br>
+</div>
+	<div class="REFTYPES">
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 	<p>Handles messages sent by calling
-	<span class="bold_code data-type-ref"><a href="#call-2">ssh_channel:call/[2,3]</a></span>
+	<span class="bold_code"><a href="#call-2">ssh_channel:call/[2,3]</a></span>
 	</p>
 	<p>For more detailed information on time-outs,, see Section
-	<span class="bold_code data-type-ref"><a href="#cb_timeouts">CALLBACK TIME-OUTS</a></span>.</p>
+	<span class="bold_code"><a href="#cb_timeouts">CALLBACK TIME-OUTS</a></span>.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:handle_cast-2"></a><span class="bold_code bc-9">Module:handle_cast(Msg, State) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:handle_cast-2"></a><span class="bold_code">Module:handle_cast(Msg, State) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Msg = term()</span><br>
+<span class="bold_code">Msg = term()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">State = term()</span><br>
+<span class="bold_code">State = term()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Result = {noreply, NewState} | {noreply, NewState, timeout()}
+<span class="bold_code">Result = {noreply, NewState} | {noreply, NewState, timeout()}
 	| {stop, Reason, NewState}</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">NewState = term() </span><br>
+<span class="bold_code">NewState = term() </span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 	<p>Handles messages sent by calling
 	<span class="code">ssh_channel:cast/2</span>.
 	</p>
 	<p>For more detailed information on time-outs, see Section
-	<span class="bold_code data-type-ref"><a href="#cb_timeouts">CALLBACK TIME-OUTS</a></span>.</p>
+	<span class="bold_code"><a href="#cb_timeouts">CALLBACK TIME-OUTS</a></span>.</p>
       </p></div>
-</div>
-</div>
  
-    <div class="func">
-<div class="func-title">
-<a name="Module:handle_msg-2"></a><span class="bold_code bc-9">Module:handle_msg(Msg, State) -&gt; {ok, State} |
-      {stop, ChannelId, State}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:handle_msg-2"></a><span class="bold_code">Module:handle_msg(Msg, State) -&gt; {ok, State} |
+      {stop, ChannelId, State}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Msg = timeout | term()</span><br>
+<span class="bold_code">Msg = timeout | term()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">ChannelId = ssh_channel_id()</span><br>
+<span class="bold_code">ChannelId = ssh_channel_id()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">State = term() </span><br>
+<span class="bold_code">State = term() </span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 	<p>Handles other messages than SSH Connection Protocol, call, or
 	cast messages sent to the channel. 
 	</p>
@@ -711,7 +645,7 @@
 	  <dt><strong><span class="code">{ssh_channel_up, ssh_channel_id(), 
 	  ssh_connection_ref()}</span></strong></dt>
 	  <dd><p>This is the first message that the channel receives.
-	  It is sent just before the <span class="bold_code data-type-ref"><a href="#init-1">ssh_channel:init/1</a></span> function
+	  It is sent just before the <span class="bold_code"><a href="#init-1">ssh_channel:init/1</a></span> function
 	  returns successfully. This is especially useful if the
 	  server wants to send a message to the client without first
 	  receiving a message from it. If the message is not
@@ -720,31 +654,25 @@
 	  </p></dd>
 	</dl>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:handle_ssh_msg-2"></a><span class="bold_code bc-9">Module:handle_ssh_msg(Msg, State) -&gt; {ok, State} | {stop,
-      ChannelId, State}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:handle_ssh_msg-2"></a><span class="bold_code">Module:handle_ssh_msg(Msg, State) -&gt; {ok, State} | {stop,
+      ChannelId, State}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Msg = ssh_connection:event()</span><br>
+<span class="bold_code">Msg = ssh_connection:event()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">ChannelId = ssh_channel_id()</span><br>
+<span class="bold_code">ChannelId = ssh_channel_id()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">State = term()</span><br>
+<span class="bold_code">State = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 	<p>Handles SSH Connection Protocol messages that may need
 	service-specific attention. For details,
-	see <span class="bold_code bc-19"><a href="ssh_connection.html">ssh_connection:event()</a></span>.
+	see <span class="bold_code"><a href="ssh_connection.html">ssh_connection:event()</a></span>.
 	</p>
 	
 	<p>The following message is taken care of by the
@@ -757,35 +685,27 @@
 	  Then it terminates the channel with reason <span class="code">normal</span>.</p></dd>
 	</dl>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:terminate-2"></a><span class="bold_code bc-9">Module:terminate(Reason, State) -&gt; _</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:terminate-2"></a><span class="bold_code">Module:terminate(Reason, State) -&gt; _</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">State = term()</span><br>
+<span class="bold_code">State = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 	<p>This function is called by a channel process when it is
-	about to terminate. Before this function is called, <span class="bold_code bc-15"><a href="ssh_connection.html#close-2">ssh_connection:close/2</a></span> is called, if it has not been called earlier.
+	about to terminate. Before this function is called, <span class="bold_code"><a href="ssh_connection.html#close-2">ssh_connection:close/2</a></span> is called, if it has not been called earlier.
 	This function does any necessary cleaning
 	up. When it returns, the channel process terminates with
 	reason <span class="code">Reason</span>. The return value is ignored.
 	</p>
       </p></div>
-</div>
-</div>
     
-  </div>
+  
   
 </div>
 <div class="footer">

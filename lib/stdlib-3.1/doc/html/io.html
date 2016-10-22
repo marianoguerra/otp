@@ -1717,11 +1717,11 @@
 <!-- refpage --><center><h1>io</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">io</div>
+<div class="REFBODY">io</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Standard I/O server interface functions.</div>
+<div class="REFBODY">Standard I/O server interface functions.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>This module provides an interface to standard Erlang I/O servers.
       The output functions all return <span class="code">ok</span> if they are successful,
       or exit if they are not.</p>
@@ -1730,97 +1730,81 @@
       parameter <span class="code">IoDevice</span>. If included, it must be the pid of a
       process that handles the I/O protocols. Normally, it is the
       <span class="code">IoDevice</span> returned by
-      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#open-2');"><span class="code">file:open/2</span></a></span>.</p>
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#open-2');"><span class="code">file:open/2</span></a></span>.</p>
 
     <p>For a description of the I/O protocols, see section
-      <span class="bold_code bc-19"><a href="io_protocol.html">The Erlang I/O Protocol</a></span>
+      <span class="bold_code"><a href="io_protocol.html">The Erlang I/O Protocol</a></span>
       in the User's Guide.</p>
 
     <div class="warning">
 <div class="label">Warning</div>
 <div class="content"><p>
     <p>As from Erlang/OTP R13A, data supplied to function
-      <span class="bold_code data-type-ref"><a href="#put_chars-2"><span class="code">put_chars/2</span></a></span>
-      is to be in the <span class="bold_code bc-15"><a href="unicode.html#type-chardata"><span class="code">unicode:chardata()</span></a></span> format. This means that programs
+      <span class="bold_code"><a href="#put_chars-2"><span class="code">put_chars/2</span></a></span>
+      is to be in the <span class="bold_code"><a href="unicode.html#type-chardata"><span class="code">unicode:chardata()</span></a></span> format. This means that programs
       supplying binaries to this function must convert them to UTF-8
       before trying to output the data on an I/O device.</p>
     <p>If an I/O device is set in binary mode, functions
-      <span class="bold_code data-type-ref"><a href="#get_chars-2"><span class="code">get_chars/2,3</span></a></span> and
-      <span class="bold_code data-type-ref"><a href="#get_line-1"><span class="code">get_line/1,2</span></a></span>
+      <span class="bold_code"><a href="#get_chars-2"><span class="code">get_chars/2,3</span></a></span> and
+      <span class="bold_code"><a href="#get_line-1"><span class="code">get_line/1,2</span></a></span>
       can return binaries instead of lists.
       The binaries are, as from Erlang/OTP R13A,
       encoded in UTF-8.</p>
     <p>To work with binaries in ISO Latin-1 encoding, use the
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html');"><span class="code">file</span></a></span> module instead.</p>
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html');"><span class="code">file</span></a></span> module instead.</p>
     <p>For conversion functions between character encodings, see the
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','unicode.html');"><span class="code">unicode</span></a></span> module.</p>
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','unicode.html');"><span class="code">unicode</span></a></span> module.</p>
     </p></div>
 </div>
-  </div>
+  </p></div>
 
-  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
-<div class="data-types-body">
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-device">device()</a> = atom() | pid()</span><div class="REFBODY data-type-desc"><p>
+  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
+    <p>
+      <span class="bold_code"><a name="type-device">device()</a> = atom() | pid()</span><br></p>
+<div class="REFBODY"><p>
         <p>An I/O device, either <span class="code">standard_io</span>, <span class="code">standard_error</span>, a
           registered name, or a pid handling I/O protocols (returned from
-          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#open-2');"><span class="code">file:open/2</span></a></span>).
+          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#open-2');"><span class="code">file:open/2</span></a></span>).
         </p>
       </p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-opt_pair">opt_pair()</a> = <br>    {binary, boolean()} |<br>    {echo, boolean()} |<br>    {expand_fun, <span class="bold_code data-type-ref"><a href="#type-expand_fun">expand_fun()</a></span>} |<br>    {encoding, <span class="bold_code data-type-ref"><a href="#type-encoding">encoding()</a></span>}</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-expand_fun">expand_fun()</a> = <br>    fun((term()) -&gt; {yes | no, string(), [string(), ...]})</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-encoding">encoding()</a> = <br>    latin1 |<br>    unicode |<br>    utf8 |<br>    utf16 |<br>    utf32 |<br>    {utf16, big | little} |<br>    {utf32, big | little}</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-setopt">setopt()</a> = binary | list | <span class="bold_code data-type-ref"><a href="#type-opt_pair">opt_pair()</a></span></span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-format">format()</a> = atom() | string() | binary()</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-location">location()</a> = <span class="bold_code bc-15"><a href="erl_anno.html#type-location">erl_anno:location()</a></span></span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-prompt">prompt()</a> = atom() | <span class="bold_code bc-15"><a href="unicode.html#type-chardata">unicode:chardata()</a></span></span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-server_no_data">server_no_data()</a> = {error, ErrorDescription :: term()} | eof</span><div class="REFBODY data-type-desc"><p><p>What the I/O server sends when there is no data.</p></p></div>
-</div>
-  </div>
+    <p>
+      <span class="bold_code"><a name="type-opt_pair">opt_pair()</a> = <br>    {binary, boolean()} |<br>    {echo, boolean()} |<br>    {expand_fun, <span class="bold_code"><a href="#type-expand_fun">expand_fun()</a></span>} |<br>    {encoding, <span class="bold_code"><a href="#type-encoding">encoding()</a></span>}</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-expand_fun">expand_fun()</a> = <br>    fun((term()) -&gt; {yes | no, string(), [string(), ...]})</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-encoding">encoding()</a> = <br>    latin1 |<br>    unicode |<br>    utf8 |<br>    utf16 |<br>    utf32 |<br>    {utf16, big | little} |<br>    {utf32, big | little}</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-setopt">setopt()</a> = binary | list | <span class="bold_code"><a href="#type-opt_pair">opt_pair()</a></span></span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-format">format()</a> = atom() | string() | binary()</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-location">location()</a> = <span class="bold_code"><a href="erl_anno.html#type-location">erl_anno:location()</a></span></span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-prompt">prompt()</a> = atom() | <span class="bold_code"><a href="unicode.html#type-chardata">unicode:chardata()</a></span></span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-server_no_data">server_no_data()</a> = {error, ErrorDescription :: term()} | eof</span><br></p>
+<div class="REFBODY"><p><p>What the I/O server sends when there is no data.</p></p></div>
+  
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="columns-0"></a><span class="bold_code func-name">columns() -&gt; {ok, integer() &gt;= 1} | {error, enotsup}</span><a name="columns-1"></a><span class="bold_code func-name">columns(IoDevice) -&gt; {ok, integer() &gt;= 1} | {error, enotsup}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">IoDevice = <span class="bold_code data-type-ref"><a href="#type-device">device()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="columns-0"></a><span class="bold_code">columns() -&gt; {ok, integer() &gt;= 1} | {error, enotsup}</span><br><a name="columns-1"></a><span class="bold_code">columns(IoDevice) -&gt; {ok, integer() &gt;= 1} | {error, enotsup}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-device">device()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
           <p>Retrieves the number of columns of the
           <span class="code">IoDevice</span> (that is, the width of a terminal).
           The function succeeds for terminal devices and returns
           <span class="code">{error, enotsup}</span> for all other I/O devices.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="format-1"></a><span class="bold_code func-name">format(Format) -&gt; ok</span><a name="format-2"></a><span class="bold_code func-name">format(Format, Data) -&gt; ok</span><a name="format-3"></a><span class="bold_code func-name">format(IoDevice, Format, Data) -&gt; ok</span><a name="fwrite-1"></a><span class="bold_code func-name">fwrite(Format) -&gt; ok</span><a name="fwrite-2"></a><span class="bold_code func-name">fwrite(Format, Data) -&gt; ok</span><a name="fwrite-3"></a><span class="bold_code func-name">fwrite(IoDevice, Format, Data) -&gt; ok</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">IoDevice = <span class="bold_code data-type-ref"><a href="#type-device">device()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Format = <span class="bold_code data-type-ref"><a href="#type-format">format()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Data = [term()]</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="format-1"></a><span class="bold_code">format(Format) -&gt; ok</span><br><a name="format-2"></a><span class="bold_code">format(Format, Data) -&gt; ok</span><br><a name="format-3"></a><span class="bold_code">format(IoDevice, Format, Data) -&gt; ok</span><br><a name="fwrite-1"></a><span class="bold_code">fwrite(Format) -&gt; ok</span><br><a name="fwrite-2"></a><span class="bold_code">fwrite(Format, Data) -&gt; ok</span><br><a name="fwrite-3"></a><span class="bold_code">fwrite(IoDevice, Format, Data) -&gt; ok</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-device">device()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Format = <span class="bold_code"><a href="#type-format">format()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Data = [term()]</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Writes the items in <span class="code">Data</span> (<span class="code">[]</span>) on the
           standard output (<span class="code">IoDevice</span>) in accordance with
           <span class="code">Format</span>. <span class="code">Format</span> contains
@@ -1830,7 +1814,7 @@
           first converted to a list with the aid of <span class="code">atom_to_list/1</span> or
           <span class="code">binary_to_list/1</span>. Example:</p>
         <div class="example"><pre>
-1&gt; <span class="bold_code bc-12">io:fwrite("Hello world!~n", []).</span>
+1&gt; <span class="bold_code">io:fwrite("Hello world!~n", []).</span>
 Hello world!
 ok</pre></div>
         <p>The general format of a control sequence is <span class="code">~F.P.PadModC</span>.</p>
@@ -1884,7 +1868,7 @@ ok</pre></div>
               character is printed and defaults to the field width,
               which in turn defaults to 1. Example:</p>
             <div class="example"><pre>
-1&gt; <span class="bold_code bc-12">io:fwrite("|~10.5c|~-10.5c|~5c|~n", [$a, $b, $c]).</span>
+1&gt; <span class="bold_code">io:fwrite("|~10.5c|~-10.5c|~5c|~n", [$a, $b, $c]).</span>
 |     aaaaa|bbbbb     |ccccc|
 ok</pre></div>
             <p>If the Unicode translation modifier (<span class="code">t</span>) is in effect,
@@ -1892,10 +1876,10 @@ ok</pre></div>
 	    valid Unicode codepoint, otherwise it is to be an integer
 	    less than or equal to 255, otherwise it is masked with 16#FF:</p>
 <div class="example"><pre>
-2&gt; <span class="bold_code bc-12">io:fwrite("~tc~n",[1024]).</span>
+2&gt; <span class="bold_code">io:fwrite("~tc~n",[1024]).</span>
 \x{400}
 ok
-3&gt; <span class="bold_code bc-12">io:fwrite("~c~n",[1024]).</span>
+3&gt; <span class="bold_code">io:fwrite("~c~n",[1024]).</span>
 ^@
 ok</pre></div>
           </dd>
@@ -1939,21 +1923,21 @@ ok</pre></div>
             <p>This format can be used for printing any object and
               truncating the output so it fits a specified field:</p>
             <div class="example"><pre>
-1&gt; <span class="bold_code bc-12">io:fwrite("|~10w|~n", [{hey, hey, hey}]).</span>
+1&gt; <span class="bold_code">io:fwrite("|~10w|~n", [{hey, hey, hey}]).</span>
 |**********|
 ok
-2&gt; <span class="bold_code bc-12">io:fwrite("|~10s|~n", [io_lib:write({hey, hey, hey})]).</span>
+2&gt; <span class="bold_code">io:fwrite("|~10s|~n", [io_lib:write({hey, hey, hey})]).</span>
 |{hey,hey,h|
-3&gt; <span class="bold_code bc-12">io:fwrite("|~-10.8s|~n", [io_lib:write({hey, hey, hey})]).</span>
+3&gt; <span class="bold_code">io:fwrite("|~-10.8s|~n", [io_lib:write({hey, hey, hey})]).</span>
 |{hey,hey  |
 ok</pre></div>
           <p>A list with integers &gt; 255 is considered an error if the
             Unicode translation modifier is not specified:</p>
 <div class="example"><pre>
-4&gt; <span class="bold_code bc-12">io:fwrite("~ts~n",[[1024]]).</span>
+4&gt; <span class="bold_code">io:fwrite("~ts~n",[[1024]]).</span>
 \x{400}
 ok
-5&gt; <span class="bold_code bc-12">io:fwrite("~s~n",[[1024]]).</span>
+5&gt; <span class="bold_code">io:fwrite("~s~n",[[1024]]).</span>
 ** exception exit: {badarg,[{io,format,[&lt;0.26.0&gt;,"~s~n",[[1024]]]},
    ...</pre></div>
           </dd>
@@ -1976,17 +1960,17 @@ ok
               Unicode translation modifier is used for determining
               what characters are printable, for example:</p>
             <div class="example"><pre>
-1&gt; <span class="bold_code bc-12">T = [{attributes,[[{id,age,1.50000},{mode,explicit},</span>
-<span class="bold_code bc-12">{typename,"INTEGER"}], [{id,cho},{mode,explicit},{typename,'Cho'}]]},</span>
-<span class="bold_code bc-12">{typename,'Person'},{tag,{'PRIVATE',3}},{mode,implicit}].</span>
+1&gt; <span class="bold_code">T = [{attributes,[[{id,age,1.50000},{mode,explicit},</span>
+<span class="bold_code">{typename,"INTEGER"}], [{id,cho},{mode,explicit},{typename,'Cho'}]]},</span>
+<span class="bold_code">{typename,'Person'},{tag,{'PRIVATE',3}},{mode,implicit}].</span>
 ...
-2&gt; <span class="bold_code bc-12">io:fwrite("~w~n", [T]).</span>
+2&gt; <span class="bold_code">io:fwrite("~w~n", [T]).</span>
 [{attributes,[[{id,age,1.5},{mode,explicit},{typename,
 [73,78,84,69,71,69,82]}],[{id,cho},{mode,explicit},{typena
 me,'Cho'}]]},{typename,'Person'},{tag,{'PRIVATE',3}},{mode
 ,implicit}]
 ok
-3&gt; <span class="bold_code bc-12">io:fwrite("~62p~n", [T]).</span>
+3&gt; <span class="bold_code">io:fwrite("~62p~n", [T]).</span>
 [{attributes,[[{id,age,1.5},
                {mode,explicit},
                {typename,"INTEGER"}],
@@ -1999,11 +1983,11 @@ ok</pre></div>
               Defaults to 80. The precision specifies the initial
               indentation of the term. It defaults to the number of
               characters printed on this line in the <strong>same</strong> call to
-              <span class="bold_code data-type-ref"><a href="#write-1"><span class="code">write/1</span></a></span> or
-              <span class="bold_code data-type-ref"><a href="#format-1"><span class="code">format/1,2,3</span></a></span>.
+              <span class="bold_code"><a href="#write-1"><span class="code">write/1</span></a></span> or
+              <span class="bold_code"><a href="#format-1"><span class="code">format/1,2,3</span></a></span>.
               For example, using <span class="code">T</span> above:</p>
             <div class="example"><pre>
-4&gt; <span class="bold_code bc-12">io:fwrite("Here T = ~62p~n", [T]).</span>
+4&gt; <span class="bold_code">io:fwrite("Here T = ~62p~n", [T]).</span>
 Here T = [{attributes,[[{id,age,1.5},
                         {mode,explicit},
                         {typename,"INTEGER"}],
@@ -2017,12 +2001,12 @@ ok</pre></div>
             <p>When the modifier <span class="code">l</span> is specified, no detection of
               printable character lists takes place, for example:</p>
             <div class="example"><pre>
-5&gt; <span class="bold_code bc-12">S = [{a,"a"}, {b, "b"}].</span>
-6&gt; <span class="bold_code bc-12">io:fwrite("~15p~n", [S]).</span>
+5&gt; <span class="bold_code">S = [{a,"a"}, {b, "b"}].</span>
+6&gt; <span class="bold_code">io:fwrite("~15p~n", [S]).</span>
 [{a,"a"},
  {b,"b"}]
 ok
-7&gt; <span class="bold_code bc-12">io:fwrite("~15lp~n", [S]).</span>
+7&gt; <span class="bold_code">io:fwrite("~15lp~n", [S]).</span>
 [{a,[97]},
  {b,[98]}]
 ok</pre></div>
@@ -2030,13 +2014,13 @@ ok</pre></div>
               output with the string syntax if the Unicode translation
               modifier is specified:</p>
             <div class="example"><pre>
-9&gt; <span class="bold_code bc-12">io:fwrite("~p~n",[[1024]]).</span>
+9&gt; <span class="bold_code">io:fwrite("~p~n",[[1024]]).</span>
 [1024]
-10&gt; <span class="bold_code bc-12">io:fwrite("~tp~n",[[1024]]).</span>
+10&gt; <span class="bold_code">io:fwrite("~tp~n",[[1024]]).</span>
 "\x{400}"
-11&gt; <span class="bold_code bc-12">io:fwrite("~tp~n", [&lt;&lt;128,128&gt;&gt;]).</span>
+11&gt; <span class="bold_code">io:fwrite("~tp~n", [&lt;&lt;128,128&gt;&gt;]).</span>
 &lt;&lt;128,128&gt;&gt;
-12&gt; <span class="bold_code bc-12">io:fwrite("~tp~n", [&lt;&lt;208,128&gt;&gt;]).</span>
+12&gt; <span class="bold_code">io:fwrite("~tp~n", [&lt;&lt;208,128&gt;&gt;]).</span>
 &lt;&lt;"\x{400}"/utf8&gt;&gt;
 ok</pre></div>
           </dd>
@@ -2047,7 +2031,7 @@ ok</pre></div>
               are printed. Anything below this depth is replaced with
               <span class="code">...</span>. For example, using <span class="code">T</span> above:</p>
             <div class="example"><pre>
-8&gt; <span class="bold_code bc-12">io:fwrite("~W~n", [T,9]).</span>
+8&gt; <span class="bold_code">io:fwrite("~W~n", [T,9]).</span>
 [{attributes,[[{id,age,1.5},{mode,explicit},{typename,...}],
 [{id,cho},{mode,...},{...}]]},{typename,'Person'},
 {tag,{'PRIVATE',3}},{mode,implicit}]
@@ -2064,7 +2048,7 @@ ok</pre></div>
               are printed. Anything below this depth is replaced with
               <span class="code">...</span>, for example:</p>
             <div class="example"><pre>
-9&gt; <span class="bold_code bc-12">io:fwrite("~62P~n", [T,9]).</span>
+9&gt; <span class="bold_code">io:fwrite("~62P~n", [T,9]).</span>
 [{attributes,[[{id,age,1.5},{mode,explicit},{typename,...}],
               [{id,cho},{mode,...},{...}]]},
  {typename,'Person'},
@@ -2078,13 +2062,13 @@ ok</pre></div>
               10. A leading dash is printed for negative integers.</p>
             <p>The precision field selects base, for example:</p>
             <div class="example"><pre>
-1&gt; <span class="bold_code bc-12">io:fwrite("~.16B~n", [31]).</span>
+1&gt; <span class="bold_code">io:fwrite("~.16B~n", [31]).</span>
 1F
 ok
-2&gt; <span class="bold_code bc-12">io:fwrite("~.2B~n", [-19]).</span>
+2&gt; <span class="bold_code">io:fwrite("~.2B~n", [-19]).</span>
 -10011
 ok
-3&gt; <span class="bold_code bc-12">io:fwrite("~.36B~n", [5*36+35]).</span>
+3&gt; <span class="bold_code">io:fwrite("~.36B~n", [5*36+35]).</span>
 5Z
 ok</pre></div>
           </dd>
@@ -2096,10 +2080,10 @@ ok</pre></div>
             <p>The prefix can be a possibly deep list of characters or
               an atom. Example:</p>
             <div class="example"><pre>
-1&gt; <span class="bold_code bc-12">io:fwrite("~X~n", [31,"10#"]).</span>
+1&gt; <span class="bold_code">io:fwrite("~X~n", [31,"10#"]).</span>
 10#31
 ok
-2&gt; <span class="bold_code bc-12">io:fwrite("~.16X~n", [-31,"0x"]).</span>
+2&gt; <span class="bold_code">io:fwrite("~.16X~n", [-31,"0x"]).</span>
 -0x1F
 ok</pre></div>
           </dd>
@@ -2108,10 +2092,10 @@ ok</pre></div>
             <p>Like <span class="code">B</span>, but prints the number with an Erlang style
               <span class="code">#</span>-separated base prefix. Example:</p>
             <div class="example"><pre>
-1&gt; <span class="bold_code bc-12">io:fwrite("~.10#~n", [31]).</span>
+1&gt; <span class="bold_code">io:fwrite("~.10#~n", [31]).</span>
 10#31
 ok
-2&gt; <span class="bold_code bc-12">io:fwrite("~.16#~n", [-31]).</span>
+2&gt; <span class="bold_code">io:fwrite("~.16#~n", [-31]).</span>
 -16#1F
 ok</pre></div>
           </dd>
@@ -2145,10 +2129,10 @@ ok</pre></div>
         </dl>
         <p>If an error occurs, there is no output. Example:</p>
         <div class="example"><pre>
-1&gt; <span class="bold_code bc-12">io:fwrite("~s ~w ~i ~w ~c ~n",['abc def', 'abc def', {foo, 1},{foo, 1}, 65]).</span>
+1&gt; <span class="bold_code">io:fwrite("~s ~w ~i ~w ~c ~n",['abc def', 'abc def', {foo, 1},{foo, 1}, 65]).</span>
 abc def 'abc def'  {foo,1} A
 ok
-2&gt; <span class="bold_code bc-12">io:fwrite("~s", [65]).</span>
+2&gt; <span class="bold_code">io:fwrite("~s", [65]).</span>
 ** exception exit: {badarg,[{io,format,[&lt;0.22.0&gt;,"~s","A"]},
                             {erl_eval,do_apply,5},
                             {shell,exprs,6},
@@ -2158,23 +2142,19 @@ ok
         <p>In this example, an attempt was made to output the single
           character 65 with the aid of the string formatting directive
           <span class="code">"~s"</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="fread-2"></a><span class="bold_code func-name">fread(Prompt, Format) -&gt; Result</span><a name="fread-3"></a><span class="bold_code func-name">fread(IoDevice, Prompt, Format) -&gt; Result</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">IoDevice = <span class="bold_code data-type-ref"><a href="#type-device">device()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Prompt = <span class="bold_code data-type-ref"><a href="#type-prompt">prompt()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Format = <span class="bold_code data-type-ref"><a href="#type-format">format()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Result = <br>    {ok, Terms :: [term()]} |<br>    {error, {fread, FreadError :: <span class="bold_code bc-15"><a href="io_lib.html#type-fread_error">io_lib:fread_error()</a></span>}} |<br>    <span class="bold_code data-type-ref"><a href="#type-server_no_data">server_no_data()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">server_no_data() = {error, ErrorDescription :: term()} | eof</span><br>
+    <p><a name="fread-2"></a><span class="bold_code">fread(Prompt, Format) -&gt; Result</span><br><a name="fread-3"></a><span class="bold_code">fread(IoDevice, Prompt, Format) -&gt; Result</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-device">device()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Prompt = <span class="bold_code"><a href="#type-prompt">prompt()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Format = <span class="bold_code"><a href="#type-format">format()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Result = <br>    {ok, Terms :: [term()]} |<br>    {error, {fread, FreadError :: <span class="bold_code"><a href="io_lib.html#type-fread_error">io_lib:fread_error()</a></span>}} |<br>    <span class="bold_code"><a href="#type-server_no_data">server_no_data()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">server_no_data() = {error, ErrorDescription :: term()} | eof</span><br>
 </div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Reads characters from the standard input
           (<span class="code">IoDevice</span>), prompting it with
           <span class="code">Prompt</span>. Interprets the characters in accordance
@@ -2261,11 +2241,11 @@ ok
                   not. With the translation modifier, the returned
                   list can as a consequence also contain integers &gt; 255:</p>
 <div class="example"><pre>
-1&gt; <span class="bold_code bc-12">io:fread("Prompt&gt; ","~s").</span>
-Prompt&gt; <span class="bold_code bc-12">&lt;Characters beyond latin1 range not printable in this medium&gt;</span>
+1&gt; <span class="bold_code">io:fread("Prompt&gt; ","~s").</span>
+Prompt&gt; <span class="bold_code">&lt;Characters beyond latin1 range not printable in this medium&gt;</span>
 {error,{fread,string}}
-2&gt; <span class="bold_code bc-12">io:fread("Prompt&gt; ","~ts").</span>
-Prompt&gt; <span class="bold_code bc-12">&lt;Characters beyond latin1 range not printable in this medium&gt;</span>
+2&gt; <span class="bold_code">io:fread("Prompt&gt; ","~ts").</span>
+Prompt&gt; <span class="bold_code">&lt;Characters beyond latin1 range not printable in this medium&gt;</span>
 {ok,[[1091,1085,1080,1094,1086,1076,1077]]}</pre></div>
               </dd>
               <dt><strong><span class="code">a</span></strong></dt>
@@ -2285,11 +2265,11 @@ Prompt&gt; <span class="bold_code bc-12">&lt;Characters beyond latin1 range not 
                 <p>The Unicode translation modifier works as with <span class="code">s</span>:
                 </p>
 <div class="example"><pre>
-1&gt; <span class="bold_code bc-12">io:fread("Prompt&gt; ","~c").</span>
-Prompt&gt; <span class="bold_code bc-12">&lt;Character beyond latin1 range not printable in this medium&gt;</span>
+1&gt; <span class="bold_code">io:fread("Prompt&gt; ","~c").</span>
+Prompt&gt; <span class="bold_code">&lt;Character beyond latin1 range not printable in this medium&gt;</span>
 {error,{fread,string}}
-2&gt; <span class="bold_code bc-12">io:fread("Prompt&gt; ","~tc").</span>
-Prompt&gt; <span class="bold_code bc-12">&lt;Character beyond latin1 range not printable in this medium&gt;</span>
+2&gt; <span class="bold_code">io:fread("Prompt&gt; ","~tc").</span>
+Prompt&gt; <span class="bold_code">&lt;Character beyond latin1 range not printable in this medium&gt;</span>
 {ok,[[1091]]}</pre></div>
               </dd>
               <dt><strong><span class="code">l</span></strong></dt>
@@ -2326,32 +2306,28 @@ Prompt&gt; <span class="bold_code bc-12">&lt;Character beyond latin1 range not p
         </ul>
         <p><strong>Examples:</strong></p>
         <div class="example"><pre>
-20&gt; <span class="bold_code bc-12">io:fread('enter&gt;', "~f~f~f").</span>
-enter&gt;<span class="bold_code bc-12">1.9 35.5e3 15.0</span>
+20&gt; <span class="bold_code">io:fread('enter&gt;', "~f~f~f").</span>
+enter&gt;<span class="bold_code">1.9 35.5e3 15.0</span>
 {ok,[1.9,3.55e4,15.0]}
-21&gt; <span class="bold_code bc-12">io:fread('enter&gt;', "~10f~d").</span>
-enter&gt;     <span class="bold_code bc-12">5.67899</span>
+21&gt; <span class="bold_code">io:fread('enter&gt;', "~10f~d").</span>
+enter&gt;     <span class="bold_code">5.67899</span>
 {ok,[5.678,99]}
-22&gt; <span class="bold_code bc-12">io:fread('enter&gt;', ":~10s:~10c:").</span>
-enter&gt;<span class="bold_code bc-12">:</span>   <span class="bold_code bc-12">alan</span>   <span class="bold_code bc-12">:</span>   <span class="bold_code bc-12">joe</span>    <span class="bold_code bc-12">:</span>
+22&gt; <span class="bold_code">io:fread('enter&gt;', ":~10s:~10c:").</span>
+enter&gt;<span class="bold_code">:</span>   <span class="bold_code">alan</span>   <span class="bold_code">:</span>   <span class="bold_code">joe</span>    <span class="bold_code">:</span>
 {ok, ["alan", "   joe    "]}</pre></div>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="get_chars-2"></a><span class="bold_code func-name">get_chars(Prompt, Count) -&gt; Data | <span class="bold_code data-type-ref"><a href="#type-server_no_data">server_no_data()</a></span></span><a name="get_chars-3"></a><span class="bold_code func-name">get_chars(IoDevice, Prompt, Count) -&gt; Data | <span class="bold_code data-type-ref"><a href="#type-server_no_data">server_no_data()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">IoDevice = <span class="bold_code data-type-ref"><a href="#type-device">device()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Prompt = <span class="bold_code data-type-ref"><a href="#type-prompt">prompt()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Count = integer() &gt;= 0</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Data = string() | <span class="bold_code bc-15"><a href="unicode.html#type-unicode_binary">unicode:unicode_binary()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">server_no_data() = {error, ErrorDescription :: term()} | eof</span><br>
+    <p><a name="get_chars-2"></a><span class="bold_code">get_chars(Prompt, Count) -&gt; Data | <span class="bold_code"><a href="#type-server_no_data">server_no_data()</a></span></span><br><a name="get_chars-3"></a><span class="bold_code">get_chars(IoDevice, Prompt, Count) -&gt; Data | <span class="bold_code"><a href="#type-server_no_data">server_no_data()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-device">device()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Prompt = <span class="bold_code"><a href="#type-prompt">prompt()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Count = integer() &gt;= 0</span></div>
+<div class="REFTYPES"><span class="bold_code">Data = string() | <span class="bold_code"><a href="unicode.html#type-unicode_binary">unicode:unicode_binary()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">server_no_data() = {error, ErrorDescription :: term()} | eof</span><br>
 </div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Reads <span class="code">Count</span> characters from standard input
           (<span class="code">IoDevice</span>), prompting it with
           <span class="code">Prompt</span>.</p>
@@ -2375,22 +2351,18 @@ enter&gt;<span class="bold_code bc-12">:</span>   <span class="bold_code bc-12">
              if reading from an NFS file system.</p>
 	  </dd>
         </dl>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="get_line-1"></a><span class="bold_code func-name">get_line(Prompt) -&gt; Data | <span class="bold_code data-type-ref"><a href="#type-server_no_data">server_no_data()</a></span></span><a name="get_line-2"></a><span class="bold_code func-name">get_line(IoDevice, Prompt) -&gt; Data | <span class="bold_code data-type-ref"><a href="#type-server_no_data">server_no_data()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">IoDevice = <span class="bold_code data-type-ref"><a href="#type-device">device()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Prompt = <span class="bold_code data-type-ref"><a href="#type-prompt">prompt()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Data = string() | <span class="bold_code bc-15"><a href="unicode.html#type-unicode_binary">unicode:unicode_binary()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">server_no_data() = {error, ErrorDescription :: term()} | eof</span><br>
+    <p><a name="get_line-1"></a><span class="bold_code">get_line(Prompt) -&gt; Data | <span class="bold_code"><a href="#type-server_no_data">server_no_data()</a></span></span><br><a name="get_line-2"></a><span class="bold_code">get_line(IoDevice, Prompt) -&gt; Data | <span class="bold_code"><a href="#type-server_no_data">server_no_data()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-device">device()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Prompt = <span class="bold_code"><a href="#type-prompt">prompt()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Data = string() | <span class="bold_code"><a href="unicode.html#type-unicode_binary">unicode:unicode_binary()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">server_no_data() = {error, ErrorDescription :: term()} | eof</span><br>
 </div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Reads a line from the standard input (<span class="code">IoDevice</span>),
           prompting it with <span class="code">Prompt</span>.</p>
         <p>The function returns:</p>
@@ -2414,24 +2386,20 @@ enter&gt;<span class="bold_code bc-12">:</span>   <span class="bold_code bc-12">
               if reading from an NFS file system.</p>
 	  </dd>
         </dl>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="getopts-0"></a><span class="bold_code func-name">getopts() -&gt; [<span class="bold_code data-type-ref"><a href="#type-opt_pair">opt_pair()</a></span>] | {error, Reason}</span><a name="getopts-1"></a><span class="bold_code func-name">getopts(IoDevice) -&gt; [<span class="bold_code data-type-ref"><a href="#type-opt_pair">opt_pair()</a></span>] | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">IoDevice = <span class="bold_code data-type-ref"><a href="#type-device">device()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="getopts-0"></a><span class="bold_code">getopts() -&gt; [<span class="bold_code"><a href="#type-opt_pair">opt_pair()</a></span>] | {error, Reason}</span><br><a name="getopts-1"></a><span class="bold_code">getopts(IoDevice) -&gt; [<span class="bold_code"><a href="#type-opt_pair">opt_pair()</a></span>] | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-device">device()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
       <p>Requests all available options and their current
         values for a specific I/O device, for example:</p>
 <div class="example"><pre>
-1&gt; <span class="bold_code bc-12">{ok,F} = file:open("/dev/null",[read]).</span>
+1&gt; <span class="bold_code">{ok,F} = file:open("/dev/null",[read]).</span>
 {ok,&lt;0.42.0&gt;}
-2&gt; <span class="bold_code bc-12">io:getopts(F).</span>
+2&gt; <span class="bold_code">io:getopts(F).</span>
 [{binary,false},{encoding,latin1}]</pre></div>
       <p>Here the file I/O server returns all available options for a file,
         which are the expected ones, <span class="code">encoding</span> and <span class="code">binary</span>.
@@ -2444,46 +2412,38 @@ enter&gt;<span class="bold_code bc-12">:</span>   <span class="bold_code bc-12">
  {encoding,unicode}]</pre></div>
       <p>This example is, as can be seen, run in an environment where the
         terminal supports Unicode input and output.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="nl-0"></a><span class="bold_code func-name">nl() -&gt; ok</span><a name="nl-1"></a><span class="bold_code func-name">nl(IoDevice) -&gt; ok</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">IoDevice = <span class="bold_code data-type-ref"><a href="#type-device">device()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="nl-0"></a><span class="bold_code">nl() -&gt; ok</span><br><a name="nl-1"></a><span class="bold_code">nl(IoDevice) -&gt; ok</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-device">device()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Writes new line to the standard output
           (<span class="code">IoDevice</span>).</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="parse_erl_exprs-1"></a><span class="bold_code func-name">parse_erl_exprs(Prompt) -&gt; Result</span><a name="parse_erl_exprs-2"></a><span class="bold_code func-name">parse_erl_exprs(IoDevice, Prompt) -&gt; Result</span><a name="parse_erl_exprs-3"></a><span class="bold_code func-name">parse_erl_exprs(IoDevice, Prompt, StartLocation) -&gt; Result</span><a name="parse_erl_exprs-4"></a><span class="bold_code func-name">parse_erl_exprs(IoDevice, Prompt, StartLocation, Options) -&gt;<br>                   Result</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">IoDevice = <span class="bold_code data-type-ref"><a href="#type-device">device()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Prompt = <span class="bold_code data-type-ref"><a href="#type-prompt">prompt()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">StartLocation = <span class="bold_code data-type-ref"><a href="#type-location">location()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = <span class="bold_code bc-15"><a href="erl_scan.html#type-options">erl_scan:options()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Result = parse_ret()</span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">parse_ret() = <br>    {ok,<br>     ExprList :: [<span class="bold_code bc-15"><a href="erl_parse.html#type-abstract_expr">erl_parse:abstract_expr()</a></span>],<br>     EndLocation :: <span class="bold_code data-type-ref"><a href="#type-location">location()</a></span>} |<br>    {eof, EndLocation :: <span class="bold_code data-type-ref"><a href="#type-location">location()</a></span>} |<br>    {error,<br>     ErrorInfo :: <span class="bold_code bc-15"><a href="erl_scan.html#type-error_info">erl_scan:error_info()</a></span> | <span class="bold_code bc-15"><a href="erl_parse.html#type-error_info">erl_parse:error_info()</a></span>,<br>     ErrorLocation :: <span class="bold_code data-type-ref"><a href="#type-location">location()</a></span>} |<br>    <span class="bold_code data-type-ref"><a href="#type-server_no_data">server_no_data()</a></span></span><br>
+    <p><a name="parse_erl_exprs-1"></a><span class="bold_code">parse_erl_exprs(Prompt) -&gt; Result</span><br><a name="parse_erl_exprs-2"></a><span class="bold_code">parse_erl_exprs(IoDevice, Prompt) -&gt; Result</span><br><a name="parse_erl_exprs-3"></a><span class="bold_code">parse_erl_exprs(IoDevice, Prompt, StartLocation) -&gt; Result</span><br><a name="parse_erl_exprs-4"></a><span class="bold_code">parse_erl_exprs(IoDevice, Prompt, StartLocation, Options) -&gt;<br>                   Result</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-device">device()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Prompt = <span class="bold_code"><a href="#type-prompt">prompt()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">StartLocation = <span class="bold_code"><a href="#type-location">location()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Options = <span class="bold_code"><a href="erl_scan.html#type-options">erl_scan:options()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Result = parse_ret()</span></div>
+<div class="REFTYPES">
+      <span class="bold_code">parse_ret() = <br>    {ok,<br>     ExprList :: [<span class="bold_code"><a href="erl_parse.html#type-abstract_expr">erl_parse:abstract_expr()</a></span>],<br>     EndLocation :: <span class="bold_code"><a href="#type-location">location()</a></span>} |<br>    {eof, EndLocation :: <span class="bold_code"><a href="#type-location">location()</a></span>} |<br>    {error,<br>     ErrorInfo :: <span class="bold_code"><a href="erl_scan.html#type-error_info">erl_scan:error_info()</a></span> | <span class="bold_code"><a href="erl_parse.html#type-error_info">erl_parse:error_info()</a></span>,<br>     ErrorLocation :: <span class="bold_code"><a href="#type-location">location()</a></span>} |<br>    <span class="bold_code"><a href="#type-server_no_data">server_no_data()</a></span></span><br>
 </div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">server_no_data() = {error, ErrorDescription :: term()} | eof</span><br>
+<div class="REFTYPES">
+      <span class="bold_code">server_no_data() = {error, ErrorDescription :: term()} | eof</span><br>
 </div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Reads data from the standard input
           (<span class="code">IoDevice</span>), prompting it with
           <span class="code">Prompt</span>. Starts reading at location
           <span class="code">StartLocation</span> (<span class="code">1</span>). Argument
           <span class="code">Options</span> is passed on as argument
-          <span class="code">Options</span> of function <span class="bold_code bc-15"><a href="erl_scan.html#tokens-4"><span class="code">erl_scan:tokens/4</span></a></span>. The data is tokenized and parsed
+          <span class="code">Options</span> of function <span class="bold_code"><a href="erl_scan.html#tokens-4"><span class="code">erl_scan:tokens/4</span></a></span>. The data is tokenized and parsed
           as if it was a sequence of Erlang expressions until a final dot
           (<span class="code">.</span>) is reached.</p>
         <p>The function returns:</p>
@@ -2512,38 +2472,34 @@ enter&gt;<span class="bold_code bc-12">:</span>   <span class="bold_code bc-12">
         </dl>
         <p>Example:</p>
         <div class="example"><pre>
-25&gt; <span class="bold_code bc-12">io:parse_erl_exprs('enter&gt;').</span>
-enter&gt;<span class="bold_code bc-12">abc(), "hey".</span>
+25&gt; <span class="bold_code">io:parse_erl_exprs('enter&gt;').</span>
+enter&gt;<span class="bold_code">abc(), "hey".</span>
 {ok, [{call,1,{atom,1,abc},[]},{string,1,"hey"}],2}
-26&gt; <span class="bold_code bc-12">io:parse_erl_exprs ('enter&gt;').</span>
-enter&gt;<span class="bold_code bc-12">abc("hey".</span>
+26&gt; <span class="bold_code">io:parse_erl_exprs ('enter&gt;').</span>
+enter&gt;<span class="bold_code">abc("hey".</span>
 {error,{1,erl_parse,["syntax error before: ",["'.'"]]},2}</pre></div>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="parse_erl_form-1"></a><span class="bold_code func-name">parse_erl_form(Prompt) -&gt; Result</span><a name="parse_erl_form-2"></a><span class="bold_code func-name">parse_erl_form(IoDevice, Prompt) -&gt; Result</span><a name="parse_erl_form-3"></a><span class="bold_code func-name">parse_erl_form(IoDevice, Prompt, StartLocation) -&gt; Result</span><a name="parse_erl_form-4"></a><span class="bold_code func-name">parse_erl_form(IoDevice, Prompt, StartLocation, Options) -&gt; Result</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">IoDevice = <span class="bold_code data-type-ref"><a href="#type-device">device()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Prompt = <span class="bold_code data-type-ref"><a href="#type-prompt">prompt()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">StartLocation = <span class="bold_code data-type-ref"><a href="#type-location">location()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = <span class="bold_code bc-15"><a href="erl_scan.html#type-options">erl_scan:options()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Result = parse_form_ret()</span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">parse_form_ret() = <br>    {ok,<br>     AbsForm :: <span class="bold_code bc-15"><a href="erl_parse.html#type-abstract_form">erl_parse:abstract_form()</a></span>,<br>     EndLocation :: <span class="bold_code data-type-ref"><a href="#type-location">location()</a></span>} |<br>    {eof, EndLocation :: <span class="bold_code data-type-ref"><a href="#type-location">location()</a></span>} |<br>    {error,<br>     ErrorInfo :: <span class="bold_code bc-15"><a href="erl_scan.html#type-error_info">erl_scan:error_info()</a></span> | <span class="bold_code bc-15"><a href="erl_parse.html#type-error_info">erl_parse:error_info()</a></span>,<br>     ErrorLocation :: <span class="bold_code data-type-ref"><a href="#type-location">location()</a></span>} |<br>    <span class="bold_code data-type-ref"><a href="#type-server_no_data">server_no_data()</a></span></span><br>
+    <p><a name="parse_erl_form-1"></a><span class="bold_code">parse_erl_form(Prompt) -&gt; Result</span><br><a name="parse_erl_form-2"></a><span class="bold_code">parse_erl_form(IoDevice, Prompt) -&gt; Result</span><br><a name="parse_erl_form-3"></a><span class="bold_code">parse_erl_form(IoDevice, Prompt, StartLocation) -&gt; Result</span><br><a name="parse_erl_form-4"></a><span class="bold_code">parse_erl_form(IoDevice, Prompt, StartLocation, Options) -&gt; Result</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-device">device()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Prompt = <span class="bold_code"><a href="#type-prompt">prompt()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">StartLocation = <span class="bold_code"><a href="#type-location">location()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Options = <span class="bold_code"><a href="erl_scan.html#type-options">erl_scan:options()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Result = parse_form_ret()</span></div>
+<div class="REFTYPES">
+      <span class="bold_code">parse_form_ret() = <br>    {ok,<br>     AbsForm :: <span class="bold_code"><a href="erl_parse.html#type-abstract_form">erl_parse:abstract_form()</a></span>,<br>     EndLocation :: <span class="bold_code"><a href="#type-location">location()</a></span>} |<br>    {eof, EndLocation :: <span class="bold_code"><a href="#type-location">location()</a></span>} |<br>    {error,<br>     ErrorInfo :: <span class="bold_code"><a href="erl_scan.html#type-error_info">erl_scan:error_info()</a></span> | <span class="bold_code"><a href="erl_parse.html#type-error_info">erl_parse:error_info()</a></span>,<br>     ErrorLocation :: <span class="bold_code"><a href="#type-location">location()</a></span>} |<br>    <span class="bold_code"><a href="#type-server_no_data">server_no_data()</a></span></span><br>
 </div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">server_no_data() = {error, ErrorDescription :: term()} | eof</span><br>
+<div class="REFTYPES">
+      <span class="bold_code">server_no_data() = {error, ErrorDescription :: term()} | eof</span><br>
 </div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Reads data from the standard input (<span class="code">IoDevice</span>),
           prompting it with <span class="code">Prompt</span>. Starts reading at
           location <span class="code">StartLocation</span> (<span class="code">1</span>). Argument
           <span class="code">Options</span> is passed on as argument
-          <span class="code">Options</span> of function <span class="bold_code bc-15"><a href="erl_scan.html#tokens-4"><span class="code">erl_scan:tokens/4</span></a></span>. The data is tokenized and parsed
+          <span class="code">Options</span> of function <span class="bold_code"><a href="erl_scan.html#tokens-4"><span class="code">erl_scan:tokens/4</span></a></span>. The data is tokenized and parsed
           as if it was an Erlang form (one of the valid Erlang expressions
           in an Erlang source file) until a final dot (<span class="code">.</span>) is reached.</p>
         <p>The function returns:</p>
@@ -2570,14 +2526,10 @@ enter&gt;<span class="bold_code bc-12">abc("hey".</span>
               if reading from an NFS file system.</p>
           </dd>
         </dl>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="printable_range-0"></a><span class="bold_code func-name">printable_range() -&gt; unicode | latin1</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="printable_range-0"></a><span class="bold_code">printable_range() -&gt; unicode | latin1</span><br></p>
+<div class="REFBODY"><p>
         <p>Returns the user-requested range of printable Unicode characters.</p>
         <p>The user can request a range of characters that are to be considered
           printable in heuristic detection of strings by the shell and by the
@@ -2592,7 +2544,7 @@ enter&gt;<span class="bold_code bc-12">abc("hey".</span>
         <p>By default, Erlang is started so that only the <span class="code">latin1</span> range
           of characters indicate that a list of integers is a string.</p>
         <p>The simplest way to use the setting is to call
-          <span class="bold_code bc-15"><a href="io_lib.html#printable_list-1"><span class="code">io_lib:printable_list/1</span></a></span>, which uses the return
+          <span class="bold_code"><a href="io_lib.html#printable_list-1"><span class="code">io_lib:printable_list/1</span></a></span>, which uses the return
           value of this function to decide if a list is a string of printable
           characters.</p>
         <div class="note">
@@ -2600,39 +2552,31 @@ enter&gt;<span class="bold_code bc-12">abc("hey".</span>
 <div class="content"><p>
           <p>In a future release, this function may return more values and
             ranges. To avoid compatibility problems, it is recommended to use
-            function <span class="bold_code bc-15"><a href="io_lib.html#printable_list-1"><span class="code">io_lib:printable_list/1</span></a></span>.</p></p></div>
+            function <span class="bold_code"><a href="io_lib.html#printable_list-1"><span class="code">io_lib:printable_list/1</span></a></span>.</p></p></div>
 </div>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="put_chars-1"></a><span class="bold_code func-name">put_chars(CharData) -&gt; ok</span><a name="put_chars-2"></a><span class="bold_code func-name">put_chars(IoDevice, CharData) -&gt; ok</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">IoDevice = <span class="bold_code data-type-ref"><a href="#type-device">device()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">CharData = <span class="bold_code bc-15"><a href="unicode.html#type-chardata">unicode:chardata()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="put_chars-1"></a><span class="bold_code">put_chars(CharData) -&gt; ok</span><br><a name="put_chars-2"></a><span class="bold_code">put_chars(IoDevice, CharData) -&gt; ok</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-device">device()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">CharData = <span class="bold_code"><a href="unicode.html#type-chardata">unicode:chardata()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Writes the characters of <span class="code">CharData</span> to the I/O
           server (<span class="code">IoDevice</span>).</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="read-1"></a><span class="bold_code func-name">read(Prompt) -&gt; Result</span><a name="read-2"></a><span class="bold_code func-name">read(IoDevice, Prompt) -&gt; Result</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">IoDevice = <span class="bold_code data-type-ref"><a href="#type-device">device()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Prompt = <span class="bold_code data-type-ref"><a href="#type-prompt">prompt()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Result = <br>    {ok, Term :: term()} | <span class="bold_code data-type-ref"><a href="#type-server_no_data">server_no_data()</a></span> | {error, ErrorInfo}</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ErrorInfo = <span class="bold_code bc-15"><a href="erl_scan.html#type-error_info">erl_scan:error_info()</a></span> | <span class="bold_code bc-15"><a href="erl_parse.html#type-error_info">erl_parse:error_info()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">server_no_data() = {error, ErrorDescription :: term()} | eof</span><br>
+    <p><a name="read-1"></a><span class="bold_code">read(Prompt) -&gt; Result</span><br><a name="read-2"></a><span class="bold_code">read(IoDevice, Prompt) -&gt; Result</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-device">device()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Prompt = <span class="bold_code"><a href="#type-prompt">prompt()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Result = <br>    {ok, Term :: term()} | <span class="bold_code"><a href="#type-server_no_data">server_no_data()</a></span> | {error, ErrorInfo}</span></div>
+<div class="REFTYPES"><span class="bold_code">ErrorInfo = <span class="bold_code"><a href="erl_scan.html#type-error_info">erl_scan:error_info()</a></span> | <span class="bold_code"><a href="erl_parse.html#type-error_info">erl_parse:error_info()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">server_no_data() = {error, ErrorDescription :: term()} | eof</span><br>
 </div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Reads a term <span class="code">Term</span> from the standard input
           (<span class="code">IoDevice</span>), prompting it with
           <span class="code">Prompt</span>.</p>
@@ -2656,31 +2600,27 @@ enter&gt;<span class="bold_code bc-12">abc("hey".</span>
               if reading from an NFS file system.</p>
           </dd>
         </dl>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="read-3"></a><span class="bold_code func-name">read(IoDevice, Prompt, StartLocation) -&gt; Result</span><a name="read-4"></a><span class="bold_code func-name">read(IoDevice, Prompt, StartLocation, Options) -&gt; Result</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">IoDevice = <span class="bold_code data-type-ref"><a href="#type-device">device()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Prompt = <span class="bold_code data-type-ref"><a href="#type-prompt">prompt()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">StartLocation = <span class="bold_code data-type-ref"><a href="#type-location">location()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = <span class="bold_code bc-15"><a href="erl_scan.html#type-options">erl_scan:options()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Result = <br>    {ok, Term :: term(), EndLocation :: <span class="bold_code data-type-ref"><a href="#type-location">location()</a></span>} |<br>    {eof, EndLocation :: <span class="bold_code data-type-ref"><a href="#type-location">location()</a></span>} |<br>    <span class="bold_code data-type-ref"><a href="#type-server_no_data">server_no_data()</a></span> |<br>    {error, ErrorInfo, ErrorLocation :: <span class="bold_code data-type-ref"><a href="#type-location">location()</a></span>}</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ErrorInfo = <span class="bold_code bc-15"><a href="erl_scan.html#type-error_info">erl_scan:error_info()</a></span> | <span class="bold_code bc-15"><a href="erl_parse.html#type-error_info">erl_parse:error_info()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">server_no_data() = {error, ErrorDescription :: term()} | eof</span><br>
+    <p><a name="read-3"></a><span class="bold_code">read(IoDevice, Prompt, StartLocation) -&gt; Result</span><br><a name="read-4"></a><span class="bold_code">read(IoDevice, Prompt, StartLocation, Options) -&gt; Result</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-device">device()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Prompt = <span class="bold_code"><a href="#type-prompt">prompt()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">StartLocation = <span class="bold_code"><a href="#type-location">location()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Options = <span class="bold_code"><a href="erl_scan.html#type-options">erl_scan:options()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Result = <br>    {ok, Term :: term(), EndLocation :: <span class="bold_code"><a href="#type-location">location()</a></span>} |<br>    {eof, EndLocation :: <span class="bold_code"><a href="#type-location">location()</a></span>} |<br>    <span class="bold_code"><a href="#type-server_no_data">server_no_data()</a></span> |<br>    {error, ErrorInfo, ErrorLocation :: <span class="bold_code"><a href="#type-location">location()</a></span>}</span></div>
+<div class="REFTYPES"><span class="bold_code">ErrorInfo = <span class="bold_code"><a href="erl_scan.html#type-error_info">erl_scan:error_info()</a></span> | <span class="bold_code"><a href="erl_parse.html#type-error_info">erl_parse:error_info()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">server_no_data() = {error, ErrorDescription :: term()} | eof</span><br>
 </div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Reads a term <span class="code">Term</span> from
           <span class="code">IoDevice</span>, prompting it
           with <span class="code">Prompt</span>. Reading starts at location
           <span class="code">StartLocation</span>. Argument
           <span class="code">Options</span> is passed on as argument <span class="code">Options</span>
-          of function <span class="bold_code bc-15"><a href="erl_scan.html#tokens-4"><span class="code">erl_scan:tokens/4</span></a></span>.</p>
+          of function <span class="bold_code"><a href="erl_scan.html#tokens-4"><span class="code">erl_scan:tokens/4</span></a></span>.</p>
         <p>The function returns:</p>
         <dl>
           <dt><strong><span class="code">{ok, Term, EndLocation}</span></strong></dt>
@@ -2702,44 +2642,36 @@ enter&gt;<span class="bold_code bc-12">abc("hey".</span>
               if reading from an NFS file system.</p>
           </dd>
         </dl>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="rows-0"></a><span class="bold_code func-name">rows() -&gt; {ok, integer() &gt;= 1} | {error, enotsup}</span><a name="rows-1"></a><span class="bold_code func-name">rows(IoDevice) -&gt; {ok, integer() &gt;= 1} | {error, enotsup}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">IoDevice = <span class="bold_code data-type-ref"><a href="#type-device">device()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="rows-0"></a><span class="bold_code">rows() -&gt; {ok, integer() &gt;= 1} | {error, enotsup}</span><br><a name="rows-1"></a><span class="bold_code">rows(IoDevice) -&gt; {ok, integer() &gt;= 1} | {error, enotsup}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-device">device()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
           <p>Retrieves the number of rows of <span class="code">IoDevice</span>
           (that is, the height of a terminal). The function
           only succeeds for terminal devices, for all other I/O devices
           the function returns <span class="code">{error, enotsup}</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="scan_erl_exprs-1"></a><span class="bold_code func-name">scan_erl_exprs(Prompt) -&gt; Result</span><a name="scan_erl_exprs-2"></a><span class="bold_code func-name">scan_erl_exprs(Device, Prompt) -&gt; Result</span><a name="scan_erl_exprs-3"></a><span class="bold_code func-name">scan_erl_exprs(Device, Prompt, StartLocation) -&gt; Result</span><a name="scan_erl_exprs-4"></a><span class="bold_code func-name">scan_erl_exprs(Device, Prompt, StartLocation, Options) -&gt; Result</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Device = <span class="bold_code data-type-ref"><a href="#type-device">device()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Prompt = <span class="bold_code data-type-ref"><a href="#type-prompt">prompt()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">StartLocation = <span class="bold_code data-type-ref"><a href="#type-location">location()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = <span class="bold_code bc-15"><a href="erl_scan.html#type-options">erl_scan:options()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Result = <span class="bold_code bc-15"><a href="erl_scan.html#type-tokens_result">erl_scan:tokens_result()</a></span> | <span class="bold_code data-type-ref"><a href="#type-server_no_data">server_no_data()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">server_no_data() = {error, ErrorDescription :: term()} | eof</span><br>
+    <p><a name="scan_erl_exprs-1"></a><span class="bold_code">scan_erl_exprs(Prompt) -&gt; Result</span><br><a name="scan_erl_exprs-2"></a><span class="bold_code">scan_erl_exprs(Device, Prompt) -&gt; Result</span><br><a name="scan_erl_exprs-3"></a><span class="bold_code">scan_erl_exprs(Device, Prompt, StartLocation) -&gt; Result</span><br><a name="scan_erl_exprs-4"></a><span class="bold_code">scan_erl_exprs(Device, Prompt, StartLocation, Options) -&gt; Result</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Device = <span class="bold_code"><a href="#type-device">device()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Prompt = <span class="bold_code"><a href="#type-prompt">prompt()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">StartLocation = <span class="bold_code"><a href="#type-location">location()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Options = <span class="bold_code"><a href="erl_scan.html#type-options">erl_scan:options()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Result = <span class="bold_code"><a href="erl_scan.html#type-tokens_result">erl_scan:tokens_result()</a></span> | <span class="bold_code"><a href="#type-server_no_data">server_no_data()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">server_no_data() = {error, ErrorDescription :: term()} | eof</span><br>
 </div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Reads data from the standard input (<span class="code">IoDevice</span>),
           prompting it with <span class="code">Prompt</span>. Reading starts at location
           <span class="code">StartLocation</span> (<span class="code">1</span>). Argument <span class="code">Options</span>
           is passed on as argument <span class="code">Options</span> of function
-          <span class="bold_code bc-15"><a href="erl_scan.html#tokens-4"><span class="code">erl_scan:tokens/4</span></a></span>. The data is tokenized as if it
+          <span class="bold_code"><a href="erl_scan.html#tokens-4"><span class="code">erl_scan:tokens/4</span></a></span>. The data is tokenized as if it
           were a sequence of Erlang expressions until a final dot (<span class="code">.</span>) is
           reached. This token is also returned.</p>
         <p>The function returns:</p>
@@ -2768,59 +2700,51 @@ enter&gt;<span class="bold_code bc-12">abc("hey".</span>
         </dl>
         <p><strong>Example:</strong></p>
         <div class="example"><pre>
-23&gt; <span class="bold_code bc-12">io:scan_erl_exprs('enter&gt;').</span>
-enter&gt;<span class="bold_code bc-12">abc(), "hey".</span>
+23&gt; <span class="bold_code">io:scan_erl_exprs('enter&gt;').</span>
+enter&gt;<span class="bold_code">abc(), "hey".</span>
 {ok,[{atom,1,abc},{'(',1},{')',1},{',',1},{string,1,"hey"},{dot,1}],2}
-24&gt; <span class="bold_code bc-12">io:scan_erl_exprs('enter&gt;').</span>
-enter&gt;<span class="bold_code bc-12">1.0er.</span>
+24&gt; <span class="bold_code">io:scan_erl_exprs('enter&gt;').</span>
+enter&gt;<span class="bold_code">1.0er.</span>
 {error,{1,erl_scan,{illegal,float}},2}</pre></div>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="scan_erl_form-1"></a><span class="bold_code func-name">scan_erl_form(Prompt) -&gt; Result</span><a name="scan_erl_form-2"></a><span class="bold_code func-name">scan_erl_form(IoDevice, Prompt) -&gt; Result</span><a name="scan_erl_form-3"></a><span class="bold_code func-name">scan_erl_form(IoDevice, Prompt, StartLocation) -&gt; Result</span><a name="scan_erl_form-4"></a><span class="bold_code func-name">scan_erl_form(IoDevice, Prompt, StartLocation, Options) -&gt; Result</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">IoDevice = <span class="bold_code data-type-ref"><a href="#type-device">device()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Prompt = <span class="bold_code data-type-ref"><a href="#type-prompt">prompt()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">StartLocation = <span class="bold_code data-type-ref"><a href="#type-location">location()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = <span class="bold_code bc-15"><a href="erl_scan.html#type-options">erl_scan:options()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Result = <span class="bold_code bc-15"><a href="erl_scan.html#type-tokens_result">erl_scan:tokens_result()</a></span> | <span class="bold_code data-type-ref"><a href="#type-server_no_data">server_no_data()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">server_no_data() = {error, ErrorDescription :: term()} | eof</span><br>
+    <p><a name="scan_erl_form-1"></a><span class="bold_code">scan_erl_form(Prompt) -&gt; Result</span><br><a name="scan_erl_form-2"></a><span class="bold_code">scan_erl_form(IoDevice, Prompt) -&gt; Result</span><br><a name="scan_erl_form-3"></a><span class="bold_code">scan_erl_form(IoDevice, Prompt, StartLocation) -&gt; Result</span><br><a name="scan_erl_form-4"></a><span class="bold_code">scan_erl_form(IoDevice, Prompt, StartLocation, Options) -&gt; Result</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-device">device()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Prompt = <span class="bold_code"><a href="#type-prompt">prompt()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">StartLocation = <span class="bold_code"><a href="#type-location">location()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Options = <span class="bold_code"><a href="erl_scan.html#type-options">erl_scan:options()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Result = <span class="bold_code"><a href="erl_scan.html#type-tokens_result">erl_scan:tokens_result()</a></span> | <span class="bold_code"><a href="#type-server_no_data">server_no_data()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">server_no_data() = {error, ErrorDescription :: term()} | eof</span><br>
 </div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Reads data from the standard input (<span class="code">IoDevice</span>),
           prompting it with <span class="code">Prompt</span>. Starts reading
           at location <span class="code">StartLocation</span> (<span class="code">1</span>).
           Argument <span class="code">Options</span> is passed on as argument
-          <span class="code">Options</span> of function <span class="bold_code bc-15"><a href="erl_scan.html#tokens-4"><span class="code">erl_scan:tokens/4</span></a></span>. The data is tokenized as if it
+          <span class="code">Options</span> of function <span class="bold_code"><a href="erl_scan.html#tokens-4"><span class="code">erl_scan:tokens/4</span></a></span>. The data is tokenized as if it
           was an Erlang form (one of the valid Erlang expressions in an
           Erlang source file) until a final dot (<span class="code">.</span>) is reached.
           This last token is also returned.</p>
         <p>The return values are the same as for
-          <span class="bold_code data-type-ref"><a href="#scan_erl_exprs-1"><span class="code">scan_erl_exprs/1,2,3,4</span></a></span>.</p>
-      </p></div></div>
-</div>
+          <span class="bold_code"><a href="#scan_erl_exprs-1"><span class="code">scan_erl_exprs/1,2,3,4</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="setopts-1"></a><span class="bold_code func-name">setopts(Opts) -&gt; ok | {error, Reason}</span><a name="setopts-2"></a><span class="bold_code func-name">setopts(IoDevice, Opts) -&gt; ok | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">IoDevice = <span class="bold_code data-type-ref"><a href="#type-device">device()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Opts = [<span class="bold_code data-type-ref"><a href="#type-setopt">setopt()</a></span>]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="setopts-1"></a><span class="bold_code">setopts(Opts) -&gt; ok | {error, Reason}</span><br><a name="setopts-2"></a><span class="bold_code">setopts(IoDevice, Opts) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-device">device()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Opts = [<span class="bold_code"><a href="#type-setopt">setopt()</a></span>]</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Set options for the standard I/O device
           (<span class="code">IoDevice</span>).</p>
         <p>Possible options and values vary depending on the
           I/O device. For a list of supported options and their current values
           on a specific I/O device, use function
-          <span class="bold_code data-type-ref"><a href="#getopts-1"><span class="code">getopts/1</span></a></span>.</p>
+          <span class="bold_code"><a href="#getopts-1"><span class="code">getopts/1</span></a></span>.</p>
         <p>The options and values supported by the OTP I/O devices
           are as follows:</p>
         <dl>
@@ -2830,10 +2754,10 @@ enter&gt;<span class="bold_code bc-12">1.0er.</span>
               the I/O server sends binary data (encoded in UTF-8) as answers
               to the <span class="code">get_line</span>, <span class="code">get_chars</span>, and, if possible,
               <span class="code">get_until</span> requests (for details, see section
-              <span class="bold_code bc-19"><a href="io_protocol.html">The Erlang I/O Protocol</a></span>)
+              <span class="bold_code"><a href="io_protocol.html">The Erlang I/O Protocol</a></span>)
               in the User's Guide). The immediate effect is that
-              <span class="bold_code data-type-ref"><a href="#get_chars-2"><span class="code">get_chars/2,3</span></a></span> and
-              <span class="bold_code data-type-ref"><a href="#get_line-1"><span class="code">get_line/1,2</span></a></span>
+              <span class="bold_code"><a href="#get_chars-2"><span class="code">get_chars/2,3</span></a></span> and
+              <span class="bold_code"><a href="#get_line-1"><span class="code">get_line/1,2</span></a></span>
               return UTF-8 binaries instead of lists of characters
               for the affected I/O device.</p>
             <p>By default, all I/O devices in OTP are set in <span class="code">list</span> mode.
@@ -2855,7 +2779,7 @@ enter&gt;<span class="bold_code bc-12">1.0er.</span>
               like the Erlang shell. This function is called
               when the user presses the <strong>Tab</strong> key. The expansion is
               active when calling line-reading functions, such as
-              <span class="bold_code data-type-ref"><a href="#get_line-1"><span class="code">get_line/1,2</span></a></span>.</p>
+              <span class="bold_code"><a href="#get_line-1"><span class="code">get_line/1,2</span></a></span>.</p>
             <p>The function is called with the current line, up to
               the cursor, as a reversed string. It is to return a
               three-tuple: <span class="code">{yes|no, string(), [string(), ...]}</span>. The
@@ -2918,29 +2842,24 @@ fun("") -&gt; {yes, "quit", []};
               <span class="code">{encoding, unicode}</span> on files.</p>
             <p>The extended encodings are only supported on disk files
               (opened by function
-              <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#open-2');"><span class="code">file:open/2</span></a></span>).</p>
+              <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#open-2');"><span class="code">file:open/2</span></a></span>).</p>
           </dd>
         </dl>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="write-1"></a><span class="bold_code func-name">write(Term) -&gt; ok</span><a name="write-2"></a><span class="bold_code func-name">write(IoDevice, Term) -&gt; ok</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">IoDevice = <span class="bold_code data-type-ref"><a href="#type-device">device()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Term = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="write-1"></a><span class="bold_code">write(Term) -&gt; ok</span><br><a name="write-2"></a><span class="bold_code">write(IoDevice, Term) -&gt; ok</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-device">device()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Term = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Writes term <span class="code">Term</span> to the standard output
           (<span class="code">IoDevice</span>).</p>
-      </p></div></div>
-</div>
-  </div>
+      </p></div>
+  
 
-  <h3><a name="idm45461565805168">Standard Input/Output</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46007672238848">Standard Input/Output</a></h3>
+<div class="REFBODY">
     
     <p>All Erlang processes have a default standard I/O device. This
       device is used when no <span class="code">IoDevice</span> argument is specified in
@@ -2952,19 +2871,19 @@ fun("") -&gt; {yes, "quit", []};
       illustrates this:</p>
 
     <div class="example"><pre>
-27&gt; <span class="bold_code bc-12">io:read('enter&gt;').</span>
-enter&gt;<span class="bold_code bc-12">foo.</span>
+27&gt; <span class="bold_code">io:read('enter&gt;').</span>
+enter&gt;<span class="bold_code">foo.</span>
 {ok,foo}
-28&gt; <span class="bold_code bc-12">io:read(standard_io, 'enter&gt;').</span>
-enter&gt;<span class="bold_code bc-12">bar.</span>
+28&gt; <span class="bold_code">io:read(standard_io, 'enter&gt;').</span>
+enter&gt;<span class="bold_code">bar.</span>
 {ok,bar}</pre></div>
 
     <p>There is always a process registered under the name of
       <span class="code">user</span>. This can be used for sending output to the user.</p>
   </div>
 
- <h3><a name="idm45461565798848">Standard Error</a></h3>
-<div class="REFBODY rb-3">
+ <h3><a name="idm46007672232528">Standard Error</a></h3>
+<div class="REFBODY">
     
     <p>In certain situations, especially when the standard output is
       redirected, access to an I/O server specific for error messages can be
@@ -2973,13 +2892,13 @@ enter&gt;<span class="bold_code bc-12">bar.</span>
       I/O device for error output. Example on a Unix-like operating system:</p>
 
 <div class="example"><pre>
-$ <span class="bold_code bc-12">erl -noshell -noinput -eval 'io:format(standard_error,"Error: ~s~n",["error 11"]),'\</span>
-<span class="bold_code bc-12">'init:stop().' &gt; /dev/null</span>
+$ <span class="bold_code">erl -noshell -noinput -eval 'io:format(standard_error,"Error: ~s~n",["error 11"]),'\</span>
+<span class="bold_code">'init:stop().' &gt; /dev/null</span>
 Error: error 11</pre></div>
   </div>
 
-  <h3><a name="idm45461565795312">Error Information</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46007672228992">Error Information</a></h3>
+<div class="REFBODY">
     
     <p>The <span class="code">ErrorInfo</span> mentioned in this module is the standard
       <span class="code">ErrorInfo</span> structure that is returned from all I/O modules.

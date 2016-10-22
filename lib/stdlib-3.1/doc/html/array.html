@@ -1717,11 +1717,11 @@
 <!-- refpage --><center><h1>array</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">array</div>
+<div class="REFBODY">array</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Functional, extendible arrays.</div>
+<div class="REFBODY">Functional, extendible arrays.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>Functional, extendible arrays. Arrays can have fixed size, or can grow
       automatically as needed. A default value is used for entries that have not
       been explicitly set.</p>
@@ -1734,14 +1734,14 @@
       value is the atom <span class="code">undefined</span>. There is no difference between an
       unset entry and an entry that has been explicitly set to the same value
       as the default one (compare
-      <span class="bold_code data-type-ref"><a href="#reset-2"><span class="code">reset/2</span></a></span>). If you need to
+      <span class="bold_code"><a href="#reset-2"><span class="code">reset/2</span></a></span>). If you need to
       differentiate between unset and set entries, ensure that the default value
       cannot be confused with the values of set entries.</p>
 
     <p>The array never shrinks automatically. If an index <span class="code">I</span> has been used
       to set an entry successfully, all indices in the range [0,<span class="code">I</span>] stay
       accessible unless the array size is explicitly changed by calling
-      <span class="bold_code data-type-ref"><a href="#resize-2"><span class="code">resize/2</span></a></span>.</p>
+      <span class="bold_code"><a href="#resize-2"><span class="code">resize/2</span></a></span>.</p>
 
     <p><strong>Examples:</strong></p>
 
@@ -1791,151 +1791,108 @@ A3 = array:fix(A2).</pre></div>
     <div class="example"><pre>
 {'EXIT',{badarg,_}} = (catch array:set(18, true, A3)).
 {'EXIT',{badarg,_}} = (catch array:get(18, A3)).</pre></div>
-  </div>
+  </p></div>
 
-  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
-<div class="data-types-body">
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-array">array(Type)</a></span><div class="REFBODY data-type-desc"><p>
+  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
+    <p>
+      <span class="bold_code"><a name="type-array">array(Type)</a></span><br></p>
+<div class="REFBODY"><p>
         <p>A functional, extendible array. The representation is not documented
           and is subject to change without notice. Notice that arrays cannot be
           directly compared for equality.</p>
       </p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-array">array()</a> = <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(term())</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-array_indx">array_indx()</a> = integer() &gt;= 0</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-array_opts">array_opts()</a> = <span class="bold_code data-type-ref"><a href="#type-array_opt">array_opt()</a></span> | [<span class="bold_code data-type-ref"><a href="#type-array_opt">array_opt()</a></span>]</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-array_opt">array_opt()</a> = <br>    {fixed, boolean()} |<br>    fixed |<br>    {default, Type :: term()} |<br>    {size, N :: integer() &gt;= 0} |<br>    (N :: integer() &gt;= 0)</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-indx_pairs">indx_pairs(Type)</a> = [<span class="bold_code data-type-ref"><a href="#type-indx_pair">indx_pair</a></span>(Type)]</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-indx_pair">indx_pair(Type)</a> = {Index :: <span class="bold_code data-type-ref"><a href="#type-array_indx">array_indx()</a></span>, Type}</span>
-</div>
-  </div>
+    <p>
+      <span class="bold_code"><a name="type-array">array()</a> = <span class="bold_code"><a href="#type-array">array</a></span>(term())</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-array_indx">array_indx()</a> = integer() &gt;= 0</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-array_opts">array_opts()</a> = <span class="bold_code"><a href="#type-array_opt">array_opt()</a></span> | [<span class="bold_code"><a href="#type-array_opt">array_opt()</a></span>]</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-array_opt">array_opt()</a> = <br>    {fixed, boolean()} |<br>    fixed |<br>    {default, Type :: term()} |<br>    {size, N :: integer() &gt;= 0} |<br>    (N :: integer() &gt;= 0)</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-indx_pairs">indx_pairs(Type)</a> = [<span class="bold_code"><a href="#type-indx_pair">indx_pair</a></span>(Type)]</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-indx_pair">indx_pair(Type)</a> = {Index :: <span class="bold_code"><a href="#type-array_indx">array_indx()</a></span>, Type}</span><br></p>
+  
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="default-1"></a><span class="bold_code func-name">default(Array :: <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type)) -&gt; Value :: Type</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="default-1"></a>
+    <p><a name="default-1"></a><span class="bold_code">default(Array :: <span class="bold_code"><a href="#type-array">array</a></span>(Type)) -&gt; Value :: Type</span><br></p>
+<div class="REFBODY"><p><a name="default-1"></a>
         <p>Gets the value used for uninitialized entries.</p>
-        <p>See also <span class="bold_code data-type-ref"><a href="#new-2"><span class="code">new/2</span></a></span>.</p>
-      </p></div></div>
-</div>
+        <p>See also <span class="bold_code"><a href="#new-2"><span class="code">new/2</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="fix-1"></a><span class="bold_code func-name">fix(Array :: <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type)) -&gt; <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type)</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="fix-1"></a>
+    <p><a name="fix-1"></a><span class="bold_code">fix(Array :: <span class="bold_code"><a href="#type-array">array</a></span>(Type)) -&gt; <span class="bold_code"><a href="#type-array">array</a></span>(Type)</span><br></p>
+<div class="REFBODY"><p><a name="fix-1"></a>
         <p>Fixes the array size. This prevents it from growing automatically
           upon insertion.</p>
-        <p>See also <span class="bold_code data-type-ref"><a href="#set-3"><span class="code">set/3</span></a></span> and
-          <span class="bold_code data-type-ref"><a href="#relax-1"><span class="code">relax/1</span></a></span>.</p>
-      </p></div></div>
-</div>
+        <p>See also <span class="bold_code"><a href="#set-3"><span class="code">set/3</span></a></span> and
+          <span class="bold_code"><a href="#relax-1"><span class="code">relax/1</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="foldl-3"></a><span class="bold_code func-name">foldl(Function, InitialAcc :: A, Array :: <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type)) -&gt; B</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Function = <br>    fun((Index :: <span class="bold_code data-type-ref"><a href="#type-array_indx">array_indx()</a></span>, Value :: Type, Acc :: A) -&gt; B)</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="foldl-3"></a>
+    <p><a name="foldl-3"></a><span class="bold_code">foldl(Function, InitialAcc :: A, Array :: <span class="bold_code"><a href="#type-array">array</a></span>(Type)) -&gt; B</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Function = <br>    fun((Index :: <span class="bold_code"><a href="#type-array_indx">array_indx()</a></span>, Value :: Type, Acc :: A) -&gt; B)</span></div>
+</div></p>
+<div class="REFBODY"><p><a name="foldl-3"></a>
         <p>Folds the array elements using the specified function and initial
           accumulator value. The elements are visited in order from the lowest
           index to the highest. If <span class="code">Function</span> is not a
           function, the call fails with reason <span class="code">badarg</span>.</p>
-        <p>See also <span class="bold_code data-type-ref"><a href="#foldr-3"><span class="code">foldr/3</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#map-2"><span class="code">map/2</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#sparse_foldl-3"><span class="code">sparse_foldl/3</span></a></span>.</p>
-      </p></div></div>
-</div>
+        <p>See also <span class="bold_code"><a href="#foldr-3"><span class="code">foldr/3</span></a></span>,
+          <span class="bold_code"><a href="#map-2"><span class="code">map/2</span></a></span>,
+          <span class="bold_code"><a href="#sparse_foldl-3"><span class="code">sparse_foldl/3</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="foldr-3"></a><span class="bold_code func-name">foldr(Function, InitialAcc :: A, Array :: <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type)) -&gt; B</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Function = <br>    fun((Index :: <span class="bold_code data-type-ref"><a href="#type-array_indx">array_indx()</a></span>, Value :: Type, Acc :: A) -&gt; B)</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="foldr-3"></a>
+    <p><a name="foldr-3"></a><span class="bold_code">foldr(Function, InitialAcc :: A, Array :: <span class="bold_code"><a href="#type-array">array</a></span>(Type)) -&gt; B</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Function = <br>    fun((Index :: <span class="bold_code"><a href="#type-array_indx">array_indx()</a></span>, Value :: Type, Acc :: A) -&gt; B)</span></div>
+</div></p>
+<div class="REFBODY"><p><a name="foldr-3"></a>
         <p>Folds the array elements right-to-left using the specified function
           and initial accumulator value. The elements are visited in order from
           the highest index to the lowest. If <span class="code">Function</span> is
           not a function, the call fails with reason <span class="code">badarg</span>.</p>
-        <p>See also <span class="bold_code data-type-ref"><a href="#foldl-3"><span class="code">foldl/3</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#map-2"><span class="code">map/2</span></a></span>.</p>
-      </p></div></div>
-</div>
+        <p>See also <span class="bold_code"><a href="#foldl-3"><span class="code">foldl/3</span></a></span>,
+          <span class="bold_code"><a href="#map-2"><span class="code">map/2</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="from_list-1"></a><span class="bold_code func-name">from_list(List :: [Value :: Type]) -&gt; <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type)</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="from_list-1"></a>
+    <p><a name="from_list-1"></a><span class="bold_code">from_list(List :: [Value :: Type]) -&gt; <span class="bold_code"><a href="#type-array">array</a></span>(Type)</span><br></p>
+<div class="REFBODY"><p><a name="from_list-1"></a>
         <p>Equivalent to
-          <span class="bold_code data-type-ref"><a href="#from_list-2"><span class="code">from_list(List, undefined)</span></a></span>.</p>
-      </p></div></div>
-</div>
+          <span class="bold_code"><a href="#from_list-2"><span class="code">from_list(List, undefined)</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="from_list-2"></a><span class="bold_code func-name">from_list(List :: [Value :: Type], Default :: term()) -&gt;<br>             <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type)</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="from_list-2"></a>
+    <p><a name="from_list-2"></a><span class="bold_code">from_list(List :: [Value :: Type], Default :: term()) -&gt;<br>             <span class="bold_code"><a href="#type-array">array</a></span>(Type)</span><br></p>
+<div class="REFBODY"><p><a name="from_list-2"></a>
         <p>Converts a list to an extendible array. <span class="code">Default</span>
           is used as the value for uninitialized entries of the array. If
           <span class="code">List</span> is not a proper list, the call fails with
           reason <span class="code">badarg</span>.</p>
-        <p>See also <span class="bold_code data-type-ref"><a href="#new-2"><span class="code">new/2</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#to_list-1"><span class="code">to_list/1</span></a></span>.</p>
-      </p></div></div>
-</div>
+        <p>See also <span class="bold_code"><a href="#new-2"><span class="code">new/2</span></a></span>,
+          <span class="bold_code"><a href="#to_list-1"><span class="code">to_list/1</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="from_orddict-1"></a><span class="bold_code func-name">from_orddict(Orddict :: <span class="bold_code data-type-ref"><a href="#type-indx_pairs">indx_pairs</a></span>(Value :: Type)) -&gt; <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type)</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="from_orddict-1"></a>
+    <p><a name="from_orddict-1"></a><span class="bold_code">from_orddict(Orddict :: <span class="bold_code"><a href="#type-indx_pairs">indx_pairs</a></span>(Value :: Type)) -&gt; <span class="bold_code"><a href="#type-array">array</a></span>(Type)</span><br></p>
+<div class="REFBODY"><p><a name="from_orddict-1"></a>
         <p>Equivalent to
-          <span class="bold_code data-type-ref"><a href="#from_orddict-2"><span class="code">from_orddict(Orddict, undefined)</span></a></span>.</p>
-      </p></div></div>
-</div>
+          <span class="bold_code"><a href="#from_orddict-2"><span class="code">from_orddict(Orddict, undefined)</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="from_orddict-2"></a><span class="bold_code func-name">from_orddict(Orddict :: <span class="bold_code data-type-ref"><a href="#type-indx_pairs">indx_pairs</a></span>(Value :: Type),<br>             Default :: Type) -&gt;<br>                <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type)</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="from_orddict-2"></a>
+    <p><a name="from_orddict-2"></a><span class="bold_code">from_orddict(Orddict :: <span class="bold_code"><a href="#type-indx_pairs">indx_pairs</a></span>(Value :: Type),<br>             Default :: Type) -&gt;<br>                <span class="bold_code"><a href="#type-array">array</a></span>(Type)</span><br></p>
+<div class="REFBODY"><p><a name="from_orddict-2"></a>
         <p>Converts an ordered list of pairs <span class="code">{Index, Value}</span>
           to a corresponding extendible array. <span class="code">Default</span> is
           used as the value for uninitialized entries of the array. If
           <span class="code">Orddict</span> is not a proper, ordered list of pairs
           whose first elements are non-negative integers, the call fails with
           reason <span class="code">badarg</span>.</p>
-        <p>See also <span class="bold_code data-type-ref"><a href="#new-2"><span class="code">new/2</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#to_orddict-1"><span class="code">to_orddict/1</span></a></span>.</p>
-      </p></div></div>
-</div>
+        <p>See also <span class="bold_code"><a href="#new-2"><span class="code">new/2</span></a></span>,
+          <span class="bold_code"><a href="#to_orddict-1"><span class="code">to_orddict/1</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="get-2"></a><span class="bold_code func-name">get(I :: <span class="bold_code data-type-ref"><a href="#type-array_indx">array_indx()</a></span>, Array :: <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type)) -&gt; Value :: Type</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="get-2"></a>
+    <p><a name="get-2"></a><span class="bold_code">get(I :: <span class="bold_code"><a href="#type-array_indx">array_indx()</a></span>, Array :: <span class="bold_code"><a href="#type-array">array</a></span>(Type)) -&gt; Value :: Type</span><br></p>
+<div class="REFBODY"><p><a name="get-2"></a>
         <p>Gets the value of entry <span class="code">I</span>. If
           <span class="code">I</span> is not a non-negative integer, or if the array
           has fixed size and <span class="code">I</span> is larger than the maximum
@@ -1943,67 +1900,47 @@ A3 = array:fix(A2).</pre></div>
         <p>If the array does not have fixed size, the default value for any
           index <span class="code">I</span> greater than
           <span class="code">size(Array)-1</span> is returned.</p>
-        <p>See also <span class="bold_code data-type-ref"><a href="#set-3"><span class="code">set/3</span></a></span>.</p>
-      </p></div></div>
-</div>
+        <p>See also <span class="bold_code"><a href="#set-3"><span class="code">set/3</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="is_array-1"></a><span class="bold_code func-name">is_array(X :: term()) -&gt; boolean()</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="is_array-1"></a>
+    <p><a name="is_array-1"></a><span class="bold_code">is_array(X :: term()) -&gt; boolean()</span><br></p>
+<div class="REFBODY"><p><a name="is_array-1"></a>
         <p>Returns <span class="code">true</span> if <span class="code">X</span> is an array, otherwise
           <span class="code">false</span>. Notice that the check is only shallow, as there is no
           guarantee that <span class="code">X</span> is a well-formed array
           representation even if this function returns <span class="code">true</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="is_fix-1"></a><span class="bold_code func-name">is_fix(Array :: <span class="bold_code data-type-ref"><a href="#type-array">array()</a></span>) -&gt; boolean()</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="is_fix-1"></a>
+    <p><a name="is_fix-1"></a><span class="bold_code">is_fix(Array :: <span class="bold_code"><a href="#type-array">array()</a></span>) -&gt; boolean()</span><br></p>
+<div class="REFBODY"><p><a name="is_fix-1"></a>
         <p>Checks if the array has fixed size. Returns <span class="code">true</span> if the array
           is fixed, otherwise <span class="code">false</span>.</p>
-        <p>See also <span class="bold_code data-type-ref"><a href="#fix-1"><span class="code">fix/1</span></a></span>.</p>
-      </p></div></div>
-</div>
+        <p>See also <span class="bold_code"><a href="#fix-1"><span class="code">fix/1</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="map-2"></a><span class="bold_code func-name">map(Function, Array :: <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type1)) -&gt; <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type2)</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Function = fun((Index :: <span class="bold_code data-type-ref"><a href="#type-array_indx">array_indx()</a></span>, Type1) -&gt; Type2)</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="map-2"></a>
+    <p><a name="map-2"></a><span class="bold_code">map(Function, Array :: <span class="bold_code"><a href="#type-array">array</a></span>(Type1)) -&gt; <span class="bold_code"><a href="#type-array">array</a></span>(Type2)</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Function = fun((Index :: <span class="bold_code"><a href="#type-array_indx">array_indx()</a></span>, Type1) -&gt; Type2)</span></div>
+</div></p>
+<div class="REFBODY"><p><a name="map-2"></a>
         <p>Maps the specified function onto each array element. The elements are
           visited in order from the lowest index to the highest. If
           <span class="code">Function</span> is not a function, the call fails with
           reason <span class="code">badarg</span>.</p>
-        <p>See also <span class="bold_code data-type-ref"><a href="#foldl-3"><span class="code">foldl/3</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#foldr-3"><span class="code">foldr/3</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#sparse_map-2"><span class="code">sparse_map/2</span></a></span>.</p>
-      </p></div></div>
-</div>
+        <p>See also <span class="bold_code"><a href="#foldl-3"><span class="code">foldl/3</span></a></span>,
+          <span class="bold_code"><a href="#foldr-3"><span class="code">foldr/3</span></a></span>,
+          <span class="bold_code"><a href="#sparse_map-2"><span class="code">sparse_map/2</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="new-0"></a><span class="bold_code func-name">new() -&gt; <span class="bold_code data-type-ref"><a href="#type-array">array()</a></span></span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="new-0"></a>
+    <p><a name="new-0"></a><span class="bold_code">new() -&gt; <span class="bold_code"><a href="#type-array">array()</a></span></span><br></p>
+<div class="REFBODY"><p><a name="new-0"></a>
         <p>Creates a new, extendible array with initial size zero.</p>
-        <p>See also <span class="bold_code data-type-ref"><a href="#new-1"><span class="code">new/1</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#new-2"><span class="code">new/2</span></a></span>.</p>
-      </p></div></div>
-</div>
+        <p>See also <span class="bold_code"><a href="#new-1"><span class="code">new/1</span></a></span>,
+          <span class="bold_code"><a href="#new-2"><span class="code">new/2</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="new-1"></a><span class="bold_code func-name">new(Options :: <span class="bold_code data-type-ref"><a href="#type-array_opts">array_opts()</a></span>) -&gt; <span class="bold_code data-type-ref"><a href="#type-array">array()</a></span></span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="new-1"></a>
+    <p><a name="new-1"></a><span class="bold_code">new(Options :: <span class="bold_code"><a href="#type-array_opts">array_opts()</a></span>) -&gt; <span class="bold_code"><a href="#type-array">array()</a></span></span><br></p>
+<div class="REFBODY"><p><a name="new-1"></a>
         <p>Creates a new array according to the specified otions. By default,
           the array is extendible and has initial size zero. Array indices
           start at <span class="code">0</span>.</p> 
@@ -2017,7 +1954,7 @@ A3 = array:fix(A2).</pre></div>
             call fails with reason <span class="code">badarg</span>.</p></dd>
           <dt><strong><span class="code">fixed</span> or <span class="code">{fixed, true}</span></strong></dt>
           <dd><p>Creates a fixed-size array. See also
-            <span class="bold_code data-type-ref"><a href="#fix-1"><span class="code">fix/1</span></a></span>.</p></dd>
+            <span class="bold_code"><a href="#fix-1"><span class="code">fix/1</span></a></span>.</p></dd>
           <dt><strong><span class="code">{fixed, false}</span></strong></dt>
           <dd><p>Creates an extendible (non-fixed-size) array.</p></dd>
           <dt><strong><span class="code">{default, Value}</span></strong></dt>
@@ -2041,20 +1978,16 @@ array:new({default,0})</pre></div>
 array:new([{size,10},{fixed,false},{default,-1}])</pre></div>
         <p>creates an extendible array with initial size 10 whose default value
           is <span class="code">-1</span>.</p>
-        <p>See also <span class="bold_code data-type-ref"><a href="#fix-1"><span class="code">fix/1</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#from_list-2"><span class="code">from_list/2</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#get-2"><span class="code">get/2</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#new-0"><span class="code">new/0</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#new-2"><span class="code">new/2</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#set-3"><span class="code">set/3</span></a></span>.</p>
-      </p></div></div>
-</div>
+        <p>See also <span class="bold_code"><a href="#fix-1"><span class="code">fix/1</span></a></span>,
+          <span class="bold_code"><a href="#from_list-2"><span class="code">from_list/2</span></a></span>,
+          <span class="bold_code"><a href="#get-2"><span class="code">get/2</span></a></span>,
+          <span class="bold_code"><a href="#new-0"><span class="code">new/0</span></a></span>,
+          <span class="bold_code"><a href="#new-2"><span class="code">new/2</span></a></span>,
+          <span class="bold_code"><a href="#set-3"><span class="code">set/3</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="new-2"></a><span class="bold_code func-name">new(Size :: integer() &gt;= 0, Options :: <span class="bold_code data-type-ref"><a href="#type-array_opts">array_opts()</a></span>) -&gt; <span class="bold_code data-type-ref"><a href="#type-array">array()</a></span></span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="new-2"></a>
+    <p><a name="new-2"></a><span class="bold_code">new(Size :: integer() &gt;= 0, Options :: <span class="bold_code"><a href="#type-array_opts">array_opts()</a></span>) -&gt; <span class="bold_code"><a href="#type-array">array()</a></span></span><br></p>
+<div class="REFBODY"><p><a name="new-2"></a>
         <p>Creates a new array according to the specified size and options. If
           <span class="code">Size</span> is not a non-negative integer, the call fails
           with reason <span class="code">badarg</span>. By default, the array has fixed size.
@@ -2070,71 +2003,51 @@ array:new([{size,10},{fixed,false},{default,-1}])</pre></div>
 array:new(100, {default,0})</pre></div>
         <p>creates a fixed-size array of size 100, whose default value is
           <span class="code">0</span>.</p>
-        <p>See also <span class="bold_code data-type-ref"><a href="#new-1"><span class="code">new/1</span></a></span>.</p>
-      </p></div></div>
-</div>
+        <p>See also <span class="bold_code"><a href="#new-1"><span class="code">new/1</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="relax-1"></a><span class="bold_code func-name">relax(Array :: <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type)) -&gt; <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type)</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="relax-1"></a>
+    <p><a name="relax-1"></a><span class="bold_code">relax(Array :: <span class="bold_code"><a href="#type-array">array</a></span>(Type)) -&gt; <span class="bold_code"><a href="#type-array">array</a></span>(Type)</span><br></p>
+<div class="REFBODY"><p><a name="relax-1"></a>
         <p>Makes the array resizable. (Reverses the effects of
-          <span class="bold_code data-type-ref"><a href="#fix-1"><span class="code">fix/1</span></a></span>.)</p>
-        <p>See also <span class="bold_code data-type-ref"><a href="#fix-1"><span class="code">fix/1</span></a></span>.</p>
-      </p></div></div>
-</div>
+          <span class="bold_code"><a href="#fix-1"><span class="code">fix/1</span></a></span>.)</p>
+        <p>See also <span class="bold_code"><a href="#fix-1"><span class="code">fix/1</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="reset-2"></a><span class="bold_code func-name">reset(I :: <span class="bold_code data-type-ref"><a href="#type-array_indx">array_indx()</a></span>, Array :: <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type)) -&gt; <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type)</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="reset-2"></a>
+    <p><a name="reset-2"></a><span class="bold_code">reset(I :: <span class="bold_code"><a href="#type-array_indx">array_indx()</a></span>, Array :: <span class="bold_code"><a href="#type-array">array</a></span>(Type)) -&gt; <span class="bold_code"><a href="#type-array">array</a></span>(Type)</span><br></p>
+<div class="REFBODY"><p><a name="reset-2"></a>
         <p>Resets entry <span class="code">I</span> to the default value for the
           array. If the value of entry <span class="code">I</span> is the default
           value, the array is returned unchanged. Reset never changes the array
           size. Shrinking can be done explicitly by calling
-          <span class="bold_code data-type-ref"><a href="#resize-2"><span class="code">resize/2</span></a></span>.</p> 
+          <span class="bold_code"><a href="#resize-2"><span class="code">resize/2</span></a></span>.</p> 
         <p>If <span class="code">I</span> is not a non-negative integer, or if the
           array has fixed size and <span class="code">I</span> is larger than the
           maximum index, the call fails with reason <span class="code">badarg</span>; compare
-          <span class="bold_code data-type-ref"><a href="#set-3"><span class="code">set/3</span></a></span></p>
-        <p>See also <span class="bold_code data-type-ref"><a href="#new-2"><span class="code">new/2</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#set-3"><span class="code">set/3</span></a></span>.</p>
-      </p></div></div>
-</div>
+          <span class="bold_code"><a href="#set-3"><span class="code">set/3</span></a></span></p>
+        <p>See also <span class="bold_code"><a href="#new-2"><span class="code">new/2</span></a></span>,
+          <span class="bold_code"><a href="#set-3"><span class="code">set/3</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="resize-1"></a><span class="bold_code func-name">resize(Array :: <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type)) -&gt; <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type)</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="resize-1"></a>
+    <p><a name="resize-1"></a><span class="bold_code">resize(Array :: <span class="bold_code"><a href="#type-array">array</a></span>(Type)) -&gt; <span class="bold_code"><a href="#type-array">array</a></span>(Type)</span><br></p>
+<div class="REFBODY"><p><a name="resize-1"></a>
         <p>Changes the array size to that reported by
-          <span class="bold_code data-type-ref"><a href="#sparse_size-1"><span class="code">sparse_size/1</span></a></span>. If
+          <span class="bold_code"><a href="#sparse_size-1"><span class="code">sparse_size/1</span></a></span>. If
           the specified array has fixed size, also the resulting array has fixed
           size.</p>
-        <p>See also <span class="bold_code data-type-ref"><a href="#resize-2"><span class="code">resize/2</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#sparse_size-1"><span class="code">sparse_size/1</span></a></span>.</p>
-      </p></div></div>
-</div>
+        <p>See also <span class="bold_code"><a href="#resize-2"><span class="code">resize/2</span></a></span>,
+          <span class="bold_code"><a href="#sparse_size-1"><span class="code">sparse_size/1</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="resize-2"></a><span class="bold_code func-name">resize(Size :: integer() &gt;= 0, Array :: <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type)) -&gt;<br>          <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type)</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="resize-2"></a>
+    <p><a name="resize-2"></a><span class="bold_code">resize(Size :: integer() &gt;= 0, Array :: <span class="bold_code"><a href="#type-array">array</a></span>(Type)) -&gt;<br>          <span class="bold_code"><a href="#type-array">array</a></span>(Type)</span><br></p>
+<div class="REFBODY"><p><a name="resize-2"></a>
         <p>Change the array size. If <span class="code">Size</span> is not a
           non-negative integer, the call fails with reason <span class="code">badarg</span>. If
           the specified array has fixed size, also the resulting array has fixed
           size.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="set-3"></a><span class="bold_code func-name">set(I :: <span class="bold_code data-type-ref"><a href="#type-array_indx">array_indx()</a></span>, Value :: Type, Array :: <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type)) -&gt;<br>       <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type)</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="set-3"></a>
+    <p><a name="set-3"></a><span class="bold_code">set(I :: <span class="bold_code"><a href="#type-array_indx">array_indx()</a></span>, Value :: Type, Array :: <span class="bold_code"><a href="#type-array">array</a></span>(Type)) -&gt;<br>       <span class="bold_code"><a href="#type-array">array</a></span>(Type)</span><br></p>
+<div class="REFBODY"><p><a name="set-3"></a>
         <p>Sets entry <span class="code">I</span> of the array to
           <span class="code">Value</span>. If <span class="code">I</span> is not a
           non-negative integer, or if the array has fixed size and
@@ -2143,139 +2056,102 @@ array:new(100, {default,0})</pre></div>
         <p>If the array does not have fixed size, and <span class="code">I</span> is
           greater than <span class="code">size(Array)-1</span>, the array grows to
           size <span class="code">I+1</span>.</p>
-        <p>See also <span class="bold_code data-type-ref"><a href="#get-2"><span class="code">get/2</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#reset-2"><span class="code">reset/2</span></a></span>.</p>
-      </p></div></div>
-</div>
+        <p>See also <span class="bold_code"><a href="#get-2"><span class="code">get/2</span></a></span>,
+          <span class="bold_code"><a href="#reset-2"><span class="code">reset/2</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="size-1"></a><span class="bold_code func-name">size(Array :: <span class="bold_code data-type-ref"><a href="#type-array">array()</a></span>) -&gt; integer() &gt;= 0</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="size-1"></a>
+    <p><a name="size-1"></a><span class="bold_code">size(Array :: <span class="bold_code"><a href="#type-array">array()</a></span>) -&gt; integer() &gt;= 0</span><br></p>
+<div class="REFBODY"><p><a name="size-1"></a>
         <p>Gets the number of entries in the array. Entries are numbered from
           <span class="code">0</span> to <span class="code">size(Array)-1</span>. Hence, this is also the
           index of the first entry that is guaranteed to not have been
           previously set.</p>
-        <p>See also <span class="bold_code data-type-ref"><a href="#set-3"><span class="code">set/3</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#sparse_size-1"><span class="code">sparse_size/1</span></a></span>.</p>
-      </p></div></div>
-</div>
+        <p>See also <span class="bold_code"><a href="#set-3"><span class="code">set/3</span></a></span>,
+          <span class="bold_code"><a href="#sparse_size-1"><span class="code">sparse_size/1</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="sparse_foldl-3"></a><span class="bold_code func-name">sparse_foldl(Function, InitialAcc :: A, Array :: <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type)) -&gt; B</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Function = <br>    fun((Index :: <span class="bold_code data-type-ref"><a href="#type-array_indx">array_indx()</a></span>, Value :: Type, Acc :: A) -&gt; B)</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="sparse_foldl-3"></a>
+    <p><a name="sparse_foldl-3"></a><span class="bold_code">sparse_foldl(Function, InitialAcc :: A, Array :: <span class="bold_code"><a href="#type-array">array</a></span>(Type)) -&gt; B</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Function = <br>    fun((Index :: <span class="bold_code"><a href="#type-array_indx">array_indx()</a></span>, Value :: Type, Acc :: A) -&gt; B)</span></div>
+</div></p>
+<div class="REFBODY"><p><a name="sparse_foldl-3"></a>
         <p>Folds the array elements using the specified function and initial
           accumulator value, skipping default-valued entries. The elements are
           visited in order from the lowest index to the highest. If
           <span class="code">Function</span> is not a function, the call fails with
           reason <span class="code">badarg</span>.</p>
-        <p>See also <span class="bold_code data-type-ref"><a href="#foldl-3"><span class="code">foldl/3</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#sparse_foldr-3"><span class="code">sparse_foldr/3</span></a></span>.</p>
-      </p></div></div>
-</div>
+        <p>See also <span class="bold_code"><a href="#foldl-3"><span class="code">foldl/3</span></a></span>,
+          <span class="bold_code"><a href="#sparse_foldr-3"><span class="code">sparse_foldr/3</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="sparse_foldr-3"></a><span class="bold_code func-name">sparse_foldr(Function, InitialAcc :: A, Array :: <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type)) -&gt; B</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Function = <br>    fun((Index :: <span class="bold_code data-type-ref"><a href="#type-array_indx">array_indx()</a></span>, Value :: Type, Acc :: A) -&gt; B)</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="sparse_foldr-3"></a>
+    <p><a name="sparse_foldr-3"></a><span class="bold_code">sparse_foldr(Function, InitialAcc :: A, Array :: <span class="bold_code"><a href="#type-array">array</a></span>(Type)) -&gt; B</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Function = <br>    fun((Index :: <span class="bold_code"><a href="#type-array_indx">array_indx()</a></span>, Value :: Type, Acc :: A) -&gt; B)</span></div>
+</div></p>
+<div class="REFBODY"><p><a name="sparse_foldr-3"></a>
         <p>Folds the array elements right-to-left using the specified
           function and initial accumulator value, skipping default-valued
           entries. The elements are visited in order from the highest index to
           the lowest. If <span class="code">Function</span> is not a function, the
           call fails with reason <span class="code">badarg</span>.</p>
-        <p>See also <span class="bold_code data-type-ref"><a href="#foldr-3"><span class="code">foldr/3</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#sparse_foldl-3"><span class="code">sparse_foldl/3</span></a></span>.</p>
-      </p></div></div>
-</div>
+        <p>See also <span class="bold_code"><a href="#foldr-3"><span class="code">foldr/3</span></a></span>,
+          <span class="bold_code"><a href="#sparse_foldl-3"><span class="code">sparse_foldl/3</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="sparse_map-2"></a><span class="bold_code func-name">sparse_map(Function, Array :: <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type1)) -&gt; <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type2)</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Function = fun((Index :: <span class="bold_code data-type-ref"><a href="#type-array_indx">array_indx()</a></span>, Type1) -&gt; Type2)</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="sparse_map-2"></a>
+    <p><a name="sparse_map-2"></a><span class="bold_code">sparse_map(Function, Array :: <span class="bold_code"><a href="#type-array">array</a></span>(Type1)) -&gt; <span class="bold_code"><a href="#type-array">array</a></span>(Type2)</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Function = fun((Index :: <span class="bold_code"><a href="#type-array_indx">array_indx()</a></span>, Type1) -&gt; Type2)</span></div>
+</div></p>
+<div class="REFBODY"><p><a name="sparse_map-2"></a>
         <p>Maps the specified function onto each array element, skipping
           default-valued entries. The elements are visited in order from the
           lowest index to the highest. If <span class="code">Function</span> is not a
           function, the call fails with reason <span class="code">badarg</span>.</p>
-        <p>See also <span class="bold_code data-type-ref"><a href="#map-2"><span class="code">map/2</span></a></span>.</p>
-      </p></div></div>
-</div>
+        <p>See also <span class="bold_code"><a href="#map-2"><span class="code">map/2</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="sparse_size-1"></a><span class="bold_code func-name">sparse_size(Array :: <span class="bold_code data-type-ref"><a href="#type-array">array()</a></span>) -&gt; integer() &gt;= 0</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="sparse_size-1"></a>
+    <p><a name="sparse_size-1"></a><span class="bold_code">sparse_size(Array :: <span class="bold_code"><a href="#type-array">array()</a></span>) -&gt; integer() &gt;= 0</span><br></p>
+<div class="REFBODY"><p><a name="sparse_size-1"></a>
         <p>Gets the number of entries in the array up until the last
           non-default-valued entry. That is, returns <span class="code">I+1</span> if <span class="code">I</span> is
           the last non-default-valued entry in the array, or zero if no such
           entry exists.</p>
-        <p>See also <span class="bold_code data-type-ref"><a href="#resize-1"><span class="code">resize/1</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#size-1"><span class="code">size/1</span></a></span>.</p>
-      </p></div></div>
-</div>
+        <p>See also <span class="bold_code"><a href="#resize-1"><span class="code">resize/1</span></a></span>,
+          <span class="bold_code"><a href="#size-1"><span class="code">size/1</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="sparse_to_list-1"></a><span class="bold_code func-name">sparse_to_list(Array :: <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type)) -&gt; [Value :: Type]</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="sparse_to_list-1"></a>
+    <p><a name="sparse_to_list-1"></a><span class="bold_code">sparse_to_list(Array :: <span class="bold_code"><a href="#type-array">array</a></span>(Type)) -&gt; [Value :: Type]</span><br></p>
+<div class="REFBODY"><p><a name="sparse_to_list-1"></a>
         <p>Converts the array to a list, skipping default-valued entries.</p>
-        <p>See also <span class="bold_code data-type-ref"><a href="#to_list-1"><span class="code">to_list/1</span></a></span>.</p>
-      </p></div></div>
-</div>
+        <p>See also <span class="bold_code"><a href="#to_list-1"><span class="code">to_list/1</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="sparse_to_orddict-1"></a><span class="bold_code func-name">sparse_to_orddict(Array :: <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type)) -&gt;<br>                     <span class="bold_code data-type-ref"><a href="#type-indx_pairs">indx_pairs</a></span>(Value :: Type)</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="sparse_to_orddict-1"></a>
+    <p><a name="sparse_to_orddict-1"></a><span class="bold_code">sparse_to_orddict(Array :: <span class="bold_code"><a href="#type-array">array</a></span>(Type)) -&gt;<br>                     <span class="bold_code"><a href="#type-indx_pairs">indx_pairs</a></span>(Value :: Type)</span><br></p>
+<div class="REFBODY"><p><a name="sparse_to_orddict-1"></a>
         <p>Converts the array to an ordered list of pairs <span class="code">{Index,
           Value}</span>, skipping default-valued entries.</p>
         <p>See also
-          <span class="bold_code data-type-ref"><a href="#to_orddict-1"><span class="code">to_orddict/1</span></a></span>.</p>
-      </p></div></div>
-</div>
+          <span class="bold_code"><a href="#to_orddict-1"><span class="code">to_orddict/1</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="to_list-1"></a><span class="bold_code func-name">to_list(Array :: <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type)) -&gt; [Value :: Type]</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="to_list-1"></a>
+    <p><a name="to_list-1"></a><span class="bold_code">to_list(Array :: <span class="bold_code"><a href="#type-array">array</a></span>(Type)) -&gt; [Value :: Type]</span><br></p>
+<div class="REFBODY"><p><a name="to_list-1"></a>
         <p>Converts the array to a list.</p>
-        <p>See also <span class="bold_code data-type-ref"><a href="#from_list-2"><span class="code">from_list/2</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#sparse_to_list-1"><span class="code">sparse_to_list/1</span></a></span>.
+        <p>See also <span class="bold_code"><a href="#from_list-2"><span class="code">from_list/2</span></a></span>,
+          <span class="bold_code"><a href="#sparse_to_list-1"><span class="code">sparse_to_list/1</span></a></span>.
         </p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="to_orddict-1"></a><span class="bold_code func-name">to_orddict(Array :: <span class="bold_code data-type-ref"><a href="#type-array">array</a></span>(Type)) -&gt; <span class="bold_code data-type-ref"><a href="#type-indx_pairs">indx_pairs</a></span>(Value :: Type)</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="to_orddict-1"></a>
+    <p><a name="to_orddict-1"></a><span class="bold_code">to_orddict(Array :: <span class="bold_code"><a href="#type-array">array</a></span>(Type)) -&gt; <span class="bold_code"><a href="#type-indx_pairs">indx_pairs</a></span>(Value :: Type)</span><br></p>
+<div class="REFBODY"><p><a name="to_orddict-1"></a>
         <p>Converts the array to an ordered list of pairs <span class="code">{Index,
           Value}</span>.</p>
         <p>See also
-          <span class="bold_code data-type-ref"><a href="#from_orddict-2"><span class="code">from_orddict/2</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#sparse_to_orddict-1"><span class="code">sparse_to_orddict/1</span></a></span>.
+          <span class="bold_code"><a href="#from_orddict-2"><span class="code">from_orddict/2</span></a></span>,
+          <span class="bold_code"><a href="#sparse_to_orddict-1"><span class="code">sparse_to_orddict/1</span></a></span>.
         </p>
-      </p></div></div>
-</div>
-  </div>
+      </p></div>
+  
 </div>
 <div class="footer">
 <hr>

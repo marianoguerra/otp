@@ -146,23 +146,23 @@
 
 
 <h3><a name="file" href="#file">File</a></h3>
-<div class="REFBODY file-body">diameter_dict</div>
+<div class="REFBODY">diameter_dict</div>
 <h3><a name="file-summary" href="#file-summary">File Summary</a></h3>
-<div class="REFBODY file-summary-body">Dictionary interface of the diameter application.</div>
+<div class="REFBODY">Dictionary interface of the diameter application.</div>
 
 <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
 <p>
-A diameter service, as configured with <span class="bold_code bc-15"><a href="diameter.html#start_service-2">diameter:start_service/2</a></span>,
+A diameter service, as configured with <span class="bold_code"><a href="diameter.html#start_service-2">diameter:start_service/2</a></span>,
 specifies one or more supported Diameter applications.
 Each Diameter application specifies a dictionary module that knows how
 to encode and decode its messages and AVPs.
 The dictionary module is in turn generated from a file that defines
 these messages and AVPs.
-The format of such a file is defined in <span class="bold_code data-type-ref"><a href="#FILE_FORMAT">FILE FORMAT</a></span> below.
+The format of such a file is defined in <span class="bold_code"><a href="#FILE_FORMAT">FILE FORMAT</a></span> below.
 Users add support for their specific applications by creating
 dictionary files, compiling them to Erlang modules using
-either <span class="bold_code bc-19"><a href="diameterc.html">diameterc(1)</a></span> or <span class="bold_code bc-19"><a href="diameter_make.html">diameter_make(3)</a></span> and configuring the
+either <span class="bold_code"><a href="diameterc.html">diameterc(1)</a></span> or <span class="bold_code"><a href="diameter_make.html">diameter_make(3)</a></span> and configuring the
 resulting dictionaries modules on a service.</p>
 
 <p>
@@ -170,9 +170,9 @@ Dictionary module generation also results in a hrl file that defines
 records for the messages and Grouped AVPs defined by the
 dictionary, these records being what a user of the diameter
 application sends and receives, modulo other possible formats as
-discussed in <span class="bold_code bc-19"><a href="diameter_app.html">diameter_app(3)</a></span>.
+discussed in <span class="bold_code"><a href="diameter_app.html">diameter_app(3)</a></span>.
 These records and the underlying Erlang data types corresponding to
-Diameter data formats are discussed in <span class="bold_code data-type-ref"><a href="#MESSAGE_RECORDS">MESSAGE RECORDS</a></span> and <span class="bold_code data-type-ref"><a href="#DATA_TYPES">DATA TYPES</a></span>
+Diameter data formats are discussed in <span class="bold_code"><a href="#MESSAGE_RECORDS">MESSAGE RECORDS</a></span> and <span class="bold_code"><a href="#DATA_TYPES">DATA TYPES</a></span>
 respectively.
 The generated hrl also contains macro definitions for the possible values of
 AVPs of type Enumerated.</p>
@@ -199,12 +199,12 @@ encode/decode since the messages and AVPs it handles are not specifically
 defined.</p>
 
 <a name="FILE_FORMAT"></a>
-</div>
+</p></div>
 
 
 
-<h3><a name="idp46109382587104">FILE FORMAT</a></h3>
-<div class="REFBODY rb-3">
+<h3><a name="idp46355814447296">FILE FORMAT</a></h3>
+<div class="REFBODY">
 
 
 <p>
@@ -381,7 +381,7 @@ The section consists of definitions of the form</p>
 
 <p>
 where Code is the integer AVP code, Type identifies an AVP Data Format
-as defined in section <span class="bold_code data-type-ref"><a href="#DATA_TYPES">DATA TYPES</a></span> below,
+as defined in section <span class="bold_code"><a href="#DATA_TYPES">DATA TYPES</a></span> below,
 and Flags is a string of V, M and P characters indicating the flags to be
 set on an outgoing AVP or a single <span class="code">'-'</span> (minus) character if
 none are to be set.</p>
@@ -564,8 +564,8 @@ characters from a semicolon to end of line are ignored.</p>
 
 
 
-<h3><a name="idp46109382646176">MESSAGE RECORDS</a></h3>
-<div class="REFBODY rb-3">
+<h3><a name="idp46355814506368">MESSAGE RECORDS</a></h3>
+<div class="REFBODY">
 
 
 <p>
@@ -610,23 +610,23 @@ types being described below.</p>
 
 
 
-<h3><a name="idp46109382652736">DATA TYPES</a></h3>
-<div class="REFBODY rb-3">
+<h3><a name="idp46355814512928">DATA TYPES</a></h3>
+<div class="REFBODY">
 
 
 <p>
 The data formats defined in sections 4.2 ("Basic AVP Data
 Formats") and 4.3 ("Derived AVP Data Formats") of RFC 6733 are encoded
 as values of the types defined here.
-Values are passed to <span class="bold_code bc-15"><a href="diameter.html#call-4">diameter:call/4</a></span>
+Values are passed to <span class="bold_code"><a href="diameter.html#call-4">diameter:call/4</a></span>
 in a request record when sending a request, returned in a resulting
-answer record and passed to a <span class="bold_code bc-15"><a href="diameter_app.html#Mod:handle_request-3">handle_request/3</a></span>
+answer record and passed to a <span class="bold_code"><a href="diameter_app.html#Mod:handle_request-3">handle_request/3</a></span>
 callback upon reception of an incoming request.</p>
 
 <p>
 In cases in which there is a choice between string() and binary() types
 for OctetString() and derived types, the representation is determined
-by the value of <span class="bold_code bc-15"><a href="diameter.html#service_opt">diameter:service_opt()</a></span> <span class="bold_code bc-15"><a href="diameter.html#string_decode">string_decode</a></span>.</p>
+by the value of <span class="bold_code"><a href="diameter.html#service_opt">diameter:service_opt()</a></span> <span class="bold_code"><a href="diameter.html#string_decode">string_decode</a></span>.</p>
 
 <p>
 <strong>Basic AVP Data Formats</strong></p>
@@ -770,12 +770,12 @@ Values of these types are not currently parsed by diameter.</p>
 
 
 
-<h3><a name="idp46109382680400">SEE ALSO</a></h3>
-<div class="REFBODY rb-3">
+<h3><a name="idp46355814540592">SEE ALSO</a></h3>
+<div class="REFBODY">
 
 
 <p>
-<span class="bold_code bc-19"><a href="diameterc.html">diameterc(1)</a></span>, <span class="bold_code bc-19"><a href="diameter.html">diameter(3)</a></span>, <span class="bold_code bc-19"><a href="diameter_app.html">diameter_app(3)</a></span>, <span class="bold_code bc-19"><a href="diameter_codec.html">diameter_codec(3)</a></span>, <span class="bold_code bc-19"><a href="diameter_make.html">diameter_make(3)</a></span></p>
+<span class="bold_code"><a href="diameterc.html">diameterc(1)</a></span>, <span class="bold_code"><a href="diameter.html">diameter(3)</a></span>, <span class="bold_code"><a href="diameter_app.html">diameter_app(3)</a></span>, <span class="bold_code"><a href="diameter_codec.html">diameter_codec(3)</a></span>, <span class="bold_code"><a href="diameter_make.html">diameter_make(3)</a></span></p>
 
 </div>
 

@@ -333,142 +333,117 @@
 <!-- refpage --><center><h1>mod_security</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">mod_security</div>
+<div class="REFBODY">mod_security</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Security Audit and Trailing Functionality</div>
+<div class="REFBODY">Security Audit and Trailing Functionality</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>Security Audit and Trailing Functionality</p>
-  </div>
+  </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
 
-      <div class="func">
-<div class="func-title">
-<a name="block_user-4"></a><span class="bold_code bc-9">block_user(User, Port, Dir, Seconds) -&gt; true | {error, Reason}</span><br><a name="block_user-5"></a><span class="bold_code bc-9">block_user(User, Address, Port, Dir, Seconds) -&gt; true | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+      <p><a name="block_user-4"></a><span class="bold_code">block_user(User, Port, Dir, Seconds) -&gt; true | {error, Reason}</span><br><a name="block_user-5"></a><span class="bold_code">block_user(User, Address, Port, Dir, Seconds) -&gt; true | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">User = string()</span><br>
+<span class="bold_code">User = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Port = integer()</span><br>
+<span class="bold_code">Port = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Address = {A,B,C,D} | string() | undefined</span><br>
+<span class="bold_code">Address = {A,B,C,D} | string() | undefined</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Seconds = integer() | infinity</span><br>
+<span class="bold_code">Seconds = integer() | infinity</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = no_such_directory</span><br>
+<span class="bold_code">Reason = no_such_directory</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p><span class="code">block_user/4</span> and <span class="code">block_user/5</span> each blocks the user 
           <span class="code">User</span> from directory <span class="code">Dir</span> for a specified 
           amount of time.</p>
       </p></div>
-</div>
-</div>
     
-    <div class="func">
-<div class="func-title">
-<a name="list_auth_users-1"></a><span class="bold_code bc-9">list_auth_users(Port) -&gt; Users | []</span><br><a name="list_auth_users-2"></a><span class="bold_code bc-9">list_auth_users(Address, Port) -&gt; Users | []</span><br><a name="list_auth_users-2"></a><span class="bold_code bc-9">list_auth_users(Port, Dir) -&gt; Users | []</span><br><a name="list_auth_users-3"></a><span class="bold_code bc-9">list_auth_users(Address, Port, Dir) -&gt; Users | []</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="list_auth_users-1"></a><span class="bold_code">list_auth_users(Port) -&gt; Users | []</span><br><a name="list_auth_users-2"></a><span class="bold_code">list_auth_users(Address, Port) -&gt; Users | []</span><br><a name="list_auth_users-2"></a><span class="bold_code">list_auth_users(Port, Dir) -&gt; Users | []</span><br><a name="list_auth_users-3"></a><span class="bold_code">list_auth_users(Address, Port, Dir) -&gt; Users | []</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Port = integer()</span><br>
+<span class="bold_code">Port = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Address = {A,B,C,D} | string() | undefined</span><br>
+<span class="bold_code">Address = {A,B,C,D} | string() | undefined</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Users = list() = [string()]</span><br>
+<span class="bold_code">Users = list() = [string()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p><span class="code">list_auth_users/1</span>, <span class="code">list_auth_users/2</span>, and 
           <span class="code">list_auth_users/3</span> each returns a list of users that are 
           currently authenticated. Authentications are stored for
           <span class="code">SecurityAuthTimeout</span> seconds, and then discarded.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="list_blocked_users-1"></a><span class="bold_code bc-9">list_blocked_users(Port) -&gt; Users | []</span><br><a name="list_blocked_users-2"></a><span class="bold_code bc-9">list_blocked_users(Address, Port) -&gt; Users | []</span><br><a name="list_blocked_users-2"></a><span class="bold_code bc-9">list_blocked_users(Port, Dir) -&gt; Users | []</span><br><a name="list_blocked_users-3"></a><span class="bold_code bc-9">list_blocked_users(Address, Port, Dir) -&gt; Users | []</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="list_blocked_users-1"></a><span class="bold_code">list_blocked_users(Port) -&gt; Users | []</span><br><a name="list_blocked_users-2"></a><span class="bold_code">list_blocked_users(Address, Port) -&gt; Users | []</span><br><a name="list_blocked_users-2"></a><span class="bold_code">list_blocked_users(Port, Dir) -&gt; Users | []</span><br><a name="list_blocked_users-3"></a><span class="bold_code">list_blocked_users(Address, Port, Dir) -&gt; Users | []</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Port = integer()</span><br>
+<span class="bold_code">Port = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Address = {A,B,C,D} | string() | undefined</span><br>
+<span class="bold_code">Address = {A,B,C,D} | string() | undefined</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Users = list() = [string()]</span><br>
+<span class="bold_code">Users = list() = [string()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p><span class="code">list_blocked_users/1</span>, <span class="code">list_blocked_users/2</span>, and 
           <span class="code">list_blocked_users/3</span> each returns a list of users that are 
           currently blocked from access.</p>
       </p></div>
-</div>
-</div>
   
-    <div class="func">
-<div class="func-title">
-<a name="unblock_user-2"></a><span class="bold_code bc-9">unblock_user(User, Port) -&gt; true | {error, Reason}</span><br><a name="unblock_user-3"></a><span class="bold_code bc-9">unblock_user(User, Address, Port) -&gt; true | {error, Reason}</span><br><a name="unblock_user-3"></a><span class="bold_code bc-9">unblock_user(User, Port, Dir) -&gt; true | {error, Reason}</span><br><a name="unblock_user-4"></a><span class="bold_code bc-9">unblock_user(User, Address, Port, Dir) -&gt; true | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="unblock_user-2"></a><span class="bold_code">unblock_user(User, Port) -&gt; true | {error, Reason}</span><br><a name="unblock_user-3"></a><span class="bold_code">unblock_user(User, Address, Port) -&gt; true | {error, Reason}</span><br><a name="unblock_user-3"></a><span class="bold_code">unblock_user(User, Port, Dir) -&gt; true | {error, Reason}</span><br><a name="unblock_user-4"></a><span class="bold_code">unblock_user(User, Address, Port, Dir) -&gt; true | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">User = string()</span><br>
+<span class="bold_code">User = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Port = integer()</span><br>
+<span class="bold_code">Port = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Address = {A,B,C,D} | string() | undefined</span><br>
+<span class="bold_code">Address = {A,B,C,D} | string() | undefined</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p><span class="code">unblock_user/2</span>, <span class="code">unblock_user/3</span>, and 
           <span class="code">unblock_user/4</span> each removes the user <span class="code">User</span> from 
           the list of blocked users for <span class="code">Port</span> (and <span class="code">Dir</span>).</p>
       </p></div>
-</div>
-</div>
-  </div>
+  
 
   <h3>
-<a name="callback_module"></a><a name="idm45717574731664">SecurityCallbackModule</a>
+<a name="callback_module"></a><a name="idm45565221465200">SecurityCallbackModule</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>The <span class="code">SecurityCallbackModule</span> is a user-written module that can receive 
@@ -479,31 +454,26 @@
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="Module:event-4"></a><span class="bold_code bc-9">Module:event(What, Port, Dir, Data) -&gt; ignored</span><br><a name="Module:event-5"></a><span class="bold_code bc-9">Module:event(What, Address, Port, Dir, Data) -&gt; ignored</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:event-4"></a><span class="bold_code">Module:event(What, Port, Dir, Data) -&gt; ignored</span><br><a name="Module:event-5"></a><span class="bold_code">Module:event(What, Address, Port, Dir, Data) -&gt; ignored</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">What = atom()</span><br>
+<span class="bold_code">What = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Port = integer()</span><br>
+<span class="bold_code">Port = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Address = {A,B,C,D} | string() &lt;v&gt;Dir   = string()</span><br>
+<span class="bold_code">Address = {A,B,C,D} | string() &lt;v&gt;Dir   = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Data = [Info]</span><br>
+<span class="bold_code">Data = [Info]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Info = {Name, Value}</span><br>
+<span class="bold_code">Info = {Name, Value}</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <a name="callback_module_event"></a>
         <p><span class="code">event/4</span> or <span class="code">event/5</span> is called whenever an event 
           occurs in the <span class="code">mod_security</span> Erlang web server API module.
@@ -529,9 +499,7 @@
         </p></div>
 </div>
       </p></div>
-</div>
-</div>
-  </div>
+  
   
 </div>
 <div class="footer">

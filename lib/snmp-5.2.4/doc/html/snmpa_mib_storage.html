@@ -803,13 +803,13 @@
   
 
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">snmpa_mib_storage</div>
+<div class="REFBODY">snmpa_mib_storage</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">
+<div class="REFBODY">
     Behaviour module for the SNMP agent mib storage. 
   </div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>This module defines the behaviour of the SNMP agent mib storage. </p>
     <p>The mib storage is used by the agent to store internal mib-
     related information. The mib storage module is used by several entities, 
@@ -819,50 +819,50 @@
     must export the following functions: </p>
     <ul>
       <li>
-	<span class="bold_code data-type-ref"><a href="#open">open/5</a></span>
+	<span class="bold_code"><a href="#open">open/5</a></span>
       </li>
       <li>
-	<span class="bold_code data-type-ref"><a href="#close">close/1</a></span>
+	<span class="bold_code"><a href="#close">close/1</a></span>
       </li>
       <li>
-	<span class="bold_code data-type-ref"><a href="#read">read/2</a></span>
+	<span class="bold_code"><a href="#read">read/2</a></span>
       </li>
       <li>
-	<span class="bold_code data-type-ref"><a href="#write">write/2</a></span>
+	<span class="bold_code"><a href="#write">write/2</a></span>
       </li>
       <li>
-	<span class="bold_code data-type-ref"><a href="#delete1">delete/1</a></span>
+	<span class="bold_code"><a href="#delete1">delete/1</a></span>
       </li>
       <li>
-	<span class="bold_code data-type-ref"><a href="#delete2">delete/2</a></span>
+	<span class="bold_code"><a href="#delete2">delete/2</a></span>
       </li>
       <li>
-	<span class="bold_code data-type-ref"><a href="#match_object">match_object/2</a></span>
+	<span class="bold_code"><a href="#match_object">match_object/2</a></span>
       </li>
       <li>
-	<span class="bold_code data-type-ref"><a href="#match_delete">match_delete/2</a></span>
+	<span class="bold_code"><a href="#match_delete">match_delete/2</a></span>
       </li>
       <li>
-	<span class="bold_code data-type-ref"><a href="#tab2list">tab2list/1</a></span>
+	<span class="bold_code"><a href="#tab2list">tab2list/1</a></span>
       </li>
       <li>
-	<span class="bold_code data-type-ref"><a href="#info">info/1</a></span>
+	<span class="bold_code"><a href="#info">info/1</a></span>
       </li>
       <li>
-	<span class="bold_code data-type-ref"><a href="#sync">sync/1</a></span>
+	<span class="bold_code"><a href="#sync">sync/1</a></span>
       </li>
       <li>
-	<span class="bold_code data-type-ref"><a href="#backup">backup/2</a></span>
+	<span class="bold_code"><a href="#backup">backup/2</a></span>
       </li>
     </ul>
 
     <p>The semantics of them and their exact signatures are 
     explained below. </p>
 
-  </div>
+  </p></div>
 
-  <h3><a name="idm46069276824560">CALLBACK FUNCTIONS</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45821337889568">CALLBACK FUNCTIONS</a></h3>
+<div class="REFBODY">
     
     <p>The following functions must be exported from a 
     <span class="code">mib-server</span> data callback module: </p>
@@ -871,37 +871,32 @@
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="Module:open-5"></a><span class="bold_code bc-9">Module:open(Name, RecordName, Fields, Type, Options) -&gt; {ok, TabId} | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:open-5"></a><span class="bold_code">Module:open(Name, RecordName, Fields, Type, Options) -&gt; {ok, TabId} | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Name = atom()</span><br>
+<span class="bold_code">Name = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">RecordName = atom()</span><br>
+<span class="bold_code">RecordName = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Fields = [atom()]</span><br>
+<span class="bold_code">Fields = [atom()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Type = set | bag()</span><br>
+<span class="bold_code">Type = set | bag()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Options = list()</span><br>
+<span class="bold_code">Options = list()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TabId = term()</span><br>
+<span class="bold_code">TabId = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Create or open a mib storage table. </p>
 	<p>Note that the <span class="code">RecordName</span> and <span class="code">Fields</span> arguments 
 	my not be used in all implementations (they are actually only 
@@ -913,276 +908,208 @@
 
         <a name="close"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:close-1"></a><span class="bold_code bc-9">Module:close(TabId) -&gt; void()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:close-1"></a><span class="bold_code">Module:close(TabId) -&gt; void()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">State = term()</span><br>
+<span class="bold_code">State = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Close the mib-storage table.</p>
 
         <a name="read"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:read-2"></a><span class="bold_code bc-9">Module:read(TabId, Key) -&gt; false | {value, Record}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:read-2"></a><span class="bold_code">Module:read(TabId, Key) -&gt; false | {value, Record}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TabId = term()</span><br>
+<span class="bold_code">TabId = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Key = term()</span><br>
+<span class="bold_code">Key = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Record = tuple()</span><br>
+<span class="bold_code">Record = tuple()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Read a record from the mib-storage table. </p>
 
         <a name="write"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:write-2"></a><span class="bold_code bc-9">Module:write(TabId, Record) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:write-2"></a><span class="bold_code">Module:write(TabId, Record) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TabId = term()</span><br>
+<span class="bold_code">TabId = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Record = tuple()</span><br>
+<span class="bold_code">Record = tuple()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Write a record to the mib-storage table. </p>
 
         <a name="delete1"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:delete-1"></a><span class="bold_code bc-9">Module:delete(TabId) -&gt; void()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:delete-1"></a><span class="bold_code">Module:delete(TabId) -&gt; void()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TabId = term()</span><br>
+<span class="bold_code">TabId = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Delete an entire mib-storage table. </p>
 
         <a name="delete2"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:delete-2"></a><span class="bold_code bc-9">Module:delete(TabId, Key) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:delete-2"></a><span class="bold_code">Module:delete(TabId, Key) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TabId = term()</span><br>
+<span class="bold_code">TabId = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Key = term()</span><br>
+<span class="bold_code">Key = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Delete a record from the mib-storage table. </p>
 
         <a name="match_object"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:match_object-2"></a><span class="bold_code bc-9">Module:match_object(TabId, Pattern) -&gt; {ok, Recs} | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:match_object-2"></a><span class="bold_code">Module:match_object(TabId, Pattern) -&gt; {ok, Recs} | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TabId = term()</span><br>
+<span class="bold_code">TabId = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pattern = match_pattern()</span><br>
+<span class="bold_code">Pattern = match_pattern()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Recs = [tuple()]</span><br>
+<span class="bold_code">Recs = [tuple()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Search the mib-storage table for record that match the
 	specified pattern. </p>
 
         <a name="match_delete"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:match_delete-2"></a><span class="bold_code bc-9">Module:match_delete(TabId, Pattern) -&gt; {ok, Recs} | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:match_delete-2"></a><span class="bold_code">Module:match_delete(TabId, Pattern) -&gt; {ok, Recs} | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TabId = term()</span><br>
+<span class="bold_code">TabId = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pattern = match_pattern()</span><br>
+<span class="bold_code">Pattern = match_pattern()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Recs = [tuple()]</span><br>
+<span class="bold_code">Recs = [tuple()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Search the mib-storage table for record that match the
 	specified pattern and then delete them. The records deleted are
 	also returned. </p>
 
         <a name="tab2list"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:tab2list-1"></a><span class="bold_code bc-9">Module:tab2list(TabId) -&gt; Recs</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:tab2list-1"></a><span class="bold_code">Module:tab2list(TabId) -&gt; Recs</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TabId = term()</span><br>
+<span class="bold_code">TabId = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Recs = [tuple()]</span><br>
+<span class="bold_code">Recs = [tuple()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Return all records in the mib-storage table in the form 
 	of a list. </p>
 
         <a name="info"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:info-1"></a><span class="bold_code bc-9">Module:info(TabId) -&gt; {ok, Info} | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:info-1"></a><span class="bold_code">Module:info(TabId) -&gt; {ok, Info} | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TabId = term()</span><br>
+<span class="bold_code">TabId = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Info = term()</span><br>
+<span class="bold_code">Info = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Retrieve implementation dependent mib-storage table 
 	information. </p>
 
         <a name="sync"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:sync-1"></a><span class="bold_code bc-9">Module:sync(TabId) -&gt; void()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:sync-1"></a><span class="bold_code">Module:sync(TabId) -&gt; void()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TabId = term()</span><br>
+<span class="bold_code">TabId = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Synchronize the mib-storage table. </p>
 	<p>What this means, if anything, is implementation dependent. </p>
 
         <a name="backup"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:backup-2"></a><span class="bold_code bc-9">Module:backup(TabId, BackupDir) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:backup-2"></a><span class="bold_code">Module:backup(TabId, BackupDir) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TabId = term()</span><br>
+<span class="bold_code">TabId = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">BackupDir = string()</span><br>
+<span class="bold_code">BackupDir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Perform a backup of the mib-storage table. </p>
         <p>What this means, if anything, is implementation dependent. </p>
 
       </p></div>
-</div>
-</div>
 
-  </div>
+  
   
 </div>
 <div class="footer">

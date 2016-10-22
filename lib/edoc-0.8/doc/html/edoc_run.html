@@ -141,19 +141,17 @@
 <!-- refpage --><center><h1>edoc_run</h1></center>
 
 <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">edoc_run</div>
+<div class="REFBODY">edoc_run</div>
 <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Interface for calling EDoc from Erlang startup options.</div>
+<div class="REFBODY">Interface for calling EDoc from Erlang startup options.</div>
 <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
 <p>Interface for calling EDoc from Erlang startup options.</p>
  
   <p>The following is an example of typical usage in a Makefile:
-  </p>
-<div class="example"><pre>     docs:
+  </p><div class="example"><pre>     docs:
              erl -noshell -run edoc_run application "'$(APP_NAME)'" \
-               '"."' '[{def,{vsn,"$(VSN)"}}]'</pre></div>
-<p>  
+               '"."' '[{def,{vsn,"$(VSN)"}}]'</pre></div><p>  
 (note the single-quotes to avoid shell expansion, and the  
 double-quotes enclosing the strings).</p>
  
@@ -161,43 +159,34 @@ double-quotes enclosing the strings).</p>
   necessary to write <span class="code">-s init stop</span> last on the command line in order
   to make the execution terminate. The termination (signalling success
   or failure to the operating system) is now built into these
-  functions.</p>
-</div>
+  functions.</p></p></div>
 <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-<div class="func">
-<div class="func-title">
-<a name="application-1"></a><span class="bold_code bc-9">application(Args::[string()]) -&gt; none()</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="application-1"></a>
+<p><a name="application-1"></a><span class="bold_code">application(Args::[string()]) -&gt; none()</span><br></p>
+<div class="REFBODY"><p><a name="application-1"></a>
 
-<p>Calls <span class="bold_code bc-15"><a href="edoc.html#application-3">edoc:application/3</a></span> with the corresponding
+<p>Calls <span class="bold_code"><a href="edoc.html#application-3">edoc:application/3</a></span> with the corresponding
   arguments. The strings in the list are parsed as Erlang constant
   terms. The list can be either <span class="code">[App]</span>, <span class="code">[App, Options]</span> or <span class="code">[App,
-  Dir, Options]</span>. In the first case <span class="bold_code bc-15"><a href="edoc.html#application-1">edoc:application/1</a></span> is
-  called instead; in the second case, <span class="bold_code bc-15"><a href="edoc.html#application-2">edoc:application/2</a></span> is  
+  Dir, Options]</span>. In the first case <span class="bold_code"><a href="edoc.html#application-1">edoc:application/1</a></span> is
+  called instead; in the second case, <span class="bold_code"><a href="edoc.html#application-2">edoc:application/2</a></span> is  
 called.</p>
  
   <p>The function call never returns; instead, the emulator is
   automatically terminated when the call has completed, signalling
   success or failure to the operating system.</p>
-</p></div></div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="file-1"></a><span class="bold_code bc-9">file(Args::[string()]) -&gt; none()</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="file-1"></a>
+</p></div>
+<p><a name="file-1"></a><span class="bold_code">file(Args::[string()]) -&gt; none()</span><br></p>
+<div class="REFBODY"><p><a name="file-1"></a>
 <p><strong>This function is deprecated: </strong>This is part of the old interface to EDoc and is mainly
   kept for backwards compatibility. The preferred way of generating
-  documentation is through one of the functions <span class="bold_code data-type-ref"><a href="#application-1">application/1</a></span>
-  and <span class="bold_code data-type-ref"><a href="#files-1">files/1</a></span>.
+  documentation is through one of the functions <span class="bold_code"><a href="#application-1">application/1</a></span>
+  and <span class="bold_code"><a href="#files-1">files/1</a></span>.
  </p>
 
-<p>Calls <span class="bold_code bc-15"><a href="edoc.html#file-2">edoc:file/2</a></span> with the corresponding arguments. The
+<p>Calls <span class="bold_code"><a href="edoc.html#file-2">edoc:file/2</a></span> with the corresponding arguments. The
   strings in the list are parsed as Erlang constant terms. The list can
   be either <span class="code">[File]</span> or <span class="code">[File, Options]</span>. In the first case, an empty
-  list of options is passed to <span class="bold_code bc-15"><a href="edoc.html#file-2">edoc:file/2</a></span>.</p>
+  list of options is passed to <span class="bold_code"><a href="edoc.html#file-2">edoc:file/2</a></span>.</p>
  
   <p>The following is an example of typical usage in a Makefile:
   </p><div class="example"><pre>     $(DOCDIR)/%.html:%.erl
@@ -207,26 +196,20 @@ called.</p>
   <p>The function call never returns; instead, the emulator is
   automatically terminated when the call has completed, signalling
   success or failure to the operating system.</p>
-</p></div></div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="files-1"></a><span class="bold_code bc-9">files(Args::[string()]) -&gt; none()</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="files-1"></a>
+</p></div>
+<p><a name="files-1"></a><span class="bold_code">files(Args::[string()]) -&gt; none()</span><br></p>
+<div class="REFBODY"><p><a name="files-1"></a>
 
-<p>Calls <span class="bold_code bc-15"><a href="edoc.html#files-2">edoc:files/2</a></span> with the corresponding arguments. The
+<p>Calls <span class="bold_code"><a href="edoc.html#files-2">edoc:files/2</a></span> with the corresponding arguments. The
   strings in the list are parsed as Erlang constant terms. The list can
-  be either <span class="code">[Files]</span> or <span class="code">[Files, Options]</span>. In the first case, <span class="bold_code bc-15"><a href="edoc.html#files-1">edoc:files/1</a></span> is called instead.</p>
+  be either <span class="code">[Files]</span> or <span class="code">[Files, Options]</span>. In the first case, <span class="bold_code"><a href="edoc.html#files-1">edoc:files/1</a></span> is called instead.</p>
  
   <p>The function call never returns; instead, the emulator is
   automatically terminated when the call has completed, signalling
   success or failure to the operating system.</p>
-</p></div></div>
-</div>
-</div>
-<h3><a name="idm45309800575328">See also</a></h3>
-<div class="REFBODY rb-3"><p><span class="bold_code bc-19"><a href="edoc.html">edoc</a></span></p></div>
+</p></div>
+<h3><a name="idm45024548934912">See also</a></h3>
+<div class="REFBODY"><p><span class="bold_code"><a href="edoc.html">edoc</a></span></p></div>
 
 
 Richard Carlsson

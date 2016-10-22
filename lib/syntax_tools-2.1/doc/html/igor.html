@@ -547,11 +547,11 @@
 <!-- refpage --><center><h1>igor</h1></center>
 
 <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">igor</div>
+<div class="REFBODY">igor</div>
 <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Igor: the Module Merger and Renamer.</div>
+<div class="REFBODY">Igor: the Module Merger and Renamer.</div>
 <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
 <p>Igor: the Module Merger and Renamer.</p>
  
   <p>The program Igor merges the source code of one or more Erlang  
@@ -560,8 +560,8 @@ of modules. Igor is also able to rename a set of (possibly
 interdependent) modules, without joining them into a single  
 module.</p>
  
-  <p>The main user interface consists of the functions <span class="bold_code data-type-ref"><a href="#merge-3">merge/3</a></span> and
-  <span class="bold_code data-type-ref"><a href="#rename-3">rename/3</a></span>. See also the function <span class="bold_code data-type-ref"><a href="#parse_transform-2">parse_transform/2</a></span>.</p>
+  <p>The main user interface consists of the functions <span class="bold_code"><a href="#merge-3">merge/3</a></span> and
+  <span class="bold_code"><a href="#rename-3">rename/3</a></span>. See also the function <span class="bold_code"><a href="#parse_transform-2">parse_transform/2</a></span>.</p>
  
   <p>A note of warning: Igor cannot do anything about the case when the
   name of a remote function is passed to the built-in functions
@@ -584,14 +584,13 @@ should Igor include the code of a deceased madman in the result.</p>
  
   <p>For further information on Igors in general, see e.g. "Young
   Frankenstein", Mel Brooks, 1974, and "The Fifth Elephant", Terry
-  Pratchett, 1999.</p>
-</div>
-<h3><a name="idm45688880018288">DATA TYPES</a></h3>
-<div class="REFBODY rb-3">
+  Pratchett, 1999.</p></p></div>
+<h3><a name="idm45201777713168">DATA TYPES</a></h3>
+<div class="REFBODY">
 <a name="types"></a>
 
 <dl>
-<dt><strong><a name="type-filename"></a>filename() = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename');">file:filename()</a></span></strong></dt>
+<dt><strong><a name="type-filename"></a>filename() = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename');">file:filename()</a></span></strong></dt>
 <dd>
 <p></p> </dd>
 <dt><strong><a name="type-stubDescriptor"></a>stubDescriptor() = {ModuleName, Functions, [Attribute]}</strong></dt>
@@ -610,22 +609,18 @@ should Igor include the code of a deceased madman in the result.</p>
        described by key-value pairs.
  </p>
 </dd>
-<dt><strong><a name="type-syntaxTree"></a>syntaxTree() = <span class="bold_code bc-15"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span></strong></dt>
+<dt><strong><a name="type-syntaxTree"></a>syntaxTree() = <span class="bold_code"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span></strong></dt>
 <dd>
 <p></p>
 <p>An abstract syntax
-  tree. See the <span class="bold_code bc-19"><a href="erl_syntax.html">erl_syntax</a></span> module for details.
+  tree. See the <span class="bold_code"><a href="erl_syntax.html">erl_syntax</a></span> module for details.
  </p>
 </dd>
 </dl>
 </div>
 <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-<div class="func">
-<div class="func-title">
-<a name="create_stubs-2"></a><span class="bold_code bc-9">create_stubs(Stubs::[<span class="bold_code data-type-ref"><a href="#type-stubDescriptor">stubDescriptor()</a></span>], Options::[term()]) -&gt; [string()]</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="create_stubs-2"></a>
+<p><a name="create_stubs-2"></a><span class="bold_code">create_stubs(Stubs::[<span class="bold_code"><a href="#type-stubDescriptor">stubDescriptor()</a></span>], Options::[term()]) -&gt; [string()]</span><br></p>
+<div class="REFBODY"><p><a name="create_stubs-2"></a>
 
 <p>Creates stub module source files corresponding to the given stub
   descriptors. The returned value is the list of names of the created
@@ -650,22 +645,14 @@ stub descriptors.</p>
  
   <p>See <span class="code">merge/3</span> for details on these options.
  </p>
-<p><strong>See also:</strong> <span class="bold_code data-type-ref"><a href="#merge-3">merge/3</a></span>, <span class="bold_code data-type-ref"><a href="#merge_sources-3">merge_sources/3</a></span>.</p>
-</p></div></div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="merge-2"></a><span class="bold_code bc-9">merge(Name::atom(), Files::[<span class="bold_code data-type-ref"><a href="#type-filename">filename()</a></span>]) -&gt; [<span class="bold_code data-type-ref"><a href="#type-filename">filename()</a></span>]</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="merge-2"></a>
-<p>Equivalent to <span class="bold_code data-type-ref"><a href="#merge-3">merge(Name, Files, [])</a></span>.</p>
-</p></div></div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="merge-3"></a><span class="bold_code bc-9">merge(Name::atom(), Files::[<span class="bold_code data-type-ref"><a href="#type-filename">filename()</a></span>], Options::[term()]) -&gt; [<span class="bold_code data-type-ref"><a href="#type-filename">filename()</a></span>]</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="merge-3"></a>
+<p><strong>See also:</strong> <span class="bold_code"><a href="#merge-3">merge/3</a></span>, <span class="bold_code"><a href="#merge_sources-3">merge_sources/3</a></span>.</p>
+</p></div>
+<p><a name="merge-2"></a><span class="bold_code">merge(Name::atom(), Files::[<span class="bold_code"><a href="#type-filename">filename()</a></span>]) -&gt; [<span class="bold_code"><a href="#type-filename">filename()</a></span>]</span><br></p>
+<div class="REFBODY"><p><a name="merge-2"></a>
+<p>Equivalent to <span class="bold_code"><a href="#merge-3">merge(Name, Files, [])</a></span>.</p>
+</p></div>
+<p><a name="merge-3"></a><span class="bold_code">merge(Name::atom(), Files::[<span class="bold_code"><a href="#type-filename">filename()</a></span>], Options::[term()]) -&gt; [<span class="bold_code"><a href="#type-filename">filename()</a></span>]</span><br></p>
+<div class="REFBODY"><p><a name="merge-3"></a>
 
 <p>Merges source code files to a single file. <span class="code">Name</span>
   specifies the name of the resulting module - not the name of the
@@ -778,29 +765,20 @@ the preprocessor expansions.</p>
  
   <p>See <span class="code">merge_files/4</span> for further options.
  </p>
-<p><strong>See also:</strong> <span class="bold_code data-type-ref"><a href="#merge-2">merge/2</a></span>, <span class="bold_code data-type-ref"><a href="#merge_files-4">merge_files/4</a></span>.</p>
-</p></div></div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="merge_files-3"></a><span class="bold_code bc-9">merge_files(Name::atom(), Files::[<span class="bold_code data-type-ref"><a href="#type-filename">filename()</a></span>], Options::[term()]) -&gt; {<span class="bold_code data-type-ref"><a href="#type-syntaxTree">syntaxTree()</a></span>, [<span class="bold_code data-type-ref"><a href="#type-stubDescriptor">stubDescriptor()</a></span>]}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="merge_files-3"></a>
-<p>Equivalent to <span class="bold_code data-type-ref"><a href="#merge_files-4">merge_files(Name, [], Files, Options)</a></span>.</p>
-</p></div></div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="merge_files-4"></a><span class="bold_code bc-9">merge_files(Name::atom(), Sources::[Forms], Files::[<span class="bold_code data-type-ref"><a href="#type-filename">filename()</a></span>], Options::[term()]) -&gt; {<span class="bold_code data-type-ref"><a href="#type-syntaxTree">syntaxTree()</a></span>, [<span class="bold_code data-type-ref"><a href="#type-stubDescriptor">stubDescriptor()</a></span>]}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+<p><strong>See also:</strong> <span class="bold_code"><a href="#merge-2">merge/2</a></span>, <span class="bold_code"><a href="#merge_files-4">merge_files/4</a></span>.</p>
+</p></div>
+<p><a name="merge_files-3"></a><span class="bold_code">merge_files(Name::atom(), Files::[<span class="bold_code"><a href="#type-filename">filename()</a></span>], Options::[term()]) -&gt; {<span class="bold_code"><a href="#type-syntaxTree">syntaxTree()</a></span>, [<span class="bold_code"><a href="#type-stubDescriptor">stubDescriptor()</a></span>]}</span><br></p>
+<div class="REFBODY"><p><a name="merge_files-3"></a>
+<p>Equivalent to <span class="bold_code"><a href="#merge_files-4">merge_files(Name, [], Files, Options)</a></span>.</p>
+</p></div>
+<p><a name="merge_files-4"></a><span class="bold_code">merge_files(Name::atom(), Sources::[Forms], Files::[<span class="bold_code"><a href="#type-filename">filename()</a></span>], Options::[term()]) -&gt; {<span class="bold_code"><a href="#type-syntaxTree">syntaxTree()</a></span>, [<span class="bold_code"><a href="#type-stubDescriptor">stubDescriptor()</a></span>]}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 <div class="REFTYPES">
-<span class="bold_code bc-11">Forms = <span class="bold_code data-type-ref"><a href="#type-syntaxTree">syntaxTree()</a></span> | [<span class="bold_code data-type-ref"><a href="#type-syntaxTree">syntaxTree()</a></span>]</span><br>
+<span class="bold_code">Forms = <span class="bold_code"><a href="#type-syntaxTree">syntaxTree()</a></span> | [<span class="bold_code"><a href="#type-syntaxTree">syntaxTree()</a></span>]</span><br>
 </div>
 </div>
-<div class="REFBODY data-type-desc"><p><a name="merge_files-4"></a>
+<div class="REFBODY"><p><a name="merge_files-4"></a>
 
 <p>Merges source code files and syntax trees to a single syntax
   tree. This is a file-reading front end to
@@ -887,22 +865,16 @@ are listed before entries read from files.</p>
  
   <p>See <span class="code">merge_sources/3</span> for further options.
  </p>
-<p><strong>See also:</strong> <span class="bold_code bc-19"><a href="epp_dodger.html">epp_dodger</a></span>, <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','filename.html#find_src-2');">filename:find_src/2</a></span>, <span class="bold_code data-type-ref"><a href="#merge-3">merge/3</a></span>, <span class="bold_code data-type-ref"><a href="#merge_files-3">merge_files/3</a></span>, <span class="bold_code data-type-ref"><a href="#merge_sources-3">merge_sources/3</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code"><a href="epp_dodger.html">epp_dodger</a></span>, <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','filename.html#find_src-2');">filename:find_src/2</a></span>, <span class="bold_code"><a href="#merge-3">merge/3</a></span>, <span class="bold_code"><a href="#merge_files-3">merge_files/3</a></span>, <span class="bold_code"><a href="#merge_sources-3">merge_sources/3</a></span>.</p>
 </p></div>
-</div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="merge_sources-3"></a><span class="bold_code bc-9">merge_sources(Name::atom(), Sources::[Forms], Options::[term()]) -&gt; {<span class="bold_code data-type-ref"><a href="#type-syntaxTree">syntaxTree()</a></span>, [<span class="bold_code data-type-ref"><a href="#type-stubDescriptor">stubDescriptor()</a></span>]}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+<p><a name="merge_sources-3"></a><span class="bold_code">merge_sources(Name::atom(), Sources::[Forms], Options::[term()]) -&gt; {<span class="bold_code"><a href="#type-syntaxTree">syntaxTree()</a></span>, [<span class="bold_code"><a href="#type-stubDescriptor">stubDescriptor()</a></span>]}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 <div class="REFTYPES">
-<span class="bold_code bc-11">Forms = <span class="bold_code data-type-ref"><a href="#type-syntaxTree">syntaxTree()</a></span> | [<span class="bold_code data-type-ref"><a href="#type-syntaxTree">syntaxTree()</a></span>]</span><br>
+<span class="bold_code">Forms = <span class="bold_code"><a href="#type-syntaxTree">syntaxTree()</a></span> | [<span class="bold_code"><a href="#type-syntaxTree">syntaxTree()</a></span>]</span><br>
 </div>
 </div>
-<div class="REFBODY data-type-desc"><p><a name="merge_sources-3"></a>
+<div class="REFBODY"><p><a name="merge_sources-3"></a>
 
 <p>Merges syntax trees to a single syntax tree. This is the main
   code merging "engine". <span class="code">Name</span> specifies the name of the
@@ -1078,15 +1050,10 @@ module directly.</p>
   This would destroy the code replacement properties of e.g. a typical
   server loop.
  </p>
-<p><strong>See also:</strong> <span class="bold_code data-type-ref"><a href="#create_stubs-2">create_stubs/2</a></span>, <span class="bold_code data-type-ref"><a href="#rename-3">rename/3</a></span>, <span class="bold_code bc-15"><a href="erl_tidy.html#module-2">erl_tidy:module/2</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code"><a href="#create_stubs-2">create_stubs/2</a></span>, <span class="bold_code"><a href="#rename-3">rename/3</a></span>, <span class="bold_code"><a href="erl_tidy.html#module-2">erl_tidy:module/2</a></span>.</p>
 </p></div>
-</div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="parse_transform-2"></a><span class="bold_code bc-9">parse_transform(Forms::[<span class="bold_code data-type-ref"><a href="#type-syntaxTree">syntaxTree()</a></span>], Options::[term()]) -&gt; [<span class="bold_code data-type-ref"><a href="#type-syntaxTree">syntaxTree()</a></span>]</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="parse_transform-2"></a>
+<p><a name="parse_transform-2"></a><span class="bold_code">parse_transform(Forms::[<span class="bold_code"><a href="#type-syntaxTree">syntaxTree()</a></span>], Options::[term()]) -&gt; [<span class="bold_code"><a href="#type-syntaxTree">syntaxTree()</a></span>]</span><br></p>
+<div class="REFBODY"><p><a name="parse_transform-2"></a>
 
 <p>Allows Igor to work as a component of the Erlang compiler.
   Including the term <span class="code">{parse_transform, igor}</span> in the
@@ -1109,29 +1076,20 @@ files are created or overwritten when this function is used.</p>
   overridden by the user; in particular, all cosmetic features are
   turned off, for efficiency. Preprocessing is turned on.
  </p>
-<p><strong>See also:</strong> <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','compiler','compile.html#file-2');">compile:file/2</a></span>, <span class="bold_code data-type-ref"><a href="#merge_files-4">merge_files/4</a></span>.</p>
-</p></div></div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="rename-2"></a><span class="bold_code bc-9">rename(Files::[<span class="bold_code data-type-ref"><a href="#type-filename">filename()</a></span>], Renamings) -&gt; [string()]</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="rename-2"></a>
-<p>Equivalent to <span class="bold_code data-type-ref"><a href="#rename-3">rename(Files, Renamings, [])</a></span>.</p>
-</p></div></div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="rename-3"></a><span class="bold_code bc-9">rename(Files::[<span class="bold_code data-type-ref"><a href="#type-filename">filename()</a></span>], Renamings, Options::[term()]) -&gt; [string()]</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+<p><strong>See also:</strong> <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','compiler','compile.html#file-2');">compile:file/2</a></span>, <span class="bold_code"><a href="#merge_files-4">merge_files/4</a></span>.</p>
+</p></div>
+<p><a name="rename-2"></a><span class="bold_code">rename(Files::[<span class="bold_code"><a href="#type-filename">filename()</a></span>], Renamings) -&gt; [string()]</span><br></p>
+<div class="REFBODY"><p><a name="rename-2"></a>
+<p>Equivalent to <span class="bold_code"><a href="#rename-3">rename(Files, Renamings, [])</a></span>.</p>
+</p></div>
+<p><a name="rename-3"></a><span class="bold_code">rename(Files::[<span class="bold_code"><a href="#type-filename">filename()</a></span>], Renamings, Options::[term()]) -&gt; [string()]</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 <div class="REFTYPES">
-<span class="bold_code bc-11">Renamings = [{atom(), atom()}]</span><br>
+<span class="bold_code">Renamings = [{atom(), atom()}]</span><br>
 </div>
 </div>
-<div class="REFBODY data-type-desc"><p><a name="rename-3"></a>
+<div class="REFBODY"><p><a name="rename-3"></a>
 
 <p>Renames a set of possibly interdependent source code modules.
   <span class="code">Files</span> is a list of file names of source modules to be
@@ -1211,11 +1169,8 @@ cannot be overridden by the user.</p>
  
   <p>See <span class="code">merge_sources/3</span> for further options.
  </p>
-<p><strong>See also:</strong> <span class="bold_code data-type-ref"><a href="#merge-3">merge/3</a></span>, <span class="bold_code data-type-ref"><a href="#merge_files-4">merge_files/4</a></span>, <span class="bold_code data-type-ref"><a href="#merge_sources-3">merge_sources/3</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code"><a href="#merge-3">merge/3</a></span>, <span class="bold_code"><a href="#merge_files-4">merge_files/4</a></span>, <span class="bold_code"><a href="#merge_sources-3">merge_sources/3</a></span>.</p>
 </p></div>
-</div>
-</div>
-</div>
 
 
 

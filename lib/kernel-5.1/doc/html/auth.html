@@ -646,106 +646,81 @@
 <!-- refpage --><center><h1>auth</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">auth</div>
+<div class="REFBODY">auth</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Erlang network authentication server.</div>
+<div class="REFBODY">Erlang network authentication server.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>This module is deprecated. For a description of the Magic
       Cookie system, refer to
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/reference_manual','distributed.html');">Distributed Erlang</a></span> in the Erlang Reference Manual.</p>
-  </div>
-  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
-<div class="data-types-body">
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-cookie">cookie()</a> = atom()</span>
-</div>
-  </div>
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/reference_manual','distributed.html');">Distributed Erlang</a></span> in the Erlang Reference Manual.</p>
+  </p></div>
+  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
+    <p>
+      <span class="bold_code"><a name="type-cookie">cookie()</a> = atom()</span><br></p>
+  
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="cookie-0"></a><span class="bold_code func-name">cookie() -&gt; Cookie</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Cookie = <span class="bold_code data-type-ref"><a href="#type-cookie">cookie()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="cookie-0"></a><span class="bold_code">cookie() -&gt; Cookie</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Cookie = <span class="bold_code"><a href="#type-cookie">cookie()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Use
-          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#erlang:get_cookie-0');"><span class="code">erlang:get_cookie()</span></a></span>
+          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#erlang:get_cookie-0');"><span class="code">erlang:get_cookie()</span></a></span>
           in ERTS instead.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="cookie-1"></a><span class="bold_code func-name">cookie(TheCookie) -&gt; true</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">TheCookie = Cookie | [Cookie]</span></div>
-<div class="REFBODY type-desc">
+      </p></div>
+    <p><a name="cookie-1"></a><span class="bold_code">cookie(TheCookie) -&gt; true</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">TheCookie = Cookie | [Cookie]</span></div>
+<div class="REFBODY">
         The cookie can also be specified as a list with a single atom element.
       </div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Cookie = <span class="bold_code data-type-ref"><a href="#type-cookie">cookie()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+<div class="REFTYPES"><span class="bold_code">Cookie = <span class="bold_code"><a href="#type-cookie">cookie()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Use
-          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#erlang:set_cookie-2');"><span class="code">erlang:set_cookie(node(),Cookie)</span>in ERTS</a></span> instead.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="is_auth-1"></a><span class="bold_code func-name">is_auth(Node) -&gt; yes | no</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Node = node()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#erlang:set_cookie-2');"><span class="code">erlang:set_cookie(node(),Cookie)</span>in ERTS</a></span> instead.</p>
+      </p></div>
+    <p><a name="is_auth-1"></a><span class="bold_code">is_auth(Node) -&gt; yes | no</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Node = node()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns <span class="code">yes</span> if communication with <span class="code">Node</span> is
           authorized. Notice that a connection to <span class="code">Node</span>
           is established in this case. Returns <span class="code">no</span> if <span class="code">Node</span>
           does not exist or communication is not authorized (it has
           another cookie than <span class="code">auth</span> thinks it has).</p>
-        <p>Use <span class="bold_code bc-15"><a href="net_adm.html#ping-1"><span class="code">net_adm:ping(Node)</span></a></span>
+        <p>Use <span class="bold_code"><a href="net_adm.html#ping-1"><span class="code">net_adm:ping(Node)</span></a></span>
           instead.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="node_cookie-1"></a><span class="bold_code bc-9">node_cookie([Node, Cookie]) -&gt; yes | no</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+      </p></div>
+    <p><a name="node_cookie-1"></a><span class="bold_code">node_cookie([Node, Cookie]) -&gt; yes | no</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Node = node()</span><br>
+<span class="bold_code">Node = node()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Cookie = <span class="bold_code data-type-ref"><a href="#type-cookie"><span class="code">cookie()</span></a></span></span><br>
+<span class="bold_code">Cookie = <span class="bold_code"><a href="#type-cookie"><span class="code">cookie()</span></a></span></span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Equivalent to
-          <span class="bold_code data-type-ref"><a href="#node_cookie-2"><span class="code">node_cookie(Node, Cookie)</span></a></span>.</p>
+          <span class="bold_code"><a href="#node_cookie-2"><span class="code">node_cookie(Node, Cookie)</span></a></span>.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="node_cookie-2"></a><span class="bold_code func-name">node_cookie(Node, Cookie) -&gt; yes | no</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Node = node()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Cookie = <span class="bold_code data-type-ref"><a href="#type-cookie">cookie()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="node_cookie-2"></a><span class="bold_code">node_cookie(Node, Cookie) -&gt; yes | no</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Node = node()</span></div>
+<div class="REFTYPES"><span class="bold_code">Cookie = <span class="bold_code"><a href="#type-cookie">cookie()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Sets the magic cookie of <span class="code">Node</span> to
 	<span class="code">Cookie</span> and verifies the status of the authorization.
           Equivalent to calling
-          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#erlang:set_cookie-2');"><span class="code">erlang:set_cookie(Node,Cookie)</span></a></span>, followed by
-          <span class="bold_code data-type-ref"><a href="#is_auth-1"><span class="code">auth:is_auth(Node)</span></a></span>.</p>
-      </p></div></div>
-</div>
-  </div>
+          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#erlang:set_cookie-2');"><span class="code">erlang:set_cookie(Node,Cookie)</span></a></span>, followed by
+          <span class="bold_code"><a href="#is_auth-1"><span class="code">auth:is_auth(Node)</span></a></span>.</p>
+      </p></div>
+  
 </div>
 <div class="footer">
 <hr>

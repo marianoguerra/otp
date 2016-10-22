@@ -952,11 +952,11 @@
 <!-- refpage --><center><h1>driver_entry</h1></center>
   
   <h3><a name="c-library" href="#c-library">C Library</a></h3>
-<div class="REFBODY c-library-body">driver_entry</div>
+<div class="REFBODY">driver_entry</div>
   <h3><a name="library-sumary" href="#library-sumary">Library Summary</a></h3>
-<div class="REFBODY library-summary-body">The driver-entry structure used by Erlang drivers.</div>
+<div class="REFBODY">The driver-entry structure used by Erlang drivers.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <a name="WARNING"></a>
     <div class="warning">
 <div class="label">Warning</div>
@@ -980,7 +980,7 @@
         </li>
         <li>
           <p>A driver callback doing
-            <span class="bold_code bc-15"><a href="erl_driver.html#lengthy_work">lengthy work</a></span>
+            <span class="bold_code"><a href="erl_driver.html#lengthy_work">lengthy work</a></span>
             before returning degrades responsiveness of the VM, and can cause
             miscellaneous strange behaviors. Such strange behaviors
             include, but are not limited to, extreme memory usage, and bad
@@ -994,11 +994,11 @@
 
     <p>As from ERTS 5.9 (Erlang/OTP R15B) the driver interface
       has been changed with larger types for the callbacks
-      <span class="bold_code data-type-ref"><a href="#output"><span class="code">output</span></a></span>,
-      <span class="bold_code data-type-ref"><a href="#control"><span class="code">control</span></a></span>, and
-      <span class="bold_code data-type-ref"><a href="#call"><span class="code">call</span></a></span>.
-      See driver <span class="bold_code bc-15"><a href="erl_driver.html#version_management">version management</a></span> in
-      <span class="bold_code bc-19"><a href="erl_driver.html"><span class="code">erl_driver</span></a></span>.</p>
+      <span class="bold_code"><a href="#output"><span class="code">output</span></a></span>,
+      <span class="bold_code"><a href="#control"><span class="code">control</span></a></span>, and
+      <span class="bold_code"><a href="#call"><span class="code">call</span></a></span>.
+      See driver <span class="bold_code"><a href="erl_driver.html#version_management">version management</a></span> in
+      <span class="bold_code"><a href="erl_driver.html"><span class="code">erl_driver</span></a></span>.</p>
 
     <div class="note">
 <div class="label">Note</div>
@@ -1006,7 +1006,7 @@
       <p>Old drivers (compiled with an <span class="code">erl_driver.h</span> from an
         ERTS version earlier than 5.9) must be updated and have
         to use the extended interface (with
-        <span class="bold_code bc-15"><a href="erl_driver.html#version_management">version management</a></span>).</p>
+        <span class="bold_code"><a href="erl_driver.html#version_management">version management</a></span>).</p>
     </p></div>
 </div>
 
@@ -1016,7 +1016,7 @@
       the driver.</p>
 
     <p><a name="emulator"></a>
-      The <span class="bold_code bc-19"><a href="erl_driver.html"><span class="code">erl_driver</span></a></span> driver
+      The <span class="bold_code"><a href="erl_driver.html"><span class="code">erl_driver</span></a></span> driver
       API functions need a port handle
       that identifies the driver instance (and the port in the
       emulator). This is only passed to the <span class="code">start</span> function, but
@@ -1069,10 +1069,10 @@ extern "C" DRIVER_INIT(drivername);</pre></div>
         read-only memory, which causes the emulator to crash.</p>
     </p></div>
 </div>
-  </div>
+  </p></div>
 
-  <h3><a name="idm45319509566368">Data Types</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45311096822752">Data Types</a></h3>
+<div class="REFBODY">
     
     <p><span class="code">ErlDrvEntry</span></p>
     <div class="example"><pre>
@@ -1144,7 +1144,7 @@ typedef struct erl_drv_entry {
       <dt><strong><a name="init"></a><span class="code">int (*init)(void)</span></strong></dt>
       <dd>       
         <p>Called directly after the driver has been loaded by
-          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../doc/../','kernel','erl_ddll.html#load_driver-2');"><span class="code">erl_ddll:load_driver/2</span></a></span> (actually when the driver is
+          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','erl_ddll.html#load_driver-2');"><span class="code">erl_ddll:load_driver/2</span></a></span> (actually when the driver is
           added to the driver list). The driver is to return <span class="code">0</span>, or, if
           the driver cannot initialize, <span class="code">-1</span>.</p>
       </dd>
@@ -1152,7 +1152,7 @@ typedef struct erl_drv_entry {
         <span class="code">ErlDrvData (*start)(ErlDrvPort port, char* command)</span></strong></dt>
       <dd>
         <p>Called when the driver is instantiated, when
-          <span class="bold_code bc-15"><a href="erlang.html#open_port-2"><span class="code">erlang:open_port/2</span></a></span> is called.
+          <span class="bold_code"><a href="erlang.html#open_port-2"><span class="code">erlang:open_port/2</span></a></span> is called.
           The driver is to return a number &gt;= 0 or a pointer, or, if the
           driver cannot be started, one of three error codes:</p>
         <dl>
@@ -1170,7 +1170,7 @@ typedef struct erl_drv_entry {
       <dt><strong><a name="stop"></a><span class="code">void (*stop)(ErlDrvData drv_data)</span></strong></dt>
       <dd>
         <p>Called when the port is closed, with
-          <span class="bold_code bc-15"><a href="erlang.html#port_close-1"><span class="code">erlang:port_close/1</span></a></span> or <span class="code">Port ! {self(), close}</span>.
+          <span class="bold_code"><a href="erlang.html#port_close-1"><span class="code">erlang:port_close/1</span></a></span> or <span class="code">Port ! {self(), close}</span>.
           Notice that terminating the port owner process also closes the
           port. If <span class="code">drv_data</span> is a pointer to memory allocated in
           <span class="code">start</span>, then <span class="code">stop</span> is the place to deallocate that
@@ -1185,8 +1185,8 @@ typedef struct erl_drv_entry {
           the port with <span class="code">Port ! {self(), {command, Data}}</span> or with
           <span class="code">erlang:port_command/2</span>. Depending on how the port was
           opened, it is to be either a list of integers <span class="code">0...255</span> or a
-          binary. See <span class="bold_code bc-15"><a href="erlang.html#open_port-2"><span class="code">erlang:open_port/2</span></a></span> and
-          <span class="bold_code bc-15"><a href="erlang.html#port_command-2"><span class="code">erlang:port_command/2</span></a></span>.</p>
+          binary. See <span class="bold_code"><a href="erlang.html#open_port-2"><span class="code">erlang:open_port/2</span></a></span> and
+          <span class="bold_code"><a href="erlang.html#port_command-2"><span class="code">erlang:port_command/2</span></a></span>.</p>
       </dd>
       <dt><strong><a name="ready_input"></a>
         <span class="code">void (*ready_input)(ErlDrvData drv_data, ErlDrvEvent event)</span>
@@ -1218,7 +1218,7 @@ typedef struct erl_drv_entry {
       <dt><strong><a name="driver_name"></a><span class="code">char *driver_name</span></strong></dt>
       <dd>
         <p>The driver name. It must correspond to the atom used in
-          <span class="bold_code bc-15"><a href="erlang.html#open_port-2"><span class="code">erlang:open_port/2</span></a></span>, and the name of the driver
+          <span class="bold_code"><a href="erlang.html#open_port-2"><span class="code">erlang:open_port/2</span></a></span>, and the name of the driver
           library file (without the extension).</p>
       </dd>
       <dt><strong><a name="finish"></a><span class="code">void (*finish)(void)</span></strong></dt>
@@ -1226,7 +1226,7 @@ typedef struct erl_drv_entry {
         <p>Called by the <span class="code">erl_ddll</span> driver when the
           driver is unloaded. (It is only called in dynamic drivers.)</p>
         <p>The driver is only unloaded as a result of calling
-          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../doc/../','kernel','erl_ddll.html#unload_driver-1');"><span class="code">erl_ddll:unload_driver/1</span></a></span>,
+          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','erl_ddll.html#unload_driver-1');"><span class="code">erl_ddll:unload_driver/1</span></a></span>,
           or when the emulator halts.</p>
       </dd>
       <dt><strong><span class="code">void *handle</span></strong></dt>
@@ -1240,7 +1240,7 @@ typedef struct erl_drv_entry {
         char *buf, ErlDrvSizeT len, char **rbuf, ErlDrvSizeT rlen)</span></strong></dt>
       <dd>
         <p>A special routine invoked with
-          <span class="bold_code bc-15"><a href="erlang.html#port_control-3"><span class="code">erlang:port_control/3</span></a></span>.
+          <span class="bold_code"><a href="erlang.html#port_control-3"><span class="code">erlang:port_control/3</span></a></span>.
           It works a little like an "ioctl" for
           Erlang drivers. The data specified to <span class="code">port_control/3</span>
           arrives in <span class="code">buf</span> and <span class="code">len</span>. The driver can send
@@ -1255,23 +1255,23 @@ typedef struct erl_drv_entry {
           <span class="code">*rbuf</span> points to a default buffer of <span class="code">rlen</span> bytes, which
           can be used to return data. Data is returned differently depending on
           the port control flags (those that are set with
-          <span class="bold_code bc-15"><a href="erl_driver.html#set_port_control_flags"><span class="code">erl_driver:set_port_control_flags</span></a></span>).</p>
+          <span class="bold_code"><a href="erl_driver.html#set_port_control_flags"><span class="code">erl_driver:set_port_control_flags</span></a></span>).</p>
         <p>If the flag is set to <span class="code">PORT_CONTROL_FLAG_BINARY</span>,
           a binary is returned. Small binaries can be returned by writing
           the raw data into the default buffer. A binary can also be
           returned by setting <span class="code">*rbuf</span> to point to a binary allocated with
-          <span class="bold_code bc-15"><a href="erl_driver.html#driver_alloc_binary"><span class="code">erl_driver:driver_alloc_binary</span></a></span>.
+          <span class="bold_code"><a href="erl_driver.html#driver_alloc_binary"><span class="code">erl_driver:driver_alloc_binary</span></a></span>.
           This binary is freed automatically after <span class="code">control</span> has returned.
           The driver can retain the binary for <strong>read only</strong> access with
-          <span class="bold_code bc-15"><a href="erl_driver.html#driver_binary_inc_refc"><span class="code">erl_driver:driver_binary_inc_refc</span></a></span> to be freed later
-          with <span class="bold_code bc-15"><a href="erl_driver.html#driver_free_binary"><span class="code">erl_driver:driver_free_binary</span></a></span>.
+          <span class="bold_code"><a href="erl_driver.html#driver_binary_inc_refc"><span class="code">erl_driver:driver_binary_inc_refc</span></a></span> to be freed later
+          with <span class="bold_code"><a href="erl_driver.html#driver_free_binary"><span class="code">erl_driver:driver_free_binary</span></a></span>.
           It is never allowed to change the binary after <span class="code">control</span> has
           returned. If <span class="code">*rbuf</span> is set to <span class="code">NULL</span>, an empty list is
           returned.</p>
         <p>If the flag is set to <span class="code">0</span>, data is returned as a
           list of integers. Either use the default buffer or set
           <span class="code">*rbuf</span> to point to a larger buffer allocated with
-          <span class="bold_code bc-15"><a href="erl_driver.html#driver_alloc"><span class="code">erl_driver:driver_alloc</span></a></span>. The
+          <span class="bold_code"><a href="erl_driver.html#driver_alloc"><span class="code">erl_driver:driver_alloc</span></a></span>. The
           buffer is freed automatically after <span class="code">control</span> has returned.</p>
         <p>Using binaries is faster if more than a few bytes are returned.</p>
         <p>The return value is the number of bytes returned in <span class="code">*rbuf</span>.</p>
@@ -1281,7 +1281,7 @@ typedef struct erl_drv_entry {
       <dd>
         <p>Called any time after the driver's timer reaches <span class="code">0</span>.
           The timer is activated with
-          <span class="bold_code bc-15"><a href="erl_driver.html#driver_set_timer"><span class="code">erl_driver:driver_set_timer</span></a></span>. No priorities or
+          <span class="bold_code"><a href="erl_driver.html#driver_set_timer"><span class="code">erl_driver:driver_set_timer</span></a></span>. No priorities or
           ordering exist among drivers, so if several drivers time out at
           the same time, anyone of them is called first.</p>
       </dd>
@@ -1293,12 +1293,12 @@ typedef struct erl_drv_entry {
           instead. This function is faster than <span class="code">output</span>, as
           it takes an <span class="code">ErlIOVec</span> directly, which requires no
           copying of the data. The port is to be in binary mode, see
-          <span class="bold_code bc-15"><a href="erlang.html#open_port-2"><span class="code">erlang:open_port/2</span></a></span>.</p>
+          <span class="bold_code"><a href="erlang.html#open_port-2"><span class="code">erlang:open_port/2</span></a></span>.</p>
         <p><span class="code">ErlIOVec</span> contains both a <span class="code">SysIOVec</span>,
           suitable for <span class="code">writev</span>, and one or more binaries. If
           these binaries are to be retained when the driver returns
           from <span class="code">outputv</span>, they can be queued (using, for example,
-          <span class="bold_code bc-15"><a href="erl_driver.html#driver_enq_bin"><span class="code">erl_driver:driver_enq_bin</span></a></span>)
+          <span class="bold_code"><a href="erl_driver.html#driver_enq_bin"><span class="code">erl_driver:driver_enq_bin</span></a></span>)
           or, if they are kept in a static or global
           variable, the reference counter can be incremented.</p>
       </dd>
@@ -1308,7 +1308,7 @@ typedef struct erl_drv_entry {
       <dd>
         <p>Called after an asynchronous call has completed.
           The asynchronous call is started with
-          <span class="bold_code bc-15"><a href="erl_driver.html#driver_async"><span class="code">erl_driver:driver_async</span></a></span>.
+          <span class="bold_code"><a href="erl_driver.html#driver_async"><span class="code">erl_driver:driver_async</span></a></span>.
           This function is called from the Erlang emulator thread, as
           opposed to the asynchronous function, which is called in
           some thread (if multi-threading is enabled).</p>
@@ -1323,7 +1323,7 @@ typedef struct erl_drv_entry {
         unsigned int command, char *buf, ErlDrvSizeT len, char **rbuf,
         ErlDrvSizeT rlen, unsigned int *flags)</span></strong></dt>
       <dd>
-        <p>Called from <span class="bold_code bc-15"><a href="erlang.html#port_call-3"><span class="code">erlang:port_call/3</span></a></span>.
+        <p>Called from <span class="bold_code"><a href="erlang.html#port_call-3"><span class="code">erlang:port_call/3</span></a></span>.
           It works a lot like the <span class="code">control</span> callback, but uses the
           external term format for input and output.</p>
         <p><span class="code">command</span> is an integer, obtained from the call from
@@ -1337,7 +1337,7 @@ typedef struct erl_drv_entry {
           term and returned by <span class="code">erlang:port_call/3</span> to the
           caller. If more space than <span class="code">rlen</span> bytes is needed to
           return data, <span class="code">*rbuf</span> can be set to memory allocated with
-          <span class="bold_code bc-15"><a href="erl_driver.html#driver_alloc"><span class="code">erl_driver:driver_alloc</span></a></span>.
+          <span class="bold_code"><a href="erl_driver.html#driver_alloc"><span class="code">erl_driver:driver_alloc</span></a></span>.
           This memory is freed automatically after <span class="code">call</span> has returned.</p>
         <p>The return value is the number of bytes returned in
           <span class="code">*rbuf</span>. If <span class="code">ERL_DRV_ERROR_GENERAL</span> is returned
@@ -1383,15 +1383,15 @@ typedef struct erl_drv_entry {
               all ports executing this driver instead of driver-level
               locking when the driver is run in a runtime
               system with SMP support. For more information, see
-              <span class="bold_code bc-15"><a href="erl_driver.html#smp_support"><span class="code">erl_driver</span></a></span>.</p>
+              <span class="bold_code"><a href="erl_driver.html#smp_support"><span class="code">erl_driver</span></a></span>.</p>
           </dd>
           <dt><strong><span class="code">ERL_DRV_FLAG_SOFT_BUSY</span></strong></dt>
           <dd>
             <p>Marks that driver instances can handle being called
-              in the <span class="bold_code data-type-ref"><a href="#output"><span class="code">output</span></a></span> and/or
-              <span class="bold_code data-type-ref"><a href="#outputv"><span class="code">outputv</span></a></span> callbacks
+              in the <span class="bold_code"><a href="#output"><span class="code">output</span></a></span> and/or
+              <span class="bold_code"><a href="#outputv"><span class="code">outputv</span></a></span> callbacks
               although a driver instance has marked itself as busy (see
-              <span class="bold_code bc-15"><a href="erl_driver.html#set_busy_port"><span class="code">erl_driver:set_busy_port</span></a></span>).
+              <span class="bold_code"><a href="erl_driver.html#set_busy_port"><span class="code">erl_driver:set_busy_port</span></a></span>).
               As from ERTS 5.7.4 this flag is required for drivers used
               by the Erlang distribution (the behavior has always been
               required by drivers used by the distribution).</p>
@@ -1400,13 +1400,13 @@ typedef struct erl_drv_entry {
           <dd>
             <p>Disables busy port message queue functionality. For
               more information, see
-              <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_busy_msgq_limits"><span class="code">erl_driver:erl_drv_busy_msgq_limits</span></a></span>.</p>
+              <span class="bold_code"><a href="erl_driver.html#erl_drv_busy_msgq_limits"><span class="code">erl_driver:erl_drv_busy_msgq_limits</span></a></span>.</p>
           </dd>
           <dt><strong><span class="code">ERL_DRV_FLAG_USE_INIT_ACK</span></strong></dt>
           <dd>
             <p>When this flag is specified, the linked-in driver must manually
               acknowledge that the port has been successfully started using
-              <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_init_ack"><span class="code">erl_driver:erl_drv_init_ack()</span></a></span>.
+              <span class="bold_code"><a href="erl_driver.html#erl_drv_init_ack"><span class="code">erl_driver:erl_drv_init_ack()</span></a></span>.
               This allows the implementor to make the
               <span class="code">erlang:open_port</span> exit with <span class="code">badarg</span> after some
               initial asynchronous initialization has been done.</p>
@@ -1426,11 +1426,11 @@ typedef struct erl_drv_entry {
         <p>Called when a monitored process exits. The
           <span class="code">drv_data</span> is the data associated with the port for which
           the process is monitored (using
-          <span class="bold_code bc-15"><a href="erl_driver.html#driver_monitor_process"><span class="code">erl_driver:driver_monitor_process</span></a></span>)
+          <span class="bold_code"><a href="erl_driver.html#driver_monitor_process"><span class="code">erl_driver:driver_monitor_process</span></a></span>)
           and the <span class="code">monitor</span> corresponds to the <span class="code">ErlDrvMonitor</span>
           structure filled
           in when creating the monitor. The driver interface function
-          <span class="bold_code bc-15"><a href="erl_driver.html#driver_get_monitored_process"><span class="code">erl_driver:driver_get_monitored_process</span></a></span>
+          <span class="bold_code"><a href="erl_driver.html#driver_get_monitored_process"><span class="code">erl_driver:driver_get_monitored_process</span></a></span>
           can be used to retrieve the process ID of the exiting process as
           an <span class="code">ErlDrvTermData</span>.</p>
       </dd>
@@ -1438,7 +1438,7 @@ typedef struct erl_drv_entry {
         <span class="code">void (*stop_select)(ErlDrvEvent event, void* reserved)</span></strong></dt>
       <dd>
         <p>Called on behalf of
-          <span class="bold_code bc-15"><a href="erl_driver.html#driver_select"><span class="code">erl_driver:driver_select</span></a></span>
+          <span class="bold_code"><a href="erl_driver.html#driver_select"><span class="code">erl_driver:driver_select</span></a></span>
           when it is safe to close an event object.</p>
         <p>A typical implementation on Unix is to do
           <span class="code">close((int)event)</span>.</p>
@@ -1453,19 +1453,19 @@ typedef struct erl_drv_entry {
           the case that <span class="code">stop_select</span> is called directly by
           <span class="code">erl_driver:driver_select</span>.</p>
         <p>It is not allowed to call any functions in the
-          <span class="bold_code bc-19"><a href="erl_driver.html">driver API</a></span> from
+          <span class="bold_code"><a href="erl_driver.html">driver API</a></span> from
           <span class="code">stop_select</span>. This strict limitation is because the
           volatile context that <span class="code">stop_select</span> can be called.</p>
       </dd>
     </dl>
   </div>
 
-  <h3><a name="idm45319509412816">See Also</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45311096669200">See Also</a></h3>
+<div class="REFBODY">
     
-    <p><span class="bold_code bc-19"><a href="erl_driver.html"><span class="code">erl_driver(3)</span></a></span>,
-      <span class="bold_code bc-19"><a href="erlang.html"><span class="code">erlang(3)</span></a></span>,
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','erl_ddll.html');"><span class="code">erl_ddll(3)</span></a></span></p>
+    <p><span class="bold_code"><a href="erl_driver.html"><span class="code">erl_driver(3)</span></a></span>,
+      <span class="bold_code"><a href="erlang.html"><span class="code">erlang(3)</span></a></span>,
+      <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','erl_ddll.html');"><span class="code">erl_ddll(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

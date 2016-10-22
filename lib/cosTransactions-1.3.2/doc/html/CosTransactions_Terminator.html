@@ -148,64 +148,51 @@
 <!-- refpage --><center><h1>CosTransactions_Terminator</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">CosTransactions_Terminator</div>
+<div class="REFBODY">CosTransactions_Terminator</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">This module implements the OMG CosTransactions::Terminator interface.</div>
+<div class="REFBODY">This module implements the OMG CosTransactions::Terminator interface.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>To get access to the record definitions for the structures use:      <br>
 <span class="code">-include_lib("cosTransactions/include/CosTransactions.hrl").</span></p>
-  </div>
+  </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="commit-2"></a><span class="bold_code bc-9">commit(Terminator, ReportHeuristics) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="commit-2"></a><span class="bold_code">commit(Terminator, ReportHeuristics) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Terminator = #objref</span><br>
+<span class="bold_code">Terminator = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">ReportHeuristics = boolean()</span><br>
+<span class="bold_code">ReportHeuristics = boolean()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return =  ok | {'EXCEPTION', E}</span><br>
+<span class="bold_code">Return =  ok | {'EXCEPTION', E}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">E = #'CosTransactions_HeuristicMixed'{} | #'CosTransactions_HeuristicHazrd'{} | #'CosTransactions_TransactionRolledBack'{}</span><br>
+<span class="bold_code">E = #'CosTransactions_HeuristicMixed'{} | #'CosTransactions_HeuristicHazrd'{} | #'CosTransactions_TransactionRolledBack'{}</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This operation initiates the two-phase commit protocol. If the transaction has not been marked
           <span class="code">'rollback only'</span> and all the participants agree to commit, the operation terminates normally. Otherwise,
           the TransactionRolledBack is raised. If the parameter <span class="code">ReportHeuristics</span> is true and inconsistent
           outcomes by raising an Heuristic Exception.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="rollback-1"></a><span class="bold_code bc-9">rollback(Terminator) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="rollback-1"></a><span class="bold_code">rollback(Terminator) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Terminator = #objref</span><br>
+<span class="bold_code">Terminator = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = ok</span><br>
+<span class="bold_code">Return = ok</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This operation roles back the transaction. </p>
       </p></div>
-</div>
-</div>
-  </div>
+  
   
 </div>
 <div class="footer">

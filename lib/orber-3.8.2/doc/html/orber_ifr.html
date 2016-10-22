@@ -437,65 +437,54 @@
 <!-- refpage --><center><h1>orber_ifr</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">orber_ifr</div>
+<div class="REFBODY">orber_ifr</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">The Interface Repository stores representations of IDL information</div>
+<div class="REFBODY">The Interface Repository stores representations of IDL information</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>This module contains functions for managing the Interface
       Repository (IFR). This documentation should be used in conjunction
       with the documentation in chapter 6 of CORBA2.3.
       Whenever the term IFR object is used in this manual page, it
       refers to a pseudo object used only for interaction with the IFR
       rather than a CORBA object.</p>
-  </div>
+  </p></div>
 
-  <h3><a name="idm45398041186976">Initialization of the IFR</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45457877836064">Initialization of the IFR</a></h3>
+<div class="REFBODY">
     
     <p>The following functions are used to initialize the Interface
       Repository and to obtain the initial reference to the
       repository.</p>
   </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="init-2"></a><span class="bold_code bc-9">init(Nodes,Timeout) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="init-2"></a><span class="bold_code">init(Nodes,Timeout) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Nodes = list()</span><br>
+<span class="bold_code">Nodes = list()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Timeout = integer() | infinity</span><br>
+<span class="bold_code">Timeout = integer() | infinity</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This function should be called to initialize the IFR. It
           creates the necessary mnesia-tables. A mnesia schema should
           exist, and mnesia must be running.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="find_repository-0"></a><span class="bold_code bc-9">find_repository() -&gt; #IFR_Repository_objref</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="find_repository-0"></a><span class="bold_code">find_repository() -&gt; #IFR_Repository_objref</span><br></p>
+<div class="REFBODY"><p>
         <p>Find the IFR object reference for the Repository. This
           reference should be used when adding objects to the IFR, and
           when extracting information from the IFR.
           The first time this function is called, it will create the
           repository and all the primitive definitions.</p>
-      </p></div></div>
-</div>
-  </div>
+      </p></div>
+  
 
-  <h3><a name="idm45398041178672">General methods</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45457877827760">General methods</a></h3>
+<div class="REFBODY">
     
     <p>The following functions are the methods of the IFR. The first
       argument is always an #IFR_objref, i.e. the IFR (pseudo)object
@@ -505,276 +494,199 @@
       particular type of IFR object as the first argument.</p>
   </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="get_def_kind-1"></a><span class="bold_code bc-9">get_def_kind(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_def_kind-1"></a><span class="bold_code">get_def_kind(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_objref</span><br>
+<span class="bold_code">Objref = #IFR_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = atom() (one of dk_none, dk_all, dk_Attribute, dk_Constant, dk_Exception, dk_Interface, dk_Module, dk_Operation, dk_Typedef, dk_Alias, dk_Struct, dk_Union, dk_Enum, dk_Primitive, dk_String, dk_Wstring, dk_Fixed, dk_Sequence, dk_Array, dk_Repository)</span><br>
+<span class="bold_code">Return = atom() (one of dk_none, dk_all, dk_Attribute, dk_Constant, dk_Exception, dk_Interface, dk_Module, dk_Operation, dk_Typedef, dk_Alias, dk_Struct, dk_Union, dk_Enum, dk_Primitive, dk_String, dk_Wstring, dk_Fixed, dk_Sequence, dk_Array, dk_Repository)</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of any kind. Returns the definition
           kind of the IFR object.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="destroy-1"></a><span class="bold_code bc-9">destroy(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="destroy-1"></a><span class="bold_code">destroy(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_object</span><br>
+<span class="bold_code">Objref = #IFR_object</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = tuple()</span><br>
+<span class="bold_code">Return = tuple()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of any kind except IRObject,
           Contained and Container. Destroys that object and its
           contents (if any). Returns whatever mnesia:transaction
           returns.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_id-1"></a><span class="bold_code bc-9">get_id(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_id-1"></a><span class="bold_code">get_id(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_object</span><br>
+<span class="bold_code">Objref = #IFR_object</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = string()</span><br>
+<span class="bold_code">Return = string()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of any kind that inherits from
           Contained. Returns the repository id of that object.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="set_id-2"></a><span class="bold_code bc-9">set_id(Objref,Id) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="set_id-2"></a><span class="bold_code">set_id(Objref,Id) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_object</span><br>
+<span class="bold_code">Objref = #IFR_object</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Id = string()</span><br>
+<span class="bold_code">Id = string()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of any kind that inherits from
           Contained. Sets the repository id of that object.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_name-1"></a><span class="bold_code bc-9">get_name(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_name-1"></a><span class="bold_code">get_name(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_object</span><br>
+<span class="bold_code">Objref = #IFR_object</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = string()</span><br>
+<span class="bold_code">Return = string()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of any kind that inherits from
           Contained. Returns the name of that object.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="set_name-2"></a><span class="bold_code bc-9">set_name(Objref,Name) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="set_name-2"></a><span class="bold_code">set_name(Objref,Name) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_object</span><br>
+<span class="bold_code">Objref = #IFR_object</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Name = string()</span><br>
+<span class="bold_code">Name = string()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of any kind that inherits from
           Contained. Sets the name of that object.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_version-1"></a><span class="bold_code bc-9">get_version(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_version-1"></a><span class="bold_code">get_version(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_object</span><br>
+<span class="bold_code">Objref = #IFR_object</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = string()</span><br>
+<span class="bold_code">Return = string()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of any kind that inherits from
           Contained. Returns the version of that object.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="set_version-2"></a><span class="bold_code bc-9">set_version(Objref,Version) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="set_version-2"></a><span class="bold_code">set_version(Objref,Version) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_object</span><br>
+<span class="bold_code">Objref = #IFR_object</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Version = string()</span><br>
+<span class="bold_code">Version = string()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of any kind that inherits from
           Contained. Sets the version of that object.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_defined_in-1"></a><span class="bold_code bc-9">get_defined_in(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_defined_in-1"></a><span class="bold_code">get_defined_in(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_object</span><br>
+<span class="bold_code">Objref = #IFR_object</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = #IFR_Container_objref</span><br>
+<span class="bold_code">Return = #IFR_Container_objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of any kind that inherits from
           Contained. Returns the Container object that the object is
           defined in.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_absolute_name-1"></a><span class="bold_code bc-9">get_absolute_name(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_absolute_name-1"></a><span class="bold_code">get_absolute_name(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_object</span><br>
+<span class="bold_code">Objref = #IFR_object</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = string()</span><br>
+<span class="bold_code">Return = string()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of any kind that inherits from
           Contained. Returns the absolute (scoped) name of that
           object.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_containing_repository-1"></a><span class="bold_code bc-9">get_containing_repository(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_containing_repository-1"></a><span class="bold_code">get_containing_repository(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_object</span><br>
+<span class="bold_code">Objref = #IFR_object</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = #IFR_Repository_objref</span><br>
+<span class="bold_code">Return = #IFR_Repository_objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of any kind that inherits from
           Contained. Returns the Repository that is eventually reached
           by recursively following the object's defined_in attribute.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="describe-1"></a><span class="bold_code bc-9">describe(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="describe-1"></a><span class="bold_code">describe(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_object</span><br>
+<span class="bold_code">Objref = #IFR_object</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = tuple() (a contained_description record) | {exception, _}</span><br>
+<span class="bold_code">Return = tuple() (a contained_description record) | {exception, _}</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of any kind that inherits from
           Contained. Returns a tuple describing the object.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="move-4"></a><span class="bold_code bc-9">move(Objref,New_container,New_name,New_version) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="move-4"></a><span class="bold_code">move(Objref,New_container,New_name,New_version) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_objref</span><br>
+<span class="bold_code">Objref = #IFR_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">New_container = #IFR_Container_objref</span><br>
+<span class="bold_code">New_container = #IFR_Container_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">New_name = string()</span><br>
+<span class="bold_code">New_name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">New_version = string()</span><br>
+<span class="bold_code">New_version = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = ok | {exception, _}</span><br>
+<span class="bold_code">Return = ok | {exception, _}</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of any kind that inherits from
           Contained. New_container is an IFR object of any kind that
           inherits from Container. Removes Objref from its current 
@@ -782,681 +694,525 @@
           is changed to New_name and the version attribute is changed
           to New_version.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="lookup-2"></a><span class="bold_code bc-9">lookup(Objref,Search_name) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="lookup-2"></a><span class="bold_code">lookup(Objref,Search_name) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_objref</span><br>
+<span class="bold_code">Objref = #IFR_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Search_name = string()</span><br>
+<span class="bold_code">Search_name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return =  #IFR_object</span><br>
+<span class="bold_code">Return =  #IFR_object</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of any kind that inherits from
           Container. Returns an IFR object identified by search_name
           (a scoped name).</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="contents-3"></a><span class="bold_code bc-9">contents(Objref,Limit_type,Exclude_inherited) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="contents-3"></a><span class="bold_code">contents(Objref,Limit_type,Exclude_inherited) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_objref</span><br>
+<span class="bold_code">Objref = #IFR_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Limit_type = atom() (one of dk_none, dk_all, dk_Attribute, dk_Constant, dk_Exception, dk_Interface, dk_Module, dk_Operation, dk_Typedef, dk_Alias, dk_Struct, dk_Union, dk_Enum, dk_Primitive, dk_String, dk_Wstring, dk_Fixed, dk_Sequence, dk_Array, dk_Repository)</span><br>
+<span class="bold_code">Limit_type = atom() (one of dk_none, dk_all, dk_Attribute, dk_Constant, dk_Exception, dk_Interface, dk_Module, dk_Operation, dk_Typedef, dk_Alias, dk_Struct, dk_Union, dk_Enum, dk_Primitive, dk_String, dk_Wstring, dk_Fixed, dk_Sequence, dk_Array, dk_Repository)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Exclude_inherited = atom() (true or false)</span><br>
+<span class="bold_code">Exclude_inherited = atom() (true or false)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = list() (a list of IFR#_objects)</span><br>
+<span class="bold_code">Return = list() (a list of IFR#_objects)</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of any kind that inherits from
           Container. Returns the contents of that IFR object.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="lookup_name-5"></a><span class="bold_code bc-9">lookup_name(Objref,Search_name,Levels_to_search, Limit_type, Exclude_inherited) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="lookup_name-5"></a><span class="bold_code">lookup_name(Objref,Search_name,Levels_to_search, Limit_type, Exclude_inherited) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_objref</span><br>
+<span class="bold_code">Objref = #IFR_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Search_name = string()</span><br>
+<span class="bold_code">Search_name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Levels_to_search = integer()</span><br>
+<span class="bold_code">Levels_to_search = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Limit_type = atom() (one of dk_none, dk_all, dk_Attribute, dk_Constant, dk_Exception, dk_Interface, dk_Module, dk_Operation, dk_Typedef, dk_Alias, dk_Struct, dk_Union, dk_Enum, dk_Primitive, dk_String, dk_Wstring, dk_Fixed, dk_Sequence,  dk_Array, dk_Repository)</span><br>
+<span class="bold_code">Limit_type = atom() (one of dk_none, dk_all, dk_Attribute, dk_Constant, dk_Exception, dk_Interface, dk_Module, dk_Operation, dk_Typedef, dk_Alias, dk_Struct, dk_Union, dk_Enum, dk_Primitive, dk_String, dk_Wstring, dk_Fixed, dk_Sequence,  dk_Array, dk_Repository)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Exclude_inherited = atom() (true or false)</span><br>
+<span class="bold_code">Exclude_inherited = atom() (true or false)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = list() (a list of #IFR_objects)</span><br>
+<span class="bold_code">Return = list() (a list of #IFR_objects)</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of any kind that inherits from
           Container. Returns a list of #IFR_objects with an id
           matching Search_name.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="describe_contents-4"></a><span class="bold_code bc-9">describe_contents(Objref, Limit_type, Exclude_inherited, Max_returned_objs) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="describe_contents-4"></a><span class="bold_code">describe_contents(Objref, Limit_type, Exclude_inherited, Max_returned_objs) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_objref</span><br>
+<span class="bold_code">Objref = #IFR_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Limit_type = atom() (one of dk_none, dk_all, dk_Attribute, dk_Constant, dk_Exception, dk_Interface, dk_Module, dk_Operation, dk_Typedef, dk_Alias, dk_Struct, dk_Union, dk_Enum, dk_Primitive, dk_String, dk_Wstring, dk_Fixed, dk_Sequence, dk_Array, dk_Repository)</span><br>
+<span class="bold_code">Limit_type = atom() (one of dk_none, dk_all, dk_Attribute, dk_Constant, dk_Exception, dk_Interface, dk_Module, dk_Operation, dk_Typedef, dk_Alias, dk_Struct, dk_Union, dk_Enum, dk_Primitive, dk_String, dk_Wstring, dk_Fixed, dk_Sequence, dk_Array, dk_Repository)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Exclude_inherited = atom() (true or false)</span><br>
+<span class="bold_code">Exclude_inherited = atom() (true or false)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = list() (a list of tuples (contained_description records) | {exception, _}</span><br>
+<span class="bold_code">Return = list() (a list of tuples (contained_description records) | {exception, _}</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of any kind that inherits from
           Container. Returns a list of descriptions of the IFR objects
           in this Container's contents.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="create_module-4"></a><span class="bold_code bc-9">create_module(Objref,Id,Name,Version) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="create_module-4"></a><span class="bold_code">create_module(Objref,Id,Name,Version) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_objref</span><br>
+<span class="bold_code">Objref = #IFR_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Id = string()</span><br>
+<span class="bold_code">Id = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Name = string()</span><br>
+<span class="bold_code">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Version = string()</span><br>
+<span class="bold_code">Version = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = #IFR_ModuleDef_objref</span><br>
+<span class="bold_code">Return = #IFR_ModuleDef_objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of any kind that inherits from
           Container. Creates an IFR object of the type ModuleDef.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="create_constant-6"></a><span class="bold_code bc-9">create_constant(Objref,Id,Name,Version,Type,Value) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="create_constant-6"></a><span class="bold_code">create_constant(Objref,Id,Name,Version,Type,Value) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_objref</span><br>
+<span class="bold_code">Objref = #IFR_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Id = string()</span><br>
+<span class="bold_code">Id = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Name = string()</span><br>
+<span class="bold_code">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Version = string()</span><br>
+<span class="bold_code">Version = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Type = #IFR_IDLType_objref</span><br>
+<span class="bold_code">Type = #IFR_IDLType_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Value = any()</span><br>
+<span class="bold_code">Value = any()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = #IFR_ConstantDef_objref</span><br>
+<span class="bold_code">Return = #IFR_ConstantDef_objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of any kind that inherits from
           Container. Creates an IFR object of the type ConstantDef.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="create_struct-5"></a><span class="bold_code bc-9">create_struct(Objref,Id,Name,Version,Members) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="create_struct-5"></a><span class="bold_code">create_struct(Objref,Id,Name,Version,Members) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_objref</span><br>
+<span class="bold_code">Objref = #IFR_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Id = string()</span><br>
+<span class="bold_code">Id = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Name = string()</span><br>
+<span class="bold_code">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Version = string()</span><br>
+<span class="bold_code">Version = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Members = list() (list of structmember records)</span><br>
+<span class="bold_code">Members = list() (list of structmember records)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = #IFR_StructDef_objref</span><br>
+<span class="bold_code">Return = #IFR_StructDef_objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of any kind that inherits from
           Container. Creates an IFR object of the type StructDef.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="create_union-6"></a><span class="bold_code bc-9">create_union(Objref,Id,Name,Version,Discriminator_type,Members) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="create_union-6"></a><span class="bold_code">create_union(Objref,Id,Name,Version,Discriminator_type,Members) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_objref</span><br>
+<span class="bold_code">Objref = #IFR_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Id = string()</span><br>
+<span class="bold_code">Id = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Name = string()</span><br>
+<span class="bold_code">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Version = string()</span><br>
+<span class="bold_code">Version = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Discriminator_type = #IFR_IDLType_Objref</span><br>
+<span class="bold_code">Discriminator_type = #IFR_IDLType_Objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Members = list() (list of unionmember records)</span><br>
+<span class="bold_code">Members = list() (list of unionmember records)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = #IFR_UnionDef_objref</span><br>
+<span class="bold_code">Return = #IFR_UnionDef_objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of any kind that inherits from
           Container. Creates an IFR object of the type UnionDef.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="create_enum-5"></a><span class="bold_code bc-9">create_enum(Objref,Id,Name,Version,Members) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="create_enum-5"></a><span class="bold_code">create_enum(Objref,Id,Name,Version,Members) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_objref</span><br>
+<span class="bold_code">Objref = #IFR_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Id = string()</span><br>
+<span class="bold_code">Id = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Name = string()</span><br>
+<span class="bold_code">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Version = string()</span><br>
+<span class="bold_code">Version = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Members = list() (list of strings)</span><br>
+<span class="bold_code">Members = list() (list of strings)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = #IFR_EnumDef_objref</span><br>
+<span class="bold_code">Return = #IFR_EnumDef_objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of any kind that inherits from
           Container. Creates an IFR object of the type EnumDef.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="create_alias-5"></a><span class="bold_code bc-9">create_alias(Objref,Id,Name,Version,Original_type) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="create_alias-5"></a><span class="bold_code">create_alias(Objref,Id,Name,Version,Original_type) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_objref</span><br>
+<span class="bold_code">Objref = #IFR_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Id = string()</span><br>
+<span class="bold_code">Id = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Name = string()</span><br>
+<span class="bold_code">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Version = string()</span><br>
+<span class="bold_code">Version = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Original_type = #IFR_IDLType_Objref</span><br>
+<span class="bold_code">Original_type = #IFR_IDLType_Objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = #IFR_AliasDef_objref</span><br>
+<span class="bold_code">Return = #IFR_AliasDef_objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of any kind that inherits from
           Container. Creates an IFR object of the type AliasDef.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="create_interface-5"></a><span class="bold_code bc-9">create_interface(Objref,Id,Name,Version,Base_interfaces) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="create_interface-5"></a><span class="bold_code">create_interface(Objref,Id,Name,Version,Base_interfaces) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_objref</span><br>
+<span class="bold_code">Objref = #IFR_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Id = string()</span><br>
+<span class="bold_code">Id = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Name = string()</span><br>
+<span class="bold_code">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Version = string()</span><br>
+<span class="bold_code">Version = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Base_interfaces = list() (a list of IFR_InterfaceDef_objrefs that this interface inherits from</span><br>
+<span class="bold_code">Base_interfaces = list() (a list of IFR_InterfaceDef_objrefs that this interface inherits from</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = #IFR_InterfaceDef_objref</span><br>
+<span class="bold_code">Return = #IFR_InterfaceDef_objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of any kind that inherits from
           Container. Creates an IFR object of the type InterfaceDef.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="create_exception-5"></a><span class="bold_code bc-9">create_exception(Objref,Id,Name,Version,Members) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="create_exception-5"></a><span class="bold_code">create_exception(Objref,Id,Name,Version,Members) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_objref</span><br>
+<span class="bold_code">Objref = #IFR_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Id = string()</span><br>
+<span class="bold_code">Id = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Name = string()</span><br>
+<span class="bold_code">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Version = string()</span><br>
+<span class="bold_code">Version = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Members = list() (list of structmember records)</span><br>
+<span class="bold_code">Members = list() (list of structmember records)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = #IFR_ExceptionDef_objref</span><br>
+<span class="bold_code">Return = #IFR_ExceptionDef_objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of any kind that inherits from
           Container. Creates an IFR object of the type ExceptionDef.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_type-1"></a><span class="bold_code bc-9">get_type(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_type-1"></a><span class="bold_code">get_type(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_objref</span><br>
+<span class="bold_code">Objref = #IFR_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = tuple() (a typecode tuple)</span><br>
+<span class="bold_code">Return = tuple() (a typecode tuple)</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of any kind that inherits from
           IDLType or an IFR object of the kind ConstantDef,
           ExceptionDef or AttributeDef. Returns the typecode of the
           IFR object.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="lookup_id-2"></a><span class="bold_code bc-9">lookup_id(Objref,Search_id) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="lookup_id-2"></a><span class="bold_code">lookup_id(Objref,Search_id) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_Repository_objref</span><br>
+<span class="bold_code">Objref = #IFR_Repository_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Search_id = string()</span><br>
+<span class="bold_code">Search_id = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = #IFR_objref</span><br>
+<span class="bold_code">Return = #IFR_objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns an IFR object matching the Search_id.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_primitive-2"></a><span class="bold_code bc-9">get_primitive(Objref,Kind) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_primitive-2"></a><span class="bold_code">get_primitive(Objref,Kind) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_Repository_objref</span><br>
+<span class="bold_code">Objref = #IFR_Repository_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Kind = atom() (one of pk_null, pk_void, pk_short, pk_long, pk_ushort, pk_ulong, pk_float, pk_double, pk_boolean, pk_char, pk_octet, pk_any, pk_TypeCode, pk_Principal, pk_string, pk_wstring, pk_fixed, pk_objref)</span><br>
+<span class="bold_code">Kind = atom() (one of pk_null, pk_void, pk_short, pk_long, pk_ushort, pk_ulong, pk_float, pk_double, pk_boolean, pk_char, pk_octet, pk_any, pk_TypeCode, pk_Principal, pk_string, pk_wstring, pk_fixed, pk_objref)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = #IFR_PrimitiveDef_objref</span><br>
+<span class="bold_code">Return = #IFR_PrimitiveDef_objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns a PrimitiveDef of the specified kind.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="create_string-2"></a><span class="bold_code bc-9">create_string(Objref,Bound) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="create_string-2"></a><span class="bold_code">create_string(Objref,Bound) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_Repository_objref</span><br>
+<span class="bold_code">Objref = #IFR_Repository_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Bound = integer() (unsigned long /= 0)</span><br>
+<span class="bold_code">Bound = integer() (unsigned long /= 0)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = #IFR_StringDef_objref</span><br>
+<span class="bold_code">Return = #IFR_StringDef_objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Creates an IFR objref of the type StringDef.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="create_wstring-2"></a><span class="bold_code bc-9">create_wstring(Objref,Bound) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="create_wstring-2"></a><span class="bold_code">create_wstring(Objref,Bound) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_Repository_objref</span><br>
+<span class="bold_code">Objref = #IFR_Repository_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Bound = integer() (unsigned long /= 0)</span><br>
+<span class="bold_code">Bound = integer() (unsigned long /= 0)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = #IFR_WstringDef_objref</span><br>
+<span class="bold_code">Return = #IFR_WstringDef_objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Creates an IFR objref of the type WstringDef.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="create_fixed-3"></a><span class="bold_code bc-9">create_fixed(Objref,Digits,Scale) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="create_fixed-3"></a><span class="bold_code">create_fixed(Objref,Digits,Scale) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_Repository_objref</span><br>
+<span class="bold_code">Objref = #IFR_Repository_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Digits = Scale = integer()</span><br>
+<span class="bold_code">Digits = Scale = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = #IFR_FixedDef_objref</span><br>
+<span class="bold_code">Return = #IFR_FixedDef_objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Creates an IFR objref of the type FixedDef.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="create_sequence-3"></a><span class="bold_code bc-9">create_sequence(Objref,Bound,Element_type) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="create_sequence-3"></a><span class="bold_code">create_sequence(Objref,Bound,Element_type) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_Repository_objref</span><br>
+<span class="bold_code">Objref = #IFR_Repository_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Bound = integer() (unsigned long)</span><br>
+<span class="bold_code">Bound = integer() (unsigned long)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Element_type = #IFR_IDLType_objref</span><br>
+<span class="bold_code">Element_type = #IFR_IDLType_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = #IFR_SequenceDef_objref</span><br>
+<span class="bold_code">Return = #IFR_SequenceDef_objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Creates an IFR objref of the type SequenceDef.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="create_array-3"></a><span class="bold_code bc-9">create_array(Objref,Length,Element_type) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="create_array-3"></a><span class="bold_code">create_array(Objref,Length,Element_type) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_Repository_objref</span><br>
+<span class="bold_code">Objref = #IFR_Repository_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Bound = integer() (unsigned long)</span><br>
+<span class="bold_code">Bound = integer() (unsigned long)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Element_type = #IFR_IDLType_objref</span><br>
+<span class="bold_code">Element_type = #IFR_IDLType_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = #IFR_ArrayDef_objref</span><br>
+<span class="bold_code">Return = #IFR_ArrayDef_objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Creates an IFR objref of the type ArrayDef.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="create_idltype-2"></a><span class="bold_code bc-9">create_idltype(Objref,Typecode) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="create_idltype-2"></a><span class="bold_code">create_idltype(Objref,Typecode) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_Repository_objref</span><br>
+<span class="bold_code">Objref = #IFR_Repository_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Typecode = tuple() (a typecode tuple)</span><br>
+<span class="bold_code">Typecode = tuple() (a typecode tuple)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = #IFR_IDLType_objref</span><br>
+<span class="bold_code">Return = #IFR_IDLType_objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Creates an IFR objref of the type IDLType.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_type_def-1"></a><span class="bold_code bc-9">get_type_def(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_type_def-1"></a><span class="bold_code">get_type_def(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_objref</span><br>
+<span class="bold_code">Objref = #IFR_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = #IFR_IDLType_objref</span><br>
+<span class="bold_code">Return = #IFR_IDLType_objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of the kind ConstantDef or
           AttributeDef. Returns an IFR object of the type IDLType
           describing the type of the IFR object.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="set_type_def-2"></a><span class="bold_code bc-9">set_type_def(Objref,TypeDef) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="set_type_def-2"></a><span class="bold_code">set_type_def(Objref,TypeDef) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_objref</span><br>
+<span class="bold_code">Objref = #IFR_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TypeDef = #IFR_IDLType_objref</span><br>
+<span class="bold_code">TypeDef = #IFR_IDLType_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = ok | {exception, _}</span><br>
+<span class="bold_code">Return = ok | {exception, _}</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object of the kind ConstantDef or
           AttributeDef. Sets the type_def of the IFR Object.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_value-1"></a><span class="bold_code bc-9">get_value(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_value-1"></a><span class="bold_code">get_value(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_ConstantDef_objref</span><br>
+<span class="bold_code">Objref = #IFR_ConstantDef_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = any()</span><br>
+<span class="bold_code">Return = any()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns the value attribute of an IFR Object of the type ConstantDef.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="set_value-2"></a><span class="bold_code bc-9">set_value(Objref,Value) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="set_value-2"></a><span class="bold_code">set_value(Objref,Value) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_ConstantDef_objref</span><br>
+<span class="bold_code">Objref = #IFR_ConstantDef_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Value = any()</span><br>
+<span class="bold_code">Value = any()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = ok | {exception, _}</span><br>
+<span class="bold_code">Return = ok | {exception, _}</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Sets the value attribute of an IFR Object of the type ConstantDef.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_members-1"></a><span class="bold_code bc-9">get_members(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_members-1"></a><span class="bold_code">get_members(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_objref</span><br>
+<span class="bold_code">Objref = #IFR_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = list()</span><br>
+<span class="bold_code">Return = list()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object the kind StructDef, UnionDef,
           EnumDef or ExceptionDef.
           For StructDef, UnionDef and ExceptionDef: Returns a list of
@@ -1465,26 +1221,20 @@
           For EnumDef: Returns a list of strings describing the
           enumerations.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="set_members-2"></a><span class="bold_code bc-9">set_members(Objref,Members) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="set_members-2"></a><span class="bold_code">set_members(Objref,Members) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_objref</span><br>
+<span class="bold_code">Objref = #IFR_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Members = list()</span><br>
+<span class="bold_code">Members = list()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = ok | {exception, _}</span><br>
+<span class="bold_code">Return = ok | {exception, _}</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object the kind StructDef, UnionDef,
           EnumDef or ExceptionDef.
           For StructDef, UnionDef and ExceptionDef: Members is a list
@@ -1494,299 +1244,215 @@
           Sets the members attribute, which are the constituent parts of the
           exception.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_discriminator_type-1"></a><span class="bold_code bc-9">get_discriminator_type(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_discriminator_type-1"></a><span class="bold_code">get_discriminator_type(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_UnionDef_objref</span><br>
+<span class="bold_code">Objref = #IFR_UnionDef_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = tuple() (a typecode tuple)</span><br>
+<span class="bold_code">Return = tuple() (a typecode tuple)</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns the discriminator typecode of an IFR object of the type
           UnionDef.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_discriminator_type_def-1"></a><span class="bold_code bc-9">get_discriminator_type_def(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_discriminator_type_def-1"></a><span class="bold_code">get_discriminator_type_def(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_UnionDef_objref</span><br>
+<span class="bold_code">Objref = #IFR_UnionDef_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = #IFR_IDLType_objref</span><br>
+<span class="bold_code">Return = #IFR_IDLType_objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns an IFR object of the type IDLType describing the
           discriminator type of an IFR object of the type UnionDef.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="set_discriminator_type_def-2"></a><span class="bold_code bc-9">set_discriminator_type_def(Objref,TypeDef) -&gt;  Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="set_discriminator_type_def-2"></a><span class="bold_code">set_discriminator_type_def(Objref,TypeDef) -&gt;  Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_UnionDef_objref</span><br>
+<span class="bold_code">Objref = #IFR_UnionDef_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = #IFR_IDLType_objref</span><br>
+<span class="bold_code">Return = #IFR_IDLType_objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Sets the attribute discriminator_type_def, an IFR object of
           the type IDLType describing the discriminator type of an IFR
           object of the type UnionDef.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_original_type_def-1"></a><span class="bold_code bc-9">get_original_type_def(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_original_type_def-1"></a><span class="bold_code">get_original_type_def(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_AliasDef_objref</span><br>
+<span class="bold_code">Objref = #IFR_AliasDef_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = #IFR_IDLType_objref</span><br>
+<span class="bold_code">Return = #IFR_IDLType_objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns an IFR object of the type IDLType describing the
           original type.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="set_original_type_def-2"></a><span class="bold_code bc-9">set_original_type_def(Objref,TypeDef) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="set_original_type_def-2"></a><span class="bold_code">set_original_type_def(Objref,TypeDef) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_AliasDef_objref</span><br>
+<span class="bold_code">Objref = #IFR_AliasDef_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Typedef = #IFR_IDLType_objref</span><br>
+<span class="bold_code">Typedef = #IFR_IDLType_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = ok | {exception, _}</span><br>
+<span class="bold_code">Return = ok | {exception, _}</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Sets the original_type_def attribute which describes the
           original type.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_kind-1"></a><span class="bold_code bc-9">get_kind(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_kind-1"></a><span class="bold_code">get_kind(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_PrimitiveDef_objref</span><br>
+<span class="bold_code">Objref = #IFR_PrimitiveDef_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = atom()</span><br>
+<span class="bold_code">Return = atom()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns an atom describing the primitive type (See CORBA 2.0
           p 6-21).</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_bound-1"></a><span class="bold_code bc-9">get_bound(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_bound-1"></a><span class="bold_code">get_bound(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_objref</span><br>
+<span class="bold_code">Objref = #IFR_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = integer (unsigned long)</span><br>
+<span class="bold_code">Return = integer (unsigned long)</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object the kind StringDef or SequenceDef.
           For StringDef: returns the maximum number of characters in
           the string.
           For SequenceDef: Returns the maximum number of elements in
           the sequence. Zero indicates an unbounded sequence.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="set_bound-2"></a><span class="bold_code bc-9">set_bound(Objref,Bound) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="set_bound-2"></a><span class="bold_code">set_bound(Objref,Bound) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_objref</span><br>
+<span class="bold_code">Objref = #IFR_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Bound = integer (unsigned long)</span><br>
+<span class="bold_code">Bound = integer (unsigned long)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = ok | {exception, _}</span><br>
+<span class="bold_code">Return = ok | {exception, _}</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object the kind StringDef or SequenceDef.
           For StringDef: Sets the maximum number of characters in the
           string. Bound must not be zero.
           For SequenceDef: Sets the maximum number of elements in the
           sequence. Zero indicates an unbounded sequence.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_element_type-1"></a><span class="bold_code bc-9">get_element_type(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_element_type-1"></a><span class="bold_code">get_element_type(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_objref</span><br>
+<span class="bold_code">Objref = #IFR_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = tuple() (a typecode tuple)</span><br>
+<span class="bold_code">Return = tuple() (a typecode tuple)</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object the kind SequenceDef or ArrayDef.
           Returns the typecode of the elements in the IFR object.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_element_type_def-1"></a><span class="bold_code bc-9">get_element_type_def(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_element_type_def-1"></a><span class="bold_code">get_element_type_def(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_objref</span><br>
+<span class="bold_code">Objref = #IFR_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = #IFR_IDLType_objref</span><br>
+<span class="bold_code">Return = #IFR_IDLType_objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object the kind SequenceDef or ArrayDef.
           Returns an IFR object of the type IDLType describing the
           type of the elements in Objref.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="set_element_type_def-2"></a><span class="bold_code bc-9">set_element_type_def(Objref,TypeDef) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="set_element_type_def-2"></a><span class="bold_code">set_element_type_def(Objref,TypeDef) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_objref</span><br>
+<span class="bold_code">Objref = #IFR_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TypeDef = #IFR_IDLType_objref</span><br>
+<span class="bold_code">TypeDef = #IFR_IDLType_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = ok | {exception, _}</span><br>
+<span class="bold_code">Return = ok | {exception, _}</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object the kind SequenceDef or ArrayDef.
           Sets the element_type_def attribute, an IFR object of the
           type IDLType describing the type of the elements in Objref.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_length-1"></a><span class="bold_code bc-9">get_length(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_length-1"></a><span class="bold_code">get_length(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_ArrayDef_objref</span><br>
+<span class="bold_code">Objref = #IFR_ArrayDef_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = integer() (unsigned long)</span><br>
+<span class="bold_code">Return = integer() (unsigned long)</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns the number of elements in the array.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="set_length-2"></a><span class="bold_code bc-9">set_length(Objref,Length) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="set_length-2"></a><span class="bold_code">set_length(Objref,Length) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_ArrayDef_objref</span><br>
+<span class="bold_code">Objref = #IFR_ArrayDef_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Length = integer() (unsigned long)</span><br>
+<span class="bold_code">Length = integer() (unsigned long)</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Sets the number of elements in the array.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_mode-1"></a><span class="bold_code bc-9">get_mode(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_mode-1"></a><span class="bold_code">get_mode(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_objref</span><br>
+<span class="bold_code">Objref = #IFR_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = atom()</span><br>
+<span class="bold_code">Return = atom()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object the kind AttributeDef or OperationDef.
           For AttributeDef: Return is an atom ('ATTR_NORMAL' or
           'ATTR_READONLY') specifying the read/write access for this
@@ -1794,26 +1460,20 @@
           For OperationDef: Return is an atom ('OP_NORMAL' or
           'OP_ONEWAY') specifying the mode of the operation.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="set_mode-2"></a><span class="bold_code bc-9">set_mode(Objref,Mode) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="set_mode-2"></a><span class="bold_code">set_mode(Objref,Mode) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_objref</span><br>
+<span class="bold_code">Objref = #IFR_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Mode = atom()</span><br>
+<span class="bold_code">Mode = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = ok | {exception, _}</span><br>
+<span class="bold_code">Return = ok | {exception, _}</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Objref is an IFR object the kind AttributeDef or OperationDef.
           For AttributeDef: Sets the read/write access for this
           attribute. Mode is an atom ('ATTR_NORMAL' or
@@ -1821,359 +1481,267 @@
           For OperationDef: Sets the mode of the operation. Mode is an
           atom ('OP_NORMAL' or 'OP_ONEWAY').</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_result-1"></a><span class="bold_code bc-9">get_result(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_result-1"></a><span class="bold_code">get_result(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_OperationDef_objref</span><br>
+<span class="bold_code">Objref = #IFR_OperationDef_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = tuple() (a typecode tuple)</span><br>
+<span class="bold_code">Return = tuple() (a typecode tuple)</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns a typecode describing the type of the value returned by the
           operation.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_result_def-1"></a><span class="bold_code bc-9">get_result_def(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_result_def-1"></a><span class="bold_code">get_result_def(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_OperationDef_objref</span><br>
+<span class="bold_code">Objref = #IFR_OperationDef_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = #IFR_IDLType_objref</span><br>
+<span class="bold_code">Return = #IFR_IDLType_objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns an IFR object of the type IDLType describing the type of the
           result.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="set_result_def-2"></a><span class="bold_code bc-9">set_result_def(Objref,ResultDef) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="set_result_def-2"></a><span class="bold_code">set_result_def(Objref,ResultDef) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_OperationDef_objref</span><br>
+<span class="bold_code">Objref = #IFR_OperationDef_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">ResultDef = #IFR_IDLType_objref</span><br>
+<span class="bold_code">ResultDef = #IFR_IDLType_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = ok | {exception, _}</span><br>
+<span class="bold_code">Return = ok | {exception, _}</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Sets the type_def attribute, an IFR Object of the type IDLType
           describing the result.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_params-1"></a><span class="bold_code bc-9">get_params(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_params-1"></a><span class="bold_code">get_params(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_OperationDef_objref</span><br>
+<span class="bold_code">Objref = #IFR_OperationDef_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = list() (list of parameter description records)</span><br>
+<span class="bold_code">Return = list() (list of parameter description records)</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns a list of parameter description records, which describes the
           parameters of the OperationDef.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="set_params-2"></a><span class="bold_code bc-9">set_params(Objref,Params) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="set_params-2"></a><span class="bold_code">set_params(Objref,Params) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_OperationDef_objref</span><br>
+<span class="bold_code">Objref = #IFR_OperationDef_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Params = list() (list of parameter description records)</span><br>
+<span class="bold_code">Params = list() (list of parameter description records)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = ok | {exception, _}</span><br>
+<span class="bold_code">Return = ok | {exception, _}</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Sets the params attribute, a list of parameter description records.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_contexts-1"></a><span class="bold_code bc-9">get_contexts(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_contexts-1"></a><span class="bold_code">get_contexts(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_OperationDef_objref</span><br>
+<span class="bold_code">Objref = #IFR_OperationDef_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = list() (list of strings)</span><br>
+<span class="bold_code">Return = list() (list of strings)</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns a list of context identifiers for the operation.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="set_contexts-2"></a><span class="bold_code bc-9">set_contexts(Objref,Contexts) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="set_contexts-2"></a><span class="bold_code">set_contexts(Objref,Contexts) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_OperationDef_objref</span><br>
+<span class="bold_code">Objref = #IFR_OperationDef_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Contexts = list() (list of strings)</span><br>
+<span class="bold_code">Contexts = list() (list of strings)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = ok | {exception, _}</span><br>
+<span class="bold_code">Return = ok | {exception, _}</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Sets the context attribute for the operation.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_exceptions-1"></a><span class="bold_code bc-9">get_exceptions(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_exceptions-1"></a><span class="bold_code">get_exceptions(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_OperationDef_objref</span><br>
+<span class="bold_code">Objref = #IFR_OperationDef_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = list() (list of #IFR_ExceptionDef_objrefs)</span><br>
+<span class="bold_code">Return = list() (list of #IFR_ExceptionDef_objrefs)</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns a list of exception types that can be raised by this
           operation.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="set_exceptions-2"></a><span class="bold_code bc-9">set_exceptions(Objref,Exceptions) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="set_exceptions-2"></a><span class="bold_code">set_exceptions(Objref,Exceptions) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_OperationDef_objref</span><br>
+<span class="bold_code">Objref = #IFR_OperationDef_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Exceptions = list() (list of #IFR_ExceptionDef_objrefs)</span><br>
+<span class="bold_code">Exceptions = list() (list of #IFR_ExceptionDef_objrefs)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = ok | {exception, _}</span><br>
+<span class="bold_code">Return = ok | {exception, _}</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Sets the exceptions attribute for this operation.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_base_interfaces-1"></a><span class="bold_code bc-9">get_base_interfaces(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_base_interfaces-1"></a><span class="bold_code">get_base_interfaces(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_InterfaceDef_objref</span><br>
+<span class="bold_code">Objref = #IFR_InterfaceDef_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = list() (list of #IFR_InterfaceDef_objrefs)</span><br>
+<span class="bold_code">Return = list() (list of #IFR_InterfaceDef_objrefs)</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns a list of InterfaceDefs from which this InterfaceDef inherits.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="set_base_interfaces-2"></a><span class="bold_code bc-9">set_base_interfaces(Objref,BaseInterfaces) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="set_base_interfaces-2"></a><span class="bold_code">set_base_interfaces(Objref,BaseInterfaces) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_InterfaceDef_objref</span><br>
+<span class="bold_code">Objref = #IFR_InterfaceDef_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">BaseInterfaces = list() (list of #IFR_InterfaceDef_objrefs)</span><br>
+<span class="bold_code">BaseInterfaces = list() (list of #IFR_InterfaceDef_objrefs)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = ok | {exception, _}</span><br>
+<span class="bold_code">Return = ok | {exception, _}</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Sets the BaseInterfaces attribute.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="is_a-2"></a><span class="bold_code bc-9">is_a(Objref,Interface_id) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="is_a-2"></a><span class="bold_code">is_a(Objref,Interface_id) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_InterfaceDef_objref</span><br>
+<span class="bold_code">Objref = #IFR_InterfaceDef_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Interface_id = #IFR_InterfaceDef_objref</span><br>
+<span class="bold_code">Interface_id = #IFR_InterfaceDef_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = atom() (true or false)</span><br>
+<span class="bold_code">Return = atom() (true or false)</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns true if the InterfaceDef either is identical to or
           inherits from Interface_id.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="describe_interface-1"></a><span class="bold_code bc-9">describe_interface(Objref) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="describe_interface-1"></a><span class="bold_code">describe_interface(Objref) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_InterfaceDef_objref</span><br>
+<span class="bold_code">Objref = #IFR_InterfaceDef_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = tuple() (a fullinterfacedescription record)</span><br>
+<span class="bold_code">Return = tuple() (a fullinterfacedescription record)</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns a full inter face description record describing the InterfaceDef.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="create_attribute-6"></a><span class="bold_code bc-9">create_attribute(Objref,Id,Name,Version,Type,Mode) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="create_attribute-6"></a><span class="bold_code">create_attribute(Objref,Id,Name,Version,Type,Mode) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_InterfaceDef_objref</span><br>
+<span class="bold_code">Objref = #IFR_InterfaceDef_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Id = string()</span><br>
+<span class="bold_code">Id = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Name = string()</span><br>
+<span class="bold_code">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Version = string()</span><br>
+<span class="bold_code">Version = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Type = #IFR_IDLType_objref</span><br>
+<span class="bold_code">Type = #IFR_IDLType_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Mode = atom() ('ATTR_NORMAL' or 'ATTR_READONLY')</span><br>
+<span class="bold_code">Mode = atom() ('ATTR_NORMAL' or 'ATTR_READONLY')</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = #IFR_AttributeDef_objref</span><br>
+<span class="bold_code">Return = #IFR_AttributeDef_objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Creates an IFR object of the type AttributeDef contained in this
           InterfaceDef.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="create_operation-9"></a><span class="bold_code bc-9">create_operation(Objref,Id,Name,Version,Result,Mode,Params, Exceptions,Contexts) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="create_operation-9"></a><span class="bold_code">create_operation(Objref,Id,Name,Version,Result,Mode,Params, Exceptions,Contexts) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Objref = #IFR_InterfaceDef_objref</span><br>
+<span class="bold_code">Objref = #IFR_InterfaceDef_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Id = string()</span><br>
+<span class="bold_code">Id = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Name = string()</span><br>
+<span class="bold_code">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Version = string()</span><br>
+<span class="bold_code">Version = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = #IFR_IDLType_objref</span><br>
+<span class="bold_code">Result = #IFR_IDLType_objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Mode = atom() ('OP_NORMAL' or 'OP_ONEWAY')</span><br>
+<span class="bold_code">Mode = atom() ('OP_NORMAL' or 'OP_ONEWAY')</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Params = list() (list of parameter description records)</span><br>
+<span class="bold_code">Params = list() (list of parameter description records)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Exceptions = list() (list of #IFR_ExceptionDef_objrefs)</span><br>
+<span class="bold_code">Exceptions = list() (list of #IFR_ExceptionDef_objrefs)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Contexts = list() (list of strings)</span><br>
+<span class="bold_code">Contexts = list() (list of strings)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = #IFR_OperationDef_objref</span><br>
+<span class="bold_code">Return = #IFR_OperationDef_objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Creates an IFR object of the type OperationDef contained in this
           InterfaceDef.</p>
       </p></div>
-</div>
-</div>
-  </div>
+  
   
 </div>
 <div class="footer">

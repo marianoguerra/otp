@@ -443,79 +443,58 @@
 <!-- refpage --><center><h1>ct_master</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">ct_master</div>
+<div class="REFBODY">ct_master</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Distributed test execution control for Common Test.</div>
+<div class="REFBODY">Distributed test execution control for Common Test.</div>
 
 <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
 
     <p>Distributed test execution control for <span class="code">Common Test</span>.</p>
 
     <p>This module exports functions for running <span class="code">Common Test</span> nodes on
       multiple hosts in parallel.</p>
 
-</div>
+</p></div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="abort-0"></a><span class="bold_code bc-9">abort() -&gt; ok</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="abort-0"></a>
+    <p><a name="abort-0"></a><span class="bold_code">abort() -&gt; ok</span><br></p>
+<div class="REFBODY"><p><a name="abort-0"></a>
         <p>Stops all running tests.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="abort-1"></a><span class="bold_code bc-9">abort(Nodes) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="abort-1"></a><span class="bold_code">abort(Nodes) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Nodes = atom() | [atom()]</span><br>
+<span class="bold_code">Nodes = atom() | [atom()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p><a name="abort-1"></a>
+<div class="REFBODY"><p><a name="abort-1"></a>
         <p>Stops tests on specified nodes.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="basic_html-1"></a><span class="bold_code bc-9">basic_html(Bool) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="basic_html-1"></a><span class="bold_code">basic_html(Bool) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Bool = true | false</span><br>
+<span class="bold_code">Bool = true | false</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p><a name="basic_html-1"></a>
+<div class="REFBODY"><p><a name="basic_html-1"></a>
         <p>If set to <span class="code">true</span>, the <span class="code">ct_master logs</span> are written on a
           primitive HTML format, not using the <span class="code">Common Test</span> CSS style
           sheet.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="get_event_mgr_ref-0"></a><span class="bold_code bc-9">get_event_mgr_ref() -&gt; MasterEvMgrRef</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_event_mgr_ref-0"></a><span class="bold_code">get_event_mgr_ref() -&gt; MasterEvMgrRef</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">MasterEvMgrRef = atom()</span><br>
+<span class="bold_code">MasterEvMgrRef = atom()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p><a name="get_event_mgr_ref-0"></a>
+<div class="REFBODY"><p><a name="get_event_mgr_ref-0"></a>
         <p>Gets a reference to the <span class="code">Common Test</span> master event manager.
           The reference can be used to, for example, add a user-specific
           event handler while tests are running.</p>
@@ -525,100 +504,76 @@
         <div class="example"><pre>
  gen_event:add_handler(ct_master:get_event_mgr_ref(), my_ev_h, [])</pre></div>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="progress-0"></a><span class="bold_code bc-9">progress() -&gt; [{Node, Status}]</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="progress-0"></a><span class="bold_code">progress() -&gt; [{Node, Status}]</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Node = atom()</span><br>
+<span class="bold_code">Node = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Status = finished_ok | ongoing | aborted | {error, Reason}</span><br>
+<span class="bold_code">Status = finished_ok | ongoing | aborted | {error, Reason}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p><a name="progress-0"></a>
+<div class="REFBODY"><p><a name="progress-0"></a>
         <p>Returns test progress. If <span class="code">Status</span> is <span class="code">ongoing</span>, tests
           are running on the node and are not yet finished.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="run-1"></a><span class="bold_code bc-9">run(TestSpecs) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="run-1"></a><span class="bold_code">run(TestSpecs) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TestSpecs = string() | [SeparateOrMerged]</span><br>
+<span class="bold_code">TestSpecs = string() | [SeparateOrMerged]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p><a name="run-1"></a>
-        <p>Equivalent to <span class="bold_code data-type-ref"><a href="#run-4"><span class="code">ct_master:run(TestSpecs, false, [], [])</span></a></span>.</p>
+<div class="REFBODY"><p><a name="run-1"></a>
+        <p>Equivalent to <span class="bold_code"><a href="#run-4"><span class="code">ct_master:run(TestSpecs, false, [], [])</span></a></span>.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="run-3"></a><span class="bold_code bc-9">run(TestSpecs, InclNodes, ExclNodes) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="run-3"></a><span class="bold_code">run(TestSpecs, InclNodes, ExclNodes) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TestSpecs = string() | [SeparateOrMerged]</span><br>
+<span class="bold_code">TestSpecs = string() | [SeparateOrMerged]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">SeparateOrMerged = string() | [string()]</span><br>
+<span class="bold_code">SeparateOrMerged = string() | [string()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">InclNodes = [atom()]</span><br>
+<span class="bold_code">InclNodes = [atom()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">ExclNodes = [atom()]</span><br>
+<span class="bold_code">ExclNodes = [atom()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p><a name="run-3"></a>
-        <p>Equivalent to <span class="bold_code data-type-ref"><a href="#run-4"><span class="code">ct_master:run(TestSpecs, false, InclNodes, ExclNodes)</span></a></span>.</p>
+<div class="REFBODY"><p><a name="run-3"></a>
+        <p>Equivalent to <span class="bold_code"><a href="#run-4"><span class="code">ct_master:run(TestSpecs, false, InclNodes, ExclNodes)</span></a></span>.</p>
       </p></div>
-</div>
-</div>
 
-     <div class="func">
-<div class="func-title">
-<a name="run-4"></a><span class="bold_code bc-9">run(TestSpecs, AllowUserTerms, InclNodes, ExclNodes) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+     <p><a name="run-4"></a><span class="bold_code">run(TestSpecs, AllowUserTerms, InclNodes, ExclNodes) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
          <div class="REFTYPES">
-<span class="bold_code bc-11">TestSpecs = string() | [SeparateOrMerged]</span><br>
+<span class="bold_code">TestSpecs = string() | [SeparateOrMerged]</span><br>
 </div>
          <div class="REFTYPES">
-<span class="bold_code bc-11">SeparateOrMerged = string() | [string()]</span><br>
+<span class="bold_code">SeparateOrMerged = string() | [string()]</span><br>
 </div>
          <div class="REFTYPES">
-<span class="bold_code bc-11">AllowUserTerms = bool()</span><br>
+<span class="bold_code">AllowUserTerms = bool()</span><br>
 </div>
          <div class="REFTYPES">
-<span class="bold_code bc-11">InclNodes = [atom()]</span><br>
+<span class="bold_code">InclNodes = [atom()]</span><br>
 </div>
          <div class="REFTYPES">
-<span class="bold_code bc-11">ExclNodes = [atom()]</span><br>
+<span class="bold_code">ExclNodes = [atom()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p><a name="run-4"></a>
+<div class="REFBODY"><p><a name="run-4"></a>
         <p>Tests are spawned on the nodes as specified in <span class="code">TestSpecs</span>.
           Each specification in <span class="code">TestSpec</span> is handled separately.
           However, it is also possible to specify a list of specifications to
@@ -627,113 +582,93 @@
           the nodes in <span class="code">InclNodes</span>. Nodes in the <span class="code">ExclNodes</span> list
           are excluded from the test.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="run_on_node-2"></a><span class="bold_code bc-9">run_on_node(TestSpecs, Node) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="run_on_node-2"></a><span class="bold_code">run_on_node(TestSpecs, Node) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TestSpecs = string() | [SeparateOrMerged]</span><br>
+<span class="bold_code">TestSpecs = string() | [SeparateOrMerged]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">SeparateOrMerged = string() | [string()]</span><br>
+<span class="bold_code">SeparateOrMerged = string() | [string()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Node = atom()</span><br>
+<span class="bold_code">Node = atom()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p><a name="run_on_node-2"></a>
+<div class="REFBODY"><p><a name="run_on_node-2"></a>
         <p>Equivalent to
-          <span class="bold_code data-type-ref"><a href="#run_on_node-3"><span class="code">ct_master:run_on_node(TestSpecs, false, Node)</span></a></span>.</p>
+          <span class="bold_code"><a href="#run_on_node-3"><span class="code">ct_master:run_on_node(TestSpecs, false, Node)</span></a></span>.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="run_on_node-3"></a><span class="bold_code bc-9">run_on_node(TestSpecs, AllowUserTerms, Node) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="run_on_node-3"></a><span class="bold_code">run_on_node(TestSpecs, AllowUserTerms, Node) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TestSpecs = string() | [SeparateOrMerged]</span><br>
+<span class="bold_code">TestSpecs = string() | [SeparateOrMerged]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">SeparateOrMerged = string() | [string()]</span><br>
+<span class="bold_code">SeparateOrMerged = string() | [string()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">AllowUserTerms = bool()</span><br>
+<span class="bold_code">AllowUserTerms = bool()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Node = atom()</span><br>
+<span class="bold_code">Node = atom()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p><a name="run_on_node-3"></a>
+<div class="REFBODY"><p><a name="run_on_node-3"></a>
         <p>Tests are spawned on <span class="code">Node</span> according to <span class="code">TestSpecs</span>.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="run_test-2"></a><span class="bold_code bc-9">run_test(Node, Opts) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="run_test-2"></a><span class="bold_code">run_test(Node, Opts) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Node = atom()</span><br>
+<span class="bold_code">Node = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Opts = [OptTuples]</span><br>
+<span class="bold_code">Opts = [OptTuples]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">OptTuples = {config, CfgFiles} | {dir, TestDirs} | {suite, Suites} | {testcase, Cases} | {spec, TestSpecs} | {allow_user_terms, Bool} | {logdir, LogDir} | {event_handler, EventHandlers} | {silent_connections, Conns} | {cover, CoverSpecFile} | {cover_stop, Bool} | {userconfig, UserCfgFiles}</span><br>
+<span class="bold_code">OptTuples = {config, CfgFiles} | {dir, TestDirs} | {suite, Suites} | {testcase, Cases} | {spec, TestSpecs} | {allow_user_terms, Bool} | {logdir, LogDir} | {event_handler, EventHandlers} | {silent_connections, Conns} | {cover, CoverSpecFile} | {cover_stop, Bool} | {userconfig, UserCfgFiles}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">CfgFiles = string() | [string()]</span><br>
+<span class="bold_code">CfgFiles = string() | [string()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TestDirs = string() | [string()]</span><br>
+<span class="bold_code">TestDirs = string() | [string()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Suites = atom() | [atom()]</span><br>
+<span class="bold_code">Suites = atom() | [atom()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Cases = atom() | [atom()]</span><br>
+<span class="bold_code">Cases = atom() | [atom()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TestSpecs = string() | [string()]</span><br>
+<span class="bold_code">TestSpecs = string() | [string()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">LogDir = string()</span><br>
+<span class="bold_code">LogDir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">EventHandlers = EH | [EH]</span><br>
+<span class="bold_code">EventHandlers = EH | [EH]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">EH = atom() | {atom(), InitArgs} | {[atom()], InitArgs}</span><br>
+<span class="bold_code">EH = atom() | {atom(), InitArgs} | {[atom()], InitArgs}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">InitArgs = [term()]</span><br>
+<span class="bold_code">InitArgs = [term()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conns = all | [atom()]</span><br>
+<span class="bold_code">Conns = all | [atom()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p><a name="run_test-2"></a>
+<div class="REFBODY"><p><a name="run_test-2"></a>
         <p>Tests are spawned on <span class="code">Node</span> using
-          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','ct','run_test-1.html');"><span class="code">ct:run_test/1</span></a></span></p>
+          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','ct','run_test-1.html');"><span class="code">ct:run_test/1</span></a></span></p>
       </p></div>
-</div>
-</div>
-  </div>
+  
 
 </div>
 <div class="footer">

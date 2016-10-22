@@ -333,11 +333,11 @@
 <!-- refpage --><center><h1>tftp</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">tftp</div>
+<div class="REFBODY">tftp</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Trivial FTP.</div>
+<div class="REFBODY">Trivial FTP.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>This is a complete implementation of the following IETF standards:</p>
     <ul>
       <li>RFC 1350, The TFTP Protocol (revision 2)</li>
@@ -347,29 +347,29 @@
     </ul>
     <p>The only feature that not is implemented is
       the "netascii" transfer mode.</p>
-    <p>The <span class="bold_code data-type-ref"><a href="#start-1">start/1</a></span> function starts
+    <p>The <span class="bold_code"><a href="#start-1">start/1</a></span> function starts
       a daemon process listening for UDP packets on a port. When it
       receives a request for read or write, it spawns a temporary server
       process handling the transfer.</p>
     <p>On the client side,
-      function <span class="bold_code data-type-ref"><a href="#read_file-3">read_file/3</a></span>
-      and <span class="bold_code data-type-ref"><a href="#write_file-3">write_file/3</a></span>
+      function <span class="bold_code"><a href="#read_file-3">read_file/3</a></span>
+      and <span class="bold_code"><a href="#write_file-3">write_file/3</a></span>
       spawn a temporary client process establishing
       contact with a TFTP daemon and perform the file transfer.</p>
     <p><span class="code">tftp</span> uses a callback module to handle the file
       transfer. Two such callback modules are provided,
       <span class="code">tftp_binary</span> and <span class="code">tftp_file</span>. See
-      <span class="bold_code data-type-ref"><a href="#read_file-3">read_file/3</a></span> and
-      <span class="bold_code data-type-ref"><a href="#write_file-3">write_file/3</a></span> for details.
+      <span class="bold_code"><a href="#read_file-3">read_file/3</a></span> and
+      <span class="bold_code"><a href="#write_file-3">write_file/3</a></span> for details.
       You can also implement your own callback modules, see 
-      <span class="bold_code data-type-ref"><a href="#tftp_callback">CALLBACK FUNCTIONS</a></span>. 
+      <span class="bold_code"><a href="#tftp_callback">CALLBACK FUNCTIONS</a></span>. 
       A callback module provided by
       the user is registered using option <span class="code">callback</span>, see
-      <span class="bold_code data-type-ref"><a href="#options">DATA TYPES</a></span>.</p>
-  </div>
+      <span class="bold_code"><a href="#options">DATA TYPES</a></span>.</p>
+  </p></div>
   
- <h3><a name="idm45717576045792">TFTP SERVER SERVICE START/STOP</a></h3>
-<div class="REFBODY rb-3">
+ <h3><a name="idm45565222779328">TFTP SERVER SERVICE START/STOP</a></h3>
+<div class="REFBODY">
     
     
     <p>A TFTP server can be configured to start statically when starting
@@ -377,13 +377,13 @@
       (when <span class="code">Inets</span> is already started) by calling the <span class="code">Inets</span> application 
       API <span class="code">inets:start(tftpd, ServiceConfig)</span> or
       <span class="code">inets:start(tftpd, ServiceConfig, How)</span>,
-      see <span class="bold_code bc-19"><a href="inets.html">inets(3)</a></span> for details.
+      see <span class="bold_code"><a href="inets.html">inets(3)</a></span> for details.
       The <span class="code">ServiceConfig</span> for TFTP is described in
-      the <span class="bold_code data-type-ref"><a href="#options">DATA TYPES</a></span>
+      the <span class="bold_code"><a href="#options">DATA TYPES</a></span>
       section.</p>
     
     <p>The TFTP server can be stopped using <span class="code">inets:stop(tftpd, Pid)</span>,
-      see <span class="bold_code bc-19"><a href="inets.html">inets(3)</a></span> for details.</p>
+      see <span class="bold_code"><a href="inets.html">inets(3)</a></span> for details.</p>
 
     <p>The TPFT client is of such a temporary nature that it is not
       handled as a service in the <span class="code">Inets</span> service framework.</p>
@@ -391,9 +391,9 @@
   </div>
   
   <h3>
-<a name="options"></a><a name="idm45717576036928">DATA TYPES</a>
+<a name="options"></a><a name="idm45565222770464">DATA TYPES</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p><span class="code">ServiceConfig = Options</span></p>
@@ -411,7 +411,7 @@
       <dt><strong><span class="code">{host, Host}</span></strong></dt>
       <dd>
         <p><span class="code">Host = hostname()</span>, see
-          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html');">inet(3)</a></span>.</p>
+          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html');">inet(3)</a></span>.</p>
         <p>The name or IP address of the host where the TFTP daemon
           resides. This option is only used by the client.</p>
       </dd>
@@ -450,7 +450,7 @@
       <dt><strong><span class="code">{udp, Options}</span></strong></dt>
       <dd>
         <p><span class="code">Options = [Opt]</span>, see
-          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_udp.html#open-1');">gen_udp:open/2</a></span>.</p>
+          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_udp.html#open-1');">gen_udp:open/2</a></span>.</p>
       </dd>
       <dt><strong><span class="code">{use_tsize, Bool}</span></strong></dt>
       <dd>
@@ -500,11 +500,11 @@
           transferred, its local filename is matched to the regular
           expressions of the registered callbacks. The first matching
           callback is used during the transfer. See
-          <span class="bold_code data-type-ref"><a href="#read_file-3">read_file/3</a></span> and
-          <span class="bold_code data-type-ref"><a href="#write_file-3">write_file/3</a></span>.
+          <span class="bold_code"><a href="#read_file-3">read_file/3</a></span> and
+          <span class="bold_code"><a href="#write_file-3">write_file/3</a></span>.
           </p>
         <p>The callback module must implement the <span class="code">tftp</span> behavior, see
-          <span class="bold_code data-type-ref"><a href="#tftp_callback">CALLBACK FUNCTIONS</a></span>.</p>
+          <span class="bold_code"><a href="#tftp_callback">CALLBACK FUNCTIONS</a></span>.</p>
       </dd>
 
    <dt><strong><span class="code">{logger, Module}</span></strong></dt>
@@ -514,7 +514,7 @@
         <p>Callback module for customized logging of errors, warnings, and
 	  info messages. The callback module must implement the
 	  <span class="code">tftp_logger</span> behavior, see
-          <span class="bold_code data-type-ref"><a href="#tftp_logger">LOGGER FUNCTIONS</a></span>.
+          <span class="bold_code"><a href="#tftp_logger">LOGGER FUNCTIONS</a></span>.
           The default module is <span class="code">tftp_logger</span>.</p>
       </dd>
 
@@ -530,175 +530,134 @@
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="change_config-2"></a><span class="bold_code bc-9">change_config(daemons, Options) -&gt; [{Pid, Result}]</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="change_config-2"></a><span class="bold_code">change_config(daemons, Options) -&gt; [{Pid, Result}]</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Options = [option()]</span><br>
+<span class="bold_code">Options = [option()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = ok | {error, Reason}</span><br>
+<span class="bold_code">Result = ok | {error, Reason}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Changes configuration for all TFTP daemon processes. </p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="change_config-2"></a><span class="bold_code bc-9">change_config(servers, Options) -&gt; [{Pid, Result}]</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="change_config-2"></a><span class="bold_code">change_config(servers, Options) -&gt; [{Pid, Result}]</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Options = [option()]</span><br>
+<span class="bold_code">Options = [option()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = ok | {error, Reason}</span><br>
+<span class="bold_code">Result = ok | {error, Reason}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Changes configuration for all TFTP server processes.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="change_config-2"></a><span class="bold_code bc-9">change_config(Pid, Options) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="change_config-2"></a><span class="bold_code">change_config(Pid, Options) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Options = [option()]</span><br>
+<span class="bold_code">Options = [option()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = ok | {error, Reason}</span><br>
+<span class="bold_code">Result = ok | {error, Reason}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Changes configuration for a TFTP daemon, server, or client process.</p>
       </p></div>
-</div>
-</div>
     
-    <div class="func">
-<div class="func-title">
-<a name="info-1"></a><span class="bold_code bc-9">info(daemons) -&gt; [{Pid, Options}]</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="info-1"></a><span class="bold_code">info(daemons) -&gt; [{Pid, Options}]</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = [pid()()]</span><br>
+<span class="bold_code">Pid = [pid()()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Options = [option()]</span><br>
+<span class="bold_code">Options = [option()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns information about all TFTP daemon processes.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="info-1"></a><span class="bold_code bc-9">info(servers) -&gt; [{Pid, Options}]</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="info-1"></a><span class="bold_code">info(servers) -&gt; [{Pid, Options}]</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = [pid()()]</span><br>
+<span class="bold_code">Pid = [pid()()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Options = [option()]</span><br>
+<span class="bold_code">Options = [option()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns information about all TFTP server processes. </p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="info-1"></a><span class="bold_code bc-9">info(Pid) -&gt; {ok, Options} | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="info-1"></a><span class="bold_code">info(Pid) -&gt; {ok, Options} | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Options = [option()]</span><br>
+<span class="bold_code">Options = [option()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns information about a TFTP daemon, server, or client process.</p>
       </p></div>
-</div>
-</div>
        
-    <div class="func">
-<div class="func-title">
-<a name="read_file-3"></a><span class="bold_code bc-9">read_file(RemoteFilename, LocalFilename, Options) -&gt; {ok, LastCallbackState} | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="read_file-3"></a><span class="bold_code">read_file(RemoteFilename, LocalFilename, Options) -&gt; {ok, LastCallbackState} | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">RemoteFilename = string()</span><br>
+<span class="bold_code">RemoteFilename = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">LocalFilename = binary | string()</span><br>
+<span class="bold_code">LocalFilename = binary | string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Options = [option()]</span><br>
+<span class="bold_code">Options = [option()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">LastCallbackState = term()</span><br>
+<span class="bold_code">LastCallbackState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Reads a (virtual) file <span class="code">RemoteFilename</span> from a TFTP
 	server.</p>
 	<p>If <span class="code">LocalFilename</span> is the atom <span class="code">binary</span>,
@@ -716,59 +675,47 @@
 	the first match is used, or an error tuple is returned if no
 	matching regexp is found.</p>
       </p></div>
-</div>
-</div>
     
-    <div class="func">
-<div class="func-title">
-<a name="start-1"></a><span class="bold_code bc-9">start(Options) -&gt; {ok, Pid} | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="start-1"></a><span class="bold_code">start(Options) -&gt; {ok, Pid} | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Options = [option()]</span><br>
+<span class="bold_code">Options = [option()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Starts a daemon process listening for UDP packets on a
 	port. When it receives a request for read or write, it spawns
 	a temporary server process handling the actual transfer
 	of the (virtual) file.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="write_file-3"></a><span class="bold_code bc-9">write_file(RemoteFilename, LocalFilename, Options) -&gt; {ok, LastCallbackState} | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="write_file-3"></a><span class="bold_code">write_file(RemoteFilename, LocalFilename, Options) -&gt; {ok, LastCallbackState} | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">RemoteFilename = string()</span><br>
+<span class="bold_code">RemoteFilename = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">LocalFilename = binary() | string()</span><br>
+<span class="bold_code">LocalFilename = binary() | string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Options = [option()]</span><br>
+<span class="bold_code">Options = [option()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">LastCallbackState = term()</span><br>
+<span class="bold_code">LastCallbackState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Writes a (virtual) file <span class="code">RemoteFilename</span> to a TFTP
           server.</p>
         <p>If <span class="code">LocalFilename</span> is a binary, <span class="code">tftp_binary</span> is
@@ -786,14 +733,12 @@
 	the first match is used, or an error tuple is returned if no
 	matching regexp is found.</p>
       </p></div>
-</div>
-</div>
-  </div>
+  
 
   <h3>
-<a name="tftp_callback"></a><a name="idm45717575931760">CALLBACK FUNCTIONS</a>
+<a name="tftp_callback"></a><a name="idm45565222665296">CALLBACK FUNCTIONS</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>A <span class="code">tftp</span> callback module is to be implemented as a
@@ -850,31 +795,26 @@
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-     <div class="func">
-<div class="func-title">
-<a name="Module:abort-3"></a><span class="bold_code bc-9">Module:abort(Code, Text, State) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+     <p><a name="Module:abort-3"></a><span class="bold_code">Module:abort(Code, Text, State) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Code = undef | enoent | eacces | enospc</span><br>
+<span class="bold_code">Code = undef | enoent | eacces | enospc</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">  | badop | eexist | baduser | badopt</span><br>
+<span class="bold_code">  | badop | eexist | baduser | badopt</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">  | int()</span><br>
+<span class="bold_code">  | int()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Text = string()</span><br>
+<span class="bold_code">Text = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">State = term()</span><br>
+<span class="bold_code">State = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Invoked when the file transfer is aborted.</p>
         <p>The callback function is expected to clean
 	up its used resources after the aborted file
@@ -886,66 +826,60 @@
 	the necessary resources. However, it is
 	invoked if the functions fail (crash).</p>
       </p></div>
-</div>
-</div>
     
-      <div class="func">
-<div class="func-title">
-<a name="Module:open-6"></a><span class="bold_code bc-9">Module:open(Peer, Access, Filename, Mode, SuggestedOptions, State) -&gt; {ok, AcceptedOptions, NewState} | {error, {Code, Text}}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+      <p><a name="Module:open-6"></a><span class="bold_code">Module:open(Peer, Access, Filename, Mode, SuggestedOptions, State) -&gt; {ok, AcceptedOptions, NewState} | {error, {Code, Text}}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Peer = {PeerType, PeerHost, PeerPort}</span><br>
+<span class="bold_code">Peer = {PeerType, PeerHost, PeerPort}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PeerType = inet | inet6</span><br>
+<span class="bold_code">PeerType = inet | inet6</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PeerHost = ip_address()</span><br>
+<span class="bold_code">PeerHost = ip_address()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PeerPort = integer()</span><br>
+<span class="bold_code">PeerPort = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Access = read | write</span><br>
+<span class="bold_code">Access = read | write</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Filename = string()</span><br>
+<span class="bold_code">Filename = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Mode = string()</span><br>
+<span class="bold_code">Mode = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">SuggestedOptions = AcceptedOptions = [{Key, Value}]</span><br>
+<span class="bold_code">SuggestedOptions = AcceptedOptions = [{Key, Value}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Key = Value = string()</span><br>
+<span class="bold_code"> Key = Value = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">State = InitialState | term()</span><br>
+<span class="bold_code">State = InitialState | term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> InitialState = [] | [{root_dir, string()}]</span><br>
+<span class="bold_code"> InitialState = [] | [{root_dir, string()}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">NewState = term()</span><br>
+<span class="bold_code">NewState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Code = undef | enoent | eacces | enospc</span><br>
+<span class="bold_code">Code = undef | enoent | eacces | enospc</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">  | badop | eexist | baduser | badopt</span><br>
+<span class="bold_code">  | badop | eexist | baduser | badopt</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">  | int()</span><br>
+<span class="bold_code">  | int()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Text = string()</span><br>
+<span class="bold_code">Text = string()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Opens a file for read or write access.</p>
         <p>On the client side, where the <span class="code">open/5</span> call has been
 	preceded by a call to <span class="code">prepare/5</span>, all options must be
@@ -957,63 +891,57 @@
     
 	<a name="read"></a>
       </p></div>
-</div>
-</div>
     
-    <div class="func">
-<div class="func-title">
-<a name="Module:prepare-6"></a><span class="bold_code bc-9">Module:prepare(Peer, Access, Filename, Mode, SuggestedOptions, InitialState) -&gt; {ok, AcceptedOptions, NewState} | {error, {Code, Text}}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:prepare-6"></a><span class="bold_code">Module:prepare(Peer, Access, Filename, Mode, SuggestedOptions, InitialState) -&gt; {ok, AcceptedOptions, NewState} | {error, {Code, Text}}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Peer = {PeerType, PeerHost, PeerPort}</span><br>
+<span class="bold_code">Peer = {PeerType, PeerHost, PeerPort}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PeerType = inet | inet6</span><br>
+<span class="bold_code">PeerType = inet | inet6</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PeerHost = ip_address()</span><br>
+<span class="bold_code">PeerHost = ip_address()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PeerPort = integer()</span><br>
+<span class="bold_code">PeerPort = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Access = read | write</span><br>
+<span class="bold_code">Access = read | write</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Filename = string()</span><br>
+<span class="bold_code">Filename = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Mode = string()</span><br>
+<span class="bold_code">Mode = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">SuggestedOptions = AcceptedOptions = [{Key, Value}]</span><br>
+<span class="bold_code">SuggestedOptions = AcceptedOptions = [{Key, Value}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Key = Value = string()</span><br>
+<span class="bold_code"> Key = Value = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">InitialState = [] | [{root_dir, string()}]</span><br>
+<span class="bold_code">InitialState = [] | [{root_dir, string()}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">NewState = term()</span><br>
+<span class="bold_code">NewState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Code = undef | enoent | eacces | enospc</span><br>
+<span class="bold_code">Code = undef | enoent | eacces | enospc</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">  | badop | eexist | baduser | badopt</span><br>
+<span class="bold_code">  | badop | eexist | baduser | badopt</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">  | int()</span><br>
+<span class="bold_code">  | int()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Text = string()</span><br>
+<span class="bold_code">Text = string()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 	<p>Prepares to open a file on the client side.</p>
 	<p>No new options can be added, but those present in
 	<span class="code">SuggestedOptions</span> can be omitted or replaced with new
@@ -1026,39 +954,33 @@
     
 	<a name="open"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:read-1"></a><span class="bold_code bc-9">Module:read(State) -&gt; {more, Bin, NewState} | {last, Bin, FileSize} | {error, {Code, Text}}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:read-1"></a><span class="bold_code">Module:read(State) -&gt; {more, Bin, NewState} | {last, Bin, FileSize} | {error, {Code, Text}}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">State = NewState = term()</span><br>
+<span class="bold_code">State = NewState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Bin = binary()</span><br>
+<span class="bold_code">Bin = binary()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">FileSize = int()</span><br>
+<span class="bold_code">FileSize = int()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Code = undef | enoent | eacces | enospc</span><br>
+<span class="bold_code">Code = undef | enoent | eacces | enospc</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">  | badop | eexist | baduser | badopt</span><br>
+<span class="bold_code">  | badop | eexist | baduser | badopt</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">  | int()</span><br>
+<span class="bold_code">  | int()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Text = string()</span><br>
+<span class="bold_code">Text = string()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Reads a chunk from the file.</p>
         <p>The callback function is expected to close
 	the file when the last file chunk is
@@ -1071,39 +993,33 @@
     
 	<a name="write"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:write-2"></a><span class="bold_code bc-9">Module:write(Bin, State) -&gt; {more, NewState} | {last, FileSize} | {error, {Code, Text}}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:write-2"></a><span class="bold_code">Module:write(Bin, State) -&gt; {more, NewState} | {last, FileSize} | {error, {Code, Text}}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Bin = binary()</span><br>
+<span class="bold_code">Bin = binary()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">State = NewState = term()</span><br>
+<span class="bold_code">State = NewState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">FileSize = int()</span><br>
+<span class="bold_code">FileSize = int()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Code = undef | enoent | eacces | enospc</span><br>
+<span class="bold_code">Code = undef | enoent | eacces | enospc</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">  | badop | eexist | baduser | badopt</span><br>
+<span class="bold_code">  | badop | eexist | baduser | badopt</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">  | int()</span><br>
+<span class="bold_code">  | int()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Text = string()</span><br>
+<span class="bold_code">Text = string()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Writes a chunk to the file.</p>
         <p>The callback function is expected to close
 	the file when the last file chunk is
@@ -1116,14 +1032,12 @@
     
 	<a name="abort"></a>
       </p></div>
-</div>
-</div>
-  </div>
+  
   
   <h3>
-<a name="tftp_logger"></a><a name="idm45717575867984">LOGGER FUNCTIONS</a>
+<a name="tftp_logger"></a><a name="idm45565222601520">LOGGER FUNCTIONS</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     
@@ -1134,83 +1048,64 @@
     </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="Logger:error_msg-2"></a><span class="bold_code bc-9">Logger:error_msg(Format, Data) -&gt; ok | exit(Reason)</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Logger:error_msg-2"></a><span class="bold_code">Logger:error_msg(Format, Data) -&gt; ok | exit(Reason)</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Format = string()</span><br>
+<span class="bold_code">Format = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Data = [term()]</span><br>
+<span class="bold_code">Data = [term()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 	<p>Logs an error message. 
 	See <span class="code">error_logger:error_msg/2</span> for details.</p>
 	
 	<a name="warning_msg"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Logger:info_msg-2"></a><span class="bold_code bc-9">Logger:info_msg(Format, Data) -&gt; ok | exit(Reason)</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Logger:info_msg-2"></a><span class="bold_code">Logger:info_msg(Format, Data) -&gt; ok | exit(Reason)</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Format = string()</span><br>
+<span class="bold_code">Format = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Data = [term()]</span><br>
+<span class="bold_code">Data = [term()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Logs an info message. 
 	See <span class="code">error_logger:info_msg/2</span>  for details.</p>
       </p></div>
-</div>
-</div>
     
-    <div class="func">
-<div class="func-title">
-<a name="Logger:warning_msg-2"></a><span class="bold_code bc-9">Logger:warning_msg(Format, Data) -&gt; ok | exit(Reason)</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Logger:warning_msg-2"></a><span class="bold_code">Logger:warning_msg(Format, Data) -&gt; ok | exit(Reason)</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Format = string()</span><br>
+<span class="bold_code">Format = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Data = [term()]</span><br>
+<span class="bold_code">Data = [term()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Logs a warning message. 
 	See <span class="code">error_logger:warning_msg/2</span> for details.</p>
 	
 	<a name="info_msg"></a>
       </p></div>
-</div>
-</div>
-  </div>
+  
 </div>
 <div class="footer">
 <hr>

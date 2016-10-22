@@ -646,11 +646,11 @@
 <!-- refpage --><center><h1>net_kernel</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">net_kernel</div>
+<div class="REFBODY">net_kernel</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Erlang networking kernel.</div>
+<div class="REFBODY">Erlang networking kernel.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>The net kernel is a system process, registered as
       <span class="code">net_kernel</span>, which must be operational for distributed Erlang
       to work. The purpose of this process is to implement parts of
@@ -659,11 +659,11 @@
     <p>An Erlang node is started using command-line flag
       <span class="code">-name</span> or <span class="code">-sname</span>:</p>
      <div class="example"><pre>
-$ <span class="bold_code bc-12">erl -sname foobar</span></pre></div>
+$ <span class="bold_code">erl -sname foobar</span></pre></div>
     <p>It is also possible to call <span class="code">net_kernel:start([foobar])</span>
       directly from the normal Erlang shell prompt:</p>
     <div class="example"><pre>
-1&gt; <span class="bold_code bc-12">net_kernel:start([foobar, shortnames]).</span>
+1&gt; <span class="bold_code">net_kernel:start([foobar, shortnames]).</span>
 {ok,&lt;0.64.0&gt;}
 (foobar@gringotts)2&gt;</pre></div>
     <p>If the node is started with command-line flag <span class="code">-sname</span>,
@@ -672,30 +672,26 @@ $ <span class="bold_code bc-12">erl -sname foobar</span></pre></div>
       If started with flag <span class="code">-name</span>, the node name is <span class="code">foobar@Host</span>,
       where <span class="code">Host</span> is the fully qualified domain name.
       For more information, see
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html');"><span class="code">erl</span></a></span>.</p>
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html');"><span class="code">erl</span></a></span>.</p>
     <p>Normally, connections are established automatically when
       another node is referenced. This functionality can be disabled
       by setting Kernel configuration parameter
       <span class="code">dist_auto_connect</span> to <span class="code">false</span>, see
-      <span class="bold_code bc-19"><a href="kernel_app.html"><span class="code">kernel(6)</span></a></span>. In this case,
+      <span class="bold_code"><a href="kernel_app.html"><span class="code">kernel(6)</span></a></span>. In this case,
       connections must be established explicitly by calling
-      <span class="bold_code data-type-ref"><a href="#connect_node-1"><span class="code">connect_node/1</span></a></span>.</p>
+      <span class="bold_code"><a href="#connect_node-1"><span class="code">connect_node/1</span></a></span>.</p>
     <p>Which nodes that are allowed to communicate with each other is handled
       by the magic cookie system, see section
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/reference_manual','distributed.html');">Distributed Erlang</a></span>
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/reference_manual','distributed.html');">Distributed Erlang</a></span>
       in the Erlang Reference Manual.</p>
-  </div>
+  </p></div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="allow-1"></a><span class="bold_code func-name">allow(Nodes) -&gt; ok | error</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Nodes = [node()]</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="allow-1"></a><span class="bold_code">allow(Nodes) -&gt; ok | error</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Nodes = [node()]</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Permits access to the specified set of nodes.</p>
         <p>Before the first call to <span class="code">allow/1</span>, any node with the correct
           cookie can be connected. When <span class="code">allow/1</span> is called, a list
@@ -706,34 +702,26 @@ $ <span class="bold_code bc-12">erl -sname foobar</span></pre></div>
           from the list.</p>
         <p>Returns <span class="code">error</span> if any element in <span class="code">Nodes</span> is not
           an atom.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="connect_node-1"></a><span class="bold_code func-name">connect_node(Node) -&gt; boolean() | ignored</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Node = node()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="connect_node-1"></a><span class="bold_code">connect_node(Node) -&gt; boolean() | ignored</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Node = node()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Establishes a connection to <span class="code">Node</span>. Returns
           <span class="code">true</span> if successful, <span class="code">false</span> if not, and <span class="code">ignored</span>
           if the local node is not alive.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="get_net_ticktime-0"></a><span class="bold_code func-name">get_net_ticktime() -&gt; Res</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Res = NetTicktime | {ongoing_change_to, NetTicktime} | ignored</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">NetTicktime = integer() &gt;= 1</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="get_net_ticktime-0"></a><span class="bold_code">get_net_ticktime() -&gt; Res</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Res = NetTicktime | {ongoing_change_to, NetTicktime} | ignored</span></div>
+<div class="REFTYPES"><span class="bold_code">NetTicktime = integer() &gt;= 1</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Gets <span class="code">net_ticktime</span> (see
-          <span class="bold_code bc-19"><a href="kernel_app.html"><span class="code">kernel(6)</span></a></span>).</p>
+          <span class="bold_code"><a href="kernel_app.html"><span class="code">kernel(6)</span></a></span>).</p>
         <p>Defined return values (<span class="code">Res</span>):</p>
         <dl>
           <dt><strong><span class="code">NetTicktime</span></strong></dt>
@@ -746,43 +734,35 @@ $ <span class="bold_code bc-12">erl -sname foobar</span></pre></div>
           <dt><strong><span class="code">ignored</span></strong></dt>
           <dd><p>The local node is not alive.</p></dd>
         </dl>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="getopts-2"></a><span class="bold_code func-name">getopts(Node, Options) -&gt;<br>           {ok, OptionValues} | {error, Reason} | ignored</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Node = node()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = [<span class="bold_code bc-15"><a href="inet.html#type-socket_getopt">inet:socket_getopt()</a></span>]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">OptionValues = [<span class="bold_code bc-15"><a href="inet.html#type-socket_setopt">inet:socket_setopt()</a></span>]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = <span class="bold_code bc-15"><a href="inet.html#type-posix">inet:posix()</a></span> | noconnection</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="getopts-2"></a><span class="bold_code">getopts(Node, Options) -&gt;<br>           {ok, OptionValues} | {error, Reason} | ignored</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Node = node()</span></div>
+<div class="REFTYPES"><span class="bold_code">Options = [<span class="bold_code"><a href="inet.html#type-socket_getopt">inet:socket_getopt()</a></span>]</span></div>
+<div class="REFTYPES"><span class="bold_code">OptionValues = [<span class="bold_code"><a href="inet.html#type-socket_setopt">inet:socket_setopt()</a></span>]</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="inet.html#type-posix">inet:posix()</a></span> | noconnection</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Get one or more options for the distribution socket
 	connected to <span class="code">Node</span>.</p>
         <p>If <span class="code">Node</span> is a connected node
 	the return value is the same as from
-	<span class="bold_code bc-15"><a href="inet.html#getopts-2"><span class="code">inet:getopts(Sock, Options)</span></a></span>
+	<span class="bold_code"><a href="inet.html#getopts-2"><span class="code">inet:getopts(Sock, Options)</span></a></span>
 	where <span class="code">Sock</span> is the distribution socket for <span class="code">Node</span>.</p>
 	<p>Returns <span class="code">ignored</span> if the local node is not alive or
 	<span class="code">{error, noconnection}</span> if <span class="code">Node</span> is not connected.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="monitor_nodes-1"></a><span class="bold_code func-name">monitor_nodes(Flag) -&gt; ok | Error</span><a name="monitor_nodes-2"></a><span class="bold_code func-name">monitor_nodes(Flag, Options) -&gt; ok | Error</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Flag = boolean()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = [Option]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Option = {node_type, NodeType} | nodedown_reason</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">NodeType = visible | hidden | all</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Error = error | {error, term()}</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="monitor_nodes-1"></a><span class="bold_code">monitor_nodes(Flag) -&gt; ok | Error</span><br><a name="monitor_nodes-2"></a><span class="bold_code">monitor_nodes(Flag, Options) -&gt; ok | Error</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Flag = boolean()</span></div>
+<div class="REFTYPES"><span class="bold_code">Options = [Option]</span></div>
+<div class="REFTYPES"><span class="bold_code">Option = {node_type, NodeType} | nodedown_reason</span></div>
+<div class="REFTYPES"><span class="bold_code">NodeType = visible | hidden | all</span></div>
+<div class="REFTYPES"><span class="bold_code">Error = error | {error, term()}</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>The calling process subscribes or unsubscribes to node
           status change messages. A <span class="code">nodeup</span> message is delivered
           to all subscribing processes when a new node is connected, and
@@ -838,7 +818,7 @@ $ <span class="bold_code bc-12">erl -sname foobar</span></pre></div>
           <span class="code">Options</span>, see below.</p>
         <p>Also, when <span class="code">OptionList == []</span>, only visible nodes, that
           is, nodes that appear in the result of
-          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#nodes-0');"><span class="code">erlang:nodes/0</span></a></span>,
+          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#nodes-0');"><span class="code">erlang:nodes/0</span></a></span>,
           are monitored.</p>
         <p><span class="code">Option</span> can be any of the following:</p>
         <dl>
@@ -891,22 +871,18 @@ $ <span class="bold_code bc-12">erl -sname foobar</span></pre></div>
             </dl>
           </dd>
         </dl>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="set_net_ticktime-1"></a><span class="bold_code func-name">set_net_ticktime(NetTicktime) -&gt; Res</span><a name="set_net_ticktime-2"></a><span class="bold_code func-name">set_net_ticktime(NetTicktime, TransitionPeriod) -&gt; Res</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">NetTicktime = integer() &gt;= 1</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">TransitionPeriod = integer() &gt;= 0</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Res = <br>    unchanged |<br>    change_initiated |<br>    {ongoing_change_to, NewNetTicktime}</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">NewNetTicktime = integer() &gt;= 1</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="set_net_ticktime-1"></a><span class="bold_code">set_net_ticktime(NetTicktime) -&gt; Res</span><br><a name="set_net_ticktime-2"></a><span class="bold_code">set_net_ticktime(NetTicktime, TransitionPeriod) -&gt; Res</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">NetTicktime = integer() &gt;= 1</span></div>
+<div class="REFTYPES"><span class="bold_code">TransitionPeriod = integer() &gt;= 0</span></div>
+<div class="REFTYPES"><span class="bold_code">Res = <br>    unchanged |<br>    change_initiated |<br>    {ongoing_change_to, NewNetTicktime}</span></div>
+<div class="REFTYPES"><span class="bold_code">NewNetTicktime = integer() &gt;= 1</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Sets <span class="code">net_ticktime</span> (see
-          <span class="bold_code bc-19"><a href="kernel_app.html"><span class="code">kernel(6)</span></a></span>) to
+          <span class="bold_code"><a href="kernel_app.html"><span class="code">kernel(6)</span></a></span>) to
           <span class="code">NetTicktime</span> seconds.
           <span class="code">TransitionPeriod</span> defaults to <span class="code">60</span>.</p>
         <p>Some definitions:</p>
@@ -957,80 +933,65 @@ $ <span class="bold_code bc-12">erl -sname foobar</span></pre></div>
               <span class="code">NewNetTicktime</span> seconds.</p>
           </dd>
         </dl>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="setopts-2"></a><span class="bold_code func-name">setopts(Node, Options) -&gt; ok | {error, Reason} | ignored</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Node = node() | new</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = [<span class="bold_code bc-15"><a href="inet.html#type-socket_setopt">inet:socket_setopt()</a></span>]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = <span class="bold_code bc-15"><a href="inet.html#type-posix">inet:posix()</a></span> | noconnection</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="setopts-2"></a><span class="bold_code">setopts(Node, Options) -&gt; ok | {error, Reason} | ignored</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Node = node() | new</span></div>
+<div class="REFTYPES"><span class="bold_code">Options = [<span class="bold_code"><a href="inet.html#type-socket_setopt">inet:socket_setopt()</a></span>]</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="inet.html#type-posix">inet:posix()</a></span> | noconnection</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Set one or more options for distribution sockets.
 	Argument <span class="code">Node</span> can be either one node name
 	or the atom <span class="code">new</span> to affect the distribution sockets of all
 	future connected nodes.</p>
         <p>The return value is the same as from
-	<span class="bold_code bc-15"><a href="inet.html#setopts-2"><span class="code">inet:setopts/2</span></a></span>
+	<span class="bold_code"><a href="inet.html#setopts-2"><span class="code">inet:setopts/2</span></a></span>
 	or <span class="code">{error, noconnection}</span> if <span class="code">Node</span> is not
 	a connected node or <span class="code">new</span>.</p>
 	<p>If <span class="code">Node</span> is <span class="code">new</span> the <span class="code">Options</span>
 	will then also be added to kernel configration parameters
-	<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','kernel_app.html#inet_dist_listen_options');">inet_dist_listen_options</a></span>
+	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','kernel_app.html#inet_dist_listen_options');">inet_dist_listen_options</a></span>
 	and
-	<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','kernel_app.html#inet_dist_connect_options');">inet_dist_connect_options</a></span>.</p>
+	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','kernel_app.html#inet_dist_connect_options');">inet_dist_connect_options</a></span>.</p>
 	<p>Returns <span class="code">ignored</span> if the local node is not alive.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="start-1"></a><span class="bold_code bc-9">start([Name]) -&gt; {ok, pid()} | {error, Reason}</span><br><a name="start-1"></a><span class="bold_code bc-9">start([Name, NameType]) -&gt; {ok, pid()} | {error, Reason}</span><br><a name="start-1"></a><span class="bold_code bc-9">start([Name, NameType, Ticktime]) -&gt; {ok, pid()} | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="start-1"></a><span class="bold_code">start([Name]) -&gt; {ok, pid()} | {error, Reason}</span><br><a name="start-1"></a><span class="bold_code">start([Name, NameType]) -&gt; {ok, pid()} | {error, Reason}</span><br><a name="start-1"></a><span class="bold_code">start([Name, NameType, Ticktime]) -&gt; {ok, pid()} | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Name = atom()</span><br>
+<span class="bold_code">Name = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">NameType = shortnames | longnames</span><br>
+<span class="bold_code">NameType = shortnames | longnames</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = {already_started, pid()} | term()</span><br>
+<span class="bold_code">Reason = {already_started, pid()} | term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Turns a non-distributed node into a distributed node by
           starting <span class="code">net_kernel</span> and other necessary processes.</p>
         <p>Notice that the argument is a list with exactly one, two, or
           three arguments. <span class="code">NameType</span> defaults to <span class="code">longnames</span>
           and <span class="code">Ticktime</span> to <span class="code">15000</span>.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="stop-0"></a><span class="bold_code func-name">stop() -&gt; ok | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = not_allowed | not_found</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="stop-0"></a><span class="bold_code">stop() -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Reason = not_allowed | not_found</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Turns a distributed node into a non-distributed node. For
           other nodes in the network, this is the same as the node
           going down. Only possible when the net kernel was started using
-          <span class="bold_code data-type-ref"><a href="#start-1"><span class="code">start/1</span></a></span>,
+          <span class="bold_code"><a href="#start-1"><span class="code">start/1</span></a></span>,
           otherwise <span class="code">{error, not_allowed}</span> is returned. Returns
           <span class="code">{error, not_found}</span> if the local node is not alive.</p>
-      </p></div></div>
-</div>
-  </div>
+      </p></div>
+  
 </div>
 <div class="footer">
 <hr>

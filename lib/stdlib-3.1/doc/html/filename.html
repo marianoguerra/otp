@@ -1717,11 +1717,11 @@
 <!-- refpage --><center><h1>filename</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">filename</div>
+<div class="REFBODY">filename</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Filename manipulation functions.</div>
+<div class="REFBODY">Filename manipulation functions.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>This module provides functions
       for analyzing and manipulating filenames. These functions are
       designed so that the Erlang code can work on many different
@@ -1735,120 +1735,98 @@
     <p>In Windows, all functions return filenames with forward slashes
       only, even if the arguments contain backslashes. To normalize a
       filename by removing redundant directory separators, use
-      <span class="bold_code data-type-ref"><a href="#join-1"><span class="code">join/1</span></a></span>.</p>
+      <span class="bold_code"><a href="#join-1"><span class="code">join/1</span></a></span>.</p>
 
     <p>The module supports raw filenames in the way that if a binary is
       present, or the filename cannot be interpreted according to the return
-      value of <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#native_name_encoding-0');"><span class="code">file:native_name_encoding/0</span></a></span>, a raw filename is also
+      value of <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#native_name_encoding-0');"><span class="code">file:native_name_encoding/0</span></a></span>, a raw filename is also
       returned. For example, <span class="code">join/1</span> provided with a path component
       that is a binary (and cannot be interpreted under the current
       native filename encoding) results in a raw filename that is returned
       (the join operation is performed of course). For more information
       about raw filenames, see the
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html');"><span class="code">file</span></a></span> module.</p>
-  </div>
-  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
-<div class="data-types-body">
-      <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-basedir_type">basedir_type()</a> = <br>    user_cache |<br>    user_config |<br>    user_data |<br>    user_log |<br>    site_config |<br>    site_data</span>
-</div>
-  </div>
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html');"><span class="code">file</span></a></span> module.</p>
+  </p></div>
+  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
+      <p>
+      <span class="bold_code"><a name="type-basedir_type">basedir_type()</a> = <br>    user_cache |<br>    user_config |<br>    user_data |<br>    user_log |<br>    site_config |<br>    site_data</span><br></p>
+  
  
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="absname-1"></a><span class="bold_code func-name">absname(Filename) -&gt; <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Filename = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="absname-1"></a><span class="bold_code">absname(Filename) -&gt; <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Converts a relative <span class="code">Filename</span> and returns an
           absolute name. No attempt is made to create the shortest absolute
           name, as this can give incorrect results on file systems that
           allow links.</p>
         <p><strong>Unix examples:</strong></p>
         <div class="example"><pre>
-1&gt; <span class="bold_code bc-12">pwd().</span>
+1&gt; <span class="bold_code">pwd().</span>
 "/usr/local"
-2&gt; <span class="bold_code bc-12">filename:absname("foo").</span>
+2&gt; <span class="bold_code">filename:absname("foo").</span>
 "/usr/local/foo"
-3&gt; <span class="bold_code bc-12">filename:absname("../x").</span>
+3&gt; <span class="bold_code">filename:absname("../x").</span>
 "/usr/local/../x"
-4&gt; <span class="bold_code bc-12">filename:absname("/").</span>
+4&gt; <span class="bold_code">filename:absname("/").</span>
 "/"</pre></div>
         <p><strong>Windows examples:</strong></p>
         <div class="example"><pre>
-1&gt; <span class="bold_code bc-12">pwd().</span>
+1&gt; <span class="bold_code">pwd().</span>
 "D:/usr/local"
-2&gt; <span class="bold_code bc-12">filename:absname("foo").</span>
+2&gt; <span class="bold_code">filename:absname("foo").</span>
 "D:/usr/local/foo"
-3&gt; <span class="bold_code bc-12">filename:absname("../x").</span>
+3&gt; <span class="bold_code">filename:absname("../x").</span>
 "D:/usr/local/../x"
-4&gt; <span class="bold_code bc-12">filename:absname("/").</span>
+4&gt; <span class="bold_code">filename:absname("/").</span>
 "D:/"</pre></div>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="absname-2"></a><span class="bold_code func-name">absname(Filename, Dir) -&gt; <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Filename = Dir = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
-        <p>Same as <span class="bold_code data-type-ref"><a href="#absname-1"><span class="code">absname/1</span></a></span>,
+    <p><a name="absname-2"></a><span class="bold_code">absname(Filename, Dir) -&gt; <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Filename = Dir = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
+        <p>Same as <span class="bold_code"><a href="#absname-1"><span class="code">absname/1</span></a></span>,
           except that the directory to which the filename is to be made
           relative is specified in argument <span class="code">Dir</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="absname_join-2"></a><span class="bold_code func-name">absname_join(Dir, Filename) -&gt; <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Dir = Filename = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="absname_join-2"></a><span class="bold_code">absname_join(Dir, Filename) -&gt; <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Dir = Filename = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Joins an absolute directory with a relative filename. Similar to
-          <span class="bold_code data-type-ref"><a href="#join-2"><span class="code">join/2</span></a></span>, but on platforms
+          <span class="bold_code"><a href="#join-2"><span class="code">join/2</span></a></span>, but on platforms
           with tight restrictions on raw filename length and no support for
           symbolic links (read: VxWorks), leading parent directory components
           in <span class="code">Filename</span> are matched against trailing
           directory components in <span class="code">Dir</span> so they can be
           removed from the result - minimizing its length.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="basedir-2"></a><span class="bold_code func-name">basedir(Type, Application) -&gt; <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Type = <span class="bold_code data-type-ref"><a href="#type-basedir_type">basedir_type()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Application = string() | binary()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="basedir-2"></a><span class="bold_code">basedir(Type, Application) -&gt; <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Type = <span class="bold_code"><a href="#type-basedir_type">basedir_type()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Application = string() | binary()</span></div>
+</div></p>
+<div class="REFBODY"><p>
           <p>
-              Equivalent to <span class="bold_code data-type-ref"><a href="#basedir-3">basedir(Type,Application, #{})</a></span>.
+              Equivalent to <span class="bold_code"><a href="#basedir-3">basedir(Type,Application, #{})</a></span>.
           </p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="basedir-3"></a><span class="bold_code func-name">basedir(Type, Application, Opts) -&gt; <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Type = <span class="bold_code data-type-ref"><a href="#type-basedir_type">basedir_type()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Application = string() | binary()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Opts = <br>    #{author =&gt; string() | binary(),<br>      os =&gt; windows | darwin | linux,<br>      version =&gt; string() | binary()}</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="basedir-3"></a>
+      </p></div>
+    <p><a name="basedir-3"></a><span class="bold_code">basedir(Type, Application, Opts) -&gt; <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Type = <span class="bold_code"><a href="#type-basedir_type">basedir_type()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Application = string() | binary()</span></div>
+<div class="REFTYPES"><span class="bold_code">Opts = <br>    #{author =&gt; string() | binary(),<br>      os =&gt; windows | darwin | linux,<br>      version =&gt; string() | binary()}</span></div>
+</div></p>
+<div class="REFBODY"><p><a name="basedir-3"></a>
           <p>
               Returns a suitable path, or paths, for a given type.  If
               <span class="code">os</span> is not set in <span class="code">Opts</span> the
@@ -1869,21 +1847,21 @@
                     Respects the os environment variable <span class="code">XDG_CACHE_HOME</span>.
                 </p>
                 <div class="example"><pre>
-1&gt; <span class="bold_code bc-12">filename:basedir(user_cache, "my_application", #{os=&gt;linux}).</span>
+1&gt; <span class="bold_code">filename:basedir(user_cache, "my_application", #{os=&gt;linux}).</span>
 "/home/otptest/.cache/my_application"</pre></div>
                 On Darwin: <div class="example"><pre>
-1&gt; <span class="bold_code bc-12">filename:basedir(user_cache, "my_application", #{os=&gt;darwin}).</span>
+1&gt; <span class="bold_code">filename:basedir(user_cache, "my_application", #{os=&gt;darwin}).</span>
 "/home/otptest/Library/Caches/my_application"</pre></div>
                 On Windows: <div class="example"><pre>
-1&gt; <span class="bold_code bc-12">filename:basedir(user_cache, "My App").</span>
+1&gt; <span class="bold_code">filename:basedir(user_cache, "My App").</span>
 "c:/Users/otptest/AppData/Local/My App/Cache"
-2&gt; <span class="bold_code bc-12">filename:basedir(user_cache, "My App").</span>
+2&gt; <span class="bold_code">filename:basedir(user_cache, "My App").</span>
 "c:/Users/otptest/AppData/Local/My App/Cache"
-3&gt; <span class="bold_code bc-12">filename:basedir(user_cache, "My App", #{author=&gt;"Erlang"}).</span>
+3&gt; <span class="bold_code">filename:basedir(user_cache, "My App", #{author=&gt;"Erlang"}).</span>
 "c:/Users/otptest/AppData/Local/Erlang/My App/Cache"
-4&gt; <span class="bold_code bc-12">filename:basedir(user_cache, "My App", #{version=&gt;"1.2"}).</span>
+4&gt; <span class="bold_code">filename:basedir(user_cache, "My App", #{version=&gt;"1.2"}).</span>
 "c:/Users/otptest/AppData/Local/My App/1.2/Cache"
-5&gt; <span class="bold_code bc-12">filename:basedir(user_cache, "My App", #{author=&gt;"Erlang",version=&gt;"1.2"}).</span>
+5&gt; <span class="bold_code">filename:basedir(user_cache, "My App", #{author=&gt;"Erlang",version=&gt;"1.2"}).</span>
 "c:/Users/otptest/AppData/Local/Erlang/My App/1.2/Cache"</pre></div>
             </li>
             <li>
@@ -1896,15 +1874,15 @@
                     Respects the os environment variable <span class="code">XDG_CONFIG_HOME</span>.
                 </p>
                 <div class="example"><pre>
-2&gt; <span class="bold_code bc-12">filename:basedir(user_config, "my_application", #{os=&gt;linux}).</span>
+2&gt; <span class="bold_code">filename:basedir(user_config, "my_application", #{os=&gt;linux}).</span>
 "/home/otptest/.config/my_application"</pre></div>
                 On Darwin:<div class="example"><pre>
-2&gt; <span class="bold_code bc-12">filename:basedir(user_config, "my_application", #{os=&gt;darwin}).</span>
+2&gt; <span class="bold_code">filename:basedir(user_config, "my_application", #{os=&gt;darwin}).</span>
 "/home/otptest/Library/Application Support/my_application"</pre></div>
                 On Windows:<div class="example"><pre>
-1&gt; <span class="bold_code bc-12">filename:basedir(user_config, "My App").</span>
+1&gt; <span class="bold_code">filename:basedir(user_config, "My App").</span>
 "c:/Users/otptest/AppData/Roaming/My App"
-2&gt; <span class="bold_code bc-12">filename:basedir(user_config, "My App", #{author=&gt;"Erlang", version=&gt;"1.2"}).</span>
+2&gt; <span class="bold_code">filename:basedir(user_config, "My App", #{author=&gt;"Erlang", version=&gt;"1.2"}).</span>
 "c:/Users/otptest/AppData/Roaming/Erlang/My App/1.2"</pre></div>
             </li>
             <li>
@@ -1917,15 +1895,15 @@
                     Respects the os environment variable <span class="code">XDG_DATA_HOME</span>.
                 </p>
                 <div class="example"><pre>
-3&gt; <span class="bold_code bc-12">filename:basedir(user_data, "my_application", #{os=&gt;linux}).</span>
+3&gt; <span class="bold_code">filename:basedir(user_data, "my_application", #{os=&gt;linux}).</span>
 "/home/otptest/.local/my_application"</pre></div>
                 On Darwin:<div class="example"><pre>
-3&gt; <span class="bold_code bc-12">filename:basedir(user_data, "my_application", #{os=&gt;darwin}).</span>
+3&gt; <span class="bold_code">filename:basedir(user_data, "my_application", #{os=&gt;darwin}).</span>
 "/home/otptest/Library/Application Support/my_application"</pre></div>
                 On Windows:<div class="example"><pre>
-8&gt; <span class="bold_code bc-12">filename:basedir(user_data, "My App").</span>
+8&gt; <span class="bold_code">filename:basedir(user_data, "My App").</span>
 "c:/Users/otptest/AppData/Local/My App"
-9&gt; <span class="bold_code bc-12">filename:basedir(user_data, "My App",#{author=&gt;"Erlang",version=&gt;"1.2"}).</span>
+9&gt; <span class="bold_code">filename:basedir(user_data, "My App",#{author=&gt;"Erlang",version=&gt;"1.2"}).</span>
 "c:/Users/otptest/AppData/Local/Erlang/My App/1.2"</pre></div>
             </li>
             <li>
@@ -1935,15 +1913,15 @@
                 On Linux:
                 Respects the os environment variable <span class="code">XDG_CACHE_HOME</span>.</p>
                 <div class="example"><pre>
-4&gt; <span class="bold_code bc-12">filename:basedir(user_log, "my_application", #{os=&gt;linux}).</span>
+4&gt; <span class="bold_code">filename:basedir(user_log, "my_application", #{os=&gt;linux}).</span>
 "/home/otptest/.cache/my_application/log"</pre></div>
                 On Darwin:<div class="example"><pre>
-4&gt; <span class="bold_code bc-12">filename:basedir(user_log, "my_application", #{os=&gt;darwin}).</span>
+4&gt; <span class="bold_code">filename:basedir(user_log, "my_application", #{os=&gt;darwin}).</span>
 "/home/otptest/Library/Caches/my_application"</pre></div>
                 On Windows:<div class="example"><pre>
-12&gt; <span class="bold_code bc-12">filename:basedir(user_log, "My App").</span>
+12&gt; <span class="bold_code">filename:basedir(user_log, "My App").</span>
 "c:/Users/otptest/AppData/Local/My App/Logs"
-13&gt; <span class="bold_code bc-12">filename:basedir(user_log, "My App",#{author=&gt;"Erlang",version=&gt;"1.2"}).</span>
+13&gt; <span class="bold_code">filename:basedir(user_log, "My App",#{author=&gt;"Erlang",version=&gt;"1.2"}).</span>
 "c:/Users/otptest/AppData/Local/Erlang/My App/1.2/Logs"</pre></div>
             </li>
             <li>
@@ -1951,21 +1929,21 @@
                 On Linux:
                 Respects the os environment variable <span class="code">XDG_CONFIG_DIRS</span>.</p>
 <div class="example"><pre>
-5&gt; <span class="bold_code bc-12">filename:basedir(site_data, "my_application", #{os=&gt;linux}).</span>
+5&gt; <span class="bold_code">filename:basedir(site_data, "my_application", #{os=&gt;linux}).</span>
 ["/usr/local/share/my_application",
  "/usr/share/my_application"]
-6&gt; <span class="bold_code bc-12">os:getenv("XDG_CONFIG_DIRS").</span>
+6&gt; <span class="bold_code">os:getenv("XDG_CONFIG_DIRS").</span>
 "/etc/xdg/xdg-ubuntu:/usr/share/upstart/xdg:/etc/xdg"
-7&gt; <span class="bold_code bc-12">filename:basedir(site_config, "my_application", #{os=&gt;linux}).</span>
+7&gt; <span class="bold_code">filename:basedir(site_config, "my_application", #{os=&gt;linux}).</span>
 ["/etc/xdg/xdg-ubuntu/my_application",
  "/usr/share/upstart/xdg/my_application",
  "/etc/xdg/my_application"]
-8&gt; <span class="bold_code bc-12">os:unsetenv("XDG_CONFIG_DIRS").</span>
+8&gt; <span class="bold_code">os:unsetenv("XDG_CONFIG_DIRS").</span>
 true
-9&gt; <span class="bold_code bc-12">filename:basedir(site_config, "my_application", #{os=&gt;linux}).</span>
+9&gt; <span class="bold_code">filename:basedir(site_config, "my_application", #{os=&gt;linux}).</span>
 ["/etc/xdg/my_application"]</pre></div>
                 On Darwin:<div class="example"><pre>
-5&gt; <span class="bold_code bc-12">filename:basedir(site_config, "my_application", #{os=&gt;darwin}).</span>
+5&gt; <span class="bold_code">filename:basedir(site_config, "my_application", #{os=&gt;darwin}).</span>
 ["/Library/Application Support/my_application"]</pre></div>
             </li>
             <li>
@@ -1973,56 +1951,48 @@ true
                     On Linux:
                     Respects the os environment variable <span class="code">XDG_DATA_DIRS</span>.</p>
                 <div class="example"><pre>
-10&gt; <span class="bold_code bc-12">os:getenv("XDG_DATA_DIRS").</span>
+10&gt; <span class="bold_code">os:getenv("XDG_DATA_DIRS").</span>
 "/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/"
-11&gt; <span class="bold_code bc-12">filename:basedir(site_data, "my_application", #{os=&gt;linux}).</span>
+11&gt; <span class="bold_code">filename:basedir(site_data, "my_application", #{os=&gt;linux}).</span>
 ["/usr/share/ubuntu/my_application",
  "/usr/share/gnome/my_application",
  "/usr/local/share/my_application",
  "/usr/share/my_application"]
-12&gt; <span class="bold_code bc-12">os:unsetenv("XDG_DATA_DIRS").</span>
+12&gt; <span class="bold_code">os:unsetenv("XDG_DATA_DIRS").</span>
 true
-13&gt; <span class="bold_code bc-12">filename:basedir(site_data, "my_application", #{os=&gt;linux}).</span>
+13&gt; <span class="bold_code">filename:basedir(site_data, "my_application", #{os=&gt;linux}).</span>
 ["/usr/local/share/my_application",
  "/usr/share/my_application"]</pre></div>
                 On Darwin:<div class="example"><pre>
-5&gt; <span class="bold_code bc-12">filename:basedir(site_data, "my_application", #{os=&gt;darwin}).</span>
+5&gt; <span class="bold_code">filename:basedir(site_data, "my_application", #{os=&gt;darwin}).</span>
 ["/Library/Application Support/my_application"]</pre></div>
             </li>
         </ul>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="basename-1"></a><span class="bold_code func-name">basename(Filename) -&gt; <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Filename = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="basename-1"></a><span class="bold_code">basename(Filename) -&gt; <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the last component of <span class="code">Filename</span>, or
           <span class="code">Filename</span> itself if it does not contain any
           directory separators.</p>
         <p><strong>Examples:</strong></p>
         <div class="example"><pre>
-5&gt; <span class="bold_code bc-12">filename:basename("foo").</span>
+5&gt; <span class="bold_code">filename:basename("foo").</span>
 "foo"
-6&gt; <span class="bold_code bc-12">filename:basename("/usr/foo").</span>
+6&gt; <span class="bold_code">filename:basename("/usr/foo").</span>
 "foo"
-7&gt; <span class="bold_code bc-12">filename:basename("/").</span>
+7&gt; <span class="bold_code">filename:basename("/").</span>
 []</pre></div>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="basename-2"></a><span class="bold_code func-name">basename(Filename, Ext) -&gt; <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Filename = Ext = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="basename-2"></a><span class="bold_code">basename(Filename, Ext) -&gt; <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Filename = Ext = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the last component of <span class="code">Filename</span> with
           extension <span class="code">Ext</span> stripped. This function is to be
           used to remove a (possible) specific extension. To remove an
@@ -2030,81 +2000,69 @@ true
           <span class="code">rootname(basename(Filename))</span>.</p>
         <p><strong>Examples:</strong></p>
         <div class="example"><pre>
-8&gt; <span class="bold_code bc-12">filename:basename("~/src/kalle.erl", ".erl").</span>
+8&gt; <span class="bold_code">filename:basename("~/src/kalle.erl", ".erl").</span>
 "kalle"
-9&gt; <span class="bold_code bc-12">filename:basename("~/src/kalle.beam", ".erl").</span>
+9&gt; <span class="bold_code">filename:basename("~/src/kalle.beam", ".erl").</span>
 "kalle.beam"
-10&gt; <span class="bold_code bc-12">filename:basename("~/src/kalle.old.erl", ".erl").</span>
+10&gt; <span class="bold_code">filename:basename("~/src/kalle.old.erl", ".erl").</span>
 "kalle.old"
-11&gt; <span class="bold_code bc-12">filename:rootname(filename:basename("~/src/kalle.erl")).</span>
+11&gt; <span class="bold_code">filename:rootname(filename:basename("~/src/kalle.erl")).</span>
 "kalle"
-12&gt; <span class="bold_code bc-12">filename:rootname(filename:basename("~/src/kalle.beam")).</span>
+12&gt; <span class="bold_code">filename:rootname(filename:basename("~/src/kalle.beam")).</span>
 "kalle"</pre></div>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="dirname-1"></a><span class="bold_code func-name">dirname(Filename) -&gt; <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Filename = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="dirname-1"></a><span class="bold_code">dirname(Filename) -&gt; <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the directory part of <span class="code">Filename</span>.</p>
         <p><strong>Examples:</strong></p>
         <div class="example"><pre>
-13&gt; <span class="bold_code bc-12">filename:dirname("/usr/src/kalle.erl").</span>
+13&gt; <span class="bold_code">filename:dirname("/usr/src/kalle.erl").</span>
 "/usr/src"
-14&gt; <span class="bold_code bc-12">filename:dirname("kalle.erl").</span>
+14&gt; <span class="bold_code">filename:dirname("kalle.erl").</span>
 "."</pre></div>
         <div class="example"><pre>
-5&gt; <span class="bold_code bc-12">filename:dirname("\\usr\\src/kalle.erl").</span> % Windows
+5&gt; <span class="bold_code">filename:dirname("\\usr\\src/kalle.erl").</span> % Windows
 "/usr/src"</pre></div>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="extension-1"></a><span class="bold_code func-name">extension(Filename) -&gt; <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Filename = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="extension-1"></a><span class="bold_code">extension(Filename) -&gt; <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the file extension of <span class="code">Filename</span>,
           including the period. Returns an empty string if no extension
           exists.</p>
         <p><strong>Examples:</strong></p>
         <div class="example"><pre>
-15&gt; <span class="bold_code bc-12">filename:extension("foo.erl").</span>
+15&gt; <span class="bold_code">filename:extension("foo.erl").</span>
 ".erl"
-16&gt; <span class="bold_code bc-12">filename:extension("beam.src/kalle").</span>
+16&gt; <span class="bold_code">filename:extension("beam.src/kalle").</span>
 []</pre></div>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="find_src-1"></a><span class="bold_code func-name">find_src(Beam) -&gt;<br>            {SourceFile, Options} | {error, {ErrorReason, Module}}</span><a name="find_src-2"></a><span class="bold_code func-name">find_src(Beam, Rules) -&gt;<br>            {SourceFile, Options} | {error, {ErrorReason, Module}}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Beam = Module | Filename</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Filename = atom() | string()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Rules = [{BinSuffix :: string(), SourceSuffix :: string()}]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Module = module()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">SourceFile = string()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = [Option]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Option = <br>    {i, Path :: string()} |<br>    {outdir, Path :: string()} |<br>    {d, atom()}</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ErrorReason = non_existing | preloaded | interpreted</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="find_src-1"></a><span class="bold_code">find_src(Beam) -&gt;<br>            {SourceFile, Options} | {error, {ErrorReason, Module}}</span><br><a name="find_src-2"></a><span class="bold_code">find_src(Beam, Rules) -&gt;<br>            {SourceFile, Options} | {error, {ErrorReason, Module}}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Beam = Module | Filename</span></div>
+<div class="REFTYPES"><span class="bold_code">Filename = atom() | string()</span></div>
+<div class="REFTYPES"><span class="bold_code">Rules = [{BinSuffix :: string(), SourceSuffix :: string()}]</span></div>
+<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
+<div class="REFTYPES"><span class="bold_code">SourceFile = string()</span></div>
+<div class="REFTYPES"><span class="bold_code">Options = [Option]</span></div>
+<div class="REFTYPES"><span class="bold_code">Option = <br>    {i, Path :: string()} |<br>    {outdir, Path :: string()} |<br>    {d, atom()}</span></div>
+<div class="REFTYPES"><span class="bold_code">ErrorReason = non_existing | preloaded | interpreted</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Finds the source filename and compiler options for a module.
-          The result can be fed to <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','compiler','compile.html#file-2');"><span class="code">compile:file/2</span></a></span> to compile the file again.</p>
+          The result can be fed to <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','compiler','compile.html#file-2');"><span class="code">compile:file/2</span></a></span> to compile the file again.</p>
         <div class="warning">
 <div class="label">Warning</div>
 <div class="content"><p><p>It is not recommended to use this function. If possible,
-          use the <span class="bold_code bc-19"><a href="beam_lib.html"><span class="code">beam_lib(3)</span></a></span>
+          use the <span class="bold_code"><a href="beam_lib.html"><span class="code">beam_lib(3)</span></a></span>
           module to extract the abstract code format from the Beam file and
           compile that instead.</p></p></div>
 </div>
@@ -2136,31 +2094,23 @@ true
           and <span class="code">verbose</span>, which do not change the way code is generated.
           The paths in options <span class="code">{outdir, Path}</span> and
           <span class="code">{i, Path}</span> are guaranteed to be absolute.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="flatten-1"></a><span class="bold_code func-name">flatten(Filename) -&gt; <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Filename = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="flatten-1"></a><span class="bold_code">flatten(Filename) -&gt; <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Converts a possibly deep list filename consisting of
           characters and atoms into the corresponding flat string
           filename.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="join-1"></a><span class="bold_code func-name">join(Components) -&gt; <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Components = [<span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span>]</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="join-1"></a><span class="bold_code">join(Components) -&gt; <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Components = [<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span>]</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Joins a list of filename <span class="code">Components</span> with
           directory separators.
           If one of the elements of <span class="code">Components</span>
@@ -2174,62 +2124,50 @@ true
         </ul>
         <p><strong>Examples:</strong></p>
         <div class="example"><pre>
-17&gt; <span class="bold_code bc-12">filename:join(["/usr", "local", "bin"]).</span>
+17&gt; <span class="bold_code">filename:join(["/usr", "local", "bin"]).</span>
 "/usr/local/bin"
-18&gt; <span class="bold_code bc-12">filename:join(["a/b///c/"]).</span>
+18&gt; <span class="bold_code">filename:join(["a/b///c/"]).</span>
 "a/b/c"</pre></div>
         <div class="example"><pre>
-6&gt; <span class="bold_code bc-12">filename:join(["B:a\\b///c/"]).</span> % Windows
+6&gt; <span class="bold_code">filename:join(["B:a\\b///c/"]).</span> % Windows
 "b:a/b/c"</pre></div>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="join-2"></a><span class="bold_code func-name">join(Name1, Name2) -&gt; <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name1 = Name2 = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="join-2"></a><span class="bold_code">join(Name1, Name2) -&gt; <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name1 = Name2 = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Joins two filename components with directory separators.
           Equivalent to <span class="code">join([Name1, Name2])</span>.
         </p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="nativename-1"></a><span class="bold_code func-name">nativename(Path) -&gt; <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Path = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="nativename-1"></a><span class="bold_code">nativename(Path) -&gt; <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Path = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Converts <span class="code">Path</span> to a form accepted by the command
           shell and native applications on the current platform. On Windows,
           forward slashes are converted to backward slashes. On all
           platforms, the name is normalized as done by
-          <span class="bold_code data-type-ref"><a href="#join-1"><span class="code">join/1</span></a></span>.</p>
+          <span class="bold_code"><a href="#join-1"><span class="code">join/1</span></a></span>.</p>
         <p><strong>Examples:</strong></p>
         <div class="example"><pre>
-19&gt; <span class="bold_code bc-12">filename:nativename("/usr/local/bin/").</span> % Unix
+19&gt; <span class="bold_code">filename:nativename("/usr/local/bin/").</span> % Unix
 "/usr/local/bin"</pre></div>
         <div class="example"><pre>
-7&gt; <span class="bold_code bc-12">filename:nativename("/usr/local/bin/").</span> % Windows
+7&gt; <span class="bold_code">filename:nativename("/usr/local/bin/").</span> % Windows
 "\\usr\\local\\bin"</pre></div>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="pathtype-1"></a><span class="bold_code func-name">pathtype(Path) -&gt; absolute | relative | volumerelative</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Path = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="pathtype-1"></a><span class="bold_code">pathtype(Path) -&gt; absolute | relative | volumerelative</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Path = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the path type, which is one of the following:</p>
         <dl>
           <dt><strong><span class="code">absolute</span></strong></dt>
@@ -2253,56 +2191,47 @@ true
             <p>Windows example: <span class="code">D:bar.erl, /bar/foo.erl</span></p>
           </dd>
         </dl>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="rootname-1"></a><span class="bold_code func-name">rootname(Filename) -&gt; <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><a name="rootname-2"></a><span class="bold_code func-name">rootname(Filename, Ext) -&gt; <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Filename = Ext = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="rootname-1"></a><span class="bold_code">rootname(Filename) -&gt; <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><br><a name="rootname-2"></a><span class="bold_code">rootname(Filename, Ext) -&gt; <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Filename = Ext = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Removes a filename extension. <span class="code">rootname/2</span> works as
           <span class="code">rootname/1</span>, except that the extension is removed only
           if it is <span class="code">Ext</span>.</p>
         <p><strong>Examples:</strong></p>
         <div class="example"><pre>
-20&gt; <span class="bold_code bc-12">filename:rootname("/beam.src/kalle").</span>
+20&gt; <span class="bold_code">filename:rootname("/beam.src/kalle").</span>
 /beam.src/kalle"
-21&gt; <span class="bold_code bc-12">filename:rootname("/beam.src/foo.erl").</span>
+21&gt; <span class="bold_code">filename:rootname("/beam.src/foo.erl").</span>
 "/beam.src/foo"
-22&gt; <span class="bold_code bc-12">filename:rootname("/beam.src/foo.erl", ".erl").</span>
+22&gt; <span class="bold_code">filename:rootname("/beam.src/foo.erl", ".erl").</span>
 "/beam.src/foo"
-23&gt; <span class="bold_code bc-12">filename:rootname("/beam.src/foo.beam", ".erl").</span>
+23&gt; <span class="bold_code">filename:rootname("/beam.src/foo.beam", ".erl").</span>
 "/beam.src/foo.beam"</pre></div>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="split-1"></a><span class="bold_code func-name">split(Filename) -&gt; Components</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Filename = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Components = [<span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span>]</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="split-1"></a><span class="bold_code">split(Filename) -&gt; Components</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Components = [<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span>]</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns a list whose elements are the path components of
           <span class="code">Filename</span>.</p>
         <p><strong>Examples:</strong></p>
         <div class="example"><pre>
-24&gt; <span class="bold_code bc-12">filename:split("/usr/local/bin").</span>
+24&gt; <span class="bold_code">filename:split("/usr/local/bin").</span>
 ["/","usr","local","bin"]
-25&gt; <span class="bold_code bc-12">filename:split("foo/bar").</span>
+25&gt; <span class="bold_code">filename:split("foo/bar").</span>
 ["foo","bar"]
-26&gt; <span class="bold_code bc-12">filename:split("a:\\msdev\\include").</span>
+26&gt; <span class="bold_code">filename:split("a:\\msdev\\include").</span>
 ["a:/","msdev","include"]</pre></div>
-      </p></div></div>
-</div>
-  </div>
+      </p></div>
+  
 </div>
 <div class="footer">
 <hr>

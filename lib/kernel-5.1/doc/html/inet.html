@@ -646,14 +646,14 @@
 <!-- refpage --><center><h1>inet</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">inet</div>
+<div class="REFBODY">inet</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Access to TCP/IP protocols.</div>
+<div class="REFBODY">Access to TCP/IP protocols.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>This module provides access to TCP/IP protocols.</p>
     <p>See also
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','inet_cfg.html');">ERTS User's Guide: Inet Configuration</a></span> for more information about how to
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','inet_cfg.html');">ERTS User's Guide: Inet Configuration</a></span> for more information about how to
       configure an Erlang runtime system for IP communication.</p>
     <p>The following two Kernel configuration parameters affect the
       behavior of all sockets opened on an Erlang node:</p>
@@ -673,9 +673,9 @@
       specified in this way. The following is an example of starting an Erlang
       node with all sockets using delayed send:</p>
     <div class="example"><pre>
-$ <span class="bold_code bc-12">erl -sname test -kernel \</span>
-<span class="bold_code bc-12">inet_default_connect_options '[{delay_send,true}]' \</span>
-<span class="bold_code bc-12">inet_default_listen_options '[{delay_send,true}]'</span></pre></div>
+$ <span class="bold_code">erl -sname test -kernel \</span>
+<span class="bold_code">inet_default_connect_options '[{delay_send,true}]' \</span>
+<span class="bold_code">inet_default_listen_options '[{delay_send,true}]'</span></pre></div>
     <p>Notice that default option <span class="code">{active, true}</span>
       cannot be changed, for internal reasons.</p>
     <p>Addresses as inputs to functions can be either a string or a
@@ -701,43 +701,38 @@ FFFF::192.168.42.2
 fe80::204:acff:fe17:bf38
                 {16#fe80,0,0,0,0,16#204,16#acff,16#fe17,16#bf38}</pre></div>
     <p>Function
-      <span class="bold_code data-type-ref"><a href="#parse_address-1"><span class="code">parse_address/1</span></a></span>
+      <span class="bold_code"><a href="#parse_address-1"><span class="code">parse_address/1</span></a></span>
         can be useful:</p>
     <div class="example"><pre>
-1&gt; <span class="bold_code bc-12">inet:parse_address("192.168.42.2").</span>
+1&gt; <span class="bold_code">inet:parse_address("192.168.42.2").</span>
 {ok,{192,168,42,2}}
-2&gt; <span class="bold_code bc-12">inet:parse_address("FFFF::192.168.42.2").</span>
+2&gt; <span class="bold_code">inet:parse_address("FFFF::192.168.42.2").</span>
 {ok,{65535,0,0,0,0,0,49320,10754}}</pre></div>
-  </div>
+  </p></div>
 
-  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
-<div class="data-types-body">
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-hostent">hostent()</a> = <br>    #hostent{h_name = <span class="bold_code bc-15"><a href="inet.html#type-hostname">inet:hostname()</a></span>,<br>             h_aliases = [<span class="bold_code bc-15"><a href="inet.html#type-hostname">inet:hostname()</a></span>],<br>             h_addrtype = inet | inet6,<br>             h_length = integer() &gt;= 0,<br>             h_addr_list = [<span class="bold_code bc-15"><a href="inet.html#type-ip_address">inet:ip_address()</a></span>]}</span><div class="REFBODY data-type-desc"><p>
+  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
+    <p>
+      <span class="bold_code"><a name="type-hostent">hostent()</a> = <br>    #hostent{h_name = <span class="bold_code"><a href="inet.html#type-hostname">inet:hostname()</a></span>,<br>             h_aliases = [<span class="bold_code"><a href="inet.html#type-hostname">inet:hostname()</a></span>],<br>             h_addrtype = inet | inet6,<br>             h_length = integer() &gt;= 0,<br>             h_addr_list = [<span class="bold_code"><a href="inet.html#type-ip_address">inet:ip_address()</a></span>]}</span><br></p>
+<div class="REFBODY"><p>
         <p>The record is defined in the Kernel include file
           <span class="code">"inet.hrl"</span>.</p>
         <p>Add the following directive to the module:</p>
         <div class="example"><pre>
 -include_lib("kernel/include/inet.hrl").</pre></div>
       </p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-hostname">hostname()</a> = atom() | string()</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-ip_address">ip_address()</a> = <span class="bold_code data-type-ref"><a href="#type-ip4_address">ip4_address()</a></span> | <span class="bold_code data-type-ref"><a href="#type-ip6_address">ip6_address()</a></span></span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-ip4_address">ip4_address()</a> = {0..255, 0..255, 0..255, 0..255}</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-ip6_address">ip6_address()</a> = <br>    {0..65535,<br>     0..65535,<br>     0..65535,<br>     0..65535,<br>     0..65535,<br>     0..65535,<br>     0..65535,<br>     0..65535}</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-port_number">port_number()</a> = 0..65535</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-local_address">local_address()</a> = {local, File :: binary() | string()}</span><div class="REFBODY data-type-desc"><p>
+    <p>
+      <span class="bold_code"><a name="type-hostname">hostname()</a> = atom() | string()</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-ip_address">ip_address()</a> = <span class="bold_code"><a href="#type-ip4_address">ip4_address()</a></span> | <span class="bold_code"><a href="#type-ip6_address">ip6_address()</a></span></span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-ip4_address">ip4_address()</a> = {0..255, 0..255, 0..255, 0..255}</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-ip6_address">ip6_address()</a> = <br>    {0..65535,<br>     0..65535,<br>     0..65535,<br>     0..65535,<br>     0..65535,<br>     0..65535,<br>     0..65535,<br>     0..65535}</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-port_number">port_number()</a> = 0..65535</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-local_address">local_address()</a> = {local, File :: binary() | string()}</span><br></p>
+<div class="REFBODY"><p>
 	<p>
 	  This address family only works on Unix-like systems.
 	</p>
@@ -749,7 +744,7 @@ fe80::204:acff:fe17:bf38
 	<p>
 	  A <span class="code">binary()</span> is passed as is to the operating system,
 	  but a <span class="code">string()</span> is encoded according to the
-	  <span class="bold_code bc-15"><a href="file.html#native_name_encoding-0">system filename encoding mode.</a></span>
+	  <span class="bold_code"><a href="file.html#native_name_encoding-0">system filename encoding mode.</a></span>
 	</p>
 	<p>
 	  Other addresses are possible, for example Linux implements
@@ -762,198 +757,152 @@ fe80::204:acff:fe17:bf38
 	  this address family the port number must be <span class="code">0</span>.
 	</p>
       </p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-socket_address">socket_address()</a> = <br>    <span class="bold_code data-type-ref"><a href="#type-ip_address">ip_address()</a></span> | any | loopback | <span class="bold_code data-type-ref"><a href="#type-local_address">local_address()</a></span></span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-socket_getopt">socket_getopt()</a> = <br>    <span class="bold_code bc-15"><a href="gen_sctp.html#type-option_name">gen_sctp:option_name()</a></span> |<br>    <span class="bold_code bc-15"><a href="gen_tcp.html#type-option_name">gen_tcp:option_name()</a></span> |<br>    <span class="bold_code bc-15"><a href="gen_udp.html#type-option_name">gen_udp:option_name()</a></span></span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-socket_setopt">socket_setopt()</a> = <br>    <span class="bold_code bc-15"><a href="gen_sctp.html#type-option">gen_sctp:option()</a></span> | <span class="bold_code bc-15"><a href="gen_tcp.html#type-option">gen_tcp:option()</a></span> | <span class="bold_code bc-15"><a href="gen_udp.html#type-option">gen_udp:option()</a></span></span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-returned_non_ip_address">returned_non_ip_address()</a> = <br>    {local, binary()} | {unspec, &lt;&lt;&gt;&gt;} | {undefined, any()}</span><div class="REFBODY data-type-desc"><p>
+    <p>
+      <span class="bold_code"><a name="type-socket_address">socket_address()</a> = <br>    <span class="bold_code"><a href="#type-ip_address">ip_address()</a></span> | any | loopback | <span class="bold_code"><a href="#type-local_address">local_address()</a></span></span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-socket_getopt">socket_getopt()</a> = <br>    <span class="bold_code"><a href="gen_sctp.html#type-option_name">gen_sctp:option_name()</a></span> |<br>    <span class="bold_code"><a href="gen_tcp.html#type-option_name">gen_tcp:option_name()</a></span> |<br>    <span class="bold_code"><a href="gen_udp.html#type-option_name">gen_udp:option_name()</a></span></span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-socket_setopt">socket_setopt()</a> = <br>    <span class="bold_code"><a href="gen_sctp.html#type-option">gen_sctp:option()</a></span> | <span class="bold_code"><a href="gen_tcp.html#type-option">gen_tcp:option()</a></span> | <span class="bold_code"><a href="gen_udp.html#type-option">gen_udp:option()</a></span></span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-returned_non_ip_address">returned_non_ip_address()</a> = <br>    {local, binary()} | {unspec, &lt;&lt;&gt;&gt;} | {undefined, any()}</span><br></p>
+<div class="REFBODY"><p>
 	<p>
 	  Addresses besides
-	  <span class="bold_code data-type-ref"><a href="#type-ip_address"><span class="code">ip_address()</span></a></span>
+	  <span class="bold_code"><a href="#type-ip_address"><span class="code">ip_address()</span></a></span>
 	  ones that are returned from socket API functions.
 	  See in particular
-	  <span class="bold_code data-type-ref"><a href="#type-local_address"><span class="code">local_address()</span>.</a></span>
+	  <span class="bold_code"><a href="#type-local_address"><span class="code">local_address()</span>.</a></span>
 	  The <span class="code">unspec</span> family corresponds to AF_UNSPEC and can
 	  occur if the other side has no socket address.
 	  The <span class="code">undefined</span> family can only occur in the unlikely
 	  event of an address family that the VM does not recognize.
 	</p>
       </p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-posix">posix()</a> = exbadport | exbadseq | <span class="bold_code bc-15"><a href="file.html#type-posix">file:posix()</a></span></span><div class="REFBODY data-type-desc"><p>
+    <p>
+      <span class="bold_code"><a name="type-posix">posix()</a> = exbadport | exbadseq | <span class="bold_code"><a href="file.html#type-posix">file:posix()</a></span></span><br></p>
+<div class="REFBODY"><p>
         <p>An atom that is named from the POSIX error codes used in Unix,
           and in the runtime libraries of most C compilers. See section
-          <span class="bold_code data-type-ref"><a href="#error_codes">POSIX Error Codes</a></span>.</p>
+          <span class="bold_code"><a href="#error_codes">POSIX Error Codes</a></span>.</p>
       </p></div>
-</div>
-    <div class="data-type-def">
-<a name="type-socket"></a><span class="bold_code bc-8">socket()</span><br><div class="REFBODY data-type-desc"><p>
+    <p><a name="type-socket"></a><span class="bold_code">socket()</span><br></p>
+<div class="REFBODY"><p>
         <p>See
-          <span class="bold_code bc-15"><a href="gen_tcp.html#type-socket"><span class="code">gen_tcp:type-socket</span></a></span>
+          <span class="bold_code"><a href="gen_tcp.html#type-socket"><span class="code">gen_tcp:type-socket</span></a></span>
           and
-          <span class="bold_code bc-15"><a href="gen_udp.html#type-socket"><span class="code">gen_udp:type-socket</span></a></span>.
+          <span class="bold_code"><a href="gen_udp.html#type-socket"><span class="code">gen_udp:type-socket</span></a></span>.
         </p>
       </p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-address_family">address_family()</a> = inet | inet6 | local</span>
-</div>
-  </div>
+    <p>
+      <span class="bold_code"><a name="type-address_family">address_family()</a> = inet | inet6 | local</span><br></p>
+  
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="close-1"></a><span class="bold_code func-name">close(Socket) -&gt; ok</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Socket = <span class="bold_code data-type-ref"><a href="#type-socket">socket()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="close-1"></a><span class="bold_code">close(Socket) -&gt; ok</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="#type-socket">socket()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Closes a socket of any type.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="format_error-1"></a><span class="bold_code func-name">format_error(Reason) -&gt; string()</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = <span class="bold_code data-type-ref"><a href="#type-posix">posix()</a></span> | system_limit</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="format_error-1"></a><span class="bold_code">format_error(Reason) -&gt; string()</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | system_limit</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns a diagnostic error string. For possible POSIX values and
           corresponding strings, see section
-          <span class="bold_code data-type-ref"><a href="#error_codes">POSIX Error Codes</a></span>.</p>
-      </p></div></div>
-</div>
+          <span class="bold_code"><a href="#error_codes">POSIX Error Codes</a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="get_rc-0"></a><span class="bold_code func-name">get_rc() -&gt; [{Par :: any(), Val :: any()}]</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="get_rc-0"></a><span class="bold_code">get_rc() -&gt; [{Par :: any(), Val :: any()}]</span><br></p>
+<div class="REFBODY"><p>
         <p>Returns the state of the <span class="code">Inet</span> configuration database in
           form of a list of recorded configuration parameters. For more
-          information, see <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','inet_cfg.html');">ERTS User's Guide: Inet Configuration</a></span>.
+          information, see <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','inet_cfg.html');">ERTS User's Guide: Inet Configuration</a></span>.
           Only parameters with other than default values are returned.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="getaddr-2"></a><span class="bold_code func-name">getaddr(Host, Family) -&gt; {ok, Address} | {error, <span class="bold_code data-type-ref"><a href="#type-posix">posix()</a></span>}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Host = <span class="bold_code data-type-ref"><a href="#type-ip_address">ip_address()</a></span> | <span class="bold_code data-type-ref"><a href="#type-hostname">hostname()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Family = <span class="bold_code data-type-ref"><a href="#type-address_family">address_family()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Address = <span class="bold_code data-type-ref"><a href="#type-ip_address">ip_address()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="getaddr-2"></a><span class="bold_code">getaddr(Host, Family) -&gt; {ok, Address} | {error, <span class="bold_code"><a href="#type-posix">posix()</a></span>}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Host = <span class="bold_code"><a href="#type-ip_address">ip_address()</a></span> | <span class="bold_code"><a href="#type-hostname">hostname()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Family = <span class="bold_code"><a href="#type-address_family">address_family()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Address = <span class="bold_code"><a href="#type-ip_address">ip_address()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the IP address for <span class="code">Host</span> as a tuple of
           integers. <span class="code">Host</span> can be an IP address, a single
           hostname, or a fully qualified hostname.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="getaddrs-2"></a><span class="bold_code func-name">getaddrs(Host, Family) -&gt; {ok, Addresses} | {error, <span class="bold_code data-type-ref"><a href="#type-posix">posix()</a></span>}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Host = <span class="bold_code data-type-ref"><a href="#type-ip_address">ip_address()</a></span> | <span class="bold_code data-type-ref"><a href="#type-hostname">hostname()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Family = <span class="bold_code data-type-ref"><a href="#type-address_family">address_family()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Addresses = [<span class="bold_code data-type-ref"><a href="#type-ip_address">ip_address()</a></span>]</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="getaddrs-2"></a><span class="bold_code">getaddrs(Host, Family) -&gt; {ok, Addresses} | {error, <span class="bold_code"><a href="#type-posix">posix()</a></span>}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Host = <span class="bold_code"><a href="#type-ip_address">ip_address()</a></span> | <span class="bold_code"><a href="#type-hostname">hostname()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Family = <span class="bold_code"><a href="#type-address_family">address_family()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Addresses = [<span class="bold_code"><a href="#type-ip_address">ip_address()</a></span>]</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns a list of all IP addresses for <span class="code">Host</span>.
           <span class="code">Host</span> can be an IP address, a single hostname, or
           a fully qualified hostname.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="gethostbyaddr-1"></a><span class="bold_code func-name">gethostbyaddr(Address) -&gt; {ok, Hostent} | {error, <span class="bold_code data-type-ref"><a href="#type-posix">posix()</a></span>}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Address = string() | <span class="bold_code data-type-ref"><a href="#type-ip_address">ip_address()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Hostent = <span class="bold_code data-type-ref"><a href="#type-hostent">hostent()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="gethostbyaddr-1"></a><span class="bold_code">gethostbyaddr(Address) -&gt; {ok, Hostent} | {error, <span class="bold_code"><a href="#type-posix">posix()</a></span>}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Address = string() | <span class="bold_code"><a href="#type-ip_address">ip_address()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Hostent = <span class="bold_code"><a href="#type-hostent">hostent()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns a <span class="code">hostent</span> record for the host with the specified
-          address.</p></p></div></div>
-</div>
+          address.</p></p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="gethostbyname-1"></a><span class="bold_code func-name">gethostbyname(Hostname) -&gt; {ok, Hostent} | {error, <span class="bold_code data-type-ref"><a href="#type-posix">posix()</a></span>}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Hostname = <span class="bold_code data-type-ref"><a href="#type-hostname">hostname()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Hostent = <span class="bold_code data-type-ref"><a href="#type-hostent">hostent()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="gethostbyname-1"></a><span class="bold_code">gethostbyname(Hostname) -&gt; {ok, Hostent} | {error, <span class="bold_code"><a href="#type-posix">posix()</a></span>}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Hostname = <span class="bold_code"><a href="#type-hostname">hostname()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Hostent = <span class="bold_code"><a href="#type-hostent">hostent()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns a <span class="code">hostent</span> record for the host with the specified
           hostname.</p>
         <p>If resolver option <span class="code">inet6</span> is <span class="code">true</span>,
           an IPv6 address is looked up. If that fails,
           the IPv4 address is looked up and returned on
           IPv6-mapped IPv4 format.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="gethostbyname-2"></a><span class="bold_code func-name">gethostbyname(Hostname, Family) -&gt;<br>                 {ok, Hostent} | {error, <span class="bold_code data-type-ref"><a href="#type-posix">posix()</a></span>}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Hostname = <span class="bold_code data-type-ref"><a href="#type-hostname">hostname()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Family = <span class="bold_code data-type-ref"><a href="#type-address_family">address_family()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Hostent = <span class="bold_code data-type-ref"><a href="#type-hostent">hostent()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="gethostbyname-2"></a><span class="bold_code">gethostbyname(Hostname, Family) -&gt;<br>                 {ok, Hostent} | {error, <span class="bold_code"><a href="#type-posix">posix()</a></span>}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Hostname = <span class="bold_code"><a href="#type-hostname">hostname()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Family = <span class="bold_code"><a href="#type-address_family">address_family()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Hostent = <span class="bold_code"><a href="#type-hostent">hostent()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns a <span class="code">hostent</span> record for the host with the specified
           name, restricted to the specified address family.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="gethostname-0"></a><span class="bold_code func-name">gethostname() -&gt; {ok, Hostname}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Hostname = string()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="gethostname-0"></a><span class="bold_code">gethostname() -&gt; {ok, Hostname}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Hostname = string()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the local hostname. Never fails.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="getifaddrs-0"></a><span class="bold_code func-name">getifaddrs() -&gt; {ok, Iflist} | {error, <span class="bold_code data-type-ref"><a href="#type-posix">posix()</a></span>}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Iflist = [{Ifname, [Ifopt]}]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Ifname = string()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Ifopt = <br>    {flags, [Flag]} |<br>    {addr, Addr} |<br>    {netmask, Netmask} |<br>    {broadaddr, Broadaddr} |<br>    {dstaddr, Dstaddr} |<br>    {hwaddr, Hwaddr}</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Flag = <br>    up | broadcast | loopback | pointtopoint | running | multicast</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Addr = Netmask = Broadaddr = Dstaddr = <span class="bold_code data-type-ref"><a href="#type-ip_address">ip_address()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Hwaddr = [byte()]</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="getifaddrs-0"></a><span class="bold_code">getifaddrs() -&gt; {ok, Iflist} | {error, <span class="bold_code"><a href="#type-posix">posix()</a></span>}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Iflist = [{Ifname, [Ifopt]}]</span></div>
+<div class="REFTYPES"><span class="bold_code">Ifname = string()</span></div>
+<div class="REFTYPES"><span class="bold_code">Ifopt = <br>    {flags, [Flag]} |<br>    {addr, Addr} |<br>    {netmask, Netmask} |<br>    {broadaddr, Broadaddr} |<br>    {dstaddr, Dstaddr} |<br>    {hwaddr, Hwaddr}</span></div>
+<div class="REFTYPES"><span class="bold_code">Flag = <br>    up | broadcast | loopback | pointtopoint | running | multicast</span></div>
+<div class="REFTYPES"><span class="bold_code">Addr = Netmask = Broadaddr = Dstaddr = <span class="bold_code"><a href="#type-ip_address">ip_address()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code">Hwaddr = [byte()]</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns a list of 2-tuples containing interface names and the
           interface addresses. <span class="code">Ifname</span> is a Unicode string.
           <span class="code">Hwaddr</span> is hardware dependent, for example, on
@@ -989,22 +938,18 @@ fe80::204:acff:fe17:bf38
             values. Report flagrant bugs.</p>
 	</p></div>
 </div>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="getopts-2"></a><span class="bold_code func-name">getopts(Socket, Options) -&gt; {ok, OptionValues} | {error, <span class="bold_code data-type-ref"><a href="#type-posix">posix()</a></span>}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Socket = <span class="bold_code data-type-ref"><a href="#type-socket">socket()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = [<span class="bold_code data-type-ref"><a href="#type-socket_getopt">socket_getopt()</a></span>]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">OptionValues = [<span class="bold_code data-type-ref"><a href="#type-socket_setopt">socket_setopt()</a></span>]</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="getopts-2"></a><span class="bold_code">getopts(Socket, Options) -&gt; {ok, OptionValues} | {error, <span class="bold_code"><a href="#type-posix">posix()</a></span>}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="#type-socket">socket()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Options = [<span class="bold_code"><a href="#type-socket_getopt">socket_getopt()</a></span>]</span></div>
+<div class="REFTYPES"><span class="bold_code">OptionValues = [<span class="bold_code"><a href="#type-socket_setopt">socket_setopt()</a></span>]</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Gets one or more options for a socket. For a list of available
           options, see
-          <span class="bold_code data-type-ref"><a href="#setopts-2"><span class="code">setopts/2</span></a></span>.</p>
+          <span class="bold_code"><a href="#setopts-2"><span class="code">setopts/2</span></a></span>.</p>
         <p>The number of elements in the returned
           <span class="code">OptionValues</span>
           list does not necessarily correspond to the number of options
@@ -1064,22 +1009,18 @@ get_tcpi_sacked(Sock) -&gt;
         <p>Preferably, you would check the machine type, the operating system,
           and the Kernel version before executing anything similar to
           this code.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="getstat-1"></a><span class="bold_code func-name">getstat(Socket) -&gt; {ok, OptionValues} | {error, <span class="bold_code data-type-ref"><a href="#type-posix">posix()</a></span>}</span><a name="getstat-2"></a><span class="bold_code func-name">getstat(Socket, Options) -&gt; {ok, OptionValues} | {error, <span class="bold_code data-type-ref"><a href="#type-posix">posix()</a></span>}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Socket = <span class="bold_code data-type-ref"><a href="#type-socket">socket()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = [stat_option()]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">OptionValues = [{stat_option(), integer()}]</span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">stat_option() = <br>    recv_cnt |<br>    recv_max |<br>    recv_avg |<br>    recv_oct |<br>    recv_dvi |<br>    send_cnt |<br>    send_max |<br>    send_avg |<br>    send_oct |<br>    send_pend</span><br>
+    <p><a name="getstat-1"></a><span class="bold_code">getstat(Socket) -&gt; {ok, OptionValues} | {error, <span class="bold_code"><a href="#type-posix">posix()</a></span>}</span><br><a name="getstat-2"></a><span class="bold_code">getstat(Socket, Options) -&gt; {ok, OptionValues} | {error, <span class="bold_code"><a href="#type-posix">posix()</a></span>}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="#type-socket">socket()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Options = [stat_option()]</span></div>
+<div class="REFTYPES"><span class="bold_code">OptionValues = [{stat_option(), integer()}]</span></div>
+<div class="REFTYPES">
+      <span class="bold_code">stat_option() = <br>    recv_cnt |<br>    recv_max |<br>    recv_avg |<br>    recv_oct |<br>    recv_dvi |<br>    send_cnt |<br>    send_max |<br>    send_avg |<br>    send_oct |<br>    send_pend</span><br>
 </div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Gets one or more statistic options for a socket.</p>
         <p><span class="code">getstat(Socket)</span> is equivalent to
           <span class="code">getstat(Socket, [recv_avg, recv_cnt, recv_dvi,
@@ -1128,192 +1069,144 @@ get_tcpi_sacked(Sock) -&gt;
             <p>Number of bytes sent from the socket.</p>
           </dd>
         </dl>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="ntoa-1"></a><span class="bold_code func-name">ntoa(IpAddress) -&gt; Address | {error, einval}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Address = string()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">IpAddress = <span class="bold_code data-type-ref"><a href="#type-ip_address">ip_address()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="ntoa-1"></a><span class="bold_code">ntoa(IpAddress) -&gt; Address | {error, einval}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Address = string()</span></div>
+<div class="REFTYPES"><span class="bold_code">IpAddress = <span class="bold_code"><a href="#type-ip_address">ip_address()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
 	<p>Parses an
-          <span class="bold_code data-type-ref"><a href="#type-ip_address"><span class="code">ip_address()</span></a></span>
+          <span class="bold_code"><a href="#type-ip_address"><span class="code">ip_address()</span></a></span>
           and returns an IPv4 or IPv6 address string.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="parse_address-1"></a><span class="bold_code func-name">parse_address(Address) -&gt; {ok, IPAddress} | {error, einval}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Address = string()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">IPAddress = <span class="bold_code data-type-ref"><a href="#type-ip_address">ip_address()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="parse_address-1"></a><span class="bold_code">parse_address(Address) -&gt; {ok, IPAddress} | {error, einval}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Address = string()</span></div>
+<div class="REFTYPES"><span class="bold_code">IPAddress = <span class="bold_code"><a href="#type-ip_address">ip_address()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
 	<p>Parses an IPv4 or IPv6 address string and returns an
-          <span class="bold_code data-type-ref"><a href="#type-ip4_address"><span class="code">ip4_address()</span></a></span> or
-          <span class="bold_code data-type-ref"><a href="#type-ip6_address"><span class="code">ip6_address()</span></a></span>.
+          <span class="bold_code"><a href="#type-ip4_address"><span class="code">ip4_address()</span></a></span> or
+          <span class="bold_code"><a href="#type-ip6_address"><span class="code">ip6_address()</span></a></span>.
           Accepts a shortened IPv4 address string.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="parse_ipv4_address-1"></a><span class="bold_code func-name">parse_ipv4_address(Address) -&gt; {ok, IPv4Address} | {error, einval}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Address = string()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">IPv4Address = <span class="bold_code data-type-ref"><a href="#type-ip_address">ip_address()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="parse_ipv4_address-1"></a><span class="bold_code">parse_ipv4_address(Address) -&gt; {ok, IPv4Address} | {error, einval}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Address = string()</span></div>
+<div class="REFTYPES"><span class="bold_code">IPv4Address = <span class="bold_code"><a href="#type-ip_address">ip_address()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
 	<p>Parses an IPv4 address string and returns an
-          <span class="bold_code data-type-ref"><a href="#type-ip4_address"><span class="code">ip4_address()</span></a></span>.
+          <span class="bold_code"><a href="#type-ip4_address"><span class="code">ip4_address()</span></a></span>.
 	  Accepts a shortened IPv4 address string.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="parse_ipv4strict_address-1"></a><span class="bold_code func-name">parse_ipv4strict_address(Address) -&gt;<br>                            {ok, IPv4Address} | {error, einval}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Address = string()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">IPv4Address = <span class="bold_code data-type-ref"><a href="#type-ip_address">ip_address()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="parse_ipv4strict_address-1"></a><span class="bold_code">parse_ipv4strict_address(Address) -&gt;<br>                            {ok, IPv4Address} | {error, einval}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Address = string()</span></div>
+<div class="REFTYPES"><span class="bold_code">IPv4Address = <span class="bold_code"><a href="#type-ip_address">ip_address()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
 	<p>Parses an IPv4 address string containing four fields, that is,
           <strong>not</strong> shortened, and returns an
-          <span class="bold_code data-type-ref"><a href="#type-ip4_address"><span class="code">ip4_address()</span></a></span>.
+          <span class="bold_code"><a href="#type-ip4_address"><span class="code">ip4_address()</span></a></span>.
         </p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="parse_ipv6_address-1"></a><span class="bold_code func-name">parse_ipv6_address(Address) -&gt; {ok, IPv6Address} | {error, einval}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Address = string()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">IPv6Address = <span class="bold_code data-type-ref"><a href="#type-ip_address">ip_address()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="parse_ipv6_address-1"></a><span class="bold_code">parse_ipv6_address(Address) -&gt; {ok, IPv6Address} | {error, einval}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Address = string()</span></div>
+<div class="REFTYPES"><span class="bold_code">IPv6Address = <span class="bold_code"><a href="#type-ip_address">ip_address()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
 	<p>Parses an IPv6 address string and returns an
-          <span class="bold_code data-type-ref"><a href="#type-ip6_address"><span class="code">ip6_address()</span></a></span>.
+          <span class="bold_code"><a href="#type-ip6_address"><span class="code">ip6_address()</span></a></span>.
           If an IPv4 address string is specified, an IPv4-mapped IPv6 address
           is returned.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="parse_ipv6strict_address-1"></a><span class="bold_code func-name">parse_ipv6strict_address(Address) -&gt;<br>                            {ok, IPv6Address} | {error, einval}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Address = string()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">IPv6Address = <span class="bold_code data-type-ref"><a href="#type-ip_address">ip_address()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="parse_ipv6strict_address-1"></a><span class="bold_code">parse_ipv6strict_address(Address) -&gt;<br>                            {ok, IPv6Address} | {error, einval}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Address = string()</span></div>
+<div class="REFTYPES"><span class="bold_code">IPv6Address = <span class="bold_code"><a href="#type-ip_address">ip_address()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
 	<p>Parses an IPv6 address string and returns an
-          <span class="bold_code data-type-ref"><a href="#type-ip6_address"><span class="code">ip6_address()</span></a></span>.
+          <span class="bold_code"><a href="#type-ip6_address"><span class="code">ip6_address()</span></a></span>.
           Does <strong>not</strong> accept IPv4 addresses.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="parse_strict_address-1"></a><span class="bold_code func-name">parse_strict_address(Address) -&gt; {ok, IPAddress} | {error, einval}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Address = string()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">IPAddress = <span class="bold_code data-type-ref"><a href="#type-ip_address">ip_address()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="parse_strict_address-1"></a><span class="bold_code">parse_strict_address(Address) -&gt; {ok, IPAddress} | {error, einval}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Address = string()</span></div>
+<div class="REFTYPES"><span class="bold_code">IPAddress = <span class="bold_code"><a href="#type-ip_address">ip_address()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
 	<p>Parses an IPv4 or IPv6 address string and returns an
-          <span class="bold_code data-type-ref"><a href="#type-ip4_address"><span class="code">ip4_address()</span></a></span> or
-          <span class="bold_code data-type-ref"><a href="#type-ip6_address"><span class="code">ip6_address()</span></a></span>.
+          <span class="bold_code"><a href="#type-ip4_address"><span class="code">ip4_address()</span></a></span> or
+          <span class="bold_code"><a href="#type-ip6_address"><span class="code">ip6_address()</span></a></span>.
           Does <strong>not</strong> accept a shortened IPv4 address string.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="peername-1"></a><span class="bold_code func-name">peername(Socket :: <span class="bold_code data-type-ref"><a href="#type-socket">socket()</a></span>) -&gt;<br>            {ok,<br>             {<span class="bold_code data-type-ref"><a href="#type-ip_address">ip_address()</a></span>, <span class="bold_code data-type-ref"><a href="#type-port_number">port_number()</a></span>} |<br>             <span class="bold_code data-type-ref"><a href="#type-returned_non_ip_address">returned_non_ip_address()</a></span>} |<br>            {error, <span class="bold_code data-type-ref"><a href="#type-posix">posix()</a></span>}</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="peername-1"></a><span class="bold_code">peername(Socket :: <span class="bold_code"><a href="#type-socket">socket()</a></span>) -&gt;<br>            {ok,<br>             {<span class="bold_code"><a href="#type-ip_address">ip_address()</a></span>, <span class="bold_code"><a href="#type-port_number">port_number()</a></span>} |<br>             <span class="bold_code"><a href="#type-returned_non_ip_address">returned_non_ip_address()</a></span>} |<br>            {error, <span class="bold_code"><a href="#type-posix">posix()</a></span>}</span><br></p>
+<div class="REFBODY"><p>
         <p>Returns the address and port for the other end of a connection.</p>
 	<p>Notice that for SCTP sockets, this function returns only
 	  one of the peer addresses of the socket. Function
-	  <span class="bold_code data-type-ref"><a href="#peernames-1"><span class="code">peernames/1,2</span></a></span>
+	  <span class="bold_code"><a href="#peernames-1"><span class="code">peernames/1,2</span></a></span>
 	  returns all.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="peernames-1"></a><span class="bold_code func-name">peernames(Socket :: <span class="bold_code data-type-ref"><a href="#type-socket">socket()</a></span>) -&gt;<br>             {ok,<br>              [{<span class="bold_code data-type-ref"><a href="#type-ip_address">ip_address()</a></span>, <span class="bold_code data-type-ref"><a href="#type-port_number">port_number()</a></span>} |<br>               <span class="bold_code data-type-ref"><a href="#type-returned_non_ip_address">returned_non_ip_address()</a></span>]} |<br>             {error, <span class="bold_code data-type-ref"><a href="#type-posix">posix()</a></span>}</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="peernames-1"></a><span class="bold_code">peernames(Socket :: <span class="bold_code"><a href="#type-socket">socket()</a></span>) -&gt;<br>             {ok,<br>              [{<span class="bold_code"><a href="#type-ip_address">ip_address()</a></span>, <span class="bold_code"><a href="#type-port_number">port_number()</a></span>} |<br>               <span class="bold_code"><a href="#type-returned_non_ip_address">returned_non_ip_address()</a></span>]} |<br>             {error, <span class="bold_code"><a href="#type-posix">posix()</a></span>}</span><br></p>
+<div class="REFBODY"><p>
 	<p>Equivalent to
-	  <span class="bold_code data-type-ref"><a href="#peernames-2"><span class="code">peernames(Socket, 0)</span></a></span>.
+	  <span class="bold_code"><a href="#peernames-2"><span class="code">peernames(Socket, 0)</span></a></span>.
         </p>
         <p>Notice that the behavior of this function for an SCTP
 	  one-to-many style socket is not defined by the
-	  <span class="bold_code bc-20"><a href="http://tools.ietf.org/html/draft-ietf-tsvwg-sctpsocket-13">SCTP Sockets API Extensions</a></span>.</p>
-      </p></div></div>
-</div>
+	  <span class="bold_code"><a href="http://tools.ietf.org/html/draft-ietf-tsvwg-sctpsocket-13">SCTP Sockets API Extensions</a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="peernames-2"></a><span class="bold_code func-name">peernames(Socket, Assoc) -&gt;<br>             {ok, [{Address, Port}]} | {error, <span class="bold_code data-type-ref"><a href="#type-posix">posix()</a></span>}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Socket = <span class="bold_code data-type-ref"><a href="#type-socket">socket()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Assoc = #sctp_assoc_change{} | <span class="bold_code bc-15"><a href="gen_sctp.html#type-assoc_id">gen_sctp:assoc_id()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Address = <span class="bold_code data-type-ref"><a href="#type-ip_address">ip_address()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Port = integer() &gt;= 0</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="peernames-2"></a><span class="bold_code">peernames(Socket, Assoc) -&gt;<br>             {ok, [{Address, Port}]} | {error, <span class="bold_code"><a href="#type-posix">posix()</a></span>}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="#type-socket">socket()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Assoc = #sctp_assoc_change{} | <span class="bold_code"><a href="gen_sctp.html#type-assoc_id">gen_sctp:assoc_id()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Address = <span class="bold_code"><a href="#type-ip_address">ip_address()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Port = integer() &gt;= 0</span></div>
+</div></p>
+<div class="REFBODY"><p>
 	<p>Returns a list of all address/port number pairs for the other end
 	  of an association <span class="code">Assoc</span> of a socket.</p>
 	<p>This function can return multiple addresses for multihomed
 	  sockets, such as SCTP sockets. For other sockets it
 	  returns a one-element list.</p>
 	<p>Notice that parameter <span class="code">Assoc</span> is by the
-	  <span class="bold_code bc-20"><a href="http://tools.ietf.org/html/draft-ietf-tsvwg-sctpsocket-13">SCTP Sockets API Extensions</a></span>
+	  <span class="bold_code"><a href="http://tools.ietf.org/html/draft-ietf-tsvwg-sctpsocket-13">SCTP Sockets API Extensions</a></span>
 	  defined to be ignored for
 	  one-to-one style sockets. What the special value <span class="code">0</span>
 	  means, hence its behavior for one-to-many style sockets,
 	  is unfortunately undefined.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="port-1"></a><span class="bold_code func-name">port(Socket) -&gt; {ok, Port} | {error, any()}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Socket = <span class="bold_code data-type-ref"><a href="#type-socket">socket()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Port = <span class="bold_code data-type-ref"><a href="#type-port_number">port_number()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="port-1"></a><span class="bold_code">port(Socket) -&gt; {ok, Port} | {error, any()}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="#type-socket">socket()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Port = <span class="bold_code"><a href="#type-port_number">port_number()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the local port number for a socket.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="setopts-2"></a><span class="bold_code func-name">setopts(Socket, Options) -&gt; ok | {error, <span class="bold_code data-type-ref"><a href="#type-posix">posix()</a></span>}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Socket = <span class="bold_code data-type-ref"><a href="#type-socket">socket()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = [<span class="bold_code data-type-ref"><a href="#type-socket_setopt">socket_setopt()</a></span>]</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="setopts-2"></a><span class="bold_code">setopts(Socket, Options) -&gt; ok | {error, <span class="bold_code"><a href="#type-posix">posix()</a></span>}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="#type-socket">socket()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Options = [<span class="bold_code"><a href="#type-socket_setopt">socket_setopt()</a></span>]</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Sets one or more options for a socket.</p>
         <p>The following options are available:</p>
         <dl>
@@ -1324,9 +1217,9 @@ get_tcpi_sacked(Sock) -&gt;
               messages to the receiving process.</p>
             <p>If the value is <span class="code">false</span> (passive mode), the process must
               explicitly receive incoming data by calling
-              <span class="bold_code bc-15"><a href="gen_tcp.html#recv-2"><span class="code">gen_tcp:recv/2,3</span></a></span>,
-              <span class="bold_code bc-15"><a href="gen_udp.html#recv-2"><span class="code">gen_udp:recv/2,3</span></a></span>,
-              or <span class="bold_code bc-15"><a href="gen_sctp.html#recv-1"><span class="code">gen_sctp:recv/1,2</span></a></span>
+              <span class="bold_code"><a href="gen_tcp.html#recv-2"><span class="code">gen_tcp:recv/2,3</span></a></span>,
+              <span class="bold_code"><a href="gen_udp.html#recv-2"><span class="code">gen_udp:recv/2,3</span></a></span>,
+              or <span class="bold_code"><a href="gen_sctp.html#recv-1"><span class="code">gen_sctp:recv/1,2</span></a></span>
               (depending on the type of socket).</p>
             <p>If the value is <span class="code">once</span> (<span class="code">{active, once}</span>),
               <strong>one</strong> data message from the socket is sent
@@ -1397,7 +1290,7 @@ get_tcpi_sacked(Sock) -&gt;
               maximum when values <span class="code">sndbuf</span> or <span class="code">recbuf</span> are set.
               However, as the sizes set for <span class="code">sndbuf</span> and <span class="code">recbuf</span>
               usually become larger, you are encouraged to use
-              <span class="bold_code data-type-ref"><a href="#getopts-2"><span class="code">getopts/2</span></a></span>
+              <span class="bold_code"><a href="#getopts-2"><span class="code">getopts/2</span></a></span>
               to analyze the behavior of your operating system.</p>
           </dd>
           <dt><strong><span class="code">{delay_send, Boolean}</span></strong></dt>
@@ -1430,7 +1323,7 @@ get_tcpi_sacked(Sock) -&gt;
             <p>The only reason to set it to <span class="code">false</span> is if you want
               to continue sending data to the socket after a close is
               detected, for example, if the peer uses
-              <span class="bold_code bc-15"><a href="gen_tcp.html#shutdown-2"><span class="code">gen_tcp:shutdown/2</span></a></span>
+              <span class="bold_code"><a href="gen_tcp.html#shutdown-2"><span class="code">gen_tcp:shutdown/2</span></a></span>
               to shut down the write side.</p>
           </dd>
           <dt><strong><span class="code">{header, Size}</span></strong></dt>
@@ -1459,7 +1352,7 @@ get_tcpi_sacked(Sock) -&gt;
 	    <p>Notice that distribution sockets disable the use of
 	      <span class="code">high_msgq_watermark</span> and <span class="code">low_msgq_watermark</span>.
 	      Instead use the
-	      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#system_info_dist_buf_busy_limit');">distribution buffer busy limit</a></span>,
+	      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#system_info_dist_buf_busy_limit');">distribution buffer busy limit</a></span>,
               which is a similar feature.</p>
           </dd>
           <dt><strong><span class="code">{high_watermark, Size}</span> (TCP/IP sockets)</strong></dt>
@@ -1482,7 +1375,7 @@ get_tcpi_sacked(Sock) -&gt;
 	      before associating it to an address. It is therefore only
 	      reasonable to specify it when creating the socket and not
 	      to use it when calling function
-	      (<span class="bold_code data-type-ref"><a href="#setopts-2"><span class="code">setopts/2</span></a></span>)
+	      (<span class="bold_code"><a href="#setopts-2"><span class="code">setopts/2</span></a></span>)
 	      containing this description.</p>
 	    <p>The behavior of a socket with this option set to
 	      <span class="code">true</span> is the only portable one. The original
@@ -1504,7 +1397,7 @@ get_tcpi_sacked(Sock) -&gt;
 	      in this case.</p>
 	    <p>Setting this option on platforms where it does not exist
 	      is ignored. Getting this option with
-	      <span class="bold_code data-type-ref"><a href="#getopts-2"><span class="code">getopts/2</span></a></span>
+	      <span class="bold_code"><a href="#getopts-2"><span class="code">getopts/2</span></a></span>
 	      returns no value, that is, the returned list does not contain an
 	      <span class="code">{ipv6_v6only,_}</span> tuple. On Windows, the option
 	      does not exist, but it is emulated as a
@@ -1515,7 +1408,7 @@ get_tcpi_sacked(Sock) -&gt;
 	      have customized the kernel to only allow <span class="code">false</span>,
 	      which can be doable (but awkward) on, for example, OpenBSD.</p>
 	    <p>If you read back the option value using
-	      <span class="bold_code data-type-ref"><a href="#getopts-2"><span class="code">getopts/2</span></a></span>
+	      <span class="bold_code"><a href="#getopts-2"><span class="code">getopts/2</span></a></span>
 	      and get no value, the option does not exist in the host
               operating system. The behavior of both an IPv6 and an IPv4
 	      socket listening on the same port, and for an IPv6 socket
@@ -1556,7 +1449,7 @@ get_tcpi_sacked(Sock) -&gt;
 	    <p>Notice that distribution sockets disable the use of
 	      <span class="code">high_msgq_watermark</span> and <span class="code">low_msgq_watermark</span>.
 	      Instead they use the
-	      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#system_info_dist_buf_busy_limit');">distribution buffer busy limit</a></span>, which is a similar feature.</p>
+	      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#system_info_dist_buf_busy_limit');">distribution buffer busy limit</a></span>, which is a similar feature.</p>
           </dd>
           <dt><strong><span class="code">{low_watermark, Size}</span> (TCP/IP sockets)</strong></dt>
           <dd>
@@ -1582,10 +1475,10 @@ get_tcpi_sacked(Sock) -&gt;
 	      example, <span class="code">"/var/run/netns/example"</span>, typically created by
 	      command <span class="code">ip netns add example</span>. This option must be used in
 	      a function call that creates a socket, that is,
-	      <span class="bold_code bc-15"><a href="gen_tcp.html#connect-3"><span class="code">gen_tcp:connect/3,4</span></a></span>,
-	      <span class="bold_code bc-15"><a href="gen_tcp.html#listen-2"><span class="code">gen_tcp:listen/2</span></a></span>,
-	      <span class="bold_code bc-15"><a href="gen_udp.html#open-1"><span class="code">gen_udp:open/1,2</span></a></span>, or
-	    <span class="bold_code bc-15"><a href="gen_sctp.html#open-0"><span class="code">gen_sctp:open/0,1,2</span></a></span>.</p>
+	      <span class="bold_code"><a href="gen_tcp.html#connect-3"><span class="code">gen_tcp:connect/3,4</span></a></span>,
+	      <span class="bold_code"><a href="gen_tcp.html#listen-2"><span class="code">gen_tcp:listen/2</span></a></span>,
+	      <span class="bold_code"><a href="gen_udp.html#open-1"><span class="code">gen_udp:open/1,2</span></a></span>, or
+	    <span class="bold_code"><a href="gen_sctp.html#open-0"><span class="code">gen_sctp:open/0,1,2</span></a></span>.</p>
 	    <p>This option uses the Linux-specific syscall
 	      <span class="code">setns()</span>, such as in Linux kernel 3.0 or later,
 	      and therefore only exists when the runtime system
@@ -1609,16 +1502,16 @@ setcap cap_sys_admin,cap_sys_ptrace,cap_dac_read_search+epi beam.smp</pre></div>
 	      network namespaces.</p>
 	    <p><span class="code">Namespace</span> is a filename and is encoded
 	      and decoded as discussed in module
-	      <span class="bold_code bc-19"><a href="file.html">file</a></span>, with the
+	      <span class="bold_code"><a href="file.html">file</a></span>, with the
               following exceptions:</p>
 	    <ul>
 	      <li><p>Emulator flag <span class="code">+fnu</span> is ignored.</p></li>
-	      <li><p><span class="bold_code data-type-ref"><a href="#getopts-2"><span class="code">getopts/2</span></a></span>
+	      <li><p><span class="bold_code"><a href="#getopts-2"><span class="code">getopts/2</span></a></span>
 	      for this option returns a binary for the filename if the stored
 	      filename cannot be decoded. This is only to occur if you set the
 	      option using a binary that cannot be decoded with the emulator's
 	      filename encoding:
-	      <span class="bold_code bc-15"><a href="file.html#native_name_encoding-0"><span class="code">file:native_name_encoding/0</span></a></span>.</p></li>
+	      <span class="bold_code"><a href="file.html#native_name_encoding-0"><span class="code">file:native_name_encoding/0</span></a></span>.</p></li>
 	    </ul>
           </dd>
           <dt><strong><span class="code">list</span></strong></dt>
@@ -1687,7 +1580,7 @@ setcap cap_sys_admin,cap_sys_ptrace,cap_dac_read_search+epi beam.smp</pre></div>
                 <p>The Hypertext Transfer Protocol. The packets
                  are returned with the format according to <span class="code">HttpPacket</span>
                  described in
-                 <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#decode_packet-3');"><span class="code">erlang:decode_packet/3</span></a></span> in ERTS.
+                 <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#decode_packet-3');"><span class="code">erlang:decode_packet/3</span></a></span> in ERTS.
                  A socket in passive
                  mode returns <span class="code">{ok, HttpPacket}</span> from <span class="code">gen_tcp:recv</span>
                  while an active socket sends messages like
@@ -1744,7 +1637,7 @@ setcap cap_sys_admin,cap_sys_ptrace,cap_dac_read_search+epi beam.smp</pre></div>
           <dd>
             <p>The minimum size of the receive buffer to use for
               the socket. You are encouraged to use
-              <span class="bold_code data-type-ref"><a href="#getopts-2"><span class="code">getopts/2</span></a></span>
+              <span class="bold_code"><a href="#getopts-2"><span class="code">getopts/2</span></a></span>
               to retrieve the size set by your operating system.</p>
           </dd>
           <dt><strong><span class="code">{reuseaddr, Boolean}</span></strong></dt>
@@ -1778,7 +1671,7 @@ setcap cap_sys_admin,cap_sys_ptrace,cap_dac_read_search+epi beam.smp</pre></div>
             <p>When this option is set to <span class="code">false</span>, which is
               default, an RST received from the TCP peer is treated
               as a normal close (as though an FIN was sent). A caller to
-              <span class="bold_code bc-15"><a href="gen_tcp.html#recv-2"><span class="code">gen_tcp:recv/2</span></a></span>
+              <span class="bold_code"><a href="gen_tcp.html#recv-2"><span class="code">gen_tcp:recv/2</span></a></span>
               gets <span class="code">{error, closed}</span>. In active
               mode, the controlling process receives a
               <span class="code">{tcp_close, Socket}</span> message, indicating that the
@@ -1787,17 +1680,17 @@ setcap cap_sys_admin,cap_sys_ptrace,cap_dac_read_search+epi beam.smp</pre></div>
               distinguish between a connection that was closed normally,
               and one that was aborted (intentionally or unintentionally)
               by the TCP peer. A call to
-              <span class="bold_code bc-15"><a href="gen_tcp.html#recv-2"><span class="code">gen_tcp:recv/2</span></a></span>
+              <span class="bold_code"><a href="gen_tcp.html#recv-2"><span class="code">gen_tcp:recv/2</span></a></span>
               returns <span class="code">{error, econnreset}</span>. In
               active mode, the controlling process receives a
               <span class="code">{tcp_error, Socket, econnreset}</span> message
               before the usual <span class="code">{tcp_closed, Socket}</span>, as is
               the case for any other socket error. Calls to
-              <span class="bold_code bc-15"><a href="gen_tcp.html#send-2"><span class="code">gen_tcp:send/2</span></a></span>
+              <span class="bold_code"><a href="gen_tcp.html#send-2"><span class="code">gen_tcp:send/2</span></a></span>
               also returns <span class="code">{error, econnreset}</span> when it
               is detected that a TCP peer has sent an RST.</p>
             <p>A connected socket returned from
-              <span class="bold_code bc-15"><a href="gen_tcp.html#accept-1"><span class="code">gen_tcp:accept/1</span></a></span>
+              <span class="bold_code"><a href="gen_tcp.html#accept-1"><span class="code">gen_tcp:accept/1</span></a></span>
               inherits the <span class="code">show_econnreset</span> setting from the
               listening socket.</p>
             <a name="option-show_econnreset"></a>
@@ -1806,7 +1699,7 @@ setcap cap_sys_admin,cap_sys_ptrace,cap_dac_read_search+epi beam.smp</pre></div>
           <dd>
             <p>The minimum size of the send buffer to use for the socket.
               You are encouraged to use
-              <span class="bold_code data-type-ref"><a href="#getopts-2"><span class="code">getopts/2</span></a></span>,
+              <span class="bold_code"><a href="#getopts-2"><span class="code">getopts/2</span></a></span>,
               to retrieve the size set by your operating system.</p>
           </dd>
           <dt><strong><span class="code">{priority, Integer}</span></strong></dt>
@@ -1874,65 +1767,52 @@ inet:setopts(Sock,[{raw,6,8,&lt;&lt;30:32/native&gt;&gt;}]),</pre></div>
         <p>Notice that the default options for TCP/IP sockets can be
           changed with the Kernel configuration parameters mentioned in
           the beginning of this manual page.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="sockname-1"></a><span class="bold_code func-name">sockname(Socket :: <span class="bold_code data-type-ref"><a href="#type-socket">socket()</a></span>) -&gt;<br>            {ok,<br>             {<span class="bold_code data-type-ref"><a href="#type-ip_address">ip_address()</a></span>, <span class="bold_code data-type-ref"><a href="#type-port_number">port_number()</a></span>} |<br>             <span class="bold_code data-type-ref"><a href="#type-returned_non_ip_address">returned_non_ip_address()</a></span>} |<br>            {error, <span class="bold_code data-type-ref"><a href="#type-posix">posix()</a></span>}</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="sockname-1"></a><span class="bold_code">sockname(Socket :: <span class="bold_code"><a href="#type-socket">socket()</a></span>) -&gt;<br>            {ok,<br>             {<span class="bold_code"><a href="#type-ip_address">ip_address()</a></span>, <span class="bold_code"><a href="#type-port_number">port_number()</a></span>} |<br>             <span class="bold_code"><a href="#type-returned_non_ip_address">returned_non_ip_address()</a></span>} |<br>            {error, <span class="bold_code"><a href="#type-posix">posix()</a></span>}</span><br></p>
+<div class="REFBODY"><p>
         <p>Returns the local address and port number for a socket.</p>
 	<p>Notice that for SCTP sockets this function returns only
 	  one of the socket addresses. Function
-	  <span class="bold_code data-type-ref"><a href="#socknames-1"><span class="code">socknames/1,2</span></a></span>
+	  <span class="bold_code"><a href="#socknames-1"><span class="code">socknames/1,2</span></a></span>
 	  returns all.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="socknames-1"></a><span class="bold_code func-name">socknames(Socket :: <span class="bold_code data-type-ref"><a href="#type-socket">socket()</a></span>) -&gt;<br>             {ok,<br>              [{<span class="bold_code data-type-ref"><a href="#type-ip_address">ip_address()</a></span>, <span class="bold_code data-type-ref"><a href="#type-port_number">port_number()</a></span>} |<br>               <span class="bold_code data-type-ref"><a href="#type-returned_non_ip_address">returned_non_ip_address()</a></span>]} |<br>             {error, <span class="bold_code data-type-ref"><a href="#type-posix">posix()</a></span>}</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="socknames-1"></a><span class="bold_code">socknames(Socket :: <span class="bold_code"><a href="#type-socket">socket()</a></span>) -&gt;<br>             {ok,<br>              [{<span class="bold_code"><a href="#type-ip_address">ip_address()</a></span>, <span class="bold_code"><a href="#type-port_number">port_number()</a></span>} |<br>               <span class="bold_code"><a href="#type-returned_non_ip_address">returned_non_ip_address()</a></span>]} |<br>             {error, <span class="bold_code"><a href="#type-posix">posix()</a></span>}</span><br></p>
+<div class="REFBODY"><p>
 	<p>Equivalent to
-	  <span class="bold_code data-type-ref"><a href="#socknames-2"><span class="code">socknames(Socket, 0)</span></a></span>.
+	  <span class="bold_code"><a href="#socknames-2"><span class="code">socknames(Socket, 0)</span></a></span>.
         </p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="socknames-2"></a><span class="bold_code func-name">socknames(Socket, Assoc) -&gt;<br>             {ok, [{Address, Port}]} | {error, <span class="bold_code data-type-ref"><a href="#type-posix">posix()</a></span>}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Socket = <span class="bold_code data-type-ref"><a href="#type-socket">socket()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Assoc = #sctp_assoc_change{} | <span class="bold_code bc-15"><a href="gen_sctp.html#type-assoc_id">gen_sctp:assoc_id()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Address = <span class="bold_code data-type-ref"><a href="#type-ip_address">ip_address()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Port = integer() &gt;= 0</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="socknames-2"></a><span class="bold_code">socknames(Socket, Assoc) -&gt;<br>             {ok, [{Address, Port}]} | {error, <span class="bold_code"><a href="#type-posix">posix()</a></span>}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="#type-socket">socket()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Assoc = #sctp_assoc_change{} | <span class="bold_code"><a href="gen_sctp.html#type-assoc_id">gen_sctp:assoc_id()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Address = <span class="bold_code"><a href="#type-ip_address">ip_address()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Port = integer() &gt;= 0</span></div>
+</div></p>
+<div class="REFBODY"><p>
 	<p>Returns a list of all local address/port number pairs for a socket
 	  for the specified association <span class="code">Assoc</span>.</p>
 	<p>This function can return multiple addresses for multihomed
 	  sockets, such as SCTP sockets. For other sockets it
 	  returns a one-element list.</p>
 	<p>Notice that parameter <span class="code">Assoc</span> is by the
-	  <span class="bold_code bc-20"><a href="http://tools.ietf.org/html/draft-ietf-tsvwg-sctpsocket-13">SCTP Sockets API Extensions</a></span>
+	  <span class="bold_code"><a href="http://tools.ietf.org/html/draft-ietf-tsvwg-sctpsocket-13">SCTP Sockets API Extensions</a></span>
 	  defined to be ignored for one-to-one style sockets.
 	  For one-to-many style sockets, the special value <span class="code">0</span>
 	  is defined to mean that the returned addresses must be
 	  without any particular association.
 	  How different SCTP implementations interprets this varies somewhat.
         </p>
-      </p></div></div>
-</div>
-  </div>
+      </p></div>
+  
 
   <h3>
-<a name="error_codes"></a><a name="idm45917635800096">POSIX Error Codes</a>
+<a name="error_codes"></a><a name="idm46525669403440">POSIX Error Codes</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <ul>

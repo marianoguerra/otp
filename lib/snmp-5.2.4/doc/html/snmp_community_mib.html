@@ -802,33 +802,28 @@
 <!-- refpage --><center><h1>snmp_community_mib</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">snmp_community_mib</div>
+<div class="REFBODY">snmp_community_mib</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Instrumentation Functions for SNMP-COMMUNITY-MIB</div>
+<div class="REFBODY">Instrumentation Functions for SNMP-COMMUNITY-MIB</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>The module <span class="code">snmp_community_mib</span> implements the instrumentation
     functions for the SNMP-COMMUNITY-MIB, and functions for configuring the 
     database. </p>
     <p>The configuration files are described in the SNMP User's Manual.</p>
 
     <a name="configure"></a>
-  </div>
+  </p></div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="configure-1"></a><span class="bold_code bc-9">configure(ConfDir) -&gt; void()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="configure-1"></a><span class="bold_code">configure(ConfDir) -&gt; void()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">ConfDir = string()</span><br>
+<span class="bold_code">ConfDir = string()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This function is called from the supervisor at system
           start-up.
           </p>
@@ -852,21 +847,15 @@
 
         <a name="reconfigure"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="reconfigure-1"></a><span class="bold_code bc-9">reconfigure(ConfDir) -&gt; void()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="reconfigure-1"></a><span class="bold_code">reconfigure(ConfDir) -&gt; void()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">ConfDir = string()</span><br>
+<span class="bold_code">ConfDir = string()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Inserts all data in the configuration files into the
           database and destroys all old data, including the rows with
           StorageType <span class="code">nonVolatile</span>.  The rows created from the
@@ -889,77 +878,63 @@
 
         <a name="add_community"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="add_community-5"></a><span class="bold_code bc-9">add_community(Idx, CommName, SecName, CtxName, TransportTag) -&gt; Ret</span><br><a name="add_community-6"></a><span class="bold_code bc-9">add_community(Idx, CommName, SecName, EngineId, CtxName, TransportTag) -&gt; Ret</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="add_community-5"></a><span class="bold_code">add_community(Idx, CommName, SecName, CtxName, TransportTag) -&gt; Ret</span><br><a name="add_community-6"></a><span class="bold_code">add_community(Idx, CommName, SecName, EngineId, CtxName, TransportTag) -&gt; Ret</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Idx = string()</span><br>
+<span class="bold_code">Idx = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">CommName = string()</span><br>
+<span class="bold_code">CommName = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">SecName = string()</span><br>
+<span class="bold_code">SecName = string()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">EngineId = string()</span><br>
+<span class="bold_code">EngineId = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">CtxName = string()</span><br>
+<span class="bold_code">CtxName = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TransportTag = string()</span><br>
+<span class="bold_code">TransportTag = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Ret = {ok, Key} | {error, Reason}</span><br>
+<span class="bold_code">Ret = {ok, Key} | {error, Reason}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Key = term()</span><br>
+<span class="bold_code">Key = term()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Adds a community to the agent config. 
 	Equivalent to one line in the <span class="code">community.conf</span> file.</p>
 	<p>With the <span class="code">EngineId</span> argument it is possible to 
 	override the configured engine-id (SNMP-FRAMEWORK-MIB).</p>
         <a name="delete_community"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="delete_community-1"></a><span class="bold_code bc-9">delete_community(Key) -&gt; Ret</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="delete_community-1"></a><span class="bold_code">delete_community(Key) -&gt; Ret</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Key = term()</span><br>
+<span class="bold_code">Key = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Ret = ok | {error, Reason}</span><br>
+<span class="bold_code">Ret = ok | {error, Reason}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Delete a community from the agent config.</p>
       </p></div>
-</div>
-</div>
-  </div>
+  
   
 </div>
 <div class="footer">

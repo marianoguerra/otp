@@ -952,11 +952,11 @@
 <!-- refpage --><center><h1>erl_tracer</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">erl_tracer</div>
+<div class="REFBODY">erl_tracer</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Erlang tracer behavior.</div>
+<div class="REFBODY">Erlang tracer behavior.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>This behavior module implements the back end of the Erlang
       tracing system. The functions in this module are called whenever
       a trace probe is triggered. Both the <span class="code">enabled</span> and <span class="code">trace</span>
@@ -971,7 +971,7 @@
 <div class="content"><p>
       <p>All functions in this behavior must be implemented as NIFs.
         This limitation can be removed in a future releases.
-        An <span class="bold_code data-type-ref"><a href="#example">example tracer module NIF</a></span>
+        An <span class="bold_code"><a href="#example">example tracer module NIF</a></span>
         implementation is provided at the end of this page.</p>
     </p></div>
 </div>
@@ -985,48 +985,40 @@
         recursions.</p>
     </p></div>
 </div>
-  </div>
+  </p></div>
 
-  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
-<div class="data-types-body">
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-trace_tag_call">trace_tag_call()</a> = <br>    call | return_to | return_from | exception_from</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-trace_tag_gc">trace_tag_gc()</a> = <br>    gc_minor_start | gc_minor_end | gc_major_start | gc_major_end</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-trace_tag_ports">trace_tag_ports()</a> = <br>    open |<br>    closed |<br>    link |<br>    unlink |<br>    getting_linked |<br>    getting_unlinked</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-trace_tag_procs">trace_tag_procs()</a> = <br>    spawn |<br>    spawned |<br>    exit |<br>    link |<br>    unlink |<br>    getting_linked |<br>    getting_unlinked |<br>    register |<br>    unregister</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-trace_tag_receive">trace_tag_receive()</a> = 'receive'</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-trace_tag_running_ports">trace_tag_running_ports()</a> = <br>    in | out | in_exiting | out_exiting | out_exited</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-trace_tag_running_procs">trace_tag_running_procs()</a> = <br>    in | out | in_exiting | out_exiting | out_exited</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-trace_tag_send">trace_tag_send()</a> = send | send_to_non_existing_process</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-trace_tag">trace_tag()</a> = <br>    <span class="bold_code data-type-ref"><a href="#type-trace_tag_send">trace_tag_send()</a></span> |<br>    <span class="bold_code data-type-ref"><a href="#type-trace_tag_receive">trace_tag_receive()</a></span> |<br>    <span class="bold_code data-type-ref"><a href="#type-trace_tag_call">trace_tag_call()</a></span> |<br>    <span class="bold_code data-type-ref"><a href="#type-trace_tag_procs">trace_tag_procs()</a></span> |<br>    <span class="bold_code data-type-ref"><a href="#type-trace_tag_ports">trace_tag_ports()</a></span> |<br>    <span class="bold_code data-type-ref"><a href="#type-trace_tag_running_procs">trace_tag_running_procs()</a></span> |<br>    <span class="bold_code data-type-ref"><a href="#type-trace_tag_running_ports">trace_tag_running_ports()</a></span> |<br>    <span class="bold_code data-type-ref"><a href="#type-trace_tag_gc">trace_tag_gc()</a></span></span><div class="REFBODY data-type-desc"><p>
+  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
+    <p>
+      <span class="bold_code"><a name="type-trace_tag_call">trace_tag_call()</a> = <br>    call | return_to | return_from | exception_from</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-trace_tag_gc">trace_tag_gc()</a> = <br>    gc_minor_start | gc_minor_end | gc_major_start | gc_major_end</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-trace_tag_ports">trace_tag_ports()</a> = <br>    open |<br>    closed |<br>    link |<br>    unlink |<br>    getting_linked |<br>    getting_unlinked</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-trace_tag_procs">trace_tag_procs()</a> = <br>    spawn |<br>    spawned |<br>    exit |<br>    link |<br>    unlink |<br>    getting_linked |<br>    getting_unlinked |<br>    register |<br>    unregister</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-trace_tag_receive">trace_tag_receive()</a> = 'receive'</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-trace_tag_running_ports">trace_tag_running_ports()</a> = <br>    in | out | in_exiting | out_exiting | out_exited</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-trace_tag_running_procs">trace_tag_running_procs()</a> = <br>    in | out | in_exiting | out_exiting | out_exited</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-trace_tag_send">trace_tag_send()</a> = send | send_to_non_existing_process</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-trace_tag">trace_tag()</a> = <br>    <span class="bold_code"><a href="#type-trace_tag_send">trace_tag_send()</a></span> |<br>    <span class="bold_code"><a href="#type-trace_tag_receive">trace_tag_receive()</a></span> |<br>    <span class="bold_code"><a href="#type-trace_tag_call">trace_tag_call()</a></span> |<br>    <span class="bold_code"><a href="#type-trace_tag_procs">trace_tag_procs()</a></span> |<br>    <span class="bold_code"><a href="#type-trace_tag_ports">trace_tag_ports()</a></span> |<br>    <span class="bold_code"><a href="#type-trace_tag_running_procs">trace_tag_running_procs()</a></span> |<br>    <span class="bold_code"><a href="#type-trace_tag_running_ports">trace_tag_running_ports()</a></span> |<br>    <span class="bold_code"><a href="#type-trace_tag_gc">trace_tag_gc()</a></span></span><br></p>
+<div class="REFBODY"><p>
         <p>The different trace tags that the tracer is called with.
           Each trace tag is described in detail in
-          <span class="bold_code data-type-ref"><a href="#Module:trace-5"><span class="code">Module:trace/5</span></a></span>.</p>
+          <span class="bold_code"><a href="#Module:trace-5"><span class="code">Module:trace/5</span></a></span>.</p>
       </p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-tracee">tracee()</a> = port() | pid() | undefined</span><div class="REFBODY data-type-desc"><p>
+    <p>
+      <span class="bold_code"><a name="type-tracee">tracee()</a> = port() | pid() | undefined</span><br></p>
+<div class="REFBODY"><p>
         <p>The process or port that the trace belongs to.</p>
       </p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-trace_opts">trace_opts()</a> = <br>    #{extra =&gt; term(),<br>      match_spec_result =&gt; term(),<br>      scheduler_id =&gt; integer() &gt;= 0,<br>      timestamp =&gt;<br>          timestamp | cpu_timestamp | monotonic | strict_monotonic}</span><div class="REFBODY data-type-desc"><p>
+    <p>
+      <span class="bold_code"><a name="type-trace_opts">trace_opts()</a> = <br>    #{extra =&gt; term(),<br>      match_spec_result =&gt; term(),<br>      scheduler_id =&gt; integer() &gt;= 0,<br>      timestamp =&gt;<br>          timestamp | cpu_timestamp | monotonic | strict_monotonic}</span><br></p>
+<div class="REFBODY"><p>
         <p>The options for the tracee:</p>
         <dl>
           <dt><strong><span class="code">timestamp</span></strong></dt>
@@ -1037,7 +1029,7 @@
             the trace event. What the additional data is depends on which
             <span class="code">TraceTag</span> has been triggered. The <span class="code">extra</span> trace data
             corresponds to the fifth element in the trace tuples described in
-            <span class="bold_code bc-15"><a href="erlang.html#trace_3_trace_messages">erlang:trace/3</a></span>.</dd>
+            <span class="bold_code"><a href="erlang.html#trace_3_trace_messages">erlang:trace/3</a></span>.</dd>
           <dt><strong><span class="code">match_spec_result</span></strong></dt>
           <dd>If set the tracer has been requested to include the output
             of a match specification that was run.</dd>
@@ -1045,87 +1037,81 @@
           <dd>If set the scheduler id is to be included by the tracer.</dd>
         </dl>
       </p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-tracer_state">tracer_state()</a> = term()</span><div class="REFBODY data-type-desc"><p>
+    <p>
+      <span class="bold_code"><a name="type-tracer_state">tracer_state()</a> = term()</span><br></p>
+<div class="REFBODY"><p>
         <p>The state specified when calling
-          <span class="bold_code bc-15"><a href="erlang.html#trace-3"><span class="code">erlang:trace(PidPortSpec,true,[{tracer,Module,TracerState}])</span></a></span>.
+          <span class="bold_code"><a href="erlang.html#trace-3"><span class="code">erlang:trace(PidPortSpec,true,[{tracer,Module,TracerState}])</span></a></span>.
           The tracer state is an immutable value that is passed to
           <span class="code">erl_tracer</span> callbacks and is to
           contain all the data that is needed to generate the trace event.</p>
       </p></div>
-</div>
-  </div>
+  
 
-  <h3><a name="idm45319508036096">Callback Functions</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45311095292480">Callback Functions</a></h3>
+<div class="REFBODY">
     
     <p>The following functions are to be exported from an <span class="code">erl_tracer</span>
       callback module:</p>
 
     <dl>
-      <dt><strong><span class="bold_code data-type-ref"><a href="#Module:enabled-3"><span class="code">Module:enabled/3</span></a></span></strong></dt>
+      <dt><strong><span class="bold_code"><a href="#Module:enabled-3"><span class="code">Module:enabled/3</span></a></span></strong></dt>
       <dd>Mandatory</dd>
-      <dt><strong><span class="bold_code data-type-ref"><a href="#Module:trace-5"><span class="code">Module:trace/5</span></a></span></strong></dt>
+      <dt><strong><span class="bold_code"><a href="#Module:trace-5"><span class="code">Module:trace/5</span></a></span></strong></dt>
       <dd>Mandatory</dd>
-      <dt><strong><span class="bold_code data-type-ref"><a href="#Module:enabled_call-3"><span class="code">Module:enabled_call/3</span></a></span></strong></dt>
+      <dt><strong><span class="bold_code"><a href="#Module:enabled_call-3"><span class="code">Module:enabled_call/3</span></a></span></strong></dt>
       <dd>Optional</dd>
-      <dt><strong><span class="bold_code data-type-ref"><a href="#Module:trace_call-5"><span class="code">Module:trace_call/5</span></a></span></strong></dt>
+      <dt><strong><span class="bold_code"><a href="#Module:trace_call-5"><span class="code">Module:trace_call/5</span></a></span></strong></dt>
       <dd>Optional</dd>
-      <dt><strong><span class="bold_code data-type-ref"><a href="#Module:enabled_garbage_collection-3"><span class="code">Module:enabled_garbage_collection/3</span></a></span></strong></dt>
+      <dt><strong><span class="bold_code"><a href="#Module:enabled_garbage_collection-3"><span class="code">Module:enabled_garbage_collection/3</span></a></span></strong></dt>
       <dd>Optional</dd>
-      <dt><strong><span class="bold_code data-type-ref"><a href="#Module:trace_garbage_collection-5"><span class="code">Module:trace_garbage_collection/5</span></a></span></strong></dt>
+      <dt><strong><span class="bold_code"><a href="#Module:trace_garbage_collection-5"><span class="code">Module:trace_garbage_collection/5</span></a></span></strong></dt>
       <dd>Optional</dd>
-      <dt><strong><span class="bold_code data-type-ref"><a href="#Module:enabled_ports-3"><span class="code">Module:enabled_ports/3</span></a></span></strong></dt>
+      <dt><strong><span class="bold_code"><a href="#Module:enabled_ports-3"><span class="code">Module:enabled_ports/3</span></a></span></strong></dt>
       <dd>Optional</dd>
-      <dt><strong><span class="bold_code data-type-ref"><a href="#Module:trace_ports-5"><span class="code">Module:trace_ports/5</span></a></span></strong></dt>
+      <dt><strong><span class="bold_code"><a href="#Module:trace_ports-5"><span class="code">Module:trace_ports/5</span></a></span></strong></dt>
       <dd>Optional</dd>
-      <dt><strong><span class="bold_code data-type-ref"><a href="#Module:enabled_procs-3"><span class="code">Module:enabled_procs/3</span></a></span></strong></dt>
+      <dt><strong><span class="bold_code"><a href="#Module:enabled_procs-3"><span class="code">Module:enabled_procs/3</span></a></span></strong></dt>
       <dd>Optional</dd>
-      <dt><strong><span class="bold_code data-type-ref"><a href="#Module:trace_procs-5"><span class="code">Module:trace_procs/5</span></a></span></strong></dt>
+      <dt><strong><span class="bold_code"><a href="#Module:trace_procs-5"><span class="code">Module:trace_procs/5</span></a></span></strong></dt>
       <dd>Optional</dd>
-      <dt><strong><span class="bold_code data-type-ref"><a href="#Module:enabled_receive-3"><span class="code">Module:enabled_receive/3</span></a></span></strong></dt>
+      <dt><strong><span class="bold_code"><a href="#Module:enabled_receive-3"><span class="code">Module:enabled_receive/3</span></a></span></strong></dt>
       <dd>Optional</dd>
-      <dt><strong><span class="bold_code data-type-ref"><a href="#Module:trace_receive-5"><span class="code">Module:trace_receive/5</span></a></span></strong></dt>
+      <dt><strong><span class="bold_code"><a href="#Module:trace_receive-5"><span class="code">Module:trace_receive/5</span></a></span></strong></dt>
       <dd>Optional</dd>
-      <dt><strong><span class="bold_code data-type-ref"><a href="#Module:enabled_running_ports-3"><span class="code">Module:enabled_running_ports/3</span></a></span></strong></dt>
+      <dt><strong><span class="bold_code"><a href="#Module:enabled_running_ports-3"><span class="code">Module:enabled_running_ports/3</span></a></span></strong></dt>
       <dd>Optional</dd>
-      <dt><strong><span class="bold_code data-type-ref"><a href="#Module:trace_running_ports-5"><span class="code">Module:trace_running_ports/5</span></a></span></strong></dt>
+      <dt><strong><span class="bold_code"><a href="#Module:trace_running_ports-5"><span class="code">Module:trace_running_ports/5</span></a></span></strong></dt>
       <dd>Optional</dd>
-      <dt><strong><span class="bold_code data-type-ref"><a href="#Module:enabled_running_procs-3"><span class="code">Module:enabled_running_procs/3</span></a></span></strong></dt>
+      <dt><strong><span class="bold_code"><a href="#Module:enabled_running_procs-3"><span class="code">Module:enabled_running_procs/3</span></a></span></strong></dt>
       <dd>Optional</dd>
-      <dt><strong><span class="bold_code data-type-ref"><a href="#Module:trace_running_procs-5"><span class="code">Module:trace_running_procs/5</span></a></span></strong></dt>
+      <dt><strong><span class="bold_code"><a href="#Module:trace_running_procs-5"><span class="code">Module:trace_running_procs/5</span></a></span></strong></dt>
       <dd>Optional</dd>
-      <dt><strong><span class="bold_code data-type-ref"><a href="#Module:enabled_send-3"><span class="code">Module:enabled_send/3</span></a></span></strong></dt>
+      <dt><strong><span class="bold_code"><a href="#Module:enabled_send-3"><span class="code">Module:enabled_send/3</span></a></span></strong></dt>
       <dd>Optional</dd>
-      <dt><strong><span class="bold_code data-type-ref"><a href="#Module:trace_send-5"><span class="code">Module:trace_send/5</span></a></span></strong></dt>
+      <dt><strong><span class="bold_code"><a href="#Module:trace_send-5"><span class="code">Module:trace_send/5</span></a></span></strong></dt>
       <dd>Optional</dd>
    </dl>
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="Module:enabled-3"></a><span class="bold_code bc-9">Module:enabled(TraceTag, TracerState, Tracee) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:enabled-3"></a><span class="bold_code">Module:enabled(TraceTag, TracerState, Tracee) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TraceTag = <span class="bold_code data-type-ref"><a href="#type-trace_tag">trace_tag()</a></span> | trace_status</span><br>
+<span class="bold_code">TraceTag = <span class="bold_code"><a href="#type-trace_tag">trace_tag()</a></span> | trace_status</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TracerState = term()</span><br>
+<span class="bold_code">TracerState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tracee = <span class="bold_code data-type-ref"><a href="#type-tracee">tracee()</a></span></span><br>
+<span class="bold_code">Tracee = <span class="bold_code"><a href="#type-tracee">tracee()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = trace | discard | remove</span><br>
+<span class="bold_code">Result = trace | discard | remove</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This callback is called whenever a tracepoint is triggered. It
           allows the tracer to decide whether a trace is to be generated or not.
           This check is made as early as possible to limit the amount of
@@ -1142,647 +1128,537 @@
         <p>This function can be called multiple times per tracepoint, so it
           is important that it is both fast and without side effects.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:enabled_call-3"></a><span class="bold_code bc-9">Module:enabled_call(TraceTag, TracerState, Tracee) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:enabled_call-3"></a><span class="bold_code">Module:enabled_call(TraceTag, TracerState, Tracee) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TraceTag = <span class="bold_code data-type-ref"><a href="#type-trace_tag_call">trace_tag_call()</a></span></span><br>
+<span class="bold_code">TraceTag = <span class="bold_code"><a href="#type-trace_tag_call">trace_tag_call()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TracerState = term()</span><br>
+<span class="bold_code">TracerState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tracee = <span class="bold_code data-type-ref"><a href="#type-tracee">tracee()</a></span></span><br>
+<span class="bold_code">Tracee = <span class="bold_code"><a href="#type-tracee">tracee()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = trace | discard | remove</span><br>
+<span class="bold_code">Result = trace | discard | remove</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This callback is called whenever a tracepoint with trace flag
-          <span class="bold_code bc-15"><a href="erlang.html#trace-3"><span class="code">call | return_to</span></a></span>
+          <span class="bold_code"><a href="erlang.html#trace-3"><span class="code">call | return_to</span></a></span>
           is triggered.</p>
         <p>If <span class="code">enabled_call/3</span> is undefined,
-          <span class="bold_code data-type-ref"><a href="#Module:enabled-3"><span class="code">Module:enabled/3</span></a></span>
+          <span class="bold_code"><a href="#Module:enabled-3"><span class="code">Module:enabled/3</span></a></span>
           is called instead.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:enabled_garbage_collection-3"></a><span class="bold_code bc-9">Module:enabled_garbage_collection(TraceTag, TracerState, Tracee) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:enabled_garbage_collection-3"></a><span class="bold_code">Module:enabled_garbage_collection(TraceTag, TracerState, Tracee) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TraceTag = <span class="bold_code data-type-ref"><a href="#type-trace_tag_gc">trace_tag_gc()</a></span></span><br>
+<span class="bold_code">TraceTag = <span class="bold_code"><a href="#type-trace_tag_gc">trace_tag_gc()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TracerState = term()</span><br>
+<span class="bold_code">TracerState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tracee = <span class="bold_code data-type-ref"><a href="#type-tracee">tracee()</a></span></span><br>
+<span class="bold_code">Tracee = <span class="bold_code"><a href="#type-tracee">tracee()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = trace | discard | remove</span><br>
+<span class="bold_code">Result = trace | discard | remove</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This callback is called whenever a tracepoint with trace flag
-          <span class="bold_code bc-15"><a href="erlang.html#trace-3"><span class="code">garbage_collection</span></a></span>
+          <span class="bold_code"><a href="erlang.html#trace-3"><span class="code">garbage_collection</span></a></span>
           is triggered.</p>
         <p>If <span class="code">enabled_garbage_collection/3</span> is undefined,
-          <span class="bold_code data-type-ref"><a href="#Module:enabled-3"><span class="code">Module:enabled/3</span></a></span>
+          <span class="bold_code"><a href="#Module:enabled-3"><span class="code">Module:enabled/3</span></a></span>
           is called instead.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:enabled_ports-3"></a><span class="bold_code bc-9">Module:enabled_ports(TraceTag, TracerState, Tracee) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:enabled_ports-3"></a><span class="bold_code">Module:enabled_ports(TraceTag, TracerState, Tracee) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TraceTag = <span class="bold_code data-type-ref"><a href="#type-trace_tag_ports">trace_tag_ports()</a></span></span><br>
+<span class="bold_code">TraceTag = <span class="bold_code"><a href="#type-trace_tag_ports">trace_tag_ports()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TracerState = term()</span><br>
+<span class="bold_code">TracerState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tracee = <span class="bold_code data-type-ref"><a href="#type-tracee">tracee()</a></span></span><br>
+<span class="bold_code">Tracee = <span class="bold_code"><a href="#type-tracee">tracee()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = trace | discard | remove</span><br>
+<span class="bold_code">Result = trace | discard | remove</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This callback is called whenever a tracepoint with trace flag
-          <span class="bold_code bc-15"><a href="erlang.html#trace-3"><span class="code">ports</span></a></span>
+          <span class="bold_code"><a href="erlang.html#trace-3"><span class="code">ports</span></a></span>
           is triggered.</p>
         <p>If <span class="code">enabled_ports/3</span> is undefined,
-          <span class="bold_code data-type-ref"><a href="#Module:enabled-3"><span class="code">Module:enabled/3</span></a></span>
+          <span class="bold_code"><a href="#Module:enabled-3"><span class="code">Module:enabled/3</span></a></span>
           is called instead.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:enabled_procs-3"></a><span class="bold_code bc-9">Module:enabled_procs(TraceTag, TracerState, Tracee) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:enabled_procs-3"></a><span class="bold_code">Module:enabled_procs(TraceTag, TracerState, Tracee) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TraceTag = <span class="bold_code data-type-ref"><a href="#type-trace_tag_procs">trace_tag_procs()</a></span></span><br>
+<span class="bold_code">TraceTag = <span class="bold_code"><a href="#type-trace_tag_procs">trace_tag_procs()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TracerState = term()</span><br>
+<span class="bold_code">TracerState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tracee = <span class="bold_code data-type-ref"><a href="#type-tracee">tracee()</a></span></span><br>
+<span class="bold_code">Tracee = <span class="bold_code"><a href="#type-tracee">tracee()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = trace | discard | remove</span><br>
+<span class="bold_code">Result = trace | discard | remove</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This callback is called whenever a tracepoint with trace flag
-          <span class="bold_code bc-15"><a href="erlang.html#trace-3"><span class="code">procs</span></a></span>
+          <span class="bold_code"><a href="erlang.html#trace-3"><span class="code">procs</span></a></span>
           is triggered.</p>
         <p>If <span class="code">enabled_procs/3</span> is undefined,
-          <span class="bold_code data-type-ref"><a href="#Module:enabled-3"><span class="code">Module:enabled/3</span></a></span>
+          <span class="bold_code"><a href="#Module:enabled-3"><span class="code">Module:enabled/3</span></a></span>
           is called instead.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:enabled_receive-3"></a><span class="bold_code bc-9">Module:enabled_receive(TraceTag, TracerState, Tracee) -&gt; Result
-      </span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:enabled_receive-3"></a><span class="bold_code">Module:enabled_receive(TraceTag, TracerState, Tracee) -&gt; Result
+      </span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TraceTag = <span class="bold_code data-type-ref"><a href="#type-trace_tag_receive">trace_tag_receive()</a></span></span><br>
+<span class="bold_code">TraceTag = <span class="bold_code"><a href="#type-trace_tag_receive">trace_tag_receive()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TracerState = term()</span><br>
+<span class="bold_code">TracerState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tracee = <span class="bold_code data-type-ref"><a href="#type-tracee">tracee()</a></span></span><br>
+<span class="bold_code">Tracee = <span class="bold_code"><a href="#type-tracee">tracee()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = trace | discard | remove</span><br>
+<span class="bold_code">Result = trace | discard | remove</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This callback is called whenever a tracepoint with trace flag
-          <span class="bold_code bc-15"><a href="erlang.html#trace-3"><span class="code">'receive'</span></a></span>
+          <span class="bold_code"><a href="erlang.html#trace-3"><span class="code">'receive'</span></a></span>
           is triggered.</p>
         <p>If <span class="code">enabled_receive/3</span> is undefined,
-          <span class="bold_code data-type-ref"><a href="#Module:enabled-3"><span class="code">Module:enabled/3</span></a></span>
+          <span class="bold_code"><a href="#Module:enabled-3"><span class="code">Module:enabled/3</span></a></span>
           is called instead.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:enabled_running_ports-3"></a><span class="bold_code bc-9">Module:enabled_running_ports(TraceTag, TracerState, Tracee) -&gt;
-        Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:enabled_running_ports-3"></a><span class="bold_code">Module:enabled_running_ports(TraceTag, TracerState, Tracee) -&gt;
+        Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TraceTag = <span class="bold_code data-type-ref"><a href="#type-trace_tag_running_ports">trace_tag_running_ports()</a></span></span><br>
+<span class="bold_code">TraceTag = <span class="bold_code"><a href="#type-trace_tag_running_ports">trace_tag_running_ports()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TracerState = term()</span><br>
+<span class="bold_code">TracerState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tracee = <span class="bold_code data-type-ref"><a href="#type-tracee">tracee()</a></span></span><br>
+<span class="bold_code">Tracee = <span class="bold_code"><a href="#type-tracee">tracee()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = trace | discard | remove</span><br>
+<span class="bold_code">Result = trace | discard | remove</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This callback is called whenever a tracepoint with trace flag
-          <span class="bold_code bc-15"><a href="erlang.html#trace-3"><span class="code">running_ports</span></a></span>
+          <span class="bold_code"><a href="erlang.html#trace-3"><span class="code">running_ports</span></a></span>
           is triggered.</p>
         <p>If <span class="code">enabled_running_ports/3</span> is undefined,
-          <span class="bold_code data-type-ref"><a href="#Module:enabled-3"><span class="code">Module:enabled/3</span></a></span>
+          <span class="bold_code"><a href="#Module:enabled-3"><span class="code">Module:enabled/3</span></a></span>
           is called instead.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:enabled_running_procs-3"></a><span class="bold_code bc-9">Module:enabled_running_procs(TraceTag, TracerState, Tracee) -&gt;
-        Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:enabled_running_procs-3"></a><span class="bold_code">Module:enabled_running_procs(TraceTag, TracerState, Tracee) -&gt;
+        Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TraceTag = <span class="bold_code data-type-ref"><a href="#type-trace_tag_running_procs">trace_tag_running_procs()</a></span></span><br>
+<span class="bold_code">TraceTag = <span class="bold_code"><a href="#type-trace_tag_running_procs">trace_tag_running_procs()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TracerState = term()</span><br>
+<span class="bold_code">TracerState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tracee = <span class="bold_code data-type-ref"><a href="#type-tracee">tracee()</a></span></span><br>
+<span class="bold_code">Tracee = <span class="bold_code"><a href="#type-tracee">tracee()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = trace | discard | remove</span><br>
+<span class="bold_code">Result = trace | discard | remove</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This callback is called whenever a tracepoint with trace flag
-          <span class="bold_code bc-15"><a href="erlang.html#trace-3"><span class="code">running_procs | running</span></a></span>
+          <span class="bold_code"><a href="erlang.html#trace-3"><span class="code">running_procs | running</span></a></span>
           is triggered.</p>
         <p>If <span class="code">enabled_running_procs/3</span> is undefined,
-          <span class="bold_code data-type-ref"><a href="#Module:enabled-3"><span class="code">Module:enabled/3</span></a></span>
+          <span class="bold_code"><a href="#Module:enabled-3"><span class="code">Module:enabled/3</span></a></span>
           is called instead.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:enabled_send-3"></a><span class="bold_code bc-9">Module:enabled_send(TraceTag, TracerState, Tracee) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:enabled_send-3"></a><span class="bold_code">Module:enabled_send(TraceTag, TracerState, Tracee) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TraceTag = <span class="bold_code data-type-ref"><a href="#type-trace_tag_send">trace_tag_send()</a></span></span><br>
+<span class="bold_code">TraceTag = <span class="bold_code"><a href="#type-trace_tag_send">trace_tag_send()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TracerState = term()</span><br>
+<span class="bold_code">TracerState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tracee = <span class="bold_code data-type-ref"><a href="#type-tracee">tracee()</a></span></span><br>
+<span class="bold_code">Tracee = <span class="bold_code"><a href="#type-tracee">tracee()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = trace | discard | remove</span><br>
+<span class="bold_code">Result = trace | discard | remove</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This callback is called whenever a tracepoint with trace flag
-          <span class="bold_code bc-15"><a href="erlang.html#trace-3"><span class="code">send</span></a></span>
+          <span class="bold_code"><a href="erlang.html#trace-3"><span class="code">send</span></a></span>
           is triggered.</p>
         <p>If <span class="code">enabled_send/3</span> is undefined,
-          <span class="bold_code data-type-ref"><a href="#Module:enabled-3"><span class="code">Module:enabled/3</span></a></span>
+          <span class="bold_code"><a href="#Module:enabled-3"><span class="code">Module:enabled/3</span></a></span>
           is called instead.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:trace-5"></a><span class="bold_code bc-9">Module:trace(TraceTag, TracerState, Tracee, TraceTerm,
-        Opts) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:trace-5"></a><span class="bold_code">Module:trace(TraceTag, TracerState, Tracee, TraceTerm,
+        Opts) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TraceTag = <span class="bold_code data-type-ref"><a href="#type-trace_tag">trace_tag()</a></span></span><br>
+<span class="bold_code">TraceTag = <span class="bold_code"><a href="#type-trace_tag">trace_tag()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TracerState = term()</span><br>
+<span class="bold_code">TracerState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tracee = <span class="bold_code data-type-ref"><a href="#type-tracee">tracee()</a></span></span><br>
+<span class="bold_code">Tracee = <span class="bold_code"><a href="#type-tracee">tracee()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TraceTerm = term()</span><br>
+<span class="bold_code">TraceTerm = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Opts = <span class="bold_code data-type-ref"><a href="#type-trace_opts">trace_opts()</a></span></span><br>
+<span class="bold_code">Opts = <span class="bold_code"><a href="#type-trace_opts">trace_opts()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = ok</span><br>
+<span class="bold_code">Result = ok</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This callback is called when a tracepoint is triggered and the
-          <span class="bold_code data-type-ref"><a href="#Module:enabled-3"><span class="code">Module:enabled/3</span></a></span>
+          <span class="bold_code"><a href="#Module:enabled-3"><span class="code">Module:enabled/3</span></a></span>
           callback returned <span class="code">trace</span>. In it any side effects needed by
           the tracer are to be done. The tracepoint payload is located in
           the <span class="code">TraceTerm</span>. The content of the <span class="code">TraceTerm</span>
           depends on which <span class="code">TraceTag</span> is triggered.
           <span class="code">TraceTerm</span> corresponds to the
           fourth element in the trace tuples described in
-          <span class="bold_code bc-15"><a href="erlang.html#trace_3_trace_messages"><span class="code">erlang:trace/3</span></a></span>.</p>
+          <span class="bold_code"><a href="erlang.html#trace_3_trace_messages"><span class="code">erlang:trace/3</span></a></span>.</p>
         <p>If the trace tuple has five elements, the fifth element
           will be sent as the <span class="code">extra</span> value in the <span class="code">Opts</span> maps.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:trace-5"></a><span class="bold_code bc-9">Module:trace(seq_trace, TracerState, Label,
-        SeqTraceInfo, Opts) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:trace-5"></a><span class="bold_code">Module:trace(seq_trace, TracerState, Label,
+        SeqTraceInfo, Opts) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TracerState = term()</span><br>
+<span class="bold_code">TracerState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Label = term()</span><br>
+<span class="bold_code">Label = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">SeqTraceInfo = term()</span><br>
+<span class="bold_code">SeqTraceInfo = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Opts = <span class="bold_code data-type-ref"><a href="#type-trace_opts">trace_opts()</a></span></span><br>
+<span class="bold_code">Opts = <span class="bold_code"><a href="#type-trace_opts">trace_opts()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = ok</span><br>
+<span class="bold_code">Result = ok</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>The <span class="code">TraceTag</span> <span class="code">seq_trace</span> is handled slightly
           differently. There is no <span class="code">Tracee</span> for <span class="code">seq_trace</span>, instead
           the <span class="code">Label</span> associated with the <span class="code">seq_trace</span> event is
           specified.</p>
         <p>For more information on what <span class="code">Label</span> and <span class="code">SeqTraceInfo</span>
-          can be, see <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','seq_trace.html');"><span class="code">seq_trace(3)</span></a></span>.</p>
+          can be, see <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','seq_trace.html');"><span class="code">seq_trace(3)</span></a></span>.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:trace_call-5"></a><span class="bold_code bc-9">Module:trace_call(TraceTag, TracerState, Tracee, TraceTerm,
-          Opts) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:trace_call-5"></a><span class="bold_code">Module:trace_call(TraceTag, TracerState, Tracee, TraceTerm,
+          Opts) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TraceTag = <span class="bold_code data-type-ref"><a href="#type-trace_tag_call">trace_tag_call()</a></span></span><br>
+<span class="bold_code">TraceTag = <span class="bold_code"><a href="#type-trace_tag_call">trace_tag_call()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TracerState = term()</span><br>
+<span class="bold_code">TracerState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tracee = <span class="bold_code data-type-ref"><a href="#type-tracee">tracee()</a></span></span><br>
+<span class="bold_code">Tracee = <span class="bold_code"><a href="#type-tracee">tracee()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TraceTerm = term()</span><br>
+<span class="bold_code">TraceTerm = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Opts = <span class="bold_code data-type-ref"><a href="#type-trace_opts">trace_opts()</a></span></span><br>
+<span class="bold_code">Opts = <span class="bold_code"><a href="#type-trace_opts">trace_opts()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = ok</span><br>
+<span class="bold_code">Result = ok</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This callback is called when a tracepoint is triggered and the
-          <span class="bold_code data-type-ref"><a href="#Module:enabled_call-3"><span class="code">Module:enabled_call/3</span></a></span>
+          <span class="bold_code"><a href="#Module:enabled_call-3"><span class="code">Module:enabled_call/3</span></a></span>
           callback returned <span class="code">trace</span>.</p>
         <p>If <span class="code">trace_call/5</span> is undefined,
-          <span class="bold_code data-type-ref"><a href="#Module:trace-5"><span class="code">Module:trace/5</span></a></span>
+          <span class="bold_code"><a href="#Module:trace-5"><span class="code">Module:trace/5</span></a></span>
           is called instead.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:trace_garbage_collection-5"></a><span class="bold_code bc-9">Module:trace_garbage_collection(TraceTag, TracerState, Tracee,
-        TraceTerm, Opts) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:trace_garbage_collection-5"></a><span class="bold_code">Module:trace_garbage_collection(TraceTag, TracerState, Tracee,
+        TraceTerm, Opts) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TraceTag = <span class="bold_code data-type-ref"><a href="#type-trace_tag_gc">trace_tag_gc()</a></span></span><br>
+<span class="bold_code">TraceTag = <span class="bold_code"><a href="#type-trace_tag_gc">trace_tag_gc()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TracerState = term()</span><br>
+<span class="bold_code">TracerState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tracee = <span class="bold_code data-type-ref"><a href="#type-tracee">tracee()</a></span></span><br>
+<span class="bold_code">Tracee = <span class="bold_code"><a href="#type-tracee">tracee()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TraceTerm = term()</span><br>
+<span class="bold_code">TraceTerm = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Opts = <span class="bold_code data-type-ref"><a href="#type-trace_opts">trace_opts()</a></span></span><br>
+<span class="bold_code">Opts = <span class="bold_code"><a href="#type-trace_opts">trace_opts()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = ok</span><br>
+<span class="bold_code">Result = ok</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This callback is called when a tracepoint is triggered and the
-          <span class="bold_code data-type-ref"><a href="#Module:enabled_garbage_collection-3"><span class="code">Module:enabled_garbage_collection/3</span></a></span>
+          <span class="bold_code"><a href="#Module:enabled_garbage_collection-3"><span class="code">Module:enabled_garbage_collection/3</span></a></span>
           callback returned <span class="code">trace</span>.</p>
         <p>If <span class="code">trace_garbage_collection/5</span> is undefined,
-          <span class="bold_code data-type-ref"><a href="#Module:trace-5"><span class="code">Module:trace/5</span></a></span>
+          <span class="bold_code"><a href="#Module:trace-5"><span class="code">Module:trace/5</span></a></span>
           is called instead.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:trace_ports-5"></a><span class="bold_code bc-9">Module:trace_ports(TraceTag, TracerState, Tracee, TraceTerm,
-        Opts) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:trace_ports-5"></a><span class="bold_code">Module:trace_ports(TraceTag, TracerState, Tracee, TraceTerm,
+        Opts) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TraceTag = <span class="bold_code data-type-ref"><a href="#type-trace_tag_ports">trace_tag()</a></span></span><br>
+<span class="bold_code">TraceTag = <span class="bold_code"><a href="#type-trace_tag_ports">trace_tag()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TracerState = term()</span><br>
+<span class="bold_code">TracerState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tracee = <span class="bold_code data-type-ref"><a href="#type-tracee">tracee()</a></span></span><br>
+<span class="bold_code">Tracee = <span class="bold_code"><a href="#type-tracee">tracee()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TraceTerm = term()</span><br>
+<span class="bold_code">TraceTerm = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Opts = <span class="bold_code data-type-ref"><a href="#type-trace_opts">trace_opts()</a></span></span><br>
+<span class="bold_code">Opts = <span class="bold_code"><a href="#type-trace_opts">trace_opts()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = ok</span><br>
+<span class="bold_code">Result = ok</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This callback is called when a tracepoint is triggered and the
-          <span class="bold_code data-type-ref"><a href="#Module:enabled_ports-3"><span class="code">Module:enabled_ports/3</span></a></span>
+          <span class="bold_code"><a href="#Module:enabled_ports-3"><span class="code">Module:enabled_ports/3</span></a></span>
           callback returned <span class="code">trace</span>.</p>
         <p>If <span class="code">trace_ports/5</span> is undefined,
-          <span class="bold_code data-type-ref"><a href="#Module:trace-5"><span class="code">Module:trace/5</span></a></span>
+          <span class="bold_code"><a href="#Module:trace-5"><span class="code">Module:trace/5</span></a></span>
           is called instead.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:trace_procs-5"></a><span class="bold_code bc-9">Module:trace_procs(TraceTag, TracerState, Tracee, TraceTerm,
-        Opts) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:trace_procs-5"></a><span class="bold_code">Module:trace_procs(TraceTag, TracerState, Tracee, TraceTerm,
+        Opts) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TraceTag = <span class="bold_code data-type-ref"><a href="#type-trace_tag_procs">trace_tag()</a></span></span><br>
+<span class="bold_code">TraceTag = <span class="bold_code"><a href="#type-trace_tag_procs">trace_tag()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TracerState = term()</span><br>
+<span class="bold_code">TracerState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tracee = <span class="bold_code data-type-ref"><a href="#type-tracee">tracee()</a></span></span><br>
+<span class="bold_code">Tracee = <span class="bold_code"><a href="#type-tracee">tracee()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TraceTerm = term()</span><br>
+<span class="bold_code">TraceTerm = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Opts = <span class="bold_code data-type-ref"><a href="#type-trace_opts">trace_opts()</a></span></span><br>
+<span class="bold_code">Opts = <span class="bold_code"><a href="#type-trace_opts">trace_opts()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = ok</span><br>
+<span class="bold_code">Result = ok</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This callback is called when a tracepoint is triggered and the
-          <span class="bold_code data-type-ref"><a href="#Module:enabled_procs-3"><span class="code">Module:enabled_procs/3</span></a></span>
+          <span class="bold_code"><a href="#Module:enabled_procs-3"><span class="code">Module:enabled_procs/3</span></a></span>
           callback returned <span class="code">trace</span>.</p>
         <p>If <span class="code">trace_procs/5</span> is undefined,
-          <span class="bold_code data-type-ref"><a href="#Module:trace-5"><span class="code">Module:trace/5</span></a></span>
+          <span class="bold_code"><a href="#Module:trace-5"><span class="code">Module:trace/5</span></a></span>
           is called instead.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:trace_receive-5"></a><span class="bold_code bc-9">Module:trace_receive(TraceTag, TracerState, Tracee, TraceTerm,
-        Opts) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:trace_receive-5"></a><span class="bold_code">Module:trace_receive(TraceTag, TracerState, Tracee, TraceTerm,
+        Opts) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TraceTag = <span class="bold_code data-type-ref"><a href="#type-trace_tag_receive">trace_tag_receive()</a></span></span><br>
+<span class="bold_code">TraceTag = <span class="bold_code"><a href="#type-trace_tag_receive">trace_tag_receive()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TracerState = term()</span><br>
+<span class="bold_code">TracerState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tracee = <span class="bold_code data-type-ref"><a href="#type-tracee">tracee()</a></span></span><br>
+<span class="bold_code">Tracee = <span class="bold_code"><a href="#type-tracee">tracee()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TraceTerm = term()</span><br>
+<span class="bold_code">TraceTerm = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Opts = <span class="bold_code data-type-ref"><a href="#type-trace_opts">trace_opts()</a></span></span><br>
+<span class="bold_code">Opts = <span class="bold_code"><a href="#type-trace_opts">trace_opts()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = ok</span><br>
+<span class="bold_code">Result = ok</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This callback is called when a tracepoint is triggered and the
-          <span class="bold_code data-type-ref"><a href="#Module:enabled_receive-3"><span class="code">Module:enabled_receive/3</span></a></span>
+          <span class="bold_code"><a href="#Module:enabled_receive-3"><span class="code">Module:enabled_receive/3</span></a></span>
           callback returned <span class="code">trace</span>.</p>
         <p>If <span class="code">trace_receive/5</span> is undefined,
-          <span class="bold_code data-type-ref"><a href="#Module:trace-5"><span class="code">Module:trace/5</span></a></span>
+          <span class="bold_code"><a href="#Module:trace-5"><span class="code">Module:trace/5</span></a></span>
           is called instead.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:trace_running_ports-5"></a><span class="bold_code bc-9">Module:trace_running_ports(TraceTag, TracerState, Tracee,
-        TraceTerm, Opts) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:trace_running_ports-5"></a><span class="bold_code">Module:trace_running_ports(TraceTag, TracerState, Tracee,
+        TraceTerm, Opts) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TraceTag = <span class="bold_code data-type-ref"><a href="#type-trace_tag_running_ports">trace_tag_running_ports()</a></span></span><br>
+<span class="bold_code">TraceTag = <span class="bold_code"><a href="#type-trace_tag_running_ports">trace_tag_running_ports()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TracerState = term()</span><br>
+<span class="bold_code">TracerState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tracee = <span class="bold_code data-type-ref"><a href="#type-tracee">tracee()</a></span></span><br>
+<span class="bold_code">Tracee = <span class="bold_code"><a href="#type-tracee">tracee()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TraceTerm = term()</span><br>
+<span class="bold_code">TraceTerm = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Opts = <span class="bold_code data-type-ref"><a href="#type-trace_opts">trace_opts()</a></span></span><br>
+<span class="bold_code">Opts = <span class="bold_code"><a href="#type-trace_opts">trace_opts()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = ok</span><br>
+<span class="bold_code">Result = ok</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This callback is called when a tracepoint is triggered and the
-          <span class="bold_code data-type-ref"><a href="#Module:enabled_running_ports-3"><span class="code">Module:enabled_running_ports/3</span></a></span>
+          <span class="bold_code"><a href="#Module:enabled_running_ports-3"><span class="code">Module:enabled_running_ports/3</span></a></span>
           callback returned <span class="code">trace</span>.</p>
         <p>If <span class="code">trace_running_ports/5</span> is undefined,
-          <span class="bold_code data-type-ref"><a href="#Module:trace-5"><span class="code">Module:trace/5</span></a></span>
+          <span class="bold_code"><a href="#Module:trace-5"><span class="code">Module:trace/5</span></a></span>
           is called instead.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:trace_running_procs-5"></a><span class="bold_code bc-9">Module:trace_running_procs(TraceTag, TracerState, Tracee,
-        TraceTerm, Opts) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:trace_running_procs-5"></a><span class="bold_code">Module:trace_running_procs(TraceTag, TracerState, Tracee,
+        TraceTerm, Opts) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TraceTag = <span class="bold_code data-type-ref"><a href="#type-trace_tag_running_procs">trace_tag_running_procs()</a></span></span><br>
+<span class="bold_code">TraceTag = <span class="bold_code"><a href="#type-trace_tag_running_procs">trace_tag_running_procs()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TracerState = term()</span><br>
+<span class="bold_code">TracerState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tracee = <span class="bold_code data-type-ref"><a href="#type-tracee">tracee()</a></span></span><br>
+<span class="bold_code">Tracee = <span class="bold_code"><a href="#type-tracee">tracee()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TraceTerm = term()</span><br>
+<span class="bold_code">TraceTerm = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Opts = <span class="bold_code data-type-ref"><a href="#type-trace_opts">trace_opts()</a></span></span><br>
+<span class="bold_code">Opts = <span class="bold_code"><a href="#type-trace_opts">trace_opts()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = ok</span><br>
+<span class="bold_code">Result = ok</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This callback is called when a tracepoint is triggered and the
-          <span class="bold_code data-type-ref"><a href="#Module:enabled_running_procs-3"><span class="code">Module:enabled_running_procs/3</span></a></span>
+          <span class="bold_code"><a href="#Module:enabled_running_procs-3"><span class="code">Module:enabled_running_procs/3</span></a></span>
           callback returned <span class="code">trace</span>.</p>
         <p>If <span class="code">trace_running_procs/5</span> is undefined,
-          <span class="bold_code data-type-ref"><a href="#Module:trace-5"><span class="code">Module:trace/5</span></a></span>
+          <span class="bold_code"><a href="#Module:trace-5"><span class="code">Module:trace/5</span></a></span>
           is called instead.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:trace_send-5"></a><span class="bold_code bc-9">Module:trace_send(TraceTag, TracerState, Tracee, TraceTerm,
-        Opts) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:trace_send-5"></a><span class="bold_code">Module:trace_send(TraceTag, TracerState, Tracee, TraceTerm,
+        Opts) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TraceTag = <span class="bold_code data-type-ref"><a href="#type-trace_tag_send">trace_tag_send()</a></span></span><br>
+<span class="bold_code">TraceTag = <span class="bold_code"><a href="#type-trace_tag_send">trace_tag_send()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TracerState = term()</span><br>
+<span class="bold_code">TracerState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tracee = <span class="bold_code data-type-ref"><a href="#type-tracee">tracee()</a></span></span><br>
+<span class="bold_code">Tracee = <span class="bold_code"><a href="#type-tracee">tracee()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TraceTerm = term()</span><br>
+<span class="bold_code">TraceTerm = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Opts = <span class="bold_code data-type-ref"><a href="#type-trace_opts">trace_opts()</a></span></span><br>
+<span class="bold_code">Opts = <span class="bold_code"><a href="#type-trace_opts">trace_opts()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = ok</span><br>
+<span class="bold_code">Result = ok</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This callback is called when a tracepoint is triggered and the
-          <span class="bold_code data-type-ref"><a href="#Module:enabled_send-3"><span class="code">Module:enabled_send/3</span></a></span>
+          <span class="bold_code"><a href="#Module:enabled_send-3"><span class="code">Module:enabled_send/3</span></a></span>
           callback returned <span class="code">trace</span>.</p>
         <p>If <span class="code">trace_send/5</span> is undefined,
-          <span class="bold_code data-type-ref"><a href="#Module:trace-5"><span class="code">Module:trace/5</span></a></span>
+          <span class="bold_code"><a href="#Module:trace-5"><span class="code">Module:trace/5</span></a></span>
           is called instead.</p>
       </p></div>
-</div>
-</div>
-  </div>
+  
 
   <h3>
-<a name="example"></a><a name="idm45319507818432">Erl Tracer Module Example</a>
+<a name="example"></a><a name="idm45311095074816">Erl Tracer Module Example</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>In this example, a tracer module with a NIF back end sends a

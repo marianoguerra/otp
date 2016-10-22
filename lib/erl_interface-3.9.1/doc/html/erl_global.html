@@ -592,11 +592,11 @@
 <!-- refpage --><center><h1>erl_global</h1></center>
   
   <h3><a name="c-library" href="#c-library">C Library</a></h3>
-<div class="REFBODY c-library-body">erl_global</div>
+<div class="REFBODY">erl_global</div>
   <h3><a name="library-sumary" href="#library-sumary">Library Summary</a></h3>
-<div class="REFBODY library-summary-body">Access globally registered names</div>
+<div class="REFBODY">Access globally registered names</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>This module provides support for registering, looking
       up and unregistering names in the Erlang Global module. For more
       information, see the description of Global in the reference manual.</p>
@@ -604,24 +604,19 @@
       descriptor provided by the caller. This file descriptor must 
       not be used for other traffic during the global operation or the 
       function may receive unexpected data and fail.</p>
-  </div>
+  </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="erl_global_names"><span class="bold_code bc-7">char **erl_global_names(fd,count)</span></a><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="erl_global_names"><span class="bold_code">char **erl_global_names(fd,count)</span></a><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">int fd;</span><br>
+<span class="bold_code">int fd;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">int *count;</span><br>
+<span class="bold_code">int *count;</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Retrieve a list of all known global names.
           </p>
         <p><span class="code">fd</span> is an open descriptor to an Erlang connection.
@@ -646,26 +641,20 @@
         </p></div>
 </div>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="erl_global_register"><span class="bold_code bc-7">int erl_global_register(fd,name,pid)</span></a><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="erl_global_register"><span class="bold_code">int erl_global_register(fd,name,pid)</span></a><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">int fd;</span><br>
+<span class="bold_code">int fd;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">const char *name;</span><br>
+<span class="bold_code">const char *name;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">ETERM *pid;</span><br>
+<span class="bold_code">ETERM *pid;</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This function registers a name in Global.
           </p>
         <p><span class="code">fd</span> is an open descriptor to an Erlang connection.
@@ -678,23 +667,17 @@
           </p>
         <p>The function returns 0 on success, or -1 on failure.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="erl_global_unregister"><span class="bold_code bc-7">int erl_global_unregister(fd,name)</span></a><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="erl_global_unregister"><span class="bold_code">int erl_global_unregister(fd,name)</span></a><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">int fd;</span><br>
+<span class="bold_code">int fd;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">const char *name;</span><br>
+<span class="bold_code">const char *name;</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This function unregisters a name from Global.
           </p>
         <p><span class="code">fd</span> is an open descriptor to an Erlang connection.
@@ -703,26 +686,20 @@
           </p>
         <p>The function returns 0 on success, or -1 on failure.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="erl_global_whereis"><span class="bold_code bc-7">ETERM *erl_global_whereis(fd,name,node)</span></a><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="erl_global_whereis"><span class="bold_code">ETERM *erl_global_whereis(fd,name,node)</span></a><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">int fd;</span><br>
+<span class="bold_code">int fd;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">const char *name;</span><br>
+<span class="bold_code">const char *name;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">char *node;</span><br>
+<span class="bold_code">char *node;</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p><span class="code">fd</span> is an open descriptor to an Erlang connection.
           </p>
         <p><span class="code">name</span> is the name that is to be looked up in Global.
@@ -737,9 +714,7 @@
           the nodename where <span class="code">name</span> is found. On failure NULL will be
           returned and <span class="code">node</span> will not be modified.</p>
       </p></div>
-</div>
-</div>
-  </div>
+  
 </div>
 <div class="footer">
 <hr>

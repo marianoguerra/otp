@@ -145,11 +145,11 @@
 <!-- refpage --><center><h1>CosEventChannelAdmin_ProxyPullConsumer</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">CosEventChannelAdmin_ProxyPullConsumer</div>
+<div class="REFBODY">CosEventChannelAdmin_ProxyPullConsumer</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">This module implements a ProxyPullConsumer interface which acts as a middleman between pull supplier and the event channel.</div>
+<div class="REFBODY">This module implements a ProxyPullConsumer interface which acts as a middleman between pull supplier and the event channel.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>The ProxyPullConsumer interface defines the second step for connecting pull
       suppliers to the event channel. A proxy consumer is similar to a normal consumer,
       but includes an additional method for connecting a supplier to the proxy
@@ -158,30 +158,25 @@
       include necessary <span class="code">hrl</span> files by using:<br><span class="code">-include_lib("cosEvent/include/*.hrl").</span></p>
     <p>Any object that possesses an object reference that supports the ProxyPullConsumer
       interface can perform the following operations:</p>
-  </div>
+  </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="connect_pull_supplier-2"></a><span class="bold_code bc-9">connect_pull_supplier(Object, PullSupplier) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="connect_pull_supplier-2"></a><span class="bold_code">connect_pull_supplier(Object, PullSupplier) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Object       = #objref</span><br>
+<span class="bold_code">Object       = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PullSupplier = #objref of PullSupplier type</span><br>
+<span class="bold_code">PullSupplier = #objref of PullSupplier type</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = ok | {'EXCEPTION', E}</span><br>
+<span class="bold_code">Return = ok | {'EXCEPTION', E}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">E = #'CosEventChannelAdmin_AlreadyConnected'{} | #'CosEventChannelAdmin_TypeError'{}</span><br>
+<span class="bold_code">E = #'CosEventChannelAdmin_AlreadyConnected'{} | #'CosEventChannelAdmin_TypeError'{}</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This operation connects PullSupplier object to the ProxyPullConsumer object.
           If a nil object reference is passed CORBA standard <span class="code">BAD_PARAM</span> exception 
           is raised. If the ProxyPullConsumer is already connected to a PullSupplier,
@@ -190,30 +185,22 @@
           functionality; if these requirements are not met the 
           <span class="code">CosEventChannelAdmin_TypeError</span> exception will be raised.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="disconnect_pull_consumer-1"></a><span class="bold_code bc-9">disconnect_pull_consumer(Object) -&gt; Return</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="disconnect_pull_consumer-1"></a><span class="bold_code">disconnect_pull_consumer(Object) -&gt; Return</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Object = #objref</span><br>
+<span class="bold_code">Object = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Return = ok</span><br>
+<span class="bold_code">Return = ok</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This operation disconnects proxy pull consumer from the event channel and
           sends a notification about the loss of the connection to the pull supplier
           attached to it.</p>
       </p></div>
-</div>
-</div>
-  </div>
+  
   
 </div>
 <div class="footer">

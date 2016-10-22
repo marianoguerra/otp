@@ -547,133 +547,105 @@
 <!-- refpage --><center><h1>epp_dodger</h1></center>
 
 <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">epp_dodger</div>
+<div class="REFBODY">epp_dodger</div>
 <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">epp_dodger - bypasses the Erlang preprocessor.</div>
+<div class="REFBODY">epp_dodger - bypasses the Erlang preprocessor.</div>
 <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
 <p><span class="code">epp_dodger</span> - bypasses the Erlang preprocessor.</p>
  
   <p>This module tokenises and parses most Erlang source code without
   expanding preprocessor directives and macro applications, as long as
   these are syntactically "well-behaved". Because the normal parse
   trees of the <span class="code">erl_parse</span> module cannot represent these things
-  (normally, they are expanded by the Erlang preprocessor <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','epp.html');">epp(3)</a></span> before the parser sees them), an extended syntax tree
-  is created, using the <span class="bold_code bc-19"><a href="erl_syntax.html">erl_syntax</a></span> module.</p>
-</div>
-<h3><a name="idm45688885507984">DATA TYPES</a></h3>
-<div class="REFBODY rb-3">
+  (normally, they are expanded by the Erlang preprocessor <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','epp.html');">epp(3)</a></span> before the parser sees them), an extended syntax tree
+  is created, using the <span class="bold_code"><a href="erl_syntax.html">erl_syntax</a></span> module.</p></p></div>
+<h3><a name="idm45201783784544">DATA TYPES</a></h3>
+<div class="REFBODY">
 <a name="types"></a>
 
 <dl>
 <dt><strong><a name="type-errorinfo"></a>errorinfo() = {ErrorLine::integer(), Module::atom(), Descriptor::term()}</strong></dt>
 <dd>
 <p></p>
-<p>This is a so-called Erlang I/O ErrorInfo structure; see the <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html');">io(3)</a></span> module for details.</p>
+<p>This is a so-called Erlang I/O ErrorInfo structure; see the <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html');">io(3)</a></span> module for details.</p>
 </dd>
 </dl>
 </div>
 <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-<div class="func">
-<div class="func-title">
-<a name="parse-1"></a><span class="bold_code bc-9">parse(Dev::IODevice) -&gt; {ok, Forms} | {error, <span class="bold_code data-type-ref"><a href="#type-errorinfo">errorinfo()</a></span>}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="parse-1"></a>
-<p>Equivalent to <span class="bold_code data-type-ref"><a href="#parse-2">parse(IODevice, 1)</a></span>.</p>
-</p></div></div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="parse-2"></a><span class="bold_code bc-9">parse(Dev::IODevice, L::StartLine) -&gt; {ok, Forms} | {error, <span class="bold_code data-type-ref"><a href="#type-errorinfo">errorinfo()</a></span>}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
-<p>Types:</p>
-<div class="REFTYPES">
-<span class="bold_code bc-11">IODevice = pid()</span><br>
-</div>
-<div class="REFTYPES">
-<span class="bold_code bc-11">StartLine = integer()</span><br>
-</div>
-<div class="REFTYPES">
-<span class="bold_code bc-11">Forms = [<span class="bold_code bc-15"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span>]</span><br>
-</div>
-</div>
-<div class="REFBODY data-type-desc"><p><a name="parse-2"></a>
-<p>Equivalent to <span class="bold_code data-type-ref"><a href="#parse-3">parse(IODevice, StartLine, [])</a></span>.</p>
-<p><strong>See also:</strong> <span class="bold_code data-type-ref"><a href="#parse-1">parse/1</a></span>.</p>
+<p><a name="parse-1"></a><span class="bold_code">parse(Dev::IODevice) -&gt; {ok, Forms} | {error, <span class="bold_code"><a href="#type-errorinfo">errorinfo()</a></span>}</span><br></p>
+<div class="REFBODY"><p><a name="parse-1"></a>
+<p>Equivalent to <span class="bold_code"><a href="#parse-2">parse(IODevice, 1)</a></span>.</p>
 </p></div>
-</div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="parse-3"></a><span class="bold_code bc-9">parse(Dev::IODevice, L0::StartLine, Options) -&gt; {ok, Forms} | {error, <span class="bold_code data-type-ref"><a href="#type-errorinfo">errorinfo()</a></span>}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+<p><a name="parse-2"></a><span class="bold_code">parse(Dev::IODevice, L::StartLine) -&gt; {ok, Forms} | {error, <span class="bold_code"><a href="#type-errorinfo">errorinfo()</a></span>}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 <div class="REFTYPES">
-<span class="bold_code bc-11">IODevice = pid()</span><br>
+<span class="bold_code">IODevice = pid()</span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">StartLine = integer()</span><br>
+<span class="bold_code">StartLine = integer()</span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">Options = [term()]</span><br>
+<span class="bold_code">Forms = [<span class="bold_code"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span>]</span><br>
+</div>
+</div>
+<div class="REFBODY"><p><a name="parse-2"></a>
+<p>Equivalent to <span class="bold_code"><a href="#parse-3">parse(IODevice, StartLine, [])</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code"><a href="#parse-1">parse/1</a></span>.</p>
+</p></div>
+<p><a name="parse-3"></a><span class="bold_code">parse(Dev::IODevice, L0::StartLine, Options) -&gt; {ok, Forms} | {error, <span class="bold_code"><a href="#type-errorinfo">errorinfo()</a></span>}</span><br></p>
+<div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES">
+<span class="bold_code">IODevice = pid()</span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">Forms = [<span class="bold_code bc-15"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span>]</span><br>
+<span class="bold_code">StartLine = integer()</span><br>
+</div>
+<div class="REFTYPES">
+<span class="bold_code">Options = [term()]</span><br>
+</div>
+<div class="REFTYPES">
+<span class="bold_code">Forms = [<span class="bold_code"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span>]</span><br>
 </div>
 </div>
-<div class="REFBODY data-type-desc"><p><a name="parse-3"></a>
+<div class="REFBODY"><p><a name="parse-3"></a>
 
 <p>Reads and parses program text from an I/O stream. Characters are
   read from <span class="code">IODevice</span> until end-of-file; apart from this, the
-  behaviour is the same as for <span class="bold_code data-type-ref"><a href="#parse_file-2">parse_file/2</a></span>. <span class="code">StartLine</span> is the
+  behaviour is the same as for <span class="bold_code"><a href="#parse_file-2">parse_file/2</a></span>. <span class="code">StartLine</span> is the
   initial line number, which should be a positive integer.
  </p>
-<p><strong>See also:</strong> <span class="bold_code data-type-ref"><a href="#parse-2">parse/2</a></span>, <span class="bold_code data-type-ref"><a href="#parse_file-2">parse_file/2</a></span>, <span class="bold_code data-type-ref"><a href="#parse_form-2">parse_form/2</a></span>, <span class="bold_code data-type-ref"><a href="#quick_parse-3">quick_parse/3</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code"><a href="#parse-2">parse/2</a></span>, <span class="bold_code"><a href="#parse_file-2">parse_file/2</a></span>, <span class="bold_code"><a href="#parse_form-2">parse_form/2</a></span>, <span class="bold_code"><a href="#quick_parse-3">quick_parse/3</a></span>.</p>
 </p></div>
-</div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="parse_file-1"></a><span class="bold_code bc-9">parse_file(File) -&gt; {ok, Forms} | {error, <span class="bold_code data-type-ref"><a href="#type-errorinfo">errorinfo()</a></span>}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+<p><a name="parse_file-1"></a><span class="bold_code">parse_file(File) -&gt; {ok, Forms} | {error, <span class="bold_code"><a href="#type-errorinfo">errorinfo()</a></span>}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 <div class="REFTYPES">
-<span class="bold_code bc-11">File = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename');">file:filename()</a></span></span><br>
+<span class="bold_code">File = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename');">file:filename()</a></span></span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">Forms = [<span class="bold_code bc-15"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span>]</span><br>
+<span class="bold_code">Forms = [<span class="bold_code"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span>]</span><br>
 </div>
 </div>
-<div class="REFBODY data-type-desc"><p><a name="parse_file-1"></a>
-<p>Equivalent to <span class="bold_code data-type-ref"><a href="#parse_file-2">parse_file(File, [])</a></span>.</p>
+<div class="REFBODY"><p><a name="parse_file-1"></a>
+<p>Equivalent to <span class="bold_code"><a href="#parse_file-2">parse_file(File, [])</a></span>.</p>
 </p></div>
-</div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="parse_file-2"></a><span class="bold_code bc-9">parse_file(File, Options) -&gt; {ok, Forms} | {error, <span class="bold_code data-type-ref"><a href="#type-errorinfo">errorinfo()</a></span>}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+<p><a name="parse_file-2"></a><span class="bold_code">parse_file(File, Options) -&gt; {ok, Forms} | {error, <span class="bold_code"><a href="#type-errorinfo">errorinfo()</a></span>}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 <div class="REFTYPES">
-<span class="bold_code bc-11">File = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename');">file:filename()</a></span></span><br>
+<span class="bold_code">File = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename');">file:filename()</a></span></span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">Options = [term()]</span><br>
+<span class="bold_code">Options = [term()]</span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">Forms = [<span class="bold_code bc-15"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span>]</span><br>
+<span class="bold_code">Forms = [<span class="bold_code"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span>]</span><br>
 </div>
 </div>
-<div class="REFBODY data-type-desc"><p><a name="parse_file-2"></a>
+<div class="REFBODY"><p><a name="parse_file-2"></a>
 
 <p>Reads and parses a file. If successful, <span class="code">{ok, Forms}</span>
   is returned, where <span class="code">Forms</span> is a list of abstract syntax
@@ -688,7 +660,7 @@
   </p><dl>
     <dt><strong><span class="code">{no_fail, boolean()}</span></strong></dt>
     <dd><p>If <span class="code">true</span>, this makes <span class="code">epp_dodger</span> replace any program forms
-    that could not be parsed with nodes of type <span class="code">text</span> (see <span class="bold_code bc-15"><a href="erl_syntax.html#text-1">erl_syntax:text/1</a></span>), representing the raw token sequence of the
+    that could not be parsed with nodes of type <span class="code">text</span> (see <span class="bold_code"><a href="erl_syntax.html#text-1">erl_syntax:text/1</a></span>), representing the raw token sequence of the
     form, instead of reporting a parse error. The default value is
     <span class="code">false</span>.</p></dd>
     <dt><strong><span class="code">{clever, boolean()}</span></strong></dt>
@@ -699,60 +671,48 @@
     The default value is <span class="code">false</span>.</p></dd>
   </dl><p>
  </p>
-<p><strong>See also:</strong> <span class="bold_code data-type-ref"><a href="#parse-2">parse/2</a></span>, <span class="bold_code data-type-ref"><a href="#quick_parse_file-1">quick_parse_file/1</a></span>, <span class="bold_code bc-15"><a href="erl_syntax.html#is_form-1">erl_syntax:is_form/1</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code"><a href="#parse-2">parse/2</a></span>, <span class="bold_code"><a href="#quick_parse_file-1">quick_parse_file/1</a></span>, <span class="bold_code"><a href="erl_syntax.html#is_form-1">erl_syntax:is_form/1</a></span>.</p>
 </p></div>
-</div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="parse_form-2"></a><span class="bold_code bc-9">parse_form(Dev::IODevice, L0::StartLine) -&gt; {ok, Form, LineNo} | {eof, LineNo} | {error, <span class="bold_code data-type-ref"><a href="#type-errorinfo">errorinfo()</a></span>, LineNo}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+<p><a name="parse_form-2"></a><span class="bold_code">parse_form(Dev::IODevice, L0::StartLine) -&gt; {ok, Form, LineNo} | {eof, LineNo} | {error, <span class="bold_code"><a href="#type-errorinfo">errorinfo()</a></span>, LineNo}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 <div class="REFTYPES">
-<span class="bold_code bc-11">IODevice = pid()</span><br>
+<span class="bold_code">IODevice = pid()</span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">StartLine = integer()</span><br>
+<span class="bold_code">StartLine = integer()</span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">Form = <span class="bold_code bc-15"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span></span><br>
+<span class="bold_code">Form = <span class="bold_code"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span></span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">LineNo = integer()</span><br>
+<span class="bold_code">LineNo = integer()</span><br>
 </div>
 </div>
-<div class="REFBODY data-type-desc"><p><a name="parse_form-2"></a>
-<p>Equivalent to <span class="bold_code data-type-ref"><a href="#parse_form-3">parse_form(IODevice, StartLine, [])</a></span>.</p>
-<p><strong>See also:</strong> <span class="bold_code data-type-ref"><a href="#quick_parse_form-2">quick_parse_form/2</a></span>.</p>
+<div class="REFBODY"><p><a name="parse_form-2"></a>
+<p>Equivalent to <span class="bold_code"><a href="#parse_form-3">parse_form(IODevice, StartLine, [])</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code"><a href="#quick_parse_form-2">quick_parse_form/2</a></span>.</p>
 </p></div>
-</div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="parse_form-3"></a><span class="bold_code bc-9">parse_form(Dev::IODevice, L0::StartLine, Options) -&gt; {ok, Form, LineNo} | {eof, LineNo} | {error, <span class="bold_code data-type-ref"><a href="#type-errorinfo">errorinfo()</a></span>, LineNo}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+<p><a name="parse_form-3"></a><span class="bold_code">parse_form(Dev::IODevice, L0::StartLine, Options) -&gt; {ok, Form, LineNo} | {eof, LineNo} | {error, <span class="bold_code"><a href="#type-errorinfo">errorinfo()</a></span>, LineNo}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 <div class="REFTYPES">
-<span class="bold_code bc-11">IODevice = pid()</span><br>
+<span class="bold_code">IODevice = pid()</span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">StartLine = integer()</span><br>
+<span class="bold_code">StartLine = integer()</span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">Options = [term()]</span><br>
+<span class="bold_code">Options = [term()]</span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">Form = <span class="bold_code bc-15"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span></span><br>
+<span class="bold_code">Form = <span class="bold_code"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span></span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">LineNo = integer()</span><br>
+<span class="bold_code">LineNo = integer()</span><br>
 </div>
 </div>
-<div class="REFBODY data-type-desc"><p><a name="parse_form-3"></a>
+<div class="REFBODY"><p><a name="parse_form-3"></a>
 
 <p>Reads and parses a single program form from an I/O stream.
   Characters are read from <span class="code">IODevice</span> until an end-of-form
@@ -762,109 +722,81 @@
   final line number given that <span class="code">StartLine</span> is the initial
   line number, and that <span class="code">{eof, LineNo}</span> may be returned.
  </p>
-<p><strong>See also:</strong> <span class="bold_code data-type-ref"><a href="#parse-3">parse/3</a></span>, <span class="bold_code data-type-ref"><a href="#parse_form-2">parse_form/2</a></span>, <span class="bold_code data-type-ref"><a href="#quick_parse_form-3">quick_parse_form/3</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code"><a href="#parse-3">parse/3</a></span>, <span class="bold_code"><a href="#parse_form-2">parse_form/2</a></span>, <span class="bold_code"><a href="#quick_parse_form-3">quick_parse_form/3</a></span>.</p>
 </p></div>
-</div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="quick_parse-1"></a><span class="bold_code bc-9">quick_parse(Dev::IODevice) -&gt; {ok, Forms} | {error, <span class="bold_code data-type-ref"><a href="#type-errorinfo">errorinfo()</a></span>}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="quick_parse-1"></a>
-<p>Equivalent to <span class="bold_code data-type-ref"><a href="#quick_parse-2">quick_parse(IODevice, 1)</a></span>.</p>
-</p></div></div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="quick_parse-2"></a><span class="bold_code bc-9">quick_parse(Dev::IODevice, L::StartLine) -&gt; {ok, Forms} | {error, <span class="bold_code data-type-ref"><a href="#type-errorinfo">errorinfo()</a></span>}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+<p><a name="quick_parse-1"></a><span class="bold_code">quick_parse(Dev::IODevice) -&gt; {ok, Forms} | {error, <span class="bold_code"><a href="#type-errorinfo">errorinfo()</a></span>}</span><br></p>
+<div class="REFBODY"><p><a name="quick_parse-1"></a>
+<p>Equivalent to <span class="bold_code"><a href="#quick_parse-2">quick_parse(IODevice, 1)</a></span>.</p>
+</p></div>
+<p><a name="quick_parse-2"></a><span class="bold_code">quick_parse(Dev::IODevice, L::StartLine) -&gt; {ok, Forms} | {error, <span class="bold_code"><a href="#type-errorinfo">errorinfo()</a></span>}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 <div class="REFTYPES">
-<span class="bold_code bc-11">IODevice = pid()</span><br>
+<span class="bold_code">IODevice = pid()</span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">StartLine = integer()</span><br>
+<span class="bold_code">StartLine = integer()</span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">Forms = [<span class="bold_code bc-15"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span>]</span><br>
+<span class="bold_code">Forms = [<span class="bold_code"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span>]</span><br>
 </div>
 </div>
-<div class="REFBODY data-type-desc"><p><a name="quick_parse-2"></a>
-<p>Equivalent to <span class="bold_code data-type-ref"><a href="#quick_parse-3">quick_parse(IODevice, StartLine, [])</a></span>.</p>
-<p><strong>See also:</strong> <span class="bold_code data-type-ref"><a href="#quick_parse-1">quick_parse/1</a></span>.</p>
+<div class="REFBODY"><p><a name="quick_parse-2"></a>
+<p>Equivalent to <span class="bold_code"><a href="#quick_parse-3">quick_parse(IODevice, StartLine, [])</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code"><a href="#quick_parse-1">quick_parse/1</a></span>.</p>
 </p></div>
-</div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="quick_parse-3"></a><span class="bold_code bc-9">quick_parse(Dev::IODevice, L0::StartLine, Options) -&gt; {ok, Forms} | {error, <span class="bold_code data-type-ref"><a href="#type-errorinfo">errorinfo()</a></span>}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+<p><a name="quick_parse-3"></a><span class="bold_code">quick_parse(Dev::IODevice, L0::StartLine, Options) -&gt; {ok, Forms} | {error, <span class="bold_code"><a href="#type-errorinfo">errorinfo()</a></span>}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 <div class="REFTYPES">
-<span class="bold_code bc-11">IODevice = pid()</span><br>
+<span class="bold_code">IODevice = pid()</span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">StartLine = integer()</span><br>
+<span class="bold_code">StartLine = integer()</span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">Options = [term()]</span><br>
+<span class="bold_code">Options = [term()]</span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">Forms = [<span class="bold_code bc-15"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span>]</span><br>
+<span class="bold_code">Forms = [<span class="bold_code"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span>]</span><br>
 </div>
 </div>
-<div class="REFBODY data-type-desc"><p><a name="quick_parse-3"></a>
+<div class="REFBODY"><p><a name="quick_parse-3"></a>
 
-<p>Similar to <span class="bold_code data-type-ref"><a href="#parse-3">parse/3</a></span>, but does a more quick-and-dirty
-  processing of the code. See <span class="bold_code data-type-ref"><a href="#quick_parse_file-2">quick_parse_file/2</a></span> for details.
+<p>Similar to <span class="bold_code"><a href="#parse-3">parse/3</a></span>, but does a more quick-and-dirty
+  processing of the code. See <span class="bold_code"><a href="#quick_parse_file-2">quick_parse_file/2</a></span> for details.
  </p>
-<p><strong>See also:</strong> <span class="bold_code data-type-ref"><a href="#parse-3">parse/3</a></span>, <span class="bold_code data-type-ref"><a href="#quick_parse-2">quick_parse/2</a></span>, <span class="bold_code data-type-ref"><a href="#quick_parse_file-2">quick_parse_file/2</a></span>, <span class="bold_code data-type-ref"><a href="#quick_parse_form-2">quick_parse_form/2</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code"><a href="#parse-3">parse/3</a></span>, <span class="bold_code"><a href="#quick_parse-2">quick_parse/2</a></span>, <span class="bold_code"><a href="#quick_parse_file-2">quick_parse_file/2</a></span>, <span class="bold_code"><a href="#quick_parse_form-2">quick_parse_form/2</a></span>.</p>
 </p></div>
-</div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="quick_parse_file-1"></a><span class="bold_code bc-9">quick_parse_file(File) -&gt; {ok, Forms} | {error, <span class="bold_code data-type-ref"><a href="#type-errorinfo">errorinfo()</a></span>}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+<p><a name="quick_parse_file-1"></a><span class="bold_code">quick_parse_file(File) -&gt; {ok, Forms} | {error, <span class="bold_code"><a href="#type-errorinfo">errorinfo()</a></span>}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 <div class="REFTYPES">
-<span class="bold_code bc-11">File = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename');">file:filename()</a></span></span><br>
+<span class="bold_code">File = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename');">file:filename()</a></span></span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">Forms = [<span class="bold_code bc-15"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span>]</span><br>
+<span class="bold_code">Forms = [<span class="bold_code"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span>]</span><br>
 </div>
 </div>
-<div class="REFBODY data-type-desc"><p><a name="quick_parse_file-1"></a>
-<p>Equivalent to <span class="bold_code data-type-ref"><a href="#quick_parse_file-2">quick_parse_file(File, [])</a></span>.</p>
+<div class="REFBODY"><p><a name="quick_parse_file-1"></a>
+<p>Equivalent to <span class="bold_code"><a href="#quick_parse_file-2">quick_parse_file(File, [])</a></span>.</p>
 </p></div>
-</div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="quick_parse_file-2"></a><span class="bold_code bc-9">quick_parse_file(File, Options) -&gt; {ok, Forms} | {error, <span class="bold_code data-type-ref"><a href="#type-errorinfo">errorinfo()</a></span>}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+<p><a name="quick_parse_file-2"></a><span class="bold_code">quick_parse_file(File, Options) -&gt; {ok, Forms} | {error, <span class="bold_code"><a href="#type-errorinfo">errorinfo()</a></span>}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 <div class="REFTYPES">
-<span class="bold_code bc-11">File = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename');">file:filename()</a></span></span><br>
+<span class="bold_code">File = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename');">file:filename()</a></span></span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">Options = [term()]</span><br>
+<span class="bold_code">Options = [term()]</span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">Forms = [<span class="bold_code bc-15"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span>]</span><br>
+<span class="bold_code">Forms = [<span class="bold_code"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span>]</span><br>
 </div>
 </div>
-<div class="REFBODY data-type-desc"><p><a name="quick_parse_file-2"></a>
+<div class="REFBODY"><p><a name="quick_parse_file-2"></a>
 
-<p>Similar to <span class="bold_code data-type-ref"><a href="#parse_file-2">parse_file/2</a></span>, but does a more quick-and-dirty  
+<p>Similar to <span class="bold_code"><a href="#parse_file-2">parse_file/2</a></span>, but does a more quick-and-dirty  
 processing of the code. Macro definitions and other preprocessor  
 directives are discarded, and all macro calls are replaced with  
 atoms. This is useful when only the main structure of the code is of  
@@ -872,82 +804,63 @@ interest, and not the details. Furthermore, the quick-parse method
 can usually handle more strange cases than the normal, more exact  
 parsing.</p>
  
-  <p>Options: see <span class="bold_code data-type-ref"><a href="#parse_file-2">parse_file/2</a></span>. Note however that for
+  <p>Options: see <span class="bold_code"><a href="#parse_file-2">parse_file/2</a></span>. Note however that for
   <span class="code">quick_parse_file/2</span>, the option <span class="code">no_fail</span> is <span class="code">true</span> by default.
  </p>
-<p><strong>See also:</strong> <span class="bold_code data-type-ref"><a href="#parse_file-2">parse_file/2</a></span>, <span class="bold_code data-type-ref"><a href="#quick_parse-2">quick_parse/2</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code"><a href="#parse_file-2">parse_file/2</a></span>, <span class="bold_code"><a href="#quick_parse-2">quick_parse/2</a></span>.</p>
 </p></div>
-</div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="quick_parse_form-2"></a><span class="bold_code bc-9">quick_parse_form(Dev::IODevice, L0::StartLine) -&gt; {ok, Form, LineNo} | {eof, LineNo} | {error, <span class="bold_code data-type-ref"><a href="#type-errorinfo">errorinfo()</a></span>, LineNo}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+<p><a name="quick_parse_form-2"></a><span class="bold_code">quick_parse_form(Dev::IODevice, L0::StartLine) -&gt; {ok, Form, LineNo} | {eof, LineNo} | {error, <span class="bold_code"><a href="#type-errorinfo">errorinfo()</a></span>, LineNo}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 <div class="REFTYPES">
-<span class="bold_code bc-11">IODevice = pid()</span><br>
+<span class="bold_code">IODevice = pid()</span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">StartLine = integer()</span><br>
+<span class="bold_code">StartLine = integer()</span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">Form = <span class="bold_code bc-15"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span> | none</span><br>
+<span class="bold_code">Form = <span class="bold_code"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span> | none</span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">LineNo = integer()</span><br>
+<span class="bold_code">LineNo = integer()</span><br>
 </div>
 </div>
-<div class="REFBODY data-type-desc"><p><a name="quick_parse_form-2"></a>
-<p>Equivalent to <span class="bold_code data-type-ref"><a href="#quick_parse_form-3">quick_parse_form(IODevice, StartLine, [])</a></span>.</p>
-<p><strong>See also:</strong> <span class="bold_code data-type-ref"><a href="#parse_form-2">parse_form/2</a></span>.</p>
+<div class="REFBODY"><p><a name="quick_parse_form-2"></a>
+<p>Equivalent to <span class="bold_code"><a href="#quick_parse_form-3">quick_parse_form(IODevice, StartLine, [])</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code"><a href="#parse_form-2">parse_form/2</a></span>.</p>
 </p></div>
-</div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="quick_parse_form-3"></a><span class="bold_code bc-9">quick_parse_form(Dev::IODevice, L0::StartLine, Options) -&gt; {ok, Form, LineNo} | {eof, LineNo} | {error, <span class="bold_code data-type-ref"><a href="#type-errorinfo">errorinfo()</a></span>, LineNo}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+<p><a name="quick_parse_form-3"></a><span class="bold_code">quick_parse_form(Dev::IODevice, L0::StartLine, Options) -&gt; {ok, Form, LineNo} | {eof, LineNo} | {error, <span class="bold_code"><a href="#type-errorinfo">errorinfo()</a></span>, LineNo}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 <div class="REFTYPES">
-<span class="bold_code bc-11">IODevice = pid()</span><br>
+<span class="bold_code">IODevice = pid()</span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">StartLine = integer()</span><br>
+<span class="bold_code">StartLine = integer()</span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">Options = [term()]</span><br>
+<span class="bold_code">Options = [term()]</span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">Form = <span class="bold_code bc-15"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span></span><br>
+<span class="bold_code">Form = <span class="bold_code"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span></span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code bc-11">LineNo = integer()</span><br>
+<span class="bold_code">LineNo = integer()</span><br>
 </div>
 </div>
-<div class="REFBODY data-type-desc"><p><a name="quick_parse_form-3"></a>
+<div class="REFBODY"><p><a name="quick_parse_form-3"></a>
 
-<p>Similar to <span class="bold_code data-type-ref"><a href="#parse_form-3">parse_form/3</a></span>, but does a more quick-and-dirty
-  processing of the code. See <span class="bold_code data-type-ref"><a href="#quick_parse_file-2">quick_parse_file/2</a></span> for details.
+<p>Similar to <span class="bold_code"><a href="#parse_form-3">parse_form/3</a></span>, but does a more quick-and-dirty
+  processing of the code. See <span class="bold_code"><a href="#quick_parse_file-2">quick_parse_file/2</a></span> for details.
  </p>
-<p><strong>See also:</strong> <span class="bold_code data-type-ref"><a href="#parse-3">parse/3</a></span>, <span class="bold_code data-type-ref"><a href="#parse_form-3">parse_form/3</a></span>, <span class="bold_code data-type-ref"><a href="#quick_parse_form-2">quick_parse_form/2</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code"><a href="#parse-3">parse/3</a></span>, <span class="bold_code"><a href="#parse_form-3">parse_form/3</a></span>, <span class="bold_code"><a href="#quick_parse_form-2">quick_parse_form/2</a></span>.</p>
 </p></div>
-</div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="tokens_to_string-1"></a><span class="bold_code bc-9">tokens_to_string(Tokens::[term()]) -&gt; string()</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="tokens_to_string-1"></a>
+<p><a name="tokens_to_string-1"></a><span class="bold_code">tokens_to_string(Tokens::[term()]) -&gt; string()</span><br></p>
+<div class="REFBODY"><p><a name="tokens_to_string-1"></a>
 
 <p>Generates a string corresponding to the given token sequence.
   The string can be re-tokenized to yield the same token list again.</p>
-</p></div></div>
-</div>
-</div>
+</p></div>
 
 
 

@@ -314,11 +314,11 @@
 <!-- refpage --><center><h1>cprof</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">cprof</div>
+<div class="REFBODY">cprof</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">A simple Call Count Profiling Tool using breakpoints for minimal runtime performance impact.</div>
+<div class="REFBODY">A simple Call Count Profiling Tool using breakpoints for minimal runtime performance impact.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>The <span class="code">cprof</span> module is used to profile a program
       to find out how many times different functions are called.
       Breakpoints similar to local call trace, but containing a
@@ -344,48 +344,43 @@
       of 10 percent.
             <a name="analyse"></a>
 </p>
-  </div>
+  </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="analyse-0"></a><span class="bold_code bc-9">analyse() -&gt; {AllCallCount, ModAnalysisList}</span><br><a name="analyse-1"></a><span class="bold_code bc-9">analyse(Limit) -&gt; {AllCallCount, ModAnalysisList}</span><br><a name="analyse-1"></a><span class="bold_code bc-9">analyse(Mod) -&gt; ModAnalysis</span><br><a name="analyse-2"></a><span class="bold_code bc-9">analyse(Mod, Limit) -&gt; ModAnalysis</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="analyse-0"></a><span class="bold_code">analyse() -&gt; {AllCallCount, ModAnalysisList}</span><br><a name="analyse-1"></a><span class="bold_code">analyse(Limit) -&gt; {AllCallCount, ModAnalysisList}</span><br><a name="analyse-1"></a><span class="bold_code">analyse(Mod) -&gt; ModAnalysis</span><br><a name="analyse-2"></a><span class="bold_code">analyse(Mod, Limit) -&gt; ModAnalysis</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Limit = integer()</span><br>
+<span class="bold_code">Limit = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Mod = atom()</span><br>
+<span class="bold_code">Mod = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">AllCallCount = integer()</span><br>
+<span class="bold_code">AllCallCount = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">ModAnalysisList = [ModAnalysis]</span><br>
+<span class="bold_code">ModAnalysisList = [ModAnalysis]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">ModAnalysis = {Mod, ModCallCount, FuncAnalysisList}</span><br>
+<span class="bold_code">ModAnalysis = {Mod, ModCallCount, FuncAnalysisList}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">ModCallCount = integer()</span><br>
+<span class="bold_code">ModCallCount = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">FuncAnalysisList = [{{Mod, Func, Arity}, FuncCallCount}]</span><br>
+<span class="bold_code">FuncAnalysisList = [{{Mod, Func, Arity}, FuncCallCount}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Func = atom()</span><br>
+<span class="bold_code">Func = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Arity = integer()</span><br>
+<span class="bold_code">Arity = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">FuncCallCount = integer()</span><br>
+<span class="bold_code">FuncCallCount = integer()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Collects and analyses the call counters presently in the
           node for either module <span class="code">Mod</span>, or for all modules
           (except <span class="code">cprof</span> itself), and returns: </p>
@@ -423,48 +418,38 @@
                     <a name="pause_0"></a>
 </p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="pause-0"></a><span class="bold_code bc-9">pause() -&gt; integer()</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="pause-0"></a><span class="bold_code">pause() -&gt; integer()</span><br></p>
+<div class="REFBODY"><p>
         <p>Pause call count tracing for all functions in all modules
           and stop it for all functions in modules to be
           loaded. This is the same as 
           <span class="code">(pause({'_','_','_'})+stop({on_load}))</span>.
           </p>
         <p>See also 
-          <span class="bold_code data-type-ref"><a href="#pause">pause/1..3</a></span> below.
+          <span class="bold_code"><a href="#pause">pause/1..3</a></span> below.
                     <a name="pause"></a>
 </p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="pause-1"></a><span class="bold_code bc-9">pause(FuncSpec) -&gt; integer()</span><br><a name="pause-2"></a><span class="bold_code bc-9">pause(Mod, Func) -&gt; integer()</span><br><a name="pause-3"></a><span class="bold_code bc-9">pause(Mod, Func, Arity) -&gt; integer()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+      </p></div>
+    <p><a name="pause-1"></a><span class="bold_code">pause(FuncSpec) -&gt; integer()</span><br><a name="pause-2"></a><span class="bold_code">pause(Mod, Func) -&gt; integer()</span><br><a name="pause-3"></a><span class="bold_code">pause(Mod, Func, Arity) -&gt; integer()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">FuncSpec = Mod | {Mod,Func,Arity}, {FS}</span><br>
+<span class="bold_code">FuncSpec = Mod | {Mod,Func,Arity}, {FS}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Mod = atom()</span><br>
+<span class="bold_code">Mod = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Func = atom()</span><br>
+<span class="bold_code">Func = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Arity = integer()</span><br>
+<span class="bold_code">Arity = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">FS = term()</span><br>
+<span class="bold_code">FS = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Pause call counters for matching functions in matching 
           modules. The <span class="code">FS</span> argument can be used to
           specify the first argument to
@@ -481,32 +466,26 @@
                     <a name="restart"></a>
 </p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="restart-0"></a><span class="bold_code bc-9">restart() -&gt; integer()</span><br><a name="restart-1"></a><span class="bold_code bc-9">restart(FuncSpec) -&gt; integer()</span><br><a name="restart-2"></a><span class="bold_code bc-9">restart(Mod, Func) -&gt; integer()</span><br><a name="restart-3"></a><span class="bold_code bc-9">restart(Mod, Func, Arity) -&gt; integer()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="restart-0"></a><span class="bold_code">restart() -&gt; integer()</span><br><a name="restart-1"></a><span class="bold_code">restart(FuncSpec) -&gt; integer()</span><br><a name="restart-2"></a><span class="bold_code">restart(Mod, Func) -&gt; integer()</span><br><a name="restart-3"></a><span class="bold_code">restart(Mod, Func, Arity) -&gt; integer()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">FuncSpec = Mod | {Mod,Func,Arity}, {FS}</span><br>
+<span class="bold_code">FuncSpec = Mod | {Mod,Func,Arity}, {FS}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Mod = atom()</span><br>
+<span class="bold_code">Mod = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Func = atom()</span><br>
+<span class="bold_code">Func = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Arity = integer()</span><br>
+<span class="bold_code">Arity = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">FS = term()</span><br>
+<span class="bold_code">FS = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Restart call counters for the matching functions in
           matching modules that are call count traced. The <span class="code">FS</span>
           argument can be used to specify the first argument to
@@ -522,48 +501,38 @@
                     <a name="start_0"></a>
 </p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="start-0"></a><span class="bold_code bc-9">start() -&gt; integer()</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="start-0"></a><span class="bold_code">start() -&gt; integer()</span><br></p>
+<div class="REFBODY"><p>
         <p>Start call count tracing for all functions in all modules, 
           and also for all functions in modules to be
           loaded. This is the same as 
           <span class="code">(start({'_','_','_'})+start({on_load}))</span>.
           </p>
         <p>See also 
-          <span class="bold_code data-type-ref"><a href="#start">start/1..3</a></span> below.
+          <span class="bold_code"><a href="#start">start/1..3</a></span> below.
                     <a name="start"></a>
 </p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="start-1"></a><span class="bold_code bc-9">start(FuncSpec) -&gt; integer()</span><br><a name="start-2"></a><span class="bold_code bc-9">start(Mod, Func) -&gt; integer()</span><br><a name="start-3"></a><span class="bold_code bc-9">start(Mod, Func, Arity) -&gt; integer()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+      </p></div>
+    <p><a name="start-1"></a><span class="bold_code">start(FuncSpec) -&gt; integer()</span><br><a name="start-2"></a><span class="bold_code">start(Mod, Func) -&gt; integer()</span><br><a name="start-3"></a><span class="bold_code">start(Mod, Func, Arity) -&gt; integer()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">FuncSpec = Mod | {Mod,Func,Arity}, {FS}</span><br>
+<span class="bold_code">FuncSpec = Mod | {Mod,Func,Arity}, {FS}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Mod = atom()</span><br>
+<span class="bold_code">Mod = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Func = atom()</span><br>
+<span class="bold_code">Func = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Arity = integer()</span><br>
+<span class="bold_code">Arity = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">FS = term()</span><br>
+<span class="bold_code">FS = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Start call count tracing for matching functions in matching 
           modules. The <span class="code">FS</span> argument can be used to specify the
           first argument to <span class="code">erlang:trace_pattern/3</span>, for example
@@ -578,48 +547,38 @@
                     <a name="stop_0"></a>
 </p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="stop-0"></a><span class="bold_code bc-9">stop() -&gt; integer()</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="stop-0"></a><span class="bold_code">stop() -&gt; integer()</span><br></p>
+<div class="REFBODY"><p>
         <p>Stop call count tracing for all functions in all modules, 
           and also for all functions in modules to be
           loaded. This is the same as 
           <span class="code">(stop({'_','_','_'})+stop({on_load}))</span>.
           </p>
         <p>See also 
-          <span class="bold_code data-type-ref"><a href="#stop">stop/1..3</a></span> below.
+          <span class="bold_code"><a href="#stop">stop/1..3</a></span> below.
                     <a name="stop"></a>
 </p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="stop-1"></a><span class="bold_code bc-9">stop(FuncSpec) -&gt; integer()</span><br><a name="stop-2"></a><span class="bold_code bc-9">stop(Mod, Func) -&gt; integer()</span><br><a name="stop-3"></a><span class="bold_code bc-9">stop(Mod, Func, Arity) -&gt; integer()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+      </p></div>
+    <p><a name="stop-1"></a><span class="bold_code">stop(FuncSpec) -&gt; integer()</span><br><a name="stop-2"></a><span class="bold_code">stop(Mod, Func) -&gt; integer()</span><br><a name="stop-3"></a><span class="bold_code">stop(Mod, Func, Arity) -&gt; integer()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">FuncSpec = Mod | {Mod,Func,Arity}, {FS}</span><br>
+<span class="bold_code">FuncSpec = Mod | {Mod,Func,Arity}, {FS}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Mod = atom()</span><br>
+<span class="bold_code">Mod = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Func = atom()</span><br>
+<span class="bold_code">Func = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Arity = integer()</span><br>
+<span class="bold_code">Arity = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">FS = term()</span><br>
+<span class="bold_code">FS = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Stop call count tracing for matching functions in matching 
           modules. The <span class="code">FS</span> argument can be used to specify the
           first argument to <span class="code">erlang:trace_pattern/3</span>, for example
@@ -634,17 +593,15 @@
           returned. 
           </p>
       </p></div>
-</div>
-</div>
-  </div>
+  
 
-  <h3><a name="idm46064319567312">See Also</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46159111120592">See Also</a></h3>
+<div class="REFBODY">
     
-    <p><span class="bold_code bc-19"><a href="eprof.html">eprof</a></span>(3), 
-      <span class="bold_code bc-19"><a href="fprof.html">fprof</a></span>(3), 
+    <p><span class="bold_code"><a href="eprof.html">eprof</a></span>(3), 
+      <span class="bold_code"><a href="fprof.html">fprof</a></span>(3), 
       erlang(3), 
-      <span class="bold_code bc-19"><a href="cprof_chapter.html">User's Guide</a></span></p>
+      <span class="bold_code"><a href="cprof_chapter.html">User's Guide</a></span></p>
   </div>
 </div>
 <div class="footer">

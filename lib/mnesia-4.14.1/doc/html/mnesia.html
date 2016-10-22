@@ -211,11 +211,11 @@
 <!-- refpage --><center><h1>mnesia</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">mnesia</div>
+<div class="REFBODY">mnesia</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">A distributed telecommunications DBMS</div>
+<div class="REFBODY">A distributed telecommunications DBMS</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
 
     <p>The following are some of the most important and attractive
       capabilities provided by Mnesia:</p>
@@ -249,7 +249,7 @@
     <p>All functions in this Reference Manual can be used in any
       combination with queries using the list comprehension notation.
       For information about the query notation, see the
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','qlc.html');">qlc</a></span>
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','qlc.html');">qlc</a></span>
       manual page in STDLIB.</p>
     <p>Data in Mnesia is organized as a set of tables. Each table
       has a name that must be an atom. Each table is made up of
@@ -360,28 +360,20 @@
       reduce the performance.</p>
     <p>If possible, avoid writing or deleting records in the same
       transaction before iterating over the table.</p>
-  </div>
+  </p></div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="abort-1"></a><span class="bold_code bc-9">abort(Reason) -&gt; transaction abort</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="abort-1"></a><span class="bold_code">abort(Reason) -&gt; transaction abort</span><br></p>
+<div class="REFBODY"><p>
         <p>Makes the transaction silently
           return the tuple <span class="code">{aborted, Reason}</span>.
           Termination of a Mnesia transaction means that
           an exception is thrown to an enclosing <span class="code">catch</span>.
           Thus, the expression <span class="code">catch mnesia:abort(x)</span> does
           not terminate the transaction.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="activate_checkpoint-1"></a><span class="bold_code bc-9">activate_checkpoint(Args) -&gt; {ok,Name,Nodes} | {error,Reason}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="activate_checkpoint-1"></a><span class="bold_code">activate_checkpoint(Args) -&gt; {ok,Name,Nodes} | {error,Reason}</span><br></p>
+<div class="REFBODY"><p>
       <a name="activate_checkpoint"></a>
         <p>A checkpoint is a consistent view of the system.
           A checkpoint can be activated on a set of tables.
@@ -440,26 +432,18 @@
           <span class="code">Nodes</span> are the nodes that
           are involved in the checkpoint. Only nodes that keep a
           checkpoint retainer know about the checkpoint.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="activity-2"></a><span class="bold_code bc-9">activity(AccessContext, Fun [, Args]) -&gt; ResultOfFun | exit(Reason)</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="activity-2"></a><span class="bold_code">activity(AccessContext, Fun [, Args]) -&gt; ResultOfFun | exit(Reason)</span><br></p>
+<div class="REFBODY"><p>
       <a name="activity_2_3"></a>
         <p>Calls <span class="code">mnesia:activity(AccessContext, Fun, Args,
           AccessMod)</span>, where <span class="code">AccessMod</span> is the default
           access callback module obtained by
           <span class="code">mnesia:system_info(access_module)</span>. <span class="code">Args</span>
           defaults to <span class="code">[]</span> (empty list).</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="activity-4"></a><span class="bold_code bc-9">activity(AccessContext, Fun, Args, AccessMod) -&gt; ResultOfFun | exit(Reason)</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="activity-4"></a><span class="bold_code">activity(AccessContext, Fun, Args, AccessMod) -&gt; ResultOfFun | exit(Reason)</span><br></p>
+<div class="REFBODY"><p>
       <a name="activity_4"></a>
         <p>Executes the functional object <span class="code">Fun</span>
           with argument <span class="code">Args</span>.</p>
@@ -586,13 +570,9 @@
           record is internal to Mnesia.</p>
         <p><span class="code">Opaque</span> is an opaque data structure that is internal
           to Mnesia.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="add_table_copy-3"></a><span class="bold_code bc-9">add_table_copy(Tab, Node, Type) -&gt; {aborted, R} | {atomic, ok}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="add_table_copy-3"></a><span class="bold_code">add_table_copy(Tab, Node, Type) -&gt; {aborted, R} | {atomic, ok}</span><br></p>
+<div class="REFBODY"><p>
       <a name="add_table_copy"></a>
         <p>Makes another copy of a table at the node <span class="code">Node</span>.
           Argument <span class="code">Type</span> must be either of the atoms
@@ -604,13 +584,9 @@
 mnesia:add_table_copy(person, Node, disc_copies)</pre></div>
         <p>This function can also be used to add a replica of the
           table named <span class="code">schema</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="add_table_index-2"></a><span class="bold_code bc-9">add_table_index(Tab, AttrName) -&gt; {aborted, R} | {atomic, ok}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="add_table_index-2"></a><span class="bold_code">add_table_index(Tab, AttrName) -&gt; {aborted, R} | {atomic, ok}</span><br></p>
+<div class="REFBODY"><p>
       <a name="add_table_index"></a>
         <p>Table indexes can be used whenever the user
           wants to use frequently some other field than the key field
@@ -626,26 +602,18 @@ mnesia:add_table_index(person, age)</pre></div>
         <p>Indexes do not come for free. They occupy space that is
 	  proportional to the table size, and they cause insertions
           into the table to execute slightly slower.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="all_keys-1"></a><span class="bold_code bc-9">all_keys(Tab) -&gt; KeyList | transaction abort</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="all_keys-1"></a><span class="bold_code">all_keys(Tab) -&gt; KeyList | transaction abort</span><br></p>
+<div class="REFBODY"><p>
       <a name="all_keys"></a>
         <p>Returns a list of all keys in the table named <span class="code">Tab</span>.
           The semantics of this function is context-sensitive.
           For more information, see <span class="code">mnesia:activity/4</span>. In
           transaction-context, it acquires a read lock on the entire
           table.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="async_dirty-2"></a><span class="bold_code bc-9">async_dirty(Fun, [, Args]) -&gt; ResultOfFun | exit(Reason)</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="async_dirty-2"></a><span class="bold_code">async_dirty(Fun, [, Args]) -&gt; ResultOfFun | exit(Reason)</span><br></p>
+<div class="REFBODY"><p>
       <a name="async_dirty"></a>
         <p>Calls the <span class="code">Fun</span> in a context that is not protected by
           a transaction. The Mnesia function calls performed in
@@ -680,26 +648,18 @@ mnesia:add_table_index(person, age)</pre></div>
         <p>Notice that calling (nesting) <span class="code">mnesia:[a]sync_dirty</span>
           inside a transaction-context inherits the transaction
           semantics.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="backup-1"></a><span class="bold_code bc-9">backup(Opaque [, BackupMod]) -&gt; ok | {error,Reason}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="backup-1"></a><span class="bold_code">backup(Opaque [, BackupMod]) -&gt; ok | {error,Reason}</span><br></p>
+<div class="REFBODY"><p>
       <a name="backup"></a>
         <p>Activates a new checkpoint covering all Mnesia tables,
           including the schema, with maximum degree of redundancy, and
           performs a backup using <span class="code">backup_checkpoint/2/3</span>. The
           default value of the backup callback module <span class="code">BackupMod</span>
           is obtained by <span class="code">mnesia:system_info(backup_module)</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="backup_checkpoint-2"></a><span class="bold_code bc-9">backup_checkpoint(Name, Opaque [, BackupMod]) -&gt; ok | {error,Reason}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="backup_checkpoint-2"></a><span class="bold_code">backup_checkpoint(Name, Opaque [, BackupMod]) -&gt; ok | {error,Reason}</span><br></p>
+<div class="REFBODY"><p>
       <a name="backup_checkpoint"></a>
         <p>The tables are backed up to external media using backup
           module <span class="code">BackupMod</span>. Tables with the local contents
@@ -709,13 +669,9 @@ mnesia:add_table_index(person, age)</pre></div>
           <span class="code">mnesia:system_info(backup_module)</span>. For information
           about the exact callback interface (the
           <span class="code">mnesia_backup behavior</span>), see the User's Guide.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="change_config-2"></a><span class="bold_code bc-9">change_config(Config, Value) -&gt; {error, Reason} | {ok, ReturnValue}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="change_config-2"></a><span class="bold_code">change_config(Config, Value) -&gt; {error, Reason} | {ok, ReturnValue}</span><br></p>
+<div class="REFBODY"><p>
       <a name="change_config"></a>
         <p><span class="code">Config</span> is to be an atom of the following
           configuration parameters:</p>
@@ -737,19 +693,15 @@ mnesia:add_table_index(person, age)</pre></div>
           <dt><strong><span class="code">dc_dump_limit</span></strong></dt>
           <dd>
             <p><span class="code">Value</span> is a number. See the description in
-            <span class="bold_code data-type-ref"><a href="#configuration_parameters">Section Configuration Parameters</a></span>. <span class="code">ReturnValue</span>
+            <span class="bold_code"><a href="#configuration_parameters">Section Configuration Parameters</a></span>. <span class="code">ReturnValue</span>
             is the new value. Notice that this configuration
             parameter is not persistent. It is lost when
             Mnesia has stopped.</p>
           </dd>
         </dl>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="change_table_access_mode-2"></a><span class="bold_code bc-9">change_table_access_mode(Tab, AccessMode) -&gt; {aborted, R} | {atomic, ok}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="change_table_access_mode-2"></a><span class="bold_code">change_table_access_mode(Tab, AccessMode) -&gt; {aborted, R} | {atomic, ok}</span><br></p>
+<div class="REFBODY"><p>
       <a name="change_table_access_mode"></a>
         <p><span class="code">AcccessMode</span> is by default the atom
           <span class="code">read_write</span> but it can also be set to the atom
@@ -758,13 +710,9 @@ mnesia:add_table_index(person, age)</pre></div>
           performed. At startup, Mnesia always loads
           <span class="code">read_only</span> tables locally regardless of when and if
           Mnesia is terminated on other nodes.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="change_table_copy_type-3"></a><span class="bold_code bc-9">change_table_copy_type(Tab, Node, To) -&gt; {aborted, R} | {atomic, ok}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="change_table_copy_type-3"></a><span class="bold_code">change_table_copy_type(Tab, Node, To) -&gt; {aborted, R} | {atomic, ok}</span><br></p>
+<div class="REFBODY"><p>
       <a name="change_table_copy_type"></a>
         <p>For example:</p>
         <div class="example"><pre>
@@ -776,46 +724,30 @@ mnesia:change_table_copy_type(person, node(), disc_copies)</pre></div>
           have <span class="code">ram_copies</span> or <span class="code">disc_copies</span> as the storage
           type. If the storage type of the schema is <span class="code">ram_copies</span>,
           no other table can be disc-resident on that node.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="change_table_load_order-2"></a><span class="bold_code bc-9">change_table_load_order(Tab, LoadOrder) -&gt; {aborted, R} | {atomic, ok}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="change_table_load_order-2"></a><span class="bold_code">change_table_load_order(Tab, LoadOrder) -&gt; {aborted, R} | {atomic, ok}</span><br></p>
+<div class="REFBODY"><p>
       <a name="change_table_load_order"></a>
         <p>The <span class="code">LoadOrder</span> priority is by default <span class="code">0</span> (zero)
           but can be set to any integer. The tables with the highest
           <span class="code">LoadOrder</span> priority are loaded first at startup.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="change_table_majority-2"></a><span class="bold_code bc-9">change_table_majority(Tab, Majority) -&gt; {aborted, R} | {atomic, ok}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="change_table_majority-2"></a><span class="bold_code">change_table_majority(Tab, Majority) -&gt; {aborted, R} | {atomic, ok}</span><br></p>
+<div class="REFBODY"><p>
         <p><span class="code">Majority</span> must be a boolean. Default is <span class="code">false</span>.
           When <span class="code">true</span>, a majority of the table replicas must be
           available for an update to succeed. When used on fragmented
           tables, <span class="code">Tab</span> must be the base table name. Directly
           changing the majority setting on individual fragments is
           not allowed.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="clear_table-1"></a><span class="bold_code bc-9">clear_table(Tab) -&gt; {aborted, R} | {atomic, ok}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="clear_table-1"></a><span class="bold_code">clear_table(Tab) -&gt; {aborted, R} | {atomic, ok}</span><br></p>
+<div class="REFBODY"><p>
       <a name="clear_table"></a>
         <p>Deletes all entries in the table <span class="code">Tab</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="create_schema-1"></a><span class="bold_code bc-9">create_schema(DiscNodes) -&gt; ok | {error,Reason}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="create_schema-1"></a><span class="bold_code">create_schema(DiscNodes) -&gt; ok | {error,Reason}</span><br></p>
+<div class="REFBODY"><p>
       <a name="create_schema"></a>
         <p>Creates a new database on disc. Various files are
           created in the local Mnesia directory of each node.
@@ -832,13 +764,9 @@ mnesia:change_table_copy_type(person, node(), disc_copies)</pre></div>
           <span class="code">DiscNodes</span>. Disc-less nodes, that is, nodes where
           all tables including the schema only resides in RAM,
           must not be included.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="create_table-2"></a><span class="bold_code bc-9">create_table(Name, TabDef) -&gt; {atomic, ok} | {aborted, Reason}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="create_table-2"></a><span class="bold_code">create_table(Name, TabDef) -&gt; {atomic, ok} | {aborted, Reason}</span><br></p>
+<div class="REFBODY"><p>
       <a name="create_table"></a>
         <p>Creates a Mnesia table called
           <span class="code">Name</span> according to argument <span class="code">TabDef</span>. This
@@ -995,26 +923,18 @@ mnesia:create_table(person,
           normal transaction management system. This guarantees that
           schema updates are performed on all nodes in an atomic
           manner.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="deactivate_checkpoint-1"></a><span class="bold_code bc-9">deactivate_checkpoint(Name) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="deactivate_checkpoint-1"></a><span class="bold_code">deactivate_checkpoint(Name) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY"><p>
       <a name="deactivate_checkpoint"></a>
         <p>The checkpoint is automatically deactivated when some of
           the tables involved have no retainer attached to them. This
           can occur when nodes go down or when a replica is deleted.
           Checkpoints are also deactivated with this function.
           <span class="code">Name</span> is the name of an active checkpoint.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="del_table_copy-2"></a><span class="bold_code bc-9">del_table_copy(Tab, Node) -&gt; {aborted, R} | {atomic, ok}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="del_table_copy-2"></a><span class="bold_code">del_table_copy(Tab, Node) -&gt; {aborted, R} | {atomic, ok}</span><br></p>
+<div class="REFBODY"><p>
       <a name="del_table_copy"></a>
         <p>Deletes the replica of table <span class="code">Tab</span> at node <span class="code">Node</span>.
           When the last replica is deleted with this
@@ -1023,32 +943,20 @@ mnesia:create_table(person,
           the table named <span class="code">schema</span>. The Mnesia node is
           then removed. Notice that Mnesia must be
           stopped on the node first.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="del_table_index-2"></a><span class="bold_code bc-9">del_table_index(Tab, AttrName) -&gt; {aborted, R} | {atomic, ok}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="del_table_index-2"></a><span class="bold_code">del_table_index(Tab, AttrName) -&gt; {aborted, R} | {atomic, ok}</span><br></p>
+<div class="REFBODY"><p>
       <a name="del_table_index"></a>
         <p>Deletes the index on attribute with name
           <span class="code">AttrName</span> in a table.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="delete-1"></a><span class="bold_code bc-9">delete({Tab, Key}) -&gt; transaction abort | ok</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="delete-1"></a><span class="bold_code">delete({Tab, Key}) -&gt; transaction abort | ok</span><br></p>
+<div class="REFBODY"><p>
       <a name="delete_2"></a>
         <p>Calls <span class="code">mnesia:delete(Tab, Key, write)</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="delete-3"></a><span class="bold_code bc-9">delete(Tab, Key, LockKind) -&gt; transaction abort | ok</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="delete-3"></a><span class="bold_code">delete(Tab, Key, LockKind) -&gt; transaction abort | ok</span><br></p>
+<div class="REFBODY"><p>
       <a name="delete_3"></a>
         <p>Deletes all records in table <span class="code">Tab</span> with the key
           <span class="code">Key</span>.</p>
@@ -1058,23 +966,15 @@ mnesia:create_table(person,
           <span class="code">LockKind</span> in the record.
           Currently, the lock types <span class="code">write</span> and
           <span class="code">sticky_write</span> are supported.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="delete_object-1"></a><span class="bold_code bc-9">delete_object(Record) -&gt; transaction abort | ok</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="delete_object-1"></a><span class="bold_code">delete_object(Record) -&gt; transaction abort | ok</span><br></p>
+<div class="REFBODY"><p>
       <a name="delete_object_1"></a>
         <p>Calls <span class="code">mnesia:delete_object(Tab, Record, write)</span>, where
           <span class="code">Tab</span> is <span class="code">element(1, Record)</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="delete_object-3"></a><span class="bold_code bc-9">delete_object(Tab, Record, LockKind) -&gt; transaction abort | ok</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="delete_object-3"></a><span class="bold_code">delete_object(Tab, Record, LockKind) -&gt; transaction abort | ok</span><br></p>
+<div class="REFBODY"><p>
       <a name="delete_object_3"></a>
         <p>If a table is of type <span class="code">bag</span>, it can sometimes be
           needed to delete only some of the records with a certain
@@ -1086,13 +986,9 @@ mnesia:create_table(person,
           <span class="code">LockKind</span> on the record.
           Currently, the lock types <span class="code">write</span> and
           <span class="code">sticky_write</span> are supported.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="delete_schema-1"></a><span class="bold_code bc-9">delete_schema(DiscNodes) -&gt; ok | {error,Reason}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="delete_schema-1"></a><span class="bold_code">delete_schema(DiscNodes) -&gt; ok | {error,Reason}</span><br></p>
+<div class="REFBODY"><p>
       <a name="delete_schema"></a>
         <p>Deletes a database created with
           <span class="code">mnesia:create_schema/1</span>.
@@ -1111,66 +1007,38 @@ mnesia:create_table(person,
             using it.</p>
         </p></div>
 </div>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="delete_table-1"></a><span class="bold_code bc-9">delete_table(Tab) -&gt; {aborted, Reason} | {atomic, ok}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="delete_table-1"></a><span class="bold_code">delete_table(Tab) -&gt; {aborted, Reason} | {atomic, ok}</span><br></p>
+<div class="REFBODY"><p>
       <a name="delete_table"></a>
         <p>Permanently deletes all replicas of table <span class="code">Tab</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="dirty_all_keys-1"></a><span class="bold_code bc-9">dirty_all_keys(Tab) -&gt; KeyList | exit({aborted, Reason})</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="dirty_all_keys-1"></a><span class="bold_code">dirty_all_keys(Tab) -&gt; KeyList | exit({aborted, Reason})</span><br></p>
+<div class="REFBODY"><p>
       <a name="delete_all_keys"></a>
         <p>Dirty equivalent of the function <span class="code">mnesia:all_keys/1</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="dirty_delete-1"></a><span class="bold_code bc-9">dirty_delete({Tab, Key}) -&gt; ok | exit({aborted, Reason})</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="dirty_delete-1"></a><span class="bold_code">dirty_delete({Tab, Key}) -&gt; ok | exit({aborted, Reason})</span><br></p>
+<div class="REFBODY"><p>
       <a name="dirty_delete"></a>
         <p>Calls <span class="code">mnesia:dirty_delete(Tab, Key)</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="dirty_delete-2"></a><span class="bold_code bc-9">dirty_delete(Tab, Key) -&gt; ok | exit({aborted, Reason})</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="dirty_delete-2"></a><span class="bold_code">dirty_delete(Tab, Key) -&gt; ok | exit({aborted, Reason})</span><br></p>
+<div class="REFBODY"><p>
         <p>Dirty equivalent of the function <span class="code">mnesia:delete/3</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="dirty_delete_object-1"></a><span class="bold_code bc-9">dirty_delete_object(Record)</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="dirty_delete_object-1"></a><span class="bold_code">dirty_delete_object(Record)</span><br></p>
+<div class="REFBODY"><p>
       <a name="dirty_delete_object_1"></a>
         <p>Calls <span class="code">mnesia:dirty_delete_object(Tab, Record)</span>,
           where <span class="code">Tab</span> is <span class="code">element(1, Record)</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="dirty_delete_object-2"></a><span class="bold_code bc-9">dirty_delete_object(Tab, Record)</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="dirty_delete_object-2"></a><span class="bold_code">dirty_delete_object(Tab, Record)</span><br></p>
+<div class="REFBODY"><p>
         <p>Dirty equivalent of the function <span class="code">mnesia:delete_object/3</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="dirty_first-1"></a><span class="bold_code bc-9">dirty_first(Tab) -&gt;  Key | exit({aborted, Reason})</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="dirty_first-1"></a><span class="bold_code">dirty_first(Tab) -&gt;  Key | exit({aborted, Reason})</span><br></p>
+<div class="REFBODY"><p>
       <a name="dirty_first"></a>
         <p>Records in <span class="code">set</span> or <span class="code">bag</span> tables are not ordered. 
           However, there is an ordering of the records that is unknown
@@ -1181,75 +1049,47 @@ mnesia:create_table(person,
           returns the atom <span class="code">'$end_of_table'</span>. It is therefore
           highly undesirable, but not disallowed, to use this atom
           as the key for any user records.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="dirty_index_match_object-2"></a><span class="bold_code bc-9">dirty_index_match_object(Pattern, Pos)</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="dirty_index_match_object-2"></a><span class="bold_code">dirty_index_match_object(Pattern, Pos)</span><br></p>
+<div class="REFBODY"><p>
       <a name="dirty_index_match_object_2"></a>
         <p>Starts
           <span class="code">mnesia:dirty_index_match_object(Tab, Pattern, Pos)</span>,
           where <span class="code">Tab</span> is <span class="code">element(1, Pattern)</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="dirty_index_match_object-3"></a><span class="bold_code bc-9">dirty_index_match_object(Tab, Pattern, Pos)</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="dirty_index_match_object-3"></a><span class="bold_code">dirty_index_match_object(Tab, Pattern, Pos)</span><br></p>
+<div class="REFBODY"><p>
         <p>Dirty equivalent of the function
           <span class="code">mnesia:index_match_object/4</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="dirty_index_read-3"></a><span class="bold_code bc-9">dirty_index_read(Tab, SecondaryKey, Pos)</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="dirty_index_read-3"></a><span class="bold_code">dirty_index_read(Tab, SecondaryKey, Pos)</span><br></p>
+<div class="REFBODY"><p>
       <a name="dirty_index_read"></a>
         <p>Dirty equivalent of the function
           <span class="code">mnesia:index_read/3</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="dirty_last-1"></a><span class="bold_code bc-9">dirty_last(Tab) -&gt; Key | exit({aborted, Reason})</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="dirty_last-1"></a><span class="bold_code">dirty_last(Tab) -&gt; Key | exit({aborted, Reason})</span><br></p>
+<div class="REFBODY"><p>
       <a name="dirty_last"></a>
         <p>Works exactly like <span class="code">mnesia:dirty_first/1</span> but returns
           the last object in Erlang term order for the <span class="code">ordered_set</span>
           table type. For all other table types,
           <span class="code">mnesia:dirty_first/1</span> and
           <span class="code">mnesia:dirty_last/1</span> are synonyms.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="dirty_match_object-1"></a><span class="bold_code bc-9">dirty_match_object(Pattern) -&gt; RecordList | exit({aborted, Reason})</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="dirty_match_object-1"></a><span class="bold_code">dirty_match_object(Pattern) -&gt; RecordList | exit({aborted, Reason})</span><br></p>
+<div class="REFBODY"><p>
       <a name="dirty_match_object_1"></a>
         <p>Calls <span class="code">mnesia:dirty_match_object(Tab, Pattern)</span>,
           where <span class="code">Tab</span> is <span class="code">element(1, Pattern)</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="dirty_match_object-2"></a><span class="bold_code bc-9">dirty_match_object(Tab, Pattern) -&gt; RecordList | exit({aborted, Reason})</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="dirty_match_object-2"></a><span class="bold_code">dirty_match_object(Tab, Pattern) -&gt; RecordList | exit({aborted, Reason})</span><br></p>
+<div class="REFBODY"><p>
         <p>Dirty equivalent of the function
           <span class="code">mnesia:match_object/3</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="dirty_next-2"></a><span class="bold_code bc-9">dirty_next(Tab, Key) -&gt; Key | exit({aborted, Reason})</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="dirty_next-2"></a><span class="bold_code">dirty_next(Tab, Key) -&gt; Key | exit({aborted, Reason})</span><br></p>
+<div class="REFBODY"><p>
       <a name="dirty_next"></a>
         <p>Traverses a table and
           performs operations on all records in the table.
@@ -1259,52 +1099,32 @@ mnesia:create_table(person,
           behavior is undefined if another Erlang process performs write
           operations on the table while it is being traversed with the
           function <span class="code">mnesia:dirty_next/2</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="dirty_prev-2"></a><span class="bold_code bc-9">dirty_prev(Tab, Key) -&gt; Key | exit({aborted, Reason})</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="dirty_prev-2"></a><span class="bold_code">dirty_prev(Tab, Key) -&gt; Key | exit({aborted, Reason})</span><br></p>
+<div class="REFBODY"><p>
       <a name="dirty_prev"></a>
         <p>Works exactly like <span class="code">mnesia:dirty_next/2</span> but returns
           the previous object in Erlang term order for the
           <span class="code">ordered_set</span> table type. For all other table types,
           <span class="code">mnesia:dirty_next/2</span> and
           <span class="code">mnesia:dirty_prev/2</span> are synonyms.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="dirty_read-1"></a><span class="bold_code bc-9">dirty_read({Tab, Key}) -&gt; ValueList | exit({aborted, Reason}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="dirty_read-1"></a><span class="bold_code">dirty_read({Tab, Key}) -&gt; ValueList | exit({aborted, Reason}</span><br></p>
+<div class="REFBODY"><p>
       <a name="dirty_read"></a>
         <p>Calls <span class="code">mnesia:dirty_read(Tab, Key)</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="dirty_read-2"></a><span class="bold_code bc-9">dirty_read(Tab, Key) -&gt; ValueList | exit({aborted, Reason}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="dirty_read-2"></a><span class="bold_code">dirty_read(Tab, Key) -&gt; ValueList | exit({aborted, Reason}</span><br></p>
+<div class="REFBODY"><p>
         <p>Dirty equivalent of the function <span class="code">mnesia:read/3</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="dirty_select-2"></a><span class="bold_code bc-9">dirty_select(Tab, MatchSpec) -&gt; ValueList | exit({aborted, Reason}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="dirty_select-2"></a><span class="bold_code">dirty_select(Tab, MatchSpec) -&gt; ValueList | exit({aborted, Reason}</span><br></p>
+<div class="REFBODY"><p>
       <a name="dirty_select"></a>
         <p>Dirty equivalent of the function <span class="code">mnesia:select/2</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="dirty_slot-2"></a><span class="bold_code bc-9">dirty_slot(Tab, Slot) -&gt; RecordList | exit({aborted, Reason})</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="dirty_slot-2"></a><span class="bold_code">dirty_slot(Tab, Slot) -&gt; RecordList | exit({aborted, Reason})</span><br></p>
+<div class="REFBODY"><p>
       <a name="dirty_slot"></a>
         <p>Traverses a table in a
           manner similar to the function <span class="code">mnesia:dirty_next/2</span>.
@@ -1315,22 +1135,14 @@ mnesia:create_table(person,
           The behavior of this function is undefined if a write
           operation is performed on the table while it is being
           traversed.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="dirty_update_counter-2"></a><span class="bold_code bc-9">dirty_update_counter({Tab, Key}, Incr) -&gt; NewVal | exit({aborted, Reason})</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="dirty_update_counter-2"></a><span class="bold_code">dirty_update_counter({Tab, Key}, Incr) -&gt; NewVal | exit({aborted, Reason})</span><br></p>
+<div class="REFBODY"><p>
       <a name="dirty_update_counter"></a>
         <p>Calls <span class="code">mnesia:dirty_update_counter(Tab, Key, Incr)</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="dirty_update_counter-3"></a><span class="bold_code bc-9">dirty_update_counter(Tab, Key, Incr) -&gt; NewVal | exit({aborted, Reason})</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="dirty_update_counter-3"></a><span class="bold_code">dirty_update_counter(Tab, Key, Incr) -&gt; NewVal | exit({aborted, Reason})</span><br></p>
+<div class="REFBODY"><p>
         <p>Mnesia has no special counter records. However,
           records of the form <span class="code">{Tab, Key, Integer}</span> can be used
           as (possibly disc-resident) counters when <span class="code">Tab</span> is a
@@ -1355,59 +1167,39 @@ mnesia:create_table(person,
         <p>If <span class="code">Key</span> do not exists, a new record is created with
           value <span class="code">Incr</span> if it is larger than 0, otherwise it is
           set to 0.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="dirty_write-1"></a><span class="bold_code bc-9">dirty_write(Record) -&gt; ok | exit({aborted, Reason})</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="dirty_write-1"></a><span class="bold_code">dirty_write(Record) -&gt; ok | exit({aborted, Reason})</span><br></p>
+<div class="REFBODY"><p>
       <a name="dirty_write_1"></a>
         <p>Calls <span class="code">mnesia:dirty_write(Tab, Record)</span>,
           where <span class="code">Tab</span> is <span class="code">element(1, Record)</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="dirty_write-2"></a><span class="bold_code bc-9">dirty_write(Tab, Record) -&gt; ok | exit({aborted, Reason})</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="dirty_write-2"></a><span class="bold_code">dirty_write(Tab, Record) -&gt; ok | exit({aborted, Reason})</span><br></p>
+<div class="REFBODY"><p>
         <p>Dirty equivalent of the function <span class="code">mnesia:write/3</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="dump_log-0"></a><span class="bold_code bc-9">dump_log() -&gt; dumped</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="dump_log-0"></a><span class="bold_code">dump_log() -&gt; dumped</span><br></p>
+<div class="REFBODY"><p>
       <a name="dump_log"></a>
         <p>Performs a user-initiated dump of the local log file.
           This is usually not necessary, as Mnesia by default
           manages this automatically. See configuration parameters
-          <span class="bold_code data-type-ref"><a href="#dump_log_time_threshold">dump_log_time_threshold</a></span>
+          <span class="bold_code"><a href="#dump_log_time_threshold">dump_log_time_threshold</a></span>
           and
-          <span class="bold_code data-type-ref"><a href="#dump_log_write_threshold">dump_log_write_threshold</a></span>.
+          <span class="bold_code"><a href="#dump_log_write_threshold">dump_log_write_threshold</a></span>.
           </p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="dump_tables-1"></a><span class="bold_code bc-9">dump_tables(TabList) -&gt; {atomic, ok} | {aborted, Reason}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="dump_tables-1"></a><span class="bold_code">dump_tables(TabList) -&gt; {atomic, ok} | {aborted, Reason}</span><br></p>
+<div class="REFBODY"><p>
       <a name="dump_tables"></a>
         <p>Dumps a set of <span class="code">ram_copies</span> tables
           to disc. The next time the system is started, these tables
           are initiated with the data found in the files that are the
           result of this dump. None of the tables can have
           disc-resident replicas.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="dump_to_textfile-1"></a><span class="bold_code bc-9">dump_to_textfile(Filename)</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="dump_to_textfile-1"></a><span class="bold_code">dump_to_textfile(Filename)</span><br></p>
+<div class="REFBODY"><p>
       <a name="dump_to_textfile"></a>
         <p>Dumps all local tables of a Mnesia system into a
           text file, which can be edited (by a normal text editor)
@@ -1415,13 +1207,9 @@ mnesia:create_table(person,
           <span class="code">mnesia:load_textfile/1</span>. Only use this function for
           educational purposes. Use other functions to deal with real
           backups.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="error_description-1"></a><span class="bold_code bc-9">error_description(Error) -&gt; String</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="error_description-1"></a><span class="bold_code">error_description(Error) -&gt; String</span><br></p>
+<div class="REFBODY"><p>
       <a name="error_description"></a>
         <p>All Mnesia transactions, including all the schema
           update functions, either return value <span class="code">{atomic, Val}</span>
@@ -1501,22 +1289,18 @@ mnesia:create_table(person,
           and the method to retrieve more detailed error information:</p>
           <ul>
             <li>The function
-             <span class="bold_code data-type-ref"><a href="#create_table-2">mnesia:create_table(bar, [{attributes, 3.14}])</a></span>
+             <span class="bold_code"><a href="#create_table-2">mnesia:create_table(bar, [{attributes, 3.14}])</a></span>
              returns the tuple <span class="code">{aborted,Reason}</span>, where <span class="code">Reason</span> is
              the tuple <span class="code">{bad_type,bar,3.14000}</span>.</li>
             <li>The function
-             <span class="bold_code data-type-ref"><a href="#error_description-1">mnesia:error_description(Reason)</a></span>
+             <span class="bold_code"><a href="#error_description-1">mnesia:error_description(Reason)</a></span>
              returns the term <span class="code">{"Bad type on some provided
              arguments",bar,3.14000}</span>, which is an error description
              suitable for display.</li>
       </ul>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="ets-2"></a><span class="bold_code bc-9">ets(Fun, [, Args]) -&gt; ResultOfFun | exit(Reason)</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="ets-2"></a><span class="bold_code">ets(Fun, [, Args]) -&gt; ResultOfFun | exit(Reason)</span><br></p>
+<div class="REFBODY"><p>
       <a name="ets"></a>
         <p>Calls the <span class="code">Fun</span> in a raw context that is not protected by
           a transaction. The Mnesia function call is performed in
@@ -1530,13 +1314,9 @@ mnesia:create_table(person,
           <span class="code">mnesia:activity/4</span> and the User's Guide.</p>
         <p>Notice that calling (nesting) a <span class="code">mnesia:ets</span> inside a
           transaction-context inherits the transaction semantics.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="first-1"></a><span class="bold_code bc-9">first(Tab) -&gt;  Key | transaction abort</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="first-1"></a><span class="bold_code">first(Tab) -&gt;  Key | transaction abort</span><br></p>
+<div class="REFBODY"><p>
       <a name="first"></a>
         <p>Records in <span class="code">set</span> or <span class="code">bag</span> tables are not ordered.
           However, there is an ordering of the records that is unknown
@@ -1546,13 +1326,9 @@ mnesia:create_table(person,
           returns the atom <span class="code">'$end_of_table'</span>. It is therefore
           highly undesirable, but not disallowed, to use this atom
           as the key for any user records.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="foldl-3"></a><span class="bold_code bc-9">foldl(Function, Acc, Table) -&gt; NewAcc | transaction abort</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="foldl-3"></a><span class="bold_code">foldl(Function, Acc, Table) -&gt; NewAcc | transaction abort</span><br></p>
+<div class="REFBODY"><p>
       <a name="foldl"></a>
         <p>Iterates over the table <span class="code">Table</span> and calls
           <span class="code">Function(Record, NewAcc)</span> for each <span class="code">Record</span> in
@@ -1560,25 +1336,17 @@ mnesia:create_table(person,
           as the second argument in the next call to <span class="code">Function</span>.</p>
         <p><span class="code">foldl</span> returns the same term as the last call to
           <span class="code">Function</span> returned.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="foldr-3"></a><span class="bold_code bc-9">foldr(Function, Acc, Table) -&gt; NewAcc | transaction abort</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="foldr-3"></a><span class="bold_code">foldr(Function, Acc, Table) -&gt; NewAcc | transaction abort</span><br></p>
+<div class="REFBODY"><p>
       <a name="foldr"></a>
         <p>Works exactly like <span class="code">foldl/3</span> but iterates the table
           in the opposite order for the <span class="code">ordered_set</span> table type.
           For all other table types, <span class="code">foldr/3</span> and
           <span class="code">foldl/3</span> are synonyms.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="force_load_table-1"></a><span class="bold_code bc-9">force_load_table(Tab) -&gt; yes | ErrorDescription</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="force_load_table-1"></a><span class="bold_code">force_load_table(Tab) -&gt; yes | ErrorDescription</span><br></p>
+<div class="REFBODY"><p>
       <a name="force_load_table"></a>
         <p>The Mnesia algorithm for table load can lead to a
           situation where a table cannot be loaded. This situation
@@ -1591,24 +1359,16 @@ mnesia:create_table(person,
           transaction effects are lost with an inconsistent database as
           result, but for some applications high availability is more
           important than consistent data.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="index_match_object-2"></a><span class="bold_code bc-9">index_match_object(Pattern, Pos) -&gt; transaction abort | ObjList</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="index_match_object-2"></a><span class="bold_code">index_match_object(Pattern, Pos) -&gt; transaction abort | ObjList</span><br></p>
+<div class="REFBODY"><p>
       <a name="index_match_object_2"></a>
         <p>Starts
           <span class="code">mnesia:index_match_object(Tab, Pattern, Pos, read)</span>,
           where <span class="code">Tab</span> is <span class="code">element(1, Pattern)</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="index_match_object-4"></a><span class="bold_code bc-9">index_match_object(Tab, Pattern, Pos, LockKind) -&gt; transaction abort | ObjList</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="index_match_object-4"></a><span class="bold_code">index_match_object(Tab, Pattern, Pos, LockKind) -&gt; transaction abort | ObjList</span><br></p>
+<div class="REFBODY"><p>
       <a name="index_match_object_4"></a>
         <p>In a manner similar to the function <span class="code">mnesia:index_read/3</span>,
           any index information can be used when trying to match records.
@@ -1635,13 +1395,9 @@ mnesia:create_table(person,
           transaction-context, it acquires a lock of type
           <span class="code">LockKind</span> on the entire table or on a single record.
           Currently, the lock type <span class="code">read</span> is supported.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="index_read-3"></a><span class="bold_code bc-9">index_read(Tab, SecondaryKey, Pos) -&gt; transaction abort | RecordList</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="index_read-3"></a><span class="bold_code">index_read(Tab, SecondaryKey, Pos) -&gt; transaction abort | RecordList</span><br></p>
+<div class="REFBODY"><p>
       <a name="index_read"></a>
         <p>Assume that there is an index on position <span class="code">Pos</span> for a
           certain record type. This function can be used to read the
@@ -1656,44 +1412,28 @@ mnesia:create_table(person,
           For details, see <span class="code">mnesia:activity/4</span>. In
           transaction-context, it acquires a read lock on the entire
           table.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="info-0"></a><span class="bold_code bc-9">info() -&gt; ok</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="info-0"></a><span class="bold_code">info() -&gt; ok</span><br></p>
+<div class="REFBODY"><p>
       <a name="info"></a>
         <p>Prints system information on the terminal.
           This function can be used even if Mnesia is not
           started. However, more information is displayed if
           Mnesia is started.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="install_fallback-1"></a><span class="bold_code bc-9">install_fallback(Opaque) -&gt; ok | {error,Reason}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="install_fallback-1"></a><span class="bold_code">install_fallback(Opaque) -&gt; ok | {error,Reason}</span><br></p>
+<div class="REFBODY"><p>
       <a name="install_fallback_1"></a>
         <p>Calls <span class="code">mnesia:install_fallback(Opaque, Args)</span>, where
           <span class="code">Args</span> is <span class="code">[{scope, global}]</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="install_fallback-1"></a><span class="bold_code bc-9">install_fallback(Opaque), BackupMod) -&gt; ok | {error,Reason}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="install_fallback-1"></a><span class="bold_code">install_fallback(Opaque), BackupMod) -&gt; ok | {error,Reason}</span><br></p>
+<div class="REFBODY"><p>
         <p>Calls <span class="code">mnesia:install_fallback(Opaque, Args)</span>, where
           <span class="code">Args</span> is <span class="code">[{scope, global}, {module, BackupMod}]</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="install_fallback-2"></a><span class="bold_code bc-9">install_fallback(Opaque, Args) -&gt; ok | {error,Reason}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="install_fallback-2"></a><span class="bold_code">install_fallback(Opaque, Args) -&gt; ok | {error,Reason}</span><br></p>
+<div class="REFBODY"><p>
         <p>Installs a backup as fallback. The fallback is used to
           restore the database at the next startup. Installation of
           fallbacks requires Erlang to be operational on all the
@@ -1746,35 +1486,23 @@ mnesia:create_table(person,
               the same backup is installed on more than one directory.</p>
           </li>
         </ul>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="is_transaction-0"></a><span class="bold_code bc-9">is_transaction() -&gt; boolean</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="is_transaction-0"></a><span class="bold_code">is_transaction() -&gt; boolean</span><br></p>
+<div class="REFBODY"><p>
       <a name="is_transaction"></a>
         <p>When this function is executed inside a transaction-context,
           it returns <span class="code">true</span>, otherwise <span class="code">false</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="last-1"></a><span class="bold_code bc-9">last(Tab) -&gt; Key | transaction abort</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="last-1"></a><span class="bold_code">last(Tab) -&gt; Key | transaction abort</span><br></p>
+<div class="REFBODY"><p>
         <p>Works exactly like
           <span class="code">mnesia:first/1</span>, but returns the last object in
           Erlang term order for the <span class="code">ordered_set</span> table type.
           For all other table types, <span class="code">mnesia:first/1</span> and
           <span class="code">mnesia:last/1</span> are synonyms.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="load_textfile-1"></a><span class="bold_code bc-9">load_textfile(Filename)</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="load_textfile-1"></a><span class="bold_code">load_textfile(Filename)</span><br></p>
+<div class="REFBODY"><p>
       <a name="load_textfile"></a>
         <p>Loads a series of definitions and data found in the
           text file (generated with <span class="code">mnesia:dump_to_textfile/1</span>)
@@ -1782,13 +1510,9 @@ mnesia:create_table(person,
           and possibly creates a new schema. This function is
           intended for educational purposes only. It is recommended
           to use other functions to deal with real backups.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="lock-2"></a><span class="bold_code bc-9">lock(LockItem, LockKind) -&gt; Nodes | ok | transaction abort</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="lock-2"></a><span class="bold_code">lock(LockItem, LockKind) -&gt; Nodes | ok | transaction abort</span><br></p>
+<div class="REFBODY"><p>
       <a name="lock"></a>
         <p>Write locks are normally acquired on all nodes where a
           replica of the table resides (and is active). Read locks
@@ -1872,23 +1596,15 @@ mnesia:create_table(person,
           For details, see <span class="code">mnesia:activity/4</span>. In
           transaction-context, it acquires locks, otherwise it
           ignores the request.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="match_object-1"></a><span class="bold_code bc-9">match_object(Pattern) -&gt; transaction abort | RecList</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="match_object-1"></a><span class="bold_code">match_object(Pattern) -&gt; transaction abort | RecList</span><br></p>
+<div class="REFBODY"><p>
       <a name="match_object_1"></a>
         <p>Calls <span class="code">mnesia:match_object(Tab, Pattern, read)</span>, where
           <span class="code">Tab</span> is <span class="code">element(1, Pattern)</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="match_object-3"></a><span class="bold_code bc-9">match_object(Tab, Pattern, LockKind) -&gt; transaction abort | RecList</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="match_object-3"></a><span class="bold_code">match_object(Tab, Pattern, LockKind) -&gt; transaction abort | RecList</span><br></p>
+<div class="REFBODY"><p>
       <a name="match_object_3"></a>
         <p>Takes a pattern with "don't care" variables
           denoted as a <span class="code">'_'</span> parameter. This function returns
@@ -1908,13 +1624,9 @@ mnesia:create_table(person,
           transaction-context, it acquires a lock of type
           <span class="code">LockKind</span> on the entire table or a single record.
           Currently, the lock type <span class="code">read</span> is supported.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="move_table_copy-3"></a><span class="bold_code bc-9">move_table_copy(Tab, From, To) -&gt; {aborted, Reason} | {atomic, ok}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="move_table_copy-3"></a><span class="bold_code">move_table_copy(Tab, From, To) -&gt; {aborted, Reason} | {atomic, ok}</span><br></p>
+<div class="REFBODY"><p>
       <a name="move_table_copy"></a>
         <p>Moves the copy of table <span class="code">Tab</span> from node
           <span class="code">From</span> to node <span class="code">To</span>.</p>
@@ -1923,55 +1635,35 @@ mnesia:create_table(person,
           transactions can still read and write in
           the table while it is being moved.</p>
         <p>This function cannot be used on <span class="code">local_content</span> tables.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="next-2"></a><span class="bold_code bc-9">next(Tab, Key) -&gt; Key | transaction abort</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="next-2"></a><span class="bold_code">next(Tab, Key) -&gt; Key | transaction abort</span><br></p>
+<div class="REFBODY"><p>
       <a name="next"></a>
         <p>Traverses a table and
           performs operations on all records in the table. When
           the end of the table is reached, the special key
           <span class="code">'$end_of_table'</span> is returned. Otherwise the function
           returns a key that can be used to read the actual record.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="prev-2"></a><span class="bold_code bc-9">prev(Tab, Key) -&gt; Key | transaction abort</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="prev-2"></a><span class="bold_code">prev(Tab, Key) -&gt; Key | transaction abort</span><br></p>
+<div class="REFBODY"><p>
         <p>Works exactly like
           <span class="code">mnesia:next/2</span>, but returns the previous object in
           Erlang term order for the <span class="code">ordered_set</span> table type.
           For all other table types, <span class="code">mnesia:next/2</span> and
           <span class="code">mnesia:prev/2</span> are synonyms.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="read-1"></a><span class="bold_code bc-9">read({Tab, Key}) -&gt; transaction abort | RecordList</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="read-1"></a><span class="bold_code">read({Tab, Key}) -&gt; transaction abort | RecordList</span><br></p>
+<div class="REFBODY"><p>
       <a name="read_2"></a>
         <p>Calls function <span class="code">mnesia:read(Tab, Key, read)</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="read-2"></a><span class="bold_code bc-9">read(Tab, Key) -&gt; transaction abort | RecordList</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="read-2"></a><span class="bold_code">read(Tab, Key) -&gt; transaction abort | RecordList</span><br></p>
+<div class="REFBODY"><p>
         <p>Calls function <span class="code">mnesia:read(Tab, Key, read)</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="read-3"></a><span class="bold_code bc-9">read(Tab, Key, LockKind) -&gt; transaction abort | RecordList</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="read-3"></a><span class="bold_code">read(Tab, Key, LockKind) -&gt; transaction abort | RecordList</span><br></p>
+<div class="REFBODY"><p>
       <a name="read_3"></a>
         <p>Reads all records from table <span class="code">Tab</span> with
           key <span class="code">Key</span>. This function has the same semantics
@@ -1991,23 +1683,15 @@ mnesia:create_table(person,
           table, it is checked as soon as a write lock is
           attempted. This can be used to end quickly if the
           majority condition is not met.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="read_lock_table-1"></a><span class="bold_code bc-9">read_lock_table(Tab) -&gt; ok | transaction abort</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="read_lock_table-1"></a><span class="bold_code">read_lock_table(Tab) -&gt; ok | transaction abort</span><br></p>
+<div class="REFBODY"><p>
       <a name="read_lock_table"></a>
         <p>Calls the function
           <span class="code">mnesia:lock({table, Tab}, read)</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="report_event-1"></a><span class="bold_code bc-9">report_event(Event) -&gt; ok</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="report_event-1"></a><span class="bold_code">report_event(Event) -&gt; ok</span><br></p>
+<div class="REFBODY"><p>
       <a name="report_event"></a>
         <p>When tracing a system of Mnesia applications it is
           useful to be able to interleave Mnesia own events with
@@ -2020,13 +1704,9 @@ mnesia:create_table(person,
           any term and generates a <span class="code">{mnesia_user, Event}</span> event
           for any processes that subscribe to Mnesia system
           events.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="restore-2"></a><span class="bold_code bc-9">restore(Opaque, Args) -&gt; {atomic, RestoredTabs} |{aborted, Reason}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="restore-2"></a><span class="bold_code">restore(Opaque, Args) -&gt; {atomic, RestoredTabs} |{aborted, Reason}</span><br></p>
+<div class="REFBODY"><p>
       <a name="restore"></a>
         <p>With this function, tables can be restored online from a
           backup without restarting Mnesia.
@@ -2086,65 +1766,41 @@ mnesia:create_table(person,
           it it not always possible to restore it online. In such
           cases, restore the old database by installing a
           fallback and then restart.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="s_delete-1"></a><span class="bold_code bc-9">s_delete({Tab, Key}) -&gt; ok | transaction abort</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="s_delete-1"></a><span class="bold_code">s_delete({Tab, Key}) -&gt; ok | transaction abort</span><br></p>
+<div class="REFBODY"><p>
       <a name="s_delete"></a>
         <p>Calls the function
           <span class="code">mnesia:delete(Tab, Key, sticky_write)</span></p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="s_delete_object-1"></a><span class="bold_code bc-9">s_delete_object(Record) -&gt; ok | transaction abort</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="s_delete_object-1"></a><span class="bold_code">s_delete_object(Record) -&gt; ok | transaction abort</span><br></p>
+<div class="REFBODY"><p>
       <a name="s_delete_object"></a>
         <p>Calls the function
           <span class="code">mnesia:delete_object(Tab, Record, sticky_write)</span>,
           where <span class="code">Tab</span> is <span class="code">element(1, Record)</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="s_write-1"></a><span class="bold_code bc-9">s_write(Record) -&gt; ok | transaction abort</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="s_write-1"></a><span class="bold_code">s_write(Record) -&gt; ok | transaction abort</span><br></p>
+<div class="REFBODY"><p>
       <a name="s_write"></a>
         <p>Calls the function
           <span class="code">mnesia:write(Tab, Record, sticky_write)</span>,
           where <span class="code">Tab</span> is <span class="code">element(1, Record)</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="schema-0"></a><span class="bold_code bc-9">schema() -&gt; ok</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="schema-0"></a><span class="bold_code">schema() -&gt; ok</span><br></p>
+<div class="REFBODY"><p>
         <p>Prints information about all table definitions on the terminal.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="schema-1"></a><span class="bold_code bc-9">schema(Tab) -&gt; ok</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="schema-1"></a><span class="bold_code">schema(Tab) -&gt; ok</span><br></p>
+<div class="REFBODY"><p>
         <p>Prints information about one table definition on the terminal.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="select-2"></a><span class="bold_code bc-9">select(Tab, MatchSpec [, Lock]) -&gt; transaction abort | [Object]</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="select-2"></a><span class="bold_code">select(Tab, MatchSpec [, Lock]) -&gt; transaction abort | [Object]</span><br></p>
+<div class="REFBODY"><p>
       <a name="select_2_3"></a>
         <p>Matches the objects in table <span class="code">Tab</span> using a
           <span class="code">match_spec</span> as described in the
-          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','ets.html#select-3');">ets:select/3</a></span>.
+          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','ets.html#select-3');">ets:select/3</a></span>.
           Optionally a lock
           <span class="code">read</span> or <span class="code">write</span> can be given as the third
           argument. Default is <span class="code">read</span>. The return value depends
@@ -2163,8 +1819,8 @@ mnesia:create_table(person,
           <li><span class="code">Result = "Term construct"</span></li>
         </ul>
         <p>For a complete description of <span class="code">select</span>, see the
-          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','index.html');">ERTS</a></span> User's Guide and the
-          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','ets.html');">ets</a></span> manual page in
+          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','index.html');">ERTS</a></span> User's Guide and the
+          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','ets.html');">ets</a></span> manual page in
           STDLIB.</p>
         <p>For example, to find the names of all male persons older
           than 30 in table <span class="code">Tab</span>:</p>
@@ -2173,17 +1829,13 @@ MatchHead = #person{name='$1', sex=male, age='$2', _='_'},
 Guard = {'&gt;', '$2', 30},
 Result = '$1',
 mnesia:select(Tab,[{MatchHead, [Guard], [Result]}]),</pre></div>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="select-4"></a><span class="bold_code bc-9">select(Tab, MatchSpec, NObjects, Lock) -&gt; transaction abort | {[Object],Cont} | '$end_of_table'</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="select-4"></a><span class="bold_code">select(Tab, MatchSpec, NObjects, Lock) -&gt; transaction abort | {[Object],Cont} | '$end_of_table'</span><br></p>
+<div class="REFBODY"><p>
       <a name="select_4"></a>
         <p>Matches the objects in table <span class="code">Tab</span> using a
           <span class="code">match_spec</span> as described in the
-          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','index.html');">ERTS</a></span> User's Guide,
+          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','index.html');">ERTS</a></span> User's Guide,
           and returns a chunk of terms and a continuation.
           The wanted number of returned terms is specified by
           argument <span class="code">NObjects</span>. The lock argument can be
@@ -2197,37 +1849,25 @@ mnesia:select(Tab,[{MatchHead, [Guard], [Result]}]),</pre></div>
           <span class="code">mnesia:select</span>. For efficiency, <span class="code">NObjects</span> is
           a recommendation only and the result can contain anything
           from an empty list to all available results.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="select-1"></a><span class="bold_code bc-9">select(Cont) -&gt; transaction abort | {[Object],Cont} | '$end_of_table'</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="select-1"></a><span class="bold_code">select(Cont) -&gt; transaction abort | {[Object],Cont} | '$end_of_table'</span><br></p>
+<div class="REFBODY"><p>
         <p>Selects more objects with the match specification initiated
           by <span class="code">mnesia:select/4</span>.</p>
         <p>Notice that any modifying operations, that is,
           <span class="code">mnesia:write</span> or <span class="code">mnesia:delete</span>, that are done
           between the <span class="code">mnesia:select/4</span> and <span class="code">mnesia:select/1</span>
           calls are not visible in the result.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="set_debug_level-1"></a><span class="bold_code bc-9">set_debug_level(Level) -&gt; OldLevel</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="set_debug_level-1"></a><span class="bold_code">set_debug_level(Level) -&gt; OldLevel</span><br></p>
+<div class="REFBODY"><p>
       <a name="set_debug_level"></a>
         <p>Changes the internal debug level of Mnesia.
           For details, see
-          <span class="bold_code data-type-ref"><a href="#configuration_parameters">Section Configuration Parameters</a></span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="set_master_nodes-1"></a><span class="bold_code bc-9">set_master_nodes(MasterNodes) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+          <span class="bold_code"><a href="#configuration_parameters">Section Configuration Parameters</a></span>.</p>
+      </p></div>
+    <p><a name="set_master_nodes-1"></a><span class="bold_code">set_master_nodes(MasterNodes) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY"><p>
       <a name="set_master_nodes_1"></a>
         <p>For each table Mnesia determines its replica nodes
           (<span class="code">TabNodes</span>) and starts
@@ -2235,13 +1875,9 @@ mnesia:select(Tab,[{MatchHead, [Guard], [Result]}]),</pre></div>
           <span class="code">TabMasterNodes</span> is the intersection of
           <span class="code">MasterNodes</span> and <span class="code">TabNodes</span>. For semantics, see
           <span class="code">mnesia:set_master_nodes/2</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="set_master_nodes-2"></a><span class="bold_code bc-9">set_master_nodes(Tab, MasterNodes) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="set_master_nodes-2"></a><span class="bold_code">set_master_nodes(Tab, MasterNodes) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY"><p>
       <a name="set_master_nodes_2"></a>
         <p>If the application detects a
           communication failure (in a potentially partitioned network)
@@ -2261,113 +1897,86 @@ mnesia:select(Tab,[{MatchHead, [Guard], [Result]}]),</pre></div>
         <p>The database can also become inconsistent if
           configuration parameter <span class="code">max_wait_for_decision</span> is used
           or if <span class="code">mnesia:force_load_table/1</span> is used.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="snmp_close_table-1"></a><span class="bold_code bc-9">snmp_close_table(Tab) -&gt; {aborted, R} | {atomic, ok}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="snmp_close_table-1"></a><span class="bold_code">snmp_close_table(Tab) -&gt; {aborted, R} | {atomic, ok}</span><br></p>
+<div class="REFBODY"><p>
         <p>Removes the possibility for SNMP to manipulate the table.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="snmp_get_mnesia_key-2"></a><span class="bold_code bc-9">snmp_get_mnesia_key(Tab, RowIndex) -&gt; {ok, Key} | undefined</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+      </p></div>
+    <p><a name="snmp_get_mnesia_key-2"></a><span class="bold_code">snmp_get_mnesia_key(Tab, RowIndex) -&gt; {ok, Key} | undefined</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tab ::= atom()</span><br>
+<span class="bold_code">Tab ::= atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">RowIndex ::= [integer()]</span><br>
+<span class="bold_code">RowIndex ::= [integer()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Key ::= key() | {key(), key(), ...}</span><br>
+<span class="bold_code">Key ::= key() | {key(), key(), ...}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">key() ::= integer() | string() | [integer()]</span><br>
+<span class="bold_code">key() ::= integer() | string() | [integer()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Transforms an SNMP index to the corresponding Mnesia
           key. If the SNMP table has multiple keys, the key is a tuple
           of the key columns.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="snmp_get_next_index-2"></a><span class="bold_code bc-9">snmp_get_next_index(Tab, RowIndex) -&gt; {ok, NextIndex} | endOfTable</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="snmp_get_next_index-2"></a><span class="bold_code">snmp_get_next_index(Tab, RowIndex) -&gt; {ok, NextIndex} | endOfTable</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tab ::= atom()</span><br>
+<span class="bold_code">Tab ::= atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">RowIndex ::= [integer()]</span><br>
+<span class="bold_code">RowIndex ::= [integer()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">NextIndex ::= [integer()]</span><br>
+<span class="bold_code">NextIndex ::= [integer()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p><span class="code">RowIndex</span> can specify a non-existing row.
           Specifically, it can be the empty list. Returns the index
           of the next lexicographical row. If <span class="code">RowIndex</span> is the
           empty list, this function returns the index of the first row
           in the table.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="snmp_get_row-2"></a><span class="bold_code bc-9">snmp_get_row(Tab, RowIndex) -&gt; {ok, Row} | undefined</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="snmp_get_row-2"></a><span class="bold_code">snmp_get_row(Tab, RowIndex) -&gt; {ok, Row} | undefined</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tab ::= atom()</span><br>
+<span class="bold_code">Tab ::= atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">RowIndex ::= [integer()]</span><br>
+<span class="bold_code">RowIndex ::= [integer()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Row ::= record(Tab)</span><br>
+<span class="bold_code">Row ::= record(Tab)</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Reads a row by its SNMP index. This index is specified as
           an SNMP Object Identifier, a list of integers.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="snmp_open_table-2"></a><span class="bold_code bc-9">snmp_open_table(Tab, SnmpStruct) -&gt; {aborted, R} | {atomic, ok}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="snmp_open_table-2"></a><span class="bold_code">snmp_open_table(Tab, SnmpStruct) -&gt; {aborted, R} | {atomic, ok}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tab ::= atom()</span><br>
+<span class="bold_code">Tab ::= atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">SnmpStruct ::= [{key, type()}]</span><br>
+<span class="bold_code">SnmpStruct ::= [{key, type()}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">type() ::= type_spec() | {type_spec(), type_spec(), ...}</span><br>
+<span class="bold_code">type() ::= type_spec() | {type_spec(), type_spec(), ...}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">type_spec() ::= fix_string | string | integer</span><br>
+<span class="bold_code">type_spec() ::= fix_string | string | integer</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>A direct one-to-one mapping can be established between
           Mnesia tables and SNMP tables. Many telecommunication
           applications are controlled and monitored by the SNMP
@@ -2411,13 +2020,8 @@ mnesia:create_table(employee,
         <p>Notice that only the lexicographical SNMP ordering is
           implemented in Mnesia, not the actual SNMP monitoring.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="start-0"></a><span class="bold_code bc-9">start() -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="start-0"></a><span class="bold_code">start() -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY"><p>
       <a name="start"></a>
         <p>The startup procedure for a set of Mnesia nodes is a
           fairly complicated operation. A Mnesia system consists
@@ -2447,34 +2051,22 @@ mnesia:create_table(employee,
           system. If no such command-line option is found, the name
           of the directory defaults to <span class="code">Mnesia.Node</span>.</p>
         <p><span class="code">application:start(mnesia)</span> can also be used.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="stop-0"></a><span class="bold_code bc-9">stop() -&gt; stopped</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="stop-0"></a><span class="bold_code">stop() -&gt; stopped</span><br></p>
+<div class="REFBODY"><p>
       <a name="stop"></a>
         <p>Stops Mnesia locally on the current node.</p>
         <p><span class="code">application:stop(mnesia)</span> can also be used.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="subscribe-1"></a><span class="bold_code bc-9">subscribe(EventCategory) -&gt; {ok, Node} | {error, Reason}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="subscribe-1"></a><span class="bold_code">subscribe(EventCategory) -&gt; {ok, Node} | {error, Reason}</span><br></p>
+<div class="REFBODY"><p>
       <a name="subscribe"></a>
         <p>Ensures that a copy of all events of type
           <span class="code">EventCategory</span> is sent to the caller. The available
-          event types are described in the <span class="bold_code bc-15"><a href="Mnesia_chap5.html#event_handling">User's Guide</a></span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="sync_dirty-2"></a><span class="bold_code bc-9">sync_dirty(Fun, [, Args]) -&gt; ResultOfFun | exit(Reason)</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+          event types are described in the <span class="bold_code"><a href="Mnesia_chap5.html#event_handling">User's Guide</a></span>.</p>
+      </p></div>
+    <p><a name="sync_dirty-2"></a><span class="bold_code">sync_dirty(Fun, [, Args]) -&gt; ResultOfFun | exit(Reason)</span><br></p>
+<div class="REFBODY"><p>
       <a name="sync_dirty"></a>
         <p>Calls the <span class="code">Fun</span> in a context that is not protected by
           a transaction. The Mnesia function calls performed in
@@ -2485,24 +2077,16 @@ mnesia:create_table(employee,
           the updates to be performed on all active replicas before
           the <span class="code">Fun</span> returns. For details, see
           <span class="code">mnesia:activity/4</span> and the User's Guide.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="sync_log-0"></a><span class="bold_code bc-9">sync_log() -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="sync_log-0"></a><span class="bold_code">sync_log() -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY"><p>
         <p>Ensures that the local transaction log file is synced to disk.
           On a single node system, data written to disk tables since the
           last dump can be lost if there is a power outage.
-          See <span class="bold_code data-type-ref"><a href="#dump_log-0">dump_log/0</a></span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="sync_transaction-3"></a><span class="bold_code bc-9">sync_transaction(Fun, [[, Args], Retries]) -&gt; {aborted, Reason} | {atomic, ResultOfFun}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+          See <span class="bold_code"><a href="#dump_log-0">dump_log/0</a></span>.</p>
+      </p></div>
+    <p><a name="sync_transaction-3"></a><span class="bold_code">sync_transaction(Fun, [[, Args], Retries]) -&gt; {aborted, Reason} | {atomic, ResultOfFun}</span><br></p>
+<div class="REFBODY"><p>
       <a name="sync_transaction"></a>
         <p>Waits until data have been committed and
           logged to disk (if disk is used) on every involved node before
@@ -2510,13 +2094,9 @@ mnesia:create_table(employee,
           <span class="code">mnesia:transaction/[1,2,3]</span>.</p>
         <p>This functionality can be used to avoid that one process
           overloads a database on another node.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="system_info-1"></a><span class="bold_code bc-9">system_info(InfoKey) -&gt; Info | exit({aborted, Reason})</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="system_info-1"></a><span class="bold_code">system_info(InfoKey) -&gt; Info | exit({aborted, Reason})</span><br></p>
+<div class="REFBODY"><p>
       <a name="system_info"></a>
         <p>Returns information about the Mnesia system, such as
           transaction statistics, <span class="code">db_nodes</span>, and configuration
@@ -2698,16 +2278,12 @@ mnesia:create_table(employee,
               version number of Mnesia.</p>
           </li>
         </ul>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="table-1"></a><span class="bold_code bc-9">table(Tab [,[Option]]) -&gt; QueryHandle</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="table-1"></a><span class="bold_code">table(Tab [,[Option]]) -&gt; QueryHandle</span><br></p>
+<div class="REFBODY"><p>
       <a name="table"></a>
         <p>Returns a Query List Comprehension (QLC) query handle,
-          see the <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','qlc.html');">qlc(3)</a></span>
+          see the <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','qlc.html');">qlc(3)</a></span>
           manual page in STDLIB. The module <span class="code">qlc</span>
           implements a query language that can use Mnesia
           tables as sources of data. Calling
@@ -2757,13 +2333,9 @@ mnesia:create_table(employee,
               expressed within the syntax provided by QLC.</p>
           </li>
         </ul>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="table_info-2"></a><span class="bold_code bc-9">table_info(Tab, InfoKey) -&gt; Info | exit({aborted, Reason})</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="table_info-2"></a><span class="bold_code">table_info(Tab, InfoKey) -&gt; Info | exit({aborted, Reason})</span><br></p>
+<div class="REFBODY"><p>
       <a name="table_info"></a>
         <p>The <span class="code">table_info/2</span> function takes two arguments.
           The first is the name of a Mnesia table.
@@ -2910,13 +2482,9 @@ mnesia:create_table(employee,
               all record fields have value <span class="code">'_'</span>.</p>
           </li>
         </ul>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="transaction-2"></a><span class="bold_code bc-9">transaction(Fun [[, Args], Retries]) -&gt; {aborted, Reason} | {atomic, ResultOfFun}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="transaction-2"></a><span class="bold_code">transaction(Fun [[, Args], Retries]) -&gt; {aborted, Reason} | {atomic, ResultOfFun}</span><br></p>
+<div class="REFBODY"><p>
       <a name="transaction"></a>
         <p>Executes the functional object <span class="code">Fun</span>
           with arguments <span class="code">Args</span> as a transaction.</p>
@@ -2979,13 +2547,9 @@ raise(Name, Amount) -&gt;
           restart as specified in <span class="code">Retries</span>. <span class="code">Retries</span> must
           be an integer greater than 0 or the atom <span class="code">infinity</span>.
           Default is <span class="code">infinity</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="transform_table-4"></a><span class="bold_code bc-9">transform_table(Tab, Fun, NewAttributeList, NewRecordName) -&gt; {aborted, R} | {atomic, ok}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="transform_table-4"></a><span class="bold_code">transform_table(Tab, Fun, NewAttributeList, NewRecordName) -&gt; {aborted, R} | {atomic, ok}</span><br></p>
+<div class="REFBODY"><p>
       <a name="transform_table_4"></a>
         <p>Applies argument <span class="code">Fun</span> to all
           records in the table. <span class="code">Fun</span> is a function that takes a
@@ -3001,23 +2565,15 @@ raise(Name, Amount) -&gt;
           <span class="code">record_name</span> is changed, only the Mnesia
           functions that use table identifiers work, for example,
           <span class="code">mnesia:write/3</span> works, but not <span class="code">mnesia:write/1</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="transform_table-3"></a><span class="bold_code bc-9">transform_table(Tab, Fun, NewAttributeList) -&gt; {aborted, R} | {atomic, ok}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="transform_table-3"></a><span class="bold_code">transform_table(Tab, Fun, NewAttributeList) -&gt; {aborted, R} | {atomic, ok}</span><br></p>
+<div class="REFBODY"><p>
         <p>Calls <span class="code">mnesia:transform_table(Tab, Fun,
           NewAttributeList, RecName)</span>, where <span class="code">RecName</span> is
           <span class="code">mnesia:table_info(Tab, record_name)</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="traverse_backup-4"></a><span class="bold_code bc-9">traverse_backup(Source, [SourceMod,] Target, [TargetMod,] Fun, Acc) -&gt; {ok, LastAcc} | {error, Reason}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="traverse_backup-4"></a><span class="bold_code">traverse_backup(Source, [SourceMod,] Target, [TargetMod,] Fun, Acc) -&gt; {ok, LastAcc} | {error, Reason}</span><br></p>
+<div class="REFBODY"><p>
       <a name="traverse_backup"></a>
         <p>Iterates over a backup, either to transform it into a
           new backup, or read it. The arguments are explained briefly
@@ -3048,23 +2604,15 @@ raise(Name, Amount) -&gt;
            the last <span class="code">NewAcc</span> value that was returned by <span class="code">Fun</span>.
           </li>
         </ul>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="uninstall_fallback-0"></a><span class="bold_code bc-9">uninstall_fallback() -&gt; ok | {error,Reason}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="uninstall_fallback-0"></a><span class="bold_code">uninstall_fallback() -&gt; ok | {error,Reason}</span><br></p>
+<div class="REFBODY"><p>
       <a name="uninstall_fallback_0"></a>
         <p>Calls the function
           <span class="code">mnesia:uninstall_fallback([{scope, global}])</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="uninstall_fallback-1"></a><span class="bold_code bc-9">uninstall_fallback(Args) -&gt; ok | {error,Reason}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="uninstall_fallback-1"></a><span class="bold_code">uninstall_fallback(Args) -&gt; ok | {error,Reason}</span><br></p>
+<div class="REFBODY"><p>
         <p>Deinstalls a fallback before it
           has been used to restore the database. This is normally a
           distributed operation that is either performed on all
@@ -3089,55 +2637,35 @@ raise(Name, Amount) -&gt;
            see <span class="code">mnesia:install_fallback/2</span>.
           </li>
         </ul>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="unsubscribe-1"></a><span class="bold_code bc-9">unsubscribe(EventCategory) -&gt; {ok, Node} | {error, Reason}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="unsubscribe-1"></a><span class="bold_code">unsubscribe(EventCategory) -&gt; {ok, Node} | {error, Reason}</span><br></p>
+<div class="REFBODY"><p>
       <a name="unsubscribe"></a>
         <p>Stops sending events of type
           <span class="code">EventCategory</span> to the caller.</p>
         <p><span class="code">Node</span> is the local node.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="wait_for_tables-2"></a><span class="bold_code bc-9">wait_for_tables(TabList, Timeout) -&gt; ok | {timeout, BadTabList} | {error, Reason}</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="wait_for_tables-2"></a><span class="bold_code">wait_for_tables(TabList, Timeout) -&gt; ok | {timeout, BadTabList} | {error, Reason}</span><br></p>
+<div class="REFBODY"><p>
       <a name="wait_for_tables"></a>
         <p>Some applications need to wait for certain tables to be
           accessible to do useful work. <span class="code">mnesia:wait_for_tables/2</span>
           either hangs until all tables in <span class="code">TabList</span> are accessible,
           or until <span class="code">timeout</span> is reached.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="wread-1"></a><span class="bold_code bc-9">wread({Tab, Key}) -&gt; transaction abort | RecordList</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="wread-1"></a><span class="bold_code">wread({Tab, Key}) -&gt; transaction abort | RecordList</span><br></p>
+<div class="REFBODY"><p>
       <a name="wread"></a>
         <p>Calls the function <span class="code">mnesia:read(Tab, Key, write)</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="write-1"></a><span class="bold_code bc-9">write(Record) -&gt; transaction abort | ok</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="write-1"></a><span class="bold_code">write(Record) -&gt; transaction abort | ok</span><br></p>
+<div class="REFBODY"><p>
       <a name="write_1"></a>
         <p>Calls the function <span class="code">mnesia:write(Tab, Record, write)</span>,
            where <span class="code">Tab</span> is <span class="code">element(1, Record)</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="write-3"></a><span class="bold_code bc-9">write(Tab, Record, LockKind) -&gt; transaction abort | ok</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="write-3"></a><span class="bold_code">write(Tab, Record, LockKind) -&gt; transaction abort | ok</span><br></p>
+<div class="REFBODY"><p>
       <a name="write_3"></a>
         <p>Writes record <span class="code">Record</span> to table <span class="code">Tab</span>.</p>
         <p>The function returns <span class="code">ok</span>, or terminates if an error
@@ -3148,22 +2676,17 @@ raise(Name, Amount) -&gt;
           transaction-context, it acquires a lock of type
           <span class="code">LockKind</span>. The lock types <span class="code">write</span> and
           <span class="code">sticky_write</span> are supported.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="write_lock_table-1"></a><span class="bold_code bc-9">write_lock_table(Tab) -&gt; ok | transaction abort</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="write_lock_table-1"></a><span class="bold_code">write_lock_table(Tab) -&gt; ok | transaction abort</span><br></p>
+<div class="REFBODY"><p>
       <a name="write_lock_table"></a>
         <p>Calls the function
           <span class="code">mnesia:lock({table, Tab}, write)</span>.</p>
-      </p></div></div>
-</div>
-  </div>
+      </p></div>
+  
 
-  <h3><a name="idm45258323443168">Configuration Parameters</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm44961808807408">Configuration Parameters</a></h3>
+<div class="REFBODY">
     
     <a name="configuration_parameters"></a>
     <p>Mnesia reads the following application configuration
@@ -3391,15 +2914,15 @@ raise(Name, Amount) -&gt;
       default value is chosen.</p>
   </div>
 
-  <h3><a name="idm45258323379408">See Also</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm44961806227392">See Also</a></h3>
+<div class="REFBODY">
     
-    <p><span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','application.html');">application(3)</a></span>,
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','dets.html');">dets(3)</a></span>,
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','disk_log.html');">disk_log(3)</a></span>,
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','ets.html');">ets(3)</a></span>,
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','mnesia','mnesia_registry.html');">mnesia_registry(3)</a></span>,
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','qlc.html');">qlc(3)</a></span></p>
+    <p><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','application.html');">application(3)</a></span>,
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','dets.html');">dets(3)</a></span>,
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','disk_log.html');">disk_log(3)</a></span>,
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','ets.html');">ets(3)</a></span>,
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','mnesia','mnesia_registry.html');">mnesia_registry(3)</a></span>,
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','qlc.html');">qlc(3)</a></span></p>
   </div>
   
 </div>

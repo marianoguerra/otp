@@ -419,140 +419,121 @@
 <!-- refpage --><center><h1>CosNotifyChannelAdmin_SequenceProxyPushConsumer</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">CosNotifyChannelAdmin_SequenceProxyPushConsumer</div>
+<div class="REFBODY">CosNotifyChannelAdmin_SequenceProxyPushConsumer</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">This module implements the OMG  CosNotifyChannelAdmin::SequenceProxyPushConsumer interface.</div>
+<div class="REFBODY">This module implements the OMG  CosNotifyChannelAdmin::SequenceProxyPushConsumer interface.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>To get access to the record definitions for the structures use:      <br>
 <span class="code">-include_lib("cosNotification/include/*.hrl").</span></p>
     <p>This module also exports the functions described in:</p>
     <ul>
       <li>
-        <p><span class="bold_code bc-19"><a href="CosNotifyComm_NotifyPublish.html">CosNotifyComm_NotifyPublish</a></span></p>
+        <p><span class="bold_code"><a href="CosNotifyComm_NotifyPublish.html">CosNotifyComm_NotifyPublish</a></span></p>
       </li>
       <li>
-        <p><span class="bold_code bc-19"><a href="CosNotification_QoSAdmin.html">CosNotification_QoSAdmin</a></span></p>
+        <p><span class="bold_code"><a href="CosNotification_QoSAdmin.html">CosNotification_QoSAdmin</a></span></p>
       </li>
       <li>
-        <p><span class="bold_code bc-19"><a href="CosNotifyFilter_FilterAdmin.html">CosNotifyFilter_FilterAdmin</a></span></p>
+        <p><span class="bold_code"><a href="CosNotifyFilter_FilterAdmin.html">CosNotifyFilter_FilterAdmin</a></span></p>
       </li>
       <li>
-        <p><span class="bold_code bc-19"><a href="CosNotifyChannelAdmin_ProxyConsumer.html">CosNotifyChannelAdmin_ProxyConsumer</a></span></p>
+        <p><span class="bold_code"><a href="CosNotifyChannelAdmin_ProxyConsumer.html">CosNotifyChannelAdmin_ProxyConsumer</a></span></p>
       </li>
     </ul>
-  </div>
+  </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="connect_sequence_push_supplier-2"></a><span class="bold_code bc-9">connect_sequence_push_supplier(SequenceProxyPushConsumer, PushSupplier) -&gt; Reply</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="connect_sequence_push_supplier-2"></a><span class="bold_code">connect_sequence_push_supplier(SequenceProxyPushConsumer, PushSupplier) -&gt; Reply</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">SequenceProxyPushConsumer = #objref</span><br>
+<span class="bold_code">SequenceProxyPushConsumer = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PushSupplier = #objref</span><br>
+<span class="bold_code">PushSupplier = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reply = ok | {'EXCEPTION', #'CosEventChannelAdmin_AlreadyConnected'{}}</span><br>
+<span class="bold_code">Reply = ok | {'EXCEPTION', #'CosEventChannelAdmin_AlreadyConnected'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This operation connects a <span class="code">PushSupplier</span> to the target object. If a
           connection already exists the <span class="code">AlreadyConnected</span> exception is raised.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="push_structured_events-2"></a><span class="bold_code bc-9">push_structured_events(SequenceProxyPushConsumer, EventBatch) -&gt; Reply</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="push_structured_events-2"></a><span class="bold_code">push_structured_events(SequenceProxyPushConsumer, EventBatch) -&gt; Reply</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">SequenceProxyPushConsumer = #objref</span><br>
+<span class="bold_code">SequenceProxyPushConsumer = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">EventBatch = [StructuredEvent]</span><br>
+<span class="bold_code">EventBatch = [StructuredEvent]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">StructuredEvent = #'CosNotification_StructuredEvent'{header, filterable_data, remainder_of_body}</span><br>
+<span class="bold_code">StructuredEvent = #'CosNotification_StructuredEvent'{header, filterable_data, remainder_of_body}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">header = EventHeader</span><br>
+<span class="bold_code">header = EventHeader</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">filterable_data = [#'CosNotification_Property'{name, value}]</span><br>
+<span class="bold_code">filterable_data = [#'CosNotification_Property'{name, value}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">name = string()</span><br>
+<span class="bold_code">name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">value = #any</span><br>
+<span class="bold_code">value = #any</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">remainder_of_body = #any</span><br>
+<span class="bold_code">remainder_of_body = #any</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">EventHeader = #'CosNotification_EventHeader'{fixed_header, variable_header}</span><br>
+<span class="bold_code">EventHeader = #'CosNotification_EventHeader'{fixed_header, variable_header}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">fixed_header = FixedEventHeader</span><br>
+<span class="bold_code">fixed_header = FixedEventHeader</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">variable_header = OptionalHeaderFields</span><br>
+<span class="bold_code">variable_header = OptionalHeaderFields</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">FixedEventHeader = #'CosNotification_FixedEventHeader'{event_type, event_name}</span><br>
+<span class="bold_code">FixedEventHeader = #'CosNotification_FixedEventHeader'{event_type, event_name}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">event_type = EventType</span><br>
+<span class="bold_code">event_type = EventType</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">event_name = string()</span><br>
+<span class="bold_code">event_name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">EventType = #'CosNotification_EventType'{domain_name, type_name}</span><br>
+<span class="bold_code">EventType = #'CosNotification_EventType'{domain_name, type_name}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">domain_name = type_name = string()</span><br>
+<span class="bold_code">domain_name = type_name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">OptionalHeaderFields = [#'CosNotification_Property'{name, value}]</span><br>
+<span class="bold_code">OptionalHeaderFields = [#'CosNotification_Property'{name, value}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reply = ok | {'EXCEPTION', #'CosEventChannelAdmin_Disconnected'{}}</span><br>
+<span class="bold_code">Reply = ok | {'EXCEPTION', #'CosEventChannelAdmin_Disconnected'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>A client must use this operation when it wishes to push a new sequence of events
           to the target object. If no connection exists the <span class="code">Disconnected</span> exception
           is raised.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="disconnect_sequence_push_consumer-1"></a><span class="bold_code bc-9">disconnect_sequence_push_consumer(SequenceProxyPushConsumer) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="disconnect_sequence_push_consumer-1"></a><span class="bold_code">disconnect_sequence_push_consumer(SequenceProxyPushConsumer) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">SequenceProxyPushConsumer = #objref</span><br>
+<span class="bold_code">SequenceProxyPushConsumer = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This operation cause the target object to close the connection and terminate.</p>
       </p></div>
-</div>
-</div>
-  </div>
+  
   
 </div>
 <div class="footer">

@@ -333,31 +333,31 @@
 <!-- refpage --><center><h1>ftp</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">ftp</div>
+<div class="REFBODY">ftp</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">A File Transfer Protocol client.</div>
+<div class="REFBODY">A File Transfer Protocol client.</div>
 
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
 
     <p>This module implements a client for file transfer
       according to a subset of the File Transfer Protocol (FTP), see
-    <span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc959.txt">RFC 959</a></span>.</p>
+    <span class="bold_code"><a href="http://www.ietf.org/rfc/rfc959.txt">RFC 959</a></span>.</p>
 
     <p>As from <span class="code">Inets</span> 4.4.1, the FTP
       client always tries to use passive FTP mode and only resort
       to active FTP mode if this fails. This default behavior can be 
-      changed by start option <span class="bold_code data-type-ref"><a href="#mode">mode</a></span>.</p>
+      changed by start option <span class="bold_code"><a href="#mode">mode</a></span>.</p>
 
     <a name="two_start"></a>
 
     <p>An FTP client can be started in two ways. One is using the 
-      <span class="bold_code data-type-ref"><a href="#service_start">Inets service framework</a></span>,
+      <span class="bold_code"><a href="#service_start">Inets service framework</a></span>,
       the other is to start it directly as a standalone process 
-      using function <span class="bold_code data-type-ref"><a href="#open">open</a></span>.</p>
+      using function <span class="bold_code"><a href="#open">open</a></span>.</p>
 
     <p>For a simple example of an FTP session, see 
-      <span class="bold_code bc-19"><a href="ftp_client.html">Inets User's Guide</a></span>.</p>
+      <span class="bold_code"><a href="ftp_client.html">Inets User's Guide</a></span>.</p>
 
     <p>In addition to the ordinary functions for receiving and sending
       files (see <span class="code">recv/2</span>, <span class="code">recv/3</span>, <span class="code">send/2</span>, and
@@ -382,10 +382,10 @@
       that exists but is empty.</p>
 
     <a name="service_start"></a>
-  </div>
+  </p></div>
 
-  <h3><a name="idm45717577216464">FTP CLIENT SERVICE START/STOP</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45565225221616">FTP CLIENT SERVICE START/STOP</a></h3>
+<div class="REFBODY">
     
     
     <p>The FTP client can be started and stopped dynamically in runtime by
@@ -393,7 +393,7 @@
       <span class="code">inets:start(ftpc, ServiceConfig)</span>,
       or <span class="code">inets:start(ftpc, ServiceConfig, How)</span>, and
       <span class="code">inets:stop(ftpc, Pid)</span>. 
-      For details, see <span class="bold_code bc-19"><a href="inets.html">inets(3)</a></span>.</p>
+      For details, see <span class="bold_code"><a href="inets.html">inets(3)</a></span>.</p>
 
     <p>The available configuration options are as follows:</p>
     
@@ -566,8 +566,8 @@
       terminates if that process terminates.</p>   
   </div>
   
-  <h3><a name="idm45717576309184">DATA TYPES</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45565222909072">DATA TYPES</a></h3>
+<div class="REFBODY">
     
     <p>The following type definitions are used by more than one
       function in the FTP client API:</p>
@@ -584,52 +584,41 @@
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="account-2"></a><span class="bold_code bc-9">account(Pid, Account) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="account-2"></a><span class="bold_code">account(Pid, Account) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Account = string()</span><br>
+<span class="bold_code">Account = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = eacct | common_reason()</span><br>
+<span class="bold_code">Reason = eacct | common_reason()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Sets the account for an operation, if needed.</p>
 
        <a name="append"></a>
        <a name="append2"></a>
        <a name="append3"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="append-2"></a><span class="bold_code bc-9">append(Pid, LocalFile) -&gt; </span><br><a name="append-3"></a><span class="bold_code bc-9">append(Pid, LocalFile, RemoteFile) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="append-2"></a><span class="bold_code">append(Pid, LocalFile) -&gt; </span><br><a name="append-3"></a><span class="bold_code">append(Pid, LocalFile, RemoteFile) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">LocalFile = RemoteFile = string()</span><br>
+<span class="bold_code">LocalFile = RemoteFile = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = epath | elogin | etnospc | epnospc | efnamena | common_reason</span><br>
+<span class="bold_code">Reason = epath | elogin | etnospc | epnospc | efnamena | common_reason</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Transfers the file <span class="code">LocalFile</span> to the remote server. If 
           <span class="code">RemoteFile</span> is specified, the name of the remote file that the
           file is appended to is set to <span class="code">RemoteFile</span>, otherwise 
@@ -638,57 +627,45 @@
 
        <a name="append_bin"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="append_bin-3"></a><span class="bold_code bc-9">append_bin(Pid, Bin, RemoteFile) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="append_bin-3"></a><span class="bold_code">append_bin(Pid, Bin, RemoteFile) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Bin = binary()()</span><br>
+<span class="bold_code">Bin = binary()()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">RemoteFile = string()</span><br>
+<span class="bold_code">RemoteFile = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = restriction_reason()| shortage_reason() | common_reason()</span><br>
+<span class="bold_code">Reason = restriction_reason()| shortage_reason() | common_reason()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Transfers the binary <span class="code">Bin</span> to the remote server and appends 
           it to the file <span class="code">RemoteFile</span>. If the file does not exist, it 
           is created.</p>
 
        <a name="append_chunk"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="append_chunk-2"></a><span class="bold_code bc-9">append_chunk(Pid, Bin) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="append_chunk-2"></a><span class="bold_code">append_chunk(Pid, Bin) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Bin = binary()</span><br>
+<span class="bold_code">Bin = binary()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = echunk | restriction_reason() | common_reason()</span><br>
+<span class="bold_code">Reason = echunk | restriction_reason() | common_reason()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Transfers the chunk <span class="code">Bin</span> to the remote server, which 
           appends it to the file specified in the call to 
           <span class="code">append_chunk_start/2</span>.</p>
@@ -698,218 +675,164 @@
 
        <a name="append_chunk_start"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="append_chunk_start-2"></a><span class="bold_code bc-9">append_chunk_start(Pid, File) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="append_chunk_start-2"></a><span class="bold_code">append_chunk_start(Pid, File) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">File = string()</span><br>
+<span class="bold_code">File = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = restriction_reason() | common_reason()</span><br>
+<span class="bold_code">Reason = restriction_reason() | common_reason()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Starts the transfer of chunks for appending to the file 
           <span class="code">File</span> at the remote server. If the file does not exist, 
           it is created.</p>
 
        <a name="append_chunk_end"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="append_chunk_end-1"></a><span class="bold_code bc-9">append_chunk_end(Pid) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="append_chunk_end-1"></a><span class="bold_code">append_chunk_end(Pid) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = echunk | restriction_reason() | shortage_reason() </span><br>
+<span class="bold_code">Reason = echunk | restriction_reason() | shortage_reason() </span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Stops transfer of chunks for appending to the remote server. 
           The file at the remote server, specified in the call to 
           <span class="code">append_chunk_start/2</span>, is closed by the server.</p>
 
        <a name="cd"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="cd-2"></a><span class="bold_code bc-9">cd(Pid, Dir) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="cd-2"></a><span class="bold_code">cd(Pid, Dir) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = restriction_reason() | common_reason() </span><br>
+<span class="bold_code">Reason = restriction_reason() | common_reason() </span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Changes the working directory at the remote server to 
           <span class="code">Dir</span>.</p>
 
        <a name="close"></a>
       </p></div>
-</div>
-</div>
     
-    <div class="func">
-<div class="func-title">
-<a name="close-1"></a><span class="bold_code bc-9">close(Pid) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="close-1"></a><span class="bold_code">close(Pid) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 	<p>Ends an FTP session, created using function
-          <span class="bold_code data-type-ref"><a href="#open">open</a></span>.</p>
+          <span class="bold_code"><a href="#open">open</a></span>.</p>
 
        <a name="delete"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="delete-2"></a><span class="bold_code bc-9">delete(Pid, File) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="delete-2"></a><span class="bold_code">delete(Pid, File) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">File = string()</span><br>
+<span class="bold_code">File = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = restriction_reason() | common_reason()</span><br>
+<span class="bold_code">Reason = restriction_reason() | common_reason()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Deletes the file <span class="code">File</span> at the remote server.</p>
 
        <a name="append"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="formaterror-1"></a><span class="bold_code bc-9">formaterror(Tag) -&gt; string()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="formaterror-1"></a><span class="bold_code">formaterror(Tag) -&gt; string()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tag = {error, atom()} | atom()</span><br>
+<span class="bold_code">Tag = {error, atom()} | atom()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Given an error return value <span class="code">{error, AtomReason}</span>,
           this function returns a readable string describing the error.</p>
 
        <a name="lcd"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="lcd-2"></a><span class="bold_code bc-9">lcd(Pid, Dir) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="lcd-2"></a><span class="bold_code">lcd(Pid, Dir) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = restriction_reason()</span><br>
+<span class="bold_code">Reason = restriction_reason()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Changes the working directory to <span class="code">Dir</span> for the local client.</p>
 
        <a name="lpwd"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="lpwd-1"></a><span class="bold_code bc-9">lpwd(Pid) -&gt; {ok, Dir}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="lpwd-1"></a><span class="bold_code">lpwd(Pid) -&gt; {ok, Dir}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns the current working directory at the local client.</p>
 
        <a name="ls"></a>
        <a name="ls1"></a>
        <a name="ls2"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="ls-1"></a><span class="bold_code bc-9">ls(Pid) -&gt; </span><br><a name="ls-2"></a><span class="bold_code bc-9">ls(Pid, Pathname) -&gt; {ok, Listing} | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="ls-1"></a><span class="bold_code">ls(Pid) -&gt; </span><br><a name="ls-2"></a><span class="bold_code">ls(Pid, Pathname) -&gt; {ok, Listing} | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pathname = string()</span><br>
+<span class="bold_code">Pathname = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Listing = string()</span><br>
+<span class="bold_code">Listing = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = restriction_reason() | common_reason()</span><br>
+<span class="bold_code">Reason = restriction_reason() | common_reason()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns a list of files in long format.</p>
         <p><span class="code">Pathname</span> can be a directory, a group of files, or 
            a file. The <span class="code">Pathname</span> string can contain wildcards.</p>
@@ -920,57 +843,45 @@
 
        <a name="mkdir"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="mkdir-2"></a><span class="bold_code bc-9">mkdir(Pid, Dir) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="mkdir-2"></a><span class="bold_code">mkdir(Pid, Dir) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = restriction_reason() | common_reason()</span><br>
+<span class="bold_code">Reason = restriction_reason() | common_reason()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Creates the directory <span class="code">Dir</span> at the remote server.</p>
 
        <a name="nlist"></a>
        <a name="nlist1"></a>
        <a name="nlist2"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="nlist-1"></a><span class="bold_code bc-9">nlist(Pid) -&gt; </span><br><a name="nlist-2"></a><span class="bold_code bc-9">nlist(Pid, Pathname) -&gt; {ok, Listing} | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="nlist-1"></a><span class="bold_code">nlist(Pid) -&gt; </span><br><a name="nlist-2"></a><span class="bold_code">nlist(Pid, Pathname) -&gt; {ok, Listing} | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pathname = string()</span><br>
+<span class="bold_code">Pathname = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Listing = string()</span><br>
+<span class="bold_code">Listing = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = restriction_reason() | common_reason()</span><br>
+<span class="bold_code">Reason = restriction_reason() | common_reason()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns a list of files in short format.</p>
         <p><span class="code">Pathname</span> can be a directory, a group of files, or 
            a file. The <span class="code">Pathname</span> string can contain wildcards.</p>
@@ -983,140 +894,122 @@
 
        <a name="open"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="open-1"></a><span class="bold_code bc-9">open(Host) -&gt; {ok, Pid} | {error, Reason}</span><br><a name="open-2"></a><span class="bold_code bc-9">open(Host, Opts) -&gt; {ok, Pid} | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="open-1"></a><span class="bold_code">open(Host) -&gt; {ok, Pid} | {error, Reason}</span><br><a name="open-2"></a><span class="bold_code">open(Host, Opts) -&gt; {ok, Pid} | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Host = string() | ip_address()</span><br>
+<span class="bold_code">Host = string() | ip_address()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Opts = options()</span><br>
+<span class="bold_code">Opts = options()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">options() = [option()]</span><br>
+<span class="bold_code">options() = [option()]</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">option() = start_option() | open_option()</span><br>
+<span class="bold_code">option() = start_option() | open_option()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">start_option() = {verbose, verbose()} | {debug, debug()}</span><br>
+<span class="bold_code">start_option() = {verbose, verbose()} | {debug, debug()}</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">verbose() = boolean() (default is false)</span><br>
+<span class="bold_code">verbose() = boolean() (default is false)</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">debug() = disable | debug | trace (default is disable)</span><br>
+<span class="bold_code">debug() = disable | debug | trace (default is disable)</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">open_option() = {ipfamily, ipfamily()} | {port, port()} | {mode, mode()} | {tls, tls_options()} | {timeout, timeout()} | {dtimeout, dtimeout()} | {progress, progress()}</span><br>
+<span class="bold_code">open_option() = {ipfamily, ipfamily()} | {port, port()} | {mode, mode()} | {tls, tls_options()} | {timeout, timeout()} | {dtimeout, dtimeout()} | {progress, progress()}</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">ipfamily() = inet | inet6 | inet6fb4 (default is inet)</span><br>
+<span class="bold_code">ipfamily() = inet | inet6 | inet6fb4 (default is inet)</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">port() = integer() &gt; 0 (default is 21)</span><br>
+<span class="bold_code">port() = integer() &gt; 0 (default is 21)</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">mode() = active | passive (default is passive)</span><br>
+<span class="bold_code">mode() = active | passive (default is passive)</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">tls_options() = [<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','ssl','ssl.html#type-ssloption');">ssl:ssloption()</a></span>]</span><br>
+<span class="bold_code">tls_options() = [<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','ssl','ssl.html#type-ssloption');">ssl:ssloption()</a></span>]</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">timeout() = integer() &gt; 0 (default is 60000 milliseconds)</span><br>
+<span class="bold_code">timeout() = integer() &gt; 0 (default is 60000 milliseconds)</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">dtimeout() = integer() &gt; 0 | infinity (default is infinity)</span><br>
+<span class="bold_code">dtimeout() = integer() &gt; 0 | infinity (default is infinity)</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">pogress() = ignore | {module(), function(), initial_data()} (default is ignore)</span><br>
+<span class="bold_code">pogress() = ignore | {module(), function(), initial_data()} (default is ignore)</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">module() = atom()</span><br>
+<span class="bold_code">module() = atom()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">function() = atom()</span><br>
+<span class="bold_code">function() = atom()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">initial_data() = term()</span><br>
+<span class="bold_code">initial_data() = term()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Reason = ehost | term()</span><br>
+<span class="bold_code">Reason = ehost | term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 	<p>Starts a standalone FTP client process 
           (without the <span class="code">Inets</span> service framework) and 
           opens a session with the FTP server at <span class="code">Host</span>. </p>
 
 	<p>If option <span class="code">{tls, tls_options()}</span> is present, the FTP session 
 	is transported over <span class="code">tls</span> (<span class="code">ftps</span>, see 
-	<span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc4217.txt">RFC 4217</a></span>). 
+	<span class="bold_code"><a href="http://www.ietf.org/rfc/rfc4217.txt">RFC 4217</a></span>). 
 	The list <span class="code">tls_options()</span> can be empty. The function 
-	<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','ssl','ssl.html#connect-3');"><span class="code">ssl:connect/3</span></a></span> 
+	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','ssl','ssl.html#connect-3');"><span class="code">ssl:connect/3</span></a></span> 
 	is used for securing both the control connection and the data sessions.
 	</p>
 
         <p>A session opened in this way is closed using function
-          <span class="bold_code data-type-ref"><a href="#close">close</a></span>.</p>
+          <span class="bold_code"><a href="#close">close</a></span>.</p>
 
        <a name="pwd"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="pwd-1"></a><span class="bold_code bc-9">pwd(Pid) -&gt; {ok, Dir} | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="pwd-1"></a><span class="bold_code">pwd(Pid) -&gt; {ok, Dir} | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = restriction_reason() | common_reason()</span><br>
+<span class="bold_code">Reason = restriction_reason() | common_reason()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns the current working directory at the remote server.</p>
 
        <a name="recv"></a>
        <a name="recv2"></a>
        <a name="recv3"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="recv-2"></a><span class="bold_code bc-9">recv(Pid, RemoteFile) -&gt; </span><br><a name="recv-3"></a><span class="bold_code bc-9">recv(Pid, RemoteFile, LocalFile) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="recv-2"></a><span class="bold_code">recv(Pid, RemoteFile) -&gt; </span><br><a name="recv-3"></a><span class="bold_code">recv(Pid, RemoteFile, LocalFile) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">RemoteFile = LocalFile = string()</span><br>
+<span class="bold_code">RemoteFile = LocalFile = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = restriction_reason() | common_reason() | file_write_error_reason() </span><br>
+<span class="bold_code">Reason = restriction_reason() | common_reason() | file_write_error_reason() </span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">file_write_error_reason() = see file:write/2</span><br>
+<span class="bold_code">file_write_error_reason() = see file:write/2</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Transfers the file <span class="code">RemoteFile</span> from the remote server
           to the file system of the local client. If
           <span class="code">LocalFile</span> is specified, the local file will be
@@ -1128,82 +1021,64 @@
 
        <a name="recv_bin"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="recv_bin-2"></a><span class="bold_code bc-9">recv_bin(Pid, RemoteFile) -&gt; {ok, Bin} | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="recv_bin-2"></a><span class="bold_code">recv_bin(Pid, RemoteFile) -&gt; {ok, Bin} | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Bin = binary()</span><br>
+<span class="bold_code">Bin = binary()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">RemoteFile = string()</span><br>
+<span class="bold_code">RemoteFile = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = restriction_reason() | common_reason()</span><br>
+<span class="bold_code">Reason = restriction_reason() | common_reason()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Transfers the file <span class="code">RemoteFile</span> from the remote server and 
           receives it as a binary.</p>
 
        <a name="recv_chunk_start"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="recv_chunk_start-2"></a><span class="bold_code bc-9">recv_chunk_start(Pid, RemoteFile) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="recv_chunk_start-2"></a><span class="bold_code">recv_chunk_start(Pid, RemoteFile) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">RemoteFile = string()</span><br>
+<span class="bold_code">RemoteFile = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = restriction_reason() | common_reason()</span><br>
+<span class="bold_code">Reason = restriction_reason() | common_reason()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Starts transfer of the file <span class="code">RemoteFile</span> from the
           remote server.</p>
 
        <a name="recv_chunk"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="recv_chunk-1"></a><span class="bold_code bc-9">recv_chunk(Pid) -&gt; ok | {ok, Bin} | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="recv_chunk-1"></a><span class="bold_code">recv_chunk(Pid) -&gt; ok | {ok, Bin} | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Bin = binary()</span><br>
+<span class="bold_code">Bin = binary()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = restriction_reason() | common_reason()</span><br>
+<span class="bold_code">Reason = restriction_reason() | common_reason()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Receives a chunk of the remote file (<span class="code">RemoteFile</span> of 
           <span class="code">recv_chunk_start</span>). The return values have the following 
           meaning:</p>
@@ -1218,135 +1093,105 @@
 
        <a name="rename"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="rename-3"></a><span class="bold_code bc-9">rename(Pid, Old, New) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="rename-3"></a><span class="bold_code">rename(Pid, Old, New) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">CurrFile = NewFile = string()</span><br>
+<span class="bold_code">CurrFile = NewFile = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = restriction_reason() | common_reason()</span><br>
+<span class="bold_code">Reason = restriction_reason() | common_reason()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Renames <span class="code">Old</span> to <span class="code">New</span> at the remote server.</p>
 
        <a name="rmdir"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="rmdir-2"></a><span class="bold_code bc-9">rmdir(Pid, Dir) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="rmdir-2"></a><span class="bold_code">rmdir(Pid, Dir) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = restriction_reason() | common_reason()</span><br>
+<span class="bold_code">Reason = restriction_reason() | common_reason()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Removes directory <span class="code">Dir</span> at the remote server.</p>
 
        <a name="send"></a>
        <a name="send2"></a>
        <a name="send3"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="send-2"></a><span class="bold_code bc-9">send(Pid, LocalFile) -&gt;</span><br><a name="send-3"></a><span class="bold_code bc-9">send(Pid, LocalFile, RemoteFile) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="send-2"></a><span class="bold_code">send(Pid, LocalFile) -&gt;</span><br><a name="send-3"></a><span class="bold_code">send(Pid, LocalFile, RemoteFile) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">LocalFile = RemoteFile = string()</span><br>
+<span class="bold_code">LocalFile = RemoteFile = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = restriction_reason() | common_reason() | shortage_reason()</span><br>
+<span class="bold_code">Reason = restriction_reason() | common_reason() | shortage_reason()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Transfers the file <span class="code">LocalFile</span> to the remote server. If 
           <span class="code">RemoteFile</span> is specified, the name of the remote file is set
           to <span class="code">RemoteFile</span>, otherwise to <span class="code">LocalFile</span>.</p>
 
        <a name="send_bin"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="send_bin-3"></a><span class="bold_code bc-9">send_bin(Pid, Bin, RemoteFile) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="send_bin-3"></a><span class="bold_code">send_bin(Pid, Bin, RemoteFile) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Bin = binary()()</span><br>
+<span class="bold_code">Bin = binary()()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">RemoteFile = string()</span><br>
+<span class="bold_code">RemoteFile = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = restriction_reason() | common_reason() | shortage_reason()</span><br>
+<span class="bold_code">Reason = restriction_reason() | common_reason() | shortage_reason()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Transfers the binary <span class="code">Bin</span> into the file <span class="code">RemoteFile</span> 
           at the remote server.</p>
 
        <a name="send_chunk"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="send_chunk-2"></a><span class="bold_code bc-9">send_chunk(Pid, Bin) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="send_chunk-2"></a><span class="bold_code">send_chunk(Pid, Bin) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Bin = binary()</span><br>
+<span class="bold_code">Bin = binary()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = echunk | restriction_reason() | common_reason()</span><br>
+<span class="bold_code">Reason = echunk | restriction_reason() | common_reason()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Transfers the chunk <span class="code">Bin</span> to the remote server, which 
           writes it into the file specified in the call to 
           <span class="code">send_chunk_start/2</span>.</p>
@@ -1356,155 +1201,119 @@
 
        <a name="send_chunk_start"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="send_chunk_start-2"></a><span class="bold_code bc-9">send_chunk_start(Pid, File) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="send_chunk_start-2"></a><span class="bold_code">send_chunk_start(Pid, File) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">File = string()</span><br>
+<span class="bold_code">File = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = restriction_reason() | common_reason()</span><br>
+<span class="bold_code">Reason = restriction_reason() | common_reason()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Starts transfer of chunks into the file <span class="code">File</span> at the 
           remote server.</p>
 
        <a name="send_chunk_end"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="send_chunk_end-1"></a><span class="bold_code bc-9">send_chunk_end(Pid) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="send_chunk_end-1"></a><span class="bold_code">send_chunk_end(Pid) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = restriction_reason() | common_reason() | shortage_reason()</span><br>
+<span class="bold_code">Reason = restriction_reason() | common_reason() | shortage_reason()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Stops transfer of chunks to the remote server. The file at the
           remote server, specified in the call to <span class="code">send_chunk_start/2</span> 
           is closed by the server.</p>
 
        <a name="type"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="type-2"></a><span class="bold_code bc-9">type(Pid, Type) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="type-2"></a><span class="bold_code">type(Pid, Type) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Type = ascii | binary</span><br>
+<span class="bold_code">Type = ascii | binary</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = etype | restriction_reason() | common_reason()</span><br>
+<span class="bold_code">Reason = etype | restriction_reason() | common_reason()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Sets the file transfer type to <span class="code">ascii</span> or <span class="code">binary</span>. When
           an FTP session is opened, the default transfer type of the
           server is used, most often <span class="code">ascii</span>, which is default
-          according to <span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc959.txt">RFC 959</a></span>.</p>
+          according to <span class="bold_code"><a href="http://www.ietf.org/rfc/rfc959.txt">RFC 959</a></span>.</p>
        <a name="user3"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="user-3"></a><span class="bold_code bc-9">user(Pid, User, Password) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="user-3"></a><span class="bold_code">user(Pid, User, Password) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">User = Password = string()</span><br>
+<span class="bold_code">User = Password = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = euser | common_reason()</span><br>
+<span class="bold_code">Reason = euser | common_reason()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Performs login of <span class="code">User</span> with <span class="code">Password</span>.</p>
 
        <a name="user4"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="user-4"></a><span class="bold_code bc-9">user(Pid, User, Password, Account) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="user-4"></a><span class="bold_code">user(Pid, User, Password, Account) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">User = Password = string()</span><br>
+<span class="bold_code">User = Password = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = euser | common_reason() </span><br>
+<span class="bold_code">Reason = euser | common_reason() </span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Performs login of <span class="code">User</span> with <span class="code">Password</span> to the account 
           specified by <span class="code">Account</span>.</p>
 
        <a name="quote"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="quote-2"></a><span class="bold_code bc-9">quote(Pid, Command) -&gt; [FTPLine]</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="quote-2"></a><span class="bold_code">quote(Pid, Command) -&gt; [FTPLine]</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Command = string()</span><br>
+<span class="bold_code">Command = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">FTPLine = string(</span><br>
+<span class="bold_code">FTPLine = string(</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p><div class="note">
+<div class="REFBODY"><p><div class="note">
 <div class="label">Note</div>
 <div class="content"><p><p>The telnet end of line characters, from the FTP 
       protocol definition, CRLF, for example, "\\r\\n" has been removed.</p></p></div>
@@ -1522,12 +1331,10 @@
         </p></div>
 </div>
       </p></div>
-</div>
-</div>
-  </div>
+  
 
-  <h3><a name="idm45717576092080">ERRORS</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45565222825616">ERRORS</a></h3>
+<div class="REFBODY">
     
     <p>The possible error reasons and the corresponding diagnostic strings 
       returned by <span class="code">formaterror/1</span> are as follows:
@@ -1595,13 +1402,13 @@
     </dl>
   </div>
 
-  <h3><a name="idm45717576068400">SEE ALSO</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45565222801936">SEE ALSO</a></h3>
+<div class="REFBODY">
     
-    <p><span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html');">file(3)</a></span>
-       <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','filename.html');">filename(3)</a></span>
+    <p><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html');">file(3)</a></span>
+       <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','filename.html');">filename(3)</a></span>
        and J. Postel and J. Reynolds: File Transfer Protocol
-      (<span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc959.txt">RFC 959</a></span>).
+      (<span class="bold_code"><a href="http://www.ietf.org/rfc/rfc959.txt">RFC 959</a></span>).
       </p>
   </div>
   

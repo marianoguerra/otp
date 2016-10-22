@@ -1717,15 +1717,15 @@
 <!-- refpage --><center><h1>re</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">re</div>
+<div class="REFBODY">re</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Perl-like regular expressions for Erlang.</div>
+<div class="REFBODY">Perl-like regular expressions for Erlang.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>This module contains regular expression matching functions for
       strings and binaries.</p>
 
-    <p>The <span class="bold_code data-type-ref"><a href="#regexp_syntax">regular expression</a></span>
+    <p>The <span class="bold_code"><a href="#regexp_syntax">regular expression</a></span>
       syntax and semantics resemble that of Perl.</p>
 
     <p>The matching algorithms of the library are based on the
@@ -1743,60 +1743,49 @@
        with an extra backslash, that is, "\\".</p>
     </p></div>
 </div>
-  </div>
+  </p></div>
 
-  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
-<div class="data-types-body">
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-mp">mp()</a> = {re_pattern, term(), term(), term(), term()}</span><div class="REFBODY data-type-desc"><p>
+  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
+    <p>
+      <span class="bold_code"><a name="type-mp">mp()</a> = {re_pattern, term(), term(), term(), term()}</span><br></p>
+<div class="REFBODY"><p>
         <p>Opaque data type containing a compiled regular expression.
           <span class="code">mp()</span> is guaranteed to be a tuple() having the atom
           <span class="code">re_pattern</span> as its first element, to allow for matching in
           guards. The arity of the tuple or the content of the other fields
           can change in future Erlang/OTP releases.</p>
       </p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-nl_spec">nl_spec()</a> = cr | crlf | lf | anycrlf | any</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-compile_option">compile_option()</a> = <br>    unicode |<br>    anchored |<br>    caseless |<br>    dollar_endonly |<br>    dotall |<br>    extended |<br>    firstline |<br>    multiline |<br>    no_auto_capture |<br>    dupnames |<br>    ungreedy |<br>    {newline, <span class="bold_code data-type-ref"><a href="#type-nl_spec">nl_spec()</a></span>} |<br>    bsr_anycrlf |<br>    bsr_unicode |<br>    no_start_optimize |<br>    ucp |<br>    never_utf</span>
-</div>
-  </div>
+    <p>
+      <span class="bold_code"><a name="type-nl_spec">nl_spec()</a> = cr | crlf | lf | anycrlf | any</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-compile_option">compile_option()</a> = <br>    unicode |<br>    anchored |<br>    caseless |<br>    dollar_endonly |<br>    dotall |<br>    extended |<br>    firstline |<br>    multiline |<br>    no_auto_capture |<br>    dupnames |<br>    ungreedy |<br>    {newline, <span class="bold_code"><a href="#type-nl_spec">nl_spec()</a></span>} |<br>    bsr_anycrlf |<br>    bsr_unicode |<br>    no_start_optimize |<br>    ucp |<br>    never_utf</span><br></p>
+  
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="compile-1"></a><span class="bold_code func-name">compile(Regexp) -&gt; {ok, MP} | {error, ErrSpec}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Regexp = iodata()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">MP = <span class="bold_code data-type-ref"><a href="#type-mp">mp()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ErrSpec = <br>    {ErrString :: string(), Position :: integer() &gt;= 0}</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="compile-1"></a><span class="bold_code">compile(Regexp) -&gt; {ok, MP} | {error, ErrSpec}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Regexp = iodata()</span></div>
+<div class="REFTYPES"><span class="bold_code">MP = <span class="bold_code"><a href="#type-mp">mp()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">ErrSpec = <br>    {ErrString :: string(), Position :: integer() &gt;= 0}</span></div>
+</div></p>
+<div class="REFBODY"><p>
       <p>The same as <span class="code">compile(Regexp,[])</span></p>
-      </p></div></div>
-</div> 
+      </p></div> 
 
-    <div class="func">
-<div class="func-title">
-<a name="compile-2"></a><span class="bold_code func-name">compile(Regexp, Options) -&gt; {ok, MP} | {error, ErrSpec}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Regexp = iodata() | <span class="bold_code bc-15"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = [Option]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Option = <span class="bold_code data-type-ref"><a href="#type-compile_option">compile_option()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">MP = <span class="bold_code data-type-ref"><a href="#type-mp">mp()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ErrSpec = <br>    {ErrString :: string(), Position :: integer() &gt;= 0}</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="compile-2"></a><span class="bold_code">compile(Regexp, Options) -&gt; {ok, MP} | {error, ErrSpec}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Regexp = iodata() | <span class="bold_code"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Options = [Option]</span></div>
+<div class="REFTYPES"><span class="bold_code">Option = <span class="bold_code"><a href="#type-compile_option">compile_option()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">MP = <span class="bold_code"><a href="#type-mp">mp()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">ErrSpec = <br>    {ErrString :: string(), Position :: integer() &gt;= 0}</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Compiles a regular expression, with the syntax
           described below, into an internal format to be used later as a
           parameter to
-          <span class="bold_code data-type-ref"><a href="#run-2"><span class="code">run/2</span></a></span> and
-          <span class="bold_code data-type-ref"><a href="#run-3"><span class="code">run/3</span></a></span>.</p>
+          <span class="bold_code"><a href="#run-2"><span class="code">run/2</span></a></span> and
+          <span class="bold_code"><a href="#run-3"><span class="code">run/3</span></a></span>.</p>
         <p>Compiling the regular expression before matching is useful if
           the same expression is to be used in matching against multiple
           subjects during the lifetime of the program. Compiling once and
@@ -1963,7 +1952,7 @@
               the subject up to "A" and never realize that the (*COMMIT)
               instruction is to have made the matching fail. This option is only
               relevant if you use "start-of-pattern items", as discussed in
-              section <span class="bold_code data-type-ref"><a href="#regexp_syntax_details">PCRE Regular Expression Details</a></span>.</p>
+              section <span class="bold_code"><a href="#regexp_syntax_details">PCRE Regular Expression Details</a></span>.</p>
           </dd>
           <dt><strong><span class="code">ucp</span></strong></dt>
           <dd>
@@ -1981,18 +1970,14 @@
               source are to be compiled.</p>
           </dd>
         </dl>
-      </p></div></div>
-</div> 
+      </p></div> 
 
-    <div class="func">
-<div class="func-title">
-<a name="inspect-2"></a><span class="bold_code func-name">inspect(MP, Item) -&gt; {namelist, [binary()]}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">MP = <span class="bold_code data-type-ref"><a href="#type-mp">mp()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Item = namelist</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="inspect-2"></a><span class="bold_code">inspect(MP, Item) -&gt; {namelist, [binary()]}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">MP = <span class="bold_code"><a href="#type-mp">mp()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Item = namelist</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Takes a compiled regular expression and an item, and returns the
           relevant data from the regular expression. The only
           supported item is <span class="code">namelist</span>, which returns the tuple
@@ -2016,7 +2001,7 @@
           regardless of where the names are positioned in the regular
           expression. The order of the names is the same as the order of
           captured subexpressions if <span class="code">{capture, all_names}</span> is specified as
-          an option to <span class="bold_code data-type-ref"><a href="#run-3"><span class="code">run/3</span></a></span>.
+          an option to <span class="bold_code"><a href="#run-3"><span class="code">run/3</span></a></span>.
           You can therefore create a name-to-value mapping from the result of
           <span class="code">run/3</span> like this:</p>
         <div class="example"><pre>
@@ -2030,43 +2015,35 @@
 {match,[&lt;&lt;"A"&gt;&gt;,&lt;&lt;&gt;&gt;,&lt;&lt;&gt;&gt;]}
 4&gt; NameMap = lists:zip(N,L).
 [{&lt;&lt;"A"&gt;&gt;,&lt;&lt;"A"&gt;&gt;},{&lt;&lt;"B"&gt;&gt;,&lt;&lt;&gt;&gt;},{&lt;&lt;"C"&gt;&gt;,&lt;&lt;&gt;&gt;}]</pre></div>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="replace-3"></a><span class="bold_code func-name">replace(Subject, RE, Replacement) -&gt; iodata() | <span class="bold_code bc-15"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Subject = iodata() | <span class="bold_code bc-15"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">RE = <span class="bold_code data-type-ref"><a href="#type-mp">mp()</a></span> | iodata()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Replacement = iodata() | <span class="bold_code bc-15"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="replace-3"></a><span class="bold_code">replace(Subject, RE, Replacement) -&gt; iodata() | <span class="bold_code"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Subject = iodata() | <span class="bold_code"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">RE = <span class="bold_code"><a href="#type-mp">mp()</a></span> | iodata()</span></div>
+<div class="REFTYPES"><span class="bold_code">Replacement = iodata() | <span class="bold_code"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Same as <span class="code">replace(Subject, RE,
           Replacement, [])</span>.</p>
-      </p></div></div>
-</div> 
+      </p></div> 
 
-    <div class="func">
-<div class="func-title">
-<a name="replace-4"></a><span class="bold_code func-name">replace(Subject, RE, Replacement, Options) -&gt;<br>           iodata() | <span class="bold_code bc-15"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Subject = iodata() | <span class="bold_code bc-15"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">RE = <span class="bold_code data-type-ref"><a href="#type-mp">mp()</a></span> | iodata() | <span class="bold_code bc-15"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Replacement = iodata() | <span class="bold_code bc-15"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = [Option]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Option = <br>    anchored |<br>    global |<br>    notbol |<br>    noteol |<br>    notempty |<br>    notempty_atstart |<br>    {offset, integer() &gt;= 0} |<br>    {newline, NLSpec} |<br>    bsr_anycrlf |<br>    {match_limit, integer() &gt;= 0} |<br>    {match_limit_recursion, integer() &gt;= 0} |<br>    bsr_unicode |<br>    {return, ReturnType} |<br>    CompileOpt</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ReturnType = iodata | list | binary</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">CompileOpt = <span class="bold_code data-type-ref"><a href="#type-compile_option">compile_option()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">NLSpec = cr | crlf | lf | anycrlf | any</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="replace-4"></a><span class="bold_code">replace(Subject, RE, Replacement, Options) -&gt;<br>           iodata() | <span class="bold_code"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Subject = iodata() | <span class="bold_code"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">RE = <span class="bold_code"><a href="#type-mp">mp()</a></span> | iodata() | <span class="bold_code"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Replacement = iodata() | <span class="bold_code"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Options = [Option]</span></div>
+<div class="REFTYPES"><span class="bold_code">Option = <br>    anchored |<br>    global |<br>    notbol |<br>    noteol |<br>    notempty |<br>    notempty_atstart |<br>    {offset, integer() &gt;= 0} |<br>    {newline, NLSpec} |<br>    bsr_anycrlf |<br>    {match_limit, integer() &gt;= 0} |<br>    {match_limit_recursion, integer() &gt;= 0} |<br>    bsr_unicode |<br>    {return, ReturnType} |<br>    CompileOpt</span></div>
+<div class="REFTYPES"><span class="bold_code">ReturnType = iodata | list | binary</span></div>
+<div class="REFTYPES"><span class="bold_code">CompileOpt = <span class="bold_code"><a href="#type-compile_option">compile_option()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">NLSpec = cr | crlf | lf | anycrlf | any</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Replaces the matched part of the <span class="code">Subject</span> string
           with the contents of <span class="code">Replacement</span>.</p>
         <p>The permissible options are the same as for
-          <span class="bold_code data-type-ref"><a href="#run-3"><span class="code">run/3</span></a></span>, except that option<span class="code">
+          <span class="bold_code"><a href="#run-3"><span class="code">run/3</span></a></span>, except that option<span class="code">
           capture</span> is not allowed. Instead a <span class="code">{return,
           ReturnType}</span> is present. The default return type is
           <span class="code">iodata</span>, constructed in a way to minimize copying. The
@@ -2103,48 +2080,40 @@ re:replace("abcd","c","[\\&amp;]",[{return,list}]).</pre></div>
         <div class="example"><pre>
 "ab[&amp;]d"</pre></div>
         <p>As with <span class="code">run/3</span>, compilation errors raise the <span class="code">badarg</span>
-          exception. <span class="bold_code data-type-ref"><a href="#compile-2"><span class="code">compile/2</span></a></span>
+          exception. <span class="bold_code"><a href="#compile-2"><span class="code">compile/2</span></a></span>
           can be used to get more information about the error.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="run-2"></a><span class="bold_code func-name">run(Subject, RE) -&gt; {match, Captured} | nomatch</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Subject = iodata() | <span class="bold_code bc-15"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">RE = <span class="bold_code data-type-ref"><a href="#type-mp">mp()</a></span> | iodata()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Captured = [CaptureData]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">CaptureData = {integer(), integer()}</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="run-2"></a><span class="bold_code">run(Subject, RE) -&gt; {match, Captured} | nomatch</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Subject = iodata() | <span class="bold_code"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">RE = <span class="bold_code"><a href="#type-mp">mp()</a></span> | iodata()</span></div>
+<div class="REFTYPES"><span class="bold_code">Captured = [CaptureData]</span></div>
+<div class="REFTYPES"><span class="bold_code">CaptureData = {integer(), integer()}</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Same as <span class="code">run(Subject,RE,[])</span>.</p>
-      </p></div></div>
-</div> 
+      </p></div> 
 
-    <div class="func">
-<div class="func-title">
-<a name="run-3"></a><span class="bold_code func-name">run(Subject, RE, Options) -&gt;<br>       {match, Captured} | match | nomatch | {error, ErrType}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Subject = iodata() | <span class="bold_code bc-15"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">RE = <span class="bold_code data-type-ref"><a href="#type-mp">mp()</a></span> | iodata() | <span class="bold_code bc-15"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = [Option]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Option = <br>    anchored |<br>    global |<br>    notbol |<br>    noteol |<br>    notempty |<br>    notempty_atstart |<br>    report_errors |<br>    {offset, integer() &gt;= 0} |<br>    {match_limit, integer() &gt;= 0} |<br>    {match_limit_recursion, integer() &gt;= 0} |<br>    {newline, NLSpec :: <span class="bold_code data-type-ref"><a href="#type-nl_spec">nl_spec()</a></span>} |<br>    bsr_anycrlf |<br>    bsr_unicode |<br>    {capture, ValueSpec} |<br>    {capture, ValueSpec, Type} |<br>    CompileOpt</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Type = index | list | binary</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ValueSpec = <br>    all | all_but_first | all_names | first | none | ValueList</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ValueList = [ValueID]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ValueID = integer() | string() | atom()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">CompileOpt = <span class="bold_code data-type-ref"><a href="#type-compile_option">compile_option()</a></span></span></div>
-<div class="REFBODY type-desc">See <span class="bold_code data-type-ref"><a href="#compile_options"><span class="code">compile/2</span></a></span>.</div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Captured = [CaptureData] | [[CaptureData]]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">CaptureData = <br>    {integer(), integer()} | ListConversionData | binary()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ListConversionData = <br>    string() |<br>    {error, string(), binary()} |<br>    {incomplete, string(), binary()}</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ErrType = <br>    match_limit | match_limit_recursion | {compile, CompileErr}</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">CompileErr = <br>    {ErrString :: string(), Position :: integer() &gt;= 0}</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="run-3"></a><span class="bold_code">run(Subject, RE, Options) -&gt;<br>       {match, Captured} | match | nomatch | {error, ErrType}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Subject = iodata() | <span class="bold_code"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">RE = <span class="bold_code"><a href="#type-mp">mp()</a></span> | iodata() | <span class="bold_code"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Options = [Option]</span></div>
+<div class="REFTYPES"><span class="bold_code">Option = <br>    anchored |<br>    global |<br>    notbol |<br>    noteol |<br>    notempty |<br>    notempty_atstart |<br>    report_errors |<br>    {offset, integer() &gt;= 0} |<br>    {match_limit, integer() &gt;= 0} |<br>    {match_limit_recursion, integer() &gt;= 0} |<br>    {newline, NLSpec :: <span class="bold_code"><a href="#type-nl_spec">nl_spec()</a></span>} |<br>    bsr_anycrlf |<br>    bsr_unicode |<br>    {capture, ValueSpec} |<br>    {capture, ValueSpec, Type} |<br>    CompileOpt</span></div>
+<div class="REFTYPES"><span class="bold_code">Type = index | list | binary</span></div>
+<div class="REFTYPES"><span class="bold_code">ValueSpec = <br>    all | all_but_first | all_names | first | none | ValueList</span></div>
+<div class="REFTYPES"><span class="bold_code">ValueList = [ValueID]</span></div>
+<div class="REFTYPES"><span class="bold_code">ValueID = integer() | string() | atom()</span></div>
+<div class="REFTYPES"><span class="bold_code">CompileOpt = <span class="bold_code"><a href="#type-compile_option">compile_option()</a></span></span></div>
+<div class="REFBODY">See <span class="bold_code"><a href="#compile_options"><span class="code">compile/2</span></a></span>.</div>
+<div class="REFTYPES"><span class="bold_code">Captured = [CaptureData] | [[CaptureData]]</span></div>
+<div class="REFTYPES"><span class="bold_code">CaptureData = <br>    {integer(), integer()} | ListConversionData | binary()</span></div>
+<div class="REFTYPES"><span class="bold_code">ListConversionData = <br>    string() |<br>    {error, string(), binary()} |<br>    {incomplete, string(), binary()}</span></div>
+<div class="REFTYPES"><span class="bold_code">ErrType = <br>    match_limit | match_limit_recursion | {compile, CompileErr}</span></div>
+<div class="REFTYPES"><span class="bold_code">CompileErr = <br>    {ErrString :: string(), Position :: integer() &gt;= 0}</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Executes a regular expression matching, and returns
           <span class="code">match/{match, Captured}</span> or <span class="code">nomatch</span>. The
           regular expression can be specified either as <span class="code">iodata()</span> in
@@ -2361,7 +2330,7 @@ a?b?</pre></div>
                   before that (each recursive call is also a call, but not
                   conversely). Both limits can however be changed, either by
                   setting limits directly in the regular expression string (see
-                  section <span class="bold_code data-type-ref"><a href="#regexp_syntax_details">PCRE Regular Eexpression Details</a></span>) or by specifying options to
+                  section <span class="bold_code"><a href="#regexp_syntax_details">PCRE Regular Eexpression Details</a></span>) or by specifying options to
                   <span class="code">run/3</span>.</p>
               </dd>
             </dl>
@@ -2544,7 +2513,7 @@ re:run("ABCabcdABC",".*(abcd).*",[]).</pre></div>
                       as if a <span class="code">list()</span> of all the names <strong>in
                       alphabetical order</strong> was specified. The list of all
                       names can also be retrieved with
-                      <span class="bold_code data-type-ref"><a href="#inspect-2"><span class="code">inspect/2</span></a></span>.</p>
+                      <span class="bold_code"><a href="#inspect-2"><span class="code">inspect/2</span></a></span>.</p>
                   </dd>
                   <dt><strong><span class="code">first</span></strong></dt>
                   <dd>
@@ -2626,8 +2595,8 @@ re:run("ABCabcdABC",".*(?&lt;FOO&gt;abcd).*",[{capture,['FOO']}]).</pre></div>
                     <p>Returns captured substrings as pairs of byte indexes
                       into the subject string and length of the matching string
                       in the subject (as if the subject string was flattened
-                      with <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#iolist_to_binary-1');"><span class="code">erlang:iolist_to_binary/1</span></a></span> or
-                      <span class="bold_code bc-15"><a href="unicode.html#characters_to_binary-2"><span class="code">unicode:characters_to_binary/2</span></a></span> before
+                      with <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#iolist_to_binary-1');"><span class="code">erlang:iolist_to_binary/1</span></a></span> or
+                      <span class="bold_code"><a href="unicode.html#characters_to_binary-2"><span class="code">unicode:characters_to_binary/2</span></a></span> before
                       matching). Notice that option <span class="code">unicode</span> results in
                       <strong>byte-oriented</strong> indexes in a (possibly virtual)
                       <strong>UTF-8 encoded</strong> binary. A byte index tuple
@@ -2648,7 +2617,7 @@ re:run("ABCabcdABC",".*(?&lt;FOO&gt;abcd).*",[{capture,['FOO']}]).</pre></div>
                       regardless of character encoding). In that case the
                       <span class="code">list</span> capturing can result in the same types of
                       tuples that
-                      <span class="bold_code bc-15"><a href="unicode.html#characters_to_list-2"><span class="code">unicode:characters_to_list/2</span></a></span> can return,
+                      <span class="bold_code"><a href="unicode.html#characters_to_list-2"><span class="code">unicode:characters_to_list/2</span></a></span> can return,
                       namely three-tuples with tag <span class="code">incomplete</span> or
                       <span class="code">error</span>, the successfully converted characters and
                       the invalid UTF-8 tail of the conversion as a binary. The
@@ -2708,48 +2677,40 @@ re:run("cacb","c(a|b)",[global,{capture,[1],list}]).</pre></div>
           </dd>
         </dl>
         <p>For a descriptions of options only affecting the compilation step,
-          see <span class="bold_code data-type-ref"><a href="#compile-2"><span class="code">compile/2</span></a></span>.</p>
-      </p></div></div>
-</div>
+          see <span class="bold_code"><a href="#compile-2"><span class="code">compile/2</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="split-2"></a><span class="bold_code func-name">split(Subject, RE) -&gt; SplitList</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Subject = iodata() | <span class="bold_code bc-15"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">RE = <span class="bold_code data-type-ref"><a href="#type-mp">mp()</a></span> | iodata()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">SplitList = [iodata() | <span class="bold_code bc-15"><a href="unicode.html#type-charlist">unicode:charlist()</a></span>]</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="split-2"></a><span class="bold_code">split(Subject, RE) -&gt; SplitList</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Subject = iodata() | <span class="bold_code"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">RE = <span class="bold_code"><a href="#type-mp">mp()</a></span> | iodata()</span></div>
+<div class="REFTYPES"><span class="bold_code">SplitList = [iodata() | <span class="bold_code"><a href="unicode.html#type-charlist">unicode:charlist()</a></span>]</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Same as <span class="code">split(Subject, RE, [])</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="split-3"></a><span class="bold_code func-name">split(Subject, RE, Options) -&gt; SplitList</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Subject = iodata() | <span class="bold_code bc-15"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">RE = <span class="bold_code data-type-ref"><a href="#type-mp">mp()</a></span> | iodata() | <span class="bold_code bc-15"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = [Option]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Option = <br>    anchored |<br>    notbol |<br>    noteol |<br>    notempty |<br>    notempty_atstart |<br>    {offset, integer() &gt;= 0} |<br>    {newline, <span class="bold_code data-type-ref"><a href="#type-nl_spec">nl_spec()</a></span>} |<br>    {match_limit, integer() &gt;= 0} |<br>    {match_limit_recursion, integer() &gt;= 0} |<br>    bsr_anycrlf |<br>    bsr_unicode |<br>    {return, ReturnType} |<br>    {parts, NumParts} |<br>    group |<br>    trim |<br>    CompileOpt</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">NumParts = integer() &gt;= 0 | infinity</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ReturnType = iodata | list | binary</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">CompileOpt = <span class="bold_code data-type-ref"><a href="#type-compile_option">compile_option()</a></span></span></div>
-<div class="REFBODY type-desc">See <span class="bold_code data-type-ref"><a href="#compile_options"><span class="code">compile/2</span></a></span>.</div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">SplitList = [RetData] | [GroupedRetData]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">GroupedRetData = [RetData]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">RetData = iodata() | <span class="bold_code bc-15"><a href="unicode.html#type-charlist">unicode:charlist()</a></span> | binary() | list()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="split-3"></a><span class="bold_code">split(Subject, RE, Options) -&gt; SplitList</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Subject = iodata() | <span class="bold_code"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">RE = <span class="bold_code"><a href="#type-mp">mp()</a></span> | iodata() | <span class="bold_code"><a href="unicode.html#type-charlist">unicode:charlist()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Options = [Option]</span></div>
+<div class="REFTYPES"><span class="bold_code">Option = <br>    anchored |<br>    notbol |<br>    noteol |<br>    notempty |<br>    notempty_atstart |<br>    {offset, integer() &gt;= 0} |<br>    {newline, <span class="bold_code"><a href="#type-nl_spec">nl_spec()</a></span>} |<br>    {match_limit, integer() &gt;= 0} |<br>    {match_limit_recursion, integer() &gt;= 0} |<br>    bsr_anycrlf |<br>    bsr_unicode |<br>    {return, ReturnType} |<br>    {parts, NumParts} |<br>    group |<br>    trim |<br>    CompileOpt</span></div>
+<div class="REFTYPES"><span class="bold_code">NumParts = integer() &gt;= 0 | infinity</span></div>
+<div class="REFTYPES"><span class="bold_code">ReturnType = iodata | list | binary</span></div>
+<div class="REFTYPES"><span class="bold_code">CompileOpt = <span class="bold_code"><a href="#type-compile_option">compile_option()</a></span></span></div>
+<div class="REFBODY">See <span class="bold_code"><a href="#compile_options"><span class="code">compile/2</span></a></span>.</div>
+<div class="REFTYPES"><span class="bold_code">SplitList = [RetData] | [GroupedRetData]</span></div>
+<div class="REFTYPES"><span class="bold_code">GroupedRetData = [RetData]</span></div>
+<div class="REFTYPES"><span class="bold_code">RetData = iodata() | <span class="bold_code"><a href="unicode.html#type-charlist">unicode:charlist()</a></span> | binary() | list()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Splits the input into parts by finding tokens according to the
           regular expression supplied. The splitting is basically done by
           running a global regular expression match and dividing the initial
           string wherever a match occurs. The matching part of the string is
           removed from the output.</p>
-        <p>As in <span class="bold_code data-type-ref"><a href="#run-3"><span class="code">run/3</span></a></span>, an <span class="code">mp()</span>
+        <p>As in <span class="bold_code"><a href="#run-3"><span class="code">run/3</span></a></span>, an <span class="code">mp()</span>
           compiled with option <span class="code">unicode</span> requires
           <span class="code">Subject</span> to be a Unicode <span class="code">charlist()</span>. If
           compilation is done implicitly and the <span class="code">unicode</span> compilation
@@ -2900,14 +2861,13 @@ re:split("Erlang","[lg]",[{return,list},{parts,4}]).</pre></div>
               built-in function in Perl.</p>
           </dd>
         </dl>
-      </p></div></div>
-</div>     
-  </div>
+      </p></div>     
+  
 
   <h3>
-<a name="regexp_syntax"></a><a name="idm45461562870384">Perl-Like Regular Expression Syntax</a>
+<a name="regexp_syntax"></a><a name="idm46007669304064">Perl-Like Regular Expression Syntax</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>The following sections contain reference material for the regular
@@ -2917,9 +2877,9 @@ re:split("Erlang","[lg]",[{return,list},{parts,4}]).</pre></div>
   </div>
 
   <h3>
-<a name="regexp_syntax_details"></a><a name="idm45461562868240">PCRE Regular Expression Details</a>
+<a name="regexp_syntax_details"></a><a name="idm46007669301920">PCRE Regular Expression Details</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>The syntax and semantics of the regular expressions supported by PCRE are
@@ -2934,52 +2894,52 @@ re:split("Erlang","[lg]",[{return,list},{parts,4}]).</pre></div>
 
     <ul>
       <li>
-<span class="bold_code data-type-ref"><a href="#sect1">Special Start-of-Pattern Items</a></span>
+<span class="bold_code"><a href="#sect1">Special Start-of-Pattern Items</a></span>
       </li>
       <li>
-<span class="bold_code data-type-ref"><a href="#sect2">Characters and Metacharacters</a></span>
+<span class="bold_code"><a href="#sect2">Characters and Metacharacters</a></span>
       </li>
-      <li><span class="bold_code data-type-ref"><a href="#sect3">Backslash</a></span></li>
-      <li><span class="bold_code data-type-ref"><a href="#sect4">Circumflex and Dollar</a></span></li>
+      <li><span class="bold_code"><a href="#sect3">Backslash</a></span></li>
+      <li><span class="bold_code"><a href="#sect4">Circumflex and Dollar</a></span></li>
       <li>
-<span class="bold_code data-type-ref"><a href="#sect5">Full Stop (Period, Dot) and \N</a></span>
-      </li>
-      <li>
-<span class="bold_code data-type-ref"><a href="#sect6">Matching a Single Data Unit</a></span>
-      </li>
-      <li><span class="bold_code data-type-ref"><a href="#sect7">Square Brackets and Character Classes</a></span></li>
-      <li><span class="bold_code data-type-ref"><a href="#sect8">Posix Character Classes</a></span></li>
-      <li><span class="bold_code data-type-ref"><a href="#sect9">Vertical Bar</a></span></li>
-      <li><span class="bold_code data-type-ref"><a href="#sect10">Internal Option Setting</a></span></li>
-      <li><span class="bold_code data-type-ref"><a href="#sect11">Subpatterns</a></span></li>
-      <li>
-<span class="bold_code data-type-ref"><a href="#sect12">Duplicate Subpattern Numbers</a></span>
-      </li>
-      <li><span class="bold_code data-type-ref"><a href="#sect13">Named Subpatterns</a></span></li>
-      <li><span class="bold_code data-type-ref"><a href="#sect14">Repetition</a></span></li>
-      <li><span class="bold_code data-type-ref"><a href="#sect15">Atomic Grouping and Possessive Quantifiers</a></span></li>
-      <li><span class="bold_code data-type-ref"><a href="#sect16">Back References</a></span></li>
-      <li><span class="bold_code data-type-ref"><a href="#sect17">Assertions</a></span></li>
-      <li><span class="bold_code data-type-ref"><a href="#sect18">Conditional Subpatterns</a></span></li>
-      <li><span class="bold_code data-type-ref"><a href="#sect19">Comments</a></span></li>
-      <li><span class="bold_code data-type-ref"><a href="#sect20">Recursive Patterns</a></span></li>
-      <li>
-<span class="bold_code data-type-ref"><a href="#sect21">Subpatterns as Subroutines</a></span>
+<span class="bold_code"><a href="#sect5">Full Stop (Period, Dot) and \N</a></span>
       </li>
       <li>
-<span class="bold_code data-type-ref"><a href="#sect22">Oniguruma Subroutine Syntax</a></span>
+<span class="bold_code"><a href="#sect6">Matching a Single Data Unit</a></span>
       </li>
-      <li><span class="bold_code data-type-ref"><a href="#sect23">Backtracking Control</a></span></li>
+      <li><span class="bold_code"><a href="#sect7">Square Brackets and Character Classes</a></span></li>
+      <li><span class="bold_code"><a href="#sect8">Posix Character Classes</a></span></li>
+      <li><span class="bold_code"><a href="#sect9">Vertical Bar</a></span></li>
+      <li><span class="bold_code"><a href="#sect10">Internal Option Setting</a></span></li>
+      <li><span class="bold_code"><a href="#sect11">Subpatterns</a></span></li>
+      <li>
+<span class="bold_code"><a href="#sect12">Duplicate Subpattern Numbers</a></span>
+      </li>
+      <li><span class="bold_code"><a href="#sect13">Named Subpatterns</a></span></li>
+      <li><span class="bold_code"><a href="#sect14">Repetition</a></span></li>
+      <li><span class="bold_code"><a href="#sect15">Atomic Grouping and Possessive Quantifiers</a></span></li>
+      <li><span class="bold_code"><a href="#sect16">Back References</a></span></li>
+      <li><span class="bold_code"><a href="#sect17">Assertions</a></span></li>
+      <li><span class="bold_code"><a href="#sect18">Conditional Subpatterns</a></span></li>
+      <li><span class="bold_code"><a href="#sect19">Comments</a></span></li>
+      <li><span class="bold_code"><a href="#sect20">Recursive Patterns</a></span></li>
+      <li>
+<span class="bold_code"><a href="#sect21">Subpatterns as Subroutines</a></span>
+      </li>
+      <li>
+<span class="bold_code"><a href="#sect22">Oniguruma Subroutine Syntax</a></span>
+      </li>
+      <li><span class="bold_code"><a href="#sect23">Backtracking Control</a></span></li>
     </ul>
   </div>
 
   <h3>
-<a name="sect1"></a><a name="idm45461562843808">Special Start-of-Pattern Items</a>
+<a name="sect1"></a><a name="idm46007669277488">Special Start-of-Pattern Items</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
-    <p>Some options that can be passed to <span class="bold_code data-type-ref"><a href="#compile-2"><span class="code">compile/2</span></a></span> can also be set by special items at the start
+    <p>Some options that can be passed to <span class="bold_code"><a href="#compile-2"><span class="code">compile/2</span></a></span> can also be set by special items at the start
       of a pattern. These are not Perl-compatible, but are provided to make
       these options accessible to pattern writers who are not able to change
       the program that processes the pattern. Any number of these items can
@@ -2989,8 +2949,8 @@ re:split("Erlang","[lg]",[{return,list},{parts,4}]).</pre></div>
     <p><strong>UTF Support</strong></p>
 
     <p>Unicode support is basically UTF-8 based. To use Unicode characters, you
-      either call <span class="bold_code data-type-ref"><a href="#compile-2"><span class="code">compile/2</span></a></span> or
-      <span class="bold_code data-type-ref"><a href="#run-3"><span class="code">run/3</span></a></span> with option
+      either call <span class="bold_code"><a href="#compile-2"><span class="code">compile/2</span></a></span> or
+      <span class="bold_code"><a href="#run-3"><span class="code">run/3</span></a></span> with option
       <span class="code">unicode</span>, or the pattern must start with one of these special
       sequences:</p>
 
@@ -3003,7 +2963,7 @@ re:split("Erlang","[lg]",[{return,list},{parts,4}]).</pre></div>
       lists to UTF-8 is not performed by the <span class="code">re</span> functions. Therefore,
       using these sequences is not recommended.
       Add option <span class="code">unicode</span> when running
-      <span class="bold_code data-type-ref"><a href="#compile-2"><span class="code">compile/2</span></a></span> instead.</p>
+      <span class="bold_code"><a href="#compile-2"><span class="code">compile/2</span></a></span> instead.</p>
 
     <p>Some applications that allow their users to supply patterns can wish to
       restrict them to non-UTF data for security reasons. If option
@@ -3055,7 +3015,7 @@ re:split("Erlang","[lg]",[{return,list},{parts,4}]).</pre></div>
     </dl>
 
     <p>These override the default and the options specified to
-      <span class="bold_code data-type-ref"><a href="#compile-2"><span class="code">compile/2</span></a></span>. For example, the
+      <span class="bold_code"><a href="#compile-2"><span class="code">compile/2</span></a></span>. For example, the
       following pattern changes the convention to CR:</p>
 
     <div class="example"><pre>
@@ -3070,13 +3030,13 @@ re:split("Erlang","[lg]",[{return,list},{parts,4}]).</pre></div>
       affect what the \R escape sequence matches. By default, this is any
       Unicode newline sequence, for Perl compatibility. However, this can be
       changed; see the description of \R in section
-      <span class="bold_code data-type-ref"><a href="#newline_sequences">Newline Sequences</a></span>. A change
+      <span class="bold_code"><a href="#newline_sequences">Newline Sequences</a></span>. A change
       of the \R setting can be combined with a change of the newline
       convention.</p>
 
     <p><strong>Setting Match and Recursion Limits</strong></p>
 
-    <p>The caller of <span class="bold_code data-type-ref"><a href="#run-3"><span class="code">run/3</span></a></span> can set a
+    <p>The caller of <span class="bold_code"><a href="#run-3"><span class="code">run/3</span></a></span> can set a
       limit on the number of times the internal match() function is called and
       on the maximum depth of recursive calls. These facilities are provided to
       catch runaway matches that are provoked by patterns with huge matching
@@ -3103,9 +3063,9 @@ re:split("Erlang","[lg]",[{return,list},{parts,4}]).</pre></div>
   </div>
 
   <h3>
-<a name="sect2"></a><a name="idm45461562810704">Characters and Metacharacters</a>
+<a name="sect2"></a><a name="idm46007669244384">Characters and Metacharacters</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     
@@ -3182,9 +3142,9 @@ The quick brown fox</pre></div>
   </div>
 
   <h3>
-<a name="sect3"></a><a name="idm45461562789760">Backslash</a>
+<a name="sect3"></a><a name="idm46007669223440">Backslash</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
   
   
     <p>The backslash character has many uses. First, if it is followed by a
@@ -4000,7 +3960,7 @@ foo\Kbar</pre></div>
       they are independent of multiline mode. These three assertions are not
       affected by options <span class="code">notbol</span> or <span class="code">noteol</span>, which affect only the
       behavior of the circumflex and dollar metacharacters. However, if argument
-      <span class="code">startoffset</span> of <span class="bold_code data-type-ref"><a href="#run-3"><span class="code">run/3</span></a></span> is
+      <span class="code">startoffset</span> of <span class="bold_code"><a href="#run-3"><span class="code">run/3</span></a></span> is
       non-zero, indicating that matching is to start at a point other than the
       beginning of the subject, \A can never match. The difference between \Z
       and \z is that \Z matches before a newline at the end of the string and
@@ -4025,9 +3985,9 @@ foo\Kbar</pre></div>
   </div>
 
   <h3>
-<a name="sect4"></a><a name="idm45461562564432">Circumflex and Dollar</a>
+<a name="sect4"></a><a name="idm46007668998112">Circumflex and Dollar</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>The circumflex and dollar metacharacters are zero-width assertions. That
@@ -4037,7 +3997,7 @@ foo\Kbar</pre></div>
     <p>Outside a character class, in the default matching mode, the circumflex
       character is an assertion that is true only if the current matching point
       is at the start of the subject string. If argument <span class="code">startoffset</span> of
-      <span class="bold_code data-type-ref"><a href="#run-3"><span class="code">run/3</span></a></span> is non-zero, circumflex
+      <span class="bold_code"><a href="#run-3"><span class="code">run/3</span></a></span> is non-zero, circumflex
       can never match if option <span class="code">multiline</span> is unset. Inside a character
       class, circumflex has an entirely different meaning (see below).</p>
 
@@ -4084,9 +4044,9 @@ foo\Kbar</pre></div>
   </div>
 
   <h3>
-<a name="sect5"></a><a name="idm45461562551472">Full Stop (Period, Dot) and \N</a>
+<a name="sect5"></a><a name="idm46007668985152">Full Stop (Period, Dot) and \N</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>Outside a character class, a dot in the pattern matches any character in
@@ -4116,9 +4076,9 @@ foo\Kbar</pre></div>
   </div>
 
   <h3>
-<a name="sect6"></a><a name="idm45461562545664">Matching a Single Data Unit</a>
+<a name="sect6"></a><a name="idm46007668979344">Matching a Single Data Unit</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>Outside a character class, the escape sequence \C matches any data unit,
@@ -4146,16 +4106,16 @@ foo\Kbar</pre></div>
     (?=[\x{10000}-\x{1fffff}])(\C)(\C)(\C)(\C))</pre></div>
 
     <p>A group that starts with (?| resets the capturing parentheses numbers in
-      each alternative (see section <span class="bold_code data-type-ref"><a href="#sect12">Duplicate Subpattern Numbers</a></span>). The assertions at the start of each branch
+      each alternative (see section <span class="bold_code"><a href="#sect12">Duplicate Subpattern Numbers</a></span>). The assertions at the start of each branch
       check the next UTF-8 character for values whose encoding uses 1, 2, 3, or
       4 bytes, respectively. The individual bytes of the character are then
       captured by the appropriate number of groups.</p>
   </div>
 
   <h3>
-<a name="sect7"></a><a name="idm45461562539440">Square Brackets and Character Classes</a>
+<a name="sect7"></a><a name="idm46007668973120">Square Brackets and Character Classes</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>An opening square bracket introduces a character class, terminated by a
@@ -4237,7 +4197,7 @@ foo\Kbar</pre></div>
       digit. In UTF modes, option <span class="code">ucp</span> affects the meanings of \d, \s, \w
       and their uppercase partners, just as it does when they appear outside a
       character class, as described in section
-      <span class="bold_code data-type-ref"><a href="#generic_character_types">Generic Character Types</a></span> earlier. The escape sequence \b has a different meaning
+      <span class="bold_code"><a href="#generic_character_types">Generic Character Types</a></span> earlier. The escape sequence \b has a different meaning
       inside a character class; it matches the backspace character. The
       sequences \B, \N, \R, and \X are not special inside a character class.
       Like any other unrecognized escape sequences, they are treated as the
@@ -4267,9 +4227,9 @@ foo\Kbar</pre></div>
   </div>
 
   <h3>
-<a name="sect8"></a><a name="idm45461562518992">Posix Character Classes</a>
+<a name="sect8"></a><a name="idm46007668952672">Posix Character Classes</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>Perl supports the Posix notation for character classes. This uses names
@@ -4370,9 +4330,9 @@ foo\Kbar</pre></div>
   </div>
 
   <h3>
-<a name="sect9"></a><a name="idm45461562491200">Vertical Bar</a>
+<a name="sect9"></a><a name="idm46007668924880">Vertical Bar</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>Vertical bar characters are used to separate alternative patterns. For
@@ -4385,15 +4345,15 @@ gilbert|sullivan</pre></div>
       permitted (matching the empty string). The matching process tries each
       alternative in turn, from left to right, and the first that succeeds is
       used. If the alternatives are within a subpattern (defined in section
-      <span class="bold_code data-type-ref"><a href="#sect11">Subpatterns</a></span>), "succeeds" means
+      <span class="bold_code"><a href="#sect11">Subpatterns</a></span>), "succeeds" means
       matching the remaining main pattern and the alternative in the
       subpattern.</p>
   </div>
 
   <h3>
-<a name="sect10"></a><a name="idm45461562486896">Internal Option Setting</a>
+<a name="sect10"></a><a name="idm46007668920576">Internal Option Setting</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>The settings of the Perl-compatible options <span class="code">caseless</span>,
@@ -4432,7 +4392,7 @@ gilbert|sullivan</pre></div>
       pattern that follows. If the change is placed right at the start of a
       pattern, PCRE extracts it into the global options.</p>
     <p>An option change within a subpattern (see section
-      <span class="bold_code data-type-ref"><a href="#sect11">Subpatterns</a></span>) affects only that part of
+      <span class="bold_code"><a href="#sect11">Subpatterns</a></span>) affects only that part of
       the subpattern that follows it. So, the following matches abc and aBc and
       no other strings (assuming <span class="code">caseless</span> is not used):</p>
 
@@ -4459,7 +4419,7 @@ gilbert|sullivan</pre></div>
         compiling or matching functions are called. Sometimes the pattern can
         contain special leading sequences, such as (*CRLF), to override what
         the application has set or what has been defaulted. Details are provided
-        in section <span class="bold_code data-type-ref"><a href="#newline_sequences">Newline Sequences</a></span> earlier.</p>
+        in section <span class="bold_code"><a href="#newline_sequences">Newline Sequences</a></span> earlier.</p>
       <p>The (*UTF8) and (*UCP) leading sequences can be used to set UTF and
         Unicode property modes. They are equivalent to setting options
         <span class="code">unicode</span> and <span class="code">ucp</span>, respectively. The (*UTF) sequence is a
@@ -4471,9 +4431,9 @@ gilbert|sullivan</pre></div>
   </div>
 
   <h3>
-<a name="sect11"></a><a name="idm45461562463872">Subpatterns</a>
+<a name="sect11"></a><a name="idm46007668897552">Subpatterns</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>Subpatterns are delimited by parentheses (round brackets), which can be
@@ -4494,7 +4454,7 @@ cat(aract|erpillar|)</pre></div>
         <p>It sets up the subpattern as a capturing subpattern. That is, when
           the complete pattern matches, that portion of the subject string that
           matched the subpattern is passed back to the caller through the
-          return value of <span class="bold_code data-type-ref"><a href="#run-3"><span class="code">run/3</span></a></span>.</p>
+          return value of <span class="bold_code"><a href="#run-3"><span class="code">run/3</span></a></span>.</p>
       </dd>
     </dl>
 
@@ -4537,9 +4497,9 @@ the ((?:red|white) (king|queen))</pre></div>
   </div>
 
   <h3>
-<a name="sect12"></a><a name="idm45461562450448">Duplicate Subpattern Numbers</a>
+<a name="sect12"></a><a name="idm46007668884128">Duplicate Subpattern Numbers</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>Perl 5.10 introduced a feature where each alternative in a subpattern
@@ -4589,9 +4549,9 @@ the ((?:red|white) (king|queen))</pre></div>
   </div>
 
   <h3>
-<a name="sect13"></a><a name="idm45461562440432">Named Subpatterns</a>
+<a name="sect13"></a><a name="idm46007668874112">Named Subpatterns</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>Identifying capturing parentheses by number is simple, but it can be
@@ -4612,7 +4572,7 @@ the ((?:red|white) (king|queen))</pre></div>
     <p>Names consist of up to 32 alphanumeric characters and underscores. Named
       capturing parentheses are still allocated numbers as well as names,
       exactly as if the names were not present.
-      The <span class="code">capture</span> specification to <span class="bold_code data-type-ref"><a href="#run-3"><span class="code">run/3</span></a></span> can use named values if they are present in the
+      The <span class="code">capture</span> specification to <span class="bold_code"><a href="#run-3"><span class="code">run/3</span></a></span> can use named values if they are present in the
       regular expression.</p>
 
     <p>By default, a name must be unique within a pattern, but this constraint
@@ -4638,7 +4598,7 @@ the ((?:red|white) (king|queen))</pre></div>
 
     <p>For capturing named subpatterns which names are not unique, the first
       matching occurrence (counted from left to right in the subject) is
-      returned from <span class="bold_code data-type-ref"><a href="#run-3"><span class="code">run/3</span></a></span>, if the name
+      returned from <span class="bold_code"><a href="#run-3"><span class="code">run/3</span></a></span>, if the name
       is specified in the <span class="code">values</span> part of the <span class="code">capture</span> statement.
       The <span class="code">all_names</span> capturing value matches all the names in the same
       way.</p>
@@ -4657,9 +4617,9 @@ the ((?:red|white) (king|queen))</pre></div>
   </div>
 
   <h3>
-<a name="sect14"></a><a name="idm45461562426256">Repetition</a>
+<a name="sect14"></a><a name="idm46007668859936">Repetition</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>Repetition is specified by quantifiers, which can follow any of the
@@ -4716,7 +4676,7 @@ z{2,4}</pre></div>
     <p>The quantifier {0} is permitted, causing the expression to behave as if
       the previous item and the quantifier were not present. This can be useful
       for subpatterns that are referenced as subroutines from elsewhere in the
-      pattern (but see also section <span class="bold_code data-type-ref"><a href="#defining_subpatterns">Defining Subpatterns for Use by Reference Only</a></span>). Items other
+      pattern (but see also section <span class="bold_code"><a href="#defining_subpatterns">Defining Subpatterns for Use by Reference Only</a></span>). Items other
       than subpatterns that have a {0} quantifier are omitted from the compiled
       pattern.</p>
 
@@ -4839,9 +4799,9 @@ z{2,4}</pre></div>
   </div>
 
   <h3>
-<a name="sect15"></a><a name="idm45461562388080">Atomic Grouping and Possessive Quantifiers</a>
+<a name="sect15"></a><a name="idm46007668821760">Atomic Grouping and Possessive Quantifiers</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>With both maximizing ("greedy") and minimizing ("ungreedy" or "lazy")
@@ -4952,9 +4912,9 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</pre></div>
   </div>
 
   <h3>
-<a name="sect16"></a><a name="idm45461562369088">Back References</a>
+<a name="sect16"></a><a name="idm46007668802768">Back References</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>Outside a character class, a backslash followed by a digit &gt; 0 (and
@@ -4974,7 +4934,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</pre></div>
       subpattern whose number is 10 or more using this syntax, as a sequence
       such as \50 is interpreted as a character defined in octal. For more
       details of the handling of digits following a backslash, see section
-      <span class="bold_code data-type-ref"><a href="#non_printing_characters">Non-Printing Characters</a></span> earlier. There is no such problem when named
+      <span class="bold_code"><a href="#non_printing_characters">Non-Printing Characters</a></span> earlier. There is no such problem when named
       parentheses are used. A back reference to any subpattern is possible
       using named parentheses (see below).</p>
 
@@ -5004,7 +4964,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</pre></div>
 
     <p>A back reference matches whatever matched the capturing subpattern in the
       current subject string, rather than anything matching the subpattern
-      itself (section <span class="bold_code data-type-ref"><a href="#sect21">Subpattern as Subroutines</a></span> describes a way of doing that). So, the
+      itself (section <span class="bold_code"><a href="#sect21">Subpattern as Subroutines</a></span> describes a way of doing that). So, the
       following pattern matches "sense and sensibility" and "response and
       responsibility", but not "sense and responsibility":</p>
 
@@ -5049,7 +5009,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</pre></div>
       number. If the pattern continues with a digit character, some delimiter
       must be used to terminate the back reference. If option <span class="code">extended</span> is
       set, this can be whitespace. Otherwise an empty comment (see section
-      <span class="bold_code data-type-ref"><a href="#sect19">Comments</a></span>) can be used.</p>
+      <span class="bold_code"><a href="#sect19">Comments</a></span>) can be used.</p>
 
     <p><strong>Recursive Back References</strong></p>
 
@@ -5075,9 +5035,9 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</pre></div>
   </div>
 
   <h3>
-<a name="sect17"></a><a name="idm45461562346208">Assertions</a>
+<a name="sect17"></a><a name="idm46007668779888">Assertions</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>An assertion is a test on the characters following or preceding the
@@ -5275,9 +5235,9 @@ abcd$</pre></div>
   </div>
 
   <h3>
-<a name="sect18"></a><a name="idm45461562309808">Conditional Subpatterns</a>
+<a name="sect18"></a><a name="idm46007668743488">Conditional Subpatterns</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>It is possible to cause the matching process to obey a subpattern
@@ -5309,7 +5269,7 @@ abcd$</pre></div>
     <p>If the text between the parentheses consists of a sequence of digits,
       the condition is true if a capturing subpattern of that number has
       previously matched. If more than one capturing subpattern with the same
-      number exists (see section <span class="bold_code data-type-ref"><a href="#sect12">Duplicate Subpattern Numbers</a></span> earlier), the condition is true if
+      number exists (see section <span class="bold_code"><a href="#sect12">Duplicate Subpattern Numbers</a></span> earlier), the condition is true if
       any of them have matched. An alternative notation is to precede the
       digits with a plus or minus sign. In this case, the subpattern number is
       relative rather than absolute. The most recently opened parentheses can be
@@ -5429,9 +5389,9 @@ abcd$</pre></div>
   </div>
 
   <h3>
-<a name="sect19"></a><a name="idm45461562283520">Comments</a>
+<a name="sect19"></a><a name="idm46007668717200">Comments</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>There are two ways to include comments in patterns that are processed by
@@ -5447,7 +5407,7 @@ abcd$</pre></div>
       character or character sequence in the pattern. Which characters are
       interpreted as newlines is controlled by the options passed to a
       compiling function or by a special sequence at the start of the pattern,
-      as described in section <span class="bold_code data-type-ref"><a href="#newline_conventions">Newline Conventions</a></span> earlier.</p>
+      as described in section <span class="bold_code"><a href="#newline_conventions">Newline Conventions</a></span> earlier.</p>
 
     <p>Notice that the end of this type of comment is a literal newline sequence
       in the pattern; escape sequences that happen to represent a newline do not
@@ -5464,9 +5424,9 @@ abc #comment \n still comment</pre></div>
   </div>
 
   <h3>
-<a name="sect20"></a><a name="idm45461562276544">Recursive Patterns</a>
+<a name="sect20"></a><a name="idm46007668710224">Recursive Patterns</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>Consider the problem of matching a string in parentheses, allowing for
@@ -5686,9 +5646,9 @@ $re = qr{\( (?: (?&gt;[^()]+) | (?p{$re}) )* \)}x;</pre></div>
   </div>
 
   <h3>
-<a name="sect21"></a><a name="idm45461562241040">Subpatterns as Subroutines</a>
+<a name="sect21"></a><a name="idm46007668674720">Subpatterns as Subroutines</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>If the syntax for a recursive subpattern call (either by number or by
@@ -5734,9 +5694,9 @@ $re = qr{\( (?: (?&gt;[^()]+) | (?p{$re}) )* \)}x;</pre></div>
   </div>
 
   <h3>
-<a name="sect22"></a><a name="idm45461562232576">Oniguruma Subroutine Syntax</a>
+<a name="sect22"></a><a name="idm46007668666256">Oniguruma Subroutine Syntax</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>For compatibility with Oniguruma, the non-Perl syntax \g followed by a
@@ -5761,9 +5721,9 @@ $re = qr{\( (?: (?&gt;[^()]+) | (?p{$re}) )* \)}x;</pre></div>
   </div>
 
   <h3>
-<a name="sect23"></a><a name="idm45461562227248">Backtracking Control</a>
+<a name="sect23"></a><a name="idm46007668660928">Backtracking Control</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>Perl 5.10 introduced some "Special Backtracking Control Verbs",
@@ -5796,8 +5756,8 @@ $re = qr{\( (?: (?&gt;[^()]+) | (?p{$re}) )* \)}x;</pre></div>
       running of a match, any included backtracking verbs are not processed.
       processed. You can suppress the start-of-match optimizations by setting
       option <span class="code">no_start_optimize</span> when calling
-      <span class="bold_code data-type-ref"><a href="#compile-2"><span class="code">compile/2</span></a></span> or
-      <span class="bold_code data-type-ref"><a href="#run-3"><span class="code">run/3</span></a></span>, or by starting the
+      <span class="bold_code"><a href="#compile-2"><span class="code">compile/2</span></a></span> or
+      <span class="bold_code"><a href="#run-3"><span class="code">run/3</span></a></span>, or by starting the
       pattern with (*NO_START_OPT).</p>
 
     <p>Experiments with Perl suggest that it too has similar optimizations,
@@ -5848,7 +5808,7 @@ A((?:A|B(*ACCEPT)|C)D)</pre></div>
 <div class="label">Note</div>
 <div class="content"><p>
       <p>In Erlang, there is no interface to retrieve a mark with
-        <span class="bold_code data-type-ref"><a href="#run-2"><span class="code">run/2,3</span></a></span>, so only the secondary
+        <span class="bold_code"><a href="#run-2"><span class="code">run/2,3</span></a></span>, so only the secondary
         purpose is relevant to the Erlang programmer.</p>
 
       <p>The rest of this section is therefore deliberately not adapted for
@@ -5931,7 +5891,7 @@ No match, mark = B</pre></div>
 (*COMMIT)</pre></div>
 
     <p>If (*COMMIT) is the only backtracking verb that is encountered, once it
-      has been passed, <span class="bold_code data-type-ref"><a href="#run-2"><span class="code">run/2,3</span></a></span> is
+      has been passed, <span class="bold_code"><a href="#run-2"><span class="code">run/2,3</span></a></span> is
       committed to find a match at the current starting point, or not at all,
       for example:</p>
 

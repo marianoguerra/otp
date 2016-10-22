@@ -802,11 +802,11 @@
 <!-- refpage --><center><h1>snmp_index</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">snmp_index</div>
+<div class="REFBODY">snmp_index</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Abstract Data Type for SNMP Indexing</div>
+<div class="REFBODY">Abstract Data Type for SNMP Indexing</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>The module <span class="code">snmp_index</span> implements an Abstract
       Data Type (ADT) for an SNMP
       index structure for SNMP tables.  It is implemented as an ets
@@ -845,10 +845,10 @@ get_next_pid(Oid, SnmpIndex) -&gt;
   {ok, {_, Pid}} = snmp_index:get_next(SnmpIndex, Oid),
   Pid.
     </pre></div>
-  </div>
+  </p></div>
 
-  <h3><a name="idm46069276292720">Common data types</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45821337357728">Common data types</a></h3>
+<div class="REFBODY">
     
     <p>The following data types are used in the functions below:
       </p>
@@ -934,185 +934,136 @@ get_next_pid(Oid, SnmpIndex) -&gt;
 </div>
   </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="delete-1"></a><span class="bold_code bc-9">delete(Index) -&gt; true</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="delete-1"></a><span class="bold_code">delete(Index) -&gt; true</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Index = NewIndex = index()</span><br>
+<span class="bold_code">Index = NewIndex = index()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Key = key()</span><br>
+<span class="bold_code">Key = key()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Deletes a complete index structure (i.e. the ets table
           holding the index). The index can no longer be referenced
-          after this call. See the <span class="bold_code data-type-ref"><a href="#1">warning note</a></span>
+          after this call. See the <span class="bold_code"><a href="#1">warning note</a></span>
           above.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="delete-2"></a><span class="bold_code bc-9">delete(Index, Key) -&gt; NewIndex</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="delete-2"></a><span class="bold_code">delete(Index, Key) -&gt; NewIndex</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Index = NewIndex = index()</span><br>
+<span class="bold_code">Index = NewIndex = index()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Key = key()</span><br>
+<span class="bold_code">Key = key()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Deletes a key and its value from the index structure.
           Returns a new structure.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get-2"></a><span class="bold_code bc-9">get(Index, KeyOid) -&gt; {ok, {KeyOid, Value}} | undefined</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get-2"></a><span class="bold_code">get(Index, KeyOid) -&gt; {ok, {KeyOid, Value}} | undefined</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Index = index()</span><br>
+<span class="bold_code">Index = index()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">KeyOid = oid()</span><br>
+<span class="bold_code">KeyOid = oid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Value = term()</span><br>
+<span class="bold_code">Value = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Gets the item with key <span class="code">KeyOid</span>.  Could be used from
           within an SNMP instrumentation function.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_last-1"></a><span class="bold_code bc-9">get_last(Index) -&gt; {ok, {KeyOid, Value}} | undefined</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_last-1"></a><span class="bold_code">get_last(Index) -&gt; {ok, {KeyOid, Value}} | undefined</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Index = index()</span><br>
+<span class="bold_code">Index = index()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">KeyOid = oid()</span><br>
+<span class="bold_code">KeyOid = oid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Value = term()</span><br>
+<span class="bold_code">Value = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Gets the last item in the index structure.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_next-2"></a><span class="bold_code bc-9">get_next(Index, KeyOid) -&gt; {ok, {NextKeyOid, Value}} | undefined</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_next-2"></a><span class="bold_code">get_next(Index, KeyOid) -&gt; {ok, {NextKeyOid, Value}} | undefined</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Index = index()</span><br>
+<span class="bold_code">Index = index()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">KeyOid = NextKeyOid = oid()</span><br>
+<span class="bold_code">KeyOid = NextKeyOid = oid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Value = term()</span><br>
+<span class="bold_code">Value = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Gets the next item in the SNMP lexicographic ordering,
           after <span class="code">KeyOid</span> in the index structure.  <span class="code">KeyOid</span>
           does not have to refer to an existing item in the index.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="insert-3"></a><span class="bold_code bc-9">insert(Index, Key, Value) -&gt; NewIndex</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="insert-3"></a><span class="bold_code">insert(Index, Key, Value) -&gt; NewIndex</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Index = NewIndex = index()</span><br>
+<span class="bold_code">Index = NewIndex = index()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Key = key()</span><br>
+<span class="bold_code">Key = key()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Value = term()</span><br>
+<span class="bold_code">Value = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Inserts a new key value tuple into the index structure.  If
           an item with the same key already exists, the new <span class="code">Value</span>
           overwrites the old value.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="key_to_oid-2"></a><span class="bold_code bc-9">key_to_oid(Index, Key) -&gt; KeyOid</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="key_to_oid-2"></a><span class="bold_code">key_to_oid(Index, Key) -&gt; KeyOid</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Index = index()</span><br>
+<span class="bold_code">Index = index()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Key = key()</span><br>
+<span class="bold_code">Key = key()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">KeyOid = NextKeyOid = oid()</span><br>
+<span class="bold_code">KeyOid = NextKeyOid = oid()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Converts <span class="code">Key</span> to an OBJECT IDENTIFIER.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="new-1"></a><span class="bold_code bc-9">new(KeyTypes) -&gt; Index</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="new-1"></a><span class="bold_code">new(KeyTypes) -&gt; Index</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">KeyTypes = key_types()</span><br>
+<span class="bold_code">KeyTypes = key_types()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Index = index()</span><br>
+<span class="bold_code">Index = index()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Creates a new snmp index structure.  The <span class="code">key_types()</span>
           type is described above.</p>
       </p></div>
-</div>
-</div>
-  </div>
+  
   
 </div>
 <div class="footer">

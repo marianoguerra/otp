@@ -1717,89 +1717,72 @@
 <!-- refpage --><center><h1>filelib</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">filelib</div>
+<div class="REFBODY">filelib</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">File utilities, such as wildcard matching of filenames.
+<div class="REFBODY">File utilities, such as wildcard matching of filenames.
   </div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>This module contains utilities on a higher level than the
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html');"><span class="code">file</span></a></span> module.</p>
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html');"><span class="code">file</span></a></span> module.</p>
 
     <p>This module does not support "raw" filenames (that is, files whose
       names do not comply with the expected encoding). Such files are ignored
       by the functions in this module.</p>
 
     <p>For more information about raw filenames, see the
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html');"><span class="code">file</span></a></span> module.</p>
-  </div>
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html');"><span class="code">file</span></a></span> module.</p>
+  </p></div>
 
-  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
-<div class="data-types-body">
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-filename">filename()</a> = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">file:name()</a></span></span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-dirname">dirname()</a> = <span class="bold_code data-type-ref"><a href="#type-filename">filename()</a></span></span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-dirname_all">dirname_all()</a> = <span class="bold_code data-type-ref"><a href="#type-filename_all">filename_all()</a></span></span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-filename_all">filename_all()</a> = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span>
-</div>
-  </div>
+  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
+    <p>
+      <span class="bold_code"><a name="type-filename">filename()</a> = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">file:name()</a></span></span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-dirname">dirname()</a> = <span class="bold_code"><a href="#type-filename">filename()</a></span></span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-dirname_all">dirname_all()</a> = <span class="bold_code"><a href="#type-filename_all">filename_all()</a></span></span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-filename_all">filename_all()</a> = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span><br></p>
+  
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="ensure_dir-1"></a><span class="bold_code func-name">ensure_dir(Name) -&gt; ok | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-filename_all">filename_all()</a></span> | <span class="bold_code data-type-ref"><a href="#type-dirname_all">dirname_all()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-posix');">file:posix()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="ensure_dir-1"></a><span class="bold_code">ensure_dir(Name) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-filename_all">filename_all()</a></span> | <span class="bold_code"><a href="#type-dirname_all">dirname_all()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-posix');">file:posix()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Ensures that all parent directories for the specified file or
           directory name <span class="code">Name</span>
           exist, trying to create them if necessary.</p>
         <p>Returns <span class="code">ok</span> if all parent directories already exist
           or can be created. Returns <span class="code">{error, Reason}</span> if
           some parent directory does not exist and cannot be created.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="file_size-1"></a><span class="bold_code func-name">file_size(Filename) -&gt; integer() &gt;= 0</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Filename = <span class="bold_code data-type-ref"><a href="#type-filename_all">filename_all()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="file_size-1"></a><span class="bold_code">file_size(Filename) -&gt; integer() &gt;= 0</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-filename_all">filename_all()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the size of the specified file.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="fold_files-5"></a><span class="bold_code func-name">fold_files(Dir, RegExp, Recursive, Fun, AccIn) -&gt; AccOut</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Dir = <span class="bold_code data-type-ref"><a href="#type-dirname">dirname()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">RegExp = string()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Recursive = boolean()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Fun = fun((F :: <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename');">file:filename()</a></span>, AccIn) -&gt; AccOut)</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">AccIn = AccOut = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="fold_files-5"></a><span class="bold_code">fold_files(Dir, RegExp, Recursive, Fun, AccIn) -&gt; AccOut</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Dir = <span class="bold_code"><a href="#type-dirname">dirname()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">RegExp = string()</span></div>
+<div class="REFTYPES"><span class="bold_code">Recursive = boolean()</span></div>
+<div class="REFTYPES"><span class="bold_code">Fun = fun((F :: <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename');">file:filename()</a></span>, AccIn) -&gt; AccOut)</span></div>
+<div class="REFTYPES"><span class="bold_code">AccIn = AccOut = term()</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Folds function <span class="code">Fun</span> over all (regular) files
           <span class="code">F</span> in directory <span class="code">Dir</span> that match
           the regular expression <span class="code">RegExp</span> (for a description
           of the allowed regular expressions,
-          see the <span class="bold_code bc-19"><a href="re.html"><span class="code">re</span></a></span> module).
+          see the <span class="bold_code"><a href="re.html"><span class="code">re</span></a></span> module).
           If <span class="code">Recursive</span> is <span class="code">true</span>, all subdirectories
           to <span class="code">Dir</span>
           are processed. The regular expression matching is only done on
@@ -1813,70 +1796,50 @@
           not conform to the expected character encoding (that is, are not
           encoded in valid UTF-8).</p>
         <p>For more information about raw filenames, see the
-          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html');"><span class="code">file</span></a></span> module.</p>
-      </p></div></div>
-</div>
+          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html');"><span class="code">file</span></a></span> module.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="is_dir-1"></a><span class="bold_code func-name">is_dir(Name) -&gt; boolean()</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-filename_all">filename_all()</a></span> | <span class="bold_code data-type-ref"><a href="#type-dirname_all">dirname_all()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="is_dir-1"></a><span class="bold_code">is_dir(Name) -&gt; boolean()</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-filename_all">filename_all()</a></span> | <span class="bold_code"><a href="#type-dirname_all">dirname_all()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns <span class="code">true</span> if <span class="code">Name</span>
           refers to a directory, otherwise <span class="code">false</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="is_file-1"></a><span class="bold_code func-name">is_file(Name) -&gt; boolean()</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-filename_all">filename_all()</a></span> | <span class="bold_code data-type-ref"><a href="#type-dirname_all">dirname_all()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="is_file-1"></a><span class="bold_code">is_file(Name) -&gt; boolean()</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-filename_all">filename_all()</a></span> | <span class="bold_code"><a href="#type-dirname_all">dirname_all()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns <span class="code">true</span> if <span class="code">Name</span>
           refers to a file or a directory, otherwise <span class="code">false</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="is_regular-1"></a><span class="bold_code func-name">is_regular(Name) -&gt; boolean()</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-filename_all">filename_all()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="is_regular-1"></a><span class="bold_code">is_regular(Name) -&gt; boolean()</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-filename_all">filename_all()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns <span class="code">true</span> if <span class="code">Name</span>
           refers to a (regular) file, otherwise <span class="code">false</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="last_modified-1"></a><span class="bold_code func-name">last_modified(Name) -&gt; <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-date_time');">file:date_time()</a></span> | 0</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-filename_all">filename_all()</a></span> | <span class="bold_code data-type-ref"><a href="#type-dirname_all">dirname_all()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="last_modified-1"></a><span class="bold_code">last_modified(Name) -&gt; <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-date_time');">file:date_time()</a></span> | 0</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-filename_all">filename_all()</a></span> | <span class="bold_code"><a href="#type-dirname_all">dirname_all()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the date and time the specified file or directory was last
           modified, or <span class="code">0</span> if the file does not exist.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="wildcard-1"></a><span class="bold_code func-name">wildcard(Wildcard) -&gt; [<span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename');">file:filename()</a></span>]</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Wildcard = <span class="bold_code data-type-ref"><a href="#type-filename">filename()</a></span> | <span class="bold_code data-type-ref"><a href="#type-dirname">dirname()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="wildcard-1"></a><span class="bold_code">wildcard(Wildcard) -&gt; [<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename');">file:filename()</a></span>]</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Wildcard = <span class="bold_code"><a href="#type-filename">filename()</a></span> | <span class="bold_code"><a href="#type-dirname">dirname()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns a list of all files that match Unix-style wildcard string
           <span class="code">Wildcard</span>.</p>
         <p>The wildcard string looks like an ordinary filename, except
@@ -1937,24 +1900,19 @@ filelib:wildcard("lib/*/{src,include}/*.{erl,hrl}")</pre></div>
         <p>To find all <span class="code">.erl</span> or <span class="code">.hrl</span> files in any subdirectory:</p>
         <div class="example"><pre>
 filelib:wildcard("lib/**/*.{erl,hrl}")</pre></div>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="wildcard-2"></a><span class="bold_code func-name">wildcard(Wildcard, Cwd) -&gt; [<span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename');">file:filename()</a></span>]</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Wildcard = <span class="bold_code data-type-ref"><a href="#type-filename">filename()</a></span> | <span class="bold_code data-type-ref"><a href="#type-dirname">dirname()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Cwd = <span class="bold_code data-type-ref"><a href="#type-dirname">dirname()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
-        <p>Same as <span class="bold_code data-type-ref"><a href="#wildcard-1"><span class="code">wildcard/1</span></a></span>,
+    <p><a name="wildcard-2"></a><span class="bold_code">wildcard(Wildcard, Cwd) -&gt; [<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename');">file:filename()</a></span>]</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Wildcard = <span class="bold_code"><a href="#type-filename">filename()</a></span> | <span class="bold_code"><a href="#type-dirname">dirname()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Cwd = <span class="bold_code"><a href="#type-dirname">dirname()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
+        <p>Same as <span class="bold_code"><a href="#wildcard-1"><span class="code">wildcard/1</span></a></span>,
           except that <span class="code">Cwd</span> is used instead of the working
           directory.</p>
-      </p></div></div>
-</div>
-  </div>
+      </p></div>
+  
 </div>
 <div class="footer">
 <hr>

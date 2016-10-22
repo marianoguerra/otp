@@ -154,108 +154,89 @@
 <!-- refpage --><center><h1>CosPropertyService_PropertySetFactory</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">CosPropertyService_PropertySetFactory</div>
+<div class="REFBODY">CosPropertyService_PropertySetFactory</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">This module implements the OMG CosPropertyService::PropertySetFactory interface.</div>
+<div class="REFBODY">This module implements the OMG CosPropertyService::PropertySetFactory interface.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>To get access to the record definitions for the structures use:      <br>
 <span class="code">-include_lib("cosProperty/include/CosPropertyService.hrl").</span></p>
-  </div>
+  </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="create_propertyset-1"></a><span class="bold_code bc-9">create_propertyset(Factory) -&gt; PropertySet</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="create_propertyset-1"></a><span class="bold_code">create_propertyset(Factory) -&gt; PropertySet</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Factory = PropertySet = #objref</span><br>
+<span class="bold_code">Factory = PropertySet = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This operation creates a new <span class="code">PropertySe</span>t with no predefined 
           properties.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="create_constrained_propertyset-3"></a><span class="bold_code bc-9">create_constrained_propertyset(Factory, PropertyTypes, Properties) -&gt; Reply</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="create_constrained_propertyset-3"></a><span class="bold_code">create_constrained_propertyset(Factory, PropertyTypes, Properties) -&gt; Reply</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Factory = #objref</span><br>
+<span class="bold_code">Factory = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PropertyTypes = [CORBA::TypeCode]</span><br>
+<span class="bold_code">PropertyTypes = [CORBA::TypeCode]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Properties = [#'CosPropertyService_Property'{property_name = Name, property_value = Value}]</span><br>
+<span class="bold_code">Properties = [#'CosPropertyService_Property'{property_name = Name, property_value = Value}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Name = string()</span><br>
+<span class="bold_code">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Value = #any</span><br>
+<span class="bold_code">Value = #any</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reply = {'EXCEPTION', #CosPropertyService_ConstraintNotSupported{}} | PropertySet</span><br>
+<span class="bold_code">Reply = {'EXCEPTION', #CosPropertyService_ConstraintNotSupported{}} | PropertySet</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PropertySet = #objref</span><br>
+<span class="bold_code">PropertySet = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This operation creates a new <span class="code">PropertySet</span> with specific constraints.
           PropertyTypes states allowed TypeCode's and Properties valid 
           <span class="code">CosPropertyService::Property</span> data.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="create_initial_propertyset-2"></a><span class="bold_code bc-9">create_initial_propertyset(Factory, Properties) -&gt; Reply</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="create_initial_propertyset-2"></a><span class="bold_code">create_initial_propertyset(Factory, Properties) -&gt; Reply</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Factory = #objref</span><br>
+<span class="bold_code">Factory = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Properties = [#'CosPropertyService_Property'{property_name = Name, property_value = Value}]</span><br>
+<span class="bold_code">Properties = [#'CosPropertyService_Property'{property_name = Name, property_value = Value}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Name = string()</span><br>
+<span class="bold_code">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Value = #any</span><br>
+<span class="bold_code">Value = #any</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reply = {'EXCEPTION', #CosPropertyService_MultipleExceptions{exceptions = Excs}} | PropertySet</span><br>
+<span class="bold_code">Reply = {'EXCEPTION', #CosPropertyService_MultipleExceptions{exceptions = Excs}} | PropertySet</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Excs = [#'CosPropertyService_PropertyException{reason = Reason, failing_property_name = Name}]</span><br>
+<span class="bold_code">Excs = [#'CosPropertyService_PropertyException{reason = Reason, failing_property_name = Name}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = invalid_property_name | conflicting_property | property_not_found | unsupported_type_code | unsupported_property | unsupported_mode | fixed_property | read_only_property</span><br>
+<span class="bold_code">Reason = invalid_property_name | conflicting_property | property_not_found | unsupported_type_code | unsupported_property | unsupported_mode | fixed_property | read_only_property</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PropertySet = #objref</span><br>
+<span class="bold_code">PropertySet = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This operation creates a new <span class="code">PropertySet</span> with specific 
           initial properties.</p>
       </p></div>
-</div>
-</div>
-  </div>
+  
   
 </div>
 <div class="footer">

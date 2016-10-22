@@ -66,24 +66,24 @@
 <li><a href="introduction.html">
               Top of chapter
             </a></li>
-<li title="Scope and Purpose"><a href="introduction.html#idm45749168006400">Scope and Purpose</a></li>
-<li title="Prerequisites"><a href="introduction.html#idm45749168012496">Prerequisites</a></li>
-<li title="SSH Protocol Overview"><a href="introduction.html#idm45749168014432">SSH Protocol Overview</a></li>
-<li title="Where to Find More Information"><a href="introduction.html#idm45749167818256">Where to Find More Information</a></li>
+<li title="Scope and Purpose"><a href="introduction.html#idm45964129587632">Scope and Purpose</a></li>
+<li title="Prerequisites"><a href="introduction.html#idm45964129593680">Prerequisites</a></li>
+<li title="SSH Protocol Overview"><a href="introduction.html#idm45964129098464">SSH Protocol Overview</a></li>
+<li title="Where to Find More Information"><a href="introduction.html#idm45964129071920">Where to Find More Information</a></li>
 </ul>
 </li>
 <li id="no" title="Getting Started" expanded="false">Getting Started<ul>
 <li><a href="using_ssh.html">
               Top of chapter
             </a></li>
-<li title="General Information"><a href="using_ssh.html#idm45749167826688">General Information</a></li>
-<li title="Using the Erlang ssh Terminal Client"><a href="using_ssh.html#idm45749167761168">Using the Erlang ssh Terminal Client</a></li>
-<li title="Running an Erlang ssh Daemon"><a href="using_ssh.html#idm45749167875040">Running an Erlang ssh Daemon</a></li>
-<li title="One-Time Execution"><a href="using_ssh.html#idm45749167684784">One-Time Execution</a></li>
-<li title="SFTP Server"><a href="using_ssh.html#idm45749167878080">SFTP Server</a></li>
-<li title="SFTP Client"><a href="using_ssh.html#idm45749167784224">SFTP Client</a></li>
-<li title="SFTP Client with TAR Compression and Encryption"><a href="using_ssh.html#idm45749167726768">SFTP Client with TAR Compression and Encryption</a></li>
-<li title="Creating a Subsystem"><a href="using_ssh.html#idm45749167683472">Creating a Subsystem</a></li>
+<li title="General Information"><a href="using_ssh.html#idm45964129565792">General Information</a></li>
+<li title="Using the Erlang ssh Terminal Client"><a href="using_ssh.html#idm45964129041760">Using the Erlang ssh Terminal Client</a></li>
+<li title="Running an Erlang ssh Daemon"><a href="using_ssh.html#idm45964129093568">Running an Erlang ssh Daemon</a></li>
+<li title="One-Time Execution"><a href="using_ssh.html#idm45964128961904">One-Time Execution</a></li>
+<li title="SFTP Server"><a href="using_ssh.html#idm45964129062224">SFTP Server</a></li>
+<li title="SFTP Client"><a href="using_ssh.html#idm45964129590144">SFTP Client</a></li>
+<li title="SFTP Client with TAR Compression and Encryption"><a href="using_ssh.html#idm45964129577488">SFTP Client with TAR Compression and Encryption</a></li>
+<li title="Creating a Subsystem"><a href="using_ssh.html#idm45964129607456">Creating a Subsystem</a></li>
 </ul>
 </li>
 </ul>
@@ -94,7 +94,7 @@
   
   <p>SSH is a protocol for secure remote logon and
     other secure network services over an insecure network.</p>
-  <h3><a name="idm45749168006400">1.1 
+  <h3><a name="idm45964129587632">1.1 
         Scope and Purpose</a></h3>
     
 
@@ -107,19 +107,19 @@
     <ul>
       <li>API functions to write customized SSH clients and servers applications</li>
       <li>The Erlang shell available over SSH</li>
-      <li>An SFTP client (<span class="bold_code bc-19"><a href="ssh_sftp.html">ssh_sftp</a></span>)
-      and server (<span class="bold_code bc-19"><a href="ssh_sftp.html">ssh_sftpd</a></span>)</li>
+      <li>An SFTP client (<span class="bold_code"><a href="ssh_sftp.html">ssh_sftp</a></span>)
+      and server (<span class="bold_code"><a href="ssh_sftp.html">ssh_sftpd</a></span>)</li>
     </ul>
   
 
-  <h3><a name="idm45749168012496">1.2 
+  <h3><a name="idm45964129593680">1.2 
         Prerequisites</a></h3>
     
     <p>It is assumed that the reader is familiar with the Erlang programming language,
     concepts of <strong>OTP</strong>, and has a basic understanding of <strong>public keys</strong>.</p>
   
 
-<h3><a name="idm45749168014432">1.3 
+<h3><a name="idm45964129098464">1.3 
         SSH Protocol Overview</a></h3>
     
 
@@ -141,7 +141,7 @@
       authentication, and integrity protection. A minimum of
       Message Authentication Code (MAC) and encryption
       algorithms are supported. For details, see the
-      <span class="bold_code bc-19"><a href="ssh.html">ssh(3)</a></span> manual page in <span class="code">ssh</span>.</p>
+      <span class="bold_code"><a href="ssh.html">ssh(3)</a></span> manual page in <span class="code">ssh</span>.</p>
     
 
     <h4>Authentication Protocol</h4>
@@ -170,17 +170,17 @@
       </ul>
       <p>Several configuration options for
       authentication handling are available in
-      <span class="bold_code bc-15"><a href="ssh.html#connect-3">ssh:connect/[3,4]</a></span>
-      and <span class="bold_code bc-15"><a href="ssh.html#daemon-2">ssh:daemon/[2,3]</a></span>.</p>
+      <span class="bold_code"><a href="ssh.html#connect-3">ssh:connect/[3,4]</a></span>
+      and <span class="bold_code"><a href="ssh.html#daemon-2">ssh:daemon/[2,3]</a></span>.</p>
       <p>
       The public key handling can be customized by implementing
       the following behaviours from <span class="code">ssh</span>:</p>
       <ul>
 	<li>Module
-      <span class="bold_code bc-19"><a href="ssh_client_key_api.html">ssh_client_key_api</a></span>.
+      <span class="bold_code"><a href="ssh_client_key_api.html">ssh_client_key_api</a></span>.
 	</li>
 	<li>Module
-      <span class="bold_code bc-19"><a href="ssh_server_key_api.html">ssh_server_key_api</a></span>.
+      <span class="bold_code"><a href="ssh_server_key_api.html">ssh_server_key_api</a></span>.
 	</li>
       </ul>
     
@@ -192,7 +192,7 @@
       services over the transport pipe, for example, channel multiplexing,
       flow control, remote program execution, signal propagation, and
       connection forwarding. Functions for handling the SSH
-      Connection Protocol can be found in the module <span class="bold_code bc-19"><a href="ssh_connection.html">ssh_connection</a></span> in <span class="code">ssh</span>.
+      Connection Protocol can be found in the module <span class="bold_code"><a href="ssh_connection.html">ssh_connection</a></span> in <span class="code">ssh</span>.
       </p>
     
 
@@ -208,7 +208,7 @@
       data that can be sent to the channel peer without adjusting the
       window. Typically, an SSH client opens a channel, sends data (commands),
       receives data (control information), and then closes the channel.
-      The <span class="bold_code bc-19"><a href="ssh_channel.html">ssh_channel</a></span> behaviour
+      The <span class="bold_code"><a href="ssh_channel.html">ssh_channel</a></span> behaviour
       handles generic parts of SSH channel management. This makes it easy
       to write your own SSH client/server processes that use flow-control
       and thus opens for more focus on the application logic.
@@ -219,7 +219,7 @@
       <ul>
 	<li>
 <strong>Subsystem</strong> - Named services that can be run as
-	part of an SSH server, such as SFTP <span class="bold_code bc-19"><a href="ssh_sftpd.html">(ssh_sftpd)</a></span>, that is built into the
+	part of an SSH server, such as SFTP <span class="bold_code"><a href="ssh_sftpd.html">(ssh_sftpd)</a></span>, that is built into the
 	SSH daemon (server) by default, but it can be disabled. The Erlang <span class="code">ssh</span>
 	daemon can be configured to run any Erlang-
 	implemented SSH subsystem.
@@ -233,7 +233,7 @@
 	</li>
 	<li>
 <strong>Exec</strong> - One-time remote execution of commands. See function
-	<span class="bold_code bc-15"><a href="ssh_connection.html#exec-4">ssh_connection:exec/4</a></span>
+	<span class="bold_code"><a href="ssh_connection.html#exec-4">ssh_connection:exec/4</a></span>
 	for more information.</li>
       </ul>
     
@@ -242,7 +242,7 @@
 
   
 
-  <h3><a name="idm45749167818256">1.4 
+  <h3><a name="idm45964129071920">1.4 
         Where to Find More Information</a></h3>
     
     <p>
@@ -252,28 +252,28 @@
 
     <ul>
       <li>
-<span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc4250.txt">RFC 4250</a></span> -
+<span class="bold_code"><a href="http://www.ietf.org/rfc/rfc4250.txt">RFC 4250</a></span> -
       Protocol Assigned Numbers</li>
       <li>
-<span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc4251.txt">RFC 4251</a></span> -
+<span class="bold_code"><a href="http://www.ietf.org/rfc/rfc4251.txt">RFC 4251</a></span> -
       Protocol Architecture</li>
       <li>
-<span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc4252.txt">RFC 4252</a></span> -
+<span class="bold_code"><a href="http://www.ietf.org/rfc/rfc4252.txt">RFC 4252</a></span> -
       Authentication Protocol</li>
       <li>
-<span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc4253.txt">RFC 4253</a></span> -
+<span class="bold_code"><a href="http://www.ietf.org/rfc/rfc4253.txt">RFC 4253</a></span> -
       Transport Layer Protocol</li>
       <li>
-<span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc4254.txt">RFC 4254</a></span> -
+<span class="bold_code"><a href="http://www.ietf.org/rfc/rfc4254.txt">RFC 4254</a></span> -
       Connection Protocol</li>
       <li>
-<span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc4255.txt">RFC 4255</a></span> -
+<span class="bold_code"><a href="http://www.ietf.org/rfc/rfc4255.txt">RFC 4255</a></span> -
       Key Fingerprints</li>
       <li>
-<span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc4344.txt">RFC 4344</a></span> -
+<span class="bold_code"><a href="http://www.ietf.org/rfc/rfc4344.txt">RFC 4344</a></span> -
       Transport Layer Encryption Modes</li>
       <li>
-<span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc4716.txt">RFC 4716</a></span> -
+<span class="bold_code"><a href="http://www.ietf.org/rfc/rfc4716.txt">RFC 4716</a></span> -
       Public Key File Format</li>
     </ul>
   

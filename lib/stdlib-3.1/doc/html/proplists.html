@@ -1717,11 +1717,11 @@
 <!-- refpage --><center><h1>proplists</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">proplists</div>
+<div class="REFBODY">proplists</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Support functions for property lists.</div>
+<div class="REFBODY">Support functions for property lists.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>Property lists are ordinary lists containing entries in the form
       of either tuples, whose first elements are keys used for lookup and
       insertion, or atoms, which work as shorthand for tuples
@@ -1738,29 +1738,23 @@
     <p>Two keys are considered equal if they match (<span class="code">=:=</span>). That is,
       numbers are compared literally rather than by value, so that,
       for example, <span class="code">1</span> and <span class="code">1.0</span> are different keys.</p>
-  </div>
+  </p></div>
 
-  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
-<div class="data-types-body">
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-property">property()</a> = atom() | tuple()</span>
-</div>
-  </div>
+  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
+    <p>
+      <span class="bold_code"><a name="type-property">property()</a> = atom() | tuple()</span><br></p>
+  
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="append_values-2"></a><span class="bold_code func-name">append_values(Key, ListIn) -&gt; ListOut</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Key = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ListIn = ListOut = [term()]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="append_values-2"></a><span class="bold_code">append_values(Key, ListIn) -&gt; ListOut</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Key = term()</span></div>
+<div class="REFTYPES"><span class="bold_code">ListIn = ListOut = [term()]</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Similar to
-          <span class="bold_code data-type-ref"><a href="#get_all_values-2"><span class="code">get_all_values/2</span></a></span>,
+          <span class="bold_code"><a href="#get_all_values-2"><span class="code">get_all_values/2</span></a></span>,
           but each value is wrapped in a list unless it is already itself a
           list. The resulting list of lists is concatenated. This is often
           useful for "incremental" options.</p>
@@ -1770,50 +1764,38 @@ append_values(a, [{a, [1,2]}, {b, 0}, {a, 3}, {c, -1}, {a, [4]}])</pre></div>
         <p>returns:</p>
         <div class="example"><pre>
 [1,2,3,4]</pre></div>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="compact-1"></a><span class="bold_code func-name">compact(ListIn) -&gt; ListOut</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ListIn = ListOut = [<span class="bold_code data-type-ref"><a href="#type-property">property()</a></span>]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="compact-1"></a><span class="bold_code">compact(ListIn) -&gt; ListOut</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">ListIn = ListOut = [<span class="bold_code"><a href="#type-property">property()</a></span>]</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Minimizes the representation of all entries in the list. This is
           equivalent to <span class="code">[property(P) || P &lt;- ListIn]</span>.</p>
         <p>See also
-          <span class="bold_code data-type-ref"><a href="#property-1"><span class="code">property/1</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#unfold-1"><span class="code">unfold/1</span></a></span>.</p>
-      </p></div></div>
-</div>
+          <span class="bold_code"><a href="#property-1"><span class="code">property/1</span></a></span>,
+          <span class="bold_code"><a href="#unfold-1"><span class="code">unfold/1</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="delete-2"></a><span class="bold_code func-name">delete(Key, List) -&gt; List</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Key = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">List = [term()]</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="delete-2"></a><span class="bold_code">delete(Key, List) -&gt; List</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Key = term()</span></div>
+<div class="REFTYPES"><span class="bold_code">List = [term()]</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Deletes all entries associated with <span class="code">Key</span> from
           <span class="code">List</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="expand-2"></a><span class="bold_code func-name">expand(Expansions, ListIn) -&gt; ListOut</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Expansions = [{Property :: <span class="bold_code data-type-ref"><a href="#type-property">property()</a></span>, Expansion :: [term()]}]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ListIn = ListOut = [term()]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="expand-2"></a><span class="bold_code">expand(Expansions, ListIn) -&gt; ListOut</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Expansions = [{Property :: <span class="bold_code"><a href="#type-property">property()</a></span>, Expansion :: [term()]}]</span></div>
+<div class="REFTYPES"><span class="bold_code">ListIn = ListOut = [term()]</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Expands particular properties to corresponding sets of
           properties (or other terms). For each pair <span class="code">{Property,
           Expansion}</span> in <span class="code">Expansions</span>: if
@@ -1839,165 +1821,129 @@ expand([{{foo, true}, [bar, baz]}], [{foo, false}, fie, foo, fum])</pre></div>
           <span class="code">Expansions</span> contains more than one property with
           the same key, only the first occurrence is used.</p>
         <p>See also
-          <span class="bold_code data-type-ref"><a href="#normalize-2"><span class="code">normalize/2</span></a></span>.</p>
-      </p></div></div>
-</div>
+          <span class="bold_code"><a href="#normalize-2"><span class="code">normalize/2</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="get_all_values-2"></a><span class="bold_code func-name">get_all_values(Key, List) -&gt; [term()]</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Key = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">List = [term()]</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="get_all_values-2"></a><span class="bold_code">get_all_values(Key, List) -&gt; [term()]</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Key = term()</span></div>
+<div class="REFTYPES"><span class="bold_code">List = [term()]</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Similar to 
-          <span class="bold_code data-type-ref"><a href="#get_value-2"><span class="code">get_value/2</span></a></span>,
+          <span class="bold_code"><a href="#get_value-2"><span class="code">get_value/2</span></a></span>,
           but returns the list of values for <strong>all</strong> entries
           <span class="code">{Key, Value}</span> in <span class="code">List</span>. If no such entry
           exists, the result is the empty list.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="get_bool-2"></a><span class="bold_code func-name">get_bool(Key, List) -&gt; boolean()</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Key = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">List = [term()]</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="get_bool-2"></a><span class="bold_code">get_bool(Key, List) -&gt; boolean()</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Key = term()</span></div>
+<div class="REFTYPES"><span class="bold_code">List = [term()]</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the value of a boolean key/value option. If
           <span class="code">lookup(Key, List)</span> would yield
           <span class="code">{Key, true}</span>, this function returns <span class="code">true</span>,
           otherwise <span class="code">false</span>.</p>
         <p>See also
-          <span class="bold_code data-type-ref"><a href="#get_value-2"><span class="code">get_value/2</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#lookup-2"><span class="code">lookup/2</span></a></span>.</p>
-      </p></div></div>
-</div>
+          <span class="bold_code"><a href="#get_value-2"><span class="code">get_value/2</span></a></span>,
+          <span class="bold_code"><a href="#lookup-2"><span class="code">lookup/2</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="get_keys-1"></a><span class="bold_code func-name">get_keys(List) -&gt; [term()]</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">List = [term()]</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="get_keys-1"></a><span class="bold_code">get_keys(List) -&gt; [term()]</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">List = [term()]</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns an unordered list of the keys used in
           <span class="code">List</span>, not containing duplicates.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="get_value-2"></a><span class="bold_code func-name">get_value(Key, List) -&gt; term()</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Key = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">List = [term()]</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="get_value-2"></a><span class="bold_code">get_value(Key, List) -&gt; term()</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Key = term()</span></div>
+<div class="REFTYPES"><span class="bold_code">List = [term()]</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Equivalent to
           <span class="code">get_value(Key, List, undefined)</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="get_value-3"></a><span class="bold_code func-name">get_value(Key, List, Default) -&gt; term()</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Key = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">List = [term()]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Default = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="get_value-3"></a><span class="bold_code">get_value(Key, List, Default) -&gt; term()</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Key = term()</span></div>
+<div class="REFTYPES"><span class="bold_code">List = [term()]</span></div>
+<div class="REFTYPES"><span class="bold_code">Default = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the value of a simple key/value property in
           <span class="code">List</span>. If <span class="code">lookup(Key,
           List)</span> would yield <span class="code">{Key, Value}</span>,
           this function returns the corresponding <span class="code">Value</span>, otherwise
           <span class="code">Default</span>.</p>
         <p>See also
-          <span class="bold_code data-type-ref"><a href="#get_all_values-2"><span class="code">get_all_values/2</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#get_bool-2"><span class="code">get_bool/2</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#get_value-2"><span class="code">get_value/2</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#lookup-2"><span class="code">lookup/2</span></a></span>.</p>
-      </p></div></div>
-</div>
+          <span class="bold_code"><a href="#get_all_values-2"><span class="code">get_all_values/2</span></a></span>,
+          <span class="bold_code"><a href="#get_bool-2"><span class="code">get_bool/2</span></a></span>,
+          <span class="bold_code"><a href="#get_value-2"><span class="code">get_value/2</span></a></span>,
+          <span class="bold_code"><a href="#lookup-2"><span class="code">lookup/2</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="is_defined-2"></a><span class="bold_code func-name">is_defined(Key, List) -&gt; boolean()</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Key = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">List = [term()]</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="is_defined-2"></a><span class="bold_code">is_defined(Key, List) -&gt; boolean()</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Key = term()</span></div>
+<div class="REFTYPES"><span class="bold_code">List = [term()]</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns <span class="code">true</span> if <span class="code">List</span> contains at least
           one entry associated with <span class="code">Key</span>, otherwise
           <span class="code">false</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="lookup-2"></a><span class="bold_code func-name">lookup(Key, List) -&gt; none | tuple()</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Key = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">List = [term()]</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="lookup-2"></a><span class="bold_code">lookup(Key, List) -&gt; none | tuple()</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Key = term()</span></div>
+<div class="REFTYPES"><span class="bold_code">List = [term()]</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the first entry associated with <span class="code">Key</span> in
           <span class="code">List</span>, if one exists, otherwise returns
           <span class="code">none</span>. For an atom <span class="code">A</span> in the list, the tuple
           <span class="code">{A, true}</span> is the entry associated with <span class="code">A</span>.</p>
         <p>See also
-          <span class="bold_code data-type-ref"><a href="#get_bool-2"><span class="code">get_bool/2</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#get_value-2"><span class="code">get_value/2</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#lookup_all-2"><span class="code">lookup_all/2</span></a></span>.</p>
-      </p></div></div>
-</div>
+          <span class="bold_code"><a href="#get_bool-2"><span class="code">get_bool/2</span></a></span>,
+          <span class="bold_code"><a href="#get_value-2"><span class="code">get_value/2</span></a></span>,
+          <span class="bold_code"><a href="#lookup_all-2"><span class="code">lookup_all/2</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="lookup_all-2"></a><span class="bold_code func-name">lookup_all(Key, List) -&gt; [tuple()]</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Key = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">List = [term()]</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="lookup_all-2"></a><span class="bold_code">lookup_all(Key, List) -&gt; [tuple()]</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Key = term()</span></div>
+<div class="REFTYPES"><span class="bold_code">List = [term()]</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the list of all entries associated with
           <span class="code">Key</span> in <span class="code">List</span>. If no such entry
           exists, the result is the empty list.</p>
         <p>See also
-          <span class="bold_code data-type-ref"><a href="#lookup-2"><span class="code">lookup/2</span></a></span>.</p>
-      </p></div></div>
-</div>
+          <span class="bold_code"><a href="#lookup-2"><span class="code">lookup/2</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="normalize-2"></a><span class="bold_code func-name">normalize(ListIn, Stages) -&gt; ListOut</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ListIn = [term()]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Stages = [Operation]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Operation = <br>    {aliases, Aliases} |<br>    {negations, Negations} |<br>    {expand, Expansions}</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Aliases = Negations = [{Key, Key}]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Expansions = [{Property :: <span class="bold_code data-type-ref"><a href="#type-property">property()</a></span>, Expansion :: [term()]}]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ListOut = [term()]</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="normalize-2"></a><span class="bold_code">normalize(ListIn, Stages) -&gt; ListOut</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">ListIn = [term()]</span></div>
+<div class="REFTYPES"><span class="bold_code">Stages = [Operation]</span></div>
+<div class="REFTYPES"><span class="bold_code">Operation = <br>    {aliases, Aliases} |<br>    {negations, Negations} |<br>    {expand, Expansions}</span></div>
+<div class="REFTYPES"><span class="bold_code">Aliases = Negations = [{Key, Key}]</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code">Expansions = [{Property :: <span class="bold_code"><a href="#type-property">property()</a></span>, Expansion :: [term()]}]</span></div>
+<div class="REFTYPES"><span class="bold_code">ListOut = [term()]</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Passes <span class="code">ListIn</span> through a sequence of
           substitution/expansion stages. For an <span class="code">aliases</span> operation,
-          function <span class="bold_code data-type-ref"><a href="#substitute_aliases-2"><span class="code">substitute_aliases/2</span></a></span> is applied using the
+          function <span class="bold_code"><a href="#substitute_aliases-2"><span class="code">substitute_aliases/2</span></a></span> is applied using the
           specified list of aliases:</p>
         <ul>
           <li>
@@ -2006,69 +1952,57 @@ expand([{{foo, true}, [bar, baz]}], [{foo, false}, fie, foo, fum])</pre></div>
           </li>
           <li>
             <p>For an <span class="code">expand</span> operation, function
-              <span class="bold_code data-type-ref"><a href="#expand-2"><span class="code">expand/2</span></a></span>
+              <span class="bold_code"><a href="#expand-2"><span class="code">expand/2</span></a></span>
               is applied using the specified list of expansions.</p>
           </li>
         </ul>
         <p>The final result is automatically compacted (compare
-          <span class="bold_code data-type-ref"><a href="#compact-1"><span class="code">compact/1</span></a></span>).</p>
+          <span class="bold_code"><a href="#compact-1"><span class="code">compact/1</span></a></span>).</p>
         <p>Typically you want to substitute negations first, then aliases,
           then perform one or more expansions (sometimes you want to pre-expand
           particular entries before doing the main expansion). You might want
           to substitute negations and/or aliases repeatedly, to allow such
           forms in the right-hand side of aliases and expansion lists.</p>
-        <p>See also <span class="bold_code data-type-ref"><a href="#substitute_negations-2"><span class="code">substitute_negations/2</span></a></span>.</p>
-      </p></div></div>
-</div>
+        <p>See also <span class="bold_code"><a href="#substitute_negations-2"><span class="code">substitute_negations/2</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="property-1"></a><span class="bold_code func-name">property(PropertyIn) -&gt; PropertyOut</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">PropertyIn = PropertyOut = <span class="bold_code data-type-ref"><a href="#type-property">property()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="property-1"></a><span class="bold_code">property(PropertyIn) -&gt; PropertyOut</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">PropertyIn = PropertyOut = <span class="bold_code"><a href="#type-property">property()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Creates a normal form (minimal) representation of a property. If
           <span class="code">PropertyIn</span> is <span class="code">{Key, true}</span>, where
           <span class="code">Key</span> is an atom, <span class="code">Key</span> is returned, otherwise
           the whole term <span class="code">PropertyIn</span> is returned.</p>
         <p>See also
-          <span class="bold_code data-type-ref"><a href="#property-2"><span class="code">property/2</span></a></span>.</p>
-      </p></div></div>
-</div>
+          <span class="bold_code"><a href="#property-2"><span class="code">property/2</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="property-2"></a><span class="bold_code func-name">property(Key, Value) -&gt; Property</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Key = Value = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Property = atom() | {term(), term()}</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="property-2"></a><span class="bold_code">property(Key, Value) -&gt; Property</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Key = Value = term()</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code">Property = atom() | {term(), term()}</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Creates a normal form (minimal) representation of a simple key/value
           property. Returns <span class="code">Key</span> if <span class="code">Value</span>
           is <span class="code">true</span> and <span class="code">Key</span> is an atom, otherwise a
           tuple <span class="code">{Key, Value}</span> is returned.</p>
         <p>See also
-          <span class="bold_code data-type-ref"><a href="#property-1"><span class="code">property/1</span></a></span>.</p>
-      </p></div></div>
-</div>
+          <span class="bold_code"><a href="#property-1"><span class="code">property/1</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="split-2"></a><span class="bold_code func-name">split(List, Keys) -&gt; {Lists, Rest}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">List = Keys = [term()]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Lists = [[term()]]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Rest = [term()]</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="split-2"></a><span class="bold_code">split(List, Keys) -&gt; {Lists, Rest}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">List = Keys = [term()]</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code">Lists = [[term()]]</span></div>
+<div class="REFTYPES"><span class="bold_code">Rest = [term()]</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Partitions <span class="code">List</span> into a list of sublists and a
           remainder. <span class="code">Lists</span> contains one sublist for each key
           in <span class="code">Keys</span>, in the corresponding order. The relative
@@ -2083,20 +2017,16 @@ split([{c, 2}, {e, 1}, a, {c, 3, 4}, d, {b, 5}, b], [a, b, c])</pre></div>
         <p>returns:</p>
         <div class="example"><pre>
 {[[a], [{b, 5}, b],[{c, 2}, {c, 3, 4}]], [{e, 1}, d]}</pre></div>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="substitute_aliases-2"></a><span class="bold_code func-name">substitute_aliases(Aliases, ListIn) -&gt; ListOut</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Aliases = [{Key, Key}]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Key = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ListIn = ListOut = [term()]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="substitute_aliases-2"></a><span class="bold_code">substitute_aliases(Aliases, ListIn) -&gt; ListOut</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Aliases = [{Key, Key}]</span></div>
+<div class="REFTYPES"><span class="bold_code">Key = term()</span></div>
+<div class="REFTYPES"><span class="bold_code">ListIn = ListOut = [term()]</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Substitutes keys of properties. For each entry in
           <span class="code">ListIn</span>, if it is associated with some key
           <span class="code">K1</span> such that <span class="code">{K1, K2}</span> occurs in
@@ -2109,23 +2039,19 @@ split([{c, 2}, {e, 1}, a, {c, 3, 4}, d, {b, 5}, b], [a, b, c])</pre></div>
           with <span class="code">{colour, ...}</span>, and all atoms <span class="code">color</span>
           with <span class="code">colour</span>.</p>
         <p>See also
-          <span class="bold_code data-type-ref"><a href="#normalize-2"><span class="code">normalize/2</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#substitute_negations-2"><span class="code">substitute_negations/2</span></a></span>.</p>
-      </p></div></div>
-</div>
+          <span class="bold_code"><a href="#normalize-2"><span class="code">normalize/2</span></a></span>,
+          <span class="bold_code"><a href="#substitute_negations-2"><span class="code">substitute_negations/2</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="substitute_negations-2"></a><span class="bold_code func-name">substitute_negations(Negations, ListIn) -&gt; ListOut</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Negations = [{Key1, Key2}]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Key1 = Key2 = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ListIn = ListOut = [term()]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="substitute_negations-2"></a><span class="bold_code">substitute_negations(Negations, ListIn) -&gt; ListOut</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Negations = [{Key1, Key2}]</span></div>
+<div class="REFTYPES"><span class="bold_code">Key1 = Key2 = term()</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code">ListIn = ListOut = [term()]</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Substitutes keys of boolean-valued properties and
           simultaneously negates their values. For each entry in
           <span class="code">ListIn</span>, if it is associated with some key
@@ -2134,7 +2060,7 @@ split([{c, 2}, {e, 1}, a, {c, 3, 4}, d, {b, 5}, b], [a, b, c])</pre></div>
           <span class="code">{K1, true}</span>, it is replaced with <span class="code">{K2, false}</span>, otherwise
           with <span class="code">{K2, true}</span>, thus changing the name of the option and
           simultaneously negating the value specified by
-          <span class="bold_code data-type-ref"><a href="#get_bool-2"><span class="code">get_bool(Key,ListIn</span></a></span>.
+          <span class="bold_code"><a href="#get_bool-2"><span class="code">get_bool(Key,ListIn</span></a></span>.
           If the same <span class="code">K1</span> occurs more than once in
           <span class="code">Negations</span>, only the first occurrence is used.</p>
         <p>For example, <span class="code">substitute_negations([{no_foo, foo}], L)</span>
@@ -2142,26 +2068,21 @@ split([{c, 2}, {e, 1}, a, {c, 3, 4}, d, {b, 5}, b], [a, b, c])</pre></div>
           <span class="code">{no_foo, true}</span> in <span class="code">L</span> with <span class="code">{foo, false}</span>,
           and any other tuple <span class="code">{no_foo, ...}</span> with <span class="code">{foo, true}</span>.</p>
         <p>See also
-          <span class="bold_code data-type-ref"><a href="#get_bool-2"><span class="code">get_bool/2</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#normalize-2"><span class="code">normalize/2</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#substitute_aliases-2"><span class="code">substitute_aliases/2</span></a></span>.</p>
-      </p></div></div>
-</div>
+          <span class="bold_code"><a href="#get_bool-2"><span class="code">get_bool/2</span></a></span>,
+          <span class="bold_code"><a href="#normalize-2"><span class="code">normalize/2</span></a></span>,
+          <span class="bold_code"><a href="#substitute_aliases-2"><span class="code">substitute_aliases/2</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="unfold-1"></a><span class="bold_code func-name">unfold(ListIn) -&gt; ListOut</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ListIn = ListOut = [term()]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="unfold-1"></a><span class="bold_code">unfold(ListIn) -&gt; ListOut</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">ListIn = ListOut = [term()]</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Unfolds all occurrences of atoms in <span class="code">ListIn</span> to
           tuples <span class="code">{Atom, true}</span>.</p>
-      </p></div></div>
-</div>
-  </div>
+      </p></div>
+  
 </div>
 <div class="footer">
 <hr>

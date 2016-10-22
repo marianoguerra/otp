@@ -94,11 +94,11 @@
 <!-- refpage --><center><h1>asn1rt</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">asn1rt</div>
+<div class="REFBODY">asn1rt</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">ASN.1 runtime support functions</div>
+<div class="REFBODY">ASN.1 runtime support functions</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <div class="warning">
 <div class="label">Warning</div>
 <div class="content"><p>
@@ -108,57 +108,46 @@
       </p>
     </p></div>
 </div>
-  </div>
+  </p></div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
 
-    <div class="func">
-<div class="func-title">
-<a name="decode-3"></a><span class="bold_code bc-9">decode(Module,Type,Bytes) -&gt; {ok,Value}|{error,Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="decode-3"></a><span class="bold_code">decode(Module,Type,Bytes) -&gt; {ok,Value}|{error,Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Module = Type = atom()</span><br>
+<span class="bold_code">Module = Type = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Value = Reason = term()</span><br>
+<span class="bold_code">Value = Reason = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Bytes = binary</span><br>
+<span class="bold_code">Bytes = binary</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Decodes <span class="code">Type</span> from <span class="code">Module</span> from the binary <span class="code">Bytes</span>.
           Returns <span class="code">{ok,Value}</span> if successful.</p>
 	<p>Use <span class="code">Module:decode(Type, Bytes)</span> instead of this function.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="encode-3"></a><span class="bold_code bc-9">encode(Module,Type,Value)-&gt; {ok,Bytes} | {error,Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="encode-3"></a><span class="bold_code">encode(Module,Type,Value)-&gt; {ok,Bytes} | {error,Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Module = Type = atom()</span><br>
+<span class="bold_code">Module = Type = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Value = term()</span><br>
+<span class="bold_code">Value = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Bytes = binary</span><br>
+<span class="bold_code">Bytes = binary</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Encodes <span class="code">Value</span> of <span class="code">Type</span> defined in the <span class="code">ASN.1</span>
         module <span class="code">Module</span>. Returns a binary if successful. To get
         as fast execution as possible, the encode function performs
@@ -167,89 +156,69 @@
         not always checked.</p>
 	<p>Use <span class="code">Module:encode(Type, Value)</span> instead of this function.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="info-1"></a><span class="bold_code bc-9">info(Module) -&gt;  {ok,Info} | {error,Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="info-1"></a><span class="bold_code">info(Module) -&gt;  {ok,Info} | {error,Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Module = atom()</span><br>
+<span class="bold_code">Module = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Info = list()</span><br>
+<span class="bold_code">Info = list()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns the version of the <span class="code">ASN.1</span> compiler that was
           used to compile the module. It also returns the compiler options
           that were used.</p>
 	<p>Use <span class="code">Module:info()</span> instead of this function.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="utf8_binary_to_list-1"></a><span class="bold_code bc-9">utf8_binary_to_list(UTF8Binary) -&gt;  {ok,UnicodeList} | {error,Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="utf8_binary_to_list-1"></a><span class="bold_code">utf8_binary_to_list(UTF8Binary) -&gt;  {ok,UnicodeList} | {error,Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">UTF8Binary = binary()</span><br>
+<span class="bold_code">UTF8Binary = binary()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">UnicodeList = [integer()]</span><br>
+<span class="bold_code">UnicodeList = [integer()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Transforms a UTF8 encoded binary
           to a list of integers, where each integer represents one
           character as its unicode value. The function fails if the binary
           is not a properly encoded UTF8 string.</p>
-	<p>Use <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','unicode.html#characters_to_list-1');">unicode:characters_to_list/1</a></span> instead of this function.</p>
+	<p>Use <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','unicode.html#characters_to_list-1');">unicode:characters_to_list/1</a></span> instead of this function.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="utf8_list_to_binary-1"></a><span class="bold_code bc-9">utf8_list_to_binary(UnicodeList) -&gt;  {ok,UTF8Binary} | {error,Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="utf8_list_to_binary-1"></a><span class="bold_code">utf8_list_to_binary(UnicodeList) -&gt;  {ok,UTF8Binary} | {error,Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">UnicodeList = [integer()]</span><br>
+<span class="bold_code">UnicodeList = [integer()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">UTF8Binary = binary()</span><br>
+<span class="bold_code">UTF8Binary = binary()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Transforms a list of integers,
           where each integer represents one character as its unicode
           value, to a UTF8 encoded binary.</p>
-	<p>Use <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','unicode.html#characters_to_binary-1');">unicode:characters_to_binary/1</a></span> instead of this function.</p>
+	<p>Use <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','unicode.html#characters_to_binary-1');">unicode:characters_to_binary/1</a></span> instead of this function.</p>
       </p></div>
-</div>
-</div>
 
-  </div>
+  
 
 </div>
 <div class="footer">

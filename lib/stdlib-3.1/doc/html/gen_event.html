@@ -1717,11 +1717,11 @@
 <!-- refpage --><center><h1>gen_event</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">gen_event</div>
+<div class="REFBODY">gen_event</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Generic event handling behavior.</div>
+<div class="REFBODY">Generic event handling behavior.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>This behavior module provides event handling functionality. It
       consists of a generic event manager process with any number of
       event handlers that are added and deleted dynamically.</p>
@@ -1730,7 +1730,7 @@
       set of interface functions and includes functionality for tracing and
       error reporting. It also fits into an OTP supervision tree. For more
       information, see
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','events.html');">OTP Design Principles</a></span>.
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','events.html');">OTP Design Principles</a></span>.
     </p>
 
     <p>Each event handler is implemented as a callback module exporting
@@ -1772,20 +1772,20 @@ gen_event:stop             -----&gt;  Module:terminate/2
       an installed event handler fails with <span class="code">Reason</span>, or returns a
       bad value <span class="code">Term</span>, the event manager does not fail. It deletes
       the event handler by calling callback function
-      <span class="bold_code data-type-ref"><a href="#Module:terminate-2"><span class="code">Module:terminate/2</span></a></span>,
+      <span class="bold_code"><a href="#Module:terminate-2"><span class="code">Module:terminate/2</span></a></span>,
       giving as argument
       <span class="code">{error,{'EXIT',Reason}}</span> or <span class="code">{error,Term}</span>, respectively.
       No other event handler is affected.</p>
 
     <p>A <span class="code">gen_event</span> process handles system messages as described in
-       <span class="bold_code bc-19"><a href="sys.html"><span class="code">sys(3)</span></a></span>. The <span class="code">sys</span> module
+       <span class="bold_code"><a href="sys.html"><span class="code">sys(3)</span></a></span>. The <span class="code">sys</span> module
        can be used for debugging an event manager.</p>
 
     <p>Notice that an event manager <strong>does</strong> trap exit signals
       automatically.</p>
 
     <p>The <span class="code">gen_event</span> process can go into hibernation 
-      (see <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#hibernate-3');"><span class="code">erlang:hibernate/3</span></a></span>) if a callback function in
+      (see <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#hibernate-3');"><span class="code">erlang:hibernate/3</span></a></span>) if a callback function in
       a handler module specifies <span class="code">hibernate</span> in its return value.
       This can be useful if the server is expected to be idle for a long
       time. However, use this feature with care, as hibernation
@@ -1801,66 +1801,56 @@ gen_event:stop             -----&gt;  Module:terminate/2
     <p>Unless otherwise stated, all functions in this module fail if
       the specified event manager does not exist or if bad arguments are
       specified.</p>
-  </div>
+  </p></div>
 
-  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
-<div class="data-types-body">
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-handler">handler()</a> = atom() | {atom(), term()}</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-handler_args">handler_args()</a> = term()</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-add_handler_ret">add_handler_ret()</a> = ok | term() | {'EXIT', term()}</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-del_handler_ret">del_handler_ret()</a> = ok | term() | {'EXIT', term()}</span>
-</div>
-  </div>
+  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
+    <p>
+      <span class="bold_code"><a name="type-handler">handler()</a> = atom() | {atom(), term()}</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-handler_args">handler_args()</a> = term()</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-add_handler_ret">add_handler_ret()</a> = ok | term() | {'EXIT', term()}</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-del_handler_ret">del_handler_ret()</a> = ok | term() | {'EXIT', term()}</span><br></p>
+  
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="add_handler-3"></a><span class="bold_code bc-9">add_handler(EventMgrRef, Handler, Args) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="add_handler-3"></a><span class="bold_code">add_handler(EventMgrRef, Handler, Args) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">EventMgrRef = Name | {Name,Node} | {global,GlobalName}
+<span class="bold_code">EventMgrRef = Name | {Name,Node} | {global,GlobalName}
 	| {via,Module,ViaName} | pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Name = Node = atom()</span><br>
+<span class="bold_code"> Name = Node = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> GlobalName = ViaName = term()</span><br>
+<span class="bold_code"> GlobalName = ViaName = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Handler = Module | {Module,Id}</span><br>
+<span class="bold_code">Handler = Module | {Module,Id}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Module = atom()</span><br>
+<span class="bold_code"> Module = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Id = term()</span><br>
+<span class="bold_code"> Id = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Args = term()</span><br>
+<span class="bold_code">Args = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = ok | {'EXIT',Reason} | term()</span><br>
+<span class="bold_code">Result = ok | {'EXIT',Reason} | term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Reason = term()</span><br>
+<span class="bold_code"> Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Adds a new event handler to event manager <span class="code">EventMgrRef</span>.
           The event manager calls
-          <span class="bold_code data-type-ref"><a href="#Module:init-1"><span class="code">Module:init/1</span></a></span>
+          <span class="bold_code"><a href="#Module:init-1"><span class="code">Module:init/1</span></a></span>
           to initiate the event handler and its internal state.</p>
         <p><span class="code">EventMgrRef</span> can be any of the following:</p>
         <ul>
@@ -1892,54 +1882,48 @@ gen_event:stop             -----&gt;  Module:terminate/2
           ignored and this function returns <span class="code">{'EXIT',Reason}</span> or
           <span class="code">{error,Reason}</span>, respectively.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="add_sup_handler-3"></a><span class="bold_code bc-9">add_sup_handler(EventMgrRef, Handler, Args) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="add_sup_handler-3"></a><span class="bold_code">add_sup_handler(EventMgrRef, Handler, Args) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">EventMgrRef = Name | {Name,Node} | {global,GlobalName}
+<span class="bold_code">EventMgrRef = Name | {Name,Node} | {global,GlobalName}
 	| {via,Module,ViaName} | pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Name = Node = atom()</span><br>
+<span class="bold_code"> Name = Node = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> GlobalName = ViaName = term()</span><br>
+<span class="bold_code"> GlobalName = ViaName = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Handler = Module | {Module,Id}</span><br>
+<span class="bold_code">Handler = Module | {Module,Id}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Module = atom()</span><br>
+<span class="bold_code"> Module = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Id = term()</span><br>
+<span class="bold_code"> Id = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Args = term()</span><br>
+<span class="bold_code">Args = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = ok | {'EXIT',Reason} | term()</span><br>
+<span class="bold_code">Result = ok | {'EXIT',Reason} | term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Reason = term()</span><br>
+<span class="bold_code"> Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Adds a new event handler in the same way as
-          <span class="bold_code data-type-ref"><a href="#add_handler-3"><span class="code">add_handler/3</span></a></span>,
+          <span class="bold_code"><a href="#add_handler-3"><span class="code">add_handler/3</span></a></span>,
           but also supervises the connection between the event handler
           and the calling process.</p>
         <ul>
           <li>If the calling process later terminates with <span class="code">Reason</span>,
            the event manager deletes the event handler by calling
-           <span class="bold_code data-type-ref"><a href="#Module:terminate-2"><span class="code">Module:terminate/2</span></a></span>
+           <span class="bold_code"><a href="#Module:terminate-2"><span class="code">Module:terminate/2</span></a></span>
            with <span class="code">{stop,Reason}</span> as argument.
           </li>
           <li>
@@ -1961,8 +1945,8 @@ gen_event:stop             -----&gt;  Module:terminate/2
                 <p><span class="code">{swapped,NewHandler,Pid}</span>, if the process <span class="code">Pid</span>
                   has replaced the event handler with another event handler
                   <span class="code">NewHandler</span> using a call to
-                  <span class="bold_code data-type-ref"><a href="#swap_handler-3"><span class="code">swap_handler/3</span></a></span> or
-                  <span class="bold_code data-type-ref"><a href="#swap_sup_handler-3"><span class="code">swap_sup_handler/3</span></a></span>.</p>
+                  <span class="bold_code"><a href="#swap_handler-3"><span class="code">swap_handler/3</span></a></span> or
+                  <span class="bold_code"><a href="#swap_sup_handler-3"><span class="code">swap_sup_handler/3</span></a></span>.</p>
               </li>
               <li>
                 <p>A term, if the event handler is removed because of an error.
@@ -1972,63 +1956,57 @@ gen_event:stop             -----&gt;  Module:terminate/2
           </li>
         </ul>
         <p>For a description of the arguments and return values, see
-          <span class="bold_code data-type-ref"><a href="#add_handler-3"><span class="code">add_handler/3</span></a></span>.</p>
+          <span class="bold_code"><a href="#add_handler-3"><span class="code">add_handler/3</span></a></span>.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="call-3"></a><span class="bold_code bc-9">call(EventMgrRef, Handler, Request) -&gt; Result</span><br><a name="call-4"></a><span class="bold_code bc-9">call(EventMgrRef, Handler, Request, Timeout) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="call-3"></a><span class="bold_code">call(EventMgrRef, Handler, Request) -&gt; Result</span><br><a name="call-4"></a><span class="bold_code">call(EventMgrRef, Handler, Request, Timeout) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">EventMgrRef = Name | {Name,Node} | {global,GlobalName}
+<span class="bold_code">EventMgrRef = Name | {Name,Node} | {global,GlobalName}
 	| {via,Module,ViaName} | pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Name = Node = atom()</span><br>
+<span class="bold_code"> Name = Node = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> GlobalName = ViaName = term()</span><br>
+<span class="bold_code"> GlobalName = ViaName = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Handler = Module | {Module,Id}</span><br>
+<span class="bold_code">Handler = Module | {Module,Id}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Module = atom()</span><br>
+<span class="bold_code"> Module = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Id = term()</span><br>
+<span class="bold_code"> Id = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Request = term()</span><br>
+<span class="bold_code">Request = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Timeout = int()&gt;0 | infinity</span><br>
+<span class="bold_code">Timeout = int()&gt;0 | infinity</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = Reply | {error,Error}</span><br>
+<span class="bold_code">Result = Reply | {error,Error}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Reply = term()</span><br>
+<span class="bold_code"> Reply = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Error = bad_module | {'EXIT',Reason} | term()</span><br>
+<span class="bold_code"> Error = bad_module | {'EXIT',Reason} | term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">  Reason = term()</span><br>
+<span class="bold_code">  Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Makes a synchronous call to event handler <span class="code">Handler</span>
           installed in event manager <span class="code">EventMgrRef</span> by sending a
           request and waiting until a reply arrives or a time-out occurs.
-          The event manager calls <span class="bold_code data-type-ref"><a href="#Module:handle_call-2"><span class="code">Module:handle_call/2</span></a></span> to handle the request.</p>
+          The event manager calls <span class="bold_code"><a href="#Module:handle_call-2"><span class="code">Module:handle_call/2</span></a></span> to handle the request.</p>
         <p>For a description of <span class="code">EventMgrRef</span> and <span class="code">Handler</span>, see
-          <span class="bold_code data-type-ref"><a href="#add_handler-3"><span class="code">add_handler/3</span></a></span>.</p>
+          <span class="bold_code"><a href="#add_handler-3"><span class="code">add_handler/3</span></a></span>.</p>
         <p><span class="code">Request</span> is any term that is passed as one of
           the arguments to <span class="code">Module:handle_call/2</span>.</p>
         <p><span class="code">Timeout</span> is an integer greater than zero that specifies
@@ -2044,52 +2022,46 @@ gen_event:stop             -----&gt;  Module:terminate/2
           <span class="code">{error,{'EXIT',Reason}}</span> or <span class="code">{error,Term}</span>,
           respectively.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="delete_handler-3"></a><span class="bold_code bc-9">delete_handler(EventMgrRef, Handler, Args) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="delete_handler-3"></a><span class="bold_code">delete_handler(EventMgrRef, Handler, Args) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">EventMgrRef = Name | {Name,Node} | {global,GlobalName}
+<span class="bold_code">EventMgrRef = Name | {Name,Node} | {global,GlobalName}
 	| {via,Module,ViaName} | pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Name = Node = atom()</span><br>
+<span class="bold_code"> Name = Node = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> GlobalName = ViaName = term()</span><br>
+<span class="bold_code"> GlobalName = ViaName = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Handler = Module | {Module,Id}</span><br>
+<span class="bold_code">Handler = Module | {Module,Id}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Module = atom()</span><br>
+<span class="bold_code"> Module = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Id = term()</span><br>
+<span class="bold_code"> Id = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Args = term()</span><br>
+<span class="bold_code">Args = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = term() | {error,module_not_found} | {'EXIT',Reason}</span><br>
+<span class="bold_code">Result = term() | {error,module_not_found} | {'EXIT',Reason}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Reason = term()</span><br>
+<span class="bold_code"> Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Deletes an event handler from event manager
           <span class="code">EventMgrRef</span>. The event manager calls
-          <span class="bold_code data-type-ref"><a href="#Module:terminate-2"><span class="code">Module:terminate/2</span></a></span> to terminate the event
+          <span class="bold_code"><a href="#Module:terminate-2"><span class="code">Module:terminate/2</span></a></span> to terminate the event
           handler.</p>
          <p>For a description of <span class="code">EventMgrRef</span> and <span class="code">Handler</span>, see
-          <span class="bold_code data-type-ref"><a href="#add_handler-3"><span class="code">add_handler/3</span></a></span>.</p>
+          <span class="bold_code"><a href="#add_handler-3"><span class="code">add_handler/3</span></a></span>.</p>
         <p><span class="code">Args</span> is any term that is passed as one of
           the arguments to <span class="code">Module:terminate/2</span>.</p>
         <p>The return value is the return value of <span class="code">Module:terminate/2</span>.
@@ -2098,108 +2070,90 @@ gen_event:stop             -----&gt;  Module:terminate/2
           fails with <span class="code">Reason</span>, the function returns
           <span class="code">{'EXIT',Reason}</span>.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="notify-2"></a><span class="bold_code bc-9">notify(EventMgrRef, Event) -&gt; ok</span><br><a name="sync_notify-2"></a><span class="bold_code bc-9">sync_notify(EventMgrRef, Event) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="notify-2"></a><span class="bold_code">notify(EventMgrRef, Event) -&gt; ok</span><br><a name="sync_notify-2"></a><span class="bold_code">sync_notify(EventMgrRef, Event) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">EventMgrRef = Name | {Name,Node} | {global,GlobalName}
+<span class="bold_code">EventMgrRef = Name | {Name,Node} | {global,GlobalName}
 	| {via,Module,ViaName} | pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Name = Node = atom()</span><br>
+<span class="bold_code"> Name = Node = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> GlobalName = ViaName = term()</span><br>
+<span class="bold_code"> GlobalName = ViaName = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Event = term()</span><br>
+<span class="bold_code">Event = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Sends an event notification to event manager
           <span class="code">EventMgrRef</span>. The event manager calls
-          <span class="bold_code data-type-ref"><a href="#Module:handle_event-2"><span class="code">Module:handle_event/2</span></a></span>
+          <span class="bold_code"><a href="#Module:handle_event-2"><span class="code">Module:handle_event/2</span></a></span>
           for each installed event handler to handle the event.</p>
         <p><span class="code">notify/2</span> is asynchronous and returns immediately after
           the event notification has been sent. <span class="code">sync_notify/2</span> is
           synchronous in the sense that it returns <span class="code">ok</span> after
           the event has been handled by all event handlers.</p>
         <p>For a description of <span class="code">EventMgrRef</span>, see
-          <span class="bold_code data-type-ref"><a href="#add_handler-3"><span class="code">add_handler/3</span></a></span>.</p>
+          <span class="bold_code"><a href="#add_handler-3"><span class="code">add_handler/3</span></a></span>.</p>
         <p><span class="code">Event</span> is any term that is passed as one of
-          the arguments to <span class="bold_code data-type-ref"><a href="#Module:handle_event-2"><span class="code">Module:handle_event/2</span></a></span>.</p>
+          the arguments to <span class="bold_code"><a href="#Module:handle_event-2"><span class="code">Module:handle_event/2</span></a></span>.</p>
         <p><span class="code">notify/1</span> does not fail even if the specified event manager
           does not exist, unless it is specified as <span class="code">Name</span>.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="start-0"></a><span class="bold_code bc-9">start() -&gt; Result</span><br><a name="start-1"></a><span class="bold_code bc-9">start(EventMgrName) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="start-0"></a><span class="bold_code">start() -&gt; Result</span><br><a name="start-1"></a><span class="bold_code">start(EventMgrName) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">EventMgrName = {local,Name} | {global,GlobalName}
+<span class="bold_code">EventMgrName = {local,Name} | {global,GlobalName}
 	| {via,Module,ViaName}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Name = atom()</span><br>
+<span class="bold_code"> Name = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> GlobalName = ViaName = term()</span><br>
+<span class="bold_code"> GlobalName = ViaName = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = {ok,Pid} | {error,{already_started,Pid}}</span><br>
+<span class="bold_code">Result = {ok,Pid} | {error,{already_started,Pid}}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Pid = pid()</span><br>
+<span class="bold_code"> Pid = pid()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Creates a stand-alone event manager process, that is, an event
           manager that is not part of a supervision tree and thus has
           no supervisor.</p>
         <p>For a description of the arguments and return values, see
-          <span class="bold_code data-type-ref"><a href="#start_link-0"><span class="code">start_link/0,1</span></a></span>.</p>
+          <span class="bold_code"><a href="#start_link-0"><span class="code">start_link/0,1</span></a></span>.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="start_link-0"></a><span class="bold_code bc-9">start_link() -&gt; Result</span><br><a name="start_link-1"></a><span class="bold_code bc-9">start_link(EventMgrName) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="start_link-0"></a><span class="bold_code">start_link() -&gt; Result</span><br><a name="start_link-1"></a><span class="bold_code">start_link(EventMgrName) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">EventMgrName = {local,Name} | {global,GlobalName}
+<span class="bold_code">EventMgrName = {local,Name} | {global,GlobalName}
 	| {via,Module,ViaName}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Name = atom()</span><br>
+<span class="bold_code"> Name = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> GlobalName = ViaName = term()</span><br>
+<span class="bold_code"> GlobalName = ViaName = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = {ok,Pid} | {error,{already_started,Pid}}</span><br>
+<span class="bold_code">Result = {ok,Pid} | {error,{already_started,Pid}}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Pid = pid()</span><br>
+<span class="bold_code"> Pid = pid()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Creates an event manager process as part of a supervision
           tree. The function is to be called, directly or indirectly,
           by the supervisor. For example, it ensures that
@@ -2212,7 +2166,7 @@ gen_event:stop             -----&gt;  Module:terminate/2
           <li>
             <p>If <span class="code">EventMgrName={global,GlobalName}</span>, the event manager is
               registered globally as <span class="code">GlobalName</span> using
-              <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','global.html#register_name-2');"><span class="code">global:register_name/2</span></a></span>.
+              <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','global.html#register_name-2');"><span class="code">global:register_name/2</span></a></span>.
               If no name is provided, the event manager is not registered.</p>
           </li>
           <li>
@@ -2222,7 +2176,7 @@ gen_event:stop             -----&gt;  Module:terminate/2
               <span class="code">register_name/2</span>, <span class="code">unregister_name/1</span>,
               <span class="code">whereis_name/1</span>, and <span class="code">send/2</span>, which are to behave
               as the corresponding functions in
-              <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','global.html');"><span class="code">global</span></a></span>.
+              <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','global.html');"><span class="code">global</span></a></span>.
               Thus, <span class="code">{via,global,GlobalName}</span> is a valid reference.</p>
           </li>
         </ul>
@@ -2233,44 +2187,38 @@ gen_event:stop             -----&gt;  Module:terminate/2
           <span class="code">{error,{already_started,Pid}}</span>, where <span class="code">Pid</span> is
           the pid of that process.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="stop-1"></a><span class="bold_code bc-9">stop(EventMgrRef) -&gt; ok</span><br><a name="stop-3"></a><span class="bold_code bc-9">stop(EventMgrRef, Reason, Timeout) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="stop-1"></a><span class="bold_code">stop(EventMgrRef) -&gt; ok</span><br><a name="stop-3"></a><span class="bold_code">stop(EventMgrRef, Reason, Timeout) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">EventMgrRef = Name | {Name,Node} | {global,GlobalName}
+<span class="bold_code">EventMgrRef = Name | {Name,Node} | {global,GlobalName}
 	| {via,Module,ViaName} | pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Name = Node = atom()</span><br>
+<span class="bold_code">Name = Node = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">GlobalName = ViaName = term()</span><br>
+<span class="bold_code">GlobalName = ViaName = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Timeout = int()&gt;0 | infinity</span><br>
+<span class="bold_code">Timeout = int()&gt;0 | infinity</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Orders event manager <span class="code">EventMgrRef</span> to exit with
           the specifies <span class="code">Reason</span> and waits for it to
           terminate. Before terminating, <span class="code">gen_event</span> calls
-          <span class="bold_code data-type-ref"><a href="#Module:terminate-2"><span class="code">Module:terminate(stop,...)</span></a></span>
+          <span class="bold_code"><a href="#Module:terminate-2"><span class="code">Module:terminate(stop,...)</span></a></span>
           for each installed event handler.</p>
         <p>The function returns <span class="code">ok</span> if the event manager terminates
           with the expected reason. Any other reason than <span class="code">normal</span>,
           <span class="code">shutdown</span>, or <span class="code">{shutdown,Term}</span> causes an
           error report to be issued using
-          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','error_logger.html#format-2');"><span class="code">error_logger:format/2</span></a></span>.
+          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','error_logger.html#format-2');"><span class="code">error_logger:format/2</span></a></span>.
           The default <span class="code">Reason</span> is <span class="code">normal</span>.</p>
         <p><span class="code">Timeout</span> is an integer greater than zero that
           specifies how many milliseconds to wait for the event manager to
@@ -2281,55 +2229,49 @@ gen_event:stop             -----&gt;  Module:terminate/2
         <p>If the process does not exist, a <span class="code">noproc</span> exception
           is raised.</p>
         <p>For a description of <span class="code">EventMgrRef</span>, see
-          <span class="bold_code data-type-ref"><a href="#add_handler-3"><span class="code">add_handler/3</span></a></span>.</p>
+          <span class="bold_code"><a href="#add_handler-3"><span class="code">add_handler/3</span></a></span>.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="swap_handler-3"></a><span class="bold_code bc-9">swap_handler(EventMgrRef, {Handler1,Args1}, {Handler2,Args2}) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="swap_handler-3"></a><span class="bold_code">swap_handler(EventMgrRef, {Handler1,Args1}, {Handler2,Args2}) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">EventMgrRef = Name | {Name,Node} | {global,GlobalName}
+<span class="bold_code">EventMgrRef = Name | {Name,Node} | {global,GlobalName}
 	| {via,Module,ViaName} | pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Name = Node = atom()</span><br>
+<span class="bold_code"> Name = Node = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> GlobalName = ViaName = term()</span><br>
+<span class="bold_code"> GlobalName = ViaName = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Handler1 = Handler2 = Module | {Module,Id}</span><br>
+<span class="bold_code">Handler1 = Handler2 = Module | {Module,Id}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Module = atom()</span><br>
+<span class="bold_code"> Module = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Id = term()</span><br>
+<span class="bold_code"> Id = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Args1 = Args2 = term()</span><br>
+<span class="bold_code">Args1 = Args2 = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = ok | {error,Error}</span><br>
+<span class="bold_code">Result = ok | {error,Error}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Error = {'EXIT',Reason} | term()</span><br>
+<span class="bold_code"> Error = {'EXIT',Reason} | term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">  Reason = term()</span><br>
+<span class="bold_code">  Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Replaces an old event handler with a new event handler in
           event manager <span class="code">EventMgrRef</span>.</p>
         <p>For a description of the arguments, see
-          <span class="bold_code data-type-ref"><a href="#add_handler-3"><span class="code">add_handler/3</span></a></span>.</p>
+          <span class="bold_code"><a href="#add_handler-3"><span class="code">add_handler/3</span></a></span>.</p>
         <p>First the old event handler <span class="code">Handler1</span> is deleted.
           The event manager calls <span class="code">Module1:terminate(Args1, ...)</span>,
           where <span class="code">Module1</span> is the callback module of <span class="code">Handler1</span>,
@@ -2354,131 +2296,112 @@ gen_event:stop             -----&gt;  Module:terminate/2
           this function returns <span class="code">{error,{'EXIT',Reason}}</span> or
           <span class="code">{error,Term}</span>, respectively.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="swap_sup_handler-3"></a><span class="bold_code bc-9">swap_sup_handler(EventMgrRef, {Handler1,Args1}, {Handler2,Args2}) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="swap_sup_handler-3"></a><span class="bold_code">swap_sup_handler(EventMgrRef, {Handler1,Args1}, {Handler2,Args2}) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">EventMgrRef = Name | {Name,Node} | {global,GlobalName}
+<span class="bold_code">EventMgrRef = Name | {Name,Node} | {global,GlobalName}
 	| {via,Module,ViaName} | pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Name = Node = atom()</span><br>
+<span class="bold_code"> Name = Node = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> GlobalName = ViaName = term()</span><br>
+<span class="bold_code"> GlobalName = ViaName = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Handler1 = Handler 2 = Module | {Module,Id}</span><br>
+<span class="bold_code">Handler1 = Handler 2 = Module | {Module,Id}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Module = atom()</span><br>
+<span class="bold_code"> Module = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Id = term()</span><br>
+<span class="bold_code"> Id = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Args1 = Args2 = term()</span><br>
+<span class="bold_code">Args1 = Args2 = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = ok | {error,Error}</span><br>
+<span class="bold_code">Result = ok | {error,Error}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Error = {'EXIT',Reason} | term()</span><br>
+<span class="bold_code"> Error = {'EXIT',Reason} | term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">  Reason = term()</span><br>
+<span class="bold_code">  Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Replaces an event handler in event manager <span class="code">EventMgrRef</span>
           in the same way as <span class="code">swap_handler/3</span>, but also supervises
           the connection between <span class="code">Handler2</span> and the calling process.</p>
         <p>For a description of the arguments and return values, see 
-          <span class="bold_code data-type-ref"><a href="#swap_handler-3"><span class="code">swap_handler/3</span></a></span>.</p>
+          <span class="bold_code"><a href="#swap_handler-3"><span class="code">swap_handler/3</span></a></span>.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="which_handlers-1"></a><span class="bold_code bc-9">which_handlers(EventMgrRef) -&gt; [Handler]</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="which_handlers-1"></a><span class="bold_code">which_handlers(EventMgrRef) -&gt; [Handler]</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">EventMgrRef = Name | {Name,Node} | {global,GlobalName}
+<span class="bold_code">EventMgrRef = Name | {Name,Node} | {global,GlobalName}
 	| {via,Module,ViaName} | pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Name = Node = atom()</span><br>
+<span class="bold_code"> Name = Node = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> GlobalName = ViaName = term()</span><br>
+<span class="bold_code"> GlobalName = ViaName = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Handler = Module | {Module,Id}</span><br>
+<span class="bold_code">Handler = Module | {Module,Id}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Module = atom()</span><br>
+<span class="bold_code"> Module = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Id = term()</span><br>
+<span class="bold_code"> Id = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns a list of all event handlers installed in event
           manager <span class="code">EventMgrRef</span>.</p>
         <p>For a description of <span class="code">EventMgrRef</span> and <span class="code">Handler</span>, see
-          <span class="bold_code data-type-ref"><a href="#add_handler-3"><span class="code">add_handler/3</span></a></span>.</p>
+          <span class="bold_code"><a href="#add_handler-3"><span class="code">add_handler/3</span></a></span>.</p>
       </p></div>
-</div>
-</div>
-  </div>
+  
 
-  <h3><a name="idm45461567730096">Callback Functions</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46007674163776">Callback Functions</a></h3>
+<div class="REFBODY">
     
     <p>The following functions are to be exported from a <span class="code">gen_event</span>
       callback module.</p>
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="Module:code_change-3"></a><span class="bold_code bc-9">Module:code_change(OldVsn, State, Extra) -&gt; {ok, NewState}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:code_change-3"></a><span class="bold_code">Module:code_change(OldVsn, State, Extra) -&gt; {ok, NewState}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">OldVsn = Vsn | {down, Vsn}</span><br>
+<span class="bold_code">OldVsn = Vsn | {down, Vsn}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">  Vsn = term()</span><br>
+<span class="bold_code">  Vsn = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">State = NewState = term()</span><br>
+<span class="bold_code">State = NewState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Extra = term()</span><br>
+<span class="bold_code">Extra = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This function is called for an installed event handler that
           is to update its internal state during a release
           upgrade/downgrade, that is, when the instruction
           <span class="code">{update,Module,Change,...}</span>, where
           <span class="code">Change={advanced,Extra}</span>, is specified in the <span class="code">.appup</span>
-          file. For more information, see <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','users_guide.html');">OTP Design Principles</a></span>.</p>
+          file. For more information, see <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','users_guide.html');">OTP Design Principles</a></span>.</p>
         <p>For an upgrade, <span class="code">OldVsn</span> is <span class="code">Vsn</span>, and for a downgrade,
           <span class="code">OldVsn</span> is <span class="code">{down,Vsn}</span>. <span class="code">Vsn</span> is defined by the
           <span class="code">vsn</span> attribute(s) of the old version of the callback module
@@ -2489,30 +2412,24 @@ gen_event:stop             -----&gt;  Module:terminate/2
           part of the update instruction.</p>
         <p>The function is to return the updated internal state.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:format_status-2"></a><span class="bold_code bc-9">Module:format_status(Opt, [PDict, State]) -&gt; Status</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:format_status-2"></a><span class="bold_code">Module:format_status(Opt, [PDict, State]) -&gt; Status</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Opt = normal | terminate</span><br>
+<span class="bold_code">Opt = normal | terminate</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PDict = [{Key, Value}]</span><br>
+<span class="bold_code">PDict = [{Key, Value}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">State = term()</span><br>
+<span class="bold_code">State = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Status = term()</span><br>
+<span class="bold_code">Status = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <div class="note">
 <div class="label">Note</div>
 <div class="content"><p>
@@ -2525,7 +2442,7 @@ gen_event:stop             -----&gt;  Module:terminate/2
         <p>This function is called by a <span class="code">gen_event</span> process in the
           following situations:</p>
         <ul>
-          <li>One of <span class="bold_code bc-15"><a href="sys.html#get_status-1"><span class="code">sys:get_status/1,2</span></a></span>
+          <li>One of <span class="bold_code"><a href="sys.html#get_status-1"><span class="code">sys:get_status/1,2</span></a></span>
             is invoked to get the <span class="code">gen_event</span> status. <span class="code">Opt</span> is set
             to the atom <span class="code">normal</span> for this case.</li>
           <li>The event handler terminates abnormally and <span class="code">gen_event</span>
@@ -2558,105 +2475,93 @@ gen_event:stop             -----&gt;  Module:terminate/2
           state representations to avoid that large state terms
           are printed in log files.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:handle_call-2"></a><span class="bold_code bc-9">Module:handle_call(Request, State) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:handle_call-2"></a><span class="bold_code">Module:handle_call(Request, State) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Request = term()</span><br>
+<span class="bold_code">Request = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">State = term()</span><br>
+<span class="bold_code">State = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = {ok,Reply,NewState} | {ok,Reply,NewState,hibernate}</span><br>
+<span class="bold_code">Result = {ok,Reply,NewState} | {ok,Reply,NewState,hibernate}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> | {swap_handler,Reply,Args1,NewState,Handler2,Args2}</span><br>
+<span class="bold_code"> | {swap_handler,Reply,Args1,NewState,Handler2,Args2}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> | {remove_handler, Reply}</span><br>
+<span class="bold_code"> | {remove_handler, Reply}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Reply = term()</span><br>
+<span class="bold_code"> Reply = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> NewState = term()</span><br>
+<span class="bold_code"> NewState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Args1 = Args2 = term()</span><br>
+<span class="bold_code"> Args1 = Args2 = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Handler2 = Module2 | {Module2,Id}</span><br>
+<span class="bold_code"> Handler2 = Module2 | {Module2,Id}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">  Module2 = atom()</span><br>
+<span class="bold_code">  Module2 = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">  Id = term()</span><br>
+<span class="bold_code">  Id = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Whenever an event manager receives a request sent using
-          <span class="bold_code data-type-ref"><a href="#call-3"><span class="code">call/3,4</span></a></span>,
+          <span class="bold_code"><a href="#call-3"><span class="code">call/3,4</span></a></span>,
           this function is called for
           the specified event handler to handle the request.</p>
         <p><span class="code">Request</span> is the <span class="code">Request</span> argument of <span class="code">call/3,4</span>.</p>
         <p><span class="code">State</span> is the internal state of the event handler.</p>
         <p>The return values are the same as for
-          <span class="bold_code data-type-ref"><a href="#Module:handle_event-2"><span class="code">Module:handle_event/2</span></a></span>
+          <span class="bold_code"><a href="#Module:handle_event-2"><span class="code">Module:handle_event/2</span></a></span>
           except that they also contain a term <span class="code">Reply</span>, which is the reply
           to the client as the return value of <span class="code">call/3,4</span>.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:handle_event-2"></a><span class="bold_code bc-9">Module:handle_event(Event, State) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:handle_event-2"></a><span class="bold_code">Module:handle_event(Event, State) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Event = term()</span><br>
+<span class="bold_code">Event = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">State = term()</span><br>
+<span class="bold_code">State = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = {ok,NewState} | {ok,NewState,hibernate} </span><br>
+<span class="bold_code">Result = {ok,NewState} | {ok,NewState,hibernate} </span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">  | {swap_handler,Args1,NewState,Handler2,Args2}
+<span class="bold_code">  | {swap_handler,Args1,NewState,Handler2,Args2}
         | remove_handler</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> NewState = term()</span><br>
+<span class="bold_code"> NewState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Args1 = Args2 = term()</span><br>
+<span class="bold_code"> Args1 = Args2 = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Handler2 = Module2 | {Module2,Id}</span><br>
+<span class="bold_code"> Handler2 = Module2 | {Module2,Id}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">  Module2 = atom()</span><br>
+<span class="bold_code">  Module2 = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">  Id = term()</span><br>
+<span class="bold_code">  Id = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Whenever an event manager receives an event sent using
-          <span class="bold_code data-type-ref"><a href="#notify-2"><span class="code">notify/2</span></a></span> or
-          <span class="bold_code data-type-ref"><a href="#sync_notify-2"><span class="code">sync_notify/2</span></a></span>,
+          <span class="bold_code"><a href="#notify-2"><span class="code">notify/2</span></a></span> or
+          <span class="bold_code"><a href="#sync_notify-2"><span class="code">sync_notify/2</span></a></span>,
           this function is called for each installed event handler to handle
           the event.</p>
         <p><span class="code">Event</span> is the <span class="code">Event</span> argument of
@@ -2672,7 +2577,7 @@ gen_event:stop             -----&gt;  Module:terminate/2
           <li>
             <p>If <span class="code">{ok,NewState,hibernate}</span> is returned, the event
               manager also goes into hibernation (by calling
-              <span class="bold_code bc-15"><a href="proc_lib.html#hibernate-3"><span class="code">proc_lib:hibernate/3</span></a></span>), waiting for the next
+              <span class="bold_code"><a href="proc_lib.html#hibernate-3"><span class="code">proc_lib:hibernate/3</span></a></span>), waiting for the next
               event to occur. It is sufficient that one of the
               event handlers return <span class="code">{ok,NewState,hibernate}</span> for the
               whole event manager process to hibernate.</p>
@@ -2683,7 +2588,7 @@ gen_event:stop             -----&gt;  Module:terminate/2
               first calling <span class="code">Module:terminate(Args1,NewState)</span> and then
               <span class="code">Module2:init({Args2,Term})</span>, where <span class="code">Term</span> is the return
               value of <span class="code">Module:terminate/2</span>. For more information, see
-              <span class="bold_code data-type-ref"><a href="#swap_handler-3"><span class="code">swap_handler/3</span></a></span>.
+              <span class="bold_code"><a href="#swap_handler-3"><span class="code">swap_handler/3</span></a></span>.
             </p>
           </li>
           <li>
@@ -2693,128 +2598,110 @@ gen_event:stop             -----&gt;  Module:terminate/2
           </li>
         </ul>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:handle_info-2"></a><span class="bold_code bc-9">Module:handle_info(Info, State) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:handle_info-2"></a><span class="bold_code">Module:handle_info(Info, State) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Info = term()</span><br>
+<span class="bold_code">Info = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">State = term()</span><br>
+<span class="bold_code">State = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = {ok,NewState} | {ok,NewState,hibernate}</span><br>
+<span class="bold_code">Result = {ok,NewState} | {ok,NewState,hibernate}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> | {swap_handler,Args1,NewState,Handler2,Args2}
+<span class="bold_code"> | {swap_handler,Args1,NewState,Handler2,Args2}
         | remove_handler</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> NewState = term()</span><br>
+<span class="bold_code"> NewState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Args1 = Args2 = term()</span><br>
+<span class="bold_code"> Args1 = Args2 = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Handler2 = Module2 | {Module2,Id}</span><br>
+<span class="bold_code"> Handler2 = Module2 | {Module2,Id}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">  Module2 = atom()</span><br>
+<span class="bold_code">  Module2 = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">  Id = term()</span><br>
+<span class="bold_code">  Id = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This function is called for each installed event handler when
           an event manager receives any other message than an event or
           a synchronous request (or a system message).</p>
         <p><span class="code">Info</span> is the received message.</p>
         <p>For a description of <span class="code">State</span> and possible return values, see
-          <span class="bold_code data-type-ref"><a href="#Module:handle_event-2"><span class="code">Module:handle_event/2</span></a></span>.</p>
+          <span class="bold_code"><a href="#Module:handle_event-2"><span class="code">Module:handle_event/2</span></a></span>.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:init-1"></a><span class="bold_code bc-9">Module:init(InitArgs) -&gt; {ok,State} | {ok,State,hibernate} | {error,Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:init-1"></a><span class="bold_code">Module:init(InitArgs) -&gt; {ok,State} | {ok,State,hibernate} | {error,Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">InitArgs = Args | {Args,Term}</span><br>
+<span class="bold_code">InitArgs = Args | {Args,Term}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Args = Term = term()</span><br>
+<span class="bold_code"> Args = Term = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">State = term()</span><br>
+<span class="bold_code">State = term()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Whenever a new event handler is added to an event manager,
           this function is called to initialize the event handler.</p>
         <p>If the event handler is added because of a call to
-          <span class="bold_code data-type-ref"><a href="#add_handler-3"><span class="code">add_handler/3</span></a></span> or
-          <span class="bold_code data-type-ref"><a href="#add_sup_handler-3"><span class="code">add_sup_handler/3</span></a></span>, <span class="code">InitArgs</span> is
+          <span class="bold_code"><a href="#add_handler-3"><span class="code">add_handler/3</span></a></span> or
+          <span class="bold_code"><a href="#add_sup_handler-3"><span class="code">add_sup_handler/3</span></a></span>, <span class="code">InitArgs</span> is
           the <span class="code">Args</span> argument of these functions.</p>
         <p>If the event handler replaces another event handler because of
           a call to
-          <span class="bold_code data-type-ref"><a href="#swap_handler-3"><span class="code">swap_handler/3</span></a></span> or
-          <span class="bold_code data-type-ref"><a href="#swap_sup_handler-3"><span class="code">swap_sup_handler/3</span></a></span>, or because of a <span class="code">swap</span>
+          <span class="bold_code"><a href="#swap_handler-3"><span class="code">swap_handler/3</span></a></span> or
+          <span class="bold_code"><a href="#swap_sup_handler-3"><span class="code">swap_sup_handler/3</span></a></span>, or because of a <span class="code">swap</span>
           return tuple from one of the other callback functions,
           <span class="code">InitArgs</span> is a tuple <span class="code">{Args,Term}</span>, where <span class="code">Args</span> is
           the argument provided in the function call/return tuple and
           <span class="code">Term</span> is the result of terminating the old event handler, see
-          <span class="bold_code data-type-ref"><a href="#swap_handler-3"><span class="code">swap_handler/3</span></a></span>.</p>
+          <span class="bold_code"><a href="#swap_handler-3"><span class="code">swap_handler/3</span></a></span>.</p>
         <p>If successful, the function returns <span class="code">{ok,State}</span>
           or <span class="code">{ok,State,hibernate}</span>, where <span class="code">State</span> is the
           initial internal state of the event handler.</p>
         <p>If <span class="code">{ok,State,hibernate}</span> is returned, the event
-          manager goes into hibernation (by calling <span class="bold_code bc-15"><a href="proc_lib.html#hibernate-3"><span class="code">proc_lib:hibernate/3</span></a></span>),
+          manager goes into hibernation (by calling <span class="bold_code"><a href="proc_lib.html#hibernate-3"><span class="code">proc_lib:hibernate/3</span></a></span>),
           waiting for the next event to occur.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:terminate-2"></a><span class="bold_code bc-9">Module:terminate(Arg, State) -&gt; term()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:terminate-2"></a><span class="bold_code">Module:terminate(Arg, State) -&gt; term()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Arg = Args | {stop,Reason} | stop | remove_handler</span><br>
+<span class="bold_code">Arg = Args | {stop,Reason} | stop | remove_handler</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> | {error,{'EXIT',Reason}} | {error,Term}</span><br>
+<span class="bold_code"> | {error,{'EXIT',Reason}} | {error,Term}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Args = Reason = Term = term()</span><br>
+<span class="bold_code"> Args = Reason = Term = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Whenever an event handler is deleted from an event manager,
           this function is called. It is to be the opposite of
-          <span class="bold_code data-type-ref"><a href="#Module:init-1"><span class="code">Module:init/1</span></a></span>
+          <span class="bold_code"><a href="#Module:init-1"><span class="code">Module:init/1</span></a></span>
           and do any necessary cleaning up.</p>
         <p>If the event handler is deleted because of a call to
-          <span class="bold_code data-type-ref"><a href="#delete_handler-3"><span class="code">delete_handler/3</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#swap_handler-3"><span class="code">swap_handler/3</span></a></span>, or
-          <span class="bold_code data-type-ref"><a href="#swap_sup_handler-3"><span class="code">swap_sup_handler/3</span></a></span>, <span class="code">Arg</span> is
+          <span class="bold_code"><a href="#delete_handler-3"><span class="code">delete_handler/3</span></a></span>,
+          <span class="bold_code"><a href="#swap_handler-3"><span class="code">swap_handler/3</span></a></span>, or
+          <span class="bold_code"><a href="#swap_sup_handler-3"><span class="code">swap_sup_handler/3</span></a></span>, <span class="code">Arg</span> is
           the <span class="code">Args</span> argument of this function call.</p>
         <p><span class="code">Arg={stop,Reason}</span> if the event handler has a supervised
           connection to a process that has terminated with reason
@@ -2842,15 +2729,13 @@ gen_event:stop             -----&gt;  Module:terminate/2
           the <span class="code">init</span> function of the new event handler. Otherwise
           the return value is ignored.</p>
       </p></div>
-</div>
-</div>
-  </div>
+  
 
-  <h3><a name="idm45461567608048">See Also</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46007674041728">See Also</a></h3>
+<div class="REFBODY">
     
-    <p><span class="bold_code bc-19"><a href="supervisor.html"><span class="code">supervisor(3)</span></a></span>,
-      <span class="bold_code bc-19"><a href="sys.html"><span class="code">sys(3)</span></a></span></p>
+    <p><span class="bold_code"><a href="supervisor.html"><span class="code">supervisor(3)</span></a></span>,
+      <span class="bold_code"><a href="sys.html"><span class="code">sys(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

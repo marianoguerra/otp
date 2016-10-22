@@ -1717,48 +1717,44 @@
 <!-- refpage --><center><h1>supervisor_bridge</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">supervisor_bridge</div>
+<div class="REFBODY">supervisor_bridge</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Generic supervisor bridge behavior.</div>
+<div class="REFBODY">Generic supervisor bridge behavior.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>This behavior module provides a supervisor bridge, a process
       that connects a subsystem not designed according to the OTP design
       principles to a supervision tree. The supervisor bridge sits between
       a supervisor and the subsystem. It behaves like a real supervisor to
       its own supervisor, but has a different interface than a real
       supervisor to the subsystem. For more information, see
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','sup_princ.html');">Supervisor Behaviour</a></span> in OTP Design Principles.
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','sup_princ.html');">Supervisor Behaviour</a></span> in OTP Design Principles.
     </p>
 
     <p>A supervisor bridge assumes the functions for starting and stopping
       the subsystem to be located in a callback module exporting a
       predefined set of functions.</p>
 
-    <p>The <span class="bold_code bc-19"><a href="sys.html"><span class="code">sys(3)</span></a></span> module can be used
+    <p>The <span class="bold_code"><a href="sys.html"><span class="code">sys(3)</span></a></span> module can be used
       for debugging a supervisor bridge.</p>
 
     <p>Unless otherwise stated, all functions in this module fail if
       the specified supervisor bridge does not exist or if bad arguments are
       specified.</p>
-  </div>
+  </p></div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="start_link-2"></a><span class="bold_code func-name">start_link(Module, Args) -&gt; Result</span><a name="start_link-3"></a><span class="bold_code func-name">start_link(SupBridgeName, Module, Args) -&gt; Result</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">SupBridgeName = {local, Name} | {global, Name}</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = atom()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Module = module()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Args = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Result = {ok, Pid} | ignore | {error, Error}</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Error = {already_started, Pid} | term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Pid = pid()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="start_link-2"></a><span class="bold_code">start_link(Module, Args) -&gt; Result</span><br><a name="start_link-3"></a><span class="bold_code">start_link(SupBridgeName, Module, Args) -&gt; Result</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">SupBridgeName = {local, Name} | {global, Name}</span></div>
+<div class="REFTYPES"><span class="bold_code">Name = atom()</span></div>
+<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
+<div class="REFTYPES"><span class="bold_code">Args = term()</span></div>
+<div class="REFTYPES"><span class="bold_code">Result = {ok, Pid} | ignore | {error, Error}</span></div>
+<div class="REFTYPES"><span class="bold_code">Error = {already_started, Pid} | term()</span></div>
+<div class="REFTYPES"><span class="bold_code">Pid = pid()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Creates a supervisor bridge process, linked to the calling process,
           which calls <span class="code">Module:init/1</span> to start the subsystem.
           To ensure a synchronized startup procedure, this function does
@@ -1773,7 +1769,7 @@
             <p>If <span class="code">SupBridgeName={global,Name}</span>,
               the supervisor bridge is registered globally as
               <span class="code">Name</span> using
-              <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','global.html#register_name-2');"><span class="code">global:register_name/2</span></a></span>.</p>
+              <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','global.html#register_name-2');"><span class="code">global:register_name/2</span></a></span>.</p>
           </li>
           <li>
             <p>If
@@ -1783,7 +1779,7 @@
             <span class="code">Module</span> callback is to export functions
             <span class="code">register_name/2</span>, <span class="code">unregister_name/1</span>, and <span class="code">send/2</span>,
             which are to behave like the corresponding functions in
-            <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','global.html');"><span class="code">global</span></a></span>.
+            <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','global.html');"><span class="code">global</span></a></span>.
             Thus, <span class="code">{via,global,GlobalName}</span> is a valid reference.</p>
           </li>
         </ul>
@@ -1818,45 +1814,39 @@
               terminates with reason <span class="code">Error</span>.</p>
           </li>
         </ul>
-      </p></div></div>
-</div>
-  </div>
+      </p></div>
+  
 
-  <h3><a name="idm45461560488880">Callback Functions</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46007666922560">Callback Functions</a></h3>
+<div class="REFBODY">
     
     <p>The following functions must be exported from a
       <span class="code">supervisor_bridge</span> callback module.</p>
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="Module:init-1"></a><span class="bold_code bc-9">Module:init(Args) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:init-1"></a><span class="bold_code">Module:init(Args) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Args = term()</span><br>
+<span class="bold_code">Args = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = {ok,Pid,State} | ignore | {error,Error}</span><br>
+<span class="bold_code">Result = {ok,Pid,State} | ignore | {error,Error}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Pid = pid()</span><br>
+<span class="bold_code"> Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> State = term()</span><br>
+<span class="bold_code"> State = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Error = term()</span><br>
+<span class="bold_code"> Error = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Whenever a supervisor bridge is started using
-          <span class="bold_code data-type-ref"><a href="#start_link-2"><span class="code">start_link/2,3</span></a></span>,
+          <span class="bold_code"><a href="#start_link-2"><span class="code">start_link/2,3</span></a></span>,
           this function is called
           by the new process to start the subsystem and initialize.</p>
         <p><span class="code">Args</span> is the <span class="code">Args</span> argument provided to the start
@@ -1873,24 +1863,18 @@
           <span class="code">{error,Error}</span>, where <span class="code">Error</span> is any term,
           or <span class="code">ignore</span>.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:terminate-2"></a><span class="bold_code bc-9">Module:terminate(Reason, State)</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:terminate-2"></a><span class="bold_code">Module:terminate(Reason, State)</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = shutdown | term()</span><br>
+<span class="bold_code">Reason = shutdown | term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">State = term()</span><br>
+<span class="bold_code">State = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This function is called by the supervisor bridge when it is about
           to terminate. It is to be the opposite of <span class="code">Module:init/1</span>
           and stop the subsystem and do any necessary cleaning up.
@@ -1903,15 +1887,13 @@
         <p><span class="code">State</span> is taken from the return value of
           <span class="code">Module:init/1</span>.</p>
       </p></div>
-</div>
-</div>
-  </div>
+  
 
-  <h3><a name="idm45461560464640">See Also</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46007666898320">See Also</a></h3>
+<div class="REFBODY">
     
-    <p><span class="bold_code bc-19"><a href="supervisor.html"><span class="code">supervisor(3)</span></a></span>, 
-      <span class="bold_code bc-19"><a href="sys.html"><span class="code">sys(3)</span></a></span></p>
+    <p><span class="bold_code"><a href="supervisor.html"><span class="code">supervisor(3)</span></a></span>, 
+      <span class="bold_code"><a href="sys.html"><span class="code">sys(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

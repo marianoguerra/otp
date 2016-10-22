@@ -952,19 +952,19 @@
 <!-- refpage --><center><h1>erts_alloc</h1></center>
   
   <h3><a name="c-library" href="#c-library">C Library</a></h3>
-<div class="REFBODY c-library-body">erts_alloc</div>
+<div class="REFBODY">erts_alloc</div>
   <h3><a name="library-sumary" href="#library-sumary">Library Summary</a></h3>
-<div class="REFBODY library-summary-body">An Erlang runtime system internal memory allocator library.
+<div class="REFBODY">An Erlang runtime system internal memory allocator library.
   </div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p><span class="code">erts_alloc</span> is an Erlang runtime system internal memory
       allocator library. <span class="code">erts_alloc</span> provides the Erlang
       runtime system with a number of memory allocators.</p>
-  </div>
+  </p></div>
 
-  <h3><a name="idm45319509399776">Allocators</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45311096656160">Allocators</a></h3>
+<div class="REFBODY">
     
     <a name="allocators"></a>
     <p>The following allocators are present:</p>
@@ -993,7 +993,7 @@
       <dd>A fast allocator used for some frequently used
        fixed size data types.</dd>
       <dt><strong><span class="code">exec_alloc</span></strong></dt>
-      <dd>Allocator used by the <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','hipe','HiPE_app.html');"><span class="code">HiPE</span></a></span>
+      <dd>Allocator used by the <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','hipe','HiPE_app.html');"><span class="code">HiPE</span></a></span>
         application for native executable code on specific architectures
         (x86_64).</dd>
       <dt><strong><span class="code">std_alloc</span></strong></dt>
@@ -1017,7 +1017,7 @@
       cannot be disabled. <span class="code">exec_alloc</span> is only available if it is needed
       and cannot be disabled. <span class="code">mseg_alloc</span> is always enabled if it is
       available and an allocator that uses it is enabled. All other
-      allocators can be <span class="bold_code data-type-ref"><a href="#M_e">enabled or disabled</a></span>.
+      allocators can be <span class="bold_code"><a href="#M_e">enabled or disabled</a></span>.
       By default all allocators are enabled.
       When an allocator is disabled, <span class="code">sys_alloc</span> is used instead of
       the disabled allocator.</p>
@@ -1031,9 +1031,9 @@
   </div>
 
   <h3>
-<a name="alloc_util"></a><a name="idm45319509375568">The alloc_util Framework</a>
+<a name="alloc_util"></a><a name="idm45311096631952">The alloc_util Framework</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>Internally a framework called <span class="code">alloc_util</span> is used for
@@ -1055,7 +1055,7 @@
       </li>
       <li>
         <p>Blocks that are larger than the value of the singleblock carrier
-          threshold (<span class="bold_code data-type-ref"><a href="#M_sbct"><span class="code">sbct</span></a></span>) parameter
+          threshold (<span class="bold_code"><a href="#M_sbct"><span class="code">sbct</span></a></span>) parameter
           are placed in singleblock carriers.</p>
       </li>
       <li>
@@ -1067,7 +1067,7 @@
     <p>Normally an allocator creates a "main multiblock
       carrier". Main multiblock carriers are never deallocated. The
       size of the main multiblock carrier is determined by the value of
-      parameter <span class="bold_code data-type-ref"><a href="#M_mmbcs"><span class="code">mmbcs</span></a></span>.</p>
+      parameter <span class="bold_code"><a href="#M_mmbcs"><span class="code">mmbcs</span></a></span>.</p>
 
     <p><a name="mseg_mbc_sizes"></a>Sizes of multiblock carriers
       allocated through <span class="code">mseg_alloc</span> are decided based on the
@@ -1075,11 +1075,11 @@
 
     <ul>
       <li>The values of the largest multiblock carrier size
-        (<span class="bold_code data-type-ref"><a href="#M_lmbcs"><span class="code">lmbcs</span></a></span>)</li>
+        (<span class="bold_code"><a href="#M_lmbcs"><span class="code">lmbcs</span></a></span>)</li>
       <li>The smallest multiblock carrier size
-        (<span class="bold_code data-type-ref"><a href="#M_smbcs"><span class="code">smbcs</span></a></span>)</li>
+        (<span class="bold_code"><a href="#M_smbcs"><span class="code">smbcs</span></a></span>)</li>
       <li>The multiblock carrier growth stages
-        (<span class="bold_code data-type-ref"><a href="#M_mbcgs"><span class="code">mbcgs</span></a></span>)</li>
+        (<span class="bold_code"><a href="#M_mbcgs"><span class="code">mbcgs</span></a></span>)</li>
     </ul>
 
     <p>If <span class="code">nc</span> is the current number of multiblock carriers (the main
@@ -1098,7 +1098,7 @@
 
     <p>Sizes of carriers allocated through <span class="code">sys_alloc</span> are
       decided based on the value of the <span class="code">sys_alloc</span> carrier size
-      (<span class="bold_code data-type-ref"><a href="#Muycs"><span class="code">ycs</span></a></span>) parameter. The size of
+      (<span class="bold_code"><a href="#Muycs"><span class="code">ycs</span></a></span>) parameter. The size of
       a carrier is the least number of multiples of the value of
       parameter <span class="code">ycs</span> satisfying the request.</p>
 
@@ -1108,7 +1108,7 @@
 
     <p><a name="strategy"></a>The memory allocation strategy
       used for multiblock carriers by an allocator can be
-      configured using parameter <span class="bold_code data-type-ref"><a href="#M_as"><span class="code">as</span></a></span>.
+      configured using parameter <span class="bold_code"><a href="#M_as"><span class="code">as</span></a></span>.
       The following strategies are available:</p>
 
     <dl>
@@ -1165,7 +1165,7 @@
           search depth is small (by default 3), this implementation
           has a time complexity that is constant. The maximum block
           search depth can be configured using parameter
-          <span class="bold_code data-type-ref"><a href="#M_mbsd"><span class="code">mbsd</span></a></span>.</p>
+          <span class="bold_code"><a href="#M_mbsd"><span class="code">mbsd</span></a></span>.</p>
       </dd>
       <dt><strong>A fit</strong></dt>
       <dd>
@@ -1193,9 +1193,9 @@
   </div>
 
   <h3>
-<a name="flags"></a><a name="idm45319509327424">System Flags Effecting erts_alloc</a>
+<a name="flags"></a><a name="idm45311096583808">System Flags Effecting erts_alloc</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <div class="warning">
@@ -1213,7 +1213,7 @@
       where <span class="code">&lt;S&gt;</span> is a letter identifying a subsystem,
       <span class="code">&lt;P&gt;</span> is a parameter, and <span class="code">&lt;V&gt;</span> is the
       value to use. The flags can be passed to the Erlang emulator
-      (<span class="bold_code bc-19"><a href="erl.html"><span class="code">erl(1)</span></a></span>) as command-line
+      (<span class="bold_code"><a href="erl.html"><span class="code">erl(1)</span></a></span>) as command-line
       arguments.</p>
 
     <p>System flags effecting specific allocators have an uppercase
@@ -1237,7 +1237,7 @@
     </ul>
 
     <h4>Flags for Configuration of mseg_alloc</h4>
-<div class="REFBODY rb-4">
+<div class="REFBODY">
       
       <dl>
         <dt><strong><a name="MMamcbf"></a><span class="code">+MMamcbf &lt;size&gt;</span></strong></dt>
@@ -1256,14 +1256,14 @@
         </dd>
         <dt><strong><a name="MMsco"></a><span class="code">+MMsco true|false</span></strong></dt>
         <dd>
-          <p>Sets <span class="bold_code data-type-ref"><a href="#MMscs">super carrier</a></span> only flag.
+          <p>Sets <span class="bold_code"><a href="#MMscs">super carrier</a></span> only flag.
             Defaults to <span class="code">true</span>. When a super carrier is used and this
             flag is <span class="code">true</span>, <span class="code">mseg_alloc</span> only creates carriers in
             the super carrier. Notice that the <span class="code">alloc_util</span> framework can
             create <span class="code">sys_alloc</span> carriers, so if you want all carriers to
             be created in the super carrier, you therefore want to disable use
             of <span class="code">sys_alloc</span> carriers by also passing
-            <span class="bold_code data-type-ref"><a href="#Musac"><span class="code">+Musac false</span></a></span>. When
+            <span class="bold_code"><a href="#Musac"><span class="code">+Musac false</span></a></span>. When
             the flag is <span class="code">false</span>, <span class="code">mseg_alloc</span> tries to create carriers
             outside of the super carrier when the super carrier is full.</p>
 	  <div class="note">
@@ -1276,7 +1276,7 @@
         </dd>
         <dt><strong><a name="MMscrfsd"></a><span class="code">+MMscrfsd &lt;amount&gt;</span></strong></dt>
         <dd>
-          <p>Sets <span class="bold_code data-type-ref"><a href="#MMscs">super carrier</a></span> reserved
+          <p>Sets <span class="bold_code"><a href="#MMscs">super carrier</a></span> reserved
             free segment descriptors. Defaults to <span class="code">65536</span>.
             This parameter determines the amount of memory to reserve for
             free segment descriptors used by the super carrier. If the system
@@ -1285,11 +1285,11 @@
             so you want to ensure that this never happens. The maximum amount
             of free segment descriptors used can be retrieved from the
             <span class="code">erts_mmap</span> tuple part of the result from calling
-            <span class="bold_code bc-13"><a href="javascript:erlhref('../../../doc/../','erts','erlang.html#system_info_allocator_tuple');"><span class="code">erlang:system_info({allocator, mseg_alloc})</span></a></span>.</p>
+            <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','erts','erlang.html#system_info_allocator_tuple');"><span class="code">erlang:system_info({allocator, mseg_alloc})</span></a></span>.</p>
         </dd>
         <dt><strong><a name="MMscrpm"></a><span class="code">+MMscrpm true|false</span></strong></dt>
         <dd>
-          <p>Sets <span class="bold_code data-type-ref"><a href="#MMscs">super carrier</a></span> reserve
+          <p>Sets <span class="bold_code"><a href="#MMscs">super carrier</a></span> reserve
             physical memory flag. Defaults to <span class="code">true</span>. When this flag is
             <span class="code">true</span>, physical memory is reserved for the whole super
             carrier at once when it is created. The reservation is after that
@@ -1318,7 +1318,7 @@
             <span class="code">mseg_alloc</span> always tries to create new carriers in the super
             carrier if it exists. Notice that the <span class="code">alloc_util</span> framework
             can create <span class="code">sys_alloc</span> carriers. For more information, see
-            <span class="bold_code data-type-ref"><a href="#MMsco"><span class="code">+MMsco</span></a></span>.</p>
+            <span class="bold_code"><a href="#MMsco"><span class="code">+MMsco</span></a></span>.</p>
         </dd>
         <dt><strong><a name="MMmcs"></a><span class="code">+MMmcs &lt;amount&gt;</span></strong></dt>
         <dd>
@@ -1330,7 +1330,7 @@
     </div>
 
     <h4>Flags for Configuration of sys_alloc</h4>
-<div class="REFBODY rb-4">
+<div class="REFBODY">
       
       <dl>
         <dt><strong><a name="MYe"></a><span class="code">+MYe true</span></strong></dt>
@@ -1386,7 +1386,7 @@
     </div>
 
     <h4>Flags for Configuration of Allocators Based on alloc_util</h4>
-<div class="REFBODY rb-4">
+<div class="REFBODY">
       
       <p>If <span class="code">u</span> is used as subsystem identifier (that is,
         <span class="code">&lt;S&gt; = u</span>), all allocators based on
@@ -1419,11 +1419,11 @@
             creates a new empty carrier. When an abandoned carrier has been
             fetched, it will function as an ordinary carrier. This feature has
             special requirements on the
-            <span class="bold_code data-type-ref"><a href="#M_as">allocation strategy</a></span> used. Only
+            <span class="bold_code"><a href="#M_as">allocation strategy</a></span> used. Only
             the strategies <span class="code">aoff</span>, <span class="code">aoffcbf</span>, and <span class="code">aoffcaobf</span>
             support abandoned carriers.</p>
           <p>This feature also requires
-            <span class="bold_code data-type-ref"><a href="#M_t">multiple thread specific instances</a></span>
+            <span class="bold_code"><a href="#M_t">multiple thread specific instances</a></span>
             to be enabled. When enabling this feature, multiple thread-specific
             instances are enabled if not already enabled, and the
             <span class="code">aoffcbf</span> strategy is enabled if the current strategy does not
@@ -1454,7 +1454,7 @@
 <span class="code">af</span> (a fit)</li>
           </ul>
           <p>See the description of allocation strategies in section
-             <span class="bold_code data-type-ref"><a href="#strategy">The alloc_util Framework</a></span>.</p>
+             <span class="bold_code"><a href="#strategy">The alloc_util Framework</a></span>.</p>
         </dd>
         <dt><strong><a name="M_asbcst"></a><span class="code">+M&lt;S&gt;asbcst &lt;size&gt;</span></strong></dt>
         <dd>
@@ -1463,7 +1463,7 @@
             <span class="code">mseg_alloc</span> singleblock carrier is shrunk, the carrier
             is left unchanged if the amount of unused memory is less
             than this threshold, otherwise the carrier is shrunk.
-            See also <span class="bold_code data-type-ref"><a href="#M_rsbcst"><span class="code">rsbcst</span></a></span>.</p>
+            See also <span class="bold_code"><a href="#M_rsbcst"><span class="code">rsbcst</span></a></span>.</p>
         </dd>
         <dt><strong><a name="M_e"></a><span class="code">+M&lt;S&gt;e true|false</span></strong></dt>
         <dd>
@@ -1474,7 +1474,7 @@
           <p>Largest (<span class="code">mseg_alloc</span>) multiblock carrier size (in kilobytes).
             See the description on how sizes for <span class="code">mseg_alloc</span> multiblock
             carriers are decided in section
-            <span class="bold_code data-type-ref"><a href="#mseg_mbc_sizes">The alloc_util Framework</a></span>. On
+            <span class="bold_code"><a href="#mseg_mbc_sizes">The alloc_util Framework</a></span>. On
             32-bit Unix style OS this limit cannot be set &gt; 128 MB.</p>
         </dd>
         <dt><strong><a name="M_mbcgs"></a><span class="code">+M&lt;S&gt;mbcgs &lt;ratio&gt;</span></strong></dt>
@@ -1482,7 +1482,7 @@
           <p>(<span class="code">mseg_alloc</span>) multiblock carrier growth stages.
             See the description on how sizes for <span class="code">mseg_alloc</span> multiblock
             carriers are decided in section
-            <span class="bold_code data-type-ref"><a href="#mseg_mbc_sizes">The alloc_util Framework</a></span>.</p>
+            <span class="bold_code"><a href="#mseg_mbc_sizes">The alloc_util Framework</a></span>.</p>
         </dd>
         <dt><strong><a name="M_mbsd"></a><span class="code">+M&lt;S&gt;mbsd &lt;depth&gt;</span></strong></dt>
         <dd>
@@ -1537,7 +1537,7 @@
           <p>Relative singleblock carrier move threshold (in percent). When
             a block located in a singleblock carrier is shrunk to
             a size smaller than the value of parameter
-            <span class="bold_code data-type-ref"><a href="#M_sbct"><span class="code">sbct</span></a></span>,
+            <span class="bold_code"><a href="#M_sbct"><span class="code">sbct</span></a></span>,
             the block is left unchanged in the singleblock carrier if
             the ratio of unused memory is less than this threshold,
             otherwise it is moved into a multiblock carrier.</p>
@@ -1549,7 +1549,7 @@
             singleblock carrier is shrunk, the carrier is left
             unchanged if the ratio of unused memory is less than this
             threshold, otherwise the carrier is shrunk.
-            See also <span class="bold_code data-type-ref"><a href="#M_asbcst"><span class="code">asbcst</span></a></span>.</p>
+            See also <span class="bold_code"><a href="#M_asbcst"><span class="code">asbcst</span></a></span>.</p>
         </dd>
         <dt><strong><a name="M_sbct"></a><span class="code">+M&lt;S&gt;sbct &lt;size&gt;</span></strong></dt>
         <dd>
@@ -1564,7 +1564,7 @@
           <p>Smallest (<span class="code">mseg_alloc</span>) multiblock carrier size (in
             kilobytes). See the description on how sizes for <span class="code">mseg_alloc</span>
             multiblock carriers are decided in section
-            <span class="bold_code data-type-ref"><a href="#mseg_mbc_sizes">The alloc_util Framework</a></span>.</p>
+            <span class="bold_code"><a href="#mseg_mbc_sizes">The alloc_util Framework</a></span>.</p>
         </dd>
         <dt><strong><a name="M_t"></a><span class="code">+M&lt;S&gt;t true|false</span></strong></dt>
         <dd>
@@ -1582,7 +1582,7 @@
     </div>
 
     <h4>Flags for Configuration of alloc_util</h4>
-<div class="REFBODY rb-4">
+<div class="REFBODY">
       
       <p>All allocators based on <span class="code">alloc_util</span> are effected.</p>
 
@@ -1612,7 +1612,7 @@
     </div>
 
     <h4>Special Flag for literal_alloc</h4>
-<div class="REFBODY rb-4">
+<div class="REFBODY">
       
       <dl>
         <dt><strong><a name="MIscs"></a><span class="code">+MIscs &lt;size in MB&gt;</span></strong></dt>
@@ -1627,37 +1627,37 @@
     </div>
 
     <h4>Special Flag for exec_alloc</h4>
-<div class="REFBODY rb-4">
+<div class="REFBODY">
       
       <dl>
         <dt><strong><a name="MXscs"></a><span class="code">+MXscs &lt;size in MB&gt;</span></strong></dt>
         <dd>
           <p><span class="code">exec_alloc</span> super carrier size (in MB). The amount of
             <strong>virtual</strong> address space reserved for native executable code
-            used by the <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','hipe','HiPE_app.html');"><span class="code">HiPE</span></a></span> application
+            used by the <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','hipe','HiPE_app.html');"><span class="code">HiPE</span></a></span> application
             on specific architectures (x86_64). Defaults to <span class="code">512</span>.</p>
         </dd>
       </dl>
     </div>
 
     <h4>Instrumentation Flags</h4>
-<div class="REFBODY rb-4">
+<div class="REFBODY">
       
       <dl>
         <dt><strong><a name="Mim"></a><span class="code">+Mim true|false</span></strong></dt>
         <dd>
           <p>A map over current allocations is kept by the emulator.
             The allocation map can be retrieved through module
-            <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','tools','instrument.html');"><span class="code">instrument(3)</span></a></span>. <span class="code">+Mim true</span>
+            <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','tools','instrument.html');"><span class="code">instrument(3)</span></a></span>. <span class="code">+Mim true</span>
             implies <span class="code">+Mis true</span>. <span class="code">+Mim true</span> is the same as flag
-            <span class="bold_code bc-15"><a href="erl.html#instr"><span class="code">-instr</span></a></span> in 
+            <span class="bold_code"><a href="erl.html#instr"><span class="code">-instr</span></a></span> in 
             <span class="code">erl(1)</span>.</p>
         </dd>
         <dt><strong><a name="Mis"></a><span class="code">+Mis true|false</span></strong></dt>
         <dd>
           <p>Status over allocated memory is kept by the emulator.
             The allocation status can be retrieved through module
-            <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','tools','instrument.html');"><span class="code">instrument(3)</span></a></span>.</p>
+            <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','tools','instrument.html');"><span class="code">instrument(3)</span></a></span>.</p>
         </dd>
         <dt><strong><a name="Mit"></a><span class="code">+Mit X</span></strong></dt>
         <dd>
@@ -1675,7 +1675,7 @@
     </div>
 
     <h4>Other Flags</h4>
-<div class="REFBODY rb-4">
+<div class="REFBODY">
       
       <dl>
         <dt><strong><a name="Mea"></a><span class="code">+Mea min|max|r9c|r10b|r11b|config</span></strong></dt>
@@ -1699,7 +1699,7 @@
             <dd>
               <p>Disables features that cannot be enabled while creating an
                 allocator configuration with
-                <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','runtime_tools','erts_alloc_config.html');"><span class="code">erts_alloc_config(3)</span></a></span>.</p>
+                <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','runtime_tools','erts_alloc_config.html');"><span class="code">erts_alloc_config(3)</span></a></span>.</p>
               <div class="note">
 <div class="label">Note</div>
 <div class="content"><p>
@@ -1727,14 +1727,14 @@
     </div>
   </div>
 
-  <h3><a name="idm45319509132144">Notes</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45311096388528">Notes</a></h3>
+<div class="REFBODY">
     
     <p>Only some default values have been presented here. For information
       about the currently used settings and the current status of the
       allocators, see
-      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../doc/../','erts','erlang.html#system_info_allocator');"><span class="code">erlang:system_info(allocator)</span></a></span> and
-      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../doc/../','erts','erlang.html#system_info_allocator_tuple');"><span class="code">erlang:system_info({allocator, Alloc})</span></a></span>.</p>
+      <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','erts','erlang.html#system_info_allocator');"><span class="code">erlang:system_info(allocator)</span></a></span> and
+      <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','erts','erlang.html#system_info_allocator_tuple');"><span class="code">erlang:system_info({allocator, Alloc})</span></a></span>.</p>
 
     <div class="note">
 <div class="label">Note</div>
@@ -1746,19 +1746,19 @@
     </p></div>
 </div>
 
-    <p>The <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','runtime_tools','erts_alloc_config.html');"><span class="code">erts_alloc_config(3)</span></a></span>
+    <p>The <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','runtime_tools','erts_alloc_config.html');"><span class="code">erts_alloc_config(3)</span></a></span>
       tool can be used to aid creation of an
       <span class="code">erts_alloc</span> configuration that is suitable for a limited
       number of runtime scenarios.</p>
   </div>
 
-  <h3><a name="idm45319509124736">See Also</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45311096381120">See Also</a></h3>
+<div class="REFBODY">
     
-    <p><span class="bold_code bc-19"><a href="erl.html"><span class="code">erl(1)</span></a></span>,
-      <span class="bold_code bc-19"><a href="erlang.html"><span class="code">erlang(3)</span></a></span>,
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','runtime_tools','erts_alloc_config.html');"><span class="code">erts_alloc_config(3)</span></a></span>,
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','tools','instrument.html');"><span class="code">instrument(3)</span></a></span></p>
+    <p><span class="bold_code"><a href="erl.html"><span class="code">erl(1)</span></a></span>,
+      <span class="bold_code"><a href="erlang.html"><span class="code">erlang(3)</span></a></span>,
+      <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','runtime_tools','erts_alloc_config.html');"><span class="code">erts_alloc_config(3)</span></a></span>,
+      <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','tools','instrument.html');"><span class="code">instrument(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

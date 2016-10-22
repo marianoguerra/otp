@@ -147,20 +147,20 @@
 <!-- refpage --><center><h1>ssl</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">ssl</div>
+<div class="REFBODY">ssl</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Interface Functions for Secure Socket Layer</div>
+<div class="REFBODY">Interface Functions for Secure Socket Layer</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>
       This module contains interface functions for the SSL/TLS protocol.
       For detailed information about the supported standards see 
-      <span class="bold_code bc-19"><a href="ssl_app.html">ssl(6)</a></span>.
+      <span class="bold_code"><a href="ssl_app.html">ssl(6)</a></span>.
     </p>
-  </div>
+  </p></div>
     
-  <h3><a name="idm45391039764176">DATA TYPES</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45385841065984">DATA TYPES</a></h3>
+<div class="REFBODY">
     
     <p>The following data types are used in the functions for SSL:</p>
 
@@ -180,8 +180,8 @@
       <p>The default socket options are
       <span class="code">[{mode,list},{packet, 0},{header, 0},{active, true}]</span>.</p>
       <p>For valid options, see the
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html');">inet(3)</a></span> and
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html');">gen_tcp(3)</a></span> manual pages
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html');">inet(3)</a></span> and
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html');">gen_tcp(3)</a></span> manual pages
       in Kernel.</p>
 </dd>
 
@@ -309,8 +309,8 @@
     </dl>
   </div>
 
-  <h3><a name="idm45391039932080">SSL OPTION DESCRIPTIONS - COMMON for SERVER and CLIENT</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45385840935888">SSL OPTION DESCRIPTIONS - COMMON for SERVER and CLIENT</a></h3>
+<div class="REFBODY">
     
 
     <p>The following options have the same meaning in the client and 
@@ -345,10 +345,10 @@
       <span class="code">cipher_suites/0</span> can be used to find all ciphers that are
       supported by default. <span class="code">cipher_suites(all)</span> can be called
       to find all available cipher suites. Pre-Shared Key 
-      (<span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc4279.txt">RFC 4279</a></span> and
-      <span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc5487.txt">RFC 5487</a></span>), 
+      (<span class="bold_code"><a href="http://www.ietf.org/rfc/rfc4279.txt">RFC 4279</a></span> and
+      <span class="bold_code"><a href="http://www.ietf.org/rfc/rfc5487.txt">RFC 5487</a></span>), 
       Secure Remote Password 
-      (<span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc5054.txt">RFC 5054</a></span>), RC4 cipher suites,
+      (<span class="bold_code"><a href="http://www.ietf.org/rfc/rfc5054.txt">RFC 5054</a></span>), RC4 cipher suites,
       and anonymous cipher suites only work if explicitly enabled by
       this option; they are supported/enabled by the peer also.
       Anonymous cipher suites are supported for testing purposes
@@ -358,12 +358,12 @@
       <dd>
 <p>Specifies if to reject renegotiation attempt that does
       not live up to 
-      <span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc5746.txt">RFC 5746</a></span>. 
+      <span class="bold_code"><a href="http://www.ietf.org/rfc/rfc5746.txt">RFC 5746</a></span>. 
       By default <span class="code">secure_renegotiate</span> is set to <span class="code">false</span>, 
       that is, secure renegotiation is used if possible,
       but it falls back to insecure renegotiation if the peer
       does not support 
-      <span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc5746.txt">RFC 5746</a></span>.</p>
+      <span class="bold_code"><a href="http://www.ietf.org/rfc/rfc5746.txt">RFC 5746</a></span>.</p>
       </dd>
 
       <dt><strong><span class="code">{depth, integer()}</span></strong></dt>
@@ -395,7 +395,7 @@ atom()}} |
 	application. It differentiates between the peer
 	certificate and the CA certificates by using <span class="code">valid_peer</span> or
 	<span class="code">valid</span> as second argument to the verification fun. See the
-	<span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key_records.html');">public_key User's Guide</a></span> for definition of <span class="code">#'OTPCertificate'{}</span> and
+	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key_records.html');">public_key User's Guide</a></span> for definition of <span class="code">#'OTPCertificate'{}</span> and
 	<span class="code">#'Extension'{}</span>.</p>
 
 	<ul>
@@ -463,7 +463,7 @@ atom()}} |
 	<dd><p>The chain consisted only of one self-signed certificate.</p></dd>
 
 	<dt><strong><span class="code">PKIX X-509-path validation error</span></strong></dt>
-	<dd><p>For possible reasons, see <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html#pkix_path_validation-3');">public_key:pkix_path_validation/3</a></span>
+	<dd><p>For possible reasons, see <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html#pkix_path_validation-3');">public_key:pkix_path_validation/3</a></span>
 	</p></dd>
       </dl>
       </dd>
@@ -471,8 +471,8 @@ atom()}} |
       <dt><strong><span class="code">{crl_check, boolean() | peer | best_effort }</span></strong></dt>
       <dd>
 	<p>Perform CRL (Certificate Revocation List) verification
-	<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html#pkix_crls_validate-3');">(public_key:pkix_crls_validate/3)</a></span> on all the certificates during the path validation
-	<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html#pkix_path_validation-3');">(public_key:pkix_path_validation/3)</a></span>
+	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html#pkix_crls_validate-3');">(public_key:pkix_crls_validate/3)</a></span> on all the certificates during the path validation
+	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html#pkix_path_validation-3');">(public_key:pkix_path_validation/3)</a></span>
 	of the certificate chain. Defaults to <span class="code">false</span>.</p>
 	
 	<dl>
@@ -488,13 +488,13 @@ atom()}} |
 	construct the certificate chain validating the CRLs.</p>
  	
 	<p>The CRLs will be fetched from a local or external cache. See
-	<span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','ssl','ssl_crl_cache_api.html');">ssl_crl_cache_api(3)</a></span>.</p>
+	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','ssl','ssl_crl_cache_api.html');">ssl_crl_cache_api(3)</a></span>.</p>
       </dd>
 
       <dt><strong><span class="code">{crl_cache, {Module :: atom(), {DbHandle :: internal | term(), Args :: list()}}}</span></strong></dt>
       <dd>
 	<p>Specify how to perform lookup and caching of certificate revocation lists.
-	<span class="code">Module</span> defaults to <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','ssl','ssl_crl_cache.html');">ssl_crl_cache</a></span>
+	<span class="code">Module</span> defaults to <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','ssl','ssl_crl_cache.html');">ssl_crl_cache</a></span>
 	with <span class="code"> DbHandle </span> being <span class="code">internal</span> and an
 	empty argument list.</p>
 
@@ -504,7 +504,7 @@ atom()}} |
 	  <dt><strong><span class="code">ssl_crl_cache</span></strong></dt>
 	  <dd>
 	    <p>This module maintains a cache of CRLs.  CRLs can be
-	    added to the cache using the function <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','ssl','ssl_crl_cache.html#insert-1');">ssl_crl_cache:insert/1</a></span>,
+	    added to the cache using the function <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','ssl','ssl_crl_cache.html#insert-1');">ssl_crl_cache:insert/1</a></span>,
 	    and optionally automatically fetched through HTTP if the
 	    following argument is specified:</p>
 
@@ -512,7 +512,7 @@ atom()}} |
 	      <dt><strong><span class="code">{http, timeout()}</span></strong></dt>
 	      <dd>
 <p>
-		Enables fetching of CRLs specified as http URIs in<span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key_records.html');">X509 certificate extensions</a></span>.
+		Enables fetching of CRLs specified as http URIs in<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key_records.html');">X509 certificate extensions</a></span>.
 		Requires the OTP inets application.</p>
 	      </dd>
 	    </dl>
@@ -553,7 +553,7 @@ atom()}} |
       <dt><strong><span class="code">{partial_chain, fun(Chain::[DerCert]) -&gt; {trusted_ca, DerCert} |
       unknown_ca }</span></strong></dt>
       <dd><p>Claim an intermediate CA in the chain as trusted. TLS then
-      performs <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html#pkix_path_validation-3');">public_key:pkix_path_validation/3</a></span>
+      performs <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html#pkix_path_validation-3');">public_key:pkix_path_validation/3</a></span>
       with the selected CA as trusted anchor and the rest of the chain.</p></dd>
 
       <dt><strong><span class="code">{versions, [protocol()]}</span></strong></dt>
@@ -561,7 +561,7 @@ atom()}} |
       This option overrides the application environment option
       <span class="code">protocol_version</span>. If the environment option is not set, it defaults
       to all versions, except SSL-3.0, supported by the SSL application.
-      See also <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','ssl','ssl_app.html');">ssl(6).</a></span></p></dd>
+      See also <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','ssl','ssl_app.html');">ssl(6).</a></span></p></dd>
 
       <dt><strong><span class="code">{hibernate_after, integer()|undefined}</span></strong></dt>
       <dd><p>When an integer-value is specified, <span class="code">ssl_connection</span>
@@ -590,8 +590,8 @@ fun(srp, Username :: string(), UserState :: term()) -&gt;
 	<p>For Secure Remote Password (SRP), the fun is only used by the server to
 	obtain parameters that it uses to generate its session keys.
 	<span class="code">DerivedKey</span> is to be derived according to
-	<span class="bold_code bc-20"><a href="http://tools.ietf.org/html/rfc2945#section-3"> RFC 2945</a></span> and
-	<span class="bold_code bc-20"><a href="http://tools.ietf.org/html/rfc5054#section-2.4"> RFC 5054</a></span>:
+	<span class="bold_code"><a href="http://tools.ietf.org/html/rfc2945#section-3"> RFC 2945</a></span> and
+	<span class="bold_code"><a href="http://tools.ietf.org/html/rfc5054#section-2.4"> RFC 5054</a></span>:
 	<span class="code">crypto:sha([Salt, crypto:sha([Username, &lt;&lt;$:&gt;&gt;, Password])])</span>
 	</p>
       </dd>
@@ -632,8 +632,8 @@ fun(srp, Username :: string(), UserState :: term()) -&gt;
 
   </div>
   
-  <h3><a name="idm45391039721904">SSL OPTION DESCRIPTIONS - CLIENT SIDE</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45385840882016">SSL OPTION DESCRIPTIONS - CLIENT SIDE</a></h3>
+<div class="REFBODY">
     
 
     <p>The following options are client-specific or have a slightly different
@@ -742,7 +742,7 @@ fun(srp, Username :: string(), UserState :: term()) -&gt;
 	<p>In addition to the algorithms negotiated by the cipher
 	suite used for key exchange, payload encryption, message
 	authentication and pseudo random calculation, the TLS signature
-	algorithm extension <span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc5246.txt">Section 7.4.1.4.1 in RFC 5246</a></span> may be
+	algorithm extension <span class="bold_code"><a href="http://www.ietf.org/rfc/rfc5246.txt">Section 7.4.1.4.1 in RFC 5246</a></span> may be
 	used, from TLS 1.2, to negotiate which signature algorithm to use during the
 	TLS handshake. If no lower TLS versions than 1.2 are supported,
 	the client will send a TLS signature algorithm extension
@@ -773,8 +773,8 @@ fun(srp, Username :: string(), UserState :: term()) -&gt;
       </dl>
    </div>
    
-  <h3><a name="idm45391039626688">SSL OPTION DESCRIPTIONS - SERVER SIDE</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45385840912384">SSL OPTION DESCRIPTIONS - SERVER SIDE</a></h3>
+<div class="REFBODY">
     
 
     <p>The following options are server-specific or have a slightly different
@@ -907,7 +907,7 @@ fun(srp, Username :: string(), UserState :: term()) -&gt;
 <p> The algorithms specified by
       this option will be the ones accepted by the server in a signature algorithm
       negotiation, introduced in TLS-1.2. The algorithms will also be offered to the client if a
-      client certificate is requested. For more details see the <span class="bold_code data-type-ref"><a href="#client_signature_algs">corresponding client option</a></span>.
+      client certificate is requested. For more details see the <span class="bold_code"><a href="#client_signature_algs">corresponding client option</a></span>.
       </p> </dd>
 
       <dt><strong><span class="code">{v2_hello_compatible, boolean()}</span></strong></dt>
@@ -919,8 +919,8 @@ fun(srp, Username :: string(), UserState :: term()) -&gt;
     </dl>
   </div>
   
-  <h3><a name="idm45391039535968">General</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45385841093520">General</a></h3>
+<div class="REFBODY">
     
       
     <p>When an SSL socket is in active mode (the default), data from the
@@ -938,19 +938,14 @@ fun(srp, Username :: string(), UserState :: term()) -&gt;
   </div>
   
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="cipher_suites-0"></a><span class="bold_code bc-9">cipher_suites() -&gt;</span><br><a name="cipher_suites-1"></a><span class="bold_code bc-9">cipher_suites(Type) -&gt; ciphers()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="cipher_suites-0"></a><span class="bold_code">cipher_suites() -&gt;</span><br><a name="cipher_suites-1"></a><span class="bold_code">cipher_suites(Type) -&gt; ciphers()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Type = erlang | openssl | all</span><br>
+<span class="bold_code">Type = erlang | openssl | all</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p><p>Returns a list of supported cipher suites.
+<div class="REFBODY"><p><p>Returns a list of supported cipher suites.
 	<span class="code">cipher_suites()</span> is equivalent to <span class="code">cipher_suites(erlang).</span>
 	Type <span class="code">openssl</span> is provided for backwards compatibility with the
 	old SSL, which used OpenSSL. <span class="code">cipher_suites(all)</span> returns
@@ -959,200 +954,154 @@ fun(srp, Username :: string(), UserState :: term()) -&gt;
 	<span class="code">cipher_suites(all)</span> are not used unless explicitly configured
 	by the user.</p>
     </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="clear_pem_cache-0"></a><span class="bold_code bc-9">clear_pem_cache() -&gt; ok </span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><p>PEM files, used by ssl API-functions, are cached. The
+    <p><a name="clear_pem_cache-0"></a><span class="bold_code">clear_pem_cache() -&gt; ok </span><br></p>
+<div class="REFBODY"><p><p>PEM files, used by ssl API-functions, are cached. The
       cache is regularly checked to see if any cache entries should be
       invalidated, however this function provides a way to
       unconditionally clear the whole cache.
       </p>
-      </p></div></div>
-</div>
+      </p></div>
    
-    <div class="func">
-<div class="func-title">
-<a name="connect-2"></a><span class="bold_code bc-9">connect(Socket, SslOptions) -&gt; </span><br><a name="connect-3"></a><span class="bold_code bc-9">connect(Socket, SslOptions, Timeout) -&gt; {ok, SslSocket}
-	| {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="connect-2"></a><span class="bold_code">connect(Socket, SslOptions) -&gt; </span><br><a name="connect-3"></a><span class="bold_code">connect(Socket, SslOptions, Timeout) -&gt; {ok, SslSocket}
+	| {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Socket = socket()</span><br>
+<span class="bold_code">Socket = socket()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">SslOptions = [ssl_option()]</span><br>
+<span class="bold_code">SslOptions = [ssl_option()]</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Timeout = integer() | infinity</span><br>
+<span class="bold_code">Timeout = integer() | infinity</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">SslSocket = sslsocket()</span><br>
+<span class="bold_code">SslSocket = sslsocket()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p><p>Upgrades a <span class="code">gen_tcp</span>, or equivalent,
+<div class="REFBODY"><p><p>Upgrades a <span class="code">gen_tcp</span>, or equivalent,
 	  connected socket to an SSL socket, that is, performs the
 	  client-side ssl handshake.</p>
     </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="connect-3"></a><span class="bold_code bc-9">connect(Host, Port, Options) -&gt;</span><br><a name="connect-4"></a><span class="bold_code bc-9">connect(Host, Port, Options, Timeout) -&gt;
-	  {ok, SslSocket} | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="connect-3"></a><span class="bold_code">connect(Host, Port, Options) -&gt;</span><br><a name="connect-4"></a><span class="bold_code">connect(Host, Port, Options, Timeout) -&gt;
+	  {ok, SslSocket} | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	  <div class="REFTYPES">
-<span class="bold_code bc-11">Host = host()</span><br>
+<span class="bold_code">Host = host()</span><br>
 </div>
 	  <div class="REFTYPES">
-<span class="bold_code bc-11">Port = integer()</span><br>
+<span class="bold_code">Port = integer()</span><br>
 </div>
 	  <div class="REFTYPES">
-<span class="bold_code bc-11">Options = [option()]</span><br>
+<span class="bold_code">Options = [option()]</span><br>
 </div>
 	  <div class="REFTYPES">
-<span class="bold_code bc-11">Timeout = integer() | infinity</span><br>
+<span class="bold_code">Timeout = integer() | infinity</span><br>
 </div>
 	  <div class="REFTYPES">
-<span class="bold_code bc-11">SslSocket = sslsocket()</span><br>
+<span class="bold_code">SslSocket = sslsocket()</span><br>
 </div>
 	  <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p><p>Opens an SSL connection to <span class="code">Host</span>, <span class="code">Port</span>.</p></p></div>
-</div>
-</div>
+<div class="REFBODY"><p><p>Opens an SSL connection to <span class="code">Host</span>, <span class="code">Port</span>.</p></p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="close-1"></a><span class="bold_code bc-9">close(SslSocket) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="close-1"></a><span class="bold_code">close(SslSocket) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	  <div class="REFTYPES">
-<span class="bold_code bc-11">SslSocket = sslsocket()</span><br>
+<span class="bold_code">SslSocket = sslsocket()</span><br>
 </div>
 	  <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p><p>Closes an SSL connection.</p>
+<div class="REFBODY"><p><p>Closes an SSL connection.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="close-2"></a><span class="bold_code bc-9">close(SslSocket, How) -&gt; ok | {ok, port()} | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="close-2"></a><span class="bold_code">close(SslSocket, How) -&gt; ok | {ok, port()} | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	  <div class="REFTYPES">
-<span class="bold_code bc-11">SslSocket = sslsocket()</span><br>
+<span class="bold_code">SslSocket = sslsocket()</span><br>
 </div>
 	  <div class="REFTYPES">
-<span class="bold_code bc-11">How =  timeout() | {NewController::pid(), timeout()} </span><br>
+<span class="bold_code">How =  timeout() | {NewController::pid(), timeout()} </span><br>
 </div>
 	  <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p><p>Closes or downgrades an SSL connection. In the latter case the transport
+<div class="REFBODY"><p><p>Closes or downgrades an SSL connection. In the latter case the transport
       connection will be handed over to the <span class="code">NewController</span> process after receiving
       the TLS close alert from the peer. The returned transport socket will have
       the following options set: <span class="code">[{active, false}, {packet, 0}, {mode, binary}]</span></p>
       </p></div>
-</div>
-</div>
     
-    <div class="func">
-<div class="func-title">
-<a name="controlling_process-2"></a><span class="bold_code bc-9">controlling_process(SslSocket, NewOwner) -&gt;
-	ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="controlling_process-2"></a><span class="bold_code">controlling_process(SslSocket, NewOwner) -&gt;
+	ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	  <div class="REFTYPES">
-<span class="bold_code bc-11">SslSocket = sslsocket()</span><br>
+<span class="bold_code">SslSocket = sslsocket()</span><br>
 </div>
 	  <div class="REFTYPES">
-<span class="bold_code bc-11">NewOwner = pid()</span><br>
+<span class="bold_code">NewOwner = pid()</span><br>
 </div>
 	  <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
 	</div>
-<div class="REFBODY data-type-desc"><p><p>Assigns a new controlling process to the SSL socket. A
+<div class="REFBODY"><p><p>Assigns a new controlling process to the SSL socket. A
 	controlling process is the owner of an SSL socket, and receives
 	all messages from the socket.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="connection_information-1"></a><span class="bold_code bc-9">connection_information(SslSocket) -&gt;
-        {ok, Result} |  {error, Reason} </span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="connection_information-1"></a><span class="bold_code">connection_information(SslSocket) -&gt;
+        {ok, Result} |  {error, Reason} </span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Item = protocol | cipher_suite | sni_hostname | atom()</span><br>
+<span class="bold_code">Item = protocol | cipher_suite | sni_hostname | atom()</span><br>
 </div>
-	<div class="REFBODY rb-1">Meaningful atoms, not specified above, are the ssl option names.</div>
+	<div class="REFBODY">Meaningful atoms, not specified above, are the ssl option names.</div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Result = [{Item::atom(), Value::term()}]</span><br>
+<span class="bold_code">Result = [{Item::atom(), Value::term()}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p><p>Returns all relevant information about the connection, ssl options that
+<div class="REFBODY"><p><p>Returns all relevant information about the connection, ssl options that
       are undefined will be filtered out.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="connection_information-2"></a><span class="bold_code bc-9">connection_information(SslSocket, Items) -&gt;
-        {ok, Result} |  {error, Reason} </span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="connection_information-2"></a><span class="bold_code">connection_information(SslSocket, Items) -&gt;
+        {ok, Result} |  {error, Reason} </span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Items = [Item]</span><br>
+<span class="bold_code">Items = [Item]</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Item = protocol | cipher_suite | sni_hostname | atom()</span><br>
+<span class="bold_code">Item = protocol | cipher_suite | sni_hostname | atom()</span><br>
 </div>
-	<div class="REFBODY rb-1">Meaningful atoms, not specified above, are the ssl option names.</div>
+	<div class="REFBODY">Meaningful atoms, not specified above, are the ssl option names.</div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Result = [{Item::atom(), Value::term()}]</span><br>
+<span class="bold_code">Result = [{Item::atom(), Value::term()}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p><p>Returns the requested information items about the connection,
+<div class="REFBODY"><p><p>Returns the requested information items about the connection,
       if they are defined.</p>
       <div class="note">
 <div class="label">Note</div>
@@ -1160,190 +1109,142 @@ fun(srp, Username :: string(), UserState :: term()) -&gt;
       resulting list can be empty.</p></p></div>
 </div>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="format_error-1"></a><span class="bold_code bc-9">format_error(Reason) -&gt; string()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="format_error-1"></a><span class="bold_code">format_error(Reason) -&gt; string()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Presents the error returned by an SSL function as a printable string.</p>
       </p></div>
-</div>
-</div>
    
-    <div class="func">
-<div class="func-title">
-<a name="getopts-2"></a><span class="bold_code bc-9">getopts(Socket, OptionNames) -&gt;
-	{ok, [socketoption()]} | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="getopts-2"></a><span class="bold_code">getopts(Socket, OptionNames) -&gt;
+	{ok, [socketoption()]} | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Socket = sslsocket()</span><br>
+<span class="bold_code">Socket = sslsocket()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">OptionNames = [atom()]</span><br>
+<span class="bold_code">OptionNames = [atom()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 	<p>Gets the values of the specified socket options.
 	</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="getstat-1"></a><span class="bold_code bc-9">getstat(Socket) -&gt;
-        {ok, OptionValues} | {error, inet:posix()}</span><br><a name="getstat-2"></a><span class="bold_code bc-9">getstat(Socket, OptionNames) -&gt;
-        {ok, OptionValues} | {error, inet:posix()}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="getstat-1"></a><span class="bold_code">getstat(Socket) -&gt;
+        {ok, OptionValues} | {error, inet:posix()}</span><br><a name="getstat-2"></a><span class="bold_code">getstat(Socket, OptionNames) -&gt;
+        {ok, OptionValues} | {error, inet:posix()}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
     <div class="REFTYPES">
-<span class="bold_code bc-11">Socket = sslsocket()</span><br>
+<span class="bold_code">Socket = sslsocket()</span><br>
 </div>
     <div class="REFTYPES">
-<span class="bold_code bc-11">OptionNames = [atom()]</span><br>
+<span class="bold_code">OptionNames = [atom()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">OptionValues = [{inet:stat_option(), integer()}]</span><br>
+<span class="bold_code">OptionValues = [{inet:stat_option(), integer()}]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Gets one or more statistic options for the underlying TCP socket.</p>
         <p>See inet:getstat/2 for statistic options description.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="listen-2"></a><span class="bold_code bc-9">listen(Port, Options) -&gt;
-	{ok, ListenSocket} | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="listen-2"></a><span class="bold_code">listen(Port, Options) -&gt;
+	{ok, ListenSocket} | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Port = integer()</span><br>
+<span class="bold_code">Port = integer()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Options = options()</span><br>
+<span class="bold_code">Options = options()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">ListenSocket = sslsocket()</span><br>
+<span class="bold_code">ListenSocket = sslsocket()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 	<p>Creates an SSL listen socket.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="negotiated_protocol-1"></a><span class="bold_code bc-9">negotiated_protocol(Socket) -&gt; {ok, Protocol} | {error, protocol_not_negotiated}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="negotiated_protocol-1"></a><span class="bold_code">negotiated_protocol(Socket) -&gt; {ok, Protocol} | {error, protocol_not_negotiated}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Socket = sslsocket()</span><br>
+<span class="bold_code">Socket = sslsocket()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Protocol = binary()</span><br>
+<span class="bold_code">Protocol = binary()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>
           Returns the protocol negotiated through ALPN or NPN extensions.
         </p>
       </p></div>
-</div>
-</div>
     
-    <div class="func">
-<div class="func-title">
-<a name="peercert-1"></a><span class="bold_code bc-9">peercert(Socket) -&gt; {ok, Cert} | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="peercert-1"></a><span class="bold_code">peercert(Socket) -&gt; {ok, Cert} | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Socket = sslsocket()</span><br>
+<span class="bold_code">Socket = sslsocket()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Cert = binary()</span><br>
+<span class="bold_code">Cert = binary()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>The peer certificate is returned as a DER-encoded binary.
 	  The certificate can be decoded with
 	  <span class="code">public_key:pkix_decode_cert/2</span>.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="peername-1"></a><span class="bold_code bc-9">peername(Socket) -&gt; {ok, {Address, Port}} |
-	{error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="peername-1"></a><span class="bold_code">peername(Socket) -&gt; {ok, {Address, Port}} |
+	{error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Socket = sslsocket()</span><br>
+<span class="bold_code">Socket = sslsocket()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Address = ipaddress()</span><br>
+<span class="bold_code">Address = ipaddress()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Port = integer()</span><br>
+<span class="bold_code">Port = integer()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns the address and port number of the peer.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="prf-5"></a><span class="bold_code bc-9">prf(Socket, Secret, Label, Seed, WantedLength) -&gt; {ok, binary()} | {error, reason()}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="prf-5"></a><span class="bold_code">prf(Socket, Secret, Label, Seed, WantedLength) -&gt; {ok, binary()} | {error, reason()}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Socket = sslsocket()</span><br>
+<span class="bold_code">Socket = sslsocket()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Secret = binary() | master_secret</span><br>
+<span class="bold_code">Secret = binary() | master_secret</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Label = binary()</span><br>
+<span class="bold_code">Label = binary()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Seed = [binary() | prf_random()]</span><br>
+<span class="bold_code">Seed = [binary() | prf_random()]</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">WantedLength = non_neg_integer()</span><br>
+<span class="bold_code">WantedLength = non_neg_integer()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Uses the Pseudo-Random Function (PRF) of a TLS session to generate
 	  extra key material. It either takes user-generated values for
 	  <span class="code">Secret</span> and <span class="code">Seed</span> or atoms directing it to use a specific
@@ -1351,31 +1252,25 @@ fun(srp, Username :: string(), UserState :: term()) -&gt;
         <p>Can only be used with TLS connections; <span class="code">{error, undefined}</span>
 	  is returned for SSLv3 connections.</p>
       </p></div>
-</div>
-</div>
     
-    <div class="func">
-<div class="func-title">
-<a name="recv-2"></a><span class="bold_code bc-9">recv(Socket, Length) -&gt; </span><br><a name="recv-3"></a><span class="bold_code bc-9">recv(Socket, Length, Timeout) -&gt; {ok, Data} | {error,
-	Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="recv-2"></a><span class="bold_code">recv(Socket, Length) -&gt; </span><br><a name="recv-3"></a><span class="bold_code">recv(Socket, Length, Timeout) -&gt; {ok, Data} | {error,
+	Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Socket = sslsocket()</span><br>
+<span class="bold_code">Socket = sslsocket()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Length = integer()</span><br>
+<span class="bold_code">Length = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Timeout = integer()</span><br>
+<span class="bold_code">Timeout = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Data = [char()] | binary()</span><br>
+<span class="bold_code">Data = [char()] | binary()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Receives a packet from a socket in passive
           mode. A closed socket is indicated by return value
           <span class="code">{error, closed}</span>.</p>
@@ -1389,89 +1284,65 @@ fun(srp, Username :: string(), UserState :: term()) -&gt;
         <p>Optional argument <span class="code">Timeout</span> specifies a time-out in
           milliseconds. The default value is <span class="code">infinity</span>.</p>
       </p></div>
-</div>
-</div>
     
-    <div class="func">
-<div class="func-title">
-<a name="renegotiate-1"></a><span class="bold_code bc-9">renegotiate(Socket) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="renegotiate-1"></a><span class="bold_code">renegotiate(Socket) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Socket = sslsocket()</span><br>
+<span class="bold_code">Socket = sslsocket()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p><p>Initiates a new handshake. A notable return value is
+<div class="REFBODY"><p><p>Initiates a new handshake. A notable return value is
       <span class="code">{error, renegotiation_rejected}</span> indicating that the peer
       refused to go through with the renegotiation, but the connection
       is still active using the previously negotiated session.</p>
       </p></div>
-</div>
-</div>
     
-    <div class="func">
-<div class="func-title">
-<a name="send-2"></a><span class="bold_code bc-9">send(Socket, Data) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="send-2"></a><span class="bold_code">send(Socket, Data) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Socket = sslsocket()</span><br>
+<span class="bold_code">Socket = sslsocket()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Data = iodata()</span><br>
+<span class="bold_code">Data = iodata()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Writes <span class="code">Data</span> to <span class="code">Socket</span>.</p>
         <p>A notable return value is <span class="code">{error, closed}</span> indicating that
           the socket is closed.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="setopts-2"></a><span class="bold_code bc-9">setopts(Socket, Options) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="setopts-2"></a><span class="bold_code">setopts(Socket, Options) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Socket = sslsocket()</span><br>
+<span class="bold_code">Socket = sslsocket()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Options = [socketoption]()</span><br>
+<span class="bold_code">Options = [socketoption]()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Sets options according to <span class="code">Options</span> for socket
           <span class="code">Socket</span>.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="shutdown-2"></a><span class="bold_code bc-9">shutdown(Socket, How) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="shutdown-2"></a><span class="bold_code">shutdown(Socket, How) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Socket = sslsocket()</span><br>
+<span class="bold_code">Socket = sslsocket()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">How = read | write | read_write</span><br>
+<span class="bold_code">How = read | write | read_write</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = reason()</span><br>
+<span class="bold_code">Reason = reason()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Immediately closes a socket in one or two directions.</p>
         <p><span class="code">How == write</span> means closing the socket for writing,
           reading from it is still possible.</p>
@@ -1479,56 +1350,44 @@ fun(srp, Username :: string(), UserState :: term()) -&gt;
           the write side, option <span class="code">{exit_on_close, false}</span>
           is useful.</p>
       </p></div>
-</div>
-</div>
     
-    <div class="func">
-<div class="func-title">
-<a name="ssl_accept-1"></a><span class="bold_code bc-9">ssl_accept(Socket) -&gt; </span><br><a name="ssl_accept-2"></a><span class="bold_code bc-9">ssl_accept(Socket, Timeout) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="ssl_accept-1"></a><span class="bold_code">ssl_accept(Socket) -&gt; </span><br><a name="ssl_accept-2"></a><span class="bold_code">ssl_accept(Socket, Timeout) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Socket = sslsocket()</span><br>
+<span class="bold_code">Socket = sslsocket()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Timeout = integer()</span><br>
+<span class="bold_code">Timeout = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Performs the SSL/TLS server-side handshake.</p>
 	<p><span class="code">Socket</span> is a socket as returned by
-	<span class="bold_code data-type-ref"><a href="#transport_accept-2">ssl:transport_accept/[1,2]</a></span>
+	<span class="bold_code"><a href="#transport_accept-2">ssl:transport_accept/[1,2]</a></span>
 	</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="ssl_accept-2"></a><span class="bold_code bc-9">ssl_accept(Socket, SslOptions) -&gt; </span><br><a name="ssl_accept-3"></a><span class="bold_code bc-9">ssl_accept(Socket, SslOptions, Timeout) -&gt; {ok, Socket} | ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="ssl_accept-2"></a><span class="bold_code">ssl_accept(Socket, SslOptions) -&gt; </span><br><a name="ssl_accept-3"></a><span class="bold_code">ssl_accept(Socket, SslOptions, Timeout) -&gt; {ok, Socket} | ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Socket = socket() | sslsocket() </span><br>
+<span class="bold_code">Socket = socket() | sslsocket() </span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">SslOptions = [ssl_option()]</span><br>
+<span class="bold_code">SslOptions = [ssl_option()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Timeout = integer()</span><br>
+<span class="bold_code">Timeout = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>If <span class="code">Socket</span> is a <span class="code">socket()</span>: upgrades a <span class="code">gen_tcp</span>,
 	or equivalent, socket to an SSL socket, that is, performs
         the SSL/TLS server-side handshake and returns the SSL socket.</p>
@@ -1543,123 +1402,95 @@ fun(srp, Username :: string(), UserState :: term()) -&gt;
 	
 	<p>If <span class="code">Socket</span> is an <span class="code">sslsocket()</span>: provides extra SSL/TLS
 	options to those specified in
-	<span class="bold_code data-type-ref"><a href="#listen-2">ssl:listen/2</a></span> and then performs
+	<span class="bold_code"><a href="#listen-2">ssl:listen/2</a></span> and then performs
 	the SSL/TLS handshake.
 	</p>
       </p></div>
-</div>
-</div>
     
-    <div class="func">
-<div class="func-title">
-<a name="sockname-1"></a><span class="bold_code bc-9">sockname(Socket) -&gt; {ok, {Address, Port}} |
-	{error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="sockname-1"></a><span class="bold_code">sockname(Socket) -&gt; {ok, {Address, Port}} |
+	{error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Socket = sslsocket()</span><br>
+<span class="bold_code">Socket = sslsocket()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Address = ipaddress()</span><br>
+<span class="bold_code">Address = ipaddress()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Port = integer()</span><br>
+<span class="bold_code">Port = integer()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns the local address and port number of socket
           <span class="code">Socket</span>.</p>
       </p></div>
-</div>
-</div>
     
-    <div class="func">
-<div class="func-title">
-<a name="start-0"></a><span class="bold_code bc-9">start() -&gt; </span><br><a name="start-1"></a><span class="bold_code bc-9">start(Type) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="start-0"></a><span class="bold_code">start() -&gt; </span><br><a name="start-1"></a><span class="bold_code">start(Type) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Type = permanent | transient | temporary</span><br>
+<span class="bold_code">Type = permanent | transient | temporary</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Starts the SSL application. Default type
           is <span class="code">temporary</span>.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="stop-0"></a><span class="bold_code bc-9">stop() -&gt; ok </span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="stop-0"></a><span class="bold_code">stop() -&gt; ok </span><br></p>
+<div class="REFBODY"><p>
         <p>Stops the SSL application.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="transport_accept-1"></a><span class="bold_code bc-9">transport_accept(ListenSocket) -&gt;</span><br><a name="transport_accept-2"></a><span class="bold_code bc-9">transport_accept(ListenSocket, Timeout) -&gt;
-	{ok, NewSocket} | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="transport_accept-1"></a><span class="bold_code">transport_accept(ListenSocket) -&gt;</span><br><a name="transport_accept-2"></a><span class="bold_code">transport_accept(ListenSocket, Timeout) -&gt;
+	{ok, NewSocket} | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">ListenSocket = NewSocket = sslsocket()</span><br>
+<span class="bold_code">ListenSocket = NewSocket = sslsocket()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Timeout = integer()</span><br>
+<span class="bold_code">Timeout = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = reason()</span><br>
+<span class="bold_code">Reason = reason()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Accepts an incoming connection request on a listen socket.
 	<span class="code">ListenSocket</span> must be a socket returned from
-	<span class="bold_code data-type-ref"><a href="#listen-2">ssl:listen/2</a></span>.
+	<span class="bold_code"><a href="#listen-2">ssl:listen/2</a></span>.
 	The socket returned is to be passed to
-	<span class="bold_code data-type-ref"><a href="#ssl_accept-2">ssl:ssl_accept[2,3]</a></span>
+	<span class="bold_code"><a href="#ssl_accept-2">ssl:ssl_accept[2,3]</a></span>
 	to complete handshaking, that is,
 	establishing the SSL/TLS connection.</p>
         <div class="warning">
 <div class="label">Warning</div>
 <div class="content"><p>
           <p>The socket returned can only be used with
-	  <span class="bold_code data-type-ref"><a href="#ssl_accept-2">ssl:ssl_accept[2,3]</a></span>.
+	  <span class="bold_code"><a href="#ssl_accept-2">ssl:ssl_accept[2,3]</a></span>.
 	  No traffic can be sent or received before that call.</p>
         </p></div>
 </div>
         <p>The accepted socket inherits the options set for
 	<span class="code">ListenSocket</span> in
-	<span class="bold_code data-type-ref"><a href="#listen-2">ssl:listen/2</a></span>.</p>
+	<span class="bold_code"><a href="#listen-2">ssl:listen/2</a></span>.</p>
 	<p>The default
 	value for <span class="code">Timeout</span> is <span class="code">infinity</span>. If
 	<span class="code">Timeout</span> is specified and no connection is accepted
 	within the given time, <span class="code">{error, timeout}</span> is
 	returned.</p>
       </p></div>
-</div>
-</div>
     
-    <div class="func">
-<div class="func-title">
-<a name="versions-0"></a><span class="bold_code bc-9">versions() -&gt; [versions_info()]</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="versions-0"></a><span class="bold_code">versions() -&gt; [versions_info()]</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">versions_info() = {app_vsn, string()} | {supported | available, [protocol()] </span><br>
+<span class="bold_code">versions_info() = {app_vsn, string()} | {supported | available, [protocol()] </span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 	<p>Returns version information relevant for the SSL
 	application.</p>
 	<dl>
@@ -1669,9 +1500,9 @@ fun(srp, Username :: string(), UserState :: term()) -&gt;
 	  <dt><strong><span class="code">supported</span></strong></dt>
 	  <dd>TLS/SSL versions supported by default.
 	  Overridden by a version option on
-	  <span class="bold_code data-type-ref"><a href="#connect-2">connect/[2,3,4]</a></span>,
-	  <span class="bold_code data-type-ref"><a href="#listen-2">listen/2</a></span>, and <span class="bold_code data-type-ref"><a href="#ssl_accept-2">ssl_accept/[1,2,3]</a></span>.
-	  For the negotiated TLS/SSL version, see <span class="bold_code data-type-ref"><a href="#connection_information-1">ssl:connection_information/1</a></span>.</dd>
+	  <span class="bold_code"><a href="#connect-2">connect/[2,3,4]</a></span>,
+	  <span class="bold_code"><a href="#listen-2">listen/2</a></span>, and <span class="bold_code"><a href="#ssl_accept-2">ssl_accept/[1,2,3]</a></span>.
+	  For the negotiated TLS/SSL version, see <span class="bold_code"><a href="#connection_information-1">ssl:connection_information/1</a></span>.</dd>
   
 	  <dt><strong><span class="code">available</span></strong></dt>
 	  <dd>All TLS/SSL versions supported by the SSL application.
@@ -1679,16 +1510,14 @@ fun(srp, Username :: string(), UserState :: term()) -&gt;
 	  application.</dd>
 	</dl>
       </p></div>
-</div>
-</div>
    
-  </div> 
+   
 
-  <h3><a name="idm45391038972128">SEE ALSO</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45385840261056">SEE ALSO</a></h3>
+<div class="REFBODY">
     
-    <p><span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html');">inet(3)</a></span> and
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html');">gen_tcp(3)</a></span>
+    <p><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html');">inet(3)</a></span> and
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html');">gen_tcp(3)</a></span>
     </p>
   </div>
 

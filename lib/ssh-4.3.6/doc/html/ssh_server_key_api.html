@@ -228,29 +228,29 @@
 <!-- refpage --><center><h1>ssh_server_key_api</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">ssh_server_key_api</div>
+<div class="REFBODY">ssh_server_key_api</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">
+<div class="REFBODY">
     -behaviour(ssh_server_key_api).
   </div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>Behaviour describing the API for public key handling of an SSH server. By implementing
     the callbacks defined in this behavior, the public key handling of an SSH server can
     be customized. By default the SSH application implements this behavior
     with help of the standard OpenSSH files,
-    see the <span class="bold_code bc-19"><a href="SSH_app.html">ssh(6)</a></span> application manual.</p>
-  </div>
+    see the <span class="bold_code"><a href="SSH_app.html">ssh(6)</a></span> application manual.</p>
+  </p></div>
 
-  <h3><a name="idm45749166123744">DATA TYPES</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45964127403120">DATA TYPES</a></h3>
+<div class="REFBODY">
     
 
     <p>Type definitions that are used more than once in this module,
     or abstractions to indicate the intended use of the data
     type, or both. For more details on public key data types,
     refer to Section 2 Public Key Records in the
-    <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key_records.html');">public_key user's guide</a></span>.
+    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key_records.html');">public_key user's guide</a></span>.
     </p>
 
     <dl>
@@ -268,68 +268,55 @@
   </div>
   
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="Module:host_key-2"></a><span class="bold_code bc-9">Module:host_key(Algorithm, DaemonOptions) -&gt;
-      {ok, Key} | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:host_key-2"></a><span class="bold_code">Module:host_key(Algorithm, DaemonOptions) -&gt;
+      {ok, Key} | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Algorithm = public_key_algorithm()</span><br>
+<span class="bold_code">Algorithm = public_key_algorithm()</span><br>
 </div>
-	<div class="REFBODY rb-1">Host key algorithm. Is to support <span class="code">'ssh-rsa' | 'ssh-dss'</span>, but more algorithms
+	<div class="REFBODY">Host key algorithm. Is to support <span class="code">'ssh-rsa' | 'ssh-dss'</span>, but more algorithms
 	can be handled.</div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">DaemonOptions = proplists:proplist()</span><br>
+<span class="bold_code">DaemonOptions = proplists:proplist()</span><br>
 </div>
-	<div class="REFBODY rb-1">Options provided to <span class="bold_code bc-15"><a href="ssh.html#daemon-2">ssh:daemon/[2,3]</a></span>.</div>
+	<div class="REFBODY">Options provided to <span class="bold_code"><a href="ssh.html#daemon-2">ssh:daemon/[2,3]</a></span>.</div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Key = private_key()</span><br>
+<span class="bold_code">Key = private_key()</span><br>
 </div>
-	<div class="REFBODY rb-1">Private key of the host matching the <span class="code">Algorithm</span>.</div>
+	<div class="REFBODY">Private key of the host matching the <span class="code">Algorithm</span>.</div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 	  <p>Fetches the private key of the host.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:is_auth_key-3"></a><span class="bold_code bc-9">Module:is_auth_key(Key, User, DaemonOptions) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:is_auth_key-3"></a><span class="bold_code">Module:is_auth_key(Key, User, DaemonOptions) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Key = public_key()</span><br>
+<span class="bold_code">Key = public_key()</span><br>
 </div>
-	<div class="REFBODY rb-1">Normally an RSA or DSA public key, but handling of other public keys can be added</div>
+	<div class="REFBODY">Normally an RSA or DSA public key, but handling of other public keys can be added</div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">User = string()</span><br>
+<span class="bold_code">User = string()</span><br>
 </div>
-	<div class="REFBODY rb-1">User owning the public key.</div>
+	<div class="REFBODY">User owning the public key.</div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">DaemonOptions = proplists:proplist()</span><br>
+<span class="bold_code">DaemonOptions = proplists:proplist()</span><br>
 </div>
-	<div class="REFBODY rb-1">Options provided to  <span class="bold_code bc-15"><a href="ssh.html#daemon-2">ssh:daemon/[2,3]</a></span>.</div>
+	<div class="REFBODY">Options provided to  <span class="bold_code"><a href="ssh.html#daemon-2">ssh:daemon/[2,3]</a></span>.</div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Result = boolean()</span><br>
+<span class="bold_code">Result = boolean()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 	 <p>Checks if the user key is authorized.</p>
       </p></div>
-</div>
-</div>
 
-  </div>
+  
 
 </div>
 <div class="footer">

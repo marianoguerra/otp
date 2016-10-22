@@ -952,68 +952,60 @@
 <!-- refpage --><center><h1>init</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">init</div>
+<div class="REFBODY">init</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Coordination of system startup.</div>
+<div class="REFBODY">Coordination of system startup.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>This module is preloaded and contains the code for
       the <span class="code">init</span> system process that coordinates the startup of
       the system. The first function evaluated at startup is
       <span class="code">boot(BootArgs)</span>, where <span class="code">BootArgs</span> is a list of
       command-line arguments supplied to the Erlang runtime system from
       the local operating system; see
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','erts','erl.html');"><span class="code">erl(1)</span></a></span>.</p>
+      <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','erts','erl.html');"><span class="code">erl(1)</span></a></span>.</p>
 
     <p><span class="code">init</span> reads the boot script, which contains instructions on
       how to initiate the system. For more information about boot scripts, see
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','sasl','script.html');"><span class="code">script(4)</span></a></span>.</p>
+      <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','sasl','script.html');"><span class="code">script(4)</span></a></span>.</p>
 
     <p><span class="code">init</span> also contains functions to restart, reboot, and stop
       the system.</p>
-  </div>
+  </p></div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="boot-1"></a><span class="bold_code func-name">boot(BootArgs) -&gt; no_return()</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">BootArgs = [binary()]</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="boot-1"></a><span class="bold_code">boot(BootArgs) -&gt; no_return()</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">BootArgs = [binary()]</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Starts the Erlang runtime system. This function is called
           when the emulator is started and coordinates system startup.</p>
         <p><span class="code">BootArgs</span> are all command-line arguments except
           the emulator flags, that is, flags and plain arguments; see
-          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','erts','erl.html');"><span class="code">erl(1)</span></a></span>.</p>
+          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','erts','erl.html');"><span class="code">erl(1)</span></a></span>.</p>
         <p><span class="code">init</span> interprets some of the flags, see section
-          <span class="bold_code data-type-ref"><a href="#flags">Command-Line Flags</a></span> below.
+          <span class="bold_code"><a href="#flags">Command-Line Flags</a></span> below.
           The remaining flags ("user flags") and plain arguments are
           passed to the <span class="code">init</span> loop and can be retrieved by calling
-          <span class="bold_code data-type-ref"><a href="#get_arguments-0"><span class="code">get_arguments/0</span></a></span>
-          and <span class="bold_code data-type-ref"><a href="#get_plain_arguments-0"><span class="code">get_plain_arguments/0</span></a></span>, respectively.</p>
-      </p></div></div>
-</div>
+          <span class="bold_code"><a href="#get_arguments-0"><span class="code">get_arguments/0</span></a></span>
+          and <span class="bold_code"><a href="#get_plain_arguments-0"><span class="code">get_plain_arguments/0</span></a></span>, respectively.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="get_argument-1"></a><span class="bold_code func-name">get_argument(Flag) -&gt; {ok, Arg} | error</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Flag = atom()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Arg = [Values :: [string()]]</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="get_argument-1"></a><span class="bold_code">get_argument(Flag) -&gt; {ok, Arg} | error</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Flag = atom()</span></div>
+<div class="REFTYPES"><span class="bold_code">Arg = [Values :: [string()]]</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns all values associated with the command-line user flag
           <span class="code">Flag</span>. If <span class="code">Flag</span> is provided
           several times, each <span class="code">Values</span> is returned in
           preserved order. Example:</p>
         <div class="example"><pre>
-% <span class="bold_code bc-12">erl -a b c -a d</span>
+% <span class="bold_code">erl -a b c -a d</span>
 ...
-1&gt; <span class="bold_code bc-12">init:get_argument(a).</span>
+1&gt; <span class="bold_code">init:get_argument(a).</span>
 {ok,[["b","c"],["d"]]}</pre></div>
         <p>The following flags are defined
           automatically and can be retrieved using this function:</p>
@@ -1022,66 +1014,54 @@
           <dd>
             <p>The installation directory of Erlang/OTP, <span class="code">$ROOT</span>:</p>
             <div class="example"><pre>
-2&gt; <span class="bold_code bc-12">init:get_argument(root).</span>
+2&gt; <span class="bold_code">init:get_argument(root).</span>
 {ok,[["/usr/local/otp/releases/otp_beam_solaris8_r10b_patched"]]}</pre></div>
           </dd>
           <dt><strong><span class="code">progname</span></strong></dt>
           <dd>
             <p>The name of the program which started Erlang:</p>
             <div class="example"><pre>
-3&gt; <span class="bold_code bc-12">init:get_argument(progname).</span>
+3&gt; <span class="bold_code">init:get_argument(progname).</span>
 {ok,[["erl"]]}</pre></div>
           </dd>
           <dt><strong><span class="code">home</span></strong></dt>
           <dd>
             <p>The home directory:</p>
             <div class="example"><pre>
-4&gt; <span class="bold_code bc-12">init:get_argument(home).</span>
+4&gt; <span class="bold_code">init:get_argument(home).</span>
 {ok,[["/home/harry"]]}</pre></div>
           </dd>
         </dl>
         <p>Returns <span class="code">error</span> if no value is associated with <span class="code">Flag</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="get_arguments-0"></a><span class="bold_code func-name">get_arguments() -&gt; Flags</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Flags = [{Flag :: atom(), Values :: [string()]}]</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="get_arguments-0"></a><span class="bold_code">get_arguments() -&gt; Flags</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Flags = [{Flag :: atom(), Values :: [string()]}]</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns all command-line flags and the system-defined flags, see
-          <span class="bold_code data-type-ref"><a href="#get_argument-1"><span class="code">get_argument/1</span></a></span>.</p>
-      </p></div></div>
-</div>
+          <span class="bold_code"><a href="#get_argument-1"><span class="code">get_argument/1</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="get_plain_arguments-0"></a><span class="bold_code func-name">get_plain_arguments() -&gt; [Arg]</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Arg = string()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="get_plain_arguments-0"></a><span class="bold_code">get_plain_arguments() -&gt; [Arg]</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Arg = string()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns any plain command-line arguments as a list of strings
           (possibly empty).</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="get_status-0"></a><span class="bold_code func-name">get_status() -&gt; {InternalStatus, ProvidedStatus}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">InternalStatus = internal_status()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ProvidedStatus = term()</span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">internal_status() = starting | started | stopping</span><br>
+    <p><a name="get_status-0"></a><span class="bold_code">get_status() -&gt; {InternalStatus, ProvidedStatus}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">InternalStatus = internal_status()</span></div>
+<div class="REFTYPES"><span class="bold_code">ProvidedStatus = term()</span></div>
+<div class="REFTYPES">
+      <span class="bold_code">internal_status() = starting | started | stopping</span><br>
 </div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>The current status of the <span class="code">init</span> process can be
           inspected. During system startup (initialization),
           <span class="code">InternalStatus</span> is <span class="code">starting</span>, and
@@ -1090,31 +1070,23 @@
           interpreted in the boot script affects
           <span class="code">ProvidedStatus</span>, that is,
           <span class="code">ProvidedStatus</span> gets the value of <span class="code">Info</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="reboot-0"></a><span class="bold_code func-name">reboot() -&gt; ok</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="reboot-0"></a><span class="bold_code">reboot() -&gt; ok</span><br></p>
+<div class="REFBODY"><p>
         <p>All applications are taken down smoothly, all code is
           unloaded, and all ports are closed before the system
           terminates. If command-line flag <span class="code">-heart</span> was specified,
           the <span class="code">heart</span> program tries to reboot the system. For more
           information, see
-          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','heart.html');"><span class="code">heart(3)</span></a></span>.</p>
+          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','heart.html');"><span class="code">heart(3)</span></a></span>.</p>
         <p>To limit the shutdown time, the time <span class="code">init</span> is allowed
           to spend taking down applications, command-line flag
           <span class="code">-shutdown_time</span> is to be used.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="restart-0"></a><span class="bold_code func-name">restart() -&gt; ok</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="restart-0"></a><span class="bold_code">restart() -&gt; ok</span><br></p>
+<div class="REFBODY"><p>
         <p>The system is restarted <strong>inside</strong> the running Erlang
           node, which means that the emulator is not restarted. All
           applications are taken down smoothly, all code is unloaded,
@@ -1124,60 +1096,47 @@
         <p>To limit the shutdown time, the time <span class="code">init</span> is allowed
           to spend taking down applications, command-line flag
           <span class="code">-shutdown_time</span> is to be used.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="script_id-0"></a><span class="bold_code func-name">script_id() -&gt; Id</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Id = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="script_id-0"></a><span class="bold_code">script_id() -&gt; Id</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Id = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Gets the identity of the boot script used to boot the system.
           <span class="code">Id</span> can be any Erlang term. In the delivered boot
           scripts, <span class="code">Id</span> is <span class="code">{Name, Vsn}</span>. <span class="code">Name</span>
           and <span class="code">Vsn</span> are strings.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="stop-0"></a><span class="bold_code func-name">stop() -&gt; ok</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="stop-0"></a><span class="bold_code">stop() -&gt; ok</span><br></p>
+<div class="REFBODY"><p>
         <p>The same as
-	<span class="bold_code data-type-ref"><a href="#stop-1"><span class="code">stop(0)</span></a></span>.</p>
-      </p></div></div>
-</div>
+	<span class="bold_code"><a href="#stop-1"><span class="code">stop(0)</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="stop-1"></a><span class="bold_code func-name">stop(Status) -&gt; ok</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Status = integer() &gt;= 0 | string()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="stop-1"></a><span class="bold_code">stop(Status) -&gt; ok</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Status = integer() &gt;= 0 | string()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>All applications are taken down smoothly, all code is
           unloaded, and all ports are closed before the system
           terminates by calling <span class="code">halt(Status)</span>. If
           command-line flag <span class="code">-heart</span> was specified, the <span class="code">heart</span>
           program is terminated before the Erlang node terminates.
           For more information, see
-          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','heart.html');"><span class="code">heart(3)</span></a></span>.</p>
+          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','heart.html');"><span class="code">heart(3)</span></a></span>.</p>
         <p>To limit the shutdown time, the time <span class="code">init</span> is allowed
           to spend taking down applications, command-line flag
           <span class="code">-shutdown_time</span> is to be used.</p>
-      </p></div></div>
-</div>
-  </div>
+      </p></div>
+  
 
   <h3>
-<a name="flags"></a><a name="idm45319512317776">Command-Line Flags</a>
+<a name="flags"></a><a name="idm45311099574160">Command-Line Flags</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <div class="warning">
@@ -1198,7 +1157,7 @@
       <dd>
         <p>Everything following <span class="code">--</span> up to the next flag is
           considered plain arguments and can be retrieved using
-          <span class="bold_code data-type-ref"><a href="#get_plain_arguments-0"><span class="code">get_plain_arguments/0</span></a></span>.</p>
+          <span class="bold_code"><a href="#get_plain_arguments-0"><span class="code">get_plain_arguments/0</span></a></span>.</p>
       </dd>
       <dt><strong><span class="code">-code_path_choice Choice</span></strong></dt>
       <dd>
@@ -1218,9 +1177,9 @@
           useful when you want to elaborate with code loading from
           archives without editing the <span class="code">boot script</span>. For more
           information about interpretation of boot scripts, see
-          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','sasl','script.html');"><span class="code">script(4)</span></a></span>.
+          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','sasl','script.html');"><span class="code">script(4)</span></a></span>.
           The flag has also a similar effect on how the code server works; see
-          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','code.html');"><span class="code">code(3)</span></a></span>.</p>
+          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','code.html');"><span class="code">code(3)</span></a></span>.</p>
       </dd>
       <dt><strong><span class="code">-epmd_module Module</span></strong></dt>
       <dd>
@@ -1235,8 +1194,8 @@
           evaluation), Erlang stops with an error message. In the following
           example Erlang is used as a hexadecimal calculator:</p>
         <div class="example"><pre>
-% <span class="bold_code bc-12">erl -noshell -eval 'R = 16#1F+16#A0, io:format("~.16B~n", [R])' \\</span>
-<span class="bold_code bc-12">-s erlang halt</span>
+% <span class="bold_code">erl -noshell -eval 'R = 16#1F+16#A0, io:format("~.16B~n", [R])' \\</span>
+<span class="bold_code">-s erlang halt</span>
 BF</pre></div>
         <p>If multiple <span class="code">-eval</span> expressions are specified, they
           are evaluated sequentially in the order specified.
@@ -1250,7 +1209,7 @@ BF</pre></div>
       <dd>
         <p>Everything following <span class="code">-extra</span> is considered plain
           arguments and can be retrieved using
-          <span class="bold_code data-type-ref"><a href="#get_plain_arguments-0"><span class="code">get_plain_arguments/0</span></a></span>.</p>
+          <span class="bold_code"><a href="#get_plain_arguments-0"><span class="code">get_plain_arguments/0</span></a></span>.</p>
       </dd>
       <dt><strong><span class="code">-run Mod [Func [Arg1, Arg2, ...]]</span></strong></dt>
       <dd>
@@ -1263,7 +1222,7 @@ BF</pre></div>
           error message.</p>
         <p>Example:</p>
         <div class="example"><pre>
-% <span class="bold_code bc-12">erl -run foo -run foo bar -run foo bar baz 1 2</span></pre></div>
+% <span class="bold_code">erl -run foo -run foo bar -run foo bar baz 1 2</span></pre></div>
         <p>This starts the Erlang runtime system and evaluates
           the following functions:</p>
         <div class="example"><pre>
@@ -1287,7 +1246,7 @@ foo:bar(["baz", "1", "2"]).</pre></div>
           error message.</p>
         <p>Example:</p>
         <div class="example"><pre>
-% <span class="bold_code bc-12">erl -s foo -s foo bar -s foo bar baz 1 2</span></pre></div>
+% <span class="bold_code">erl -s foo -s foo bar -s foo bar baz 1 2</span></pre></div>
         <p>This starts the Erlang runtime system and evaluates
           the following functions:</p>
         <div class="example"><pre>
@@ -1305,28 +1264,28 @@ foo:bar([baz, '1', '2']).</pre></div>
     </dl>
   </div>
 
-  <h3><a name="idm45319512273904">Example</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45311099530288">Example</a></h3>
+<div class="REFBODY">
     
     <div class="example"><pre>
-% <span class="bold_code bc-12">erl -- a b -children thomas claire -ages 7 3 -- x y</span>
+% <span class="bold_code">erl -- a b -children thomas claire -ages 7 3 -- x y</span>
 ...
 
-1&gt; <span class="bold_code bc-12">init:get_plain_arguments().</span>
+1&gt; <span class="bold_code">init:get_plain_arguments().</span>
 ["a","b","x","y"]
-2&gt; <span class="bold_code bc-12">init:get_argument(children).</span>
+2&gt; <span class="bold_code">init:get_argument(children).</span>
 {ok,[["thomas","claire"]]}
-3&gt; <span class="bold_code bc-12">init:get_argument(ages).</span>
+3&gt; <span class="bold_code">init:get_argument(ages).</span>
 {ok, [["7","3"]]}
-4&gt; <span class="bold_code bc-12">init:get_argument(silly).</span>
+4&gt; <span class="bold_code">init:get_argument(silly).</span>
 error</pre></div>
   </div>
 
-  <h3><a name="idm45319512270208">See Also</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45311099526592">See Also</a></h3>
+<div class="REFBODY">
     
-    <p><span class="bold_code bc-19"><a href="erl_prim_loader.html"><span class="code">erl_prim_loader(3)</span></a></span>, 
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','heart.html');"><span class="code">heart(3)</span></a></span></p>
+    <p><span class="bold_code"><a href="erl_prim_loader.html"><span class="code">erl_prim_loader(3)</span></a></span>, 
+      <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','heart.html');"><span class="code">heart(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

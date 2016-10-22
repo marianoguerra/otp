@@ -1717,23 +1717,23 @@
 <!-- refpage --><center><h1>shell_default</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">shell_default</div>
+<div class="REFBODY">shell_default</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Customizing the Erlang environment.</div>
+<div class="REFBODY">Customizing the Erlang environment.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>The functions in this module are called when no module name is
       specified in a shell command.</p>
 
     <p>Consider the following shell dialog:</p>
 
     <div class="example"><pre>
-1&gt; <span class="bold_code bc-12">lists:reverse("abc").</span>
+1&gt; <span class="bold_code">lists:reverse("abc").</span>
 "cba"
-2&gt; <span class="bold_code bc-12">c(foo).</span>
+2&gt; <span class="bold_code">c(foo).</span>
 {ok, foo}</pre></div>
 
-    <p>In command one, module <span class="bold_code bc-19"><a href="lists.html"><span class="code">lists</span></a></span> is
+    <p>In command one, module <span class="bold_code"><a href="lists.html"><span class="code">lists</span></a></span> is
       called. In command two, no module name is specified. The shell searches
       module <span class="code">user_default</span> followed by module <span class="code">shell_default</span> for
       function <span class="code">foo/1</span>.</p>
@@ -1741,10 +1741,10 @@
     <p><span class="code">shell_default</span> is intended for "system wide"
       customizations to the shell. <span class="code">user_default</span> is intended for
       "local" or individual user customizations.</p>
-  </div>
+  </p></div>
 
-  <h3><a name="idm45461561769184">Hint</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46007668202864">Hint</a></h3>
+<div class="REFBODY">
     
     <p>To add your own commands to the shell, create a module called
       <span class="code">user_default</span> and add the commands you want. Then add the

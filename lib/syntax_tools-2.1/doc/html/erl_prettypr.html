@@ -547,19 +547,18 @@
 <!-- refpage --><center><h1>erl_prettypr</h1></center>
 
 <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">erl_prettypr</div>
+<div class="REFBODY">erl_prettypr</div>
 <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Pretty printing of abstract Erlang syntax trees.</div>
+<div class="REFBODY">Pretty printing of abstract Erlang syntax trees.</div>
 <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
 <p>Pretty printing of abstract Erlang syntax trees.</p>
  
   <p>This module is a front end to the pretty-printing library module
   <span class="code">prettypr</span>, for text formatting of abstract syntax trees defined by
-  the module <span class="code">erl_syntax</span>.</p>
-</div>
-<h3><a name="idm45688887023120">DATA TYPES</a></h3>
-<div class="REFBODY rb-3">
+  the module <span class="code">erl_syntax</span>.</p></p></div>
+<h3><a name="idm45201784613264">DATA TYPES</a></h3>
+<div class="REFBODY">
 <a name="types"></a>
 
 <dl>
@@ -570,36 +569,28 @@
   pretty-printer. Can be accessed in hook functions.
  </p>
 </dd>
-<dt><strong><a name="type-hook"></a>hook() = (<span class="bold_code data-type-ref"><a href="#type-syntaxTree">syntaxTree()</a></span>, <span class="bold_code data-type-ref"><a href="#type-context">context()</a></span>, Continuation) -&gt; <span class="bold_code bc-15"><a href="prettypr.html#type-document">prettypr:document()</a></span></strong></dt>
+<dt><strong><a name="type-hook"></a>hook() = (<span class="bold_code"><a href="#type-syntaxTree">syntaxTree()</a></span>, <span class="bold_code"><a href="#type-context">context()</a></span>, Continuation) -&gt; <span class="bold_code"><a href="prettypr.html#type-document">prettypr:document()</a></span></strong></dt>
 <dd>
-<ul><li><p>Continuation = (<span class="bold_code data-type-ref"><a href="#type-syntaxTree">syntaxTree()</a></span>, <span class="bold_code data-type-ref"><a href="#type-context">context()</a></span>) -&gt; <span class="bold_code bc-15"><a href="prettypr.html#type-document">prettypr:document()</a></span></p></li></ul>
-<p>A call-back function for user-controlled formatting. See <span class="bold_code data-type-ref"><a href="#format-2">format/2</a></span>.
+<ul><li><p>Continuation = (<span class="bold_code"><a href="#type-syntaxTree">syntaxTree()</a></span>, <span class="bold_code"><a href="#type-context">context()</a></span>) -&gt; <span class="bold_code"><a href="prettypr.html#type-document">prettypr:document()</a></span></p></li></ul>
+<p>A call-back function for user-controlled formatting. See <span class="bold_code"><a href="#format-2">format/2</a></span>.
  </p>
 </dd>
-<dt><strong><a name="type-syntaxTree"></a>syntaxTree() = <span class="bold_code bc-15"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span></strong></dt>
+<dt><strong><a name="type-syntaxTree"></a>syntaxTree() = <span class="bold_code"><a href="erl_syntax.html#type-syntaxTree">erl_syntax:syntaxTree()</a></span></strong></dt>
 <dd>
 <p></p>
-<p>An abstract syntax tree. See the <span class="bold_code bc-19"><a href="erl_syntax.html">erl_syntax</a></span> module for
+<p>An abstract syntax tree. See the <span class="bold_code"><a href="erl_syntax.html">erl_syntax</a></span> module for
   details.
  </p>
 </dd>
 </dl>
 </div>
 <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-<div class="func">
-<div class="func-title">
-<a name="best-1"></a><span class="bold_code bc-9">best(Tree::<span class="bold_code data-type-ref"><a href="#type-syntaxTree">syntaxTree()</a></span>) -&gt; empty | <span class="bold_code bc-15"><a href="prettypr.html#type-document">prettypr:document()</a></span></span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="best-1"></a>
-<p>Equivalent to <span class="bold_code data-type-ref"><a href="#best-2">best(Tree, [])</a></span>.</p>
-</p></div></div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="best-2"></a><span class="bold_code bc-9">best(Tree::<span class="bold_code data-type-ref"><a href="#type-syntaxTree">syntaxTree()</a></span>, Options::[term()]) -&gt; empty | <span class="bold_code bc-15"><a href="prettypr.html#type-document">prettypr:document()</a></span></span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="best-2"></a>
+<p><a name="best-1"></a><span class="bold_code">best(Tree::<span class="bold_code"><a href="#type-syntaxTree">syntaxTree()</a></span>) -&gt; empty | <span class="bold_code"><a href="prettypr.html#type-document">prettypr:document()</a></span></span><br></p>
+<div class="REFBODY"><p><a name="best-1"></a>
+<p>Equivalent to <span class="bold_code"><a href="#best-2">best(Tree, [])</a></span>.</p>
+</p></div>
+<p><a name="best-2"></a><span class="bold_code">best(Tree::<span class="bold_code"><a href="#type-syntaxTree">syntaxTree()</a></span>, Options::[term()]) -&gt; empty | <span class="bold_code"><a href="prettypr.html#type-document">prettypr:document()</a></span></span><br></p>
+<div class="REFBODY"><p><a name="best-2"></a>
 
 <p>Creates a fixed "best" abstract layout for a syntax tree. This
   is similar to the <span class="code">layout/2</span> function, except that here, the final
@@ -607,22 +598,14 @@
   <span class="code">empty</span> is returned if no such layout could be produced. For
   information on the options, see the <span class="code">format/2</span> function.
  </p>
-<p><strong>See also:</strong> <span class="bold_code data-type-ref"><a href="#best-1">best/1</a></span>, <span class="bold_code data-type-ref"><a href="#format-2">format/2</a></span>, <span class="bold_code data-type-ref"><a href="#layout-2">layout/2</a></span>, <span class="bold_code bc-15"><a href="prettypr.html#best-3">prettypr:best/3</a></span>.</p>
-</p></div></div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="format-1"></a><span class="bold_code bc-9">format(Tree::<span class="bold_code data-type-ref"><a href="#type-syntaxTree">syntaxTree()</a></span>) -&gt; string()</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="format-1"></a>
-<p>Equivalent to <span class="bold_code data-type-ref"><a href="#format-2">format(Tree, [])</a></span>.</p>
-</p></div></div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="format-2"></a><span class="bold_code bc-9">format(Tree::<span class="bold_code data-type-ref"><a href="#type-syntaxTree">syntaxTree()</a></span>, Options::[term()]) -&gt; string()</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="format-2"></a>
+<p><strong>See also:</strong> <span class="bold_code"><a href="#best-1">best/1</a></span>, <span class="bold_code"><a href="#format-2">format/2</a></span>, <span class="bold_code"><a href="#layout-2">layout/2</a></span>, <span class="bold_code"><a href="prettypr.html#best-3">prettypr:best/3</a></span>.</p>
+</p></div>
+<p><a name="format-1"></a><span class="bold_code">format(Tree::<span class="bold_code"><a href="#type-syntaxTree">syntaxTree()</a></span>) -&gt; string()</span><br></p>
+<div class="REFBODY"><p><a name="format-1"></a>
+<p>Equivalent to <span class="bold_code"><a href="#format-2">format(Tree, [])</a></span>.</p>
+</p></div>
+<p><a name="format-2"></a><span class="bold_code">format(Tree::<span class="bold_code"><a href="#type-syntaxTree">syntaxTree()</a></span>, Options::[term()]) -&gt; string()</span><br></p>
+<div class="REFBODY"><p><a name="format-2"></a>
 
 <p>Prettyprint-formats an abstract Erlang syntax tree as text. For
   example, if you have a <span class="code">.beam</span> file that has been compiled with
@@ -634,7 +617,7 @@
  
   Available options:
   </p><dl>
-    <dt><strong>{hook, none | <span class="bold_code data-type-ref"><a href="#type-hook">hook()</a></span>}</strong></dt>
+    <dt><strong>{hook, none | <span class="bold_code"><a href="#type-hook">hook()</a></span>}</strong></dt>
         <dd><p>Unless the value is <span class="code">none</span>, the given function is called
         for each node whose list of annotations is not empty; see below
         for details. The default value is <span class="code">none</span>.</p></dd>
@@ -654,11 +637,11 @@
         <dd><p>Specifies the encoding of the generated file.</p></dd>
   </dl><p>
  
-  A hook function (cf. the <span class="bold_code data-type-ref"><a href="#type-hook">hook()</a></span> type) is passed the current
+  A hook function (cf. the <span class="bold_code"><a href="#type-hook">hook()</a></span> type) is passed the current
   syntax tree node, the context, and a continuation. The context can be
   examined and manipulated by functions such as <span class="code">get_ctxt_user/1</span> and
   <span class="code">set_ctxt_user/2</span>. The hook must return a "document" data structure
-  (see <span class="bold_code data-type-ref"><a href="#layout-2">layout/2</a></span> and <span class="bold_code data-type-ref"><a href="#best-2">best/2</a></span>); this may be constructed in
+  (see <span class="bold_code"><a href="#layout-2">layout/2</a></span> and <span class="bold_code"><a href="#best-2">best/2</a></span>); this may be constructed in
   part or in whole by applying the continuation function. For example,
   the following is a trivial hook:
   </p><div class="example"><pre>      fun (Node, Ctxt, Cont) -&gt; Cont(Node, Ctxt) end</pre></div><p>
@@ -674,78 +657,50 @@
   annotation data) between HTML "boldface begin" and "boldface end"
   tags.
  </p>
-<p><strong>See also:</strong> <span class="bold_code bc-19"><a href="erl_syntax.html">erl_syntax</a></span>, <span class="bold_code data-type-ref"><a href="#best-2">best/2</a></span>, <span class="bold_code data-type-ref"><a href="#format-1">format/1</a></span>, <span class="bold_code data-type-ref"><a href="#get_ctxt_user-1">get_ctxt_user/1</a></span>, <span class="bold_code data-type-ref"><a href="#layout-2">layout/2</a></span>, <span class="bold_code data-type-ref"><a href="#set_ctxt_user-2">set_ctxt_user/2</a></span>.</p>
-</p></div></div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="get_ctxt_hook-1"></a><span class="bold_code bc-9">get_ctxt_hook(Ctxt::<span class="bold_code data-type-ref"><a href="#type-context">context()</a></span>) -&gt; <span class="bold_code data-type-ref"><a href="#type-hook">hook()</a></span></span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="get_ctxt_hook-1"></a>
+<p><strong>See also:</strong> <span class="bold_code"><a href="erl_syntax.html">erl_syntax</a></span>, <span class="bold_code"><a href="#best-2">best/2</a></span>, <span class="bold_code"><a href="#format-1">format/1</a></span>, <span class="bold_code"><a href="#get_ctxt_user-1">get_ctxt_user/1</a></span>, <span class="bold_code"><a href="#layout-2">layout/2</a></span>, <span class="bold_code"><a href="#set_ctxt_user-2">set_ctxt_user/2</a></span>.</p>
+</p></div>
+<p><a name="get_ctxt_hook-1"></a><span class="bold_code">get_ctxt_hook(Ctxt::<span class="bold_code"><a href="#type-context">context()</a></span>) -&gt; <span class="bold_code"><a href="#type-hook">hook()</a></span></span><br></p>
+<div class="REFBODY"><p><a name="get_ctxt_hook-1"></a>
 
 <p>Returns the hook function field of the prettyprinter context.</p>
-<p><strong>See also:</strong> <span class="bold_code data-type-ref"><a href="#set_ctxt_hook-2">set_ctxt_hook/2</a></span>.</p>
-</p></div></div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="get_ctxt_linewidth-1"></a><span class="bold_code bc-9">get_ctxt_linewidth(Ctxt::<span class="bold_code data-type-ref"><a href="#type-context">context()</a></span>) -&gt; integer()</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="get_ctxt_linewidth-1"></a>
+<p><strong>See also:</strong> <span class="bold_code"><a href="#set_ctxt_hook-2">set_ctxt_hook/2</a></span>.</p>
+</p></div>
+<p><a name="get_ctxt_linewidth-1"></a><span class="bold_code">get_ctxt_linewidth(Ctxt::<span class="bold_code"><a href="#type-context">context()</a></span>) -&gt; integer()</span><br></p>
+<div class="REFBODY"><p><a name="get_ctxt_linewidth-1"></a>
 
 <p>Returns the line widh field of the prettyprinter context.</p>
-<p><strong>See also:</strong> <span class="bold_code data-type-ref"><a href="#set_ctxt_linewidth-2">set_ctxt_linewidth/2</a></span>.</p>
-</p></div></div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="get_ctxt_paperwidth-1"></a><span class="bold_code bc-9">get_ctxt_paperwidth(Ctxt::<span class="bold_code data-type-ref"><a href="#type-context">context()</a></span>) -&gt; integer()</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="get_ctxt_paperwidth-1"></a>
+<p><strong>See also:</strong> <span class="bold_code"><a href="#set_ctxt_linewidth-2">set_ctxt_linewidth/2</a></span>.</p>
+</p></div>
+<p><a name="get_ctxt_paperwidth-1"></a><span class="bold_code">get_ctxt_paperwidth(Ctxt::<span class="bold_code"><a href="#type-context">context()</a></span>) -&gt; integer()</span><br></p>
+<div class="REFBODY"><p><a name="get_ctxt_paperwidth-1"></a>
 
 <p>Returns the paper widh field of the prettyprinter context.</p>
-<p><strong>See also:</strong> <span class="bold_code data-type-ref"><a href="#set_ctxt_paperwidth-2">set_ctxt_paperwidth/2</a></span>.</p>
-</p></div></div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="get_ctxt_precedence-1"></a><span class="bold_code bc-9">get_ctxt_precedence(Ctxt::<span class="bold_code data-type-ref"><a href="#type-context">context()</a></span>) -&gt; integer()</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="get_ctxt_precedence-1"></a>
+<p><strong>See also:</strong> <span class="bold_code"><a href="#set_ctxt_paperwidth-2">set_ctxt_paperwidth/2</a></span>.</p>
+</p></div>
+<p><a name="get_ctxt_precedence-1"></a><span class="bold_code">get_ctxt_precedence(Ctxt::<span class="bold_code"><a href="#type-context">context()</a></span>) -&gt; integer()</span><br></p>
+<div class="REFBODY"><p><a name="get_ctxt_precedence-1"></a>
 
 <p>Returns the operator precedence field of the prettyprinter
   context.
  </p>
-<p><strong>See also:</strong> <span class="bold_code data-type-ref"><a href="#set_ctxt_precedence-2">set_ctxt_precedence/2</a></span>.</p>
-</p></div></div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="get_ctxt_user-1"></a><span class="bold_code bc-9">get_ctxt_user(Ctxt::<span class="bold_code data-type-ref"><a href="#type-context">context()</a></span>) -&gt; term()</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="get_ctxt_user-1"></a>
+<p><strong>See also:</strong> <span class="bold_code"><a href="#set_ctxt_precedence-2">set_ctxt_precedence/2</a></span>.</p>
+</p></div>
+<p><a name="get_ctxt_user-1"></a><span class="bold_code">get_ctxt_user(Ctxt::<span class="bold_code"><a href="#type-context">context()</a></span>) -&gt; term()</span><br></p>
+<div class="REFBODY"><p><a name="get_ctxt_user-1"></a>
 
 <p>Returns the user data field of the prettyprinter context.</p>
-<p><strong>See also:</strong> <span class="bold_code data-type-ref"><a href="#set_ctxt_user-2">set_ctxt_user/2</a></span>.</p>
-</p></div></div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="layout-1"></a><span class="bold_code bc-9">layout(Tree::<span class="bold_code data-type-ref"><a href="#type-syntaxTree">syntaxTree()</a></span>) -&gt; <span class="bold_code bc-15"><a href="prettypr.html#type-document">prettypr:document()</a></span></span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="layout-1"></a>
-<p>Equivalent to <span class="bold_code data-type-ref"><a href="#layout-2">layout(Tree, [])</a></span>.</p>
-</p></div></div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="layout-2"></a><span class="bold_code bc-9">layout(Tree::<span class="bold_code data-type-ref"><a href="#type-syntaxTree">syntaxTree()</a></span>, Options::[term()]) -&gt; <span class="bold_code bc-15"><a href="prettypr.html#type-document">prettypr:document()</a></span></span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="layout-2"></a>
+<p><strong>See also:</strong> <span class="bold_code"><a href="#set_ctxt_user-2">set_ctxt_user/2</a></span>.</p>
+</p></div>
+<p><a name="layout-1"></a><span class="bold_code">layout(Tree::<span class="bold_code"><a href="#type-syntaxTree">syntaxTree()</a></span>) -&gt; <span class="bold_code"><a href="prettypr.html#type-document">prettypr:document()</a></span></span><br></p>
+<div class="REFBODY"><p><a name="layout-1"></a>
+<p>Equivalent to <span class="bold_code"><a href="#layout-2">layout(Tree, [])</a></span>.</p>
+</p></div>
+<p><a name="layout-2"></a><span class="bold_code">layout(Tree::<span class="bold_code"><a href="#type-syntaxTree">syntaxTree()</a></span>, Options::[term()]) -&gt; <span class="bold_code"><a href="prettypr.html#type-document">prettypr:document()</a></span></span><br></p>
+<div class="REFBODY"><p><a name="layout-2"></a>
 
 <p>Creates an abstract document layout for a syntax tree. The
   result represents a set of possible layouts (cf. module <span class="code">prettypr</span>).
-  For information on the options, see <span class="bold_code data-type-ref"><a href="#format-2">format/2</a></span>; note, however,
+  For information on the options, see <span class="bold_code"><a href="#format-2">format/2</a></span>; note, however,
   that the <span class="code">paper</span> and <span class="code">ribbon</span> options are ignored by this function.</p>
  
   <p>This function provides a low-level interface to the pretty printer,
@@ -755,24 +710,16 @@
   directly by the functions in the <span class="code">prettypr</span> module, or used in a hook
   function (see <span class="code">format/2</span> for details).
  </p>
-<p><strong>See also:</strong> <span class="bold_code bc-19"><a href="prettypr.html">prettypr</a></span>, <span class="bold_code data-type-ref"><a href="#format-2">format/2</a></span>, <span class="bold_code data-type-ref"><a href="#layout-1">layout/1</a></span>.</p>
-</p></div></div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="set_ctxt_hook-2"></a><span class="bold_code bc-9">set_ctxt_hook(Ctxt::<span class="bold_code data-type-ref"><a href="#type-context">context()</a></span>, Hook::<span class="bold_code data-type-ref"><a href="#type-hook">hook()</a></span>) -&gt; <span class="bold_code data-type-ref"><a href="#type-context">context()</a></span></span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="set_ctxt_hook-2"></a>
+<p><strong>See also:</strong> <span class="bold_code"><a href="prettypr.html">prettypr</a></span>, <span class="bold_code"><a href="#format-2">format/2</a></span>, <span class="bold_code"><a href="#layout-1">layout/1</a></span>.</p>
+</p></div>
+<p><a name="set_ctxt_hook-2"></a><span class="bold_code">set_ctxt_hook(Ctxt::<span class="bold_code"><a href="#type-context">context()</a></span>, Hook::<span class="bold_code"><a href="#type-hook">hook()</a></span>) -&gt; <span class="bold_code"><a href="#type-context">context()</a></span></span><br></p>
+<div class="REFBODY"><p><a name="set_ctxt_hook-2"></a>
 
 <p>Updates the hook function field of the prettyprinter context.</p>
-<p><strong>See also:</strong> <span class="bold_code data-type-ref"><a href="#get_ctxt_hook-1">get_ctxt_hook/1</a></span>.</p>
-</p></div></div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="set_ctxt_linewidth-2"></a><span class="bold_code bc-9">set_ctxt_linewidth(Ctxt::<span class="bold_code data-type-ref"><a href="#type-context">context()</a></span>, W::integer()) -&gt; <span class="bold_code data-type-ref"><a href="#type-context">context()</a></span></span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="set_ctxt_linewidth-2"></a>
+<p><strong>See also:</strong> <span class="bold_code"><a href="#get_ctxt_hook-1">get_ctxt_hook/1</a></span>.</p>
+</p></div>
+<p><a name="set_ctxt_linewidth-2"></a><span class="bold_code">set_ctxt_linewidth(Ctxt::<span class="bold_code"><a href="#type-context">context()</a></span>, W::integer()) -&gt; <span class="bold_code"><a href="#type-context">context()</a></span></span><br></p>
+<div class="REFBODY"><p><a name="set_ctxt_linewidth-2"></a>
 
 <p>Updates the line widh field of the prettyprinter context.</p>
  
@@ -780,14 +727,10 @@
   continuation function) does not affect the normal formatting, but may
   affect user-defined behaviour in hook functions.
  </p>
-<p><strong>See also:</strong> <span class="bold_code data-type-ref"><a href="#get_ctxt_linewidth-1">get_ctxt_linewidth/1</a></span>.</p>
-</p></div></div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="set_ctxt_paperwidth-2"></a><span class="bold_code bc-9">set_ctxt_paperwidth(Ctxt::<span class="bold_code data-type-ref"><a href="#type-context">context()</a></span>, W::integer()) -&gt; <span class="bold_code data-type-ref"><a href="#type-context">context()</a></span></span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="set_ctxt_paperwidth-2"></a>
+<p><strong>See also:</strong> <span class="bold_code"><a href="#get_ctxt_linewidth-1">get_ctxt_linewidth/1</a></span>.</p>
+</p></div>
+<p><a name="set_ctxt_paperwidth-2"></a><span class="bold_code">set_ctxt_paperwidth(Ctxt::<span class="bold_code"><a href="#type-context">context()</a></span>, W::integer()) -&gt; <span class="bold_code"><a href="#type-context">context()</a></span></span><br></p>
+<div class="REFBODY"><p><a name="set_ctxt_paperwidth-2"></a>
 
 <p>Updates the paper widh field of the prettyprinter context.</p>
  
@@ -795,32 +738,22 @@
   continuation function) does not affect the normal formatting, but may
   affect user-defined behaviour in hook functions.
  </p>
-<p><strong>See also:</strong> <span class="bold_code data-type-ref"><a href="#get_ctxt_paperwidth-1">get_ctxt_paperwidth/1</a></span>.</p>
-</p></div></div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="set_ctxt_precedence-2"></a><span class="bold_code bc-9">set_ctxt_precedence(Ctxt::<span class="bold_code data-type-ref"><a href="#type-context">context()</a></span>, Prec::integer()) -&gt; <span class="bold_code data-type-ref"><a href="#type-context">context()</a></span></span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="set_ctxt_precedence-2"></a>
+<p><strong>See also:</strong> <span class="bold_code"><a href="#get_ctxt_paperwidth-1">get_ctxt_paperwidth/1</a></span>.</p>
+</p></div>
+<p><a name="set_ctxt_precedence-2"></a><span class="bold_code">set_ctxt_precedence(Ctxt::<span class="bold_code"><a href="#type-context">context()</a></span>, Prec::integer()) -&gt; <span class="bold_code"><a href="#type-context">context()</a></span></span><br></p>
+<div class="REFBODY"><p><a name="set_ctxt_precedence-2"></a>
 
 <p>Updates the operator precedence field of the prettyprinter
-  context. See the <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','erl_parse.html');">erl_parse(3)</a></span> module for operator precedences.
+  context. See the <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','erl_parse.html');">erl_parse(3)</a></span> module for operator precedences.
  </p>
-<p><strong>See also:</strong> <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','erl_parse.html');">erl_parse(3)</a></span>, <span class="bold_code data-type-ref"><a href="#get_ctxt_precedence-1">get_ctxt_precedence/1</a></span>.</p>
-</p></div></div>
-</div>
-<div class="func">
-<div class="func-title">
-<a name="set_ctxt_user-2"></a><span class="bold_code bc-9">set_ctxt_user(Ctxt::<span class="bold_code data-type-ref"><a href="#type-context">context()</a></span>, X::term()) -&gt; <span class="bold_code data-type-ref"><a href="#type-context">context()</a></span></span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="set_ctxt_user-2"></a>
+<p><strong>See also:</strong> <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','erl_parse.html');">erl_parse(3)</a></span>, <span class="bold_code"><a href="#get_ctxt_precedence-1">get_ctxt_precedence/1</a></span>.</p>
+</p></div>
+<p><a name="set_ctxt_user-2"></a><span class="bold_code">set_ctxt_user(Ctxt::<span class="bold_code"><a href="#type-context">context()</a></span>, X::term()) -&gt; <span class="bold_code"><a href="#type-context">context()</a></span></span><br></p>
+<div class="REFBODY"><p><a name="set_ctxt_user-2"></a>
 
 <p>Updates the user data field of the prettyprinter context.</p>
-<p><strong>See also:</strong> <span class="bold_code data-type-ref"><a href="#get_ctxt_user-1">get_ctxt_user/1</a></span>.</p>
-</p></div></div>
-</div>
-</div>
+<p><strong>See also:</strong> <span class="bold_code"><a href="#get_ctxt_user-1">get_ctxt_user/1</a></span>.</p>
+</p></div>
 
 
 

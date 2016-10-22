@@ -1717,13 +1717,13 @@
 <!-- refpage --><center><h1>erl_anno</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">erl_anno</div>
+<div class="REFBODY">erl_anno</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Abstract datatype for the annotations of the Erlang Compiler.
+<div class="REFBODY">Abstract datatype for the annotations of the Erlang Compiler.
   </div>
 
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>This module provides an abstract type that is used by the
       Erlang Compiler and its helper modules for holding data such as
       column, line number, and text. The data type is a collection of
@@ -1764,327 +1764,252 @@
       <dd>
 <p>A Boolean indicating if the origin of the abstract
         code is a record. Used by
-        <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','dialyzer','dialyzer.html');">Dialyzer</a></span>
+        <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','dialyzer','dialyzer.html');">Dialyzer</a></span>
         to assign types to tuple elements.</p>
       </dd>
     </dl>
 
     <p>The functions
-      <span class="bold_code bc-15"><a href="erl_scan.html#column-1"><span class="code">column()</span></a></span>,
-      <span class="bold_code bc-15"><a href="erl_scan.html#end_location-1"><span class="code">end_location()</span></a></span>,
-      <span class="bold_code bc-15"><a href="erl_scan.html#line-1"><span class="code">line()</span></a></span>,
-      <span class="bold_code bc-15"><a href="erl_scan.html#location-1"><span class="code">location()</span></a></span>, and
-      <span class="bold_code bc-15"><a href="erl_scan.html#text-1"><span class="code">text()</span></a></span>
+      <span class="bold_code"><a href="erl_scan.html#column-1"><span class="code">column()</span></a></span>,
+      <span class="bold_code"><a href="erl_scan.html#end_location-1"><span class="code">end_location()</span></a></span>,
+      <span class="bold_code"><a href="erl_scan.html#line-1"><span class="code">line()</span></a></span>,
+      <span class="bold_code"><a href="erl_scan.html#location-1"><span class="code">location()</span></a></span>, and
+      <span class="bold_code"><a href="erl_scan.html#text-1"><span class="code">text()</span></a></span>
       in the <span class="code">erl_scan</span> module can be used for inspecting
       annotations in tokens.</p>
 
     <p>The functions
-      <span class="bold_code bc-15"><a href="erl_parse.html#anno_from_term-1"><span class="code">anno_from_term()</span></a></span>,
-      <span class="bold_code bc-15"><a href="erl_parse.html#anno_to_term-1"><span class="code">anno_to_term()</span></a></span>,
-      <span class="bold_code bc-15"><a href="erl_parse.html#fold_anno-3"><span class="code">fold_anno()</span></a></span>,
-      <span class="bold_code bc-15"><a href="erl_parse.html#map_anno-2"><span class="code">map_anno()</span></a></span>,
-      <span class="bold_code bc-15"><a href="erl_parse.html#mapfold_anno-3"><span class="code">mapfold_anno()</span></a></span>,
-      and <span class="bold_code bc-15"><a href="erl_parse.html#new_anno-1"><span class="code">new_anno()</span></a></span>,
+      <span class="bold_code"><a href="erl_parse.html#anno_from_term-1"><span class="code">anno_from_term()</span></a></span>,
+      <span class="bold_code"><a href="erl_parse.html#anno_to_term-1"><span class="code">anno_to_term()</span></a></span>,
+      <span class="bold_code"><a href="erl_parse.html#fold_anno-3"><span class="code">fold_anno()</span></a></span>,
+      <span class="bold_code"><a href="erl_parse.html#map_anno-2"><span class="code">map_anno()</span></a></span>,
+      <span class="bold_code"><a href="erl_parse.html#mapfold_anno-3"><span class="code">mapfold_anno()</span></a></span>,
+      and <span class="bold_code"><a href="erl_parse.html#new_anno-1"><span class="code">new_anno()</span></a></span>,
       in the <span class="code">erl_parse</span> module can be
       used for manipulating annotations in abstract code.</p>
-  </div>
+  </p></div>
 
-  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
-<div class="data-types-body">
-    <div class="data-type-def">
-<a name="type-anno"></a><span class="bold_code bc-8">anno()</span><br><div class="REFBODY data-type-desc"><p><p>A collection of annotations.</p>
+  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
+    <p><a name="type-anno"></a><span class="bold_code">anno()</span><br></p>
+<div class="REFBODY"><p><p>A collection of annotations.</p>
       </p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-anno_term">anno_term()</a> = term()</span><div class="REFBODY data-type-desc"><p>
+    <p>
+      <span class="bold_code"><a name="type-anno_term">anno_term()</a> = term()</span><br></p>
+<div class="REFBODY"><p>
         <p>The term representing a collection of annotations. It is
           either a <span class="code">location()</span> or a list of key-value pairs.</p>
       </p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-column">column()</a> = integer() &gt;= 1</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-line">line()</a> = integer() &gt;= 0</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-location">location()</a> = <span class="bold_code data-type-ref"><a href="#type-line">line()</a></span> | {<span class="bold_code data-type-ref"><a href="#type-line">line()</a></span>, <span class="bold_code data-type-ref"><a href="#type-column">column()</a></span>}</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-text">text()</a> = string()</span>
-</div>
-  </div>
+    <p>
+      <span class="bold_code"><a name="type-column">column()</a> = integer() &gt;= 1</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-line">line()</a> = integer() &gt;= 0</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-location">location()</a> = <span class="bold_code"><a href="#type-line">line()</a></span> | {<span class="bold_code"><a href="#type-line">line()</a></span>, <span class="bold_code"><a href="#type-column">column()</a></span>}</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-text">text()</a> = string()</span><br></p>
+  
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="column-1"></a><span class="bold_code func-name">column(Anno) -&gt; <span class="bold_code data-type-ref"><a href="#type-column">column()</a></span> | undefined</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Anno = <span class="bold_code data-type-ref"><a href="#type-anno">anno()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">column() = integer() &gt;= 1</span><br>
+    <p><a name="column-1"></a><span class="bold_code">column(Anno) -&gt; <span class="bold_code"><a href="#type-column">column()</a></span> | undefined</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Anno = <span class="bold_code"><a href="#type-anno">anno()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">column() = integer() &gt;= 1</span><br>
 </div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the column of the annotations Anno.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="end_location-1"></a><span class="bold_code func-name">end_location(Anno) -&gt; <span class="bold_code data-type-ref"><a href="#type-location">location()</a></span> | undefined</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Anno = <span class="bold_code data-type-ref"><a href="#type-anno">anno()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">location() = <span class="bold_code data-type-ref"><a href="#type-line">line()</a></span> | {<span class="bold_code data-type-ref"><a href="#type-line">line()</a></span>, <span class="bold_code data-type-ref"><a href="#type-column">column()</a></span>}</span><br>
+    <p><a name="end_location-1"></a><span class="bold_code">end_location(Anno) -&gt; <span class="bold_code"><a href="#type-location">location()</a></span> | undefined</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Anno = <span class="bold_code"><a href="#type-anno">anno()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">location() = <span class="bold_code"><a href="#type-line">line()</a></span> | {<span class="bold_code"><a href="#type-line">line()</a></span>, <span class="bold_code"><a href="#type-column">column()</a></span>}</span><br>
 </div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the end location of the text of the
           annotations Anno. If there is no text,
           <span class="code">undefined</span> is returned.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="file-1"></a><span class="bold_code func-name">file(Anno) -&gt; filename() | undefined</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Anno = <span class="bold_code data-type-ref"><a href="#type-anno">anno()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">filename() = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><br>
+    <p><a name="file-1"></a><span class="bold_code">file(Anno) -&gt; filename() | undefined</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Anno = <span class="bold_code"><a href="#type-anno">anno()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">filename() = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><br>
 </div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the filename of the annotations Anno.
           If there is no filename, <span class="code">undefined</span> is returned.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="from_term-1"></a><span class="bold_code func-name">from_term(Term) -&gt; Anno</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Term = <span class="bold_code data-type-ref"><a href="#type-anno_term">anno_term()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Anno = <span class="bold_code data-type-ref"><a href="#type-anno">anno()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="from_term-1"></a><span class="bold_code">from_term(Term) -&gt; Anno</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Term = <span class="bold_code"><a href="#type-anno_term">anno_term()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Anno = <span class="bold_code"><a href="#type-anno">anno()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns annotations with representation Term.</p>
-        <p>See also <span class="bold_code data-type-ref"><a href="#to_term-1">to_term()</a></span>.</p>
-      </p></div></div>
-</div>
+        <p>See also <span class="bold_code"><a href="#to_term-1">to_term()</a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="generated-1"></a><span class="bold_code func-name">generated(Anno) -&gt; generated()</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Anno = <span class="bold_code data-type-ref"><a href="#type-anno">anno()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">generated() = boolean()</span><br>
+    <p><a name="generated-1"></a><span class="bold_code">generated(Anno) -&gt; generated()</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Anno = <span class="bold_code"><a href="#type-anno">anno()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">generated() = boolean()</span><br>
 </div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns <span class="code">true</span> if annotations Anno
           is marked as generated. The default is to return
           <span class="code">false</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="is_anno-1"></a><span class="bold_code func-name">is_anno(Term) -&gt; boolean()</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Term = any()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="is_anno-1"></a><span class="bold_code">is_anno(Term) -&gt; boolean()</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Term = any()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns <span class="code">true</span> if Term is a collection of
           annotations, otherwise <span class="code">false</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="line-1"></a><span class="bold_code func-name">line(Anno) -&gt; <span class="bold_code data-type-ref"><a href="#type-line">line()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Anno = <span class="bold_code data-type-ref"><a href="#type-anno">anno()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">line() = integer() &gt;= 0</span><br>
+    <p><a name="line-1"></a><span class="bold_code">line(Anno) -&gt; <span class="bold_code"><a href="#type-line">line()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Anno = <span class="bold_code"><a href="#type-anno">anno()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">line() = integer() &gt;= 0</span><br>
 </div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the line of the annotations Anno.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="location-1"></a><span class="bold_code func-name">location(Anno) -&gt; <span class="bold_code data-type-ref"><a href="#type-location">location()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Anno = <span class="bold_code data-type-ref"><a href="#type-anno">anno()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">location() = <span class="bold_code data-type-ref"><a href="#type-line">line()</a></span> | {<span class="bold_code data-type-ref"><a href="#type-line">line()</a></span>, <span class="bold_code data-type-ref"><a href="#type-column">column()</a></span>}</span><br>
+    <p><a name="location-1"></a><span class="bold_code">location(Anno) -&gt; <span class="bold_code"><a href="#type-location">location()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Anno = <span class="bold_code"><a href="#type-anno">anno()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">location() = <span class="bold_code"><a href="#type-line">line()</a></span> | {<span class="bold_code"><a href="#type-line">line()</a></span>, <span class="bold_code"><a href="#type-column">column()</a></span>}</span><br>
 </div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the location of the annotations Anno.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="new-1"></a><span class="bold_code func-name">new(Location) -&gt; <span class="bold_code data-type-ref"><a href="#type-anno">anno()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Location = <span class="bold_code data-type-ref"><a href="#type-location">location()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">location() = <span class="bold_code data-type-ref"><a href="#type-line">line()</a></span> | {<span class="bold_code data-type-ref"><a href="#type-line">line()</a></span>, <span class="bold_code data-type-ref"><a href="#type-column">column()</a></span>}</span><br>
+    <p><a name="new-1"></a><span class="bold_code">new(Location) -&gt; <span class="bold_code"><a href="#type-anno">anno()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Location = <span class="bold_code"><a href="#type-location">location()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">location() = <span class="bold_code"><a href="#type-line">line()</a></span> | {<span class="bold_code"><a href="#type-line">line()</a></span>, <span class="bold_code"><a href="#type-column">column()</a></span>}</span><br>
 </div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Creates a new collection of annotations given a location.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="set_file-2"></a><span class="bold_code func-name">set_file(File, Anno) -&gt; Anno</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">File = filename()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Anno = <span class="bold_code data-type-ref"><a href="#type-anno">anno()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">filename() = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><br>
+    <p><a name="set_file-2"></a><span class="bold_code">set_file(File, Anno) -&gt; Anno</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">File = filename()</span></div>
+<div class="REFTYPES"><span class="bold_code">Anno = <span class="bold_code"><a href="#type-anno">anno()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">filename() = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename_all');">file:filename_all()</a></span></span><br>
 </div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Modifies the filename of the annotations Anno.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="set_generated-2"></a><span class="bold_code func-name">set_generated(Generated, Anno) -&gt; Anno</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Generated = generated()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Anno = <span class="bold_code data-type-ref"><a href="#type-anno">anno()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">generated() = boolean()</span><br>
+    <p><a name="set_generated-2"></a><span class="bold_code">set_generated(Generated, Anno) -&gt; Anno</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Generated = generated()</span></div>
+<div class="REFTYPES"><span class="bold_code">Anno = <span class="bold_code"><a href="#type-anno">anno()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">generated() = boolean()</span><br>
 </div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Modifies the generated marker of the annotations Anno.
         </p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="set_line-2"></a><span class="bold_code func-name">set_line(Line, Anno) -&gt; Anno</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Line = <span class="bold_code data-type-ref"><a href="#type-line">line()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Anno = <span class="bold_code data-type-ref"><a href="#type-anno">anno()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">line() = integer() &gt;= 0</span><br>
+    <p><a name="set_line-2"></a><span class="bold_code">set_line(Line, Anno) -&gt; Anno</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Line = <span class="bold_code"><a href="#type-line">line()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Anno = <span class="bold_code"><a href="#type-anno">anno()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">line() = integer() &gt;= 0</span><br>
 </div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Modifies the line of the annotations Anno.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="set_location-2"></a><span class="bold_code func-name">set_location(Location, Anno) -&gt; Anno</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Location = <span class="bold_code data-type-ref"><a href="#type-location">location()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Anno = <span class="bold_code data-type-ref"><a href="#type-anno">anno()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">location() = <span class="bold_code data-type-ref"><a href="#type-line">line()</a></span> | {<span class="bold_code data-type-ref"><a href="#type-line">line()</a></span>, <span class="bold_code data-type-ref"><a href="#type-column">column()</a></span>}</span><br>
+    <p><a name="set_location-2"></a><span class="bold_code">set_location(Location, Anno) -&gt; Anno</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Location = <span class="bold_code"><a href="#type-location">location()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Anno = <span class="bold_code"><a href="#type-anno">anno()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">location() = <span class="bold_code"><a href="#type-line">line()</a></span> | {<span class="bold_code"><a href="#type-line">line()</a></span>, <span class="bold_code"><a href="#type-column">column()</a></span>}</span><br>
 </div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Modifies the location of the annotations Anno.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="set_record-2"></a><span class="bold_code func-name">set_record(Record, Anno) -&gt; Anno</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Record = record()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Anno = <span class="bold_code data-type-ref"><a href="#type-anno">anno()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">record() = boolean()</span><br>
+    <p><a name="set_record-2"></a><span class="bold_code">set_record(Record, Anno) -&gt; Anno</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Record = record()</span></div>
+<div class="REFTYPES"><span class="bold_code">Anno = <span class="bold_code"><a href="#type-anno">anno()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">record() = boolean()</span><br>
 </div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Modifies the record marker of the annotations Anno.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="set_text-2"></a><span class="bold_code func-name">set_text(Text, Anno) -&gt; Anno</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Text = <span class="bold_code data-type-ref"><a href="#type-text">text()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Anno = <span class="bold_code data-type-ref"><a href="#type-anno">anno()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">text() = string()</span><br>
+    <p><a name="set_text-2"></a><span class="bold_code">set_text(Text, Anno) -&gt; Anno</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Text = <span class="bold_code"><a href="#type-text">text()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Anno = <span class="bold_code"><a href="#type-anno">anno()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">text() = string()</span><br>
 </div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Modifies the text of the annotations Anno.</p>
-      </p></div></div>
+      </p></div>
+    <p><a name="text-1"></a><span class="bold_code">text(Anno) -&gt; <span class="bold_code"><a href="#type-text">text()</a></span> | undefined</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Anno = <span class="bold_code"><a href="#type-anno">anno()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">text() = string()</span><br>
 </div>
-    <div class="func">
-<div class="func-title">
-<a name="text-1"></a><span class="bold_code func-name">text(Anno) -&gt; <span class="bold_code data-type-ref"><a href="#type-text">text()</a></span> | undefined</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Anno = <span class="bold_code data-type-ref"><a href="#type-anno">anno()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">text() = string()</span><br>
-</div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the text of the annotations Anno.
           If there is no text, <span class="code">undefined</span> is returned.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="to_term-1"></a><span class="bold_code func-name">to_term(Anno) -&gt; <span class="bold_code data-type-ref"><a href="#type-anno_term">anno_term()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Anno = <span class="bold_code data-type-ref"><a href="#type-anno">anno()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="to_term-1"></a><span class="bold_code">to_term(Anno) -&gt; <span class="bold_code"><a href="#type-anno_term">anno_term()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Anno = <span class="bold_code"><a href="#type-anno">anno()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the term representing the annotations Anno.</p>
-        <p>See also <span class="bold_code data-type-ref"><a href="#from_term-1">from_term()</a></span>.</p>
-      </p></div></div>
-</div>
-  </div>
+        <p>See also <span class="bold_code"><a href="#from_term-1">from_term()</a></span>.</p>
+      </p></div>
+  
 
-  <h3><a name="idm45461570253856">See Also</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46007676687536">See Also</a></h3>
+<div class="REFBODY">
     
-    <p><span class="bold_code bc-19"><a href="erl_parse.html"><span class="code">erl_parse(3)</span></a></span>,
-      <span class="bold_code bc-19"><a href="erl_scan.html"><span class="code">erl_scan(3)</span></a></span></p>
+    <p><span class="bold_code"><a href="erl_parse.html"><span class="code">erl_parse(3)</span></a></span>,
+      <span class="bold_code"><a href="erl_scan.html"><span class="code">erl_scan(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

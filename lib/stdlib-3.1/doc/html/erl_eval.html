@@ -1717,212 +1717,169 @@
 <!-- refpage --><center><h1>erl_eval</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">erl_eval</div>
+<div class="REFBODY">erl_eval</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">The Erlang meta interpreter.</div>
+<div class="REFBODY">The Erlang meta interpreter.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>This module provides an interpreter for Erlang expressions. The
       expressions are in the abstract syntax as returned by
-      <span class="bold_code bc-19"><a href="erl_parse.html"><span class="code">erl_parse</span></a></span>,
-      the Erlang parser, or <span class="bold_code bc-19"><a href="io.html"><span class="code">io</span></a></span>.</p>
-  </div>
+      <span class="bold_code"><a href="erl_parse.html"><span class="code">erl_parse</span></a></span>,
+      the Erlang parser, or <span class="bold_code"><a href="io.html"><span class="code">io</span></a></span>.</p>
+  </p></div>
 
-  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
-<div class="data-types-body">
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-bindings">bindings()</a> = [{<span class="bold_code data-type-ref"><a href="#type-name">name()</a></span>, <span class="bold_code data-type-ref"><a href="#type-value">value()</a></span>}]</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-binding_struct">binding_struct()</a> = <span class="bold_code bc-15"><a href="orddict.html#type-orddict">orddict:orddict()</a></span></span><div class="REFBODY data-type-desc"><p><p>A binding structure.</p></p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-expression">expression()</a> = <span class="bold_code bc-15"><a href="erl_parse.html#type-abstract_expr">erl_parse:abstract_expr()</a></span></span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-expressions">expressions()</a> = [<span class="bold_code bc-15"><a href="erl_parse.html#type-abstract_expr">erl_parse:abstract_expr()</a></span>]</span><div class="REFBODY data-type-desc"><p><p>As returned by <span class="bold_code bc-15"><a href="erl_parse.html#parse_exprs-1"><span class="code">erl_parse:parse_exprs/1</span></a></span> or
-        <span class="bold_code bc-15"><a href="io.html#parse_erl_exprs-2"><span class="code">io:parse_erl_exprs/2</span></a></span>.</p></p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-expression_list">expression_list()</a> = [<span class="bold_code data-type-ref"><a href="#type-expression">expression()</a></span>]</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-func_spec">func_spec()</a> = <br>    {Module :: module(), Function :: atom()} | function()</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-lfun_eval_handler">lfun_eval_handler()</a> = <br>    fun((Name :: atom(),<br>         Arguments :: <span class="bold_code data-type-ref"><a href="#type-expression_list">expression_list()</a></span>,<br>         Bindings :: <span class="bold_code data-type-ref"><a href="#type-binding_struct">binding_struct()</a></span>) -&gt;<br>            {value,<br>             Value :: <span class="bold_code data-type-ref"><a href="#type-value">value()</a></span>,<br>             NewBindings :: <span class="bold_code data-type-ref"><a href="#type-binding_struct">binding_struct()</a></span>})</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-lfun_value_handler">lfun_value_handler()</a> = <br>    fun((Name :: atom(), Arguments :: [term()]) -&gt;<br>            Value :: <span class="bold_code data-type-ref"><a href="#type-value">value()</a></span>)</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-local_function_handler">local_function_handler()</a> = <br>    {value, <span class="bold_code data-type-ref"><a href="#type-lfun_value_handler">lfun_value_handler()</a></span>} |<br>    {eval, <span class="bold_code data-type-ref"><a href="#type-lfun_eval_handler">lfun_eval_handler()</a></span>} |<br>    none</span><div class="REFBODY data-type-desc"><p><p>Further described in section
-        <span class="bold_code data-type-ref"><a href="#local_function_handler">Local Function Handler</a></span> in this module</p></p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-name">name()</a> = term()</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-nlfun_handler">nlfun_handler()</a> = <br>    fun((FuncSpec :: <span class="bold_code data-type-ref"><a href="#type-func_spec">func_spec()</a></span>, Arguments :: [term()]) -&gt; term())</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-non_local_function_handler">non_local_function_handler()</a> = {value, <span class="bold_code data-type-ref"><a href="#type-nlfun_handler">nlfun_handler()</a></span>} | none</span><div class="REFBODY data-type-desc"><p><p>Further described in section
-        <span class="bold_code data-type-ref"><a href="#non_local_function_handler">Non-Local Function Handler</a></span> in this module.</p></p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-value">value()</a> = term()</span>
-</div>
-  </div>
+  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
+    <p>
+      <span class="bold_code"><a name="type-bindings">bindings()</a> = [{<span class="bold_code"><a href="#type-name">name()</a></span>, <span class="bold_code"><a href="#type-value">value()</a></span>}]</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-binding_struct">binding_struct()</a> = <span class="bold_code"><a href="orddict.html#type-orddict">orddict:orddict()</a></span></span><br></p>
+<div class="REFBODY"><p><p>A binding structure.</p></p></div>
+    <p>
+      <span class="bold_code"><a name="type-expression">expression()</a> = <span class="bold_code"><a href="erl_parse.html#type-abstract_expr">erl_parse:abstract_expr()</a></span></span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-expressions">expressions()</a> = [<span class="bold_code"><a href="erl_parse.html#type-abstract_expr">erl_parse:abstract_expr()</a></span>]</span><br></p>
+<div class="REFBODY"><p><p>As returned by <span class="bold_code"><a href="erl_parse.html#parse_exprs-1"><span class="code">erl_parse:parse_exprs/1</span></a></span> or
+        <span class="bold_code"><a href="io.html#parse_erl_exprs-2"><span class="code">io:parse_erl_exprs/2</span></a></span>.</p></p></div>
+    <p>
+      <span class="bold_code"><a name="type-expression_list">expression_list()</a> = [<span class="bold_code"><a href="#type-expression">expression()</a></span>]</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-func_spec">func_spec()</a> = <br>    {Module :: module(), Function :: atom()} | function()</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-lfun_eval_handler">lfun_eval_handler()</a> = <br>    fun((Name :: atom(),<br>         Arguments :: <span class="bold_code"><a href="#type-expression_list">expression_list()</a></span>,<br>         Bindings :: <span class="bold_code"><a href="#type-binding_struct">binding_struct()</a></span>) -&gt;<br>            {value,<br>             Value :: <span class="bold_code"><a href="#type-value">value()</a></span>,<br>             NewBindings :: <span class="bold_code"><a href="#type-binding_struct">binding_struct()</a></span>})</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-lfun_value_handler">lfun_value_handler()</a> = <br>    fun((Name :: atom(), Arguments :: [term()]) -&gt;<br>            Value :: <span class="bold_code"><a href="#type-value">value()</a></span>)</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-local_function_handler">local_function_handler()</a> = <br>    {value, <span class="bold_code"><a href="#type-lfun_value_handler">lfun_value_handler()</a></span>} |<br>    {eval, <span class="bold_code"><a href="#type-lfun_eval_handler">lfun_eval_handler()</a></span>} |<br>    none</span><br></p>
+<div class="REFBODY"><p><p>Further described in section
+        <span class="bold_code"><a href="#local_function_handler">Local Function Handler</a></span> in this module</p></p></div>
+    <p>
+      <span class="bold_code"><a name="type-name">name()</a> = term()</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-nlfun_handler">nlfun_handler()</a> = <br>    fun((FuncSpec :: <span class="bold_code"><a href="#type-func_spec">func_spec()</a></span>, Arguments :: [term()]) -&gt; term())</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-non_local_function_handler">non_local_function_handler()</a> = {value, <span class="bold_code"><a href="#type-nlfun_handler">nlfun_handler()</a></span>} | none</span><br></p>
+<div class="REFBODY"><p><p>Further described in section
+        <span class="bold_code"><a href="#non_local_function_handler">Non-Local Function Handler</a></span> in this module.</p></p></div>
+    <p>
+      <span class="bold_code"><a name="type-value">value()</a> = term()</span><br></p>
+  
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="add_binding-3"></a><span class="bold_code func-name">add_binding(Name, Value, BindingStruct) -&gt; <span class="bold_code data-type-ref"><a href="#type-binding_struct">binding_struct()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-name">name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Value = <span class="bold_code data-type-ref"><a href="#type-value">value()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">BindingStruct = <span class="bold_code data-type-ref"><a href="#type-binding_struct">binding_struct()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="add_binding-3"></a><span class="bold_code">add_binding(Name, Value, BindingStruct) -&gt; <span class="bold_code"><a href="#type-binding_struct">binding_struct()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-name">name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Value = <span class="bold_code"><a href="#type-value">value()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">BindingStruct = <span class="bold_code"><a href="#type-binding_struct">binding_struct()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Adds binding <span class="code">Name=Value</span>
           to <span class="code">BindingStruct</span>.
           Returns an updated binding structure.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="binding-2"></a><span class="bold_code func-name">binding(Name, BindingStruct) -&gt; {value, <span class="bold_code data-type-ref"><a href="#type-value">value()</a></span>} | unbound</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-name">name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">BindingStruct = <span class="bold_code data-type-ref"><a href="#type-binding_struct">binding_struct()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="binding-2"></a><span class="bold_code">binding(Name, BindingStruct) -&gt; {value, <span class="bold_code"><a href="#type-value">value()</a></span>} | unbound</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-name">name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">BindingStruct = <span class="bold_code"><a href="#type-binding_struct">binding_struct()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the binding of <span class="code">Name</span>
           in <span class="code">BindingStruct</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="bindings-1"></a><span class="bold_code func-name">bindings(BindingStruct :: <span class="bold_code data-type-ref"><a href="#type-binding_struct">binding_struct()</a></span>) -&gt; <span class="bold_code data-type-ref"><a href="#type-bindings">bindings()</a></span></span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="bindings-1"></a><span class="bold_code">bindings(BindingStruct :: <span class="bold_code"><a href="#type-binding_struct">binding_struct()</a></span>) -&gt; <span class="bold_code"><a href="#type-bindings">bindings()</a></span></span><br></p>
+<div class="REFBODY"><p>
         <p>Returns the list of bindings contained in the binding
           structure.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="del_binding-2"></a><span class="bold_code func-name">del_binding(Name, BindingStruct) -&gt; <span class="bold_code data-type-ref"><a href="#type-binding_struct">binding_struct()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-name">name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">BindingStruct = <span class="bold_code data-type-ref"><a href="#type-binding_struct">binding_struct()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="del_binding-2"></a><span class="bold_code">del_binding(Name, BindingStruct) -&gt; <span class="bold_code"><a href="#type-binding_struct">binding_struct()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-name">name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">BindingStruct = <span class="bold_code"><a href="#type-binding_struct">binding_struct()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Removes the binding of <span class="code">Name</span>
           in <span class="code">BindingStruct</span>.
           Returns an updated binding structure.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="expr-2"></a><span class="bold_code func-name">expr(Expression, Bindings) -&gt; {value, Value, NewBindings}</span><a name="expr-3"></a><span class="bold_code func-name">expr(Expression, Bindings, LocalFunctionHandler) -&gt;<br>        {value, Value, NewBindings}</span><a name="expr-4"></a><span class="bold_code func-name">expr(Expression,<br>     Bindings,<br>     LocalFunctionHandler,<br>     NonLocalFunctionHandler) -&gt;<br>        {value, Value, NewBindings}</span><a name="expr-5"></a><span class="bold_code func-name">expr(Expression,<br>     Bindings,<br>     LocalFunctionHandler,<br>     NonLocalFunctionHandler,<br>     ReturnFormat) -&gt;<br>        {value, Value, NewBindings} | Value</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Expression = <span class="bold_code data-type-ref"><a href="#type-expression">expression()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Bindings = <span class="bold_code data-type-ref"><a href="#type-binding_struct">binding_struct()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">LocalFunctionHandler = <span class="bold_code data-type-ref"><a href="#type-local_function_handler">local_function_handler()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">NonLocalFunctionHandler = <span class="bold_code data-type-ref"><a href="#type-non_local_function_handler">non_local_function_handler()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ReturnFormat = none | value</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Value = <span class="bold_code data-type-ref"><a href="#type-value">value()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">NewBindings = <span class="bold_code data-type-ref"><a href="#type-binding_struct">binding_struct()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="expr-2"></a><span class="bold_code">expr(Expression, Bindings) -&gt; {value, Value, NewBindings}</span><br><a name="expr-3"></a><span class="bold_code">expr(Expression, Bindings, LocalFunctionHandler) -&gt;<br>        {value, Value, NewBindings}</span><br><a name="expr-4"></a><span class="bold_code">expr(Expression,<br>     Bindings,<br>     LocalFunctionHandler,<br>     NonLocalFunctionHandler) -&gt;<br>        {value, Value, NewBindings}</span><br><a name="expr-5"></a><span class="bold_code">expr(Expression,<br>     Bindings,<br>     LocalFunctionHandler,<br>     NonLocalFunctionHandler,<br>     ReturnFormat) -&gt;<br>        {value, Value, NewBindings} | Value</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Expression = <span class="bold_code"><a href="#type-expression">expression()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Bindings = <span class="bold_code"><a href="#type-binding_struct">binding_struct()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">LocalFunctionHandler = <span class="bold_code"><a href="#type-local_function_handler">local_function_handler()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">NonLocalFunctionHandler = <span class="bold_code"><a href="#type-non_local_function_handler">non_local_function_handler()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">ReturnFormat = none | value</span></div>
+<div class="REFTYPES"><span class="bold_code">Value = <span class="bold_code"><a href="#type-value">value()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">NewBindings = <span class="bold_code"><a href="#type-binding_struct">binding_struct()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Evaluates <span class="code">Expression</span> with the set of bindings
           <span class="code">Bindings</span>. <span class="code">Expression</span> is an
           expression in abstract syntax.
           For an explanation of when and how to use arguments
           <span class="code">LocalFunctionHandler</span> and
           <span class="code">NonLocalFunctionHandler</span>, see sections
-          <span class="bold_code data-type-ref"><a href="#local_function_handler">Local Function Handler</a></span> and
-          <span class="bold_code data-type-ref"><a href="#non_local_function_handler">Non-Local Function Handler</a></span> in this module.</p>
+          <span class="bold_code"><a href="#local_function_handler">Local Function Handler</a></span> and
+          <span class="bold_code"><a href="#non_local_function_handler">Non-Local Function Handler</a></span> in this module.</p>
         <p>Returns <span class="code">{value, Value, NewBindings}</span>
           by default. If <span class="code">ReturnFormat</span> is <span class="code">value</span>,
           only <span class="code">Value</span> is returned.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="expr_list-2"></a><span class="bold_code func-name">expr_list(ExpressionList, Bindings) -&gt; {ValueList, NewBindings}</span><a name="expr_list-3"></a><span class="bold_code func-name">expr_list(ExpressionList, Bindings, LocalFunctionHandler) -&gt;<br>             {ValueList, NewBindings}</span><a name="expr_list-4"></a><span class="bold_code func-name">expr_list(ExpressionList,<br>          Bindings,<br>          LocalFunctionHandler,<br>          NonLocalFunctionHandler) -&gt;<br>             {ValueList, NewBindings}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ExpressionList = <span class="bold_code data-type-ref"><a href="#type-expression_list">expression_list()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Bindings = <span class="bold_code data-type-ref"><a href="#type-binding_struct">binding_struct()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">LocalFunctionHandler = <span class="bold_code data-type-ref"><a href="#type-local_function_handler">local_function_handler()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">NonLocalFunctionHandler = <span class="bold_code data-type-ref"><a href="#type-non_local_function_handler">non_local_function_handler()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ValueList = [<span class="bold_code data-type-ref"><a href="#type-value">value()</a></span>]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">NewBindings = <span class="bold_code data-type-ref"><a href="#type-binding_struct">binding_struct()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="expr_list-2"></a><span class="bold_code">expr_list(ExpressionList, Bindings) -&gt; {ValueList, NewBindings}</span><br><a name="expr_list-3"></a><span class="bold_code">expr_list(ExpressionList, Bindings, LocalFunctionHandler) -&gt;<br>             {ValueList, NewBindings}</span><br><a name="expr_list-4"></a><span class="bold_code">expr_list(ExpressionList,<br>          Bindings,<br>          LocalFunctionHandler,<br>          NonLocalFunctionHandler) -&gt;<br>             {ValueList, NewBindings}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">ExpressionList = <span class="bold_code"><a href="#type-expression_list">expression_list()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Bindings = <span class="bold_code"><a href="#type-binding_struct">binding_struct()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">LocalFunctionHandler = <span class="bold_code"><a href="#type-local_function_handler">local_function_handler()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">NonLocalFunctionHandler = <span class="bold_code"><a href="#type-non_local_function_handler">non_local_function_handler()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">ValueList = [<span class="bold_code"><a href="#type-value">value()</a></span>]</span></div>
+<div class="REFTYPES"><span class="bold_code">NewBindings = <span class="bold_code"><a href="#type-binding_struct">binding_struct()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Evaluates a list of expressions in parallel, using the same
           initial bindings for each expression. Attempts are made to
           merge the bindings returned from each evaluation. This
           function is useful in <span class="code">LocalFunctionHandler</span>, see section
-          <span class="bold_code data-type-ref"><a href="#local_function_handler">Local Function Handler</a></span> in this module.</p>
+          <span class="bold_code"><a href="#local_function_handler">Local Function Handler</a></span> in this module.</p>
         <p>Returns <span class="code">{ValueList, NewBindings}</span>.
         </p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="exprs-2"></a><span class="bold_code func-name">exprs(Expressions, Bindings) -&gt; {value, Value, NewBindings}</span><a name="exprs-3"></a><span class="bold_code func-name">exprs(Expressions, Bindings, LocalFunctionHandler) -&gt;<br>         {value, Value, NewBindings}</span><a name="exprs-4"></a><span class="bold_code func-name">exprs(Expressions,<br>      Bindings,<br>      LocalFunctionHandler,<br>      NonLocalFunctionHandler) -&gt;<br>         {value, Value, NewBindings}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Expressions = <span class="bold_code data-type-ref"><a href="#type-expressions">expressions()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Bindings = <span class="bold_code data-type-ref"><a href="#type-binding_struct">binding_struct()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">LocalFunctionHandler = <span class="bold_code data-type-ref"><a href="#type-local_function_handler">local_function_handler()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">NonLocalFunctionHandler = <span class="bold_code data-type-ref"><a href="#type-non_local_function_handler">non_local_function_handler()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Value = <span class="bold_code data-type-ref"><a href="#type-value">value()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">NewBindings = <span class="bold_code data-type-ref"><a href="#type-binding_struct">binding_struct()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="exprs-2"></a><span class="bold_code">exprs(Expressions, Bindings) -&gt; {value, Value, NewBindings}</span><br><a name="exprs-3"></a><span class="bold_code">exprs(Expressions, Bindings, LocalFunctionHandler) -&gt;<br>         {value, Value, NewBindings}</span><br><a name="exprs-4"></a><span class="bold_code">exprs(Expressions,<br>      Bindings,<br>      LocalFunctionHandler,<br>      NonLocalFunctionHandler) -&gt;<br>         {value, Value, NewBindings}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Expressions = <span class="bold_code"><a href="#type-expressions">expressions()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Bindings = <span class="bold_code"><a href="#type-binding_struct">binding_struct()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">LocalFunctionHandler = <span class="bold_code"><a href="#type-local_function_handler">local_function_handler()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">NonLocalFunctionHandler = <span class="bold_code"><a href="#type-non_local_function_handler">non_local_function_handler()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Value = <span class="bold_code"><a href="#type-value">value()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">NewBindings = <span class="bold_code"><a href="#type-binding_struct">binding_struct()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Evaluates <span class="code">Expressions</span> with the set of bindings
           <span class="code">Bindings</span>, where <span class="code">Expressions</span>
           is a sequence of expressions (in abstract syntax) of a type that can
-          be returned by <span class="bold_code bc-15"><a href="io.html#parse_erl_exprs-2"><span class="code">io:parse_erl_exprs/2</span></a></span>.
+          be returned by <span class="bold_code"><a href="io.html#parse_erl_exprs-2"><span class="code">io:parse_erl_exprs/2</span></a></span>.
           For an explanation of when and how to use arguments
           <span class="code">LocalFunctionHandler</span> and
           <span class="code">NonLocalFunctionHandler</span>, see sections
-          <span class="bold_code data-type-ref"><a href="#local_function_handler">Local Function Handler</a></span> and
-          <span class="bold_code data-type-ref"><a href="#non_local_function_handler">Non-Local Function Handler</a></span> in this module.</p>
+          <span class="bold_code"><a href="#local_function_handler">Local Function Handler</a></span> and
+          <span class="bold_code"><a href="#non_local_function_handler">Non-Local Function Handler</a></span> in this module.</p>
         <p>Returns <span class="code">{value, Value, NewBindings}</span>
         </p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="new_bindings-0"></a><span class="bold_code func-name">new_bindings() -&gt; <span class="bold_code data-type-ref"><a href="#type-binding_struct">binding_struct()</a></span></span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="new_bindings-0"></a><span class="bold_code">new_bindings() -&gt; <span class="bold_code"><a href="#type-binding_struct">binding_struct()</a></span></span><br></p>
+<div class="REFBODY"><p>
         <p>Returns an empty binding structure.</p>
-      </p></div></div>
-</div>
-  </div>
+      </p></div>
+  
 
   <h3>
-<a name="local_function_handler"></a><a name="idm45461570169744">Local Function Handler</a>
+<a name="local_function_handler"></a><a name="idm46007676603424">Local Function Handler</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>During evaluation of a function, no calls can be made to local
@@ -1970,9 +1927,9 @@ Func(Name, Arguments, Bindings)</pre></div>
   </div>
 
   <h3>
-<a name="non_local_function_handler"></a><a name="idm45461570153472">Non-Local Function Handler</a>
+<a name="non_local_function_handler"></a><a name="idm46007676587152">Non-Local Function Handler</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>The optional argument <span class="code">NonLocalFunctionHandler</span> can be
@@ -2033,8 +1990,8 @@ Func(FuncSpec, Arguments)</pre></div>
       reason are not allowed to be called.</p>
   </div>
 
-  <h3><a name="idm45461570129664">Known Limitation</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46007676563344">Known Limitation</a></h3>
+<div class="REFBODY">
     
     <p>Undocumented functions in this module are not to be used.</p>
   </div>

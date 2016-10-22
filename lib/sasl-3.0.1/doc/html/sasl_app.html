@@ -147,11 +147,11 @@
 <!-- refpage --><center><h1>sasl</h1></center>
   
     <h3><a name="application" href="#application">Application</a></h3>
-<div class="REFBODY application-body">sasl</div>
+<div class="REFBODY">sasl</div>
     <h3><a name="application-summary" href="#application-summary">Application Summary</a></h3>
-<div class="REFBODY app-summary-body">The SASL application</div>
+<div class="REFBODY">The SASL application</div>
     <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>The SASL application provides the following services:</p>
     <ul>
       <li><span class="code">alarm_handler</span></li>
@@ -168,10 +168,10 @@
           "Simple Authentication and Security Layer" (RFC 4422).</p>
     </p></div>
 </div>
-  </div>
+  </p></div>
 
-  <h3><a name="idm45292387180544">Error Logger Event Handlers</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45555977832848">Error Logger Event Handlers</a></h3>
+<div class="REFBODY">
     
     <p>The following error logger event handlers are used by
       the SASL application.</p>
@@ -181,7 +181,7 @@
         <p>Formats and writes <strong>supervisor reports</strong>, <strong>crash
         reports</strong>, and <strong>progress reports</strong> to <span class="code">stdio</span>.
         This error logger event handler uses
-	<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','kernel_app.html#error_logger_format_depth');">error_logger_format_depth</a></span>
+	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','kernel_app.html#error_logger_format_depth');">error_logger_format_depth</a></span>
 	in the Kernel application to limit how much detail is
         printed in crash and supervisor reports.</p>
       </dd>
@@ -190,7 +190,7 @@
         <p>Formats and writes <strong>supervisor reports</strong>, <strong>crash
         report</strong>, and <strong>progress report</strong> to a single file.
         This error logger event handler uses
-	<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','kernel_app.html#error_logger_format_depth');">error_logger_format_depth</a></span>
+	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','kernel_app.html#error_logger_format_depth');">error_logger_format_depth</a></span>
 	in the Kernel application to limit the details
         printed in crash and supervisor reports.</p>
       </dd>
@@ -200,7 +200,7 @@
           error logger to disk. Multiple files and log rotation are
           used. For efficiency reasons, each event is written as a
           binary. For more information about this handler,
-          see <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','log_mf_h.html');">the STDLIB Reference Manual</a></span>.</p>
+          see <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','log_mf_h.html');">the STDLIB Reference Manual</a></span>.</p>
         <p>To activate this event handler, three SASL
           configuration parameters must be set,
           <span class="code">error_logger_mf_dir</span>, <span class="code">error_logger_mf_maxbytes</span>,
@@ -210,12 +210,12 @@
     </dl>
   </div>
 
-  <h3><a name="idm45292387403008">Configuration</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45555977468608">Configuration</a></h3>
+<div class="REFBODY">
     
     <p>The following configuration parameters are defined for the SASL
       application. For more information about configuration parameters, see
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','app.html');"><span class="code">app(4)</span></a></span> in Kernel.</p>
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','app.html');"><span class="code">app(4)</span></a></span> in Kernel.</p>
     <p>All configuration parameters are optional.</p>
     <dl>
       <dt><strong><span class="code">sasl_error_logger = Value </span></strong></dt>
@@ -232,7 +232,7 @@
           <dt><strong><span class="code">{file,FileName,Modes}</span></strong></dt>
           <dd><p>Same as <span class="code">{file,FileName}</span>, except that <span class="code">Modes</span>
             allows you to specify the modes used for opening the <span class="code">FileName</span>
-            given to the <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#open-2');">file:open/2</a></span>
+            given to the <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#open-2');">file:open/2</a></span>
             call. When not specified, <span class="code">Modes</span> defaults to <span class="code">[write]</span>.
             Use <span class="code">[append]</span> to have the <span class="code">FileName</span> open in append mode.
             <span class="code">FileName</span> is a string.</p></dd>
@@ -280,7 +280,7 @@
       <dd>
         <p>This parameter specifies the client directory at the master
           nodes. For details, see
-          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','release_handling.html');">Release Handling</a></span>
+          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','release_handling.html');">Release Handling</a></span>
           in <strong>OTP Design Principles</strong>. This parameter is
           ignored if parameter <span class="code">masters</span> is not set.</p>
       </dd>
@@ -309,15 +309,15 @@
     </dl>
   </div>
 
-  <h3><a name="idm45292387249264">See Also</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45555978099904">See Also</a></h3>
+<div class="REFBODY">
     
-    <p><span class="bold_code bc-19"><a href="alarm_handler.html"><span class="code">alarm_handler(3)</span></a></span>,
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','error_logger.html');"><span class="code">error_logger(3)</span></a></span>,
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','log_mf_h.html');"><span class="code">log_mf_h(3)</span></a></span>,
-      <span class="bold_code bc-19"><a href="rb.html"><span class="code">rb(3)</span></a></span>,
-      <span class="bold_code bc-19"><a href="release_handler.html"><span class="code">release_handler(3)</span></a></span>,
-      <span class="bold_code bc-19"><a href="systools.html"><span class="code">systools(3)</span></a></span></p>
+    <p><span class="bold_code"><a href="alarm_handler.html"><span class="code">alarm_handler(3)</span></a></span>,
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','error_logger.html');"><span class="code">error_logger(3)</span></a></span>,
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','log_mf_h.html');"><span class="code">log_mf_h(3)</span></a></span>,
+      <span class="bold_code"><a href="rb.html"><span class="code">rb(3)</span></a></span>,
+      <span class="bold_code"><a href="release_handler.html"><span class="code">release_handler(3)</span></a></span>,
+      <span class="bold_code"><a href="systools.html"><span class="code">systools(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

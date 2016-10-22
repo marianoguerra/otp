@@ -314,11 +314,11 @@
 <!-- refpage --><center><h1>lcnt</h1></center>
     
     <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">lcnt</div>
+<div class="REFBODY">lcnt</div>
     <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">A runtime system Lock Profiling tool.</div>
+<div class="REFBODY">A runtime system Lock Profiling tool.</div>
     <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
 	<p>The <span class="code">lcnt</span> module is used to profile the internal ethread locks in the
 	    Erlang Runtime System. With <span class="code">lcnt</span> enabled, Internal counters in the
 	    runtime system are updated each time a lock is taken. The counters stores
@@ -349,57 +349,38 @@
 	    turned on via <span class="code">lcnt:rt_opt({copy_save, true})</span>. The <span class="code">lcnt:apply/1,2,3</span>
 	    functions enables this behavior during profiling.
 	</p>
-    </div>
+    </p></div>
     <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
 
-	<div class="func">
-<div class="func-title">
-<a name="start-0"></a><span class="bold_code bc-9">start() -&gt; {ok, Pid} | {error, {already_started, Pid}} </span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+	<p><a name="start-0"></a><span class="bold_code">start() -&gt; {ok, Pid} | {error, {already_started, Pid}} </span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
 	    </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 		<p>Starts the lock profiler server. The server only act as a medium for the
 		    user and performs filtering and printing of data collected by <span class="code">lcnt:collect/1</span>.
 		</p>
 	    </p></div>
-</div>
-</div>
 
-	<div class="func">
-<div class="func-title">
-<a name="stop-0"></a><span class="bold_code bc-9">stop() -&gt; ok</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+	<p><a name="stop-0"></a><span class="bold_code">stop() -&gt; ok</span><br></p>
+<div class="REFBODY"><p>
 		<p>Stops the lock profiler server.</p>
-	    </p></div></div>
-</div>
+	    </p></div>
 
-	<div class="func">
-<div class="func-title">
-<a name="collect-0"></a><span class="bold_code bc-9">collect() -&gt; ok</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><p>Same as <span class="code">collect(node())</span>.</p></p></div></div>
-</div>
+	<p><a name="collect-0"></a><span class="bold_code">collect() -&gt; ok</span><br></p>
+<div class="REFBODY"><p><p>Same as <span class="code">collect(node())</span>.</p></p></div>
 
-	<div class="func">
-<div class="func-title">
-<a name="collect-1"></a><span class="bold_code bc-9">collect(Node) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+	<p><a name="collect-1"></a><span class="bold_code">collect(Node) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Node = node()</span><br>
+<span class="bold_code">Node = node()</span><br>
 </div>
 	    </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 		<p>Collects lock statistics from the runtime system. The function starts a
 		    server if it is not already started. It then populates the server with lock
 		    statistics. If the server held any lock statistics data before the collect then
@@ -417,151 +398,111 @@
 		</p></div>
 </div>
 	    </p></div>
-</div>
-</div>
 
-	<div class="func">
-<div class="func-title">
-<a name="clear-0"></a><span class="bold_code bc-9">clear() -&gt; ok</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><p>Same as <span class="code">clear(node())</span>.</p></p></div></div>
-</div>
+	<p><a name="clear-0"></a><span class="bold_code">clear() -&gt; ok</span><br></p>
+<div class="REFBODY"><p><p>Same as <span class="code">clear(node())</span>.</p></p></div>
 
-	<div class="func">
-<div class="func-title">
-<a name="clear-1"></a><span class="bold_code bc-9">clear(Node) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+	<p><a name="clear-1"></a><span class="bold_code">clear(Node) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Node = node()</span><br>
+<span class="bold_code">Node = node()</span><br>
 </div>
 	    </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 		<p>Clears the internal lock statistics from the runtime system. This does not clear the
 		    data on the server only on runtime system. All counters for static locks are zeroed,
 		    all dynamic locks currently alive are zeroed and all saved locks now destroyed are removed.
 		    It also resets the duration timer.
 		</p>
 	    </p></div>
-</div>
-</div>
-	<div class="func">
-<div class="func-title">
-<a name="conflicts-0"></a><span class="bold_code bc-9">conflicts() -&gt; ok</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><p>Same as <span class="code">conflicts([])</span>.</p></p></div></div>
-</div>
-	<div class="func">
-<div class="func-title">
-<a name="conflicts-1"></a><span class="bold_code bc-9">conflicts([Option]) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+	<p><a name="conflicts-0"></a><span class="bold_code">conflicts() -&gt; ok</span><br></p>
+<div class="REFBODY"><p><p>Same as <span class="code">conflicts([])</span>.</p></p></div>
+	<p><a name="conflicts-1"></a><span class="bold_code">conflicts([Option]) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Option     = {sort, Sort} | {reverse, bool()} | {thresholds, [Thresholds]} | {print, [Print | {Print, integer()}]} | {max_locks, MaxLocks} | {combine, bool()}</span><br>
+<span class="bold_code">Option     = {sort, Sort} | {reverse, bool()} | {thresholds, [Thresholds]} | {print, [Print | {Print, integer()}]} | {max_locks, MaxLocks} | {combine, bool()}</span><br>
 </div>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Sort       = name | id | type | tries | colls | ratio | time | entry</span><br>
+<span class="bold_code">Sort       = name | id | type | tries | colls | ratio | time | entry</span><br>
 </div>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Thresholds = {tries, integer()} | {colls, integer()} | {time, integer()}</span><br>
+<span class="bold_code">Thresholds = {tries, integer()} | {colls, integer()} | {time, integer()}</span><br>
 </div>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Print      = name | id | type | entry | tries | colls | ratio | time | duration</span><br>
+<span class="bold_code">Print      = name | id | type | entry | tries | colls | ratio | time | duration</span><br>
 </div>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">MaxLocks   = integer() | none</span><br>
+<span class="bold_code">MaxLocks   = integer() | none</span><br>
 </div>
 	    </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 		<p>Prints a list of internal locks and its statistics.</p>
-		<p>For option description, see <span class="bold_code data-type-ref"><a href="#inspect-2">lcnt:inspect/2</a></span>.</p>
+		<p>For option description, see <span class="bold_code"><a href="#inspect-2">lcnt:inspect/2</a></span>.</p>
 	    </p></div>
-</div>
-</div>
 
-	<div class="func">
-<div class="func-title">
-<a name="locations-0"></a><span class="bold_code bc-9">locations() -&gt; ok</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+	<p><a name="locations-0"></a><span class="bold_code">locations() -&gt; ok</span><br></p>
+<div class="REFBODY"><p>
 		<p>Same as <span class="code">locations([])</span>.</p>
-	    </p></div></div>
-</div>
-	<div class="func">
-<div class="func-title">
-<a name="locations-1"></a><span class="bold_code bc-9">locations([Option]) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
-<p>Types:</p>
-		<div class="REFTYPES">
-<span class="bold_code bc-11">Option     = {sort, Sort} | {thresholds, [Thresholds]} | {print, [Print | {Print, integer()}]} | {max_locks, MaxLocks} | {combine, bool()}</span><br>
-</div>
-		<div class="REFTYPES">
-<span class="bold_code bc-11">Sort       = name | id | type | tries | colls | ratio | time | entry</span><br>
-</div>
-		<div class="REFTYPES">
-<span class="bold_code bc-11">Thresholds = {tries, integer()} | {colls, integer()} | {time, integer()}</span><br>
-</div>
-		<div class="REFTYPES">
-<span class="bold_code bc-11">Print      = name | id | type | entry | tries | colls | ratio | time | duration</span><br>
-</div>
-		<div class="REFTYPES">
-<span class="bold_code bc-11">MaxLocks   = integer() | none</span><br>
-</div>
-	    </div>
-<div class="REFBODY data-type-desc"><p>
-		<p>Prints a list of internal lock counters by source code locations.</p>
-		<p>For option description, see <span class="bold_code data-type-ref"><a href="#inspect-2">lcnt:inspect/2</a></span>.</p>
 	    </p></div>
-</div>
-</div>
-
-	<div class="func">
-<div class="func-title">
-<a name="inspect-1"></a><span class="bold_code bc-9">inspect(Lock) -&gt; ok</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><p>Same as <span class="code">inspect(Lock, [])</span>.</p></p></div></div>
-</div>
-	<div class="func">
-<div class="func-title">
-<a name="inspect-2"></a><span class="bold_code bc-9">inspect(Lock, [Option]) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+	<p><a name="locations-1"></a><span class="bold_code">locations([Option]) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Lock       = Name | {Name, Id | [Id]}</span><br>
+<span class="bold_code">Option     = {sort, Sort} | {thresholds, [Thresholds]} | {print, [Print | {Print, integer()}]} | {max_locks, MaxLocks} | {combine, bool()}</span><br>
 </div>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Name       = atom() | pid() | port()</span><br>
+<span class="bold_code">Sort       = name | id | type | tries | colls | ratio | time | entry</span><br>
 </div>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Id         = atom() | integer() | pid() | port()</span><br>
+<span class="bold_code">Thresholds = {tries, integer()} | {colls, integer()} | {time, integer()}</span><br>
 </div>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Option     = {sort, Sort} | {thresholds, [Thresholds]} | {print, [Print | {Print, integer()}]} | {max_locks, MaxLocks} | {combine, bool()} | {locations, bool()}</span><br>
+<span class="bold_code">Print      = name | id | type | entry | tries | colls | ratio | time | duration</span><br>
 </div>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Sort       = name | id | type | tries | colls | ratio | time</span><br>
-</div>
-		<div class="REFTYPES">
-<span class="bold_code bc-11">Thresholds = {tries, integer()} | {colls, integer()} | {time, integer()}</span><br>
-</div>
-		<div class="REFTYPES">
-<span class="bold_code bc-11">Print      = name | id | type | entry | tries | colls | ratio | time | duration</span><br>
-</div>
-		<div class="REFTYPES">
-<span class="bold_code bc-11">MaxLocks   = integer() | none</span><br>
+<span class="bold_code">MaxLocks   = integer() | none</span><br>
 </div>
 	    </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
+		<p>Prints a list of internal lock counters by source code locations.</p>
+		<p>For option description, see <span class="bold_code"><a href="#inspect-2">lcnt:inspect/2</a></span>.</p>
+	    </p></div>
+
+	<p><a name="inspect-1"></a><span class="bold_code">inspect(Lock) -&gt; ok</span><br></p>
+<div class="REFBODY"><p><p>Same as <span class="code">inspect(Lock, [])</span>.</p></p></div>
+	<p><a name="inspect-2"></a><span class="bold_code">inspect(Lock, [Option]) -&gt; ok</span><br></p>
+<div class="REFBODY">
+<p>Types:</p>
+		<div class="REFTYPES">
+<span class="bold_code">Lock       = Name | {Name, Id | [Id]}</span><br>
+</div>
+		<div class="REFTYPES">
+<span class="bold_code">Name       = atom() | pid() | port()</span><br>
+</div>
+		<div class="REFTYPES">
+<span class="bold_code">Id         = atom() | integer() | pid() | port()</span><br>
+</div>
+		<div class="REFTYPES">
+<span class="bold_code">Option     = {sort, Sort} | {thresholds, [Thresholds]} | {print, [Print | {Print, integer()}]} | {max_locks, MaxLocks} | {combine, bool()} | {locations, bool()}</span><br>
+</div>
+		<div class="REFTYPES">
+<span class="bold_code">Sort       = name | id | type | tries | colls | ratio | time</span><br>
+</div>
+		<div class="REFTYPES">
+<span class="bold_code">Thresholds = {tries, integer()} | {colls, integer()} | {time, integer()}</span><br>
+</div>
+		<div class="REFTYPES">
+<span class="bold_code">Print      = name | id | type | entry | tries | colls | ratio | time | duration</span><br>
+</div>
+		<div class="REFTYPES">
+<span class="bold_code">MaxLocks   = integer() | none</span><br>
+</div>
+	    </div>
+<div class="REFBODY"><p>
 		<p>Prints a list of internal lock counters for a specific lock.</p>
-		<p>Lock <span class="code">Name</span> and <span class="code">Id</span> for ports and processes are interchangeable with the use of <span class="code">lcnt:swap_pid_keys/0</span> and is the reason why <span class="code">pid()</span> and <span class="code">port()</span> options can be used in both <span class="code">Name</span> and <span class="code">Id</span> space. Both pids and ports are special identifiers with stripped creation and can be recreated with <span class="bold_code data-type-ref"><a href="#pid-3">lcnt:pid/2,3</a></span> and <span class="bold_code data-type-ref"><a href="#port-2">lcnt:port/1,2</a></span>.  </p>
+		<p>Lock <span class="code">Name</span> and <span class="code">Id</span> for ports and processes are interchangeable with the use of <span class="code">lcnt:swap_pid_keys/0</span> and is the reason why <span class="code">pid()</span> and <span class="code">port()</span> options can be used in both <span class="code">Name</span> and <span class="code">Id</span> space. Both pids and ports are special identifiers with stripped creation and can be recreated with <span class="bold_code"><a href="#pid-3">lcnt:pid/2,3</a></span> and <span class="bold_code"><a href="#port-2">lcnt:port/1,2</a></span>.  </p>
 		<p>Option description:</p>
 		<dl>
 		    <dt><strong><span class="code">{combine, bool()}</span></strong></dt>
@@ -630,92 +571,61 @@
 		</dl>
 
 	    </p></div>
-</div>
-</div>
 
-	<div class="func">
-<div class="func-title">
-<a name="information-0"></a><span class="bold_code bc-9">information() -&gt; ok</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+	<p><a name="information-0"></a><span class="bold_code">information() -&gt; ok</span><br></p>
+<div class="REFBODY"><p>
 		<p>Prints lcnt server state and generic information about collected lock statistics.</p>
-	    </p></div></div>
-</div>
+	    </p></div>
 
-	<div class="func">
-<div class="func-title">
-<a name="swap_pid_keys-0"></a><span class="bold_code bc-9">swap_pid_keys() -&gt; ok</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+	<p><a name="swap_pid_keys-0"></a><span class="bold_code">swap_pid_keys() -&gt; ok</span><br></p>
+<div class="REFBODY"><p>
 		<p>Swaps places on <span class="code">Name</span> and <span class="code">Id</span> space for ports and processes.</p>
-	    </p></div></div>
-</div>
+	    </p></div>
 
-	<div class="func">
-<div class="func-title">
-<a name="load-1"></a><span class="bold_code bc-9">load(Filename) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+	<p><a name="load-1"></a><span class="bold_code">load(Filename) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Filename = filename()</span><br>
+<span class="bold_code">Filename = filename()</span><br>
 </div>
 	    </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 		<p>Restores previously saved data to the server.</p>
 	    </p></div>
-</div>
-</div>
 
-	<div class="func">
-<div class="func-title">
-<a name="save-1"></a><span class="bold_code bc-9">save(Filename) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+	<p><a name="save-1"></a><span class="bold_code">save(Filename) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Filename = filename()</span><br>
+<span class="bold_code">Filename = filename()</span><br>
 </div>
 	    </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 		<p>Saves the collected data to file.</p>
 	    </p></div>
-</div>
-</div>
-    </div>
+    
 
-    <h3><a name="idm46064318373184">Convenience functions</a></h3>
-<div class="REFBODY rb-3">
+    <h3><a name="idm46159109926048">Convenience functions</a></h3>
+<div class="REFBODY">
 	
 	<p>The following functions are used for convenience.</p>
     </div>
     <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-	<div class="func">
-<div class="func-title">
-<a name="apply-1"></a><span class="bold_code bc-9">apply(Fun) -&gt; term()</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+	<p><a name="apply-1"></a><span class="bold_code">apply(Fun) -&gt; term()</span><br></p>
+<div class="REFBODY"><p>
 		<p>Same as <span class="code">apply(Fun, [])</span>.</p>
-	    </p></div></div>
-</div>
-	<div class="func">
-<div class="func-title">
-<a name="apply-2"></a><span class="bold_code bc-9">apply(Fun, Args) -&gt; term()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+	    </p></div>
+	<p><a name="apply-2"></a><span class="bold_code">apply(Fun, Args) -&gt; term()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Fun = fun()</span><br>
+<span class="bold_code">Fun = fun()</span><br>
 </div>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Args = [term()]</span><br>
+<span class="bold_code">Args = [term()]</span><br>
 </div>
 	    </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 		<p> Clears the lock counters and then setups the instrumentation to save all destroyed locks.
 		    After setup the fun is called, passing the elements in <span class="code">Args</span> as arguments.
 		    When the fun returns the statistics are immediately collected to the server. After the
@@ -723,26 +633,20 @@
 		    The result of the applied fun is returned.
 		</p>
 	    </p></div>
-</div>
-</div>
-	<div class="func">
-<div class="func-title">
-<a name="apply-3"></a><span class="bold_code bc-9">apply(Module, Function, Args) -&gt; term()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+	<p><a name="apply-3"></a><span class="bold_code">apply(Module, Function, Args) -&gt; term()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Module = atom()</span><br>
+<span class="bold_code">Module = atom()</span><br>
 </div>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Function = atom()</span><br>
+<span class="bold_code">Function = atom()</span><br>
 </div>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Args = [term()]</span><br>
+<span class="bold_code">Args = [term()]</span><br>
 </div>
 	    </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 		<p> Clears the lock counters and then setups the instrumentation to save all destroyed locks.
 		    After setup the function is called, passing the elements in <span class="code">Args</span> as arguments.
 		    When the function returns the statistics are immediately collected to the server. After the
@@ -750,135 +654,84 @@
 		    The result of the applied function is returned.
 		</p>
 	    </p></div>
-</div>
-</div>
 
-	<div class="func">
-<div class="func-title">
-<a name="pid-2"></a><span class="bold_code bc-9">pid(Id, Serial) -&gt; pid()</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><p>Same as <span class="code">pid(node(), Id, Serial)</span>.</p></p></div></div>
-</div>
-	<div class="func">
-<div class="func-title">
-<a name="pid-3"></a><span class="bold_code bc-9">pid(Node, Id, Serial) -&gt; pid()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+	<p><a name="pid-2"></a><span class="bold_code">pid(Id, Serial) -&gt; pid()</span><br></p>
+<div class="REFBODY"><p><p>Same as <span class="code">pid(node(), Id, Serial)</span>.</p></p></div>
+	<p><a name="pid-3"></a><span class="bold_code">pid(Node, Id, Serial) -&gt; pid()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Node = node()</span><br>
+<span class="bold_code">Node = node()</span><br>
 </div>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Id = integer()</span><br>
+<span class="bold_code">Id = integer()</span><br>
 </div>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Serial = integer()</span><br>
+<span class="bold_code">Serial = integer()</span><br>
 </div>
 	    </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 		<p>Creates a process id with creation 0. Example:</p>
 	    </p></div>
-</div>
-</div>
 
-	<div class="func">
-<div class="func-title">
-<a name="port-1"></a><span class="bold_code bc-9">port(Id) -&gt; port()</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p><p>Same as <span class="code">port(node(), Id)</span>.</p></p></div></div>
-</div>
-	<div class="func">
-<div class="func-title">
-<a name="port-2"></a><span class="bold_code bc-9">port(Node, Id) -&gt; port()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+	<p><a name="port-1"></a><span class="bold_code">port(Id) -&gt; port()</span><br></p>
+<div class="REFBODY"><p><p>Same as <span class="code">port(node(), Id)</span>.</p></p></div>
+	<p><a name="port-2"></a><span class="bold_code">port(Node, Id) -&gt; port()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Node = node()</span><br>
+<span class="bold_code">Node = node()</span><br>
 </div>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Id = integer()</span><br>
+<span class="bold_code">Id = integer()</span><br>
 </div>
 	    </div>
-<div class="REFBODY data-type-desc"><p><p>Creates a port id with creation 0.</p></p></div>
-</div>
-</div>
+<div class="REFBODY"><p><p>Creates a port id with creation 0.</p></p></div>
 
-    </div>
+    
 
-    <h3><a name="idm46064318345792">Internal runtime lock counter controllers</a></h3>
-<div class="REFBODY rb-3">
+    <h3><a name="idm46159109898656">Internal runtime lock counter controllers</a></h3>
+<div class="REFBODY">
 	
 	<p> The following functions control the behavior of the internal counters.  </p>
     </div>
 
     <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-	<div class="func">
-<div class="func-title">
-<a name="rt_collect-0"></a><span class="bold_code bc-9">rt_collect() -&gt; [lock_counter_data()]</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p> <p>Same as <span class="code">rt_collect(node())</span>.</p> </p></div></div>
-</div>
-	<div class="func">
-<div class="func-title">
-<a name="rt_collect-1"></a><span class="bold_code bc-9">rt_collect(Node) -&gt; [lock_counter_data()]</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+	<p><a name="rt_collect-0"></a><span class="bold_code">rt_collect() -&gt; [lock_counter_data()]</span><br></p>
+<div class="REFBODY"><p> <p>Same as <span class="code">rt_collect(node())</span>.</p> </p></div>
+	<p><a name="rt_collect-1"></a><span class="bold_code">rt_collect(Node) -&gt; [lock_counter_data()]</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Node = node()</span><br>
+<span class="bold_code">Node = node()</span><br>
 </div>
 	    </div>
-<div class="REFBODY data-type-desc"><p> <p>Returns a list of raw lock counter data.</p> </p></div>
-</div>
-</div>
+<div class="REFBODY"><p> <p>Returns a list of raw lock counter data.</p> </p></div>
 
-	<div class="func">
-<div class="func-title">
-<a name="rt_clear-0"></a><span class="bold_code bc-9">rt_clear() -&gt; ok</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p> <p>Same as <span class="code">rt_clear(node())</span>.</p> </p></div></div>
-</div>
-	<div class="func">
-<div class="func-title">
-<a name="rt_clear-1"></a><span class="bold_code bc-9">rt_clear(Node) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+	<p><a name="rt_clear-0"></a><span class="bold_code">rt_clear() -&gt; ok</span><br></p>
+<div class="REFBODY"><p> <p>Same as <span class="code">rt_clear(node())</span>.</p> </p></div>
+	<p><a name="rt_clear-1"></a><span class="bold_code">rt_clear(Node) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Node = node()</span><br>
+<span class="bold_code">Node = node()</span><br>
 </div>
 	    </div>
-<div class="REFBODY data-type-desc"><p> <p>Clear the internal counters. Same as <span class="code">lcnt:clear(Node)</span>.</p></p></div>
-</div>
-</div>
+<div class="REFBODY"><p> <p>Clear the internal counters. Same as <span class="code">lcnt:clear(Node)</span>.</p></p></div>
 
-	<div class="func">
-<div class="func-title">
-<a name="rt_opt-1"></a><span class="bold_code bc-9">rt_opt({Type, bool()}) -&gt; bool()</span><br>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p> <p>Same as <span class="code">rt_opt(node(), {Type, Opt})</span>.</p> </p></div></div>
-</div>
-	<div class="func">
-<div class="func-title">
-<a name="rt_opt-2"></a><span class="bold_code bc-9">rt_opt(Node, {Type, bool()}) -&gt; bool()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+	<p><a name="rt_opt-1"></a><span class="bold_code">rt_opt({Type, bool()}) -&gt; bool()</span><br></p>
+<div class="REFBODY"><p> <p>Same as <span class="code">rt_opt(node(), {Type, Opt})</span>.</p> </p></div>
+	<p><a name="rt_opt-2"></a><span class="bold_code">rt_opt(Node, {Type, bool()}) -&gt; bool()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Node = node()</span><br>
+<span class="bold_code">Node = node()</span><br>
 </div>
 		<div class="REFTYPES">
-<span class="bold_code bc-11">Type = copy_save | process_locks</span><br>
+<span class="bold_code">Type = copy_save | process_locks</span><br>
 </div>
 	    </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 		<p>Changes the lock counter behavior and returns the previous behaviour.</p>
 		<p>Option description:</p>
 		<dl>
@@ -893,14 +746,12 @@
 		    </dd>
 		</dl>
 	    </p></div>
-</div>
-</div>
-    </div>
+    
 
-    <h3><a name="idm46064318319520">See Also</a></h3>
-<div class="REFBODY rb-3">
+    <h3><a name="idm46159109872384">See Also</a></h3>
+<div class="REFBODY">
 	
-	<p> <span class="bold_code bc-19"><a href="lcnt_chapter.html">LCNT User's Guide</a></span></p>
+	<p> <span class="bold_code"><a href="lcnt_chapter.html">LCNT User's Guide</a></span></p>
     </div>
 </div>
 <div class="footer">

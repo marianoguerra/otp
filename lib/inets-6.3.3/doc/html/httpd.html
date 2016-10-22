@@ -333,21 +333,21 @@
 <!-- refpage --><center><h1>httpd</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">httpd</div> 
+<div class="REFBODY">httpd</div> 
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">
+<div class="REFBODY">
     HTTP server API
   </div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>An implementation of an HTTP 1.1 compliant web server, as defined in 
-    <span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc2616.txt">RFC 2616</a></span>. 
+    <span class="bold_code"><a href="http://www.ietf.org/rfc/rfc2616.txt">RFC 2616</a></span>. 
     Provides web server start options, administrative functions, and 
     an Erlang callback API.</p>
-  </div>
+  </p></div>
   
-  <h3><a name="idm45717575592944">DATA TYPES</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45565222326480">DATA TYPES</a></h3>
+<div class="REFBODY">
     
     <p>Type definitions that are used more than once in
       this module:</p>
@@ -362,14 +362,14 @@
     
   </div>
 
-  <h3><a name="idm45717575587456">ERLANG HTTP SERVER SERVICE START/STOP</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45565222320992">ERLANG HTTP SERVER SERVICE START/STOP</a></h3>
+<div class="REFBODY">
     
     <p>A web server can be configured to start when starting the <span class="code">Inets</span>
     application, or dynamically in runtime by calling the
     <span class="code">Inets</span> application API <span class="code">inets:start(httpd, ServiceConfig)</span> or
     <span class="code">inets:start(httpd, ServiceConfig, How)</span>,
-    see <span class="bold_code bc-19"><a href="inets.html">inets(3)</a></span>.
+    see <span class="bold_code"><a href="inets.html">inets(3)</a></span>.
     The configuration options, also called
     properties, are as follows:</p>
 
@@ -469,24 +469,24 @@
 
       <dt><strong><a name="profile"></a>{profile, atom()}</strong></dt>
       <dd>
-        <p>Used together with <span class="bold_code data-type-ref"><a href="#prop_bind_address"><span class="code">bind_address</span></a></span>
-	and <span class="bold_code data-type-ref"><a href="#prop_port"><span class="code">port</span></a></span> to uniquely identify
+        <p>Used together with <span class="bold_code"><a href="#prop_bind_address"><span class="code">bind_address</span></a></span>
+	and <span class="bold_code"><a href="#prop_port"><span class="code">port</span></a></span> to uniquely identify
 	a HTTP server. This can be useful in a virtualized environment,
 	where there can
 	be more that one server that has the same bind_address and port.
 	If this property is not explicitly set, it is assumed that the
-	<span class="bold_code data-type-ref"><a href="#prop_bind_address"><span class="code">bind_address</span></a></span> and
-	<span class="bold_code data-type-ref"><a href="#prop_port"><span class="code">port</span></a></span>uniquely identifies the HTTP server.
+	<span class="bold_code"><a href="#prop_bind_address"><span class="code">bind_address</span></a></span> and
+	<span class="bold_code"><a href="#prop_port"><span class="code">port</span></a></span>uniquely identifies the HTTP server.
 	</p>
       </dd>
 
       <dt><strong><a name="prop_socket_type"></a>{socket_type, ip_comm | {ip_comm,  Config::proplist()} | {essl, Config::proplist()}}</strong></dt>
       <dd>
 	<p>For <span class="code">ip_comm</span> configuration options, see 
-	<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html#listen-2');">gen_tcp:listen/2</a></span>, some options
+	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html#listen-2');">gen_tcp:listen/2</a></span>, some options
 	that are used internally by httpd can not be set.</p>
 	<p>For <span class="code">SSL</span> configuration options, see 
-	<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','ssl','ssl.html#listen-2');">ssl:listen/2</a></span>.</p>
+	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','ssl','ssl.html#listen-2');">ssl:listen/2</a></span>.</p>
 	<p>Default is <span class="code">ip_comm</span>.</p> 
       </dd>
 
@@ -515,7 +515,7 @@
 	mod_disk_log]</span>. 
 	Notice that some <span class="code">mod</span>-modules are dependent on
 	others, so the order cannot be entirely arbitrary. See the
-	<span class="bold_code bc-19"><a href="http_server.html">Inets Web Server Modules</a></span> in the
+	<span class="bold_code"><a href="http_server.html">Inets Web Server Modules</a></span> in the
 	User's Guide for details.</p>
       </dd>
     </dl>
@@ -527,7 +527,7 @@
       <dt><strong><a name="prop_customize"></a>{customize, atom()}</strong></dt>
       <dd> 
 	<p>A callback module to customize the inets HTTP servers behaviour
-	see <span class="bold_code bc-19"><a href="httpd_custom_api.html">httpd_custom_api</a></span> </p>
+	see <span class="bold_code"><a href="httpd_custom_api.html">httpd_custom_api</a></span> </p>
       </dd>
       
       <dt><strong><a name="prop_disable_chunked_encoding"></a>{disable_chunked_transfer_encoding_send, boolean()}</strong></dt>
@@ -664,15 +664,15 @@ text/plain	asc txt</pre></div>
 	  <dt><strong><span class="code">remotehost</span></strong></dt>
 	  <dd>Remote.</dd>
 	  <dt><strong><span class="code">rfc931</span></strong></dt>
-	  <dd>The remote username of the client (<span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc931.txt">RFC 931</a></span>).</dd>
+	  <dd>The remote username of the client (<span class="bold_code"><a href="http://www.ietf.org/rfc/rfc931.txt">RFC 931</a></span>).</dd>
 	  <dt><strong><span class="code">authuser</span></strong></dt>
 	  <dd>The username used for authentication.</dd>
 	  <dt><strong><span class="code">[date]</span></strong></dt>
-	  <dd>Date and time of the request (<span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc1123.txt">RFC 1123</a></span>).</dd>
+	  <dd>Date and time of the request (<span class="bold_code"><a href="http://www.ietf.org/rfc/rfc1123.txt">RFC 1123</a></span>).</dd>
 	  <dt><strong><span class="code">"request"</span></strong></dt>
-	  <dd>The request line as it came from the client  (<span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc1945.txt">RFC 1945</a></span>).</dd>
+	  <dd>The request line as it came from the client  (<span class="bold_code"><a href="http://www.ietf.org/rfc/rfc1945.txt">RFC 1945</a></span>).</dd>
 	  <dt><strong><span class="code">status</span></strong></dt>
-	  <dd>The HTTP status code returned to the client (<span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc1945.txt">RFC 1945</a></span>).</dd>
+	  <dd>The HTTP status code returned to the client (<span class="bold_code"><a href="http://www.ietf.org/rfc/rfc1945.txt">RFC 1945</a></span>).</dd>
 	  <dt><strong><span class="code">bytes</span></strong></dt>
 	  <dd>The content-length of the document transferred.</dd>
 	</dl>
@@ -755,7 +755,7 @@ text/plain	asc txt</pre></div>
         <p>Beware of trailing space in <span class="code">Replacement</span> to be used.
         If you must have a space in <span class="code">Re</span>, use, for example, the character 
 	encoding <span class="code">\040</span>, see 
-	<span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','re.html');">re(3)</a></span>.</p>
+	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','re.html');">re(3)</a></span>.</p>
       </dd>
 
       <dt><strong><a name="prop_dir_idx"></a>{directory_index, [string()]}</strong></dt>      
@@ -840,7 +840,7 @@ text/plain	asc txt</pre></div>
 	<p><span class="code">Method = string()</span> and <span class="code">CgiScript = string()</span>.
 	<span class="code">script</span> adds an action activating a CGI script
 	whenever a file is requested using a certain HTTP method. The
-	method is either GET or POST, as defined in <span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc1945.txt">RFC 1945</a></span>. It
+	method is either GET or POST, as defined in <span class="bold_code"><a href="http://www.ietf.org/rfc/rfc1945.txt">RFC 1945</a></span>. It
 	propagates the URL and file path of the requested document using
 	the standard CGI PATH_INFO and PATH_TRANSLATED environment
 	variables.</p>
@@ -1173,25 +1173,20 @@ text/plain	asc txt</pre></div>
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="info-1"></a><span class="bold_code bc-9">info(Pid) -&gt;</span><br><a name="info-2"></a><span class="bold_code bc-9">info(Pid, Properties) -&gt; [{Option, Value}]</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="info-1"></a><span class="bold_code">info(Pid) -&gt;</span><br><a name="info-2"></a><span class="bold_code">info(Pid, Properties) -&gt; [{Option, Value}]</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Properties = [property()]</span><br>
+<span class="bold_code">Properties = [property()]</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Option = property()</span><br>
+<span class="bold_code">Option = property()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Value = term()</span><br>
+<span class="bold_code">Value = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Fetches information about the HTTP server. When called
 	with only the pid, all properties are fetched. When called
 	with a list of specific properties, they are fetched.
@@ -1204,40 +1199,34 @@ text/plain	asc txt</pre></div>
 <div class="content"><p><p>Pid is the pid returned from <span class="code">inets:start/[2,3]</span>. 
 	    Can also be retrieved form <span class="code">inets:services/0</span> and
 	    <span class="code">inets:services_info/0</span>,
-	    see <span class="bold_code bc-19"><a href="inets.html">inets(3)</a></span>.
+	    see <span class="bold_code"><a href="inets.html">inets(3)</a></span>.
 	  </p></p></div>
 </div>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="info-2"></a><span class="bold_code bc-9">info(Address, Port) -&gt;  </span><br><a name="info-3"></a><span class="bold_code bc-9">info(Address, Port, Profile) -&gt;  </span><br><a name="info-4"></a><span class="bold_code bc-9">info(Address, Port, Profile, Properties) -&gt; [{Option, Value}] </span><br><a name="info-3"></a><span class="bold_code bc-9">info(Address, Port, Properties) -&gt; [{Option, Value}] </span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="info-2"></a><span class="bold_code">info(Address, Port) -&gt;  </span><br><a name="info-3"></a><span class="bold_code">info(Address, Port, Profile) -&gt;  </span><br><a name="info-4"></a><span class="bold_code">info(Address, Port, Profile, Properties) -&gt; [{Option, Value}] </span><br><a name="info-3"></a><span class="bold_code">info(Address, Port, Properties) -&gt; [{Option, Value}] </span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Address = ip_address()</span><br>
+<span class="bold_code">Address = ip_address()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Port = integer()</span><br>
+<span class="bold_code">Port = integer()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Profile = atom()</span><br>
+<span class="bold_code">Profile = atom()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Properties = [property()]</span><br>
+<span class="bold_code">Properties = [property()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Option = property()</span><br>
+<span class="bold_code">Option = property()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Value = term()</span><br>
+<span class="bold_code">Value = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Fetches information about the HTTP server. When called with
         only <span class="code">Address</span> and <span class="code">Port</span>, all properties are
         fetched.  When called with a list of specific properties, they
@@ -1252,30 +1241,24 @@ text/plain	asc txt</pre></div>
 	  </p></p></div>
 </div>	
       </p></div>
-</div>
-</div>
     
-    <div class="func">
-<div class="func-title">
-<a name="reload_config-2"></a><span class="bold_code bc-9">reload_config(Config, Mode) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="reload_config-2"></a><span class="bold_code">reload_config(Config, Mode) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Config = path() | [{Option, Value}]</span><br>
+<span class="bold_code">Config = path() | [{Option, Value}]</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Option = property()</span><br>
+<span class="bold_code">Option = property()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Value = term()</span><br>
+<span class="bold_code">Value = term()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Mode = non_disturbing | disturbing</span><br>
+<span class="bold_code">Mode = non_disturbing | disturbing</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 	<p>Reloads the HTTP server configuration without restarting the
 	  server. Incoming requests are answered with a temporary
 	  down message during the reload time.</p>
@@ -1294,12 +1277,10 @@ text/plain	asc txt</pre></div>
 	  connections are accepted, but ongoing requests are
 	  allowed to complete before the reload is done.</p>
       </p></div>
-</div>
-</div>
-  </div>
+  
 
-  <h3><a name="idm45717575290480">ERLANG WEB SERVER API DATA TYPES</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45565222024016">ERLANG WEB SERVER API DATA TYPES</a></h3>
+<div class="REFBODY">
     
     <p>The Erlang web server API data types are as follows:</p>
     <div class="example"><pre>
@@ -1362,7 +1343,7 @@ text/plain	asc txt</pre></div>
       <dt><strong><span class="code">request_uri</span></strong></dt>
       <dd>
 <p>The <span class="code">Request-URI</span> as defined
-       in <span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc1945.txt">RFC 1945</a></span>, for example, <span class="code">"/cgi-bin/find.pl?person=jocke"</span>.</p>
+       in <span class="bold_code"><a href="http://www.ietf.org/rfc/rfc1945.txt">RFC 1945</a></span>, for example, <span class="code">"/cgi-bin/find.pl?person=jocke"</span>.</p>
       </dd>
       <dt><strong><span class="code">http_version</span></strong></dt>
       <dd>
@@ -1372,14 +1353,14 @@ text/plain	asc txt</pre></div>
       <dt><strong><span class="code">request_line</span></strong></dt>
       <dd>
 <p>The <span class="code">Request-Line</span> as
-       defined in<span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc1945.txt">RFC 1945</a></span>, for example, 
+       defined in<span class="bold_code"><a href="http://www.ietf.org/rfc/rfc1945.txt">RFC 1945</a></span>, for example, 
        <span class="code">"GET /cgi-bin/find.pl?person=jocke HTTP/1.0"</span>.</p>
       </dd>
       <dt><strong><span class="code">parsed_header</span></strong></dt>
       <dd>Type <span class="code">[{HeaderKey,HeaderValue}]</span>.
       <span class="code">parsed_header</span> contains all HTTP header fields from the
       HTTP request stored in a list as key-value tuples. See
-      <span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc2616.txt">RFC 2616</a></span>
+      <span class="bold_code"><a href="http://www.ietf.org/rfc/rfc2616.txt">RFC 2616</a></span>
       for a listing of all header fields. For example, the date field
       is stored as <span class="code">{"date","Wed, 15 Oct 1997 14:35:17 GMT"}</span>.
       RFC 2616 defines that HTTP is a case-insensitive protocol and
@@ -1389,7 +1370,7 @@ text/plain	asc txt</pre></div>
       <dt><strong><span class="code">entity_body</span></strong></dt>
       <dd>
 <p>The <span class="code">entity-Body</span> as defined
-       in <span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc2616.txt">RFC 2616</a></span>, for example, data sent from a CGI script using the
+       in <span class="bold_code"><a href="http://www.ietf.org/rfc/rfc2616.txt">RFC 2616</a></span>, for example, data sent from a CGI script using the
        POST method.</p>
       </dd>
       <dt><strong><span class="code">connection</span></strong></dt>
@@ -1399,78 +1380,73 @@ text/plain	asc txt</pre></div>
     </dl>
   </div>
 
-  <h3><a name="idm45717575256576">ERLANG WEB SERVER API CALLBACK FUNCTIONS</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45565221990112">ERLANG WEB SERVER API CALLBACK FUNCTIONS</a></h3>
+<div class="REFBODY">
     
   </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="Module:do-1"></a><span class="bold_code bc-9">Module:do(ModData)-&gt; {proceed, OldData} | {proceed, NewData} | {break, NewData} | done</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:do-1"></a><span class="bold_code">Module:do(ModData)-&gt; {proceed, OldData} | {proceed, NewData} | {break, NewData} | done</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">OldData = list()</span><br>
+<span class="bold_code">OldData = list()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">NewData = [{response,{StatusCode,Body}}]</span><br>
+<span class="bold_code">NewData = [{response,{StatusCode,Body}}]</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">| [{response,{response,Head,Body}}]</span><br>
+<span class="bold_code">| [{response,{response,Head,Body}}]</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">| [{response,{already_sent,Statuscode,Size}}]</span><br>
+<span class="bold_code">| [{response,{already_sent,Statuscode,Size}}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">StatusCode = integer()</span><br>
+<span class="bold_code">StatusCode = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Body = io_list() | nobody | {Fun, Arg}</span><br>
+<span class="bold_code">Body = io_list() | nobody | {Fun, Arg}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Head = [HeaderOption]</span><br>
+<span class="bold_code">Head = [HeaderOption]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">HeaderOption = {Option, Value} | {code, StatusCode}</span><br>
+<span class="bold_code">HeaderOption = {Option, Value} | {code, StatusCode}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Option = accept_ranges | allow</span><br>
+<span class="bold_code">Option = accept_ranges | allow</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">| cache_control | content_MD5</span><br>
+<span class="bold_code">| cache_control | content_MD5</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">| content_encoding | content_language</span><br>
+<span class="bold_code">| content_encoding | content_language</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">| content_length | content_location</span><br>
+<span class="bold_code">| content_length | content_location</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">| content_range | content_type | date</span><br>
+<span class="bold_code">| content_range | content_type | date</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">| etag | expires | last_modified</span><br>
+<span class="bold_code">| etag | expires | last_modified</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">| location | pragma | retry_after</span><br>
+<span class="bold_code">| location | pragma | retry_after</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">| server | trailer | transfer_encoding</span><br>
+<span class="bold_code">| server | trailer | transfer_encoding</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Value = string()</span><br>
+<span class="bold_code">Value = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Fun = fun( Arg ) -&gt; sent| close | Body </span><br>
+<span class="bold_code">Fun = fun( Arg ) -&gt; sent| close | Body </span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Arg = [term()]</span><br>
+<span class="bold_code">Arg = [term()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>When a valid request reaches <span class="code">httpd</span>, it calls <span class="code">do/1</span> in
           each module, defined by the configuration
           option of <span class="code">Module</span>. The function can generate data for other
@@ -1482,10 +1458,10 @@ text/plain	asc txt</pre></div>
           sent back to the client. An appropriate header is
           appended to the message. <span class="code">StatusCode</span> is the
           status code of the response, see 
-	  <span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc2616.txt">RFC 2616</a></span> 
+	  <span class="bold_code"><a href="http://www.ietf.org/rfc/rfc2616.txt">RFC 2616</a></span> 
 	  for the appropriate values.</p>
         <p><span class="code">Head</span> is a key value list of HTTP header fields. The
-        server constructs an HTTP header from this data. See <span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc2616.txt">RFC 2616</a></span>  for the appropriate value for each header field. If the
+        server constructs an HTTP header from this data. See <span class="bold_code"><a href="http://www.ietf.org/rfc/rfc2616.txt">RFC 2616</a></span>  for the appropriate value for each header field. If the
         client is an HTTP/1.0 client, the server filters the
         list so that only HTTP/1.0 header fields are sent back
         to the client.</p>
@@ -1498,36 +1474,30 @@ text/plain	asc txt</pre></div>
           wrong and the server signals this to the client by
           closing the connection.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="Module:load-2"></a><span class="bold_code bc-9">Module:load(Line, AccIn)-&gt; eof | ok | {ok, AccOut} | {ok, AccOut, {Option, Value}} | {ok, AccOut, [{Option, Value}]} | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:load-2"></a><span class="bold_code">Module:load(Line, AccIn)-&gt; eof | ok | {ok, AccOut} | {ok, AccOut, {Option, Value}} | {ok, AccOut, [{Option, Value}]} | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Line = string()</span><br>
+<span class="bold_code">Line = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">AccIn = [{Option, Value}]</span><br>
+<span class="bold_code">AccIn = [{Option, Value}]</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">AccOut = [{Option, Value}]</span><br>
+<span class="bold_code">AccOut = [{Option, Value}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Option = property()</span><br>
+<span class="bold_code">Option = property()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Value = term() </span><br>
+<span class="bold_code">Value = term() </span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 	<p>Converts a line in an Apache-like
 	  configuration file to an <span class="code">{Option, Value}</span> tuple. Some
 	  more complex configuration options, such as <span class="code">directory</span>
@@ -1536,56 +1506,44 @@ text/plain	asc txt</pre></div>
 	  options implemented by this particular callback module.
 	</p>
       </p></div>
-</div>
-</div>
     
-    <div class="func">
-<div class="func-title">
-<a name="Module:remove-1"></a><span class="bold_code bc-9">Module:remove(ConfigDB) -&gt; ok | {error, Reason} </span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:remove-1"></a><span class="bold_code">Module:remove(ConfigDB) -&gt; ok | {error, Reason} </span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">ConfigDB = ets_table()</span><br>
+<span class="bold_code">ConfigDB = ets_table()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>When <span class="code">httpd</span> is shut down, it tries to execute
           <span class="code">remove/1</span> in each Erlang web server callback module. The
           programmer can use this function to clean up resources
           created in the store function.</p>
       </p></div>
-</div>
-</div>
     
-    <div class="func">
-<div class="func-title">
-<a name="Module:store-2"></a><span class="bold_code bc-9">Module:store({Option, Value}, Config)-&gt; {ok, {Option, NewValue}} | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:store-2"></a><span class="bold_code">Module:store({Option, Value}, Config)-&gt; {ok, {Option, NewValue}} | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Line = string()</span><br>
+<span class="bold_code">Line = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Option = property()</span><br>
+<span class="bold_code">Option = property()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Config = [{Option, Value}]</span><br>
+<span class="bold_code">Config = [{Option, Value}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Value = term()</span><br>
+<span class="bold_code">Value = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
 	<p>Checks the validity of the
 	  configuration options before saving them in the internal
 	  database. This function can also have a side effect,
@@ -1596,50 +1554,41 @@ text/plain	asc txt</pre></div>
 	  This function only needs clauses for the options
 	  implemented by this particular callback module.</p>
       </p></div>
-</div>
-</div>
-  </div>
+  
 
-  <h3><a name="idm45717575214304">ERLANG WEB SERVER API HELP FUNCTIONS</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45565221947840">ERLANG WEB SERVER API HELP FUNCTIONS</a></h3>
+<div class="REFBODY">
     
   </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="parse_query-1"></a><span class="bold_code bc-9">parse_query(QueryString) -&gt; [{Key,Value}]</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="parse_query-1"></a><span class="bold_code">parse_query(QueryString) -&gt; [{Key,Value}]</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">QueryString = string()</span><br>
+<span class="bold_code">QueryString = string()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Key = string()</span><br>
+<span class="bold_code">Key = string()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code bc-11">Value = string()</span><br>
+<span class="bold_code">Value = string()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p><span class="code">parse_query/1</span> parses incoming data to <span class="code">erl</span> and
-          <span class="code">eval</span> scripts (see <span class="bold_code bc-19"><a href="mod_esi.html">mod_esi(3)</a></span>) 
+          <span class="code">eval</span> scripts (see <span class="bold_code"><a href="mod_esi.html">mod_esi(3)</a></span>) 
 	  as defined in the standard
           URL format, that is, '+' becomes 'space' and decoding of
           hexadecimal characters (<span class="code">%xx</span>).</p>
       </p></div>
-</div>
-</div>
-  </div>
+  
 
-  <h3><a name="idm45717575205488">SEE ALSO</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45565221939024">SEE ALSO</a></h3>
+<div class="REFBODY">
     
-    <p><span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc2616.txt">RFC 2616</a></span>, 
-    <span class="bold_code bc-19"><a href="inets.html">inets(3)</a></span>,
-    <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','ssl','ssl.html');">ssl(3)</a></span>
+    <p><span class="bold_code"><a href="http://www.ietf.org/rfc/rfc2616.txt">RFC 2616</a></span>, 
+    <span class="bold_code"><a href="inets.html">inets(3)</a></span>,
+    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','ssl','ssl.html');">ssl(3)</a></span>
     </p>
   </div>
 

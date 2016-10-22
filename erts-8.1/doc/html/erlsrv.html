@@ -952,11 +952,11 @@
 <!-- refpage --><center><h1>erlsrv</h1></center>
   
   <h3><a name="command" href="#command">Command</a></h3>
-<div class="REFBODY command-body">erlsrv</div>
+<div class="REFBODY">erlsrv</div>
   <h3><a name="command-summary" href="#command-summary">Command Summary</a></h3>
-<div class="REFBODY command-summary-body">Run the Erlang emulator as a service on Windows</div>
+<div class="REFBODY">Run the Erlang emulator as a service on Windows</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>This utility is specific to Windows NT/2000/XP (and later
       versions of Windows). It allows Erlang
       emulators to run as services on the Windows system, allowing embedded
@@ -1176,13 +1176,11 @@
       the first part of the Erlang node name (up to, but not including
       the "@") and <strong>Release</strong> is the current release of the
       application.</p>
-  </div>
+  </p></div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title"><span class="bold_code bc-10">erlsrv {set | add} &lt;service-name&gt; [&lt;service options&gt;]</span></div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><span class="bold_code">erlsrv {set | add} &lt;service-name&gt; [&lt;service options&gt;]</span></p>
+<div class="REFBODY"><p>
         <p>The <span class="code">set</span> and <span class="code">add</span> commands modifies or adds an Erlang
           service, respectively. The simplest form of an <span class="code">add</span> command is
           without any options in which case all default values
@@ -1227,7 +1225,7 @@
               automatically sorted. Any number of <span class="code">-env</span>
               options can be specified in one command. Default is to use the
               system environment block unmodified (except for two additions,
-              see section <span class="bold_code data-type-ref"><a href="#002">Environment</a></span>
+              see section <span class="bold_code"><a href="#002">Environment</a></span>
               below).</p>
           </dd>
           <dt><strong><span class="code">-w[orkdir] [&lt;directory&gt;]</span></strong></dt>
@@ -1283,13 +1281,11 @@
               in the Windows service manager.</p>
           </dd>
         </dl>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title"><span class="bold_code bc-10">erlsrv {start | start_disabled | stop | disable |
-        enable} &lt;service-name&gt;</span></div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><span class="bold_code">erlsrv {start | start_disabled | stop | disable |
+        enable} &lt;service-name&gt;</span></p>
+<div class="REFBODY"><p>
         <p>These commands are only added for convenience, the normal
           way to manipulate the state of a service is through the
           control panels services applet.</p>
@@ -1314,36 +1310,29 @@
           that all other <span class="code">erlsrv</span> commands are locked out during
           the sequence of operations in <span class="code">start_disable</span>, making the
           operation atomic from an <span class="code">erlsrv</span> user's point of view.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title"><span class="bold_code bc-10">erlsrv remove &lt;service-name&gt;</span></div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><span class="bold_code">erlsrv remove &lt;service-name&gt;</span></p>
+<div class="REFBODY"><p>
         <p>Removes the service completely with all its registered
           options. It is stopped before it is removed.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title"><span class="bold_code bc-10">erlsrv list [&lt;service-name&gt;]</span></div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><span class="bold_code">erlsrv list [&lt;service-name&gt;]</span></p>
+<div class="REFBODY"><p>
         <p>If no service name is specified, a brief listing of all Erlang
           services is presented. If a service name is supplied, all options
           for that service are presented.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title"><span class="bold_code bc-10">erlsrv help</span></div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><span class="bold_code">erlsrv help</span></p>
+<div class="REFBODY"><p>
         <p>Displays a brief help text.</p>
-      </p></div></div>
-</div>
-  </div>
+      </p></div>
+  
 
-  <h3><a name="idm45319510940736">Environment</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45311098197120">Environment</a></h3>
+<div class="REFBODY">
     
     <p><a name="002"></a>
       The environment of an Erlang machine started
@@ -1372,8 +1361,8 @@
       to the control events generated on logout (see the next section).</p>
   </div>
 
-  <h3><a name="idm45319510933392">Port Programs</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45311098189776">Port Programs</a></h3>
+<div class="REFBODY">
     
     <p>When a program runs in
       the service context, it must handle the control events that are
@@ -1421,8 +1410,8 @@ void initialize_handler(void){
 }    </pre></div>
   </div>
 
-  <h3><a name="idm45319510926928">Notes</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45311098183312">Notes</a></h3>
+<div class="REFBODY">
     
     <p>Although the options are described in a Unix-like format, the case of
       the options or commands is not relevant, and both character "/" and "-"
@@ -1442,15 +1431,15 @@ void initialize_handler(void){
       <span class="code">os:find_executable/1</span> Erlang function.</p>
 
     <p>For release handling to work, use <span class="code">start_erl</span> as the
-      Erlang machine. As stated <span class="bold_code data-type-ref"><a href="#001">above</a></span>,
+      Erlang machine. As stated <span class="bold_code"><a href="#001">above</a></span>,
       the service name is significant.</p>
   </div>
 
-  <h3><a name="idm45319510919696">See Also</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45311098176080">See Also</a></h3>
+<div class="REFBODY">
     
-    <p><span class="bold_code bc-19"><a href="start_erl.html"><span class="code">start_erl(1)</span></a></span>,
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','sasl','release_handler.html');"><span class="code">release_handler(3)</span></a></span></p>
+    <p><span class="bold_code"><a href="start_erl.html"><span class="code">start_erl(1)</span></a></span>,
+      <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','sasl','release_handler.html');"><span class="code">release_handler(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

@@ -646,11 +646,11 @@
 <!-- refpage --><center><h1>application</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">application</div>
+<div class="REFBODY">application</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Generic OTP application functions</div>
+<div class="REFBODY">Generic OTP application functions</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>In OTP, <strong>application</strong> denotes a component implementing
       some specific functionality, that can be started and stopped as a
       unit, and that can be reused in other systems. This
@@ -664,94 +664,74 @@
       <strong>application resource file</strong> named <span class="code">Application.app</span>,
       where <span class="code">Application</span> is the application name. For details
       about the application specification, see
-    <span class="bold_code bc-19"><a href="app.html"><span class="code">app(4)</span></a></span>.</p>
+    <span class="bold_code"><a href="app.html"><span class="code">app(4)</span></a></span>.</p>
     <p>This module can also be viewed as a behaviour for an application
       implemented according to the OTP design principles as a
       supervision tree. The definition of how to start and stop
       the tree is to be located in an <strong>application callback module</strong>,
       exporting a predefined set of functions.</p>
     <p>For details about applications and behaviours, see
-    <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','des_princ.html');">OTP Design Principles</a></span>.</p>
-  </div>
-  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
-<div class="data-types-body">
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-start_type">start_type()</a> = <br>    normal |<br>    {takeover, Node :: node()} |<br>    {failover, Node :: node()}</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-restart_type">restart_type()</a> = permanent | transient | temporary</span>
-</div>
-    <div class="data-type-def">
-<a name="type-tuple_of"></a><span class="bold_code bc-8">tuple_of(T)</span><br><div class="REFBODY data-type-desc"><p><p>A tuple where the elements are of type <span class="code">T</span>.</p></p></div>
-</div>
-  </div>
+    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','des_princ.html');">OTP Design Principles</a></span>.</p>
+  </p></div>
+  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
+    <p>
+      <span class="bold_code"><a name="type-start_type">start_type()</a> = <br>    normal |<br>    {takeover, Node :: node()} |<br>    {failover, Node :: node()}</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-restart_type">restart_type()</a> = permanent | transient | temporary</span><br></p>
+    <p><a name="type-tuple_of"></a><span class="bold_code">tuple_of(T)</span><br></p>
+<div class="REFBODY"><p><p>A tuple where the elements are of type <span class="code">T</span>.</p></p></div>
+  
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="ensure_all_started-1"></a><span class="bold_code func-name">ensure_all_started(Application) -&gt; {ok, Started} | {error, Reason}</span><a name="ensure_all_started-2"></a><span class="bold_code func-name">ensure_all_started(Application, Type) -&gt;<br>                      {ok, Started} | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Application = atom()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Type = <span class="bold_code data-type-ref"><a href="#type-restart_type">restart_type()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Started = [atom()]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="ensure_all_started-1"></a><span class="bold_code">ensure_all_started(Application) -&gt; {ok, Started} | {error, Reason}</span><br><a name="ensure_all_started-2"></a><span class="bold_code">ensure_all_started(Application, Type) -&gt;<br>                      {ok, Started} | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Application = atom()</span></div>
+<div class="REFTYPES"><span class="bold_code">Type = <span class="bold_code"><a href="#type-restart_type">restart_type()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Started = [atom()]</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
           <p>Equivalent to calling
-	  <span class="bold_code data-type-ref"><a href="#start-1"><span class="code">start/1,2</span></a></span>
+	  <span class="bold_code"><a href="#start-1"><span class="code">start/1,2</span></a></span>
           repeatedly on all dependencies that are not yet started for an application.</p>
           <p>Returns <span class="code">{ok, AppNames}</span> for a successful start or for an already started
           application (which is, however, omitted from the <span class="code">AppNames</span> list).</p>
 	  <p>The function reports <span class="code">{error, {AppName,Reason}}</span> for errors, where
 	  <span class="code">Reason</span> is any possible reason returned by
-	  <span class="bold_code data-type-ref"><a href="#start-1"><span class="code">start/1,2</span></a></span>
+	  <span class="bold_code"><a href="#start-1"><span class="code">start/1,2</span></a></span>
 	  when starting a specific dependency.</p>
 	  <p>If an error occurs, the applications started by the function are stopped
 	  to bring the set of running applications back to its initial state.</p>
-        </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="ensure_started-1"></a><span class="bold_code func-name">ensure_started(Application) -&gt; ok | {error, Reason}</span><a name="ensure_started-2"></a><span class="bold_code func-name">ensure_started(Application, Type) -&gt; ok | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Application = atom()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Type = <span class="bold_code data-type-ref"><a href="#type-restart_type">restart_type()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+        </p></div>
+    <p><a name="ensure_started-1"></a><span class="bold_code">ensure_started(Application) -&gt; ok | {error, Reason}</span><br><a name="ensure_started-2"></a><span class="bold_code">ensure_started(Application, Type) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Application = atom()</span></div>
+<div class="REFTYPES"><span class="bold_code">Type = <span class="bold_code"><a href="#type-restart_type">restart_type()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
 	<p>Equivalent to
-	<span class="bold_code data-type-ref"><a href="#start-1"><span class="code">start/1,2</span></a></span>
+	<span class="bold_code"><a href="#start-1"><span class="code">start/1,2</span></a></span>
 	except it returns <span class="code">ok</span> for already started applications.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_all_env-0"></a><span class="bold_code func-name">get_all_env() -&gt; Env</span><a name="get_all_env-1"></a><span class="bold_code func-name">get_all_env(Application) -&gt; Env</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Application = atom()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Env = [{Par :: atom(), Val :: term()}]</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="get_all_env-0"></a><span class="bold_code">get_all_env() -&gt; Env</span><br><a name="get_all_env-1"></a><span class="bold_code">get_all_env(Application) -&gt; Env</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Application = atom()</span></div>
+<div class="REFTYPES"><span class="bold_code">Env = [{Par :: atom(), Val :: term()}]</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the configuration parameters and their values for
           <span class="code">Application</span>. If the argument is omitted, it defaults to
           the application of the calling process.</p>
         <p>If the specified application is not loaded, or if the process
           executing the call does not belong to any application,
           the function returns <span class="code">[]</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_all_key-0"></a><span class="bold_code func-name">get_all_key() -&gt; [] | {ok, Keys}</span><a name="get_all_key-1"></a><span class="bold_code func-name">get_all_key(Application) -&gt; undefined | Keys</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Application = atom()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Keys = {ok, [{Key :: atom(), Val :: term()}, ...]}</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="get_all_key-0"></a><span class="bold_code">get_all_key() -&gt; [] | {ok, Keys}</span><br><a name="get_all_key-1"></a><span class="bold_code">get_all_key(Application) -&gt; undefined | Keys</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Application = atom()</span></div>
+<div class="REFTYPES"><span class="bold_code">Keys = {ok, [{Key :: atom(), Val :: term()}, ...]}</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the application specification keys and their values
           for <span class="code">Application</span>. If the argument is omitted, it
           defaults to the application of the calling process.</p>
@@ -759,17 +739,13 @@
           returns <span class="code">undefined</span>. If the process executing the call
           does not belong to any application, the function returns
           <span class="code">[]</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_application-0"></a><span class="bold_code func-name">get_application() -&gt; undefined | {ok, Application}</span><a name="get_application-1"></a><span class="bold_code func-name">get_application(PidOrModule) -&gt; undefined | {ok, Application}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">PidOrModule = (Pid :: pid()) | (Module :: module())</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Application = atom()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="get_application-0"></a><span class="bold_code">get_application() -&gt; undefined | {ok, Application}</span><br><a name="get_application-1"></a><span class="bold_code">get_application(PidOrModule) -&gt; undefined | {ok, Application}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">PidOrModule = (Pid :: pid()) | (Module :: module())</span></div>
+<div class="REFTYPES"><span class="bold_code">Application = atom()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the name of the application to which the process
           <span class="code">Pid</span> or the module <span class="code">Module</span> belongs. Providing no
           argument is the same as calling
@@ -777,18 +753,14 @@
         <p>If the specified process does not belong to any application,
           or if the specified process or module does not exist,
           the function returns <span class="code">undefined</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_env-1"></a><span class="bold_code func-name">get_env(Par) -&gt; undefined | {ok, Val}</span><a name="get_env-2"></a><span class="bold_code func-name">get_env(Application, Par) -&gt; undefined | {ok, Val}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Application = Par = atom()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Val = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="get_env-1"></a><span class="bold_code">get_env(Par) -&gt; undefined | {ok, Val}</span><br><a name="get_env-2"></a><span class="bold_code">get_env(Application, Par) -&gt; undefined | {ok, Val}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Application = Par = atom()</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code">Val = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the value of configuration parameter <span class="code">Par</span>
           for <span class="code">Application</span>. If the application argument is
           omitted, it defaults to the application of the calling
@@ -799,34 +771,26 @@
 	    <li>The configuration parameter does not exist.</li>
 	    <li>The process executing the call does not belong to any application.</li>
 	  </ul>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_env-3"></a><span class="bold_code func-name">get_env(Application, Par, Def) -&gt; Val</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Application = Par = atom()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Def = Val = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
-        <p>Works like <span class="bold_code data-type-ref"><a href="#get_env-2"><span class="code">get_env/2</span></a></span> but returns
+      </p></div>
+    <p><a name="get_env-3"></a><span class="bold_code">get_env(Application, Par, Def) -&gt; Val</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Application = Par = atom()</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code">Def = Val = term()</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
+        <p>Works like <span class="bold_code"><a href="#get_env-2"><span class="code">get_env/2</span></a></span> but returns
           value <span class="code">Def</span> when configuration parameter
           <span class="code">Par</span> does not exist.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_key-1"></a><span class="bold_code func-name">get_key(Key) -&gt; undefined | {ok, Val}</span><a name="get_key-2"></a><span class="bold_code func-name">get_key(Application, Key) -&gt; undefined | {ok, Val}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Application = Key = atom()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Val = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="get_key-1"></a><span class="bold_code">get_key(Key) -&gt; undefined | {ok, Val}</span><br><a name="get_key-2"></a><span class="bold_code">get_key(Application, Key) -&gt; undefined | {ok, Val}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Application = Key = atom()</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code">Val = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the value of the application specification key
           <span class="code">Key</span> for <span class="code">Application</span>. If the application
           argument is omitted, it defaults to the application of
@@ -838,27 +802,23 @@
 	    <li>The process executing the call does not belong to any application.</li>
 	  </ul>
 
-      </p></div></div>
+      </p></div>
+    <p><a name="load-1"></a><span class="bold_code">load(AppDescr) -&gt; ok | {error, Reason}</span><br><a name="load-2"></a><span class="bold_code">load(AppDescr, Distributed) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">AppDescr = Application | (AppSpec :: application_spec())</span></div>
+<div class="REFTYPES"><span class="bold_code">Application = atom()</span></div>
+<div class="REFTYPES"><span class="bold_code">Distributed = <br>    {Application, Nodes} | {Application, Time, Nodes} | default</span></div>
+<div class="REFTYPES"><span class="bold_code">Nodes = [node() | <span class="bold_code"><a href="#type-tuple_of">tuple_of</a></span>(node())]</span></div>
+<div class="REFTYPES"><span class="bold_code">Time = integer() &gt;= 1</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+<div class="REFTYPES">
+      <span class="bold_code">application_spec() = <br>    {application,<br>     Application :: atom(),<br>     AppSpecKeys :: [application_opt()]}</span><br>
 </div>
-    <div class="func">
-<div class="func-title">
-<a name="load-1"></a><span class="bold_code func-name">load(AppDescr) -&gt; ok | {error, Reason}</span><a name="load-2"></a><span class="bold_code func-name">load(AppDescr, Distributed) -&gt; ok | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">AppDescr = Application | (AppSpec :: application_spec())</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Application = atom()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Distributed = <br>    {Application, Nodes} | {Application, Time, Nodes} | default</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Nodes = [node() | <span class="bold_code data-type-ref"><a href="#type-tuple_of">tuple_of</a></span>(node())]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Time = integer() &gt;= 1</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">application_spec() = <br>    {application,<br>     Application :: atom(),<br>     AppSpecKeys :: [application_opt()]}</span><br>
+<div class="REFTYPES">
+      <span class="bold_code">application_opt() = <br>    {description, Description :: string()} |<br>    {vsn, Vsn :: string()} |<br>    {id, Id :: string()} |<br>    {modules, [Module :: module()]} |<br>    {registered, Names :: [Name :: atom()]} |<br>    {applications, [Application :: atom()]} |<br>    {included_applications, [Application :: atom()]} |<br>    {env, [{Par :: atom(), Val :: term()}]} |<br>    {start_phases,<br>     [{Phase :: atom(), PhaseArgs :: term()}] | undefined} |<br>    {maxT, MaxT :: timeout()} |<br>    {maxP, MaxP :: integer() &gt;= 1 | infinity} |<br>    {mod, Start :: {Module :: module(), StartArgs :: term()}}</span><br>
 </div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">application_opt() = <br>    {description, Description :: string()} |<br>    {vsn, Vsn :: string()} |<br>    {id, Id :: string()} |<br>    {modules, [Module :: module()]} |<br>    {registered, Names :: [Name :: atom()]} |<br>    {applications, [Application :: atom()]} |<br>    {included_applications, [Application :: atom()]} |<br>    {env, [{Par :: atom(), Val :: term()}]} |<br>    {start_phases,<br>     [{Phase :: atom(), PhaseArgs :: term()}] | undefined} |<br>    {maxT, MaxT :: timeout()} |<br>    {maxP, MaxP :: integer() &gt;= 1 | infinity} |<br>    {mod, Start :: {Module :: module(), StartArgs :: term()}}</span><br>
-</div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Loads the application specification for an application into
           the application controller. It also loads the application
           specifications for any included applications. Notice that
@@ -870,7 +830,7 @@
         <p>The application specification can also be specified directly as a
           tuple <span class="code">AppSpec</span>, having the format and
           contents as described in
-	<span class="bold_code bc-19"><a href="app.html"><span class="code">app(4)</span></a></span>.</p>
+	<span class="bold_code"><a href="app.html"><span class="code">app(4)</span></a></span>.</p>
         <p>If <span class="code">Distributed == {Application,[Time,]Nodes}</span>,
           the application becomes distributed. The argument overrides
           the value for the application in the Kernel configuration
@@ -896,36 +856,28 @@ Nodes = [cp1@cave, {cp2@cave, cp3@cave}]</pre></div>
         <p>If <span class="code">Distributed == default</span>, the value for
           the application in the Kernel configuration parameter
           <span class="code">distributed</span> is used.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="loaded_applications-0"></a><span class="bold_code func-name">loaded_applications() -&gt; [{Application, Description, Vsn}]</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Application = atom()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Description = Vsn = string()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="loaded_applications-0"></a><span class="bold_code">loaded_applications() -&gt; [{Application, Description, Vsn}]</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Application = atom()</span></div>
+<div class="REFTYPES"><span class="bold_code">Description = Vsn = string()</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns a list with information about the applications, and included
 	  applications, which are loaded using <span class="code">load/1,2</span>.
           <span class="code">Application</span> is the application name.
           <span class="code">Description</span> and <span class="code">Vsn</span> are the values
 	  of their <span class="code">description</span> and <span class="code">vsn</span> application specification
           keys, respectively.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="permit-2"></a><span class="bold_code func-name">permit(Application, Permission) -&gt; ok | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Application = atom()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Permission = boolean()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="permit-2"></a><span class="bold_code">permit(Application, Permission) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Application = atom()</span></div>
+<div class="REFTYPES"><span class="bold_code">Permission = boolean()</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Changes the permission for <span class="code">Application</span> to run at
           the current node. The application must be loaded using
           <span class="code">load/1,2</span> for the function to have effect.</p>
@@ -941,7 +893,7 @@ Nodes = [cp1@cave, {cp2@cave, cp3@cave}]</pre></div>
           <span class="code">false</span> means that the application will be started at, or
           moved to, another node according to how its distribution is
           configured
-	(see <span class="bold_code data-type-ref"><a href="#load-2"><span class="code">load/2</span></a></span>).</p>
+	(see <span class="bold_code"><a href="#load-2"><span class="code">load/2</span></a></span>).</p>
         <p>The function does not return until the application is
           started, stopped, or successfully moved to another node.
           However, in some cases where permission is set to <span class="code">true</span>,
@@ -953,19 +905,15 @@ Nodes = [cp1@cave, {cp2@cave, cp3@cave}]</pre></div>
         <p>By default, all applications are loaded with permission
           <span class="code">true</span> on all nodes. The permission can be configured
           using the Kernel configuration parameter <span class="code">permissions</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="set_env-3"></a><span class="bold_code func-name">set_env(Application, Par, Val) -&gt; ok</span><a name="set_env-4"></a><span class="bold_code func-name">set_env(Application, Par, Val, Opts) -&gt; ok</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Application = Par = atom()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Val = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Opts = [{timeout, timeout()} | {persistent, boolean()}]</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="set_env-3"></a><span class="bold_code">set_env(Application, Par, Val) -&gt; ok</span><br><a name="set_env-4"></a><span class="bold_code">set_env(Application, Par, Val, Opts) -&gt; ok</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Application = Par = atom()</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code">Val = term()</span></div>
+<div class="REFTYPES"><span class="bold_code">Opts = [{timeout, timeout()} | {persistent, boolean()}]</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Sets the value of configuration parameter <span class="code">Par</span> for
           <span class="code">Application</span>.</p>
         <p><span class="code">set_env/4</span> uses the standard <span class="code">gen_server</span> time-out
@@ -993,18 +941,14 @@ Nodes = [cp1@cave, {cp2@cave, cp3@cave}]</pre></div>
             weird, inconsistent, and malfunctioning state.</p>
         </p></div>
 </div>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="start-1"></a><span class="bold_code func-name">start(Application) -&gt; ok | {error, Reason}</span><a name="start-2"></a><span class="bold_code func-name">start(Application, Type) -&gt; ok | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Application = atom()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Type = <span class="bold_code data-type-ref"><a href="#type-restart_type">restart_type()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="start-1"></a><span class="bold_code">start(Application) -&gt; ok | {error, Reason}</span><br><a name="start-2"></a><span class="bold_code">start(Application, Type) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Application = atom()</span></div>
+<div class="REFTYPES"><span class="bold_code">Type = <span class="bold_code"><a href="#type-restart_type">restart_type()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Starts <span class="code">Application</span>. If it is not loaded,
           the application controller first loads it using
           <span class="code">load/1</span>. It ensures that any included applications
@@ -1044,42 +988,34 @@ Nodes = [cp1@cave, {cp2@cave, cp3@cave}]</pre></div>
         <p>Notice also that the transient type is of little practical use,
           because when a supervision tree terminates, the reason is set to
           <span class="code">shutdown</span>, not <span class="code">normal</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="start_type-0"></a><span class="bold_code func-name">start_type() -&gt; StartType | undefined | local</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">StartType = <span class="bold_code data-type-ref"><a href="#type-start_type">start_type()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="start_type-0"></a><span class="bold_code">start_type() -&gt; StartType | undefined | local</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">StartType = <span class="bold_code"><a href="#type-start_type">start_type()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>This function is intended to be called by a process belonging
           to an application, when the application is started, to
           determine the start type, which is <span class="code">StartType</span> or
           <span class="code">local</span>.</p>
         <p>For a description of <span class="code">StartType</span>, see
-	  <span class="bold_code data-type-ref"><a href="#start_type"><span class="code">Module:start/2</span></a></span>.</p>
+	  <span class="bold_code"><a href="#start_type"><span class="code">Module:start/2</span></a></span>.</p>
         <p><span class="code">local</span> is returned if only parts of the application are
           restarted (by a supervisor), or if the function is
           called outside a startup.</p>
         <p>If the process executing the call does not belong to any
           application, the function returns <span class="code">undefined</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="stop-1"></a><span class="bold_code func-name">stop(Application) -&gt; ok | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Application = atom()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="stop-1"></a><span class="bold_code">stop(Application) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Application = atom()</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Stops <span class="code">Application</span>. The application master calls
           <span class="code">Module:prep_stop/1</span>, if such a function is defined, and
           then tells the top supervisor of the application to shut down
-          (see <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','supervisor.html');"><span class="code">supervisor(3)</span></a></span>).
+          (see <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','supervisor.html');"><span class="code">supervisor(3)</span></a></span>).
 	  This means that the entire
           supervision tree, including included applications, is
           terminated in reversed start order. After the shutdown,
@@ -1099,18 +1035,14 @@ Nodes = [cp1@cave, {cp2@cave, cp3@cave}]</pre></div>
           moved between nodes, as <span class="code">stop/1</span> is called on
           the node where the application currently executes before
           <span class="code">stop/1</span> is called on the other nodes.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="takeover-2"></a><span class="bold_code func-name">takeover(Application, Type) -&gt; ok | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Application = atom()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Type = <span class="bold_code data-type-ref"><a href="#type-restart_type">restart_type()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="takeover-2"></a><span class="bold_code">takeover(Application, Type) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Application = atom()</span></div>
+<div class="REFTYPES"><span class="bold_code">Type = <span class="bold_code"><a href="#type-restart_type">restart_type()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Takes over the distributed application
           <span class="code">Application</span>, which executes at another node
           <span class="code">Node</span>. At the current node, the application is
@@ -1129,35 +1061,27 @@ Nodes = [cp1@cave, {cp2@cave, cp3@cave}]</pre></div>
           be stopped entirely, at least the top supervisor
           must remain alive.</p>
         <p>For a description of <span class="code">Type</span>, see
-	<span class="bold_code data-type-ref"><a href="#start-1"><span class="code">start/1,2</span></a></span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="unload-1"></a><span class="bold_code func-name">unload(Application) -&gt; ok | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Application = atom()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+	<span class="bold_code"><a href="#start-1"><span class="code">start/1,2</span></a></span>.</p>
+      </p></div>
+    <p><a name="unload-1"></a><span class="bold_code">unload(Application) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Application = atom()</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Unloads the application specification for <span class="code">Application</span>
           from the application controller. It also unloads
           the application specifications for any included applications.
           Notice that the function does not purge the Erlang
           object code.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="unset_env-2"></a><span class="bold_code func-name">unset_env(Application, Par) -&gt; ok</span><a name="unset_env-3"></a><span class="bold_code func-name">unset_env(Application, Par, Opts) -&gt; ok</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Application = Par = atom()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Opts = [{timeout, timeout()} | {persistent, boolean()}]</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="unset_env-2"></a><span class="bold_code">unset_env(Application, Par) -&gt; ok</span><br><a name="unset_env-3"></a><span class="bold_code">unset_env(Application, Par, Opts) -&gt; ok</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Application = Par = atom()</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code">Opts = [{timeout, timeout()} | {persistent, boolean()}]</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Removes the configuration parameter <span class="code">Par</span> and its value
           for <span class="code">Application</span>.</p>
         <p><span class="code">unset_env/2</span> uses the standard <span class="code">gen_server</span>
@@ -1165,7 +1089,7 @@ Nodes = [cp1@cave, {cp2@cave, cp3@cave}]</pre></div>
           specified if another time-out value is useful, for example, in
           situations where the application controller is heavily loaded.</p>
         <p><span class="code">unset_env/3</span> also allows the persistent option to be passed
-          (see <span class="bold_code data-type-ref"><a href="#set_env-4"><span class="code">set_env/4</span></a></span>).</p>
+          (see <span class="bold_code"><a href="#set_env-4"><span class="code">set_env/4</span></a></span>).</p>
 	<div class="warning">
 <div class="label">Warning</div>
 <div class="content"><p>
@@ -1178,19 +1102,15 @@ Nodes = [cp1@cave, {cp2@cave, cp3@cave}]</pre></div>
             weird, inconsistent, and malfunctioning state.</p>
         </p></div>
 </div>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="which_applications-0"></a><span class="bold_code func-name">which_applications() -&gt; [{Application, Description, Vsn}]</span><a name="which_applications-1"></a><span class="bold_code func-name">which_applications(Timeout) -&gt; [{Application, Description, Vsn}]</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Timeout = timeout()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Application = atom()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Description = Vsn = string()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="which_applications-0"></a><span class="bold_code">which_applications() -&gt; [{Application, Description, Vsn}]</span><br><a name="which_applications-1"></a><span class="bold_code">which_applications(Timeout) -&gt; [{Application, Description, Vsn}]</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
+<div class="REFTYPES"><span class="bold_code">Application = atom()</span></div>
+<div class="REFTYPES"><span class="bold_code">Description = Vsn = string()</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns a list with information about the applications that
           are currently running. <span class="code">Application</span> is the application
           name. <span class="code">Description</span> and <span class="code">Vsn</span> are the
@@ -1201,39 +1121,33 @@ Nodes = [cp1@cave, {cp2@cave, cp3@cave}]</pre></div>
           argument can be specified if another time-out value is useful,
           for example, in situations where the application controller
           is heavily loaded.</p>
-      </p></div></div>
-</div>
-  </div>
+      </p></div>
+  
 
-  <h3><a name="idm45917639626048">Callback Module</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46525673229360">Callback Module</a></h3>
+<div class="REFBODY">
     
     <p>The following functions are to be exported from an
       <span class="code">application</span> callback module.</p>
   </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="Module:start-2"></a><span class="bold_code bc-9">Module:start(StartType, StartArgs) -&gt; {ok, Pid} | {ok, Pid, State} | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:start-2"></a><span class="bold_code">Module:start(StartType, StartArgs) -&gt; {ok, Pid} | {ok, Pid, State} | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">StartType = <span class="bold_code data-type-ref"><a href="#type-start_type"><span class="code">start_type()</span></a></span></span><br>
+<span class="bold_code">StartType = <span class="bold_code"><a href="#type-start_type"><span class="code">start_type()</span></a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">StartArgs = term()</span><br>
+<span class="bold_code">StartArgs = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">State = term()</span><br>
+<span class="bold_code">State = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This function is called whenever an application is started
           using <span class="code">start/1,2</span>, and is to start
           the processes of the application. If the application is
@@ -1269,32 +1183,26 @@ Nodes = [cp1@cave, {cp2@cave, cp3@cave}]</pre></div>
           is stopped later, <span class="code">State</span> is passed to
           <span class="code">Module:prep_stop/1</span>.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="Module:start_phase-3"></a><span class="bold_code bc-9">Module:start_phase(Phase, StartType, PhaseArgs) -&gt; ok | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:start_phase-3"></a><span class="bold_code">Module:start_phase(Phase, StartType, PhaseArgs) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Phase = atom()</span><br>
+<span class="bold_code">Phase = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">StartType = <span class="bold_code data-type-ref"><a href="#type-start_type"><span class="code">start_type()</span></a></span></span><br>
+<span class="bold_code">StartType = <span class="bold_code"><a href="#type-start_type"><span class="code">start_type()</span></a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PhaseArgs = term()</span><br>
+<span class="bold_code">PhaseArgs = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Pid = pid()</span><br>
+<span class="bold_code">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">State = state()</span><br>
+<span class="bold_code">State = state()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Starts an application with included
           applications, when synchronization is needed between
           processes in the different applications during startup.</p>
@@ -1306,22 +1214,16 @@ Nodes = [cp1@cave, {cp2@cave, cp3@cave}]</pre></div>
           the primary application) for the primary application and all
           included applications, for which the start phase is defined.</p>
         <p>For a description of <span class="code">StartType</span>, see
-	<span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','Module','start/2.html');"><span class="code">Module:start/2</span></a></span>.</p>
+	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','Module','start/2.html');"><span class="code">Module:start/2</span></a></span>.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="Module:prep_stop-1"></a><span class="bold_code bc-9">Module:prep_stop(State) -&gt; NewState</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:prep_stop-1"></a><span class="bold_code">Module:prep_stop(State) -&gt; NewState</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">State = NewState = term()</span><br>
+<span class="bold_code">State = NewState = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This function is called when an application is about to be
           stopped, before shutting down the processes of
           the application.</p>
@@ -1332,20 +1234,14 @@ Nodes = [cp1@cave, {cp2@cave, cp3@cave}]</pre></div>
         <p>The function is optional. If it is not defined, the processes
           are terminated and then <span class="code">Module:stop(State)</span> is called.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="Module:stop-1"></a><span class="bold_code bc-9">Module:stop(State)</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:stop-1"></a><span class="bold_code">Module:stop(State)</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">State = term()</span><br>
+<span class="bold_code">State = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This function is called whenever an application has stopped.
           It is intended to be the opposite of <span class="code">Module:start/2</span>
           and is to do any necessary cleaning up. The return value is
@@ -1354,32 +1250,26 @@ Nodes = [cp1@cave, {cp2@cave, cp3@cave}]</pre></div>
 	  if such a function exists. Otherwise <span class="code">State</span> is taken from
 	  the return value of <span class="code">Module:start/2</span>.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="Module:config_change-3"></a><span class="bold_code bc-9">Module:config_change(Changed, New, Removed) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="Module:config_change-3"></a><span class="bold_code">Module:config_change(Changed, New, Removed) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Changed = [{Par,Val}]</span><br>
+<span class="bold_code">Changed = [{Par,Val}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">New = [{Par,Val}]</span><br>
+<span class="bold_code">New = [{Par,Val}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Removed = [Par]</span><br>
+<span class="bold_code">Removed = [Par]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Par = atom()</span><br>
+<span class="bold_code"> Par = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11"> Val = term()</span><br>
+<span class="bold_code"> Val = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This function is called by an application after a code
           replacement, if the configuration parameters have changed.</p>
         <p><span class="code">Changed</span> is a list of parameter-value tuples including all
@@ -1388,16 +1278,14 @@ Nodes = [cp1@cave, {cp2@cave, cp3@cave}]</pre></div>
 	  added configuration parameters.</p>
 	<p><span class="code">Removed</span> is a list of all removed parameters.</p>
       </p></div>
-</div>
-</div>
-  </div>
+  
 
-  <h3><a name="idm45917639575184">See Also</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46525673178528">See Also</a></h3>
+<div class="REFBODY">
     
-    <p><span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','des_princ.html');">OTP Design Principles</a></span>,
-      <span class="bold_code bc-19"><a href="kernel_app.html">kernel(6)</a></span>,
-      <span class="bold_code bc-19"><a href="app.html">app(4)</a></span></p>
+    <p><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','des_princ.html');">OTP Design Principles</a></span>,
+      <span class="bold_code"><a href="kernel_app.html">kernel(6)</a></span>,
+      <span class="bold_code"><a href="app.html">app(4)</a></span></p>
   </div>
 </div>
 <div class="footer">

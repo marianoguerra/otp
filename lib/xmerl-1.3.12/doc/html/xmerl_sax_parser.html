@@ -166,22 +166,22 @@
   
 
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">xmerl_sax_parser</div>
+<div class="REFBODY">xmerl_sax_parser</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">XML SAX parser API</div>
+<div class="REFBODY">XML SAX parser API</div>
 
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>
       A SAX parser for XML that sends the events through a callback interface.
      SAX is the <strong>Simple API for XML</strong>, originally a Java-only API. SAX was the first widely adopted API for 
      XML in Java, and is a <strong>de facto</strong> standard where there are versions for several programming language 
      environments other than Java.
     </p>
-  </div>
+  </p></div>
 
-  <h3><a name="idm45970089317248">DATA TYPES</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46682627079936">DATA TYPES</a></h3>
+<div class="REFBODY">
     
 
     <dl>
@@ -195,7 +195,7 @@
        <dl>
          <dt><strong><span class="code">{continuation_fun, ContinuationFun}</span></strong></dt>
          <dd>
-           <span class="bold_code data-type-ref"><a href="#ContinuationFun-1">ContinuationFun</a></span> is a call back function to decide what to do if 
+           <span class="bold_code"><a href="#ContinuationFun-1">ContinuationFun</a></span> is a call back function to decide what to do if 
            the parser runs into EOF before the document is complete. 
          </dd>
          <dt><strong><span class="code">{continuation_state, term()}</span></strong></dt>
@@ -204,7 +204,7 @@
          </dd>
          <dt><strong><span class="code">{event_fun, EventFun}</span></strong></dt>
          <dd>
-           <span class="bold_code data-type-ref"><a href="#EventFun-3">EventFun</a></span> is the call back function for parser events. 
+           <span class="bold_code"><a href="#EventFun-3">EventFun</a></span> is the call back function for parser events. 
          </dd>
          <dt><strong><span class="code">{event_state, term()}</span></strong></dt>
          <dd>
@@ -463,112 +463,99 @@
 
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
 
-    <div class="func">
-<div class="func-title">
-<a name="file-2"></a><span class="bold_code bc-9">file(Filename, Options) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="file-2"></a><span class="bold_code">file(Filename, Options) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Filename = string()</span><br>
+<span class="bold_code">Filename = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Options = [option()]</span><br>
+<span class="bold_code">Options = [option()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = {ok, EventState, Rest} |</span><br>
+<span class="bold_code">Result = {ok, EventState, Rest} |</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">   {Tag, Location, Reason, EndTags, EventState}</span><br>
+<span class="bold_code">   {Tag, Location, Reason, EndTags, EventState}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Rest = unicode_binary() | latin1_binary()</span><br>
+<span class="bold_code">Rest = unicode_binary() | latin1_binary()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tag = atom() (fatal_error, or user defined tag)</span><br>
+<span class="bold_code">Tag = atom() (fatal_error, or user defined tag)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Location = {CurrentLocation, EntityName, LineNo}</span><br>
+<span class="bold_code">Location = {CurrentLocation, EntityName, LineNo}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">CurrentLocation = string()</span><br>
+<span class="bold_code">CurrentLocation = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">EntityName = string()</span><br>
+<span class="bold_code">EntityName = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">LineNo = integer()</span><br>
+<span class="bold_code">LineNo = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">EventState = term()</span><br>
+<span class="bold_code">EventState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Parse file containing an XML document. This functions uses a default continuation function to read the file in blocks.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="stream-2"></a><span class="bold_code bc-9">stream(Xml, Options) -&gt; Result</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="stream-2"></a><span class="bold_code">stream(Xml, Options) -&gt; Result</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Xml = unicode_binary() | latin1_binary() | [unicode_char()]</span><br>
+<span class="bold_code">Xml = unicode_binary() | latin1_binary() | [unicode_char()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Options = [option()]</span><br>
+<span class="bold_code">Options = [option()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Result = {ok, EventState, Rest} |</span><br>
+<span class="bold_code">Result = {ok, EventState, Rest} |</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">   {Tag, Location, Reason, EndTags, EventState}</span><br>
+<span class="bold_code">   {Tag, Location, Reason, EndTags, EventState}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Rest =  unicode_binary() | latin1_binary() | [unicode_char()]</span><br>
+<span class="bold_code">Rest =  unicode_binary() | latin1_binary() | [unicode_char()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tag = atom() (fatal_error or user defined tag)</span><br>
+<span class="bold_code">Tag = atom() (fatal_error or user defined tag)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Location = {CurrentLocation, EntityName, LineNo}</span><br>
+<span class="bold_code">Location = {CurrentLocation, EntityName, LineNo}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">CurrentLocation = string()</span><br>
+<span class="bold_code">CurrentLocation = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">EntityName = string()</span><br>
+<span class="bold_code">EntityName = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">LineNo = integer()</span><br>
+<span class="bold_code">LineNo = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">EventState = term()</span><br>
+<span class="bold_code">EventState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Parse a stream containing an XML document.</p>
       </p></div>
-</div>
-</div>
 
-   </div>
+   
 
-  <h3><a name="idm45970089221488">CALLBACK FUNCTIONS</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46682626984176">CALLBACK FUNCTIONS</a></h3>
+<div class="REFBODY">
     
     <p>
       The callback interface is based on that the user sends a fun with the 
@@ -577,23 +564,18 @@
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
 
-    <div class="func">
-<div class="func-title">
-<a name="ContinuationFun-1"></a><span class="bold_code bc-9">ContinuationFun(State) -&gt; {NewBytes, NewState}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="ContinuationFun-1"></a><span class="bold_code">ContinuationFun(State) -&gt; {NewBytes, NewState}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">State = NewState = term()</span><br>
+<span class="bold_code">State = NewState = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">NewBytes = binary() | list() (should be same as start input in stream/2)</span><br>
+<span class="bold_code">NewBytes = binary() | list() (should be same as start input in stream/2)</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>
           This function is called whenever the parser runs out of input data.
           If the function can't get hold of more input an empty list or binary 
@@ -605,36 +587,30 @@
           and Reason is a string that describes the problem.
         </p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="EventFun-3"></a><span class="bold_code bc-9">EventFun(Event, Location, State) -&gt; NewState</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="EventFun-3"></a><span class="bold_code">EventFun(Event, Location, State) -&gt; NewState</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Event = event()</span><br>
+<span class="bold_code">Event = event()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Location = {CurrentLocation, Entityname, LineNo}</span><br>
+<span class="bold_code">Location = {CurrentLocation, Entityname, LineNo}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">CurrentLocation = string()</span><br>
+<span class="bold_code">CurrentLocation = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Entityname = string()</span><br>
+<span class="bold_code">Entityname = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">LineNo = integer()</span><br>
+<span class="bold_code">LineNo = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">State = NewState = term()</span><br>
+<span class="bold_code">State = NewState = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>
           This function is called for every event sent by the parser. 
 
@@ -644,10 +620,8 @@
           and Reason is a string that describes the problem.
         </p>
       </p></div>
-</div>
-</div>
 
-  </div>
+  
 
 
 

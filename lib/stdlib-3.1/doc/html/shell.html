@@ -1717,11 +1717,11 @@
 <!-- refpage --><center><h1>shell</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">shell</div>
+<div class="REFBODY">shell</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">The Erlang shell.</div>
+<div class="REFBODY">The Erlang shell.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>This module provides an Erlang shell.</p>
 
     <p>The shell is a user interface program
@@ -1731,8 +1731,8 @@
       values, which can then be incorporated in later commands.
       How many commands and results to save can be determined by the user,
       either interactively, by calling
-      <span class="bold_code data-type-ref"><a href="#history-1"><span class="code">history/1</span></a></span> and
-      <span class="bold_code data-type-ref"><a href="#results-1"><span class="code">results/1</span></a></span>,
+      <span class="bold_code"><a href="#history-1"><span class="code">history/1</span></a></span> and
+      <span class="bold_code"><a href="#results-1"><span class="code">results/1</span></a></span>,
       or by setting the application configuration
       parameters <span class="code">shell_history_length</span> and
       <span class="code">shell_saved_results</span> for the STDLIB application.</p>
@@ -1740,7 +1740,7 @@
     <p>The shell uses a helper process for evaluating commands
       to protect the history mechanism from exceptions. By
       default the evaluator process is killed when an exception
-      occurs, but by calling <span class="bold_code data-type-ref"><a href="#catch_exception-1"><span class="code">catch_exception/1</span></a></span> or by
+      occurs, but by calling <span class="bold_code"><a href="#catch_exception-1"><span class="code">catch_exception/1</span></a></span> or by
       setting the application configuration parameter
       <span class="code">shell_catch_exception</span> for the STDLIB application
       this behavior can be changed. See also the example below.</p>
@@ -1801,10 +1801,10 @@
     </ul>
 
     <p>Only the currently connected job can 'talk' to the shell.</p>
-  </div>
+  </p></div>
 
-  <h3><a name="idm45461562032512">Shell Commands</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46007668466192">Shell Commands</a></h3>
+<div class="REFBODY">
     
     <dl>
       <dt><strong><span class="code">b()</span></strong></dt>
@@ -1919,7 +1919,7 @@
         <p>Reads record definitions from files. Existing
           definitions of any of the record names read are replaced.
           <span class="code">Wildcard</span> is a wildcard string as defined in
-          <span class="bold_code bc-19"><a href="filelib.html"><span class="code">filelib(3)</span></a></span>,
+          <span class="bold_code"><a href="filelib.html"><span class="code">filelib(3)</span></a></span>,
           but not an atom.</p>
       </dd>
       <dt><strong><span class="code">rr(WildcardOrModule, RecordNames)</span></strong></dt>
@@ -1940,44 +1940,44 @@
     </dl>
   </div>
 
-  <h3><a name="idm45461561982080">Example</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46007668415760">Example</a></h3>
+<div class="REFBODY">
     
     <p>The following example is a long dialog with the shell. Commands
       starting with <span class="code">&gt;</span> are inputs to the shell. All other lines
       are output from the shell.</p>
 
     <div class="example"><pre>
-strider 1&gt; <span class="bold_code bc-12">erl</span>
+strider 1&gt; <span class="bold_code">erl</span>
 Erlang (BEAM) emulator version 5.3 [hipe] [threads:0]
 
 Eshell V5.3  (abort with ^G)
-1&gt; <span class="bold_code bc-12">Str = "abcd".</span>
+1&gt; <span class="bold_code">Str = "abcd".</span>
 "abcd"</pre></div>
 
     <p>Command 1 sets variable <span class="code">Str</span> to string <span class="code">"abcd"</span>.</p>
 
     <div class="example"><pre>
-2&gt; <span class="bold_code bc-12">L = length(Str).</span>
+2&gt; <span class="bold_code">L = length(Str).</span>
 4</pre></div>
 
     <p>Command 2 sets <span class="code">L</span> to the length of string <span class="code">Str</span>.</p>
 
     <div class="example"><pre>
-3&gt; <span class="bold_code bc-12">Descriptor = {L, list_to_atom(Str)}.</span>
+3&gt; <span class="bold_code">Descriptor = {L, list_to_atom(Str)}.</span>
 {4,abcd}</pre></div>
 
     <p>Command 3 builds the tuple <span class="code">Descriptor</span>, evaluating the BIF
-      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#list_to_atom-1');"><span class="code">list_to_atom/1</span></a></span>.</p>
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#list_to_atom-1');"><span class="code">list_to_atom/1</span></a></span>.</p>
 
     <div class="example"><pre>
-4&gt; <span class="bold_code bc-12">L.</span> 
+4&gt; <span class="bold_code">L.</span> 
 4</pre></div>
 
     <p>Command 4 prints the value of variable <span class="code">L</span>.</p>
 
     <div class="example"><pre>
-5&gt; <span class="bold_code bc-12">b().</span>
+5&gt; <span class="bold_code">b().</span>
 Descriptor = {4,abcd}
 L = 4
 Str = "abcd"
@@ -1989,14 +1989,14 @@ ok</pre></div>
       the end is the return value of function <span class="code">b()</span>.</p>
 
     <div class="example"><pre>
-6&gt; <span class="bold_code bc-12">f(L).</span> 
+6&gt; <span class="bold_code">f(L).</span> 
 ok</pre></div>
 
     <p>Command 6 evaluates the internal shell command <span class="code">f(L)</span> (abbreviation
       of "forget"). The value of variable <span class="code">L</span> is removed.</p>
 
     <div class="example"><pre>
-7&gt; <span class="bold_code bc-12">b().</span>
+7&gt; <span class="bold_code">b().</span>
 Descriptor = {4,abcd}
 Str = "abcd"
 ok</pre></div>
@@ -2004,26 +2004,26 @@ ok</pre></div>
     <p>Command 7 prints the new bindings.</p>
 
     <div class="example"><pre>
-8&gt; <span class="bold_code bc-12">f(L).</span>
+8&gt; <span class="bold_code">f(L).</span>
 ok</pre></div>
 
     <p>Command 8 has no effect, as <span class="code">L</span> has no value.</p>
 
     <div class="example"><pre>
-9&gt; <span class="bold_code bc-12">{L, _} = Descriptor.</span>
+9&gt; <span class="bold_code">{L, _} = Descriptor.</span>
 {4,abcd}</pre></div>
 
     <p>Command 9 performs a pattern matching operation on
       <span class="code">Descriptor</span>, binding a new value to <span class="code">L</span>.</p>
 
     <div class="example"><pre>
-10&gt; <span class="bold_code bc-12">L.</span>
+10&gt; <span class="bold_code">L.</span>
 4</pre></div>
 
     <p>Command 10 prints the current value of <span class="code">L</span>.</p>
 
     <div class="example"><pre>
-11&gt; <span class="bold_code bc-12">{P, Q, R} = Descriptor.</span>
+11&gt; <span class="bold_code">{P, Q, R} = Descriptor.</span>
 ** exception error: no match of right hand side value {4,abcd}</pre></div>
 
     <p>Command 11 tries to match <span class="code">{P, Q, R}</span> against
@@ -2036,9 +2036,9 @@ ok</pre></div>
       variables (<span class="code">L</span>, <span class="code">Str</span>, and so on) are unchanged.</p>
 
     <div class="example"><pre>
-12&gt; <span class="bold_code bc-12">P.</span>
+12&gt; <span class="bold_code">P.</span>
 * 1: variable 'P' is unbound
-13&gt; <span class="bold_code bc-12">Descriptor.</span>
+13&gt; <span class="bold_code">Descriptor.</span>
 {4,abcd}</pre></div>
 
     <p>Commands 12 and 13 show that <span class="code">P</span> is unbound because the
@@ -2046,16 +2046,16 @@ ok</pre></div>
       changed.</p>
 
     <div class="example"><pre>
-14&gt;<span class="bold_code bc-12">{P, Q} = Descriptor.</span>
+14&gt;<span class="bold_code">{P, Q} = Descriptor.</span>
 {4,abcd}
-15&gt; <span class="bold_code bc-12">P.</span>
+15&gt; <span class="bold_code">P.</span>
 4</pre></div>
 
     <p>Commands 14 and 15 show a correct match where <span class="code">P</span> and
       <span class="code">Q</span> are bound.</p>
 
     <div class="example"><pre>
-16&gt; <span class="bold_code bc-12">f().</span>
+16&gt; <span class="bold_code">f().</span>
 ok</pre></div>
 
     <p>Command 16 clears all bindings.</p>
@@ -2069,16 +2069,16 @@ ok</pre></div>
           <span class="code">X + 10.</span></p>
 
     <div class="example"><pre>
-17&gt; <span class="bold_code bc-12">put(aa, hello).</span>
+17&gt; <span class="bold_code">put(aa, hello).</span>
 undefined
-18&gt; <span class="bold_code bc-12">get(aa).</span>
+18&gt; <span class="bold_code">get(aa).</span>
 hello</pre></div>
 
     <p>Commands 17 and 18 set and inspect the value of item
       <span class="code">aa</span> in the process dictionary.</p>
 
     <div class="example"><pre>
-19&gt; <span class="bold_code bc-12">Y = test1:demo(1).</span>
+19&gt; <span class="bold_code">Y = test1:demo(1).</span>
 11</pre></div>
 
     <p>Command 19 evaluates <span class="code">test1:demo(1)</span>. The evaluation
@@ -2087,11 +2087,11 @@ hello</pre></div>
       <span class="code">aa</span> can be seen in command 20.</p>
 
     <div class="example"><pre>
-20&gt; <span class="bold_code bc-12">get().</span>
+20&gt; <span class="bold_code">get().</span>
 [{aa,worked}]
-21&gt; <span class="bold_code bc-12">put(aa, hello).</span>
+21&gt; <span class="bold_code">put(aa, hello).</span>
 worked
-22&gt; <span class="bold_code bc-12">Z = test1:demo(2).</span>
+22&gt; <span class="bold_code">Z = test1:demo(2).</span>
 ** exception error: no match of right hand side value 1
      in function  test1:demo/1</pre></div>
 
@@ -2101,20 +2101,20 @@ worked
       <span class="code">test1:demo(2)</span>, before the error occurred, are discarded.</p>
 
     <div class="example"><pre>
-23&gt; <span class="bold_code bc-12">Z.</span>
+23&gt; <span class="bold_code">Z.</span>
 * 1: variable 'Z' is unbound
-24&gt; <span class="bold_code bc-12">get(aa).</span>
+24&gt; <span class="bold_code">get(aa).</span>
 hello</pre></div>
 
     <p>Commands 23 and 24 show that <span class="code">Z</span> was not bound and that
       dictionary item <span class="code">aa</span> has retained its original value.</p>
 
     <div class="example"><pre>
-25&gt; <span class="bold_code bc-12">erase(), put(aa, hello).</span>
+25&gt; <span class="bold_code">erase(), put(aa, hello).</span>
 undefined
-26&gt; <span class="bold_code bc-12">spawn(test1, demo, [1]).</span>
+26&gt; <span class="bold_code">spawn(test1, demo, [1]).</span>
 &lt;0.57.0&gt;
-27&gt; <span class="bold_code bc-12">get(aa).</span>
+27&gt; <span class="bold_code">get(aa).</span>
 hello</pre></div>
 
     <p>Commands 25, 26, and 27 show the effect of evaluating
@@ -2124,13 +2124,13 @@ hello</pre></div>
       spawned process and therefore not visible to the shell.</p>
 
     <div class="example"><pre>
-28&gt; <span class="bold_code bc-12">io:format("hello hello\n").</span>
+28&gt; <span class="bold_code">io:format("hello hello\n").</span>
 hello hello
 ok
-29&gt; <span class="bold_code bc-12">e(28).</span>
+29&gt; <span class="bold_code">e(28).</span>
 hello hello
 ok
-30&gt; <span class="bold_code bc-12">v(28).</span>
+30&gt; <span class="bold_code">v(28).</span>
 ok</pre></div>
 
     <p>Commands 28, 29 and 30 use the history facilities of the shell.
@@ -2147,9 +2147,9 @@ ok</pre></div>
           <span class="code">3.</span></p>
 
     <div class="example"><pre>
-31&gt; <span class="bold_code bc-12">c(ex).</span>
+31&gt; <span class="bold_code">c(ex).</span>
 {ok,ex}
-32&gt; <span class="bold_code bc-12">rr(ex).</span>
+32&gt; <span class="bold_code">rr(ex).</span>
 [rec]</pre></div>
 
     <p>Commands 31 and 32 compile file <span class="code">ex.erl</span> and read
@@ -2158,7 +2158,7 @@ ok</pre></div>
       tries to read record definitions from the source file instead.</p>
 
     <div class="example"><pre>
-33&gt; <span class="bold_code bc-12">rl(rec).</span>
+33&gt; <span class="bold_code">rl(rec).</span>
 -record(rec,{a,b = val()}).
 ok</pre></div>
 
@@ -2166,21 +2166,21 @@ ok</pre></div>
       <span class="code">rec</span>.</p>
 
     <div class="example"><pre>
-34&gt; <span class="bold_code bc-12">#rec{}.</span>
+34&gt; <span class="bold_code">#rec{}.</span>
 ** exception error: undefined shell command val/0</pre></div>
 
     <p>Command 34 tries to create a <span class="code">rec</span> record, but fails
       as function <span class="code">val/0</span> is undefined.</p>
 
     <div class="example"><pre>
-35&gt; <span class="bold_code bc-12">#rec{b = 3}.</span>
+35&gt; <span class="bold_code">#rec{b = 3}.</span>
 #rec{a = undefined,b = 3}</pre></div>
 
     <p>Command 35 shows the workaround: explicitly assign values to record
       fields that cannot otherwise be initialized.</p>
 
     <div class="example"><pre>
-36&gt; <span class="bold_code bc-12">rp(v(-1)).</span>
+36&gt; <span class="bold_code">rp(v(-1)).</span>
 #rec{a = undefined,b = 3}
 ok</pre></div>
 
@@ -2188,14 +2188,14 @@ ok</pre></div>
       definitions maintained by the shell.</p>
 
     <div class="example"><pre>
-37&gt; <span class="bold_code bc-12">rd(rec, {f = orddict:new()}).</span>
+37&gt; <span class="bold_code">rd(rec, {f = orddict:new()}).</span>
 rec</pre></div>
 
     <p>Command 37 defines a record directly in the shell. The 
       definition replaces the one read from file <span class="code">ex.beam</span>.</p>
 
     <div class="example"><pre>
-38&gt; <span class="bold_code bc-12">#rec{}.</span>
+38&gt; <span class="bold_code">#rec{}.</span>
 #rec{f = []}
 ok</pre></div>
 
@@ -2203,9 +2203,9 @@ ok</pre></div>
       prints the result.</p>
 
     <div class="example"><pre>
-39&gt; <span class="bold_code bc-12">rd(rec, {c}), A.</span>
+39&gt; <span class="bold_code">rd(rec, {c}), A.</span>
 * 1: variable 'A' is unbound
-40&gt; <span class="bold_code bc-12">#rec{}.</span>
+40&gt; <span class="bold_code">#rec{}.</span>
 #rec{c = undefined}
 ok</pre></div>
 
@@ -2221,7 +2221,7 @@ ok</pre></div>
           <span class="code">loop(N+1).</span></p>
 
     <div class="example"><pre>
-41&gt; <span class="bold_code bc-12">test1:loop(0).</span>
+41&gt; <span class="bold_code">test1:loop(0).</span>
 Hello Number: 0
 Hello Number: 1
 Hello Number: 2
@@ -2255,13 +2255,13 @@ Hello Number: 3378
       is shown.</p>
 
     <div class="example"><pre>
-42&gt; <span class="bold_code bc-12">E = ets:new(t, []).</span>
+42&gt; <span class="bold_code">E = ets:new(t, []).</span>
 17</pre></div>
 
     <p>Command 42 creates an ETS table.</p>
 
     <div class="example"><pre>
-43&gt; <span class="bold_code bc-12">ets:insert({d,1,2}).</span>
+43&gt; <span class="bold_code">ets:insert({d,1,2}).</span>
 ** exception error: undefined function ets:insert/1</pre></div>
 
     <p>Command 43 tries to insert a tuple into the ETS table, but the
@@ -2269,7 +2269,7 @@ Hello Number: 3378
       evaluator process.</p>
 
     <div class="example"><pre>
-44&gt; <span class="bold_code bc-12">ets:insert(E, {d,1,2}).</span>
+44&gt; <span class="bold_code">ets:insert(E, {d,1,2}).</span>
 ** exception error: argument is of wrong type
      in function  ets:insert/2
         called as ets:insert(16,{d,1,2})</pre></div>
@@ -2278,9 +2278,9 @@ Hello Number: 3378
       destroyed as it was owned by the killed evaluator process.</p>
 
     <div class="example"><pre>
-45&gt; <span class="bold_code bc-12">f(E).</span>
+45&gt; <span class="bold_code">f(E).</span>
 ok
-46&gt; <span class="bold_code bc-12">catch_exception(true).</span>
+46&gt; <span class="bold_code">catch_exception(true).</span>
 false</pre></div>
 
     <p>Command 46 sets the exception handling of the evaluator process
@@ -2288,9 +2288,9 @@ false</pre></div>
       starting Erlang by <span class="code">erl -stdlib shell_catch_exception true</span>.</p>
 
     <div class="example"><pre>
-47&gt; <span class="bold_code bc-12">E = ets:new(t, []).</span>
+47&gt; <span class="bold_code">E = ets:new(t, []).</span>
 18
-48&gt; <span class="bold_code bc-12">ets:insert({d,1,2}).</span>
+48&gt; <span class="bold_code">ets:insert({d,1,2}).</span>
 * exception error: undefined function ets:insert/1</pre></div>
 
     <p>Command 48 makes the same mistake as in command 43, but this time
@@ -2298,20 +2298,20 @@ false</pre></div>
       of the printout signals that the exception has been caught.</p>
 
     <div class="example"><pre>
-49&gt; <span class="bold_code bc-12">ets:insert(E, {d,1,2}).</span>
+49&gt; <span class="bold_code">ets:insert(E, {d,1,2}).</span>
 true</pre></div>
 
     <p>Command 49 successfully inserts the tuple into the ETS table.</p>
 
     <div class="example"><pre>
-50&gt; <span class="bold_code bc-12">halt().</span>
+50&gt; <span class="bold_code">halt().</span>
 strider 2&gt;</pre></div>
 
     <p>Command 50 exits the Erlang runtime system.</p>
   </div>
 
-  <h3><a name="idm45461561887168">JCL Mode</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46007668320848">JCL Mode</a></h3>
+<div class="REFBODY">
     
     <p>When the shell starts, it starts a single evaluator
       process. This process, together with any local processes that
@@ -2419,8 +2419,8 @@ q                 - quit erlang
       <span class="code">erl -sname this_node -remsh other_node@other_host</span></p>
   </div>
 
-  <h3><a name="idm45461561852240">Restricted Shell</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46007668285920">Restricted Shell</a></h3>
+<div class="REFBODY">
     
     <p>The shell can be started in a
       restricted mode. In this mode, the shell evaluates a function call
@@ -2458,7 +2458,7 @@ q                 - quit erlang
 
     <p>These callback functions are called from local and
       non-local evaluation function handlers, described in the
-      <span class="bold_code bc-19"><a href="erl_eval.html"><span class="code">erl_eval</span></a></span> 
+      <span class="bold_code"><a href="erl_eval.html"><span class="code">erl_eval</span></a></span> 
       manual page. (Arguments in <span class="code">ArgList</span> are evaluated before the
       callback functions are called.)</p>
 
@@ -2481,7 +2481,7 @@ q                 - quit erlang
       </li>
       <li>
         <p>From a normal shell session, call function
-          <span class="bold_code data-type-ref"><a href="#start_restricted-1"><span class="code">start_restricted/1</span></a></span>. This exits the current evaluator
+          <span class="bold_code"><a href="#start_restricted-1"><span class="code">start_restricted/1</span></a></span>. This exits the current evaluator
           and starts a new one in restricted mode.</p>
       </li>
     </ul>
@@ -2517,20 +2517,20 @@ q                 - quit erlang
       </li>
       <li>
         <p>If the restricted shell is activated using
-          <span class="bold_code data-type-ref"><a href="#start_restricted-1"><span class="code">start_restricted/1</span></a></span> and the callback module cannot
+          <span class="bold_code"><a href="#start_restricted-1"><span class="code">start_restricted/1</span></a></span> and the callback module cannot
             be loaded, an error report is sent to the error logger and the call
             returns <span class="code">{error,Reason}</span>.</p>
       </li>
     </ul>
   </div>
 
-  <h3><a name="idm45461561820112">Prompting</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46007668253792">Prompting</a></h3>
+<div class="REFBODY">
     
     <p>The default shell prompt function displays the name of the node
       (if the node can be part of a distributed system) and the
       current command number. The user can customize the prompt
-      function by calling <span class="bold_code data-type-ref"><a href="#prompt_func-1"><span class="code">prompt_func/1</span></a></span> or by setting application
+      function by calling <span class="bold_code"><a href="#prompt_func-1"><span class="code">prompt_func/1</span></a></span> or by setting application
       configuration parameter <span class="code">shell_prompt_func</span> for the
       STDLIB application.</p>
 
@@ -2547,19 +2547,14 @@ q                 - quit erlang
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="catch_exception-1"></a><span class="bold_code bc-9">catch_exception(Bool) -&gt; boolean()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="catch_exception-1"></a><span class="bold_code">catch_exception(Bool) -&gt; boolean()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Bool = boolean()</span><br>
+<span class="bold_code">Bool = boolean()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Sets the exception handling of the evaluator process. The
           previous exception handling is returned. The default
           (<span class="code">false</span>) is to kill the evaluator process when an
@@ -2569,60 +2564,43 @@ q                 - quit erlang
           for example, ports and ETS tables as well as processes
           linked to the evaluator process survive the exception.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="history-1"></a><span class="bold_code func-name">history(N) -&gt; integer() &gt;= 0</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">N = integer() &gt;= 0</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="history-1"></a><span class="bold_code">history(N) -&gt; integer() &gt;= 0</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">N = integer() &gt;= 0</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Sets the number of previous commands to keep in the
           history list to <span class="code">N</span>. The previous number is
           returned. Defaults to 20.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="prompt_func-1"></a><span class="bold_code func-name">prompt_func(PromptFunc) -&gt; PromptFunc2</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">PromptFunc = PromptFunc2 = default | {module(), atom()}</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="prompt_func-1"></a><span class="bold_code">prompt_func(PromptFunc) -&gt; PromptFunc2</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">PromptFunc = PromptFunc2 = default | {module(), atom()}</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Sets the shell prompt function to <span class="code">PromptFunc</span>.
           The previous prompt function is returned.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="results-1"></a><span class="bold_code func-name">results(N) -&gt; integer() &gt;= 0</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">N = integer() &gt;= 0</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="results-1"></a><span class="bold_code">results(N) -&gt; integer() &gt;= 0</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">N = integer() &gt;= 0</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Sets the number of results from previous commands to keep in
           the history list to <span class="code">N</span>. The previous number is
           returned. Defaults to 20.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="start_restricted-1"></a><span class="bold_code func-name">start_restricted(Module) -&gt; {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Module = module()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','code.html#type-load_error_rsn');">code:load_error_rsn()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="start_restricted-1"></a><span class="bold_code">start_restricted(Module) -&gt; {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','code.html#type-load_error_rsn');">code:load_error_rsn()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Exits a normal shell and starts a restricted shell.
           <span class="code">Module</span> specifies the callback module for the
           functions <span class="code">local_allowed/3</span> and <span class="code">non_local_allowed/3</span>.
@@ -2631,28 +2609,20 @@ q                 - quit erlang
           returned. The <span class="code">Reason</span> in the error tuple is the one
           returned by the code loader when trying to load the code of the
           callback module.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="stop_restricted-0"></a><span class="bold_code func-name">stop_restricted() -&gt; no_return()</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="stop_restricted-0"></a><span class="bold_code">stop_restricted() -&gt; no_return()</span><br></p>
+<div class="REFBODY"><p>
         <p>Exits a restricted shell and starts a normal shell. The function
           is meant to be called from the shell.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="strings-1"></a><span class="bold_code func-name">strings(Strings) -&gt; Strings2</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Strings = Strings2 = boolean()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="strings-1"></a><span class="bold_code">strings(Strings) -&gt; Strings2</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Strings = Strings2 = boolean()</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Sets pretty printing of lists to <span class="code">Strings</span>.
           The previous value of the flag is returned.</p>
         <p>The flag can also be set by the STDLIB application variable
@@ -2661,9 +2631,8 @@ q                 - quit erlang
           printed using the string syntax, when possible. Value
           <span class="code">false</span> means that no lists are printed using the
           string syntax.</p>
-      </p></div></div>
-</div>
-  </div>
+      </p></div>
+  
 </div>
 <div class="footer">
 <hr>

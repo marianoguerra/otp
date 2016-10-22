@@ -1717,94 +1717,77 @@
 <!-- refpage --><center><h1>erl_parse</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">erl_parse</div>
+<div class="REFBODY">erl_parse</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">The Erlang parser.</div>
+<div class="REFBODY">The Erlang parser.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>This module is the basic Erlang parser that converts tokens into
       the abstract form of either forms (that is, top-level constructs),
       expressions, or terms. The Abstract Format is described in the
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','absform.html');">ERTS User's Guide</a></span>.
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','absform.html');">ERTS User's Guide</a></span>.
       Notice that a token list must end with the <strong>dot</strong> token to be
-      acceptable to the parse functions (see the <span class="bold_code bc-19"><a href="erl_scan.html"><span class="code">erl_scan(3)</span></a></span>) module.</p>
-  </div>
+      acceptable to the parse functions (see the <span class="bold_code"><a href="erl_scan.html"><span class="code">erl_scan(3)</span></a></span>) module.</p>
+  </p></div>
 
-  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
-<div class="data-types-body">
-    <div class="data-type-def">
-<a name="type-abstract_clause"></a><span class="bold_code bc-8">abstract_clause()</span><br><div class="REFBODY data-type-desc"><p><p>Abstract form of an Erlang clause.</p>
+  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
+    <p><a name="type-abstract_clause"></a><span class="bold_code">abstract_clause()</span><br></p>
+<div class="REFBODY"><p><p>Abstract form of an Erlang clause.</p>
       </p></div>
-</div>
-    <div class="data-type-def">
-<a name="type-abstract_expr"></a><span class="bold_code bc-8">abstract_expr()</span><br><div class="REFBODY data-type-desc"><p><p>Abstract form of an Erlang expression.</p>
+    <p><a name="type-abstract_expr"></a><span class="bold_code">abstract_expr()</span><br></p>
+<div class="REFBODY"><p><p>Abstract form of an Erlang expression.</p>
       </p></div>
-</div>
-    <div class="data-type-def">
-<a name="type-abstract_form"></a><span class="bold_code bc-8">abstract_form()</span><br><div class="REFBODY data-type-desc"><p><p>Abstract form of an Erlang form.</p>
+    <p><a name="type-abstract_form"></a><span class="bold_code">abstract_form()</span><br></p>
+<div class="REFBODY"><p><p>Abstract form of an Erlang form.</p>
       </p></div>
-</div>
-    <div class="data-type-def">
-<a name="type-abstract_type"></a><span class="bold_code bc-8">abstract_type()</span><br><div class="REFBODY data-type-desc"><p><p>Abstract form of an Erlang type.</p>
+    <p><a name="type-abstract_type"></a><span class="bold_code">abstract_type()</span><br></p>
+<div class="REFBODY"><p><p>Abstract form of an Erlang type.</p>
       </p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-erl_parse_tree">erl_parse_tree()</a> = <br>    <span class="bold_code data-type-ref"><a href="#type-abstract_clause">abstract_clause()</a></span> |<br>    <span class="bold_code data-type-ref"><a href="#type-abstract_expr">abstract_expr()</a></span> |<br>    <span class="bold_code data-type-ref"><a href="#type-abstract_form">abstract_form()</a></span> |<br>    <span class="bold_code data-type-ref"><a href="#type-abstract_type">abstract_type()</a></span></span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-error_description">error_description()</a> = term()</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-error_info">error_info()</a> = {<span class="bold_code bc-15"><a href="erl_anno.html#type-line">erl_anno:line()</a></span>, module(), <span class="bold_code data-type-ref"><a href="#type-error_description">error_description()</a></span>}</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-form_info">form_info()</a> = <br>    {eof, <span class="bold_code bc-15"><a href="erl_anno.html#type-line">erl_anno:line()</a></span>} |<br>    {error, <span class="bold_code bc-15"><a href="erl_scan.html#type-error_info">erl_scan:error_info()</a></span> | <span class="bold_code data-type-ref"><a href="#type-error_info">error_info()</a></span>} |<br>    {warning, <span class="bold_code bc-15"><a href="erl_scan.html#type-error_info">erl_scan:error_info()</a></span> | <span class="bold_code data-type-ref"><a href="#type-error_info">error_info()</a></span>}</span><div class="REFBODY data-type-desc"><p><p>Tuples <span class="code">{error, error_info()}</span> and <span class="code">{warning,
+    <p>
+      <span class="bold_code"><a name="type-erl_parse_tree">erl_parse_tree()</a> = <br>    <span class="bold_code"><a href="#type-abstract_clause">abstract_clause()</a></span> |<br>    <span class="bold_code"><a href="#type-abstract_expr">abstract_expr()</a></span> |<br>    <span class="bold_code"><a href="#type-abstract_form">abstract_form()</a></span> |<br>    <span class="bold_code"><a href="#type-abstract_type">abstract_type()</a></span></span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-error_description">error_description()</a> = term()</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-error_info">error_info()</a> = {<span class="bold_code"><a href="erl_anno.html#type-line">erl_anno:line()</a></span>, module(), <span class="bold_code"><a href="#type-error_description">error_description()</a></span>}</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-form_info">form_info()</a> = <br>    {eof, <span class="bold_code"><a href="erl_anno.html#type-line">erl_anno:line()</a></span>} |<br>    {error, <span class="bold_code"><a href="erl_scan.html#type-error_info">erl_scan:error_info()</a></span> | <span class="bold_code"><a href="#type-error_info">error_info()</a></span>} |<br>    {warning, <span class="bold_code"><a href="erl_scan.html#type-error_info">erl_scan:error_info()</a></span> | <span class="bold_code"><a href="#type-error_info">error_info()</a></span>}</span><br></p>
+<div class="REFBODY"><p><p>Tuples <span class="code">{error, error_info()}</span> and <span class="code">{warning,
         error_info()}</span>, denoting syntactically incorrect forms and
         warnings, and <span class="code">{eof, line()}</span>, denoting an end-of-stream
         encountered before a complete form had been parsed.</p>
       </p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-token">token()</a> = <span class="bold_code bc-15"><a href="erl_scan.html#type-token">erl_scan:token()</a></span></span>
-</div>
-  </div>
+    <p>
+      <span class="bold_code"><a name="type-token">token()</a> = <span class="bold_code"><a href="erl_scan.html#type-token">erl_scan:token()</a></span></span><br></p>
+  
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="abstract-1"></a><span class="bold_code func-name">abstract(Data) -&gt; AbsTerm</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Data = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">AbsTerm = <span class="bold_code data-type-ref"><a href="#type-abstract_expr">abstract_expr()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="abstract-1"></a><span class="bold_code">abstract(Data) -&gt; AbsTerm</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Data = term()</span></div>
+<div class="REFTYPES"><span class="bold_code">AbsTerm = <span class="bold_code"><a href="#type-abstract_expr">abstract_expr()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Converts the Erlang data structure <span class="code">Data</span> into an
           abstract form of type <span class="code">AbsTerm</span>.
           This function is the inverse of
-          <span class="bold_code data-type-ref"><a href="#normalise-1"><span class="code">normalise/1</span></a></span>.</p>
+          <span class="bold_code"><a href="#normalise-1"><span class="code">normalise/1</span></a></span>.</p>
         <p><span class="code">erl_parse:abstract(T)</span> is equivalent to
           <span class="code">erl_parse:abstract(T, 0)</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="abstract-2"></a><span class="bold_code func-name">abstract(Data, Options) -&gt; AbsTerm</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Data = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = Line | [Option]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Option = {line, Line} | {encoding, Encoding}</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Encoding = latin1 | unicode | utf8 | none | encoding_func()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Line = <span class="bold_code bc-15"><a href="erl_anno.html#type-line">erl_anno:line()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">AbsTerm = <span class="bold_code data-type-ref"><a href="#type-abstract_expr">abstract_expr()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">encoding_func() = fun((integer() &gt;= 0) -&gt; boolean())</span><br>
+    <p><a name="abstract-2"></a><span class="bold_code">abstract(Data, Options) -&gt; AbsTerm</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Data = term()</span></div>
+<div class="REFTYPES"><span class="bold_code">Options = Line | [Option]</span></div>
+<div class="REFTYPES"><span class="bold_code">Option = {line, Line} | {encoding, Encoding}</span></div>
+<div class="REFTYPES"><span class="bold_code">Encoding = latin1 | unicode | utf8 | none | encoding_func()</span></div>
+<div class="REFTYPES"><span class="bold_code">Line = <span class="bold_code"><a href="erl_anno.html#type-line">erl_anno:line()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">AbsTerm = <span class="bold_code"><a href="#type-abstract_expr">abstract_expr()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">encoding_func() = fun((integer() &gt;= 0) -&gt; boolean())</span><br>
 </div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Converts the Erlang data structure <span class="code">Data</span> into an
           abstract form of type <span class="code">AbsTerm</span>.</p>
         <p>Option <span class="code">Line</span> is the line to be
@@ -1812,65 +1795,53 @@
         <p>Option <span class="code">Encoding</span> is used for
           selecting which integer lists to be considered
           as strings. The default is to use the encoding returned by
-          function <span class="bold_code bc-15"><a href="epp.html#default_encoding-0"><span class="code">epp:default_encoding/0</span></a></span>.
+          function <span class="bold_code"><a href="epp.html#default_encoding-0"><span class="code">epp:default_encoding/0</span></a></span>.
           Value <span class="code">none</span> means that no integer lists are
           considered as strings. <span class="code">encoding_func()</span> is
           called with one integer of a list at a time; if it
           returns <span class="code">true</span> for every integer, the list is
           considered a string.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="anno_from_term-1"></a><span class="bold_code func-name">anno_from_term(Term) -&gt; <span class="bold_code data-type-ref"><a href="#type-erl_parse_tree">erl_parse_tree()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Term = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="anno_from_term-1"></a><span class="bold_code">anno_from_term(Term) -&gt; <span class="bold_code"><a href="#type-erl_parse_tree">erl_parse_tree()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Term = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Assumes that <span class="code">Term</span> is a term with the same
           structure as a <span class="code">erl_parse</span> tree, but with terms,
           say <span class="code">T</span>, where a <span class="code">erl_parse</span> tree has collections
           of annotations. Returns a <span class="code">erl_parse</span> tree where each
           term <span class="code">T</span> is replaced by the value returned by
-          <span class="bold_code bc-15"><a href="erl_anno.html#from_term-1"><span class="code">erl_anno:from_term(T)</span></a></span>. The term
+          <span class="bold_code"><a href="erl_anno.html#from_term-1"><span class="code">erl_anno:from_term(T)</span></a></span>. The term
           <span class="code">Term</span> is traversed in a depth-first,
           left-to-right fashion.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="anno_to_term-1"></a><span class="bold_code func-name">anno_to_term(Abstr) -&gt; term()</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Abstr = <span class="bold_code data-type-ref"><a href="#type-erl_parse_tree">erl_parse_tree()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="anno_to_term-1"></a><span class="bold_code">anno_to_term(Abstr) -&gt; term()</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Abstr = <span class="bold_code"><a href="#type-erl_parse_tree">erl_parse_tree()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns a term where each collection of annotations
           <span class="code">Anno</span> of the nodes of the <span class="code">erl_parse</span> tree
           <span class="code">Abstr</span> is replaced by the term
-          returned by <span class="bold_code bc-15"><a href="erl_anno.html#to_term-1"><span class="code">erl_anno:to_term(Anno)</span></a></span>. The
+          returned by <span class="bold_code"><a href="erl_anno.html#to_term-1"><span class="code">erl_anno:to_term(Anno)</span></a></span>. The
           <span class="code">erl_parse</span> tree is traversed in a depth-first,
           left-to-right fashion.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="fold_anno-3"></a><span class="bold_code func-name">fold_anno(Fun, Acc0, Abstr) -&gt; Acc1</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Fun = fun((Anno, AccIn) -&gt; AccOut)</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Anno = <span class="bold_code bc-15"><a href="erl_anno.html#type-anno">erl_anno:anno()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Acc0 = Acc1 = AccIn = AccOut = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Abstr = <span class="bold_code data-type-ref"><a href="#type-erl_parse_tree">erl_parse_tree()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="fold_anno-3"></a><span class="bold_code">fold_anno(Fun, Acc0, Abstr) -&gt; Acc1</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Fun = fun((Anno, AccIn) -&gt; AccOut)</span></div>
+<div class="REFTYPES"><span class="bold_code">Anno = <span class="bold_code"><a href="erl_anno.html#type-anno">erl_anno:anno()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Acc0 = Acc1 = AccIn = AccOut = term()</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code">Abstr = <span class="bold_code"><a href="#type-erl_parse_tree">erl_parse_tree()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Updates an accumulator by applying <span class="code">Fun</span> on
           each collection of annotations of the <span class="code">erl_parse</span> tree
           <span class="code">Abstr</span>. The first call to
@@ -1880,68 +1851,54 @@
           so on. The final value of the accumulator is returned. The
           <span class="code">erl_parse</span> tree is traversed in a depth-first, left-to-right
           fashion.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="format_error-1"></a><span class="bold_code bc-9">format_error(ErrorDescriptor) -&gt; Chars</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="format_error-1"></a><span class="bold_code">format_error(ErrorDescriptor) -&gt; Chars</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">ErrorDescriptor = <span class="bold_code data-type-ref"><a href="#type-error_info">error_description()</a></span></span><br>
+<span class="bold_code">ErrorDescriptor = <span class="bold_code"><a href="#type-error_info">error_description()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Chars = [char() | Chars]</span><br>
+<span class="bold_code">Chars = [char() | Chars]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Uses an <span class="code">ErrorDescriptor</span> and returns a string
           that describes the error. This function is usually called
           implicitly when an <span class="code">ErrorInfo</span> structure is processed
-          (see section <span class="bold_code data-type-ref"><a href="#errorinfo">Error Information</a></span>).</p>
+          (see section <span class="bold_code"><a href="#errorinfo">Error Information</a></span>).</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="map_anno-2"></a><span class="bold_code func-name">map_anno(Fun, Abstr) -&gt; NewAbstr</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Fun = fun((Anno) -&gt; NewAnno)</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Anno = NewAnno = <span class="bold_code bc-15"><a href="erl_anno.html#type-anno">erl_anno:anno()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Abstr = NewAbstr = <span class="bold_code data-type-ref"><a href="#type-erl_parse_tree">erl_parse_tree()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="map_anno-2"></a><span class="bold_code">map_anno(Fun, Abstr) -&gt; NewAbstr</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Fun = fun((Anno) -&gt; NewAnno)</span></div>
+<div class="REFTYPES"><span class="bold_code">Anno = NewAnno = <span class="bold_code"><a href="erl_anno.html#type-anno">erl_anno:anno()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code">Abstr = NewAbstr = <span class="bold_code"><a href="#type-erl_parse_tree">erl_parse_tree()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Modifies the <span class="code">erl_parse</span> tree <span class="code">Abstr</span>
           by applying <span class="code">Fun</span> on each collection of
           annotations of the nodes of the <span class="code">erl_parse</span> tree. The
           <span class="code">erl_parse</span> tree is traversed in a depth-first,
           left-to-right fashion.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="mapfold_anno-3"></a><span class="bold_code func-name">mapfold_anno(Fun, Acc0, Abstr) -&gt; {NewAbstr, Acc1}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Fun = fun((Anno, AccIn) -&gt; {NewAnno, AccOut})</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Anno = NewAnno = <span class="bold_code bc-15"><a href="erl_anno.html#type-anno">erl_anno:anno()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Acc0 = Acc1 = AccIn = AccOut = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Abstr = NewAbstr = <span class="bold_code data-type-ref"><a href="#type-erl_parse_tree">erl_parse_tree()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="mapfold_anno-3"></a><span class="bold_code">mapfold_anno(Fun, Acc0, Abstr) -&gt; {NewAbstr, Acc1}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Fun = fun((Anno, AccIn) -&gt; {NewAnno, AccOut})</span></div>
+<div class="REFTYPES"><span class="bold_code">Anno = NewAnno = <span class="bold_code"><a href="erl_anno.html#type-anno">erl_anno:anno()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code">Acc0 = Acc1 = AccIn = AccOut = term()</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code">Abstr = NewAbstr = <span class="bold_code"><a href="#type-erl_parse_tree">erl_parse_tree()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Modifies the <span class="code">erl_parse</span> tree <span class="code">Abstr</span>
           by applying <span class="code">Fun</span> on each collection of
           annotations of the nodes of the <span class="code">erl_parse</span> tree, while
@@ -1953,54 +1910,42 @@
           final value of the accumulator are returned. The
           <span class="code">erl_parse</span> tree is traversed in a depth-first,
           left-to-right fashion.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="new_anno-1"></a><span class="bold_code func-name">new_anno(Term) -&gt; Abstr</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Term = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Abstr = <span class="bold_code data-type-ref"><a href="#type-erl_parse_tree">erl_parse_tree()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="new_anno-1"></a><span class="bold_code">new_anno(Term) -&gt; Abstr</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Term = term()</span></div>
+<div class="REFTYPES"><span class="bold_code">Abstr = <span class="bold_code"><a href="#type-erl_parse_tree">erl_parse_tree()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Assumes that <span class="code">Term</span> is a term with the same
-          structure as a <span class="code">erl_parse</span> tree, but with <span class="bold_code bc-15"><a href="erl_anno.html#type-location">locations</a></span> where a
+          structure as a <span class="code">erl_parse</span> tree, but with <span class="bold_code"><a href="erl_anno.html#type-location">locations</a></span> where a
           <span class="code">erl_parse</span> tree has collections of annotations.
           Returns a <span class="code">erl_parse</span> tree where each location <span class="code">L</span>
-          is replaced by the value returned by <span class="bold_code bc-15"><a href="erl_anno.html#new-1"><span class="code">erl_anno:new(L)</span></a></span>.
+          is replaced by the value returned by <span class="bold_code"><a href="erl_anno.html#new-1"><span class="code">erl_anno:new(L)</span></a></span>.
           The term <span class="code">Term</span> is traversed in a
           depth-first, left-to-right fashion.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="normalise-1"></a><span class="bold_code func-name">normalise(AbsTerm) -&gt; Data</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">AbsTerm = <span class="bold_code data-type-ref"><a href="#type-abstract_expr">abstract_expr()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Data = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="normalise-1"></a><span class="bold_code">normalise(AbsTerm) -&gt; Data</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">AbsTerm = <span class="bold_code"><a href="#type-abstract_expr">abstract_expr()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Data = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Converts the abstract form <span class="code">AbsTerm</span> of a
           term into a conventional Erlang data structure (that is, the
           term itself). This function is the inverse of
-          <span class="bold_code data-type-ref"><a href="#abstract-1"><span class="code">abstract/1</span></a></span>.</p>
-      </p></div></div>
-</div>
+          <span class="bold_code"><a href="#abstract-1"><span class="code">abstract/1</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="parse_exprs-1"></a><span class="bold_code func-name">parse_exprs(Tokens) -&gt; {ok, ExprList} | {error, ErrorInfo}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Tokens = [<span class="bold_code data-type-ref"><a href="#type-token">token()</a></span>]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ExprList = [<span class="bold_code data-type-ref"><a href="#type-abstract_expr">abstract_expr()</a></span>]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ErrorInfo = <span class="bold_code data-type-ref"><a href="#type-error_info">error_info()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="parse_exprs-1"></a><span class="bold_code">parse_exprs(Tokens) -&gt; {ok, ExprList} | {error, ErrorInfo}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Tokens = [<span class="bold_code"><a href="#type-token">token()</a></span>]</span></div>
+<div class="REFTYPES"><span class="bold_code">ExprList = [<span class="bold_code"><a href="#type-abstract_expr">abstract_expr()</a></span>]</span></div>
+<div class="REFTYPES"><span class="bold_code">ErrorInfo = <span class="bold_code"><a href="#type-error_info">error_info()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Parses <span class="code">Tokens</span> as if it was a list of expressions.
           Returns one of the following:</p>
         <dl>
@@ -2014,19 +1959,15 @@
             <p>An error occurred.</p>
           </dd>
         </dl>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="parse_form-1"></a><span class="bold_code func-name">parse_form(Tokens) -&gt; {ok, AbsForm} | {error, ErrorInfo}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Tokens = [<span class="bold_code data-type-ref"><a href="#type-token">token()</a></span>]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">AbsForm = <span class="bold_code data-type-ref"><a href="#type-abstract_form">abstract_form()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ErrorInfo = <span class="bold_code data-type-ref"><a href="#type-error_info">error_info()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="parse_form-1"></a><span class="bold_code">parse_form(Tokens) -&gt; {ok, AbsForm} | {error, ErrorInfo}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Tokens = [<span class="bold_code"><a href="#type-token">token()</a></span>]</span></div>
+<div class="REFTYPES"><span class="bold_code">AbsForm = <span class="bold_code"><a href="#type-abstract_form">abstract_form()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">ErrorInfo = <span class="bold_code"><a href="#type-error_info">error_info()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Parses <span class="code">Tokens</span> as if it was a form. Returns one
           of the following:</p>
         <dl>
@@ -2040,19 +1981,15 @@
             <p>An error occurred.</p>
           </dd>
         </dl>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="parse_term-1"></a><span class="bold_code func-name">parse_term(Tokens) -&gt; {ok, Term} | {error, ErrorInfo}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Tokens = [<span class="bold_code data-type-ref"><a href="#type-token">token()</a></span>]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Term = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ErrorInfo = <span class="bold_code data-type-ref"><a href="#type-error_info">error_info()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="parse_term-1"></a><span class="bold_code">parse_term(Tokens) -&gt; {ok, Term} | {error, ErrorInfo}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Tokens = [<span class="bold_code"><a href="#type-token">token()</a></span>]</span></div>
+<div class="REFTYPES"><span class="bold_code">Term = term()</span></div>
+<div class="REFTYPES"><span class="bold_code">ErrorInfo = <span class="bold_code"><a href="#type-error_info">error_info()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Parses <span class="code">Tokens</span> as if it was a term. Returns
           one of the following:</p>
         <dl>
@@ -2066,30 +2003,25 @@
             <p>An error occurred.</p>
           </dd>
         </dl>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="tokens-1"></a><span class="bold_code func-name">tokens(AbsTerm) -&gt; Tokens</span><a name="tokens-2"></a><span class="bold_code func-name">tokens(AbsTerm, MoreTokens) -&gt; Tokens</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">AbsTerm = <span class="bold_code data-type-ref"><a href="#type-abstract_expr">abstract_expr()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">MoreTokens = Tokens = [<span class="bold_code data-type-ref"><a href="#type-token">token()</a></span>]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="tokens-1"></a><span class="bold_code">tokens(AbsTerm) -&gt; Tokens</span><br><a name="tokens-2"></a><span class="bold_code">tokens(AbsTerm, MoreTokens) -&gt; Tokens</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">AbsTerm = <span class="bold_code"><a href="#type-abstract_expr">abstract_expr()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">MoreTokens = Tokens = [<span class="bold_code"><a href="#type-token">token()</a></span>]</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Generates a list of tokens representing the abstract
           form <span class="code">AbsTerm</span> of an expression. Optionally,
           <span class="code">MoreTokens</span> is appended.</p>
-      </p></div></div>
-</div>
-  </div>
+      </p></div>
+  
 
   <h3>
-<a name="errorinfo"></a><a name="idm45461569855392">Error Information</a>
+<a name="errorinfo"></a><a name="idm46007676289072">Error Information</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p><span class="code">ErrorInfo</span> is the standard <span class="code">ErrorInfo</span> structure that is
@@ -2101,13 +2033,13 @@
 Module:format_error(ErrorDescriptor)</pre></div>
   </div>
 
-  <h3><a name="idm45461569851280">See Also</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46007676284960">See Also</a></h3>
+<div class="REFBODY">
     
-    <p><span class="bold_code bc-19"><a href="erl_anno.html"><span class="code">erl_anno(3)</span></a></span>,
-       <span class="bold_code bc-19"><a href="erl_scan.html"><span class="code">erl_scan(3)</span></a></span>,
-       <span class="bold_code bc-19"><a href="io.html"><span class="code">io(3)</span></a></span>,
-        section <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','absform.html');">The Abstract Format</a></span>
+    <p><span class="bold_code"><a href="erl_anno.html"><span class="code">erl_anno(3)</span></a></span>,
+       <span class="bold_code"><a href="erl_scan.html"><span class="code">erl_scan(3)</span></a></span>,
+       <span class="bold_code"><a href="io.html"><span class="code">io(3)</span></a></span>,
+        section <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','absform.html');">The Abstract Format</a></span>
         in the ERTS User's Guide</p>
   </div>
 </div>

@@ -802,20 +802,20 @@
 <!-- refpage --><center><h1>snmpa_conf</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">snmpa_conf</div>
+<div class="REFBODY">snmpa_conf</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Utility functions for handling the agent config files.</div>
+<div class="REFBODY">Utility functions for handling the agent config files.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>The module <span class="code">snmpa_conf</span> contains various utility functions to 
       used for manipulating (write/append/read) the config files of the
       SNMP agent. </p>
 
     <a name="types"></a>
-  </div>
+  </p></div>
 
-  <h3><a name="idm46069277460160">DATA TYPES</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45821338525168">DATA TYPES</a></h3>
+<div class="REFBODY">
     
     <div class="example"><pre>
 transportDomain() = transportDomainUdpIpv4 | transportDomainUdpIpv6
@@ -855,7 +855,7 @@ word() = 0..65535
     </pre></div>
     <p>For <span class="code">inet:ip4_address()</span>, <span class="code">inet:ip6_address()</span>
     and <span class="code">inet:port_number()</span>, see also
-    <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#type-ip_address');"><span class="code">inet:ip_address()</span></a></span></p>
+    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#type-ip_address');"><span class="code">inet:ip_address()</span></a></span></p>
 
     <a name="agent_entry"></a>
   </div>
@@ -863,170 +863,135 @@ word() = 0..65535
 
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="agent_entry-2"></a><span class="bold_code bc-9">agent_entry(Tag, Val) -&gt; agent_entry()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="agent_entry-2"></a><span class="bold_code">agent_entry(Tag, Val) -&gt; agent_entry()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tag = intAgentTransports | intAgentUDPPort | intAgentMaxPacketSize | snmpEngineMaxMessageSize | snmpEngineID</span><br>
+<span class="bold_code">Tag = intAgentTransports | intAgentUDPPort | intAgentMaxPacketSize | snmpEngineMaxMessageSize | snmpEngineID</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Val = term()</span><br>
+<span class="bold_code">Val = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">agent_entry() = term()</span><br>
+<span class="bold_code">agent_entry() = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Create an entry for the agent config file, <span class="code">agent.conf</span>. </p>
         <p>The type of <span class="code">Val</span> depends on the value of <span class="code">Tag</span>, 
           see 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#agent_information">Agent Information</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#agent_information">Agent Information</a></span> 
           for more info. </p>
 
         <a name="write_agent_config"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="write_agent_config-2"></a><span class="bold_code bc-9">write_agent_config(Dir, Conf) -&gt; ok</span><br><a name="write_agent_config-3"></a><span class="bold_code bc-9">write_agent_config(Dir, Hdr, Conf) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="write_agent_config-2"></a><span class="bold_code">write_agent_config(Dir, Conf) -&gt; ok</span><br><a name="write_agent_config-3"></a><span class="bold_code">write_agent_config(Dir, Hdr, Conf) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Hdr = string()</span><br>
+<span class="bold_code">Hdr = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conf = [agent_entry()]</span><br>
+<span class="bold_code">Conf = [agent_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Write the agent config to the agent config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p><span class="code">Hdr</span> is an optional file header (note that this text is
           written to the file as is). </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#agent_information">Agent Information</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#agent_information">Agent Information</a></span> 
           for more info. </p>
 
         <a name="append_agent_config"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="append_agent_config-2"></a><span class="bold_code bc-9">append_agent_config(Dir, Conf) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="append_agent_config-2"></a><span class="bold_code">append_agent_config(Dir, Conf) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conf = [agent_entry()]</span><br>
+<span class="bold_code">Conf = [agent_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Append the config to the current agent config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#agent_information">Agent Information</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#agent_information">Agent Information</a></span> 
           for more info. </p>
 
         <a name="read_agent_config"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="read_agent_config-1"></a><span class="bold_code bc-9">read_agent_config(Dir) -&gt; Conf</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="read_agent_config-1"></a><span class="bold_code">read_agent_config(Dir) -&gt; Conf</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conf = [agent_entry()]</span><br>
+<span class="bold_code">Conf = [agent_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Read the current agent config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#agent_information">Agent Information</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#agent_information">Agent Information</a></span> 
           for more info. </p>
 
         <a name="standard_entry"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="standard_entry-2"></a><span class="bold_code bc-9">standard_entry(Tag, Val) -&gt; standard_entry()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="standard_entry-2"></a><span class="bold_code">standard_entry(Tag, Val) -&gt; standard_entry()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tag = sysDescr | sysObjectID | sysContact | sysName | sysLocation | sysServices | snmpEnableAuthenTraps</span><br>
+<span class="bold_code">Tag = sysDescr | sysObjectID | sysContact | sysName | sysLocation | sysServices | snmpEnableAuthenTraps</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Val = term()</span><br>
+<span class="bold_code">Val = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">standard_entry() = term()</span><br>
+<span class="bold_code">standard_entry() = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Create an entry for the agent standard config file, 
           <span class="code">standard.conf</span>. </p>
         <p>The type of <span class="code">Val</span> depends on the value of <span class="code">Tag</span>, 
           see 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#system_information">System Information</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#system_information">System Information</a></span> 
           for more info. </p>
 
         <a name="write_standard_config"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="write_standard_config-2"></a><span class="bold_code bc-9">write_standard_config(Dir, Conf) -&gt; ok</span><br><a name="write_standard_config-3"></a><span class="bold_code bc-9">write_standard_config(Dir, Hdr, Conf) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="write_standard_config-2"></a><span class="bold_code">write_standard_config(Dir, Conf) -&gt; ok</span><br><a name="write_standard_config-3"></a><span class="bold_code">write_standard_config(Dir, Hdr, Conf) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Hdr = string()</span><br>
+<span class="bold_code">Hdr = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conf = [standard_entry()]</span><br>
+<span class="bold_code">Conf = [standard_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Write the agent standard config to the agent standard 
           config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
@@ -1034,113 +999,89 @@ word() = 0..65535
         <p><span class="code">Hdr</span> is an optional file header (note that this text is
           written to the file as is). </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#system_information">System Information</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#system_information">System Information</a></span> 
           for more info. </p>
 
         <a name="append_standard_config"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="append_standard_config-2"></a><span class="bold_code bc-9">append_standard_config(Dir, Conf) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="append_standard_config-2"></a><span class="bold_code">append_standard_config(Dir, Conf) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conf = [standard_entry()]</span><br>
+<span class="bold_code">Conf = [standard_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Append the standard config to the current agent standard 
           config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#system_information">System Information</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#system_information">System Information</a></span> 
           for more info. </p>
 
         <a name="read_standard_config"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="read_standard_config-1"></a><span class="bold_code bc-9">read_standard_config(Dir) -&gt; Conf</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="read_standard_config-1"></a><span class="bold_code">read_standard_config(Dir) -&gt; Conf</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conf = [standard_entry()]</span><br>
+<span class="bold_code">Conf = [standard_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Read the current agent standard config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#system_information">System Information</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#system_information">System Information</a></span> 
           for more info. </p>
 
         <a name="context_entry"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="context_entry-1"></a><span class="bold_code bc-9">context_entry(Context) -&gt; context_entry()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="context_entry-1"></a><span class="bold_code">context_entry(Context) -&gt; context_entry()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Context = string()</span><br>
+<span class="bold_code">Context = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">context_entry() = term()</span><br>
+<span class="bold_code">context_entry() = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Create an entry for the agent context config file, 
           <span class="code">context.conf</span>. </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#context">Contexts</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#context">Contexts</a></span> 
           for more info. </p>
 
         <a name="write_context_config"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="write_context_config-2"></a><span class="bold_code bc-9">write_context_config(Dir, Conf) -&gt; ok</span><br><a name="write_context_config-3"></a><span class="bold_code bc-9">write_context_config(Dir, Hdr, Conf) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="write_context_config-2"></a><span class="bold_code">write_context_config(Dir, Conf) -&gt; ok</span><br><a name="write_context_config-3"></a><span class="bold_code">write_context_config(Dir, Hdr, Conf) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Hdr = string()</span><br>
+<span class="bold_code">Hdr = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conf = [context_entry()]</span><br>
+<span class="bold_code">Conf = [context_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Write the agent context config to the agent context 
           config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
@@ -1148,96 +1089,78 @@ word() = 0..65535
         <p><span class="code">Hdr</span> is an optional file header (note that this text is
           written to the file as is). </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#context">Contexts</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#context">Contexts</a></span> 
           for more info. </p>
 
         <a name="append_context_config"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="append_context_config-2"></a><span class="bold_code bc-9">append_context_config(Dir, Conf) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="append_context_config-2"></a><span class="bold_code">append_context_config(Dir, Conf) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conf = [context_entry()]</span><br>
+<span class="bold_code">Conf = [context_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Append the context config to the current agent context 
           config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#context">Contexts</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#context">Contexts</a></span> 
           for more info. </p>
 
         <a name="read_context_config"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="read_context_config-1"></a><span class="bold_code bc-9">read_context_config(Dir) -&gt; Conf</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="read_context_config-1"></a><span class="bold_code">read_context_config(Dir) -&gt; Conf</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conf = [context_entry()]</span><br>
+<span class="bold_code">Conf = [context_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Read the current agent context config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#context">Contexts</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#context">Contexts</a></span> 
           for more info. </p>
 
         <a name="community_entry"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="community_entry-1"></a><span class="bold_code bc-9">community_entry(CommunityIndex) -&gt; community_entry()</span><br><a name="community_entry-5"></a><span class="bold_code bc-9">community_entry(CommunityIndex, CommunityName, SecName, ContextName, TransportTag) -&gt; community_entry()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="community_entry-1"></a><span class="bold_code">community_entry(CommunityIndex) -&gt; community_entry()</span><br><a name="community_entry-5"></a><span class="bold_code">community_entry(CommunityIndex, CommunityName, SecName, ContextName, TransportTag) -&gt; community_entry()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">CommunityIndex = string()</span><br>
+<span class="bold_code">CommunityIndex = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">CommunityName = string()</span><br>
+<span class="bold_code">CommunityName = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">SecName = string()</span><br>
+<span class="bold_code">SecName = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">CtxName = string()</span><br>
+<span class="bold_code">CtxName = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TransportTag = string()</span><br>
+<span class="bold_code">TransportTag = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">community_entry() = term()</span><br>
+<span class="bold_code">community_entry() = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Create an entry for the agent community config file, 
           <span class="code">community.conf</span>. </p>
         <p><span class="code">CommunityIndex</span> must be a <strong>non-empty</strong> string. </p>
@@ -1246,32 +1169,26 @@ word() = 0..65535
         <p><span class="code">community_entry("all-rights")</span> translates to the following 
           call: <span class="code">community_entry(CommunityIndex, CommunityIndex, CommunityIndex, "", "")</span>. </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#community">Community</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#community">Community</a></span> 
           for more info. </p>
 
         <a name="write_community_config"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="write_community_config-2"></a><span class="bold_code bc-9">write_community_config(Dir, Conf) -&gt; ok</span><br><a name="write_community_config-3"></a><span class="bold_code bc-9">write_community_config(Dir, Hdr, Conf) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="write_community_config-2"></a><span class="bold_code">write_community_config(Dir, Conf) -&gt; ok</span><br><a name="write_community_config-3"></a><span class="bold_code">write_community_config(Dir, Hdr, Conf) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Hdr = string()</span><br>
+<span class="bold_code">Hdr = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conf = [community_entry()]</span><br>
+<span class="bold_code">Conf = [community_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Write the agent community config to the agent community 
           config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
@@ -1279,111 +1196,93 @@ word() = 0..65535
         <p><span class="code">Hdr</span> is an optional file header (note that this text is
           written to the file as is). </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#community">Community</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#community">Community</a></span> 
           for more info. </p>
 
         <a name="append_community_config"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="append_community_config-2"></a><span class="bold_code bc-9">append_community_config(Dir, Conf) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="append_community_config-2"></a><span class="bold_code">append_community_config(Dir, Conf) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conf = [community_entry()]</span><br>
+<span class="bold_code">Conf = [community_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Append the community config to the current agent community 
           config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#community">Community</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#community">Community</a></span> 
           for more info. </p>
 
         <a name="read_community_config"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="read_community_config-1"></a><span class="bold_code bc-9">read_community_config(Dir) -&gt; Conf</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="read_community_config-1"></a><span class="bold_code">read_community_config(Dir) -&gt; Conf</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conf = [community_entry()]</span><br>
+<span class="bold_code">Conf = [community_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Read the current agent community config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#community">Communities</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#community">Communities</a></span> 
           for more info. </p>
 
         <a name="target_addr_entry"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="target_addr_entry-6"></a><span class="bold_code bc-9">target_addr_entry(Name, Domain, Addr, TagList, ParamsName, EngineId) -&gt; target_addr_entry()</span><br><a name="target_addr_entry-7"></a><span class="bold_code bc-9">target_addr_entry(Name, Domain, Addr, TagList, ParamsName, EngineId, TMask) -&gt; target_addr_entry()</span><br><a name="target_addr_entry-8"></a><span class="bold_code bc-9">target_addr_entry(Name, Domain, Addr, TagList, ParamsName, EngineId, TMask, MaxMessageSize) -&gt; target_addr_entry()</span><br><a name="target_addr_entry-10"></a><span class="bold_code bc-9">target_addr_entry(Name, Domain, Addr, Timeout, RetryCount, TagList, ParamsName, EngineId, TMask, MaxMessageSize) -&gt; target_addr_entry()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="target_addr_entry-6"></a><span class="bold_code">target_addr_entry(Name, Domain, Addr, TagList, ParamsName, EngineId) -&gt; target_addr_entry()</span><br><a name="target_addr_entry-7"></a><span class="bold_code">target_addr_entry(Name, Domain, Addr, TagList, ParamsName, EngineId, TMask) -&gt; target_addr_entry()</span><br><a name="target_addr_entry-8"></a><span class="bold_code">target_addr_entry(Name, Domain, Addr, TagList, ParamsName, EngineId, TMask, MaxMessageSize) -&gt; target_addr_entry()</span><br><a name="target_addr_entry-10"></a><span class="bold_code">target_addr_entry(Name, Domain, Addr, Timeout, RetryCount, TagList, ParamsName, EngineId, TMask, MaxMessageSize) -&gt; target_addr_entry()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Name = string()</span><br>
+<span class="bold_code">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Domain = transportDomain()</span><br>
+<span class="bold_code">Domain = transportDomain()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Ip = transportAddress() (depends on Domain)</span><br>
+<span class="bold_code">Ip = transportAddress() (depends on Domain)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Timeout = integer()</span><br>
+<span class="bold_code">Timeout = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">RetryCount = integer()</span><br>
+<span class="bold_code">RetryCount = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TagList = string()</span><br>
+<span class="bold_code">TagList = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">ParamsName = string()</span><br>
+<span class="bold_code">ParamsName = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">EngineId = string()</span><br>
+<span class="bold_code">EngineId = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TMask = transportAddressMask() (depends on Domain)</span><br>
+<span class="bold_code">TMask = transportAddressMask() (depends on Domain)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">MaxMessageSize = integer()</span><br>
+<span class="bold_code">MaxMessageSize = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">target_addr_entry() = term()</span><br>
+<span class="bold_code">target_addr_entry() = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Create an entry for the agent target_addr config file, 
           <span class="code">target_addr.conf</span>. </p>
         <p><span class="code">Name</span> must be a <strong>non-empty</strong> string. </p>
@@ -1394,32 +1293,26 @@ word() = 0..65535
         <p><span class="code">target_addr_entry/8</span> translates to the following call:
           <span class="code">target_addr_entry(Name, Domain, Addr, 1500, 3, TagList, ParamsName, EngineId, TMask, MaxMessageSize)</span>. </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#target_addr">Target Address Definitions</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#target_addr">Target Address Definitions</a></span> 
           for more info. </p>
 
         <a name="write_target_addr_config"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="write_target_addr_config-2"></a><span class="bold_code bc-9">write_target_addr_config(Dir, Conf) -&gt; ok</span><br><a name="write_target_addr_config-3"></a><span class="bold_code bc-9">write_target_addr_config(Dir, Hdr, Conf) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="write_target_addr_config-2"></a><span class="bold_code">write_target_addr_config(Dir, Conf) -&gt; ok</span><br><a name="write_target_addr_config-3"></a><span class="bold_code">write_target_addr_config(Dir, Hdr, Conf) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Hdr = string()</span><br>
+<span class="bold_code">Hdr = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conf = [target_addr_entry()]</span><br>
+<span class="bold_code">Conf = [target_addr_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Write the agent target_addr config to the agent target_addr 
           config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
@@ -1427,99 +1320,81 @@ word() = 0..65535
         <p><span class="code">Hdr</span> is an optional file header (note that this text is
           written to the file as is). </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#target_addr">Target Address Definitions</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#target_addr">Target Address Definitions</a></span> 
           for more info. </p>
 
         <a name="append_target_addr_config"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="append_target_addr_config-2"></a><span class="bold_code bc-9">append_target_addr_config(Dir, Conf) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="append_target_addr_config-2"></a><span class="bold_code">append_target_addr_config(Dir, Conf) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conf = [target_addr_entry()]</span><br>
+<span class="bold_code">Conf = [target_addr_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Append the target_addr config to the current agent target_addr 
           config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#target_addr">Target Address Definitions</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#target_addr">Target Address Definitions</a></span> 
           for more info. </p>
 
         <a name="read_target_addr_config"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="read_target_addr_config-1"></a><span class="bold_code bc-9">read_target_addr_config(Dir) -&gt; Conf</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="read_target_addr_config-1"></a><span class="bold_code">read_target_addr_config(Dir) -&gt; Conf</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conf = [target_addr_entry()]</span><br>
+<span class="bold_code">Conf = [target_addr_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Read the current agent target_addr config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#target_addr">Target Address Definitions</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#target_addr">Target Address Definitions</a></span> 
           for more info. </p>
 
         <a name="target_params_entry"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="target_params_entry-2"></a><span class="bold_code bc-9">target_params_entry(Name, Vsn) -&gt; target_params_entry()</span><br><a name="target_params_entry-4"></a><span class="bold_code bc-9">target_params_entry(Name, Vsn, SecName, SecLevel) -&gt; target_params_entry()</span><br><a name="target_params_entry-5"></a><span class="bold_code bc-9">target_params_entry(Name, MPModel, SecModel, SecName, SecLevel) -&gt; target_params_entry()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="target_params_entry-2"></a><span class="bold_code">target_params_entry(Name, Vsn) -&gt; target_params_entry()</span><br><a name="target_params_entry-4"></a><span class="bold_code">target_params_entry(Name, Vsn, SecName, SecLevel) -&gt; target_params_entry()</span><br><a name="target_params_entry-5"></a><span class="bold_code">target_params_entry(Name, MPModel, SecModel, SecName, SecLevel) -&gt; target_params_entry()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Name = string()</span><br>
+<span class="bold_code">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Vsn = v1 | v2 | v3</span><br>
+<span class="bold_code">Vsn = v1 | v2 | v3</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">MPModel = v1 | v2c | v3</span><br>
+<span class="bold_code">MPModel = v1 | v2c | v3</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">SecModel = v1 | v2c | usm</span><br>
+<span class="bold_code">SecModel = v1 | v2c | usm</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">SecName = string()</span><br>
+<span class="bold_code">SecName = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">SecLevel = noAuthNoPriv | authNoPriv | authPriv</span><br>
+<span class="bold_code">SecLevel = noAuthNoPriv | authNoPriv | authPriv</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">target_params_entry() = term()</span><br>
+<span class="bold_code">target_params_entry() = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Create an entry for the agent target_params config file, 
           <span class="code">target_params.conf</span>. </p>
         <p><span class="code">Name</span> must be a <strong>non-empty</strong> string. </p>
@@ -1535,32 +1410,26 @@ word() = 0..65535
           call: <span class="code">target_params_entry(Name, MPModel, SecModel, SecName, SecLevel)</span> where <span class="code">MPModel</span> and
           <span class="code">SecModel</span> is mapped from <span class="code">Vsn</span>, see above. </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#target_params">Target Parameters Definitions</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#target_params">Target Parameters Definitions</a></span> 
           for more info. </p>
 
         <a name="write_target_params_config"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="write_target_params_config-2"></a><span class="bold_code bc-9">write_target_params_config(Dir, Conf) -&gt; ok</span><br><a name="write_target_params_config-3"></a><span class="bold_code bc-9">write_target_params_config(Dir, Hdr, Conf) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="write_target_params_config-2"></a><span class="bold_code">write_target_params_config(Dir, Conf) -&gt; ok</span><br><a name="write_target_params_config-3"></a><span class="bold_code">write_target_params_config(Dir, Hdr, Conf) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Hdr = string()</span><br>
+<span class="bold_code">Hdr = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conf = [target_params_entry()]</span><br>
+<span class="bold_code">Conf = [target_params_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Write the agent target_params config to the agent target_params 
           config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
@@ -1568,163 +1437,139 @@ word() = 0..65535
         <p><span class="code">Hdr</span> is an optional file header (note that this text is
           written to the file as is). </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#target_params">Target Parameters Definitions</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#target_params">Target Parameters Definitions</a></span> 
           for more info. </p>
 
         <a name="append_target_params_config"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="append_target_params_config-2"></a><span class="bold_code bc-9">append_target_params_config(Dir, Conf) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="append_target_params_config-2"></a><span class="bold_code">append_target_params_config(Dir, Conf) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conf = [target_params_entry()]</span><br>
+<span class="bold_code">Conf = [target_params_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Append the target_params config to the current agent target_params 
           config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#target_params">Target Parameters Definitions</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#target_params">Target Parameters Definitions</a></span> 
           for more info. </p>
 
         <a name="read_target_params_config"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="read_target_params_config-1"></a><span class="bold_code bc-9">read_target_params_config(Dir) -&gt; Conf</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="read_target_params_config-1"></a><span class="bold_code">read_target_params_config(Dir) -&gt; Conf</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conf = [target_params_entry()]</span><br>
+<span class="bold_code">Conf = [target_params_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Read the current agent target_params config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#target_params">Target Parameters Definitions</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#target_params">Target Parameters Definitions</a></span> 
           for more info. </p>
 
         <a name="vacm_entry"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="vacm_s2g_entry-3"></a><span class="bold_code bc-9">vacm_s2g_entry(SecModel, SecName, GroupName) -&gt; vacm_s2g_entry()</span><br><a name="vacm_acc_entry-8"></a><span class="bold_code bc-9">vacm_acc_entry(GroupName, Prefix, SecModel, SecLevel, Match, ReadView, WriteView, NotifyView) -&gt; vacm_acc_entry()</span><br><a name="vacm_vtf_entry-2"></a><span class="bold_code bc-9">vacm_vtf_entry(ViewIndex, ViewSubtree) -&gt; vacm_vtf_entry()</span><br><a name="vacm_vtf_entry-4"></a><span class="bold_code bc-9">vacm_vtf_entry(ViewIndex, ViewSubtree, ViewStatus, ViewMask) -&gt; vacm_vtf_entry()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="vacm_s2g_entry-3"></a><span class="bold_code">vacm_s2g_entry(SecModel, SecName, GroupName) -&gt; vacm_s2g_entry()</span><br><a name="vacm_acc_entry-8"></a><span class="bold_code">vacm_acc_entry(GroupName, Prefix, SecModel, SecLevel, Match, ReadView, WriteView, NotifyView) -&gt; vacm_acc_entry()</span><br><a name="vacm_vtf_entry-2"></a><span class="bold_code">vacm_vtf_entry(ViewIndex, ViewSubtree) -&gt; vacm_vtf_entry()</span><br><a name="vacm_vtf_entry-4"></a><span class="bold_code">vacm_vtf_entry(ViewIndex, ViewSubtree, ViewStatus, ViewMask) -&gt; vacm_vtf_entry()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">SecModel = v1 | v2c | usm</span><br>
+<span class="bold_code">SecModel = v1 | v2c | usm</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">SecName = string()</span><br>
+<span class="bold_code">SecName = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">GroupName = string()</span><br>
+<span class="bold_code">GroupName = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Prefix = string()</span><br>
+<span class="bold_code">Prefix = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">SecLevel = noAuthNoPriv | authNoPriv | authPriv</span><br>
+<span class="bold_code">SecLevel = noAuthNoPriv | authNoPriv | authPriv</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Match = prefix | exact</span><br>
+<span class="bold_code">Match = prefix | exact</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">ReadView = string()</span><br>
+<span class="bold_code">ReadView = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">WriteView = string()</span><br>
+<span class="bold_code">WriteView = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">NotifyView = string()</span><br>
+<span class="bold_code">NotifyView = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">ViewIndex = integer()</span><br>
+<span class="bold_code">ViewIndex = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">ViewSubtree = [integer()]</span><br>
+<span class="bold_code">ViewSubtree = [integer()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">ViewStatus = included | excluded</span><br>
+<span class="bold_code">ViewStatus = included | excluded</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">ViewMask = null | [zero_or_one()]</span><br>
+<span class="bold_code">ViewMask = null | [zero_or_one()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">zero_or_one() = 0 | 1</span><br>
+<span class="bold_code">zero_or_one() = 0 | 1</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">vacm_s2g_entry() = term()</span><br>
+<span class="bold_code">vacm_s2g_entry() = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">vacm_acc_entry() = term()</span><br>
+<span class="bold_code">vacm_acc_entry() = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">vacm_vtf_entry() = term()</span><br>
+<span class="bold_code">vacm_vtf_entry() = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Create an entry for the agent vacm config file, 
           <span class="code">vacm.conf</span>. </p>
         <p><span class="code">vacm_vtf_entry/2</span> translates to the following call:
           <span class="code">vacm_vtf_entry(ViewIndex, ViewSubtree, included, null)</span>. </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#vacm">MIB Views for VACM</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#vacm">MIB Views for VACM</a></span> 
           for more info. </p>
 
         <a name="write_vacm_config"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="write_vacm_config-2"></a><span class="bold_code bc-9">write_vacm_config(Dir, Conf) -&gt; ok</span><br><a name="write_vacm_config-3"></a><span class="bold_code bc-9">write_vacm_config(Dir, Hdr, Conf) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="write_vacm_config-2"></a><span class="bold_code">write_vacm_config(Dir, Conf) -&gt; ok</span><br><a name="write_vacm_config-3"></a><span class="bold_code">write_vacm_config(Dir, Hdr, Conf) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Hdr = string()</span><br>
+<span class="bold_code">Hdr = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conf = [vacm_entry()]</span><br>
+<span class="bold_code">Conf = [vacm_entry()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">vacm_entry() = vacm_sg2_entry() | vacm_acc_entry() | vacm_vtf_entry()</span><br>
+<span class="bold_code">vacm_entry() = vacm_sg2_entry() | vacm_acc_entry() | vacm_vtf_entry()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Write the agent vacm config to the agent vacm 
           config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
@@ -1732,151 +1577,127 @@ word() = 0..65535
         <p><span class="code">Hdr</span> is an optional file header (note that this text is
           written to the file as is). </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#vacm">MIB Views for VACM</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#vacm">MIB Views for VACM</a></span> 
           for more info. </p>
 
         <a name="append_vacm_config"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="append_vacm_config-2"></a><span class="bold_code bc-9">append_vacm_config(Dir, Conf) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="append_vacm_config-2"></a><span class="bold_code">append_vacm_config(Dir, Conf) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conf = [vacm_entry()]</span><br>
+<span class="bold_code">Conf = [vacm_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Append the vacm config to the current agent vacm 
           config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#vacm">MIB Views for VACM</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#vacm">MIB Views for VACM</a></span> 
           for more info. </p>
 
         <a name="read_vacm_config"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="read_vacm_config-1"></a><span class="bold_code bc-9">read_vacm_config(Dir) -&gt; Conf</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="read_vacm_config-1"></a><span class="bold_code">read_vacm_config(Dir) -&gt; Conf</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conf = [vacm_entry()]</span><br>
+<span class="bold_code">Conf = [vacm_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Read the current agent vacm config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#vacm">MIB Views for VACM</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#vacm">MIB Views for VACM</a></span> 
           for more info. </p>
 
         <a name="usm_entry"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="usm_entry-1"></a><span class="bold_code bc-9">usm_entry(EngineId) -&gt; usm_entry()</span><br><a name="usm_entry-13"></a><span class="bold_code bc-9">usm_entry(EngineID, UserName, SecName, Clone, AuthP, AuthKeyC, OwnAuthKeyC, PrivP, PrivKeyC, OwnPrivKeyC, Public, AuthKey, PrivKey) -&gt; usm_entry()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="usm_entry-1"></a><span class="bold_code">usm_entry(EngineId) -&gt; usm_entry()</span><br><a name="usm_entry-13"></a><span class="bold_code">usm_entry(EngineID, UserName, SecName, Clone, AuthP, AuthKeyC, OwnAuthKeyC, PrivP, PrivKeyC, OwnPrivKeyC, Public, AuthKey, PrivKey) -&gt; usm_entry()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">EngineId = string()</span><br>
+<span class="bold_code">EngineId = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">UserName = string()</span><br>
+<span class="bold_code">UserName = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">SecName = string()</span><br>
+<span class="bold_code">SecName = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Clone = zeroDotZero | [integer()]</span><br>
+<span class="bold_code">Clone = zeroDotZero | [integer()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">AuthP = usmNoAuthProtocol | usmHMACMD5AuthProtocol, | usmHMACSHAAuthProtocol</span><br>
+<span class="bold_code">AuthP = usmNoAuthProtocol | usmHMACMD5AuthProtocol, | usmHMACSHAAuthProtocol</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">AuthKeyC = string()</span><br>
+<span class="bold_code">AuthKeyC = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">OwnAuthKeyC = string()</span><br>
+<span class="bold_code">OwnAuthKeyC = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PrivP = usmNoPrivProtocol | usmDESPrivProtocol | usmAesCfb128Protocol</span><br>
+<span class="bold_code">PrivP = usmNoPrivProtocol | usmDESPrivProtocol | usmAesCfb128Protocol</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PrivKeyC = string()</span><br>
+<span class="bold_code">PrivKeyC = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">OwnPrivKeyC = string()</span><br>
+<span class="bold_code">OwnPrivKeyC = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Public = string()</span><br>
+<span class="bold_code">Public = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">AuthKey = [integer()]</span><br>
+<span class="bold_code">AuthKey = [integer()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PrivKey = [integer()]</span><br>
+<span class="bold_code">PrivKey = [integer()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">usm_entry() = term()</span><br>
+<span class="bold_code">usm_entry() = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Create an entry for the agent vacm config file, 
           <span class="code">vacm.conf</span>. </p>
         <p><span class="code">usm_entry/1</span> translates to the following call:
           <span class="code">usm_entry("initial", "initial", zeroDotZero, usmNoAuthProtocol, "", "", usmNoPrivProtocol, "", "", "", "", "")</span>. </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#usm">Security data for USM</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#usm">Security data for USM</a></span> 
           for more info. </p>
 
         <a name="write_usm_config"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="write_usm_config-2"></a><span class="bold_code bc-9">write_usm_config(Dir, Conf) -&gt; ok</span><br><a name="write_usm_config-3"></a><span class="bold_code bc-9">write_usm_config(Dir, Hdr, Conf) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="write_usm_config-2"></a><span class="bold_code">write_usm_config(Dir, Conf) -&gt; ok</span><br><a name="write_usm_config-3"></a><span class="bold_code">write_usm_config(Dir, Hdr, Conf) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Hdr = string()</span><br>
+<span class="bold_code">Hdr = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conf = [usm_entry()]</span><br>
+<span class="bold_code">Conf = [usm_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Write the agent usm config to the agent usm 
           config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
@@ -1884,119 +1705,95 @@ word() = 0..65535
         <p><span class="code">Hdr</span> is an optional file header (note that this text is
           written to the file as is). </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#usm">Security data for USM</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#usm">Security data for USM</a></span> 
           for more info. </p>
 
         <a name="append_usm_config"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="append_usm_config-2"></a><span class="bold_code bc-9">append_usm_config(Dir, Conf) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="append_usm_config-2"></a><span class="bold_code">append_usm_config(Dir, Conf) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conf = [usm_entry()]</span><br>
+<span class="bold_code">Conf = [usm_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Append the usm config to the current agent vacm 
           config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#usm">Security data for USM</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#usm">Security data for USM</a></span> 
           for more info. </p>
         <a name="read_usm_config"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="read_usm_config-1"></a><span class="bold_code bc-9">read_usm_config(Dir) -&gt; Conf</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="read_usm_config-1"></a><span class="bold_code">read_usm_config(Dir) -&gt; Conf</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conf = [usm_entry()]</span><br>
+<span class="bold_code">Conf = [usm_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Read the current agent usm config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#usm">Security data for USM</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#usm">Security data for USM</a></span> 
           for more info. </p>
 
         <a name="notify_entry"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="notify_entry-3"></a><span class="bold_code bc-9">notify_entry(Name, Tag, Type) -&gt; notify_entry()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="notify_entry-3"></a><span class="bold_code">notify_entry(Name, Tag, Type) -&gt; notify_entry()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Name = string()</span><br>
+<span class="bold_code">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Tag = string()</span><br>
+<span class="bold_code">Tag = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Type = trap | inform</span><br>
+<span class="bold_code">Type = trap | inform</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">community_entry() = term()</span><br>
+<span class="bold_code">community_entry() = term()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Create an entry for the agent notify config file, 
           <span class="code">notify.conf</span>. </p>
         <p><span class="code">Name</span> must be a <strong>non-empty</strong> string. </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#notify">Notify Definitions</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#notify">Notify Definitions</a></span> 
           for more info. </p>
 
         <a name="write_notify_config"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="write_notify_config-2"></a><span class="bold_code bc-9">write_notify_config(Dir, Conf) -&gt; ok</span><br><a name="write_notify_config-3"></a><span class="bold_code bc-9">write_notify_config(Dir, Hdr, Conf) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="write_notify_config-2"></a><span class="bold_code">write_notify_config(Dir, Conf) -&gt; ok</span><br><a name="write_notify_config-3"></a><span class="bold_code">write_notify_config(Dir, Hdr, Conf) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Hdr = string()</span><br>
+<span class="bold_code">Hdr = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conf = [notify_entry()]</span><br>
+<span class="bold_code">Conf = [notify_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Write the agent notify config to the agent notify 
           config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
@@ -2004,68 +1801,54 @@ word() = 0..65535
         <p><span class="code">Hdr</span> is an optional file header (note that this text is
           written to the file as is). </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#notify">Notify Definitions</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#notify">Notify Definitions</a></span> 
           for more info. </p>
 
         <a name="append_notify_config"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="append_notify_config-2"></a><span class="bold_code bc-9">append_notify_config(Dir, Conf) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="append_notify_config-2"></a><span class="bold_code">append_notify_config(Dir, Conf) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conf = [notify_entry()]</span><br>
+<span class="bold_code">Conf = [notify_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Append the notify config to the current agent notify 
           config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#notify">Notify Definitions</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#notify">Notify Definitions</a></span> 
           for more info. </p>
 
         <a name="read_notify_config"></a>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="read_notify_config-1"></a><span class="bold_code bc-9">read_notify_config(Dir) -&gt; Conf</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="read_notify_config-1"></a><span class="bold_code">read_notify_config(Dir) -&gt; Conf</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Dir = string()</span><br>
+<span class="bold_code">Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Conf = [community_entry()]</span><br>
+<span class="bold_code">Conf = [community_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Read the current agent notify config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p>See 
-          <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#notify">Notify Definitions</a></span> 
+          <span class="bold_code"><a href="snmp_agent_config_files.html#notify">Notify Definitions</a></span> 
           for more info. </p>
         <a name="end"></a>
       </p></div>
-</div>
-</div>
-  </div>
+  
   
 </div>
 <div class="footer">

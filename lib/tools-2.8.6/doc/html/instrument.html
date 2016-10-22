@@ -314,11 +314,11 @@
 <!-- refpage --><center><h1>instrument</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">instrument</div>
+<div class="REFBODY">instrument</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Analysis and Utility Functions for Instrumentation</div>
+<div class="REFBODY">Analysis and Utility Functions for Instrumentation</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>The module <span class="code">instrument</span> contains support for studying the resource
       usage in an Erlang runtime system. Currently, only the allocation of memory can
       be studied.</p>
@@ -357,371 +357,312 @@
       <span class="code">ps</span> or <span class="code">top</span>. The Solaris utility <span class="code">pmap</span> can be
       useful. It reports currently mapped memory segments. </p>
     <p>Overhead for instrumentation: When the emulator has been started with
-      the <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erts_alloc.html#Mim');">"+Mim true"</a></span>
+      the <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erts_alloc.html#Mim');">"+Mim true"</a></span>
       flag, each block is preceded by a 24 bytes large
       header on a 32-bit machine and a 48 bytes large header on a 64-bit
       machine. When the emulator has been started with the
-      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erts_alloc.html#Mis');">"+Mis true"</a></span>
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erts_alloc.html#Mis');">"+Mis true"</a></span>
       flag, each block is preceded by an 8 bytes large header. These are the header
       sizes used by the Erlang 5.3/OTP R9C emulator. Other versions of the
       emulator may use other header sizes. The function
-      <span class="bold_code data-type-ref"><a href="#block_header_size-1">block_header_size/1</a></span>
+      <span class="bold_code"><a href="#block_header_size-1">block_header_size/1</a></span>
       can be used for retrieving the header size used for a specific memory
       allocation map. The time overhead for managing the instrumentation
       data is small.</p>
     <p>Sizes presented by the instrumentation functionality are (by the
       emulator) requested sizes, i.e. neither instrumentation headers nor
       headers used by allocators are included.</p>
-  </div>
+  </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="allocator_descr-2"></a><span class="bold_code bc-9">allocator_descr(MemoryData, TypeNo) -&gt; AllocDescr | invalid_type | "unknown"</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="allocator_descr-2"></a><span class="bold_code">allocator_descr(MemoryData, TypeNo) -&gt; AllocDescr | invalid_type | "unknown"</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">MemoryData = {term(), AllocList}</span><br>
+<span class="bold_code">MemoryData = {term(), AllocList}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">AllocList = [Desc]</span><br>
+<span class="bold_code">AllocList = [Desc]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Desc = {int(), int(), int(), PidDesc}</span><br>
+<span class="bold_code">Desc = {int(), int(), int(), PidDesc}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PidDesc = {int(), int(), int()} | undefined</span><br>
+<span class="bold_code">PidDesc = {int(), int(), int()} | undefined</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TypeNo = int()</span><br>
+<span class="bold_code">TypeNo = int()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">AllocDescr = atom() | string()</span><br>
+<span class="bold_code">AllocDescr = atom() | string()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns the allocator description of the allocator that
           manages memory blocks of type number <span class="code">TypeNo</span> used in
           <span class="code">MemoryData</span>.
           Valid <span class="code">TypeNo</span>s are in the range returned by
-          <span class="bold_code data-type-ref"><a href="#type_no_range-1">type_no_range/1</a></span> on
+          <span class="bold_code"><a href="#type_no_range-1">type_no_range/1</a></span> on
           this specific memory allocation map. If <span class="code">TypeNo</span> is an
           invalid integer, <span class="code">invalid_type</span> is returned.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="block_header_size-1"></a><span class="bold_code bc-9">block_header_size(MemoryData) -&gt; int()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="block_header_size-1"></a><span class="bold_code">block_header_size(MemoryData) -&gt; int()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">MemoryData = {term(), AllocList}</span><br>
+<span class="bold_code">MemoryData = {term(), AllocList}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">AllocList = [Desc]</span><br>
+<span class="bold_code">AllocList = [Desc]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Desc = {int(), int(), int(), PidDesc}</span><br>
+<span class="bold_code">Desc = {int(), int(), int(), PidDesc}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PidDesc = {int(), int(), int()} | undefined</span><br>
+<span class="bold_code">PidDesc = {int(), int(), int()} | undefined</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <a name="block_header_size_1"></a>
         <p>Returns the memory block header size used by the
           emulator that generated the memory allocation map. The block
           header size may differ between different emulators.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="class_descr-2"></a><span class="bold_code bc-9">class_descr(MemoryData, TypeNo) -&gt; ClassDescr | invalid_type | "unknown"</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="class_descr-2"></a><span class="bold_code">class_descr(MemoryData, TypeNo) -&gt; ClassDescr | invalid_type | "unknown"</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">MemoryData = {term(), AllocList}</span><br>
+<span class="bold_code">MemoryData = {term(), AllocList}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">AllocList = [Desc]</span><br>
+<span class="bold_code">AllocList = [Desc]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Desc = {int(), int(), int(), PidDesc}</span><br>
+<span class="bold_code">Desc = {int(), int(), int(), PidDesc}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PidDesc = {int(), int(), int()} | undefined</span><br>
+<span class="bold_code">PidDesc = {int(), int(), int()} | undefined</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TypeNo = int()</span><br>
+<span class="bold_code">TypeNo = int()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">ClassDescr = atom() | string()</span><br>
+<span class="bold_code">ClassDescr = atom() | string()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns the class description of the class that
           the type number <span class="code">TypeNo</span> used in <span class="code">MemoryData</span> belongs
           to.
           Valid <span class="code">TypeNo</span>s are in the range returned by
-          <span class="bold_code data-type-ref"><a href="#type_no_range-1">type_no_range/1</a></span> on
+          <span class="bold_code"><a href="#type_no_range-1">type_no_range/1</a></span> on
           this specific memory allocation map. If <span class="code">TypeNo</span> is an
           invalid integer, <span class="code">invalid_type</span> is returned.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="descr-1"></a><span class="bold_code bc-9">descr(MemoryData) -&gt; DescrMemoryData</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="descr-1"></a><span class="bold_code">descr(MemoryData) -&gt; DescrMemoryData</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">MemoryData = {term(), AllocList}</span><br>
+<span class="bold_code">MemoryData = {term(), AllocList}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">AllocList = [Desc]</span><br>
+<span class="bold_code">AllocList = [Desc]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Desc = {int(), int(), int(), PidDesc}</span><br>
+<span class="bold_code">Desc = {int(), int(), int(), PidDesc}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PidDesc = {int(), int(), int()} | undefined</span><br>
+<span class="bold_code">PidDesc = {int(), int(), int()} | undefined</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">DescrMemoryData = {term(), DescrAllocList}</span><br>
+<span class="bold_code">DescrMemoryData = {term(), DescrAllocList}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">DescrAllocList = [DescrDesc]</span><br>
+<span class="bold_code">DescrAllocList = [DescrDesc]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">DescrDesc = {TypeDescr, int(), int(), DescrPidDesc}</span><br>
+<span class="bold_code">DescrDesc = {TypeDescr, int(), int(), DescrPidDesc}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TypeDescr = atom() | string()</span><br>
+<span class="bold_code">TypeDescr = atom() | string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">DescrPidDesc = pid() | undefined</span><br>
+<span class="bold_code">DescrPidDesc = pid() | undefined</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns a memory allocation map where the type numbers (first
           element of <span class="code">Desc</span>) have been replaced by type descriptions,
           and pid tuples (fourth element of <span class="code">Desc</span>) have been
           replaced by real pids.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="holes-1"></a><span class="bold_code bc-9">holes(MemoryData) -&gt; ok</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="holes-1"></a><span class="bold_code">holes(MemoryData) -&gt; ok</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">MemoryData = {term(), AllocList}</span><br>
+<span class="bold_code">MemoryData = {term(), AllocList}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">AllocList = [Desc]</span><br>
+<span class="bold_code">AllocList = [Desc]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Desc = {int(), int(), int(), PidDesc}</span><br>
+<span class="bold_code">Desc = {int(), int(), int(), PidDesc}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PidDesc = {int(), int(), int()} | undefined</span><br>
+<span class="bold_code">PidDesc = {int(), int(), int()} | undefined</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Prints out the size of each hole (i.e., the space between
           allocated blocks) on the terminal. <strong>NOTE:</strong> Really large holes
           are probably holes between memory segments.
           The memory allocation map has to be sorted (see
-          <span class="bold_code data-type-ref"><a href="#sort-1">sort/1</a></span>).</p>
+          <span class="bold_code"><a href="#sort-1">sort/1</a></span>).</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="mem_limits-1"></a><span class="bold_code bc-9">mem_limits(MemoryData) -&gt; {Low, High}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="mem_limits-1"></a><span class="bold_code">mem_limits(MemoryData) -&gt; {Low, High}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">MemoryData = {term(), AllocList}</span><br>
+<span class="bold_code">MemoryData = {term(), AllocList}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">AllocList = [Desc]</span><br>
+<span class="bold_code">AllocList = [Desc]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Desc = {int(), int(), int(), PidDesc}</span><br>
+<span class="bold_code">Desc = {int(), int(), int(), PidDesc}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PidDesc = {int(), int(), int()} | undefined</span><br>
+<span class="bold_code">PidDesc = {int(), int(), int()} | undefined</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Low = High = int()</span><br>
+<span class="bold_code">Low = High = int()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns a tuple <span class="code">{Low, High}</span> indicating
           the lowest and highest address used.
           The memory allocation map has to be sorted (see
-          <span class="bold_code data-type-ref"><a href="#sort-1">sort/1</a></span>).</p>
+          <span class="bold_code"><a href="#sort-1">sort/1</a></span>).</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="memory_data-0"></a><span class="bold_code bc-9">memory_data() -&gt; MemoryData | false</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="memory_data-0"></a><span class="bold_code">memory_data() -&gt; MemoryData | false</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">MemoryData = {term(), AllocList}</span><br>
+<span class="bold_code">MemoryData = {term(), AllocList}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">AllocList = [Desc]</span><br>
+<span class="bold_code">AllocList = [Desc]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Desc = {int(), int(), int(), PidDesc}</span><br>
+<span class="bold_code">Desc = {int(), int(), int(), PidDesc}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PidDesc = {int(), int(), int()} | undefined</span><br>
+<span class="bold_code">PidDesc = {int(), int(), int()} | undefined</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns <span class="code">MemoryData</span> (a the memory allocation map)
           if the emulator has been started with the "<span class="code">+Mim true</span>"
           command-line argument; otherwise, <span class="code">false</span>. <strong>NOTE:</strong><span class="code">memory_data/0</span> blocks execution of other processes while
           the data is collected. The time it takes to collect the data can
           be substantial.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="memory_status-1"></a><span class="bold_code bc-9">memory_status(StatusType) -&gt; [StatusInfo] | false</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="memory_status-1"></a><span class="bold_code">memory_status(StatusType) -&gt; [StatusInfo] | false</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">StatusType = total | allocators | classes | types</span><br>
+<span class="bold_code">StatusType = total | allocators | classes | types</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">StatusInfo = {About, [Info]}</span><br>
+<span class="bold_code">StatusInfo = {About, [Info]}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">About = atom()</span><br>
+<span class="bold_code">About = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Info = {InfoName, Current, MaxSinceLast, MaxEver}</span><br>
+<span class="bold_code">Info = {InfoName, Current, MaxSinceLast, MaxEver}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">InfoName = sizes|blocks</span><br>
+<span class="bold_code">InfoName = sizes|blocks</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Current = int()</span><br>
+<span class="bold_code">Current = int()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">MaxSinceLast = int()</span><br>
+<span class="bold_code">MaxSinceLast = int()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">MaxEver = int()</span><br>
+<span class="bold_code">MaxEver = int()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns a list of <span class="code">StatusInfo</span> if the emulator has been
           started with the "<span class="code">+Mis true</span>" or "<span class="code">+Mim true</span>"
           command-line argument; otherwise, <span class="code">false</span>. </p>
         <p>See the
-          <span class="bold_code data-type-ref"><a href="#read_memory_status-1">read_memory_status/1</a></span>
+          <span class="bold_code"><a href="#read_memory_status-1">read_memory_status/1</a></span>
           function for a description of the <span class="code">StatusInfo</span> term.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="read_memory_data-1"></a><span class="bold_code bc-9">read_memory_data(File) -&gt; MemoryData | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="read_memory_data-1"></a><span class="bold_code">read_memory_data(File) -&gt; MemoryData | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">File = string()</span><br>
+<span class="bold_code">File = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">MemoryData = {term(), AllocList}</span><br>
+<span class="bold_code">MemoryData = {term(), AllocList}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">AllocList = [Desc]</span><br>
+<span class="bold_code">AllocList = [Desc]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Desc = {int(), int(), int(), PidDesc}</span><br>
+<span class="bold_code">Desc = {int(), int(), int(), PidDesc}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PidDesc = {int(), int(), int()} | undefined</span><br>
+<span class="bold_code">PidDesc = {int(), int(), int()} | undefined</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <a name="read_memory_data_1"></a>
         <p>Reads a memory allocation map from the file <span class="code">File</span> and
           returns it. The file is assumed to have been created by
           <span class="code">store_memory_data/1</span>. The error codes are the same as for
           <span class="code">file:consult/1</span>.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="read_memory_status-1"></a><span class="bold_code bc-9">read_memory_status(File) -&gt; MemoryStatus | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="read_memory_status-1"></a><span class="bold_code">read_memory_status(File) -&gt; MemoryStatus | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">File = string()</span><br>
+<span class="bold_code">File = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">MemoryStatus = [{StatusType, [StatusInfo]}]</span><br>
+<span class="bold_code">MemoryStatus = [{StatusType, [StatusInfo]}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">StatusType = total | allocators | classes | types</span><br>
+<span class="bold_code">StatusType = total | allocators | classes | types</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">StatusInfo = {About, [Info]}</span><br>
+<span class="bold_code">StatusInfo = {About, [Info]}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">About = atom()</span><br>
+<span class="bold_code">About = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Info = {InfoName, Current, MaxSinceLast, MaxEver}</span><br>
+<span class="bold_code">Info = {InfoName, Current, MaxSinceLast, MaxEver}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">InfoName = sizes|blocks</span><br>
+<span class="bold_code">InfoName = sizes|blocks</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Current = int()</span><br>
+<span class="bold_code">Current = int()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">MaxSinceLast = int()</span><br>
+<span class="bold_code">MaxSinceLast = int()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">MaxEver = int()</span><br>
+<span class="bold_code">MaxEver = int()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <a name="read_memory_status_1"></a>
         <p>Reads memory allocation status from the file <span class="code">File</span> and
           returns it. The file is assumed to have been created by
@@ -766,169 +707,133 @@
           are accounted for as memory allocated via <span class="code">ll_alloc</span> even
           though it is.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="sort-1"></a><span class="bold_code bc-9">sort(MemoryData) -&gt; MemoryData</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="sort-1"></a><span class="bold_code">sort(MemoryData) -&gt; MemoryData</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">MemoryData = {term(), AllocList}</span><br>
+<span class="bold_code">MemoryData = {term(), AllocList}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">AllocList = [Desc]</span><br>
+<span class="bold_code">AllocList = [Desc]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Desc = {int(), int(), int(), PidDesc}</span><br>
+<span class="bold_code">Desc = {int(), int(), int(), PidDesc}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PidDesc = {int(), int(), int()} | undefined</span><br>
+<span class="bold_code">PidDesc = {int(), int(), int()} | undefined</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <a name="sort_1"></a>
         <p>Sorts a memory allocation map so that the addresses are in
           ascending order.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="store_memory_data-1"></a><span class="bold_code bc-9">store_memory_data(File) -&gt; true|false</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="store_memory_data-1"></a><span class="bold_code">store_memory_data(File) -&gt; true|false</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">File = string()</span><br>
+<span class="bold_code">File = string()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Stores the current memory allocation map on the file
           <span class="code">File</span>. Returns <span class="code">true</span> if the emulator has been
           started with the "<span class="code">+Mim true</span>" command-line argument, and
           the map was successfully stored; otherwise, <span class="code">false</span>. The
           contents of the file can later be read using
-          <span class="bold_code data-type-ref"><a href="#read_memory_data-1">read_memory_data/1</a></span>.
+          <span class="bold_code"><a href="#read_memory_data-1">read_memory_data/1</a></span>.
           <strong>NOTE:</strong><span class="code">store_memory_data/0</span> blocks execution of
           other processes while the data is collected. The time it takes
           to collect the data can be substantial.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="store_memory_status-1"></a><span class="bold_code bc-9">store_memory_status(File) -&gt; true|false</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="store_memory_status-1"></a><span class="bold_code">store_memory_status(File) -&gt; true|false</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">File = string()</span><br>
+<span class="bold_code">File = string()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Stores the current memory status on the file
           <span class="code">File</span>. Returns <span class="code">true</span> if the emulator has been
           started with the "<span class="code">+Mis true</span>", or "<span class="code">+Mim true</span>"
           command-line arguments, and the data was successfully stored;
           otherwise, <span class="code">false</span>. The contents of the file can later be
           read using
-          <span class="bold_code data-type-ref"><a href="#read_memory_status-1">read_memory_status/1</a></span>.</p>
+          <span class="bold_code"><a href="#read_memory_status-1">read_memory_status/1</a></span>.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="sum_blocks-1"></a><span class="bold_code bc-9">sum_blocks(MemoryData) -&gt; int()</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="sum_blocks-1"></a><span class="bold_code">sum_blocks(MemoryData) -&gt; int()</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">MemoryData = {term(), AllocList}</span><br>
+<span class="bold_code">MemoryData = {term(), AllocList}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">AllocList = [Desc]</span><br>
+<span class="bold_code">AllocList = [Desc]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Desc = {int(), int(), int(), PidDesc}</span><br>
+<span class="bold_code">Desc = {int(), int(), int(), PidDesc}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PidDesc = {int(), int(), int()} | undefined</span><br>
+<span class="bold_code">PidDesc = {int(), int(), int()} | undefined</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns the total size of the memory blocks in the list.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="type_descr-2"></a><span class="bold_code bc-9">type_descr(MemoryData, TypeNo) -&gt; TypeDescr | invalid_type</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="type_descr-2"></a><span class="bold_code">type_descr(MemoryData, TypeNo) -&gt; TypeDescr | invalid_type</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">MemoryData = {term(), AllocList}</span><br>
+<span class="bold_code">MemoryData = {term(), AllocList}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">AllocList = [Desc]</span><br>
+<span class="bold_code">AllocList = [Desc]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Desc = {int(), int(), int(), PidDesc}</span><br>
+<span class="bold_code">Desc = {int(), int(), int(), PidDesc}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PidDesc = {int(), int(), int()} | undefined</span><br>
+<span class="bold_code">PidDesc = {int(), int(), int()} | undefined</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TypeNo = int()</span><br>
+<span class="bold_code">TypeNo = int()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">TypeDescr = atom() | string()</span><br>
+<span class="bold_code">TypeDescr = atom() | string()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>Returns the type description of a type number used in
           <span class="code">MemoryData</span>.
           Valid <span class="code">TypeNo</span>s are in the range returned by
-          <span class="bold_code data-type-ref"><a href="#type_no_range-1">type_no_range/1</a></span> on
+          <span class="bold_code"><a href="#type_no_range-1">type_no_range/1</a></span> on
           this specific memory allocation map. If <span class="code">TypeNo</span> is an
           invalid integer, <span class="code">invalid_type</span> is returned.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="type_no_range-1"></a><span class="bold_code bc-9">type_no_range(MemoryData) -&gt; {Min, Max}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="type_no_range-1"></a><span class="bold_code">type_no_range(MemoryData) -&gt; {Min, Max}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">MemoryData = {term(), AllocList}</span><br>
+<span class="bold_code">MemoryData = {term(), AllocList}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">AllocList = [Desc]</span><br>
+<span class="bold_code">AllocList = [Desc]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Desc = {int(), int(), int(), PidDesc}</span><br>
+<span class="bold_code">Desc = {int(), int(), int(), PidDesc}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PidDesc = {int(), int(), int()} | undefined</span><br>
+<span class="bold_code">PidDesc = {int(), int(), int()} | undefined</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Min = int()</span><br>
+<span class="bold_code">Min = int()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Max = int()</span><br>
+<span class="bold_code">Max = int()</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <a name="type_no_range_1"></a>
         <p>Returns the memory block type number range used in
           <span class="code">MemoryData</span>. When the memory allocation map was generated
@@ -938,15 +843,13 @@
           by a pre Erlang 5.3/OTP R9C emulator, all integers in the
           range are <strong>not</strong> valid type numbers.</p>
       </p></div>
-</div>
-</div>
-  </div>
+  
 
-  <h3><a name="idm46064318486576">See Also</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46159110039440">See Also</a></h3>
+<div class="REFBODY">
     
-    <p><span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','erts_alloc.html');">erts_alloc(3)</a></span>,
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html');">erl(1)</a></span></p>
+    <p><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erts_alloc.html');">erts_alloc(3)</a></span>,
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html');">erl(1)</a></span></p>
   </div>
 </div>
 <div class="footer">

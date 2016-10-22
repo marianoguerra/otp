@@ -1717,11 +1717,11 @@
 <!-- refpage --><center><h1>queue</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">queue</div>
+<div class="REFBODY">queue</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Abstract data type for FIFO queues.</div>
+<div class="REFBODY">Abstract data type for FIFO queues.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>This module provides (double-ended) FIFO queues
       in an efficient manner.</p>
 
@@ -1740,11 +1740,11 @@
       assuming knowledge of the format is running on thin ice.</p>
 
     <p>All operations has an amortized O(1) running time, except
-      <span class="bold_code data-type-ref"><a href="#filter-2"><span class="code">filter/2</span></a></span>,
-      <span class="bold_code data-type-ref"><a href="#join-2"><span class="code">join/2</span></a></span>,
-      <span class="bold_code data-type-ref"><a href="#len-1"><span class="code">len/1</span></a></span>,
-      <span class="bold_code data-type-ref"><a href="#member-2"><span class="code">member/2</span></a></span>,
-      <span class="bold_code data-type-ref"><a href="#split-2"><span class="code">split/2</span></a></span> that have O(n).
+      <span class="bold_code"><a href="#filter-2"><span class="code">filter/2</span></a></span>,
+      <span class="bold_code"><a href="#join-2"><span class="code">join/2</span></a></span>,
+      <span class="bold_code"><a href="#len-1"><span class="code">len/1</span></a></span>,
+      <span class="bold_code"><a href="#member-2"><span class="code">member/2</span></a></span>,
+      <span class="bold_code"><a href="#split-2"><span class="code">split/2</span></a></span> that have O(n).
       To minimize the size of a queue minimizing
       the amount of garbage built by queue operations, the queues
       do not contain explicit length information, and that is
@@ -1781,34 +1781,28 @@
       This API is by many regarded as strange and avoidable.
       For example, many reverse operations have lexically reversed names,
       some with more readable but perhaps less understandable aliases.</p>
-  </div>
+  </p></div>
 
-  <h3><a name="idm45461563563328">Original API</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46007669997008">Original API</a></h3>
+<div class="REFBODY">
     
   </div>
 
-  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
-<div class="data-types-body">
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-queue">queue(Item)</a></span><div class="REFBODY data-type-desc"><p><p>As returned by
-        <span class="bold_code data-type-ref"><a href="#new-0"><span class="code">new/0</span></a></span>.</p></p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-queue">queue()</a> = <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(term())</span>
-</div>
-  </div>
+  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
+    <p>
+      <span class="bold_code"><a name="type-queue">queue(Item)</a></span><br></p>
+<div class="REFBODY"><p><p>As returned by
+        <span class="bold_code"><a href="#new-0"><span class="code">new/0</span></a></span>.</p></p></div>
+    <p>
+      <span class="bold_code"><a name="type-queue">queue()</a> = <span class="bold_code"><a href="#type-queue">queue</a></span>(term())</span><br></p>
+  
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="filter-2"></a><span class="bold_code func-name">filter(Fun, Q1 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)) -&gt; Q2 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Fun = fun((Item) -&gt; boolean() | [Item])</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="filter-2"></a><span class="bold_code">filter(Fun, Q1 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)) -&gt; Q2 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Fun = fun((Item) -&gt; boolean() | [Item])</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns a queue <span class="code">Q2</span> that is the result of calling
           <span class="code">Fun(Item)</span> on all items in
           <span class="code">Q1</span>, in order from front to rear.</p>
@@ -1823,339 +1817,220 @@
           as returning <span class="code">[]</span> is semantically equivalent to
           returning <span class="code">false</span>. But returning a list builds
           more garbage than returning an atom.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="from_list-1"></a><span class="bold_code func-name">from_list(L :: [Item]) -&gt; <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="from_list-1"></a><span class="bold_code">from_list(L :: [Item]) -&gt; <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)</span><br></p>
+<div class="REFBODY"><p>
         <p>Returns a queue containing the items in <span class="code">L</span> in the
           same order; the head item of the list becomes the front
           item of the queue.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="in-2"></a><span class="bold_code func-name">in(Item, Q1 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)) -&gt; Q2 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="in-2"></a><span class="bold_code">in(Item, Q1 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)) -&gt; Q2 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)</span><br></p>
+<div class="REFBODY"><p>
         <p>Inserts <span class="code">Item</span> at the rear of queue
           <span class="code">Q1</span>.
           Returns the resulting queue <span class="code">Q2</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="in_r-2"></a><span class="bold_code func-name">in_r(Item, Q1 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)) -&gt; Q2 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="in_r-2"></a><span class="bold_code">in_r(Item, Q1 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)) -&gt; Q2 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)</span><br></p>
+<div class="REFBODY"><p>
         <p>Inserts <span class="code">Item</span> at the front of queue
           <span class="code">Q1</span>.
           Returns the resulting queue <span class="code">Q2</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="is_empty-1"></a><span class="bold_code func-name">is_empty(Q :: <span class="bold_code data-type-ref"><a href="#type-queue">queue()</a></span>) -&gt; boolean()</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="is_empty-1"></a><span class="bold_code">is_empty(Q :: <span class="bold_code"><a href="#type-queue">queue()</a></span>) -&gt; boolean()</span><br></p>
+<div class="REFBODY"><p>
         <p>Tests if <span class="code">Q</span> is empty and returns <span class="code">true</span> if
           so, otherwise otherwise.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="is_queue-1"></a><span class="bold_code func-name">is_queue(Term :: term()) -&gt; boolean()</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="is_queue-1"></a><span class="bold_code">is_queue(Term :: term()) -&gt; boolean()</span><br></p>
+<div class="REFBODY"><p>
         <p>Tests if <span class="code">Term</span> is a queue and returns <span class="code">true</span>
           if so, otherwise <span class="code">false</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="join-2"></a><span class="bold_code func-name">join(Q1 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item), Q2 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)) -&gt; Q3 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="join-2"></a><span class="bold_code">join(Q1 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item), Q2 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)) -&gt; Q3 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)</span><br></p>
+<div class="REFBODY"><p>
         <p>Returns a queue <span class="code">Q3</span> that is the result of joining
           <span class="code">Q1</span> and <span class="code">Q2</span> with
           <span class="code">Q1</span> in front of <span class="code">Q2</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="len-1"></a><span class="bold_code func-name">len(Q :: <span class="bold_code data-type-ref"><a href="#type-queue">queue()</a></span>) -&gt; integer() &gt;= 0</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="len-1"></a><span class="bold_code">len(Q :: <span class="bold_code"><a href="#type-queue">queue()</a></span>) -&gt; integer() &gt;= 0</span><br></p>
+<div class="REFBODY"><p>
         <p>Calculates and returns the length of queue <span class="code">Q</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="member-2"></a><span class="bold_code func-name">member(Item, Q :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)) -&gt; boolean()</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="member-2"></a><span class="bold_code">member(Item, Q :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)) -&gt; boolean()</span><br></p>
+<div class="REFBODY"><p>
         <p>Returns <span class="code">true</span> if <span class="code">Item</span> matches some element
           in <span class="code">Q</span>, otherwise <span class="code">false</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="new-0"></a><span class="bold_code func-name">new() -&gt; <span class="bold_code data-type-ref"><a href="#type-queue">queue()</a></span></span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="new-0"></a><span class="bold_code">new() -&gt; <span class="bold_code"><a href="#type-queue">queue()</a></span></span><br></p>
+<div class="REFBODY"><p>
         <p>Returns an empty queue.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="out-1"></a><span class="bold_code func-name">out(Q1 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)) -&gt;<br>       {{value, Item}, Q2 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)} |<br>       {empty, Q1 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)}</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="out-1"></a><span class="bold_code">out(Q1 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)) -&gt;<br>       {{value, Item}, Q2 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)} |<br>       {empty, Q1 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)}</span><br></p>
+<div class="REFBODY"><p>
         <p>Removes the item at the front of queue <span class="code">Q1</span>.
           Returns tuple <span class="code">{{value, Item}, Q2}</span>,
           where <span class="code">Item</span> is the item removed and
           <span class="code">Q2</span> is the resulting queue. If
           <span class="code">Q1</span> is empty, tuple
           <span class="code">{empty, Q1}</span> is returned.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="out_r-1"></a><span class="bold_code func-name">out_r(Q1 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)) -&gt;<br>         {{value, Item}, Q2 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)} |<br>         {empty, Q1 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)}</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="out_r-1"></a><span class="bold_code">out_r(Q1 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)) -&gt;<br>         {{value, Item}, Q2 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)} |<br>         {empty, Q1 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)}</span><br></p>
+<div class="REFBODY"><p>
         <p>Removes the item at the rear of queue <span class="code">Q1</span>.
           Returns tuple <span class="code">{{value, Item}, Q2}</span>,
           where <span class="code">Item</span> is the item removed and
           <span class="code">Q2</span> is the new queue. If <span class="code">Q1</span> is
           empty, tuple <span class="code">{empty, Q1}</span> is returned.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="reverse-1"></a><span class="bold_code func-name">reverse(Q1 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)) -&gt; Q2 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="reverse-1"></a><span class="bold_code">reverse(Q1 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)) -&gt; Q2 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)</span><br></p>
+<div class="REFBODY"><p>
         <p>Returns a queue <span class="code">Q2</span> containing the items of
           <span class="code">Q1</span> in the reverse order.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="split-2"></a><span class="bold_code func-name">split(N :: integer() &gt;= 0, Q1 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)) -&gt;<br>         {Q2 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item), Q3 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)}</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="split-2"></a><span class="bold_code">split(N :: integer() &gt;= 0, Q1 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)) -&gt;<br>         {Q2 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item), Q3 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)}</span><br></p>
+<div class="REFBODY"><p>
         <p>Splits <span class="code">Q1</span> in two. The <span class="code">N</span>
           front items are put in <span class="code">Q2</span> and the rest in
           <span class="code">Q3</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="to_list-1"></a><span class="bold_code func-name">to_list(Q :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)) -&gt; [Item]</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="to_list-1"></a><span class="bold_code">to_list(Q :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)) -&gt; [Item]</span><br></p>
+<div class="REFBODY"><p>
         <p>Returns a list of the items in the queue in the same order;
           the front item of the queue becomes the head of the list.</p>
-      </p></div></div>
-</div>
-  </div>
+      </p></div>
+  
 
-  <h3><a name="idm45461563482256">Extended API</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46007669915936">Extended API</a></h3>
+<div class="REFBODY">
     
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="drop-1"></a><span class="bold_code func-name">drop(Q1 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)) -&gt; Q2 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="drop-1"></a><span class="bold_code">drop(Q1 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)) -&gt; Q2 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)</span><br></p>
+<div class="REFBODY"><p>
         <p>Returns a queue <span class="code">Q2</span> that is the result of removing
           the front item from <span class="code">Q1</span>.</p>
         <p>Fails with reason <span class="code">empty</span> if <span class="code">Q1</span> is empty.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="drop_r-1"></a><span class="bold_code func-name">drop_r(Q1 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)) -&gt; Q2 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="drop_r-1"></a><span class="bold_code">drop_r(Q1 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)) -&gt; Q2 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)</span><br></p>
+<div class="REFBODY"><p>
         <p>Returns a queue <span class="code">Q2</span> that is the result of removing
           the rear item from <span class="code">Q1</span>.</p>
         <p>Fails with reason <span class="code">empty</span> if <span class="code">Q1</span> is empty.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="get-1"></a><span class="bold_code func-name">get(Q :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)) -&gt; Item</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="get-1"></a><span class="bold_code">get(Q :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)) -&gt; Item</span><br></p>
+<div class="REFBODY"><p>
         <p>Returns <span class="code">Item</span> at the front of queue
           <span class="code">Q</span>.</p>
         <p>Fails with reason <span class="code">empty</span> if <span class="code">Q</span> is empty.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="get_r-1"></a><span class="bold_code func-name">get_r(Q :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)) -&gt; Item</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="get_r-1"></a><span class="bold_code">get_r(Q :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)) -&gt; Item</span><br></p>
+<div class="REFBODY"><p>
         <p>Returns <span class="code">Item</span> at the rear of queue
           <span class="code">Q</span>.</p>
         <p>Fails with reason <span class="code">empty</span> if <span class="code">Q</span> is empty.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="peek-1"></a><span class="bold_code func-name">peek(Q :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)) -&gt; empty | {value, Item}</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="peek-1"></a><span class="bold_code">peek(Q :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)) -&gt; empty | {value, Item}</span><br></p>
+<div class="REFBODY"><p>
         <p>Returns tuple <span class="code">{value, Item}</span>, where
           <span class="code">Item</span> is the front item of <span class="code">Q</span>,
           or <span class="code">empty</span> if <span class="code">Q</span> is empty.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="peek_r-1"></a><span class="bold_code func-name">peek_r(Q :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)) -&gt; empty | {value, Item}</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="peek_r-1"></a><span class="bold_code">peek_r(Q :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)) -&gt; empty | {value, Item}</span><br></p>
+<div class="REFBODY"><p>
         <p>Returns tuple <span class="code">{value, Item}</span>, where
           <span class="code">Item</span> is the rear item of <span class="code">Q</span>,
           or <span class="code">empty</span> if <span class="code">Q</span> is empty.</p>
-      </p></div></div>
-</div>
-  </div>
+      </p></div>
+  
 
-  <h3><a name="idm45461563448304">Okasaki API</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46007669881984">Okasaki API</a></h3>
+<div class="REFBODY">
     
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="cons-2"></a><span class="bold_code func-name">cons(Item, Q1 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)) -&gt; Q2 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="cons-2"></a><span class="bold_code">cons(Item, Q1 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)) -&gt; Q2 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)</span><br></p>
+<div class="REFBODY"><p>
         <p>Inserts <span class="code">Item</span> at the head of queue
           <span class="code">Q1</span>. Returns
           the new queue <span class="code">Q2</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="daeh-1"></a><span class="bold_code func-name">daeh(Q :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)) -&gt; Item</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="daeh-1"></a><span class="bold_code">daeh(Q :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)) -&gt; Item</span><br></p>
+<div class="REFBODY"><p>
         <p>Returns the tail item of queue <span class="code">Q</span>.</p>
         <p>Fails with reason <span class="code">empty</span> if <span class="code">Q</span> is empty.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="head-1"></a><span class="bold_code func-name">head(Q :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)) -&gt; Item</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="head-1"></a><span class="bold_code">head(Q :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)) -&gt; Item</span><br></p>
+<div class="REFBODY"><p>
         <p>Returns <span class="code">Item</span> from the head of queue
           <span class="code">Q</span>.</p>
         <p>Fails with reason <span class="code">empty</span> if <span class="code">Q</span> is empty.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="init-1"></a><span class="bold_code func-name">init(Q1 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)) -&gt; Q2 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="init-1"></a><span class="bold_code">init(Q1 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)) -&gt; Q2 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)</span><br></p>
+<div class="REFBODY"><p>
         <p>Returns a queue <span class="code">Q2</span> that is the result of removing
           the tail item from <span class="code">Q1</span>.</p>
         <p>Fails with reason <span class="code">empty</span> if <span class="code">Q1</span> is empty.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="lait-1"></a><span class="bold_code func-name">lait(Q1 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)) -&gt; Q2 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="lait-1"></a><span class="bold_code">lait(Q1 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)) -&gt; Q2 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)</span><br></p>
+<div class="REFBODY"><p>
         <p>Returns a queue <span class="code">Q2</span> that is the result of removing
           the tail item from <span class="code">Q1</span>.</p>
         <p>Fails with reason <span class="code">empty</span> if <span class="code">Q1</span> is empty.</p>
         <p>The name <span class="code">lait/1</span> is a misspelling - do not use it anymore.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="last-1"></a><span class="bold_code func-name">last(Q :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)) -&gt; Item</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="last-1"></a><span class="bold_code">last(Q :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)) -&gt; Item</span><br></p>
+<div class="REFBODY"><p>
         <p>Returns the tail item of queue <span class="code">Q</span>.</p>
         <p>Fails with reason <span class="code">empty</span> if <span class="code">Q</span> is empty.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="liat-1"></a><span class="bold_code func-name">liat(Q1 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)) -&gt; Q2 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="liat-1"></a><span class="bold_code">liat(Q1 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)) -&gt; Q2 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)</span><br></p>
+<div class="REFBODY"><p>
         <p>Returns a queue <span class="code">Q2</span> that is the result of removing
           the tail item from <span class="code">Q1</span>.</p>
         <p>Fails with reason <span class="code">empty</span> if <span class="code">Q1</span> is empty.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="snoc-2"></a><span class="bold_code func-name">snoc(Q1 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item), Item) -&gt; Q2 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="snoc-2"></a><span class="bold_code">snoc(Q1 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item), Item) -&gt; Q2 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)</span><br></p>
+<div class="REFBODY"><p>
         <p>Inserts <span class="code">Item</span> as the tail item of queue
           <span class="code">Q1</span>. Returns
           the new queue <span class="code">Q2</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="tail-1"></a><span class="bold_code func-name">tail(Q1 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)) -&gt; Q2 :: <span class="bold_code data-type-ref"><a href="#type-queue">queue</a></span>(Item)</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="tail-1"></a><span class="bold_code">tail(Q1 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)) -&gt; Q2 :: <span class="bold_code"><a href="#type-queue">queue</a></span>(Item)</span><br></p>
+<div class="REFBODY"><p>
         <p>Returns a queue <span class="code">Q2</span> that is the result of removing
           the head item from <span class="code">Q1</span>.</p>
         <p>Fails with reason <span class="code">empty</span> if <span class="code">Q1</span> is empty.</p>
-      </p></div></div>
-</div>
-  </div>
+      </p></div>
+  
 </div>
 <div class="footer">
 <hr>

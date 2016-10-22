@@ -1717,11 +1717,11 @@
 <!-- refpage --><center><h1>erl_pp</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">erl_pp</div>
+<div class="REFBODY">erl_pp</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">The Erlang pretty printer.</div>
+<div class="REFBODY">The Erlang pretty printer.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>The functions in this module are used to generate
       aesthetically attractive representations of abstract
       forms, which are suitable for printing.
@@ -1730,141 +1730,113 @@
 
     <p>All functions can have an optional argument, which specifies a hook
       that is called if an attempt is made to print an unknown form.</p>
-  </div>
+  </p></div>
 
-  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
-<div class="data-types-body">
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-hook_function">hook_function()</a> = <br>    none |<br>    fun((Expr :: <span class="bold_code bc-15"><a href="erl_parse.html#type-abstract_expr">erl_parse:abstract_expr()</a></span>,<br>         CurrentIndentation :: integer(),<br>         CurrentPrecedence :: integer() &gt;= 0,<br>         Options :: <span class="bold_code data-type-ref"><a href="#type-options">options()</a></span>) -&gt;<br>            <span class="bold_code bc-15"><a href="io_lib.html#type-chars">io_lib:chars()</a></span>)</span><div class="REFBODY data-type-desc"><p>
+  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
+    <p>
+      <span class="bold_code"><a name="type-hook_function">hook_function()</a> = <br>    none |<br>    fun((Expr :: <span class="bold_code"><a href="erl_parse.html#type-abstract_expr">erl_parse:abstract_expr()</a></span>,<br>         CurrentIndentation :: integer(),<br>         CurrentPrecedence :: integer() &gt;= 0,<br>         Options :: <span class="bold_code"><a href="#type-options">options()</a></span>) -&gt;<br>            <span class="bold_code"><a href="io_lib.html#type-chars">io_lib:chars()</a></span>)</span><br></p>
+<div class="REFBODY"><p>
         <p>Optional argument <a name="hook_function"></a><span class="code">HookFunction</span>,
           shown in the functions described in this module, defines a function
           that is called when an unknown form occurs where there
           is to be a valid expression. If <span class="code">HookFunction</span> is equal to
           <span class="code">none</span>, there is no hook function.</p>
         <p>The called hook function is to return a (possibly deep) list of
-          characters. Function <span class="bold_code data-type-ref"><a href="#expr-4"><span class="code">expr/4</span></a></span>
+          characters. Function <span class="bold_code"><a href="#expr-4"><span class="code">expr/4</span></a></span>
           is useful in a hook.</p>
         <p>If <span class="code">CurrentIndentation</span> is negative, there are no
           line breaks and only a space is used as a separator.</p>
       </p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-option">option()</a> = <br>    {hook, <span class="bold_code data-type-ref"><a href="#type-hook_function">hook_function()</a></span>} | {encoding, latin1 | unicode | utf8}</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-options">options()</a> = <span class="bold_code data-type-ref"><a href="#type-hook_function">hook_function()</a></span> | [<span class="bold_code data-type-ref"><a href="#type-option">option()</a></span>]</span>
-</div>
-  </div>
+    <p>
+      <span class="bold_code"><a name="type-option">option()</a> = <br>    {hook, <span class="bold_code"><a href="#type-hook_function">hook_function()</a></span>} | {encoding, latin1 | unicode | utf8}</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-options">options()</a> = <span class="bold_code"><a href="#type-hook_function">hook_function()</a></span> | [<span class="bold_code"><a href="#type-option">option()</a></span>]</span><br></p>
+  
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="attribute-1"></a><span class="bold_code func-name">attribute(Attribute) -&gt; <span class="bold_code bc-15"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><a name="attribute-2"></a><span class="bold_code func-name">attribute(Attribute, Options) -&gt; <span class="bold_code bc-15"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Attribute = <span class="bold_code bc-15"><a href="erl_parse.html#type-abstract_form">erl_parse:abstract_form()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = <span class="bold_code data-type-ref"><a href="#type-options">options()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
-        <p>Same as <span class="bold_code data-type-ref"><a href="#form-1"><span class="code">form/1,2</span></a></span>,
+    <p><a name="attribute-1"></a><span class="bold_code">attribute(Attribute) -&gt; <span class="bold_code"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><br><a name="attribute-2"></a><span class="bold_code">attribute(Attribute, Options) -&gt; <span class="bold_code"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Attribute = <span class="bold_code"><a href="erl_parse.html#type-abstract_form">erl_parse:abstract_form()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Options = <span class="bold_code"><a href="#type-options">options()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
+        <p>Same as <span class="bold_code"><a href="#form-1"><span class="code">form/1,2</span></a></span>,
           but only for attribute <span class="code">Attribute</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="expr-1"></a><span class="bold_code func-name">expr(Expression) -&gt; <span class="bold_code bc-15"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><a name="expr-2"></a><span class="bold_code func-name">expr(Expression, Options) -&gt; <span class="bold_code bc-15"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><a name="expr-3"></a><span class="bold_code func-name">expr(Expression, Indent, Options) -&gt; <span class="bold_code bc-15"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><a name="expr-4"></a><span class="bold_code func-name">expr(Expression, Indent, Precedence, Options) -&gt; <span class="bold_code bc-15"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Expression = <span class="bold_code bc-15"><a href="erl_parse.html#type-abstract_expr">erl_parse:abstract_expr()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Indent = integer()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Precedence = integer() &gt;= 0</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = <span class="bold_code data-type-ref"><a href="#type-options">options()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="expr-1"></a><span class="bold_code">expr(Expression) -&gt; <span class="bold_code"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><br><a name="expr-2"></a><span class="bold_code">expr(Expression, Options) -&gt; <span class="bold_code"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><br><a name="expr-3"></a><span class="bold_code">expr(Expression, Indent, Options) -&gt; <span class="bold_code"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><br><a name="expr-4"></a><span class="bold_code">expr(Expression, Indent, Precedence, Options) -&gt; <span class="bold_code"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Expression = <span class="bold_code"><a href="erl_parse.html#type-abstract_expr">erl_parse:abstract_expr()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Indent = integer()</span></div>
+<div class="REFTYPES"><span class="bold_code">Precedence = integer() &gt;= 0</span></div>
+<div class="REFTYPES"><span class="bold_code">Options = <span class="bold_code"><a href="#type-options">options()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Prints one expression. It is useful for implementing hooks (see
           section
-          <span class="bold_code data-type-ref"><a href="#knownlimitations">Known Limitations</a></span>).</p>
-      </p></div></div>
-</div>
+          <span class="bold_code"><a href="#knownlimitations">Known Limitations</a></span>).</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="exprs-1"></a><span class="bold_code func-name">exprs(Expressions) -&gt; <span class="bold_code bc-15"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><a name="exprs-2"></a><span class="bold_code func-name">exprs(Expressions, Options) -&gt; <span class="bold_code bc-15"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><a name="exprs-3"></a><span class="bold_code func-name">exprs(Expressions, Indent, Options) -&gt; <span class="bold_code bc-15"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Expressions = [<span class="bold_code bc-15"><a href="erl_parse.html#type-abstract_expr">erl_parse:abstract_expr()</a></span>]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Indent = integer()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = <span class="bold_code data-type-ref"><a href="#type-options">options()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
-        <p>Same as <span class="bold_code data-type-ref"><a href="#form-1"><span class="code">form/1,2</span></a></span>,
+    <p><a name="exprs-1"></a><span class="bold_code">exprs(Expressions) -&gt; <span class="bold_code"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><br><a name="exprs-2"></a><span class="bold_code">exprs(Expressions, Options) -&gt; <span class="bold_code"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><br><a name="exprs-3"></a><span class="bold_code">exprs(Expressions, Indent, Options) -&gt; <span class="bold_code"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Expressions = [<span class="bold_code"><a href="erl_parse.html#type-abstract_expr">erl_parse:abstract_expr()</a></span>]</span></div>
+<div class="REFTYPES"><span class="bold_code">Indent = integer()</span></div>
+<div class="REFTYPES"><span class="bold_code">Options = <span class="bold_code"><a href="#type-options">options()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
+        <p>Same as <span class="bold_code"><a href="#form-1"><span class="code">form/1,2</span></a></span>,
           but only for the sequence of
           expressions in <span class="code">Expressions</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="form-1"></a><span class="bold_code func-name">form(Form) -&gt; <span class="bold_code bc-15"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><a name="form-2"></a><span class="bold_code func-name">form(Form, Options) -&gt; <span class="bold_code bc-15"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Form = <span class="bold_code bc-15"><a href="erl_parse.html#type-abstract_form">erl_parse:abstract_form()</a></span> | <span class="bold_code bc-15"><a href="erl_parse.html#type-form_info">erl_parse:form_info()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = <span class="bold_code data-type-ref"><a href="#type-options">options()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="form-1"></a><span class="bold_code">form(Form) -&gt; <span class="bold_code"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><br><a name="form-2"></a><span class="bold_code">form(Form, Options) -&gt; <span class="bold_code"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Form = <span class="bold_code"><a href="erl_parse.html#type-abstract_form">erl_parse:abstract_form()</a></span> | <span class="bold_code"><a href="erl_parse.html#type-form_info">erl_parse:form_info()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Options = <span class="bold_code"><a href="#type-options">options()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Pretty prints a
           <span class="code">Form</span>, which is an abstract form of a type that is
-          returned by <span class="bold_code bc-15"><a href="erl_parse.html#parse_form-1"><span class="code">erl_parse:parse_form/1</span></a></span>.</p>
-      </p></div></div>
-</div>
+          returned by <span class="bold_code"><a href="erl_parse.html#parse_form-1"><span class="code">erl_parse:parse_form/1</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="function-1"></a><span class="bold_code func-name">function(Function) -&gt; <span class="bold_code bc-15"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><a name="function-2"></a><span class="bold_code func-name">function(Function, Options) -&gt; <span class="bold_code bc-15"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Function = <span class="bold_code bc-15"><a href="erl_parse.html#type-abstract_form">erl_parse:abstract_form()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = <span class="bold_code data-type-ref"><a href="#type-options">options()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
-        <p>Same as <span class="bold_code data-type-ref"><a href="#form-1"><span class="code">form/1,2</span></a></span>,
+    <p><a name="function-1"></a><span class="bold_code">function(Function) -&gt; <span class="bold_code"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><br><a name="function-2"></a><span class="bold_code">function(Function, Options) -&gt; <span class="bold_code"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Function = <span class="bold_code"><a href="erl_parse.html#type-abstract_form">erl_parse:abstract_form()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Options = <span class="bold_code"><a href="#type-options">options()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
+        <p>Same as <span class="bold_code"><a href="#form-1"><span class="code">form/1,2</span></a></span>,
           but only for function <span class="code">Function</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="guard-1"></a><span class="bold_code func-name">guard(Guard) -&gt; <span class="bold_code bc-15"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><a name="guard-2"></a><span class="bold_code func-name">guard(Guard, Options) -&gt; <span class="bold_code bc-15"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Guard = [<span class="bold_code bc-15"><a href="erl_parse.html#type-abstract_expr">erl_parse:abstract_expr()</a></span>]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = <span class="bold_code data-type-ref"><a href="#type-options">options()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
-        <p>Same as <span class="bold_code data-type-ref"><a href="#form-1"><span class="code">form/1,2</span></a></span>,
+    <p><a name="guard-1"></a><span class="bold_code">guard(Guard) -&gt; <span class="bold_code"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><br><a name="guard-2"></a><span class="bold_code">guard(Guard, Options) -&gt; <span class="bold_code"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Guard = [<span class="bold_code"><a href="erl_parse.html#type-abstract_expr">erl_parse:abstract_expr()</a></span>]</span></div>
+<div class="REFTYPES"><span class="bold_code">Options = <span class="bold_code"><a href="#type-options">options()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
+        <p>Same as <span class="bold_code"><a href="#form-1"><span class="code">form/1,2</span></a></span>,
           but only for the guard test <span class="code">Guard</span>.</p>
-      </p></div></div>
-</div>
-  </div>
+      </p></div>
+  
 
   <h3>
-<a name="knownlimitations"></a><a name="idm45461569793808">Known Limitations</a>
+<a name="knownlimitations"></a><a name="idm46007676227488">Known Limitations</a>
 </h3>
-<div class="REFBODY rb-3">
+<div class="REFBODY">
     
     
     <p>It is not possible to have hook functions for unknown forms
       at other places than expressions.</p>
   </div>
 
-  <h3><a name="idm45461569792384">See Also</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46007676226064">See Also</a></h3>
+<div class="REFBODY">
     
-    <p><span class="bold_code bc-19"><a href="erl_eval.html"><span class="code">erl_eval(3)</span></a></span>,
-      <span class="bold_code bc-19"><a href="erl_parse.html"><span class="code">erl_parse(3)</span></a></span>,
-      <span class="bold_code bc-19"><a href="io.html"><span class="code">io(3)</span></a></span></p>
+    <p><span class="bold_code"><a href="erl_eval.html"><span class="code">erl_eval(3)</span></a></span>,
+      <span class="bold_code"><a href="erl_parse.html"><span class="code">erl_parse(3)</span></a></span>,
+      <span class="bold_code"><a href="io.html"><span class="code">io(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

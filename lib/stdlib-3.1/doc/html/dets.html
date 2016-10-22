@@ -1717,11 +1717,11 @@
 <!-- refpage --><center><h1>dets</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">dets</div>
+<div class="REFBODY">dets</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">A disk-based term storage.</div>
+<div class="REFBODY">A disk-based term storage.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>This module provides a term storage on file. The
       stored terms, in this module called <strong>objects</strong>, are tuples
       such that one element is defined to be the key. A Dets
@@ -1777,7 +1777,7 @@
       is important to realize that a single look-up operation involves a
       series of disk seek and read operations. The Dets functions
       are therefore much slower than the corresponding
-      <span class="bold_code bc-19"><a href="ets.html"><span class="code">ets(3)</span></a></span> functions,
+      <span class="bold_code"><a href="ets.html"><span class="code">ets(3)</span></a></span> functions,
       although Dets exports a similar interface.</p>
 
     <p>Dets organizes data as a linear hash list and the hash list
@@ -1806,104 +1806,87 @@
       releases). Erlang/OTP R8 can create version 8 tables, and convert version
       8 tables to version 9, and conversely, upon request.</p>
     <p>All Dets functions return <span class="code">{error, Reason}</span> if an error
-      occurs (<span class="bold_code data-type-ref"><a href="#first-1"><span class="code">first/1</span></a></span> and
-      <span class="bold_code data-type-ref"><a href="#next-2"><span class="code">next/2</span></a></span> are exceptions, they
+      occurs (<span class="bold_code"><a href="#first-1"><span class="code">first/1</span></a></span> and
+      <span class="bold_code"><a href="#next-2"><span class="code">next/2</span></a></span> are exceptions, they
       exit the process with the error tuple). If badly formed arguments are
       specified, all functions exit the process with a <span class="code">badarg</span>
       message.</p>
-  </div>
+  </p></div>
 
-  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
-<div class="data-types-body">
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-access">access()</a> = read | read_write</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-auto_save">auto_save()</a> = infinity | integer() &gt;= 0</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-bindings_cont">bindings_cont()</a></span><div class="REFBODY data-type-desc"><p>
-        <p>Opaque continuation used by <span class="bold_code data-type-ref"><a href="#match-1"><span class="code">match/1</span></a></span> and <span class="bold_code data-type-ref"><a href="#match-3"><span class="code">match/3</span></a></span>.</p>
+  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
+    <p>
+      <span class="bold_code"><a name="type-access">access()</a> = read | read_write</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-auto_save">auto_save()</a> = infinity | integer() &gt;= 0</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-bindings_cont">bindings_cont()</a></span><br></p>
+<div class="REFBODY"><p>
+        <p>Opaque continuation used by <span class="bold_code"><a href="#match-1"><span class="code">match/1</span></a></span> and <span class="bold_code"><a href="#match-3"><span class="code">match/3</span></a></span>.</p>
       </p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-cont">cont()</a></span><div class="REFBODY data-type-desc"><p>
-        <p>Opaque continuation used by <span class="bold_code data-type-ref"><a href="#bchunk-2"><span class="code">bchunk/2</span></a></span>.</p>
+    <p>
+      <span class="bold_code"><a name="type-cont">cont()</a></span><br></p>
+<div class="REFBODY"><p>
+        <p>Opaque continuation used by <span class="bold_code"><a href="#bchunk-2"><span class="code">bchunk/2</span></a></span>.</p>
       </p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-keypos">keypos()</a> = integer() &gt;= 1</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-match_spec">match_spec()</a> = <span class="bold_code bc-15"><a href="ets.html#type-match_spec">ets:match_spec()</a></span></span><div class="REFBODY data-type-desc"><p>
+    <p>
+      <span class="bold_code"><a name="type-keypos">keypos()</a> = integer() &gt;= 1</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-match_spec">match_spec()</a> = <span class="bold_code"><a href="ets.html#type-match_spec">ets:match_spec()</a></span></span><br></p>
+<div class="REFBODY"><p>
         <p>Match specifications, see section
-          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','match_spec.html');">Match Specification in Erlang</a></span> in ERTS User's Guide and the
-          <span class="bold_code bc-19"><a href="ms_transform.html"><span class="code">ms_transform(3)</span></a></span>
+          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','match_spec.html');">Match Specification in Erlang</a></span> in ERTS User's Guide and the
+          <span class="bold_code"><a href="ms_transform.html"><span class="code">ms_transform(3)</span></a></span>
           module.</p>
       </p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-no_slots">no_slots()</a> = integer() &gt;= 0 | default</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-object">object()</a> = tuple()</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-object_cont">object_cont()</a></span><div class="REFBODY data-type-desc"><p>
-        <p>Opaque continuation used by <span class="bold_code data-type-ref"><a href="#match_object-1"><span class="code">match_object/1</span></a></span> and
-          <span class="bold_code data-type-ref"><a href="#match_object-3"><span class="code">match_object/3</span></a></span>.</p>
+    <p>
+      <span class="bold_code"><a name="type-no_slots">no_slots()</a> = integer() &gt;= 0 | default</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-object">object()</a> = tuple()</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-object_cont">object_cont()</a></span><br></p>
+<div class="REFBODY"><p>
+        <p>Opaque continuation used by <span class="bold_code"><a href="#match_object-1"><span class="code">match_object/1</span></a></span> and
+          <span class="bold_code"><a href="#match_object-3"><span class="code">match_object/3</span></a></span>.</p>
       </p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-pattern">pattern()</a> = atom() | tuple()</span><div class="REFBODY data-type-desc"><p>
+    <p>
+      <span class="bold_code"><a name="type-pattern">pattern()</a> = atom() | tuple()</span><br></p>
+<div class="REFBODY"><p>
         <p>For a description of patterns, see
-          <span class="bold_code bc-15"><a href="ets.html#match-2"><span class="code">ets:match/2</span></a></span>.</p>
+          <span class="bold_code"><a href="ets.html#match-2"><span class="code">ets:match/2</span></a></span>.</p>
       </p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-select_cont">select_cont()</a></span><div class="REFBODY data-type-desc"><p>
-        <p>Opaque continuation used by <span class="bold_code data-type-ref"><a href="#select-1"><span class="code">select/1</span></a></span> and <span class="bold_code data-type-ref"><a href="#select-3"><span class="code">select/3</span></a></span>.</p>
+    <p>
+      <span class="bold_code"><a name="type-select_cont">select_cont()</a></span><br></p>
+<div class="REFBODY"><p>
+        <p>Opaque continuation used by <span class="bold_code"><a href="#select-1"><span class="code">select/1</span></a></span> and <span class="bold_code"><a href="#select-3"><span class="code">select/3</span></a></span>.</p>
       </p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-tab_name">tab_name()</a> = term()</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-type">type()</a> = bag | duplicate_bag | set</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-version">version()</a> = 8 | 9 | default</span>
-</div>
-  </div>
+    <p>
+      <span class="bold_code"><a name="type-tab_name">tab_name()</a> = term()</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-type">type()</a> = bag | duplicate_bag | set</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-version">version()</a> = 8 | 9 | default</span><br></p>
+  
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="all-0"></a><span class="bold_code func-name">all() -&gt; [<span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span>]</span>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="all-0"></a><span class="bold_code">all() -&gt; [<span class="bold_code"><a href="#type-tab_name">tab_name()</a></span>]</span><br></p>
+<div class="REFBODY"><p>
         <p>Returns a list of the names of all open tables on this node.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="bchunk-2"></a><span class="bold_code func-name">bchunk(Name, Continuation) -&gt;<br>          {Continuation2, Data} |<br>          '$end_of_table' |<br>          {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Continuation = start | <span class="bold_code data-type-ref"><a href="#type-cont">cont()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Continuation2 = <span class="bold_code data-type-ref"><a href="#type-cont">cont()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Data = binary() | tuple()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="bchunk-2"></a><span class="bold_code">bchunk(Name, Continuation) -&gt;<br>          {Continuation2, Data} |<br>          '$end_of_table' |<br>          {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Continuation = start | <span class="bold_code"><a href="#type-cont">cont()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Continuation2 = <span class="bold_code"><a href="#type-cont">cont()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Data = binary() | tuple()</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns a list of objects stored in a table. The exact
           representation of the returned objects is not public. The
           lists of data can be used for initializing a table by specifying
           value <span class="code">bchunk</span> to option <span class="code">format</span> of function
-          <span class="bold_code data-type-ref"><a href="#init_table-3"><span class="code">init_table/3</span></a></span>
+          <span class="bold_code"><a href="#init_table-3"><span class="code">init_table/3</span></a></span>
           The Mnesia application uses this
           function for copying open tables.</p>
         <p>Unless the table is protected using <span class="code">safe_fixtable/2</span>,
@@ -1921,87 +1904,67 @@
         <p><span class="code">bchunk/2</span> returns <span class="code">'$end_of_table'</span> when all
           objects are returned, or <span class="code">{error, Reason}</span>
           if an error occurs.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="close-1"></a><span class="bold_code func-name">close(Name) -&gt; ok | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="close-1"></a><span class="bold_code">close(Name) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Closes a table. Only processes that have opened a table are
           allowed to close it.</p>
         <p>All open tables must be closed before the system is
           stopped. If an attempt is made to open a table that is not
           properly closed, Dets automatically tries to repair it.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="delete-2"></a><span class="bold_code func-name">delete(Name, Key) -&gt; ok | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Key = Reason = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="delete-2"></a><span class="bold_code">delete(Name, Key) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Key = Reason = term()</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Deletes all objects with key <span class="code">Key</span> from
           table <span class="code">Name</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="delete_all_objects-1"></a><span class="bold_code func-name">delete_all_objects(Name) -&gt; ok | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="delete_all_objects-1"></a><span class="bold_code">delete_all_objects(Name) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Deletes all objects from a table in almost constant time.
           However, if the table if fixed, <span class="code">delete_all_objects(T)</span>
           is equivalent to <span class="code">match_delete(T, '_')</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="delete_object-2"></a><span class="bold_code func-name">delete_object(Name, Object) -&gt; ok | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Object = <span class="bold_code data-type-ref"><a href="#type-object">object()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="delete_object-2"></a><span class="bold_code">delete_object(Name, Object) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Object = <span class="bold_code"><a href="#type-object">object()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Deletes all instances of a specified object from a table. If a
           table is of type <span class="code">bag</span> or <span class="code">duplicate_bag</span>, this
           function can be used to delete only some of
           the objects with a specified key.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="first-1"></a><span class="bold_code func-name">first(Name) -&gt; Key | '$end_of_table'</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Key = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="first-1"></a><span class="bold_code">first(Name) -&gt; Key | '$end_of_table'</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Key = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the first key stored in table <span class="code">Name</span>
           according to the internal order of the table, or
           <span class="code">'$end_of_table'</span> if the table is empty.</p>
         <p>Unless the table is protected using <span class="code">safe_fixtable/2</span>,
-          subsequent calls to <span class="bold_code data-type-ref"><a href="#next-2"><span class="code">next/2</span></a></span>
+          subsequent calls to <span class="bold_code"><a href="#next-2"><span class="code">next/2</span></a></span>
           do possibly not work as expected if
           concurrent updates are made to the table.</p>
         <p>If an error occurs, the process is exited with an error
@@ -2011,64 +1974,52 @@
           are not to be used: they are not efficient, and they
           prevent the use of key <span class="code">'$end_of_table'</span>, as this atom
           is used to indicate the end of the table. If possible, use functions
-          <span class="bold_code data-type-ref"><a href="#match-1"><span class="code">match</span></a></span>,
-          <span class="bold_code data-type-ref"><a href="#match_object-1"><span class="code">match_object</span></a></span>, and
-          <span class="bold_code data-type-ref"><a href="#select-1"><span class="code">select</span></a></span>
+          <span class="bold_code"><a href="#match-1"><span class="code">match</span></a></span>,
+          <span class="bold_code"><a href="#match_object-1"><span class="code">match_object</span></a></span>, and
+          <span class="bold_code"><a href="#select-1"><span class="code">select</span></a></span>
           for traversing tables.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="foldl-3"></a><span class="bold_code func-name">foldl(Function, Acc0, Name) -&gt; Acc | {error, Reason}</span><a name="foldr-3"></a><span class="bold_code func-name">foldr(Function, Acc0, Name) -&gt; Acc | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Function = fun((Object :: <span class="bold_code data-type-ref"><a href="#type-object">object()</a></span>, AccIn) -&gt; AccOut)</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Acc0 = Acc = AccIn = AccOut = Reason = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="foldl-3"></a><span class="bold_code">foldl(Function, Acc0, Name) -&gt; Acc | {error, Reason}</span><br><a name="foldr-3"></a><span class="bold_code">foldr(Function, Acc0, Name) -&gt; Acc | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Function = fun((Object :: <span class="bold_code"><a href="#type-object">object()</a></span>, AccIn) -&gt; AccOut)</span></div>
+<div class="REFTYPES"><span class="bold_code">Acc0 = Acc = AccIn = AccOut = Reason = term()</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Calls <span class="code">Function</span> on successive elements of
           table <span class="code">Name</span> together with an extra argument
           <span class="code">AccIn</span>. The table elements are traversed in unspecified
           order. <span class="code">Function</span> must return a new
           accumulator that is passed to the next call.
           <span class="code">Acc0</span> is returned if the table is empty.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="from_ets-2"></a><span class="bold_code func-name">from_ets(Name, EtsTab) -&gt; ok | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">EtsTab = <span class="bold_code bc-15"><a href="ets.html#type-tab">ets:tab()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="from_ets-2"></a><span class="bold_code">from_ets(Name, EtsTab) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">EtsTab = <span class="bold_code"><a href="ets.html#type-tab">ets:tab()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Deletes all objects of table <span class="code">Name</span> and then
           inserts all the objects of the ETS table
           <span class="code">EtsTab</span>. The objects are inserted in unspecified
           order. As <span class="code">ets:safe_fixtable/2</span> is called, the ETS table
           must be public or owned by the calling process.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="info-1"></a><span class="bold_code func-name">info(Name) -&gt; InfoList | undefined</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">InfoList = [InfoTuple]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">InfoTuple = <br>    {file_size, integer() &gt;= 0} |<br>    {filename, <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">file:name()</a></span>} |<br>    {keypos, <span class="bold_code data-type-ref"><a href="#type-keypos">keypos()</a></span>} |<br>    {size, integer() &gt;= 0} |<br>    {type, <span class="bold_code data-type-ref"><a href="#type-type">type()</a></span>}</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="info-1"></a><span class="bold_code">info(Name) -&gt; InfoList | undefined</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">InfoList = [InfoTuple]</span></div>
+<div class="REFTYPES"><span class="bold_code">InfoTuple = <br>    {file_size, integer() &gt;= 0} |<br>    {filename, <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">file:name()</a></span>} |<br>    {keypos, <span class="bold_code"><a href="#type-keypos">keypos()</a></span>} |<br>    {size, integer() &gt;= 0} |<br>    {type, <span class="bold_code"><a href="#type-type">type()</a></span>}</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns information about table <span class="code">Name</span>
           as a list of tuples:</p>
         <ul>
@@ -2077,45 +2028,41 @@
             bytes.</p>
           </li>
           <li>
-            <p><span class="code">{filename, </span><span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">
+            <p><span class="code">{filename, </span><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">
             file:name()</a></span><span class="code">}</span> - The name of the file
             where objects are stored.</p>
           </li>
           <li>
-            <p><span class="code">{keypos, </span><span class="bold_code data-type-ref"><a href="#type-keypos"><span class="code">keypos()</span></a></span><span class="code">}</span> - The key position.</p>
+            <p><span class="code">{keypos, </span><span class="bold_code"><a href="#type-keypos"><span class="code">keypos()</span></a></span><span class="code">}</span> - The key position.</p>
           </li>
           <li>
             <p><span class="code">{size, integer() &gt;= 0}</span> - The number of objects
               stored in the table.</p>
           </li>
           <li>
-            <p><span class="code">{type, </span><span class="bold_code data-type-ref"><a href="#type-type"><span class="code">type()</span></a></span><span class="code">}</span> - The table type.</p>
+            <p><span class="code">{type, </span><span class="bold_code"><a href="#type-type"><span class="code">type()</span></a></span><span class="code">}</span> - The table type.</p>
           </li>
         </ul>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="info-2"></a><span class="bold_code func-name">info(Name, Item) -&gt; Value | undefined</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Item = <br>    access |<br>    auto_save |<br>    bchunk_format |<br>    hash |<br>    file_size |<br>    filename |<br>    keypos |<br>    memory |<br>    no_keys |<br>    no_objects |<br>    no_slots |<br>    owner |<br>    ram_file |<br>    safe_fixed |<br>    safe_fixed_monotonic_time |<br>    size |<br>    type |<br>    version</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Value = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="info-2"></a><span class="bold_code">info(Name, Item) -&gt; Value | undefined</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Item = <br>    access |<br>    auto_save |<br>    bchunk_format |<br>    hash |<br>    file_size |<br>    filename |<br>    keypos |<br>    memory |<br>    no_keys |<br>    no_objects |<br>    no_slots |<br>    owner |<br>    ram_file |<br>    safe_fixed |<br>    safe_fixed_monotonic_time |<br>    size |<br>    type |<br>    version</span></div>
+<div class="REFTYPES"><span class="bold_code">Value = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the information associated with <span class="code">Item</span>
           for table <span class="code">Name</span>.
           In addition to the <span class="code">{Item, Value}</span>
-          pairs defined for <span class="bold_code data-type-ref"><a href="#info-1"><span class="code">info/1</span></a></span>,
+          pairs defined for <span class="bold_code"><a href="#info-1"><span class="code">info/1</span></a></span>,
           the following items are allowed:</p>
         <ul>
           <li>
-            <p><span class="code">{access, </span><span class="bold_code data-type-ref"><a href="#type-access"><span class="code">access()</span></a></span><span class="code">}</span> - The access mode.</p>
+            <p><span class="code">{access, </span><span class="bold_code"><a href="#type-access"><span class="code">access()</span></a></span><span class="code">}</span> - The access mode.</p>
           </li>
           <li>
-            <p><span class="code">{auto_save, </span><span class="bold_code data-type-ref"><a href="#type-auto_save"><span class="code">auto_save()</span></a></span><span class="code">}</span> - The autosave interval.</p>
+            <p><span class="code">{auto_save, </span><span class="bold_code"><a href="#type-auto_save"><span class="code">auto_save()</span></a></span><span class="code">}</span> - The autosave interval.</p>
           </li>
           <li>
             <p><span class="code">{bchunk_format, binary()}</span> - An opaque binary
@@ -2181,20 +2128,20 @@
               There can be any number of processes in the list. If the table
               is not fixed, <span class="code">SafeFixed</span> is the atom <span class="code">false</span>.</p>
             <p><span class="code">FixedAtTime</span> corresponds to the result returned by
-              <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#monotonic_time-0');"><span class="code">erlang:monotonic_time/0</span></a></span> at the time of fixation.
+              <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#monotonic_time-0');"><span class="code">erlang:monotonic_time/0</span></a></span> at the time of fixation.
               The use of <span class="code">safe_fixed_monotonic_time</span> is
-              <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','time_correction.html#Time_Warp_Safe_Code');">time warp safe</a></span>.</p>
+              <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','time_correction.html#Time_Warp_Safe_Code');">time warp safe</a></span>.</p>
           </li>
           <li>
             <p><span class="code">{safe_fixed, SafeFixed}</span> - The same as
               <span class="code">{safe_fixed_monotonic_time, SafeFixed}</span> except
               the format and value of <span class="code">FixedAtTime</span>.</p>
             <p><span class="code">FixedAtTime</span> corresponds to the result returned by
-              <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#timestamp-0');"><span class="code">erlang:timestamp/0</span></a></span> at the time of fixation.
+              <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#timestamp-0');"><span class="code">erlang:timestamp/0</span></a></span> at the time of fixation.
               Notice that when the system uses single or multi
-              <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','time_correction.html#Time_Warp_Modes');">time warp modes</a></span>, this can produce strange results. This is
+              <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','time_correction.html#Time_Warp_Modes');">time warp modes</a></span>, this can produce strange results. This is
               because the use of <span class="code">safe_fixed</span> is not
-              <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','time_correction.html#Time_Warp_Safe_Code');">time warp safe</a></span>. Time warp safe code must use
+              <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','time_correction.html#Time_Warp_Safe_Code');">time warp safe</a></span>. Time warp safe code must use
               <span class="code">safe_fixed_monotonic_time</span> instead.</p>
           </li>
           <li>
@@ -2202,24 +2149,20 @@
               the table.</p>
           </li>
         </ul>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="init_table-2"></a><span class="bold_code func-name">init_table(Name, InitFun) -&gt; ok | {error, Reason}</span><a name="init_table-3"></a><span class="bold_code func-name">init_table(Name, InitFun, Options) -&gt; ok | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">InitFun = fun((Arg) -&gt; Res)</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Arg = read | close</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Res = <br>    end_of_input |<br>    {[<span class="bold_code data-type-ref"><a href="#type-object">object()</a></span>], InitFun} |<br>    {Data, InitFun} |<br>    term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = Option | [Option]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Option = {min_no_slots, <span class="bold_code data-type-ref"><a href="#type-no_slots">no_slots()</a></span>} | {format, term | bchunk}</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Data = binary() | tuple()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="init_table-2"></a><span class="bold_code">init_table(Name, InitFun) -&gt; ok | {error, Reason}</span><br><a name="init_table-3"></a><span class="bold_code">init_table(Name, InitFun, Options) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">InitFun = fun((Arg) -&gt; Res)</span></div>
+<div class="REFTYPES"><span class="bold_code">Arg = read | close</span></div>
+<div class="REFTYPES"><span class="bold_code">Res = <br>    end_of_input |<br>    {[<span class="bold_code"><a href="#type-object">object()</a></span>], InitFun} |<br>    {Data, InitFun} |<br>    term()</span></div>
+<div class="REFTYPES"><span class="bold_code">Options = Option | [Option]</span></div>
+<div class="REFTYPES"><span class="bold_code">Option = {min_no_slots, <span class="bold_code"><a href="#type-no_slots">no_slots()</a></span>} | {format, term | bchunk}</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+<div class="REFTYPES"><span class="bold_code">Data = binary() | tuple()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Replaces the existing objects of table <span class="code">Name</span>
           with objects created by calling the input function
           <span class="code">InitFun</span>,
@@ -2269,103 +2212,83 @@
               <span class="code">InitFun</span> is assumed to return a list of tuples.
               If <span class="code">Format</span> is <span class="code">bchunk</span>, <span class="code">InitFun</span> is
               assumed to return <span class="code">Data</span> as returned by
-              <span class="bold_code data-type-ref"><a href="#bchunk-2"><span class="code">bchunk/2</span></a></span>.
+              <span class="bold_code"><a href="#bchunk-2"><span class="code">bchunk/2</span></a></span>.
               This option overrides option <span class="code">min_no_slots</span>.</p>
           </li>
         </ul>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="insert-2"></a><span class="bold_code func-name">insert(Name, Objects) -&gt; ok | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Objects = <span class="bold_code data-type-ref"><a href="#type-object">object()</a></span> | [<span class="bold_code data-type-ref"><a href="#type-object">object()</a></span>]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="insert-2"></a><span class="bold_code">insert(Name, Objects) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Objects = <span class="bold_code"><a href="#type-object">object()</a></span> | [<span class="bold_code"><a href="#type-object">object()</a></span>]</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Inserts one or more objects into the table <span class="code">Name</span>.
           If there already exists an object with a key matching the key of
           some of the given objects and the table type is <span class="code">set</span>,
           the old object will be replaced.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="insert_new-2"></a><span class="bold_code func-name">insert_new(Name, Objects) -&gt; boolean() | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Objects = <span class="bold_code data-type-ref"><a href="#type-object">object()</a></span> | [<span class="bold_code data-type-ref"><a href="#type-object">object()</a></span>]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="insert_new-2"></a><span class="bold_code">insert_new(Name, Objects) -&gt; boolean() | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Objects = <span class="bold_code"><a href="#type-object">object()</a></span> | [<span class="bold_code"><a href="#type-object">object()</a></span>]</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Inserts one or more objects into table <span class="code">Name</span>.
           If there already exists some object with a key matching the key
           of any of the specified objects, the table is not updated and
           <span class="code">false</span> is returned. Otherwise the objects are inserted
           and <span class="code">true</span> returned.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="is_compatible_bchunk_format-2"></a><span class="bold_code func-name">is_compatible_bchunk_format(Name, BchunkFormat) -&gt; boolean()</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">BchunkFormat = binary()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="is_compatible_bchunk_format-2"></a><span class="bold_code">is_compatible_bchunk_format(Name, BchunkFormat) -&gt; boolean()</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">BchunkFormat = binary()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns <span class="code">true</span> if it would be possible to initialize
           table <span class="code">Name</span>, using
-          <span class="bold_code data-type-ref"><a href="#init_table-3"><span class="code">init_table/3</span></a></span> with
+          <span class="bold_code"><a href="#init_table-3"><span class="code">init_table/3</span></a></span> with
           option <span class="code">{format, bchunk}</span>,  with objects read with
-          <span class="bold_code data-type-ref"><a href="#bchunk-2"><span class="code">bchunk/2</span></a></span> from some
+          <span class="bold_code"><a href="#bchunk-2"><span class="code">bchunk/2</span></a></span> from some
           table <span class="code">T</span>, such that calling
           <span class="code">info(T, bchunk_format)</span> returns
           <span class="code">BchunkFormat</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="is_dets_file-1"></a><span class="bold_code func-name">is_dets_file(Filename) -&gt; boolean() | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Filename = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">file:name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="is_dets_file-1"></a><span class="bold_code">is_dets_file(Filename) -&gt; boolean() | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">file:name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns <span class="code">true</span> if file <span class="code">Filename</span>
           is a Dets table, otherwise <span class="code">false</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="lookup-2"></a><span class="bold_code func-name">lookup(Name, Key) -&gt; Objects | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Key = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Objects = [<span class="bold_code data-type-ref"><a href="#type-object">object()</a></span>]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="lookup-2"></a><span class="bold_code">lookup(Name, Key) -&gt; Objects | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Key = term()</span></div>
+<div class="REFTYPES"><span class="bold_code">Objects = [<span class="bold_code"><a href="#type-object">object()</a></span>]</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns a list of all objects with key <span class="code">Key</span>
           stored in table <span class="code">Name</span>, for example:</p>
         <div class="example"><pre>
-2&gt; <span class="bold_code bc-12">dets:open_file(abc, [{type, bag}]).</span>
+2&gt; <span class="bold_code">dets:open_file(abc, [{type, bag}]).</span>
 {ok,abc}
-3&gt; <span class="bold_code bc-12">dets:insert(abc, {1,2,3}).</span>
+3&gt; <span class="bold_code">dets:insert(abc, {1,2,3}).</span>
 ok
-4&gt; <span class="bold_code bc-12">dets:insert(abc, {1,3,4}).</span>
+4&gt; <span class="bold_code">dets:insert(abc, {1,3,4}).</span>
 ok
-5&gt; <span class="bold_code bc-12">dets:lookup(abc, 1).</span>
+5&gt; <span class="bold_code">dets:lookup(abc, 1).</span>
 [{1,2,3},{1,3,4}]</pre></div>
         <p>If the table type is <span class="code">set</span>, the function returns
           either the empty list or a list with one object, as there
@@ -2375,20 +2298,16 @@ ok
         <p>Notice that the order of objects returned is unspecified. In
           particular, the order in which objects were inserted is not
           reflected.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="match-1"></a><span class="bold_code func-name">match(Continuation) -&gt;<br>         {[Match], Continuation2} |<br>         '$end_of_table' |<br>         {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Continuation = Continuation2 = <span class="bold_code data-type-ref"><a href="#type-bindings_cont">bindings_cont()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Match = [term()]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="match-1"></a><span class="bold_code">match(Continuation) -&gt;<br>         {[Match], Continuation2} |<br>         '$end_of_table' |<br>         {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Continuation = Continuation2 = <span class="bold_code"><a href="#type-bindings_cont">bindings_cont()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code">Match = [term()]</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Matches some objects stored in a table and returns a
           non-empty list of the bindings matching a specified pattern in
           some unspecified order. The table, the pattern, and the number
@@ -2397,54 +2316,46 @@ ok
           previous call to <span class="code">match/1</span> or <span class="code">match/3</span>.</p>
         <p>When all table objects are matched,
           <span class="code">'$end_of_table'</span> is returned.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="match-2"></a><span class="bold_code func-name">match(Name, Pattern) -&gt; [Match] | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Pattern = <span class="bold_code data-type-ref"><a href="#type-pattern">pattern()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Match = [term()]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="match-2"></a><span class="bold_code">match(Name, Pattern) -&gt; [Match] | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Pattern = <span class="bold_code"><a href="#type-pattern">pattern()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Match = [term()]</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns for each object of table <span class="code">Name</span> that
           matches <span class="code">Pattern</span> a list of bindings in some
           unspecified order. For a description of patterns, see
-          <span class="bold_code bc-15"><a href="ets.html#match-2"><span class="code">ets:match/2</span></a></span>.
+          <span class="bold_code"><a href="ets.html#match-2"><span class="code">ets:match/2</span></a></span>.
           If the keypos'th element of
           <span class="code">Pattern</span> is unbound, all table objects are
           matched. If the keypos'th element is bound, only the
           objects with the correct key are matched.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="match-3"></a><span class="bold_code func-name">match(Name, Pattern, N) -&gt;<br>         {[Match], Continuation} |<br>         '$end_of_table' |<br>         {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Pattern = <span class="bold_code data-type-ref"><a href="#type-pattern">pattern()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">N = default | integer() &gt;= 0</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Continuation = <span class="bold_code data-type-ref"><a href="#type-bindings_cont">bindings_cont()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Match = [term()]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="match-3"></a><span class="bold_code">match(Name, Pattern, N) -&gt;<br>         {[Match], Continuation} |<br>         '$end_of_table' |<br>         {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Pattern = <span class="bold_code"><a href="#type-pattern">pattern()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">N = default | integer() &gt;= 0</span></div>
+<div class="REFTYPES"><span class="bold_code">Continuation = <span class="bold_code"><a href="#type-bindings_cont">bindings_cont()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Match = [term()]</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Matches some or all objects of table <span class="code">Name</span> and
           returns a non-empty list of the bindings that match
           <span class="code">Pattern</span> in some unspecified order.
           For a description of patterns, see
-          <span class="bold_code bc-15"><a href="ets.html#match-2"><span class="code">ets:match/2</span></a></span>.</p>
+          <span class="bold_code"><a href="ets.html#match-2"><span class="code">ets:match/2</span></a></span>.</p>
         <p>A tuple of the bindings and a continuation is returned,
           unless the table is empty, in which case
           <span class="code">'$end_of_table'</span> is returned. The continuation is to be
           used when matching further objects by calling
-          <span class="bold_code data-type-ref"><a href="#match-1"><span class="code">match/1</span></a></span>.</p>
+          <span class="bold_code"><a href="#match-1"><span class="code">match/1</span></a></span>.</p>
         <p>If the keypos'th element of <span class="code">Pattern</span> is bound,
           all table objects are matched. If the keypos'th element is
           unbound, all table objects are matched, <span class="code">N</span>
@@ -2456,41 +2367,33 @@ ok
           same key are always matched at the same time, which implies that
           more than N objects can sometimes be matched.</p>
         <p>The table is always to be protected using
-          <span class="bold_code data-type-ref"><a href="#safe_fixtable-2"><span class="code">safe_fixtable/2</span></a></span>
+          <span class="bold_code"><a href="#safe_fixtable-2"><span class="code">safe_fixtable/2</span></a></span>
           before calling <span class="code">match/3</span>, otherwise
           errors can occur when calling <span class="code">match/1</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="match_delete-2"></a><span class="bold_code func-name">match_delete(Name, Pattern) -&gt; ok | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Pattern = <span class="bold_code data-type-ref"><a href="#type-pattern">pattern()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="match_delete-2"></a><span class="bold_code">match_delete(Name, Pattern) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Pattern = <span class="bold_code"><a href="#type-pattern">pattern()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Deletes all objects that match <span class="code">Pattern</span> from
           table <span class="code">Name</span>. For a description of patterns,
-          see <span class="bold_code bc-15"><a href="ets.html#match-2"><span class="code">ets:match/2</span></a></span>.</p>
+          see <span class="bold_code"><a href="ets.html#match-2"><span class="code">ets:match/2</span></a></span>.</p>
         <p>If the keypos'th element of <span class="code">Pattern</span> is bound,
           only the objects with the correct key are matched.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="match_object-1"></a><span class="bold_code func-name">match_object(Continuation) -&gt;<br>                {Objects, Continuation2} |<br>                '$end_of_table' |<br>                {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Continuation = Continuation2 = <span class="bold_code data-type-ref"><a href="#type-object_cont">object_cont()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Objects = [<span class="bold_code data-type-ref"><a href="#type-object">object()</a></span>]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="match_object-1"></a><span class="bold_code">match_object(Continuation) -&gt;<br>                {Objects, Continuation2} |<br>                '$end_of_table' |<br>                {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Continuation = Continuation2 = <span class="bold_code"><a href="#type-object_cont">object_cont()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code">Objects = [<span class="bold_code"><a href="#type-object">object()</a></span>]</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns a non-empty list of some objects stored in a table
           that match a given pattern in some unspecified order. The
           table, the pattern, and the number of objects that are matched
@@ -2499,24 +2402,20 @@ ok
           <span class="code">match_object/3</span>.</p>
         <p>When all table objects are matched,
           <span class="code">'$end_of_table'</span> is returned.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="match_object-2"></a><span class="bold_code func-name">match_object(Name, Pattern) -&gt; Objects | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Pattern = <span class="bold_code data-type-ref"><a href="#type-pattern">pattern()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Objects = [<span class="bold_code data-type-ref"><a href="#type-object">object()</a></span>]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="match_object-2"></a><span class="bold_code">match_object(Name, Pattern) -&gt; Objects | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Pattern = <span class="bold_code"><a href="#type-pattern">pattern()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Objects = [<span class="bold_code"><a href="#type-object">object()</a></span>]</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns a list of all objects of table <span class="code">Name</span> that
           match <span class="code">Pattern</span> in some unspecified order.
           For a description of patterns, see
-          <span class="bold_code bc-15"><a href="ets.html#match-2"><span class="code">ets:match/2</span></a></span>.</p>
+          <span class="bold_code"><a href="ets.html#match-2"><span class="code">ets:match/2</span></a></span>.</p>
         <p>If the keypos'th element of <span class="code">Pattern</span> is
           unbound, all table objects are matched. If the
           keypos'th element of <span class="code">Pattern</span> is bound, only the
@@ -2524,32 +2423,28 @@ ok
         <p>Using the <span class="code">match_object</span> functions for traversing all
           table objects is more efficient than calling
           <span class="code">first/1</span> and <span class="code">next/2</span> or <span class="code">slot/2</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="match_object-3"></a><span class="bold_code func-name">match_object(Name, Pattern, N) -&gt;<br>                {Objects, Continuation} |<br>                '$end_of_table' |<br>                {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Pattern = <span class="bold_code data-type-ref"><a href="#type-pattern">pattern()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">N = default | integer() &gt;= 0</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Continuation = <span class="bold_code data-type-ref"><a href="#type-object_cont">object_cont()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Objects = [<span class="bold_code data-type-ref"><a href="#type-object">object()</a></span>]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="match_object-3"></a><span class="bold_code">match_object(Name, Pattern, N) -&gt;<br>                {Objects, Continuation} |<br>                '$end_of_table' |<br>                {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Pattern = <span class="bold_code"><a href="#type-pattern">pattern()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">N = default | integer() &gt;= 0</span></div>
+<div class="REFTYPES"><span class="bold_code">Continuation = <span class="bold_code"><a href="#type-object_cont">object_cont()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Objects = [<span class="bold_code"><a href="#type-object">object()</a></span>]</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Matches some or all objects stored in table <span class="code">Name</span>
           and returns a non-empty list of the objects that match
           <span class="code">Pattern</span> in some unspecified order.
           For a description of patterns, see
-          <span class="bold_code bc-15"><a href="ets.html#match-2"><span class="code">ets:match/2</span></a></span>.</p>
+          <span class="bold_code"><a href="ets.html#match-2"><span class="code">ets:match/2</span></a></span>.</p>
         <p>A list of objects and a continuation is returned, unless
           the table is empty, in which case <span class="code">'$end_of_table'</span>
           is returned. The continuation is to be used when matching
           further objects by calling
-          <span class="bold_code data-type-ref"><a href="#match_object-1"><span class="code">match_object/1</span></a></span>.</p>
+          <span class="bold_code"><a href="#match_object-1"><span class="code">match_object/1</span></a></span>.</p>
         <p>If the keypos'th element of <span class="code">Pattern</span> is bound,
           all table objects are matched. If the keypos'th element is
           unbound, all table objects are matched, <span class="code">N</span>
@@ -2562,76 +2457,60 @@ ok
           with the same key are always returned in the same reply, which implies
           that more than N objects can sometimes be returned.</p>
         <p>The table is always to be protected using
-          <span class="bold_code data-type-ref"><a href="#safe_fixtable-2"><span class="code">safe_fixtable/2</span></a></span>
+          <span class="bold_code"><a href="#safe_fixtable-2"><span class="code">safe_fixtable/2</span></a></span>
           before calling <span class="code">match_object/3</span>, otherwise
           errors can occur when calling <span class="code">match_object/1</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="member-2"></a><span class="bold_code func-name">member(Name, Key) -&gt; boolean() | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Key = Reason = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
-        <p>Works like <span class="bold_code data-type-ref"><a href="#lookup-2"><span class="code">lookup/2</span></a></span>,
+    <p><a name="member-2"></a><span class="bold_code">member(Name, Key) -&gt; boolean() | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Key = Reason = term()</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
+        <p>Works like <span class="bold_code"><a href="#lookup-2"><span class="code">lookup/2</span></a></span>,
           but does not return the objects. Returns <span class="code">true</span> if one or more
           table elements has key <span class="code">Key</span>, otherwise
           <span class="code">false</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="next-2"></a><span class="bold_code func-name">next(Name, Key1) -&gt; Key2 | '$end_of_table'</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Key1 = Key2 = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="next-2"></a><span class="bold_code">next(Name, Key1) -&gt; Key2 | '$end_of_table'</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Key1 = Key2 = term()</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns either the key following <span class="code">Key1</span> in table
           <span class="code">Name</span> according to the internal order of the
             table, or <span class="code">'$end_of_table'</span> if there is no next key.</p>
         <p>If an error occurs, the process is exited with an error
           tuple <span class="code">{error, Reason}</span>.</p>
         <p>To find the first key in the table, use
-          <span class="bold_code data-type-ref"><a href="#first-1"><span class="code">first/1</span></a></span>.</p>
-      </p></div></div>
-</div>
+          <span class="bold_code"><a href="#first-1"><span class="code">first/1</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="open_file-1"></a><span class="bold_code func-name">open_file(Filename) -&gt; {ok, Reference} | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Filename = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">file:name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reference = reference()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="open_file-1"></a><span class="bold_code">open_file(Filename) -&gt; {ok, Reference} | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">file:name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Reference = reference()</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Opens an existing table. If the table is not properly closed,
           it is repaired. The returned reference is to be used as the table
           name. This function is most useful for debugging purposes.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="open_file-2"></a><span class="bold_code func-name">open_file(Name, Args) -&gt; {ok, Name} | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Args = [OpenArg]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">OpenArg = <br>    {access, <span class="bold_code data-type-ref"><a href="#type-access">access()</a></span>} |<br>    {auto_save, <span class="bold_code data-type-ref"><a href="#type-auto_save">auto_save()</a></span>} |<br>    {estimated_no_objects, integer() &gt;= 0} |<br>    {file, <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">file:name()</a></span>} |<br>    {max_no_slots, <span class="bold_code data-type-ref"><a href="#type-no_slots">no_slots()</a></span>} |<br>    {min_no_slots, <span class="bold_code data-type-ref"><a href="#type-no_slots">no_slots()</a></span>} |<br>    {keypos, <span class="bold_code data-type-ref"><a href="#type-keypos">keypos()</a></span>} |<br>    {ram_file, boolean()} |<br>    {repair, boolean() | force} |<br>    {type, <span class="bold_code data-type-ref"><a href="#type-type">type()</a></span>} |<br>    {version, <span class="bold_code data-type-ref"><a href="#type-version">version()</a></span>}</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="open_file-2"></a><span class="bold_code">open_file(Name, Args) -&gt; {ok, Name} | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Args = [OpenArg]</span></div>
+<div class="REFTYPES"><span class="bold_code">OpenArg = <br>    {access, <span class="bold_code"><a href="#type-access">access()</a></span>} |<br>    {auto_save, <span class="bold_code"><a href="#type-auto_save">auto_save()</a></span>} |<br>    {estimated_no_objects, integer() &gt;= 0} |<br>    {file, <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">file:name()</a></span>} |<br>    {max_no_slots, <span class="bold_code"><a href="#type-no_slots">no_slots()</a></span>} |<br>    {min_no_slots, <span class="bold_code"><a href="#type-no_slots">no_slots()</a></span>} |<br>    {keypos, <span class="bold_code"><a href="#type-keypos">keypos()</a></span>} |<br>    {ram_file, boolean()} |<br>    {repair, boolean() | force} |<br>    {type, <span class="bold_code"><a href="#type-type">type()</a></span>} |<br>    {version, <span class="bold_code"><a href="#type-version">version()</a></span>}</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Opens a table. An empty Dets table is created if no file
           exists.</p>
         <p>The atom <span class="code">Name</span> is the table name. The table
@@ -2646,14 +2525,14 @@ ok
           tuples, where the following values are allowed:</p>
         <ul>
           <li>
-            <p><span class="code">{access, </span><span class="bold_code data-type-ref"><a href="#type-access"><span class="code">access()</span></a></span><span class="code">}</span> - Existing tables can be
+            <p><span class="code">{access, </span><span class="bold_code"><a href="#type-access"><span class="code">access()</span></a></span><span class="code">}</span> - Existing tables can be
               opened in read-only mode. A table that is opened
               in read-only mode is not subjected to the automatic file
               reparation algorithm if it is later opened after a crash.
               Defaults to <span class="code">read_write</span>.</p>
           </li>
           <li>
-            <p><span class="code">{auto_save, </span><span class="bold_code data-type-ref"><a href="#type-auto_save"><span class="code">auto_save()</span></a></span><span class="code">}</span> - The autosave
+            <p><span class="code">{auto_save, </span><span class="bold_code"><a href="#type-auto_save"><span class="code">auto_save()</span></a></span><span class="code">}</span> - The autosave
               interval. If the interval is an integer <span class="code">Time</span>, the
               table is flushed to disk whenever it is not accessed for
               <span class="code">Time</span> milliseconds. A table that has been flushed
@@ -2663,16 +2542,16 @@ ok
               180000 (3 minutes).</p>
           </li>
           <li>
-            <p><span class="code">{estimated_no_objects, </span><span class="bold_code data-type-ref"><a href="#type-no_slots"><span class="code">no_slots()</span></a></span><span class="code">}</span> - Equivalent to option
+            <p><span class="code">{estimated_no_objects, </span><span class="bold_code"><a href="#type-no_slots"><span class="code">no_slots()</span></a></span><span class="code">}</span> - Equivalent to option
               <span class="code">min_no_slots</span>.</p>
           </li>
           <li>
-            <p><span class="code">{file, </span><span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">
+            <p><span class="code">{file, </span><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">
               file:name()</a></span><span class="code">}</span> - The name of the file to be
               opened. Defaults to the table name.</p>
           </li>
           <li>
-            <p><span class="code">{max_no_slots, </span><span class="bold_code data-type-ref"><a href="#type-no_slots"><span class="code">no_slots()</span></a></span><span class="code">}</span> - The maximum number
+            <p><span class="code">{max_no_slots, </span><span class="bold_code"><a href="#type-no_slots"><span class="code">no_slots()</span></a></span><span class="code">}</span> - The maximum number
               of slots to be used. Defaults to 32 M, which is the
               maximal value. Notice that a higher value can
               increase the table fragmentation, and
@@ -2681,14 +2560,14 @@ ok
               9 tables.</p>
           </li>
           <li>
-            <p><span class="code">{min_no_slots, </span><span class="bold_code data-type-ref"><a href="#type-no_slots"><span class="code">no_slots()</span></a></span><span class="code">}</span> - Application
+            <p><span class="code">{min_no_slots, </span><span class="bold_code"><a href="#type-no_slots"><span class="code">no_slots()</span></a></span><span class="code">}</span> - Application
               performance can be enhanced with this flag by specifying,
               when the table is created, the estimated number of
               different keys to be stored in the table. Defaults to 256,
               which is the minimum value.</p>
           </li>
           <li>
-            <p><span class="code">{keypos, </span><span class="bold_code data-type-ref"><a href="#type-keypos"><span class="code">keypos()</span></a></span><span class="code">}</span> - The position of the
+            <p><span class="code">{keypos, </span><span class="bold_code"><a href="#type-keypos"><span class="code">keypos()</span></a></span><span class="code">}</span> - The position of the
               element of each object to be used as key. Defaults to 1.
               The ability to explicitly state the key
               position is most convenient when we want to store Erlang
@@ -2722,11 +2601,11 @@ ok
             <p>Option <span class="code">repair</span> is ignored if the table is already open.</p>
           </li>
           <li>
-            <p><span class="code">{type, </span><span class="bold_code data-type-ref"><a href="#type-type"><span class="code">type()</span></a></span><span class="code">}</span> - The table type. Defaults to
+            <p><span class="code">{type, </span><span class="bold_code"><a href="#type-type"><span class="code">type()</span></a></span><span class="code">}</span> - The table type. Defaults to
               <span class="code">set</span>.</p>
           </li>
           <li>
-            <p><span class="code">{version, </span><span class="bold_code data-type-ref"><a href="#type-version"><span class="code">version()</span></a></span><span class="code">}</span> - The version of the format
+            <p><span class="code">{version, </span><span class="bold_code"><a href="#type-version"><span class="code">version()</span></a></span><span class="code">}</span> - The version of the format
               used for the table. Defaults to <span class="code">9</span>. Tables on the format
               used before Erlang/OTP R8 can be created by specifying value
               <span class="code">8</span>. A version 8 table can be converted to a version 9
@@ -2734,39 +2613,31 @@ ok
               and <span class="code">{repair,force}</span>.</p>
           </li>
         </ul>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="pid2name-1"></a><span class="bold_code func-name">pid2name(Pid) -&gt; {ok, Name} | undefined</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Pid = pid()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="pid2name-1"></a><span class="bold_code">pid2name(Pid) -&gt; {ok, Name} | undefined</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Pid = pid()</span></div>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the table name given the pid of a process
           that handles requests to a table, or <span class="code">undefined</span> if
           there is no such table.</p>
         <p>This function is meant to be used for debugging only.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="repair_continuation-2"></a><span class="bold_code func-name">repair_continuation(Continuation, MatchSpec) -&gt; Continuation2</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Continuation = Continuation2 = <span class="bold_code data-type-ref"><a href="#type-select_cont">select_cont()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">MatchSpec = <span class="bold_code data-type-ref"><a href="#type-match_spec">match_spec()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="repair_continuation-2"></a><span class="bold_code">repair_continuation(Continuation, MatchSpec) -&gt; Continuation2</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Continuation = Continuation2 = <span class="bold_code"><a href="#type-select_cont">select_cont()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code">MatchSpec = <span class="bold_code"><a href="#type-match_spec">match_spec()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>This function can be used to restore an opaque continuation
           returned by
-          <span class="bold_code data-type-ref"><a href="#select-3"><span class="code">select/3</span></a></span> or
-          <span class="bold_code data-type-ref"><a href="#select-1"><span class="code">select/1</span></a></span> if the
+          <span class="bold_code"><a href="#select-3"><span class="code">select/3</span></a></span> or
+          <span class="bold_code"><a href="#select-1"><span class="code">select/1</span></a></span> if the
           continuation has passed through external term format (been
           sent between nodes or stored on disk).</p>
         <p>The reason for this function is that continuation terms
@@ -2777,7 +2648,7 @@ ok
           used in subsequent <span class="code">select/1</span> calls even though it has
           been stored on disk or on another node.</p>
         <p>For more information and examples, see the
-          <span class="bold_code bc-19"><a href="ets.html"><span class="code">ets(3)</span></a></span> module.</p>
+          <span class="bold_code"><a href="ets.html"><span class="code">ets(3)</span></a></span> module.</p>
         <div class="note">
 <div class="label">Note</div>
 <div class="content"><p>
@@ -2792,18 +2663,14 @@ ok
             remains for backward compatibility.</p>
         </p></div>
 </div>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="safe_fixtable-2"></a><span class="bold_code func-name">safe_fixtable(Name, Fix) -&gt; ok</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Fix = boolean()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="safe_fixtable-2"></a><span class="bold_code">safe_fixtable(Name, Fix) -&gt; ok</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Fix = boolean()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>If <span class="code">Fix</span> is <span class="code">true</span>, table
           <span class="code">Name</span> is
           fixed (once more) by the calling process, otherwise the table
@@ -2817,7 +2684,7 @@ ok
           <span class="code">next/2</span>, or select and match functions work as expected
           even if the table is fixed; the limited support for
           concurrency provided by the
-          <span class="bold_code bc-19"><a href="ets.html"><span class="code">ets(3)</span></a></span> module is not yet
+          <span class="bold_code"><a href="ets.html"><span class="code">ets(3)</span></a></span> module is not yet
           provided by Dets.
           Fixing a table currently only disables resizing of
           the hash list of the table.</p>
@@ -2825,48 +2692,40 @@ ok
           hash list starts to grow when the table is released, which
           significantly slows down access to the table for a period
           of time.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="select-1"></a><span class="bold_code func-name">select(Continuation) -&gt;<br>          {Selection, Continuation2} |<br>          '$end_of_table' |<br>          {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Continuation = Continuation2 = <span class="bold_code data-type-ref"><a href="#type-select_cont">select_cont()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Selection = [term()]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="select-1"></a><span class="bold_code">select(Continuation) -&gt;<br>          {Selection, Continuation2} |<br>          '$end_of_table' |<br>          {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Continuation = Continuation2 = <span class="bold_code"><a href="#type-select_cont">select_cont()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code">Selection = [term()]</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Applies a match specification to some objects stored in a
           table and returns a non-empty list of the results. The
           table, the match specification, and the number of objects
           that are matched are all defined by <span class="code">Continuation</span>,
           which is returned by a previous call to
-          <span class="bold_code data-type-ref"><a href="#select-1"><span class="code">select/1</span></a></span> or
-          <span class="bold_code data-type-ref"><a href="#select-3"><span class="code">select/3</span></a></span>.</p>
+          <span class="bold_code"><a href="#select-1"><span class="code">select/1</span></a></span> or
+          <span class="bold_code"><a href="#select-3"><span class="code">select/3</span></a></span>.</p>
         <p>When all objects of the table have been matched,
           <span class="code">'$end_of_table'</span> is returned.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="select-2"></a><span class="bold_code func-name">select(Name, MatchSpec) -&gt; Selection | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">MatchSpec = <span class="bold_code data-type-ref"><a href="#type-match_spec">match_spec()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Selection = [term()]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="select-2"></a><span class="bold_code">select(Name, MatchSpec) -&gt; Selection | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">MatchSpec = <span class="bold_code"><a href="#type-match_spec">match_spec()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Selection = [term()]</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the results of applying match specification
           <span class="code">MatchSpec</span> to all or some objects stored in table
           <span class="code">Name</span>. The order of the objects is not specified.
           For a description of match specifications, see the
-          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','match_spec.html');">ERTS User's Guide</a></span>.</p>
+          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','match_spec.html');">ERTS User's Guide</a></span>.</p>
         <p>If the keypos'th element of <span class="code">MatchSpec</span> is
           unbound, the match specification is applied to all objects of
           the table. If the keypos'th element is bound, the match
@@ -2876,32 +2735,28 @@ ok
           objects of a table is more efficient than calling
           <span class="code">first/1</span> and <span class="code">next/2</span> or <span class="code">slot/2</span>.
           </p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="select-3"></a><span class="bold_code func-name">select(Name, MatchSpec, N) -&gt;<br>          {Selection, Continuation} |<br>          '$end_of_table' |<br>          {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">MatchSpec = <span class="bold_code data-type-ref"><a href="#type-match_spec">match_spec()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">N = default | integer() &gt;= 0</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Continuation = <span class="bold_code data-type-ref"><a href="#type-select_cont">select_cont()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Selection = [term()]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="select-3"></a><span class="bold_code">select(Name, MatchSpec, N) -&gt;<br>          {Selection, Continuation} |<br>          '$end_of_table' |<br>          {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">MatchSpec = <span class="bold_code"><a href="#type-match_spec">match_spec()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">N = default | integer() &gt;= 0</span></div>
+<div class="REFTYPES"><span class="bold_code">Continuation = <span class="bold_code"><a href="#type-select_cont">select_cont()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Selection = [term()]</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the results of applying match specification
           <span class="code">MatchSpec</span> to some or all objects stored in table
           <span class="code">Name</span>. The order of the objects is not specified.
           For a description of match specifications, see the
-          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','match_spec.html');">ERTS User's Guide</a></span>.</p>
+          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','match_spec.html');">ERTS User's Guide</a></span>.</p>
         <p>A tuple of the results of applying the match specification
           and a continuation is returned, unless the table is empty,
           in which case <span class="code">'$end_of_table'</span> is returned. The
           continuation is to be used when matching more objects by calling
-          <span class="bold_code data-type-ref"><a href="#select-1"><span class="code">select/1</span></a></span>.</p>
+          <span class="bold_code"><a href="#select-1"><span class="code">select/1</span></a></span>.</p>
         <p>If the keypos'th element of <span class="code">MatchSpec</span> is bound,
           the  match specification is applied to all objects of the table
           with the correct key(s). If the keypos'th element of
@@ -2916,63 +2771,51 @@ ok
           match specification can be applied to more than N
           objects.</p>
         <p>The table is always to be protected using
-          <span class="bold_code data-type-ref"><a href="#safe_fixtable-2"><span class="code">safe_fixtable/2</span></a></span>
+          <span class="bold_code"><a href="#safe_fixtable-2"><span class="code">safe_fixtable/2</span></a></span>
           before calling <span class="code">select/3</span>, otherwise
           errors can occur when calling <span class="code">select/1</span>.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="select_delete-2"></a><span class="bold_code func-name">select_delete(Name, MatchSpec) -&gt; N | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">MatchSpec = <span class="bold_code data-type-ref"><a href="#type-match_spec">match_spec()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">N = integer() &gt;= 0</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="select_delete-2"></a><span class="bold_code">select_delete(Name, MatchSpec) -&gt; N | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">MatchSpec = <span class="bold_code"><a href="#type-match_spec">match_spec()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">N = integer() &gt;= 0</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Deletes each object from table <span class="code">Name</span> such that
           applying match specification <span class="code">MatchSpec</span> to the
           object returns value <span class="code">true</span>.
           For a description of match specifications, see the
-          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','match_spec.html');">ERTS User's Guide</a></span>.
+          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','match_spec.html');">ERTS User's Guide</a></span>.
           Returns the number of deleted objects.</p>
         <p>If the keypos'th element of <span class="code">MatchSpec</span> is
           bound, the match specification is applied to the objects
           with the correct key(s) only.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="slot-2"></a><span class="bold_code func-name">slot(Name, I) -&gt; '$end_of_table' | Objects | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">I = integer() &gt;= 0</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Objects = [<span class="bold_code data-type-ref"><a href="#type-object">object()</a></span>]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="slot-2"></a><span class="bold_code">slot(Name, I) -&gt; '$end_of_table' | Objects | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">I = integer() &gt;= 0</span></div>
+<div class="REFTYPES"><span class="bold_code">Objects = [<span class="bold_code"><a href="#type-object">object()</a></span>]</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>The objects of a table are distributed among slots,
           starting with slot <span class="code">0</span> and ending with slot <span class="code">n</span>.
           Returns the list of objects associated with slot
           <span class="code">I</span>. If <span class="code">I</span> &gt; <span class="code">n</span>,
           <span class="code">'$end_of_table'</span> is returned.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="sync-1"></a><span class="bold_code func-name">sync(Name) -&gt; ok | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="sync-1"></a><span class="bold_code">sync(Name) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Ensures that all updates made to table <span class="code">Name</span> are
           written to disk. This also applies to tables that have been
           opened with flag <span class="code">ram_file</span> set to <span class="code">true</span>. In
@@ -2980,34 +2823,30 @@ ok
         <p>Notice that the space management data structures kept in RAM,
           the buddy system, is also written to the disk. This can take
           some time if the table is fragmented.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="table-1"></a><span class="bold_code func-name">table(Name) -&gt; QueryHandle</span><a name="table-2"></a><span class="bold_code func-name">table(Name, Options) -&gt; QueryHandle</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = Option | [Option]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Option = {n_objects, Limit} | {traverse, TraverseMethod}</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Limit = default | integer() &gt;= 1</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">TraverseMethod = first_next | select | {select, <span class="bold_code data-type-ref"><a href="#type-match_spec">match_spec()</a></span>}</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">QueryHandle = <span class="bold_code bc-15"><a href="qlc.html#type-query_handle">qlc:query_handle()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="table-1"></a><span class="bold_code">table(Name) -&gt; QueryHandle</span><br><a name="table-2"></a><span class="bold_code">table(Name, Options) -&gt; QueryHandle</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Options = Option | [Option]</span></div>
+<div class="REFTYPES"><span class="bold_code">Option = {n_objects, Limit} | {traverse, TraverseMethod}</span></div>
+<div class="REFTYPES"><span class="bold_code">Limit = default | integer() &gt;= 1</span></div>
+<div class="REFTYPES"><span class="bold_code">TraverseMethod = first_next | select | {select, <span class="bold_code"><a href="#type-match_spec">match_spec()</a></span>}</span></div>
+<div class="REFTYPES"><span class="bold_code">QueryHandle = <span class="bold_code"><a href="qlc.html#type-query_handle">qlc:query_handle()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns a Query List
           Comprehension (QLC) query handle. The
-          <span class="bold_code bc-19"><a href="qlc.html"><span class="code">qlc(3)</span></a></span> module
+          <span class="bold_code"><a href="qlc.html"><span class="code">qlc(3)</span></a></span> module
           provides a query language aimed mainly for Mnesia, but
           ETS tables, Dets tables, and lists are also recognized
           by <span class="code">qlc</span> as sources of data. Calling
-          <span class="bold_code bc-15"><a href="dets.html#table-1"><span class="code">dets:table/1,2</span></a></span> is the
+          <span class="bold_code"><a href="dets.html#table-1"><span class="code">dets:table/1,2</span></a></span> is the
           means to make Dets table <span class="code">Name</span> usable to
           <span class="code">qlc</span>.</p>
         <p>When there are only simple restrictions on the key position,
           <span class="code">qlc</span> uses
-          <span class="bold_code bc-15"><a href="dets.html#lookup-2"><span class="code">dets:lookup/2</span></a></span>
+          <span class="bold_code"><a href="dets.html#lookup-2"><span class="code">dets:lookup/2</span></a></span>
           to look up the keys. When
           that is not possible, the whole table is traversed.
           Option <span class="code">traverse</span> determines how this is done:</p>
@@ -3018,8 +2857,8 @@ ok
           </li>
           <li>
             <p><span class="code">select</span> - The table is traversed by calling
-              <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','dets','select/3.html');"><span class="code">dets:select/3</span></a></span> and
-              <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','dets','select/1.html');"><span class="code">dets:select/1</span></a></span>.
+              <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','dets','select/3.html');"><span class="code">dets:select/3</span></a></span> and
+              <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','dets','select/1.html');"><span class="code">dets:select/1</span></a></span>.
               Option <span class="code">n_objects</span> determines the number of objects
               returned (the third argument of <span class="code">select/3</span>). The
               match specification (the second argument of
@@ -3037,7 +2876,7 @@ ok
             </ul>
           </li>
           <li>
-            <p><span class="code">{select, </span><span class="bold_code data-type-ref"><a href="#type-match_spec">match_spec()</a></span><span class="code">}</span> - As for <span class="code">select</span>,
+            <p><span class="code">{select, </span><span class="bold_code"><a href="#type-match_spec">match_spec()</a></span><span class="code">}</span> - As for <span class="code">select</span>,
               the table is traversed by calling <span class="code">dets:select/3</span>
               and <span class="code">dets:select/1</span>. The difference is that the
               match specification is specified explicitly. This is how to
@@ -3048,58 +2887,50 @@ ok
         <p>The following example uses an explicit match specification
           to traverse the table:</p>
         <div class="example"><pre>
-1&gt; <span class="bold_code bc-12">dets:open_file(t, []),</span>
-<span class="bold_code bc-12">ok = dets:insert(t, [{1,a},{2,b},{3,c},{4,d}]),</span>
-<span class="bold_code bc-12">MS = ets:fun2ms(fun({X,Y}) when (X &gt; 1) or (X &lt; 5) -&gt; {Y} end),</span>
-<span class="bold_code bc-12">QH1 = dets:table(t, [{traverse, {select, MS}}]).</span></pre></div>
+1&gt; <span class="bold_code">dets:open_file(t, []),</span>
+<span class="bold_code">ok = dets:insert(t, [{1,a},{2,b},{3,c},{4,d}]),</span>
+<span class="bold_code">MS = ets:fun2ms(fun({X,Y}) when (X &gt; 1) or (X &lt; 5) -&gt; {Y} end),</span>
+<span class="bold_code">QH1 = dets:table(t, [{traverse, {select, MS}}]).</span></pre></div>
         <p>An example with implicit match specification:</p>
         <div class="example"><pre>
-2&gt; <span class="bold_code bc-12">QH2 = qlc:q([{Y} || {X,Y} &lt;- dets:table(t), (X &gt; 1) or (X &lt; 5)]).</span></pre></div>
+2&gt; <span class="bold_code">QH2 = qlc:q([{Y} || {X,Y} &lt;- dets:table(t), (X &gt; 1) or (X &lt; 5)]).</span></pre></div>
         <p>The latter example is equivalent to the former, which 
           can be verified using function <span class="code">qlc:info/1</span>:</p>
         <div class="example"><pre>
-3&gt; <span class="bold_code bc-12">qlc:info(QH1) =:= qlc:info(QH2).</span>
+3&gt; <span class="bold_code">qlc:info(QH1) =:= qlc:info(QH2).</span>
 true</pre></div>
         <p><span class="code">qlc:info/1</span> returns information about a query handle.
           In this case identical information is returned for the
           two query handles.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="to_ets-2"></a><span class="bold_code func-name">to_ets(Name, EtsTab) -&gt; EtsTab | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">EtsTab = <span class="bold_code bc-15"><a href="ets.html#type-tab">ets:tab()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="to_ets-2"></a><span class="bold_code">to_ets(Name, EtsTab) -&gt; EtsTab | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">EtsTab = <span class="bold_code"><a href="ets.html#type-tab">ets:tab()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Inserts the objects of the Dets table <span class="code">Name</span>
           into the ETS table <span class="code">EtsTab</span>. The order in
           which the objects are
           inserted is not specified. The existing objects of the ETS
           table are kept unless overwritten.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="traverse-2"></a><span class="bold_code func-name">traverse(Name, Fun) -&gt; Return | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Fun = fun((Object) -&gt; FunReturn)</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Object = <span class="bold_code data-type-ref"><a href="#type-object">object()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">FunReturn = <br>    continue | {continue, Val} | {done, Value} | OtherValue</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Return = [term()] | OtherValue</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Val = Value = OtherValue = Reason = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="traverse-2"></a><span class="bold_code">traverse(Name, Fun) -&gt; Return | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Fun = fun((Object) -&gt; FunReturn)</span></div>
+<div class="REFTYPES"><span class="bold_code">Object = <span class="bold_code"><a href="#type-object">object()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">FunReturn = <br>    continue | {continue, Val} | {done, Value} | OtherValue</span></div>
+<div class="REFTYPES"><span class="bold_code">Return = [term()] | OtherValue</span></div>
+<div class="REFTYPES"><span class="bold_code">Val = Value = OtherValue = Reason = term()</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Applies <span class="code">Fun</span> to each object stored in table
           <span class="code">Name</span> in some unspecified order. Different
           actions are
@@ -3131,22 +2962,18 @@ fun(X) -&gt; {continue, X} end.</pre></div>
         <p>Any other value <span class="code">OtherValue</span> returned by
           <span class="code">Fun</span> terminates the
           traversal and is returned immediately.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="update_counter-3"></a><span class="bold_code func-name">update_counter(Name, Key, Increment) -&gt; Result</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-tab_name">tab_name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Key = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Increment = {Pos, Incr} | Incr</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Pos = Incr = Result = integer()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="update_counter-3"></a><span class="bold_code">update_counter(Name, Key, Increment) -&gt; Result</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-tab_name">tab_name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Key = term()</span></div>
+<div class="REFTYPES"><span class="bold_code">Increment = {Pos, Incr} | Incr</span></div>
+<div class="REFTYPES"><span class="bold_code">Pos = Incr = Result = integer()</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Updates the object with key <span class="code">Key</span> stored in
           table <span class="code">Name</span> of type <span class="code">set</span> by adding
           <span class="code">Incr</span> to the
@@ -3158,16 +2985,15 @@ fun(X) -&gt; {continue, X} end.</pre></div>
           without having to look up an object, update the object by
           incrementing an element, and insert the resulting object into
           the table again.</p>
-      </p></div></div>
-</div>
-  </div>
+      </p></div>
+  
 
-  <h3><a name="idm45461571005152">See Also</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46007677438832">See Also</a></h3>
+<div class="REFBODY">
     
-    <p><span class="bold_code bc-19"><a href="ets.html"><span class="code">ets(3)</span></a></span>,
-      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','mnesia','mnesia.html');"><span class="code">mnesia(3)</span></a></span>,
-      <span class="bold_code bc-19"><a href="qlc.html"><span class="code">qlc(3)</span></a></span></p>
+    <p><span class="bold_code"><a href="ets.html"><span class="code">ets(3)</span></a></span>,
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','mnesia','mnesia.html');"><span class="code">mnesia(3)</span></a></span>,
+      <span class="bold_code"><a href="qlc.html"><span class="code">qlc(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

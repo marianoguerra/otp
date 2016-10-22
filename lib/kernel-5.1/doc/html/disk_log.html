@@ -646,11 +646,11 @@
 <!-- refpage --><center><h1>disk_log</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">disk_log</div>
+<div class="REFBODY">disk_log</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">A disk-based term logging facility.</div>
+<div class="REFBODY">A disk-based term logging facility.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p><span class="code">disk_log</span> is a disk-based term logger that enables
       efficient logging of items on files.</p>
     <p>Two types of logs are supported:</p>
@@ -682,7 +682,7 @@
 
     <p>For each open disk log, one process handles requests
       made to the disk log. This process is created when
-      <span class="bold_code data-type-ref"><a href="#open-1"><span class="code">open/1</span></a></span>
+      <span class="bold_code"><a href="#open-1"><span class="code">open/1</span></a></span>
       is called, provided there exists no process handling the disk log.
       A process that opens a disk log can be an <strong>owner</strong>
       or an anonymous <strong>user</strong> of the disk log. Each owner is 
@@ -693,7 +693,7 @@
       messages of the form <span class="code">{disk_log, Node, Log, Info}</span>, which are sent
       from the disk log process when certain events occur, see 
       the functions and in particular the <span class="code">open/1</span> option
-      <span class="bold_code data-type-ref"><a href="#notify"><span class="code">notify</span></a></span>.
+      <span class="bold_code"><a href="#notify"><span class="code">notify</span></a></span>.
       A log can have many owners, but a process cannot own a
       log more than once. However, the same process can open the log
       as a user more than once.</p>
@@ -703,10 +703,10 @@
       and there must not be any users left when the disk log process terminates.
       </p>
     <p>Items can be logged <strong>synchronously</strong> by using functions
-      <span class="bold_code data-type-ref"><a href="#log-2"><span class="code">log/2</span></a></span>,
-      <span class="bold_code data-type-ref"><a href="#blog-2"><span class="code">blog/2</span></a></span>,
-      <span class="bold_code data-type-ref"><a href="#log_terms-2"><span class="code">log_terms/2</span></a></span>, and
-      <span class="bold_code data-type-ref"><a href="#blog_terms-2"><span class="code">blog_terms/2</span></a></span>.
+      <span class="bold_code"><a href="#log-2"><span class="code">log/2</span></a></span>,
+      <span class="bold_code"><a href="#blog-2"><span class="code">blog/2</span></a></span>,
+      <span class="bold_code"><a href="#log_terms-2"><span class="code">log_terms/2</span></a></span>, and
+      <span class="bold_code"><a href="#blog_terms-2"><span class="code">blog_terms/2</span></a></span>.
       For each of these functions, the caller is put
       on hold until the items are logged (but not necessarily
       written, use <span class="code">sync/1</span> to ensure that). By adding an <span class="code">a</span>
@@ -716,10 +716,10 @@
       return the control to the caller more or less immediately.
       </p>
     <p>When using the internal format for logs, use functions
-      <span class="bold_code data-type-ref"><a href="#log-2"><span class="code">log/2</span></a></span>,
-      <span class="bold_code data-type-ref"><a href="#log_terms-2"><span class="code">log_terms/2</span></a></span>,
-      <span class="bold_code data-type-ref"><a href="#alog-2"><span class="code">alog/2</span></a></span>, and
-      <span class="bold_code data-type-ref"><a href="#alog_terms-2"><span class="code">alog_terms/2</span></a></span>.
+      <span class="bold_code"><a href="#log-2"><span class="code">log/2</span></a></span>,
+      <span class="bold_code"><a href="#log_terms-2"><span class="code">log_terms/2</span></a></span>,
+      <span class="bold_code"><a href="#alog-2"><span class="code">alog/2</span></a></span>, and
+      <span class="bold_code"><a href="#alog_terms-2"><span class="code">alog_terms/2</span></a></span>.
       These functions log one or more Erlang terms.
       By prefixing each of the functions with a <span class="code">b</span> (for "binary"),
       we get the corresponding <span class="code">blog()</span> functions for the external format.
@@ -732,12 +732,12 @@
       <p>The <span class="code">blog()</span> functions can also be used for internally formatted
       logs, but in this case they must be called with binaries constructed
       with calls to
-      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#term_to_binary-1');"><span class="code">term_to_binary/1</span></a></span>.
+      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#term_to_binary-1');"><span class="code">term_to_binary/1</span></a></span>.
       There is no check to ensure
       this, it is entirely the responsibility of the caller. If these
       functions are called with binaries that do not correspond to
       Erlang terms, the
-      <span class="bold_code data-type-ref"><a href="#chunk-2"><span class="code">chunk/2,3</span></a></span>
+      <span class="bold_code"><a href="#chunk-2"><span class="code">chunk/2,3</span></a></span>
       and automatic repair
       functions fail. The corresponding terms (not the binaries)
       are returned when <span class="code">chunk/2,3</span> is called.
@@ -753,11 +753,11 @@
       request was made before written to the other nodes. However,
       a few functions do not make requests to all
       members of distributed disk logs, namely
-      <span class="bold_code data-type-ref"><a href="#info-1"><span class="code">info/1</span></a></span>,
-      <span class="bold_code data-type-ref"><a href="#chunk-2"><span class="code">chunk/2,3</span></a></span>,
-      <span class="bold_code data-type-ref"><a href="#bchunk-2"><span class="code">bchunk/2,3</span></a></span>,
-      <span class="bold_code data-type-ref"><a href="#chunk_step-3"><span class="code">chunk_step/3</span></a></span>, and
-      <span class="bold_code data-type-ref"><a href="#lclose-1"><span class="code">lclose/1,2</span></a></span>.</p>
+      <span class="bold_code"><a href="#info-1"><span class="code">info/1</span></a></span>,
+      <span class="bold_code"><a href="#chunk-2"><span class="code">chunk/2,3</span></a></span>,
+      <span class="bold_code"><a href="#bchunk-2"><span class="code">bchunk/2,3</span></a></span>,
+      <span class="bold_code"><a href="#chunk_step-3"><span class="code">chunk_step/3</span></a></span>, and
+      <span class="bold_code"><a href="#lclose-1"><span class="code">lclose/1,2</span></a></span>.</p>
      <p>An open disk log that is not a distributed disk
       log is said to be a <strong>local disk log</strong>. A local disk log is
       only accessible from the node where the disk log process runs,
@@ -795,10 +795,10 @@
       receive an <span class="code">error_status</span> message. 
       </p>
     <p>The <span class="code">disk_log</span> module does not report errors to the
-      <span class="bold_code bc-19"><a href="error_logger.html"><span class="code">error_logger</span></a></span>
+      <span class="bold_code"><a href="error_logger.html"><span class="code">error_logger</span></a></span>
       module. It is up to the caller to decide
       whether to employ the error logger. Function
-      <span class="bold_code data-type-ref"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>
+      <span class="bold_code"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>
       can be used to produce readable messages from error replies.
       However, information events are sent to the error logger in two
       situations, namely when a log is repaired, or when a file is missing
@@ -812,93 +812,74 @@
 <div class="label">Note</div>
 <div class="content"><p>
       <p>If an attempt to reopen or truncate a log fails (see
-        <span class="bold_code data-type-ref"><a href="#reopen-2"><span class="code">reopen/2,3</span></a></span>
+        <span class="bold_code"><a href="#reopen-2"><span class="code">reopen/2,3</span></a></span>
 	and
-	<span class="bold_code data-type-ref"><a href="#truncate-1"><span class="code">truncate/1,2</span></a></span>)
+	<span class="bold_code"><a href="#truncate-1"><span class="code">truncate/1,2</span></a></span>)
 	the disk log process terminates immediately. Before the process
 	terminates, links to owners and blocking processes (see
-	<span class="bold_code data-type-ref"><a href="#block-1"><span class="code">block/1,2</span></a></span>) are removed.
+	<span class="bold_code"><a href="#block-1"><span class="code">block/1,2</span></a></span>) are removed.
         The effect is that the links work in one direction only. Any
         process using a disk log must check for error message
         <span class="code">no_such_log</span> if some other process truncates or
         reopens the log simultaneously.</p>
     </p></div>
 </div>
-  </div>
-  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
-<div class="data-types-body">
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-log">log()</a> = term()</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-dlog_size">dlog_size()</a> = <br>    infinity |<br>    integer() &gt;= 1 |<br>    {MaxNoBytes :: integer() &gt;= 1, MaxNoFiles :: integer() &gt;= 1}</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-dlog_format">dlog_format()</a> = external | internal</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-dlog_head_opt">dlog_head_opt()</a> = none | term() | binary() | [<span class="bold_code data-type-ref"><a href="#type-dlog_byte">dlog_byte()</a></span>]</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-dlog_byte">dlog_byte()</a> = [<span class="bold_code data-type-ref"><a href="#type-dlog_byte">dlog_byte()</a></span>] | byte()</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-dlog_mode">dlog_mode()</a> = read_only | read_write</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-dlog_type">dlog_type()</a> = halt | wrap</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-continuation">continuation()</a></span><div class="REFBODY data-type-desc"><p><p>Chunk continuation returned by
+  </p></div>
+  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
+    <p>
+      <span class="bold_code"><a name="type-log">log()</a> = term()</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-dlog_size">dlog_size()</a> = <br>    infinity |<br>    integer() &gt;= 1 |<br>    {MaxNoBytes :: integer() &gt;= 1, MaxNoFiles :: integer() &gt;= 1}</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-dlog_format">dlog_format()</a> = external | internal</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-dlog_head_opt">dlog_head_opt()</a> = none | term() | binary() | [<span class="bold_code"><a href="#type-dlog_byte">dlog_byte()</a></span>]</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-dlog_byte">dlog_byte()</a> = [<span class="bold_code"><a href="#type-dlog_byte">dlog_byte()</a></span>] | byte()</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-dlog_mode">dlog_mode()</a> = read_only | read_write</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-dlog_type">dlog_type()</a> = halt | wrap</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-continuation">continuation()</a></span><br></p>
+<div class="REFBODY"><p><p>Chunk continuation returned by
          <span class="code">chunk/2,3</span>, <span class="code">bchunk/2,3</span>, or <span class="code">chunk_step/3</span>.</p>
       </p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-bytes">bytes()</a> = binary() | [byte()]</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-invalid_header">invalid_header()</a> = term()</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-file_error">file_error()</a> = term()</span>
-</div>
-  </div>
+    <p>
+      <span class="bold_code"><a name="type-bytes">bytes()</a> = binary() | [byte()]</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-invalid_header">invalid_header()</a> = term()</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-file_error">file_error()</a> = term()</span><br></p>
+  
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="accessible_logs-0"></a><span class="bold_code func-name">accessible_logs() -&gt; {[LocalLog], [DistributedLog]}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">LocalLog = DistributedLog = <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="accessible_logs-0"></a><span class="bold_code">accessible_logs() -&gt; {[LocalLog], [DistributedLog]}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">LocalLog = DistributedLog = <span class="bold_code"><a href="#type-log">log()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the names of the disk logs accessible on the current node.
           The first list contains local disk logs and the
           second list contains distributed disk logs.
           </p>
-      </p></div></div>
+      </p></div>
+    <p><a name="alog-2"></a><span class="bold_code">alog(Log, Term) -&gt; notify_ret()</span><br><a name="balog-2"></a><span class="bold_code">balog(Log, Bytes) -&gt; notify_ret()</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Log = <span class="bold_code"><a href="#type-log">log()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Term = term()</span></div>
+<div class="REFTYPES"><span class="bold_code">Bytes = <span class="bold_code"><a href="#type-bytes">bytes()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">notify_ret() = ok | {error, no_such_log}</span><br>
 </div>
-    <div class="func">
-<div class="func-title">
-<a name="alog-2"></a><span class="bold_code func-name">alog(Log, Term) -&gt; notify_ret()</span><a name="balog-2"></a><span class="bold_code func-name">balog(Log, Bytes) -&gt; notify_ret()</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Log = <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Term = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Bytes = <span class="bold_code data-type-ref"><a href="#type-bytes">bytes()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">notify_ret() = ok | {error, no_such_log}</span><br>
-</div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Asynchronously append an item to a disk log. <span class="code">alog/2</span> is
           used for internally formatted logs and <span class="code">balog/2</span>
           for externally formatted logs. <span class="code">balog/2</span> can also be used
           for internally formatted logs if the binary is
           constructed with a call to
-	  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#term_to_binary-1');"><span class="code">term_to_binary/1</span></a></span>.
+	  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#term_to_binary-1');"><span class="code">term_to_binary/1</span></a></span>.
           </p>
         <p>Owners subscribing to notifications receive
           message <span class="code">read_only</span>, <span class="code">blocked_log</span>,
@@ -909,28 +890,24 @@
           something is wrong with the header function or if a file error
           occurs.
           </p>
-      </p></div></div>
+      </p></div>
+    <p><a name="alog_terms-2"></a><span class="bold_code">alog_terms(Log, TermList) -&gt; notify_ret()</span><br><a name="balog_terms-2"></a><span class="bold_code">balog_terms(Log, ByteList) -&gt; notify_ret()</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Log = <span class="bold_code"><a href="#type-log">log()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">TermList = [term()]</span></div>
+<div class="REFTYPES"><span class="bold_code">ByteList = [<span class="bold_code"><a href="#type-bytes">bytes()</a></span>]</span></div>
+<div class="REFTYPES">
+      <span class="bold_code">notify_ret() = ok | {error, no_such_log}</span><br>
 </div>
-    <div class="func">
-<div class="func-title">
-<a name="alog_terms-2"></a><span class="bold_code func-name">alog_terms(Log, TermList) -&gt; notify_ret()</span><a name="balog_terms-2"></a><span class="bold_code func-name">balog_terms(Log, ByteList) -&gt; notify_ret()</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Log = <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">TermList = [term()]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ByteList = [<span class="bold_code data-type-ref"><a href="#type-bytes">bytes()</a></span>]</span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">notify_ret() = ok | {error, no_such_log}</span><br>
-</div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Asynchronously append a list of items to a disk log.
           <span class="code">alog_terms/2</span> is used for internally
           formatted logs and <span class="code">balog_terms/2</span>
           for externally formatted logs. <span class="code">balog_terms/2</span> can also be used
           for internally formatted logs if the binaries are
           constructed with calls to
-	  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#term_to_binary-1');"><span class="code">term_to_binary/1</span></a></span>.
+	  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#term_to_binary-1');"><span class="code">term_to_binary/1</span></a></span>.
           </p>
         <p>Owners subscribing to notifications receive
           message <span class="code">read_only</span>, <span class="code">blocked_log</span>,
@@ -941,20 +918,16 @@
           something is wrong with the header function or if a file error
           occurs.
           </p>
-      </p></div></div>
+      </p></div>
+    <p><a name="block-1"></a><span class="bold_code">block(Log) -&gt; ok | {error, block_error_rsn()}</span><br><a name="block-2"></a><span class="bold_code">block(Log, QueueLogRecords) -&gt; ok | {error, block_error_rsn()}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Log = <span class="bold_code"><a href="#type-log">log()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">QueueLogRecords = boolean()</span></div>
+<div class="REFTYPES">
+      <span class="bold_code">block_error_rsn() = no_such_log | nonode | {blocked_log, <span class="bold_code"><a href="#type-log">log()</a></span>}</span><br>
 </div>
-    <div class="func">
-<div class="func-title">
-<a name="block-1"></a><span class="bold_code func-name">block(Log) -&gt; ok | {error, block_error_rsn()}</span><a name="block-2"></a><span class="bold_code func-name">block(Log, QueueLogRecords) -&gt; ok | {error, block_error_rsn()}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Log = <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">QueueLogRecords = boolean()</span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">block_error_rsn() = no_such_log | nonode | {blocked_log, <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>}</span><br>
-</div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>With a call to <span class="code">block/1,2</span> a process can block a log.
           If the blocking process is not an owner of the log, a temporary
           link is created between the disk log process and the blocking
@@ -974,45 +947,33 @@
           or <span class="code">false</span>. <span class="code">QueueLogRecords</span> defaults to
           <span class="code">true</span>, which is used by <span class="code">block/1</span>.
           </p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="change_header-2"></a><span class="bold_code func-name">change_header(Log, Header) -&gt; ok | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Log = <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Header = <br>    {head, <span class="bold_code data-type-ref"><a href="#type-dlog_head_opt">dlog_head_opt()</a></span>} |<br>    {head_func, MFA :: {atom(), atom(), list()}}</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = <br>    no_such_log |<br>    nonode |<br>    {read_only_mode, Log} |<br>    {blocked_log, Log} |<br>    {badarg, head}</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="change_header-2"></a><span class="bold_code">change_header(Log, Header) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Log = <span class="bold_code"><a href="#type-log">log()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Header = <br>    {head, <span class="bold_code"><a href="#type-dlog_head_opt">dlog_head_opt()</a></span>} |<br>    {head_func, MFA :: {atom(), atom(), list()}}</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = <br>    no_such_log |<br>    nonode |<br>    {read_only_mode, Log} |<br>    {blocked_log, Log} |<br>    {badarg, head}</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Changes the value of option <span class="code">head</span> or <span class="code">head_func</span> for an owner of a disk log.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="change_notify-3"></a><span class="bold_code func-name">change_notify(Log, Owner, Notify) -&gt; ok | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Log = <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Owner = pid()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Notify = boolean()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = <br>    no_such_log |<br>    nonode |<br>    {blocked_log, Log} |<br>    {badarg, notify} |<br>    {not_owner, Owner}</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="change_notify-3"></a><span class="bold_code">change_notify(Log, Owner, Notify) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Log = <span class="bold_code"><a href="#type-log">log()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Owner = pid()</span></div>
+<div class="REFTYPES"><span class="bold_code">Notify = boolean()</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = <br>    no_such_log |<br>    nonode |<br>    {blocked_log, Log} |<br>    {badarg, notify} |<br>    {not_owner, Owner}</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Changes the value of option <span class="code">notify</span> for an owner of a disk log. </p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="change_size-2"></a><span class="bold_code func-name">change_size(Log, Size) -&gt; ok | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Log = <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Size = <span class="bold_code data-type-ref"><a href="#type-dlog_size">dlog_size()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = <br>    no_such_log |<br>    nonode |<br>    {read_only_mode, Log} |<br>    {blocked_log, Log} |<br>    {new_size_too_small, CurrentSize :: integer() &gt;= 1} |<br>    {badarg, size} |<br>    {file_error, <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span>, <span class="bold_code data-type-ref"><a href="#type-file_error">file_error()</a></span>}</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="change_size-2"></a><span class="bold_code">change_size(Log, Size) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Log = <span class="bold_code"><a href="#type-log">log()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Size = <span class="bold_code"><a href="#type-dlog_size">dlog_size()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = <br>    no_such_log |<br>    nonode |<br>    {read_only_mode, Log} |<br>    {blocked_log, Log} |<br>    {new_size_too_small, CurrentSize :: integer() &gt;= 1} |<br>    {badarg, size} |<br>    {file_error, <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span>, <span class="bold_code"><a href="#type-file_error">file_error()</a></span>}</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Changes the size of an open log.
           For a halt log, the size can always be increased,
           but it cannot be decreased to something less than
@@ -1044,30 +1005,26 @@
           </p>
         <p>If the log size is decreased, for example, to save space,
           function
-	  <span class="bold_code data-type-ref"><a href="#inc_wrap_file-1"><span class="code">inc_wrap_file/1</span></a></span>
+	  <span class="bold_code"><a href="#inc_wrap_file-1"><span class="code">inc_wrap_file/1</span></a></span>
 	  can be used to force the log to wrap.
           </p>
-      </p></div></div>
+      </p></div>
+    <p><a name="chunk-2"></a><span class="bold_code">chunk(Log, Continuation) -&gt; chunk_ret()</span><br><a name="chunk-3"></a><span class="bold_code">chunk(Log, Continuation, N) -&gt; chunk_ret()</span><br><a name="bchunk-2"></a><span class="bold_code">bchunk(Log, Continuation) -&gt; bchunk_ret()</span><br><a name="bchunk-3"></a><span class="bold_code">bchunk(Log, Continuation, N) -&gt; bchunk_ret()</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Log = <span class="bold_code"><a href="#type-log">log()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Continuation = start | <span class="bold_code"><a href="#type-continuation">continuation()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">N = integer() &gt;= 1 | infinity</span></div>
+<div class="REFTYPES">
+      <span class="bold_code">chunk_ret() = <br>    {Continuation2 :: <span class="bold_code"><a href="#type-continuation">continuation()</a></span>, Terms :: [term()]} |<br>    {Continuation2 :: <span class="bold_code"><a href="#type-continuation">continuation()</a></span>,<br>     Terms :: [term()],<br>     Badbytes :: integer() &gt;= 0} |<br>    eof |<br>    {error, Reason :: chunk_error_rsn()}</span><br>
 </div>
-    <div class="func">
-<div class="func-title">
-<a name="chunk-2"></a><span class="bold_code func-name">chunk(Log, Continuation) -&gt; chunk_ret()</span><a name="chunk-3"></a><span class="bold_code func-name">chunk(Log, Continuation, N) -&gt; chunk_ret()</span><a name="bchunk-2"></a><span class="bold_code func-name">bchunk(Log, Continuation) -&gt; bchunk_ret()</span><a name="bchunk-3"></a><span class="bold_code func-name">bchunk(Log, Continuation, N) -&gt; bchunk_ret()</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Log = <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Continuation = start | <span class="bold_code data-type-ref"><a href="#type-continuation">continuation()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">N = integer() &gt;= 1 | infinity</span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">chunk_ret() = <br>    {Continuation2 :: <span class="bold_code data-type-ref"><a href="#type-continuation">continuation()</a></span>, Terms :: [term()]} |<br>    {Continuation2 :: <span class="bold_code data-type-ref"><a href="#type-continuation">continuation()</a></span>,<br>     Terms :: [term()],<br>     Badbytes :: integer() &gt;= 0} |<br>    eof |<br>    {error, Reason :: chunk_error_rsn()}</span><br>
+<div class="REFTYPES">
+      <span class="bold_code">bchunk_ret() = <br>    {Continuation2 :: <span class="bold_code"><a href="#type-continuation">continuation()</a></span>, Binaries :: [binary()]} |<br>    {Continuation2 :: <span class="bold_code"><a href="#type-continuation">continuation()</a></span>,<br>     Binaries :: [binary()],<br>     Badbytes :: integer() &gt;= 0} |<br>    eof |<br>    {error, Reason :: chunk_error_rsn()}</span><br>
 </div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">bchunk_ret() = <br>    {Continuation2 :: <span class="bold_code data-type-ref"><a href="#type-continuation">continuation()</a></span>, Binaries :: [binary()]} |<br>    {Continuation2 :: <span class="bold_code data-type-ref"><a href="#type-continuation">continuation()</a></span>,<br>     Binaries :: [binary()],<br>     Badbytes :: integer() &gt;= 0} |<br>    eof |<br>    {error, Reason :: chunk_error_rsn()}</span><br>
+<div class="REFTYPES">
+      <span class="bold_code">chunk_error_rsn() = <br>    no_such_log |<br>    {format_external, <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {blocked_log, <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {badarg, continuation} |<br>    {not_internal_wrap, <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {corrupt_log_file, FileName :: <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span>} |<br>    {file_error, <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span>, <span class="bold_code"><a href="#type-file_error">file_error()</a></span>}</span><br>
 </div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">chunk_error_rsn() = <br>    no_such_log |<br>    {format_external, <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {blocked_log, <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {badarg, continuation} |<br>    {not_internal_wrap, <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {corrupt_log_file, FileName :: <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span>} |<br>    {file_error, <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span>, <span class="bold_code data-type-ref"><a href="#type-file_error">file_error()</a></span>}</span><br>
-</div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Efficiently reads the terms that are appended
 	  to an internally formatted log. It minimizes disk
           I/O by reading 64 kilobyte chunks from the file. Functions
@@ -1116,35 +1073,27 @@
           the file into which the continuation points. To prevent this,
           the log can be blocked during the search.
           </p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="chunk_info-1"></a><span class="bold_code func-name">chunk_info(Continuation) -&gt; InfoList | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Continuation = <span class="bold_code data-type-ref"><a href="#type-continuation">continuation()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">InfoList = [{node, Node :: node()}, ...]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = {no_continuation, Continuation}</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="chunk_info-1"></a><span class="bold_code">chunk_info(Continuation) -&gt; InfoList | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Continuation = <span class="bold_code"><a href="#type-continuation">continuation()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">InfoList = [{node, Node :: node()}, ...]</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = {no_continuation, Continuation}</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the pair <span class="code">{node, Node}</span>,
           describing the chunk continuation returned by
           <span class="code">chunk/2,3</span>, <span class="code">bchunk/2,3</span>, or <span class="code">chunk_step/3</span>.</p>
 	  <p>Terms are read from the disk log running on <span class="code">Node</span>.</p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="chunk_step-3"></a><span class="bold_code func-name">chunk_step(Log, Continuation, Step) -&gt;<br>              {ok, any()} | {error, Reason}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Log = <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Continuation = start | <span class="bold_code data-type-ref"><a href="#type-continuation">continuation()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Step = integer()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = <br>    no_such_log |<br>    end_of_log |<br>    {format_external, Log} |<br>    {blocked_log, Log} |<br>    {badarg, continuation} |<br>    {file_error, <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span>, <span class="bold_code data-type-ref"><a href="#type-file_error">file_error()</a></span>}</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="chunk_step-3"></a><span class="bold_code">chunk_step(Log, Continuation, Step) -&gt;<br>              {ok, any()} | {error, Reason}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Log = <span class="bold_code"><a href="#type-log">log()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Continuation = start | <span class="bold_code"><a href="#type-continuation">continuation()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Step = integer()</span></div>
+<div class="REFTYPES"><span class="bold_code">Reason = <br>    no_such_log |<br>    end_of_log |<br>    {format_external, Log} |<br>    {blocked_log, Log} |<br>    {badarg, continuation} |<br>    {file_error, <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span>, <span class="bold_code"><a href="#type-file_error">file_error()</a></span>}</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Can be used with <span class="code">chunk/2,3</span> and <span class="code">bchunk/2,3</span>
 	  to search through an internally formatted wrap log. It takes as
           argument a continuation as returned by <span class="code">chunk/2,3</span>,
@@ -1162,19 +1111,15 @@
           used, <span class="code">{error, end_of_log}</span> is returned if trying to
           step outside the log.
           </p>
-      </p></div></div>
+      </p></div>
+    <p><a name="close-1"></a><span class="bold_code">close(Log) -&gt; ok | {error, close_error_rsn()}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Log = <span class="bold_code"><a href="#type-log">log()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">close_error_rsn() = <br>    no_such_log |<br>    nonode |<br>    {file_error, <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span>, <span class="bold_code"><a href="#type-file_error">file_error()</a></span>}</span><br>
 </div>
-    <div class="func">
-<div class="func-title">
-<a name="close-1"></a><span class="bold_code func-name">close(Log) -&gt; ok | {error, close_error_rsn()}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Log = <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">close_error_rsn() = <br>    no_such_log |<br>    nonode |<br>    {file_error, <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span>, <span class="bold_code data-type-ref"><a href="#type-file_error">file_error()</a></span>}</span><br>
-</div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p><a name="close_1"></a>Closes a
           local or distributed disk log properly. An internally
           formatted log must be closed before the Erlang system is
@@ -1193,38 +1138,30 @@
         <p>If the log is blocked by the closing process, the log is also
           unblocked.
           </p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="format_error-1"></a><span class="bold_code func-name">format_error(Error) -&gt; <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','stdlib','io_lib.html#type-chars');">io_lib:chars()</a></span></span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Error = term()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="format_error-1"></a><span class="bold_code">format_error(Error) -&gt; <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','io_lib.html#type-chars');">io_lib:chars()</a></span></span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Error = term()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Given the error returned by any function in this module, 
           this function returns a descriptive string
           of the error in English. For file errors, function
           <span class="code">format_error/1</span> in module
-	  <span class="bold_code bc-15"><a href="file.html#format_error-1"><span class="code">file</span></a></span>
+	  <span class="bold_code"><a href="file.html#format_error-1"><span class="code">file</span></a></span>
 	  is called.</p>
-      </p></div></div>
+      </p></div>
+    <p><a name="inc_wrap_file-1"></a><span class="bold_code">inc_wrap_file(Log) -&gt; ok | {error, inc_wrap_error_rsn()}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Log = <span class="bold_code"><a href="#type-log">log()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">inc_wrap_error_rsn() = <br>    no_such_log |<br>    nonode |<br>    {read_only_mode, <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {blocked_log, <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {halt_log, <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {invalid_header, <span class="bold_code"><a href="#type-invalid_header">invalid_header()</a></span>} |<br>    {file_error, <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span>, <span class="bold_code"><a href="#type-file_error">file_error()</a></span>}</span><br>
 </div>
-    <div class="func">
-<div class="func-title">
-<a name="inc_wrap_file-1"></a><span class="bold_code func-name">inc_wrap_file(Log) -&gt; ok | {error, inc_wrap_error_rsn()}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Log = <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">inc_wrap_error_rsn() = <br>    no_such_log |<br>    nonode |<br>    {read_only_mode, <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {blocked_log, <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {halt_log, <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {invalid_header, <span class="bold_code data-type-ref"><a href="#type-invalid_header">invalid_header()</a></span>} |<br>    {file_error, <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span>, <span class="bold_code data-type-ref"><a href="#type-file_error">file_error()</a></span>}</span><br>
+<div class="REFTYPES">
+      <span class="bold_code">invalid_header() = term()</span><br>
 </div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">invalid_header() = term()</span><br>
-</div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Forces the internally formatted disk log to start logging to the
           next log file. It can be used, for example, with
           <span class="code">change_size/2</span> to reduce the amount of disk space allocated
@@ -1234,20 +1171,16 @@
           receive a <span class="code">wrap</span> message, but if
           an error occurs with a reason tag of <span class="code">invalid_header</span> or
           <span class="code">file_error</span>, an <span class="code">error_status</span> message is sent.</p>
-      </p></div></div>
+      </p></div>
+    <p><a name="info-1"></a><span class="bold_code">info(Log) -&gt; InfoList | {error, no_such_log}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Log = <span class="bold_code"><a href="#type-log">log()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">InfoList = [dlog_info()]</span></div>
+<div class="REFTYPES">
+      <span class="bold_code">dlog_info() = <br>    {name, Log :: <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {file, File :: <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span>} |<br>    {type, Type :: <span class="bold_code"><a href="#type-dlog_type">dlog_type()</a></span>} |<br>    {format, Format :: <span class="bold_code"><a href="#type-dlog_format">dlog_format()</a></span>} |<br>    {size, Size :: <span class="bold_code"><a href="#type-dlog_size">dlog_size()</a></span>} |<br>    {mode, Mode :: <span class="bold_code"><a href="#type-dlog_mode">dlog_mode()</a></span>} |<br>    {owners, [{pid(), Notify :: boolean()}]} |<br>    {users, Users :: integer() &gt;= 0} |<br>    {status,<br>     Status :: ok | {blocked, QueueLogRecords :: boolean()}} |<br>    {node, Node :: node()} |<br>    {distributed, Dist :: local | [node()]} |<br>    {head,<br>     Head ::<br>         none | {head, term()} | (MFA :: {atom(), atom(), list()})} |<br>    {no_written_items, NoWrittenItems :: integer() &gt;= 0} |<br>    {full, Full :: boolean} |<br>    {no_current_bytes, integer() &gt;= 0} |<br>    {no_current_items, integer() &gt;= 0} |<br>    {no_items, integer() &gt;= 0} |<br>    {current_file, integer() &gt;= 1} |<br>    {no_overflows,<br>     {SinceLogWasOpened :: integer() &gt;= 0,<br>      SinceLastInfo :: integer() &gt;= 0}}</span><br>
 </div>
-    <div class="func">
-<div class="func-title">
-<a name="info-1"></a><span class="bold_code func-name">info(Log) -&gt; InfoList | {error, no_such_log}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Log = <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">InfoList = [dlog_info()]</span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">dlog_info() = <br>    {name, Log :: <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {file, File :: <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span>} |<br>    {type, Type :: <span class="bold_code data-type-ref"><a href="#type-dlog_type">dlog_type()</a></span>} |<br>    {format, Format :: <span class="bold_code data-type-ref"><a href="#type-dlog_format">dlog_format()</a></span>} |<br>    {size, Size :: <span class="bold_code data-type-ref"><a href="#type-dlog_size">dlog_size()</a></span>} |<br>    {mode, Mode :: <span class="bold_code data-type-ref"><a href="#type-dlog_mode">dlog_mode()</a></span>} |<br>    {owners, [{pid(), Notify :: boolean()}]} |<br>    {users, Users :: integer() &gt;= 0} |<br>    {status,<br>     Status :: ok | {blocked, QueueLogRecords :: boolean()}} |<br>    {node, Node :: node()} |<br>    {distributed, Dist :: local | [node()]} |<br>    {head,<br>     Head ::<br>         none | {head, term()} | (MFA :: {atom(), atom(), list()})} |<br>    {no_written_items, NoWrittenItems :: integer() &gt;= 0} |<br>    {full, Full :: boolean} |<br>    {no_current_bytes, integer() &gt;= 0} |<br>    {no_current_items, integer() &gt;= 0} |<br>    {no_items, integer() &gt;= 0} |<br>    {current_file, integer() &gt;= 1} |<br>    {no_overflows,<br>     {SinceLogWasOpened :: integer() &gt;= 0,<br>      SinceLastInfo :: integer() &gt;= 0}}</span><br>
-</div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns a list of <span class="code">{Tag, Value}</span> pairs describing the log.
 	  If a disk log process is running on the current node,
 	  that log is used as source of information, otherwise an individual
@@ -1299,7 +1232,7 @@
           <dd>
             <p><span class="code">Users</span> is the number
               of anonymous users of the log, see the <span class="code">open/1</span> option
-              <span class="bold_code data-type-ref"><a href="#linkto"><span class="code">linkto</span></a></span>.</p>
+              <span class="bold_code"><a href="#linkto"><span class="code">linkto</span></a></span>.</p>
           </dd>
 	  <dt><strong><span class="code">{status, Status}</span></strong></dt>
           <dd>
@@ -1392,46 +1325,38 @@
           <span class="code">chunk_step/3</span> do not affect any value
           returned by <span class="code">info/1</span>.
           </p>
-      </p></div></div>
+      </p></div>
+    <p><a name="lclose-1"></a><span class="bold_code">lclose(Log) -&gt; ok | {error, lclose_error_rsn()}</span><br><a name="lclose-2"></a><span class="bold_code">lclose(Log, Node) -&gt; ok | {error, lclose_error_rsn()}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Log = <span class="bold_code"><a href="#type-log">log()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Node = node()</span></div>
+<div class="REFTYPES">
+      <span class="bold_code">lclose_error_rsn() = <br>    no_such_log | {file_error, <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span>, <span class="bold_code"><a href="#type-file_error">file_error()</a></span>}</span><br>
 </div>
-    <div class="func">
-<div class="func-title">
-<a name="lclose-1"></a><span class="bold_code func-name">lclose(Log) -&gt; ok | {error, lclose_error_rsn()}</span><a name="lclose-2"></a><span class="bold_code func-name">lclose(Log, Node) -&gt; ok | {error, lclose_error_rsn()}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Log = <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Node = node()</span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">lclose_error_rsn() = <br>    no_such_log | {file_error, <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span>, <span class="bold_code data-type-ref"><a href="#type-file_error">file_error()</a></span>}</span><br>
-</div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p><span class="code">lclose/1</span> closes a local log or an individual distributed
 	log on the current node.</p>
         <p><span class="code">lclose/2</span> closes an individual distributed log on the
 	specified node if the node is not the current one.</p>
         <p><span class="code">lclose(Log)</span> is equivalent to
           <span class="code">lclose(Log, node())</span>.
-          See also <span class="bold_code data-type-ref"><a href="#close_1"><span class="code">close/1</span></a></span>.
+          See also <span class="bold_code"><a href="#close_1"><span class="code">close/1</span></a></span>.
           </p>
         <p>If no log with the specified name exist on the specified node,
 	<span class="code">no_such_log</span> is returned.
           </p>
-      </p></div></div>
+      </p></div>
+    <p><a name="log-2"></a><span class="bold_code">log(Log, Term) -&gt; ok | {error, Reason :: log_error_rsn()}</span><br><a name="blog-2"></a><span class="bold_code">blog(Log, Bytes) -&gt; ok | {error, Reason :: log_error_rsn()}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Log = <span class="bold_code"><a href="#type-log">log()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Term = term()</span></div>
+<div class="REFTYPES"><span class="bold_code">Bytes = <span class="bold_code"><a href="#type-bytes">bytes()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">log_error_rsn() = <br>    no_such_log |<br>    nonode |<br>    {read_only_mode, <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {format_external, <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {blocked_log, <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {full, <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {invalid_header, <span class="bold_code"><a href="#type-invalid_header">invalid_header()</a></span>} |<br>    {file_error, <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span>, <span class="bold_code"><a href="#type-file_error">file_error()</a></span>}</span><br>
 </div>
-    <div class="func">
-<div class="func-title">
-<a name="log-2"></a><span class="bold_code func-name">log(Log, Term) -&gt; ok | {error, Reason :: log_error_rsn()}</span><a name="blog-2"></a><span class="bold_code func-name">blog(Log, Bytes) -&gt; ok | {error, Reason :: log_error_rsn()}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Log = <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Term = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Bytes = <span class="bold_code data-type-ref"><a href="#type-bytes">bytes()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">log_error_rsn() = <br>    no_such_log |<br>    nonode |<br>    {read_only_mode, <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {format_external, <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {blocked_log, <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {full, <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {invalid_header, <span class="bold_code data-type-ref"><a href="#type-invalid_header">invalid_header()</a></span>} |<br>    {file_error, <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span>, <span class="bold_code data-type-ref"><a href="#type-file_error">file_error()</a></span>}</span><br>
-</div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Synchronously
           appends a term to a disk log. Returns <span class="code">ok</span> or
           <span class="code">{error, Reason}</span> when the term is written to
@@ -1442,7 +1367,7 @@
           is written to disk, it can linger in
           the operating system kernel for a while. To ensure that the
           item is written to disk, function
-	  <span class="bold_code data-type-ref"><a href="#sync-1"><span class="code">sync/1</span></a></span>
+	  <span class="bold_code"><a href="#sync-1"><span class="code">sync/1</span></a></span>
           must be called.
           </p>
         <p><span class="code">log/2</span> is used for internally formatted logs,
@@ -1450,26 +1375,22 @@
           <span class="code">blog/2</span> can also be used
           for internally formatted logs if the binary is
           constructed with a call to
-	  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#term_to_binary-1');"><span class="code">term_to_binary/1</span></a></span>.</p>
+	  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#term_to_binary-1');"><span class="code">term_to_binary/1</span></a></span>.</p>
         <p>Owners subscribing to notifications are notified
           of an error with an <span class="code">error_status</span> message if the error 
           reason tag is <span class="code">invalid_header</span> or <span class="code">file_error</span>.
           </p>
-      </p></div></div>
+      </p></div>
+    <p><a name="log_terms-2"></a><span class="bold_code">log_terms(Log, TermList) -&gt;<br>             ok | {error, Resaon :: log_error_rsn()}</span><br><a name="blog_terms-2"></a><span class="bold_code">blog_terms(Log, BytesList) -&gt;<br>              ok | {error, Reason :: log_error_rsn()}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Log = <span class="bold_code"><a href="#type-log">log()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">TermList = [term()]</span></div>
+<div class="REFTYPES"><span class="bold_code">BytesList = [<span class="bold_code"><a href="#type-bytes">bytes()</a></span>]</span></div>
+<div class="REFTYPES">
+      <span class="bold_code">log_error_rsn() = <br>    no_such_log |<br>    nonode |<br>    {read_only_mode, <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {format_external, <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {blocked_log, <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {full, <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {invalid_header, <span class="bold_code"><a href="#type-invalid_header">invalid_header()</a></span>} |<br>    {file_error, <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span>, <span class="bold_code"><a href="#type-file_error">file_error()</a></span>}</span><br>
 </div>
-    <div class="func">
-<div class="func-title">
-<a name="log_terms-2"></a><span class="bold_code func-name">log_terms(Log, TermList) -&gt;<br>             ok | {error, Resaon :: log_error_rsn()}</span><a name="blog_terms-2"></a><span class="bold_code func-name">blog_terms(Log, BytesList) -&gt;<br>              ok | {error, Reason :: log_error_rsn()}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Log = <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">TermList = [term()]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">BytesList = [<span class="bold_code data-type-ref"><a href="#type-bytes">bytes()</a></span>]</span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">log_error_rsn() = <br>    no_such_log |<br>    nonode |<br>    {read_only_mode, <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {format_external, <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {blocked_log, <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {full, <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {invalid_header, <span class="bold_code data-type-ref"><a href="#type-invalid_header">invalid_header()</a></span>} |<br>    {file_error, <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span>, <span class="bold_code data-type-ref"><a href="#type-file_error">file_error()</a></span>}</span><br>
-</div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Synchronously appends a list of items to the log. It is more
           efficient to use these functions instead of functions <span class="code">log/2</span>
 	  and <span class="code">blog/2</span>. The specified list is split into as large
@@ -1482,48 +1403,44 @@
           <span class="code">blog_terms/2</span> can also be used
           for internally formatted logs if the binaries are
           constructed with calls to
-	  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#term_to_binary-1');"><span class="code">term_to_binary/1</span></a></span>.</p>
+	  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#term_to_binary-1');"><span class="code">term_to_binary/1</span></a></span>.</p>
         <p>Owners subscribing to notifications are notified
           of an error with an <span class="code">error_status</span> message if the error 
           reason tag is <span class="code">invalid_header</span> or <span class="code">file_error</span>.
           </p>
-      </p></div></div>
+      </p></div>
+    <p><a name="open-1"></a><span class="bold_code">open(ArgL) -&gt; open_ret() | dist_open_ret()</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">ArgL = dlog_options()</span></div>
+<div class="REFTYPES">
+      <span class="bold_code">dlog_options() = [dlog_option()]</span><br>
 </div>
-    <div class="func">
-<div class="func-title">
-<a name="open-1"></a><span class="bold_code func-name">open(ArgL) -&gt; open_ret() | dist_open_ret()</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ArgL = dlog_options()</span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">dlog_options() = [dlog_option()]</span><br>
+<div class="REFTYPES">
+      <span class="bold_code">dlog_option() = <br>    {name, Log :: <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {file, FileName :: <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span>} |<br>    {linkto, LinkTo :: none | pid()} |<br>    {repair, Repair :: true | false | truncate} |<br>    {type, Type :: dlog_type} |<br>    {format, Format :: <span class="bold_code"><a href="#type-dlog_format">dlog_format()</a></span>} |<br>    {size, Size :: <span class="bold_code"><a href="#type-dlog_size">dlog_size()</a></span>} |<br>    {distributed, Nodes :: [node()]} |<br>    {notify, boolean()} |<br>    {head, Head :: <span class="bold_code"><a href="#type-dlog_head_opt">dlog_head_opt()</a></span>} |<br>    {head_func, MFA :: {atom(), atom(), list()}} |<br>    {mode, Mode :: <span class="bold_code"><a href="#type-dlog_mode">dlog_mode()</a></span>}</span><br>
 </div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">dlog_option() = <br>    {name, Log :: <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {file, FileName :: <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span>} |<br>    {linkto, LinkTo :: none | pid()} |<br>    {repair, Repair :: true | false | truncate} |<br>    {type, Type :: dlog_type} |<br>    {format, Format :: <span class="bold_code data-type-ref"><a href="#type-dlog_format">dlog_format()</a></span>} |<br>    {size, Size :: <span class="bold_code data-type-ref"><a href="#type-dlog_size">dlog_size()</a></span>} |<br>    {distributed, Nodes :: [node()]} |<br>    {notify, boolean()} |<br>    {head, Head :: <span class="bold_code data-type-ref"><a href="#type-dlog_head_opt">dlog_head_opt()</a></span>} |<br>    {head_func, MFA :: {atom(), atom(), list()}} |<br>    {mode, Mode :: <span class="bold_code data-type-ref"><a href="#type-dlog_mode">dlog_mode()</a></span>}</span><br>
+<div class="REFTYPES">
+      <span class="bold_code">open_ret() = ret() | {error, open_error_rsn()}</span><br>
 </div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">open_ret() = ret() | {error, open_error_rsn()}</span><br>
+<div class="REFTYPES">
+      <span class="bold_code">ret() = <br>    {ok, Log :: <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {repaired,<br>     Log :: <span class="bold_code"><a href="#type-log">log()</a></span>,<br>     {recovered, Rec :: integer() &gt;= 0},<br>     {badbytes, Bad :: integer() &gt;= 0}}</span><br>
 </div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">ret() = <br>    {ok, Log :: <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {repaired,<br>     Log :: <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>,<br>     {recovered, Rec :: integer() &gt;= 0},<br>     {badbytes, Bad :: integer() &gt;= 0}}</span><br>
+<div class="REFTYPES">
+      <span class="bold_code">dist_open_ret() = <br>    {[{node(), ret()}], [{node(), {error, dist_error_rsn()}}]}</span><br>
 </div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">dist_open_ret() = <br>    {[{node(), ret()}], [{node(), {error, dist_error_rsn()}}]}</span><br>
+<div class="REFTYPES">
+      <span class="bold_code">dist_error_rsn() = nodedown | open_error_rsn()</span><br>
 </div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">dist_error_rsn() = nodedown | open_error_rsn()</span><br>
+<div class="REFTYPES">
+      <span class="bold_code">open_error_rsn() = <br>    no_such_log |<br>    {badarg, term()} |<br>    {size_mismatch,<br>     CurrentSize :: <span class="bold_code"><a href="#type-dlog_size">dlog_size()</a></span>,<br>     NewSize :: <span class="bold_code"><a href="#type-dlog_size">dlog_size()</a></span>} |<br>    {arg_mismatch,<br>     OptionName :: dlog_optattr(),<br>     CurrentValue :: term(),<br>     Value :: term()} |<br>    {name_already_open, Log :: <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {open_read_write, Log :: <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {open_read_only, Log :: <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {need_repair, Log :: <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {not_a_log_file, FileName :: <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span>} |<br>    {invalid_index_file, FileName :: <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span>} |<br>    {invalid_header, <span class="bold_code"><a href="#type-invalid_header">invalid_header()</a></span>} |<br>    {file_error, <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span>, <span class="bold_code"><a href="#type-file_error">file_error()</a></span>} |<br>    {node_already_open, Log :: <span class="bold_code"><a href="#type-log">log()</a></span>}</span><br>
 </div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">open_error_rsn() = <br>    no_such_log |<br>    {badarg, term()} |<br>    {size_mismatch,<br>     CurrentSize :: <span class="bold_code data-type-ref"><a href="#type-dlog_size">dlog_size()</a></span>,<br>     NewSize :: <span class="bold_code data-type-ref"><a href="#type-dlog_size">dlog_size()</a></span>} |<br>    {arg_mismatch,<br>     OptionName :: dlog_optattr(),<br>     CurrentValue :: term(),<br>     Value :: term()} |<br>    {name_already_open, Log :: <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {open_read_write, Log :: <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {open_read_only, Log :: <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {need_repair, Log :: <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {not_a_log_file, FileName :: <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span>} |<br>    {invalid_index_file, FileName :: <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span>} |<br>    {invalid_header, <span class="bold_code data-type-ref"><a href="#type-invalid_header">invalid_header()</a></span>} |<br>    {file_error, <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span>, <span class="bold_code data-type-ref"><a href="#type-file_error">file_error()</a></span>} |<br>    {node_already_open, Log :: <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>}</span><br>
+<div class="REFTYPES">
+      <span class="bold_code">dlog_optattr() = <br>    name |<br>    file |<br>    linkto |<br>    repair |<br>    type |<br>    format |<br>    size |<br>    distributed |<br>    notify |<br>    head |<br>    head_func |<br>    mode</span><br>
 </div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">dlog_optattr() = <br>    name |<br>    file |<br>    linkto |<br>    repair |<br>    type |<br>    format |<br>    size |<br>    distributed |<br>    notify |<br>    head |<br>    head_func |<br>    mode</span><br>
+<div class="REFTYPES">
+      <span class="bold_code">dlog_size() = <br>    infinity |<br>    integer() &gt;= 1 |<br>    {MaxNoBytes :: integer() &gt;= 1, MaxNoFiles :: integer() &gt;= 1}</span><br>
 </div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">dlog_size() = <br>    infinity |<br>    integer() &gt;= 1 |<br>    {MaxNoBytes :: integer() &gt;= 1, MaxNoFiles :: integer() &gt;= 1}</span><br>
-</div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Parameter <span class="code">ArgL</span> is a list of the following
 	  options:</p>
         <dl>
@@ -1779,39 +1696,31 @@
           <span class="code">{{failed,Reason},[{disk_log,open,1}]}</span>.
           The function returns <span class="code">{error, Reason}</span> for all other errors.
           </p>
-      </p></div></div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="pid2name-1"></a><span class="bold_code func-name">pid2name(Pid) -&gt; {ok, Log} | undefined</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Pid = pid()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Log = <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      </p></div>
+    <p><a name="pid2name-1"></a><span class="bold_code">pid2name(Pid) -&gt; {ok, Log} | undefined</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Pid = pid()</span></div>
+<div class="REFTYPES"><span class="bold_code">Log = <span class="bold_code"><a href="#type-log">log()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the log name
           given the pid of a disk log process on the current node, or
           <span class="code">undefined</span> if the specified pid is not a disk log process.
           </p>
         <p>This function is meant to be used for debugging only.
           </p>
-      </p></div></div>
+      </p></div>
+    <p><a name="reopen-2"></a><span class="bold_code">reopen(Log, File) -&gt; ok | {error, reopen_error_rsn()}</span><br><a name="reopen-3"></a><span class="bold_code">reopen(Log, File, Head) -&gt; ok | {error, reopen_error_rsn()}</span><br><a name="breopen-3"></a><span class="bold_code">breopen(Log, File, BHead) -&gt; ok | {error, reopen_error_rsn()}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Log = <span class="bold_code"><a href="#type-log">log()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">File = <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Head = term()</span></div>
+<div class="REFTYPES"><span class="bold_code">BHead = <span class="bold_code"><a href="#type-bytes">bytes()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">reopen_error_rsn() = <br>    no_such_log |<br>    nonode |<br>    {read_only_mode, <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {blocked_log, <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {same_file_name, <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {invalid_index_file, <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span>} |<br>    {invalid_header, <span class="bold_code"><a href="#type-invalid_header">invalid_header()</a></span>} |<br>    {file_error, <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span>, <span class="bold_code"><a href="#type-file_error">file_error()</a></span>}</span><br>
 </div>
-    <div class="func">
-<div class="func-title">
-<a name="reopen-2"></a><span class="bold_code func-name">reopen(Log, File) -&gt; ok | {error, reopen_error_rsn()}</span><a name="reopen-3"></a><span class="bold_code func-name">reopen(Log, File, Head) -&gt; ok | {error, reopen_error_rsn()}</span><a name="breopen-3"></a><span class="bold_code func-name">breopen(Log, File, BHead) -&gt; ok | {error, reopen_error_rsn()}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Log = <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">File = <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Head = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">BHead = <span class="bold_code data-type-ref"><a href="#type-bytes">bytes()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">reopen_error_rsn() = <br>    no_such_log |<br>    nonode |<br>    {read_only_mode, <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {blocked_log, <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {same_file_name, <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {invalid_index_file, <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span>} |<br>    {invalid_header, <span class="bold_code data-type-ref"><a href="#type-invalid_header">invalid_header()</a></span>} |<br>    {file_error, <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span>, <span class="bold_code data-type-ref"><a href="#type-file_error">file_error()</a></span>}</span><br>
-</div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Renames the log file
           to <span class="code">File</span> and then recreates a new log file.
           If a wrap log exists, <span class="code">File</span> is used as the base name
@@ -1833,37 +1742,29 @@
           Other processes having requests queued receive the message
           <span class="code">{disk_log, Node, {error, disk_log_stopped}}</span>.
           </p>
-      </p></div></div>
+      </p></div>
+    <p><a name="sync-1"></a><span class="bold_code">sync(Log) -&gt; ok | {error, sync_error_rsn()}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Log = <span class="bold_code"><a href="#type-log">log()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">sync_error_rsn() = <br>    no_such_log |<br>    nonode |<br>    {read_only_mode, <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {blocked_log, <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {file_error, <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span>, <span class="bold_code"><a href="#type-file_error">file_error()</a></span>}</span><br>
 </div>
-    <div class="func">
-<div class="func-title">
-<a name="sync-1"></a><span class="bold_code func-name">sync(Log) -&gt; ok | {error, sync_error_rsn()}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Log = <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">sync_error_rsn() = <br>    no_such_log |<br>    nonode |<br>    {read_only_mode, <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {blocked_log, <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {file_error, <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span>, <span class="bold_code data-type-ref"><a href="#type-file_error">file_error()</a></span>}</span><br>
-</div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Ensures that the contents of the log are written to the disk.
           This is usually a rather expensive operation.
           </p>
-      </p></div></div>
+      </p></div>
+    <p><a name="truncate-1"></a><span class="bold_code">truncate(Log) -&gt; ok | {error, trunc_error_rsn()}</span><br><a name="truncate-2"></a><span class="bold_code">truncate(Log, Head) -&gt; ok | {error, trunc_error_rsn()}</span><br><a name="btruncate-2"></a><span class="bold_code">btruncate(Log, BHead) -&gt; ok | {error, trunc_error_rsn()}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Log = <span class="bold_code"><a href="#type-log">log()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Head = term()</span></div>
+<div class="REFTYPES"><span class="bold_code">BHead = <span class="bold_code"><a href="#type-bytes">bytes()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">trunc_error_rsn() = <br>    no_such_log |<br>    nonode |<br>    {read_only_mode, <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {blocked_log, <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {invalid_header, <span class="bold_code"><a href="#type-invalid_header">invalid_header()</a></span>} |<br>    {file_error, <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span>, <span class="bold_code"><a href="#type-file_error">file_error()</a></span>}</span><br>
 </div>
-    <div class="func">
-<div class="func-title">
-<a name="truncate-1"></a><span class="bold_code func-name">truncate(Log) -&gt; ok | {error, trunc_error_rsn()}</span><a name="truncate-2"></a><span class="bold_code func-name">truncate(Log, Head) -&gt; ok | {error, trunc_error_rsn()}</span><a name="btruncate-2"></a><span class="bold_code func-name">btruncate(Log, BHead) -&gt; ok | {error, trunc_error_rsn()}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Log = <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Head = term()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">BHead = <span class="bold_code data-type-ref"><a href="#type-bytes">bytes()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">trunc_error_rsn() = <br>    no_such_log |<br>    nonode |<br>    {read_only_mode, <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {blocked_log, <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {invalid_header, <span class="bold_code data-type-ref"><a href="#type-invalid_header">invalid_header()</a></span>} |<br>    {file_error, <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span>, <span class="bold_code data-type-ref"><a href="#type-file_error">file_error()</a></span>}</span><br>
-</div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Removes all items from a disk log.
           If argument <span class="code">Head</span> or <span class="code">BHead</span> is
           specified, this item is written first in the newly truncated
@@ -1884,32 +1785,27 @@
           Other processes having requests queued receive the message
           <span class="code">{disk_log, Node, {error, disk_log_stopped}}</span>.
           </p>
-      </p></div></div>
+      </p></div>
+    <p><a name="unblock-1"></a><span class="bold_code">unblock(Log) -&gt; ok | {error, unblock_error_rsn()}</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">Log = <span class="bold_code"><a href="#type-log">log()</a></span></span></div>
+<div class="REFTYPES">
+      <span class="bold_code">unblock_error_rsn() = <br>    no_such_log |<br>    nonode |<br>    {not_blocked, <span class="bold_code"><a href="#type-log">log()</a></span>} |<br>    {not_blocked_by_pid, <span class="bold_code"><a href="#type-log">log()</a></span>}</span><br>
 </div>
-    <div class="func">
-<div class="func-title">
-<a name="unblock-1"></a><span class="bold_code func-name">unblock(Log) -&gt; ok | {error, unblock_error_rsn()}</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Log = <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span></span></div>
-<div class="REFTYPES local-type">
-      <span class="bold_code type-head">unblock_error_rsn() = <br>    no_such_log |<br>    nonode |<br>    {not_blocked, <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>} |<br>    {not_blocked_by_pid, <span class="bold_code data-type-ref"><a href="#type-log">log()</a></span>}</span><br>
-</div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+</div></p>
+<div class="REFBODY"><p>
         <p>Unblocks a log.
           A log can only be unblocked by the blocking process.
           </p>
-      </p></div></div>
-</div>
-  </div>
+      </p></div>
+  
 
-  <h3><a name="idm45917638735600">See Also</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46525672338944">See Also</a></h3>
+<div class="REFBODY">
     
-    <p><span class="bold_code bc-19"><a href="file.html"><span class="code">file(3)</span></a></span>,
-      <span class="bold_code bc-19"><a href="pg2.html"><span class="code">pg2(3)</span></a></span>,
-      <span class="bold_code bc-19"><a href="wrap_log_reader.html"><span class="code">wrap_log_reader(3)</span></a></span></p>
+    <p><span class="bold_code"><a href="file.html"><span class="code">file(3)</span></a></span>,
+      <span class="bold_code"><a href="pg2.html"><span class="code">pg2(3)</span></a></span>,
+      <span class="bold_code"><a href="wrap_log_reader.html"><span class="code">wrap_log_reader(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

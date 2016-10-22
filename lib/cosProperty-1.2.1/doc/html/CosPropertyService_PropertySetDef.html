@@ -154,261 +154,212 @@
 <!-- refpage --><center><h1>CosPropertyService_PropertySetDef</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">CosPropertyService_PropertySetDef</div>
+<div class="REFBODY">CosPropertyService_PropertySetDef</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">This module implements the OMG CosPropertyService::PropertySetDef interface.</div>
+<div class="REFBODY">This module implements the OMG CosPropertyService::PropertySetDef interface.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>To get access to the record definitions for the structures use:      <br>
 <span class="code">-include_lib("cosProperty/include/CosPropertyService.hrl").</span></p>
     <p>This module also exports the functions described in</p>
-    <p><span class="bold_code bc-19"><a href="CosPropertyService_PropertySet.html">CosPropertyService_PropertySet</a></span></p>
-  </div>
+    <p><span class="bold_code"><a href="CosPropertyService_PropertySet.html">CosPropertyService_PropertySet</a></span></p>
+  </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="get_allowed_property_types-1"></a><span class="bold_code bc-9">get_allowed_property_types(PropertySetDef) -&gt; Reply</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_allowed_property_types-1"></a><span class="bold_code">get_allowed_property_types(PropertySetDef) -&gt; Reply</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PropertySetDef = #objref</span><br>
+<span class="bold_code">PropertySetDef = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reply = {ok, PropertyTypes}</span><br>
+<span class="bold_code">Reply = {ok, PropertyTypes}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PropertyTypes = [CORBA::TypeCode]</span><br>
+<span class="bold_code">PropertyTypes = [CORBA::TypeCode]</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This operation return the TypeCodes which we are allowed to use when adding
           new properties.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_allowed_properties-1"></a><span class="bold_code bc-9">get_allowed_properties(PropertySetDef) -&gt; Reply</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_allowed_properties-1"></a><span class="bold_code">get_allowed_properties(PropertySetDef) -&gt; Reply</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PropertySetDef = #objref</span><br>
+<span class="bold_code">PropertySetDef = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reply = {ok, PropertyDefs}</span><br>
+<span class="bold_code">Reply = {ok, PropertyDefs}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PropertyDefs = [#'CosPropertyService_PropertyDef'{property_name = Name, property_value = Value, property_mode = Mode}]</span><br>
+<span class="bold_code">PropertyDefs = [#'CosPropertyService_PropertyDef'{property_name = Name, property_value = Value, property_mode = Mode}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Name = string()</span><br>
+<span class="bold_code">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Value = #any</span><br>
+<span class="bold_code">Value = #any</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Mode = normal | read_only | fixed_normal | fixed_readonly | undefined</span><br>
+<span class="bold_code">Mode = normal | read_only | fixed_normal | fixed_readonly | undefined</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This operation a sequence of the allowed properties we may alter; depends on
           which mode associated with a certain property.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="define_property_with_mode-4"></a><span class="bold_code bc-9">define_property_with_mode(PropertySetDef, Name, Value, Mode) -&gt; Reply</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="define_property_with_mode-4"></a><span class="bold_code">define_property_with_mode(PropertySetDef, Name, Value, Mode) -&gt; Reply</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PropertySetDef = #objref</span><br>
+<span class="bold_code">PropertySetDef = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Name = non-empty string()</span><br>
+<span class="bold_code">Name = non-empty string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Value = #any</span><br>
+<span class="bold_code">Value = #any</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Mode =  normal | read_only | fixed_normal | fixed_readonly | undefined</span><br>
+<span class="bold_code">Mode =  normal | read_only | fixed_normal | fixed_readonly | undefined</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reply = ok | {'EXCEPTION', #CosPropertyService_InvalidPropertyName{}} | {'EXCEPTION', #CosPropertyService_ConflictingProperty{}} | {'EXCEPTION', #CosPropertyService_UnsupportedTypeCode{}} | {'EXCEPTION', #CosPropertyService_UnsupportedProperty{}} | {'EXCEPTION', #CosPropertyService_UnsupportedMode{}} | {'EXCEPTION', #CosPropertyService_ReadOnlyProperty{}}</span><br>
+<span class="bold_code">Reply = ok | {'EXCEPTION', #CosPropertyService_InvalidPropertyName{}} | {'EXCEPTION', #CosPropertyService_ConflictingProperty{}} | {'EXCEPTION', #CosPropertyService_UnsupportedTypeCode{}} | {'EXCEPTION', #CosPropertyService_UnsupportedProperty{}} | {'EXCEPTION', #CosPropertyService_UnsupportedMode{}} | {'EXCEPTION', #CosPropertyService_ReadOnlyProperty{}}</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This operation attempts to associate a new property with the target object.
           If we fail to do so the appropriate exception is raised.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="define_properties_with_modes-2"></a><span class="bold_code bc-9">define_properties_with_modes(PropertySetDef, PropertyDefs) -&gt; Reply</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="define_properties_with_modes-2"></a><span class="bold_code">define_properties_with_modes(PropertySetDef, PropertyDefs) -&gt; Reply</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PropertySetDef = #objref</span><br>
+<span class="bold_code">PropertySetDef = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PropertyDefs = [#'CosPropertyService_PropertyDef'{property_name = Name, property_value = Value, property_mode = Mode}]</span><br>
+<span class="bold_code">PropertyDefs = [#'CosPropertyService_PropertyDef'{property_name = Name, property_value = Value, property_mode = Mode}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Name = string()</span><br>
+<span class="bold_code">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Value = #any</span><br>
+<span class="bold_code">Value = #any</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Mode = normal | read_only | fixed_normal | fixed_readonly | undefined</span><br>
+<span class="bold_code">Mode = normal | read_only | fixed_normal | fixed_readonly | undefined</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reply = ok | {'EXCEPTION', #CosPropertyService_MultipleExceptions{exceptions = Excs}}</span><br>
+<span class="bold_code">Reply = ok | {'EXCEPTION', #CosPropertyService_MultipleExceptions{exceptions = Excs}}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Excs = [#'CosPropertyService_PropertyException{reason = Reason, failing_property_name = Name}]</span><br>
+<span class="bold_code">Excs = [#'CosPropertyService_PropertyException{reason = Reason, failing_property_name = Name}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = invalid_property_name | conflicting_property | property_not_found | unsupported_type_code | unsupported_property | unsupported_mode | fixed_property | read_only_property</span><br>
+<span class="bold_code">Reason = invalid_property_name | conflicting_property | property_not_found | unsupported_type_code | unsupported_property | unsupported_mode | fixed_property | read_only_property</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This operation attempts to associate the given Property Definitions with the
           target object. If one or more attempts fail an exception is raised 
           describing which properties we where not able to create.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_property_mode-2"></a><span class="bold_code bc-9">get_property_mode(PropertySetDef, Name) -&gt; Reply</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_property_mode-2"></a><span class="bold_code">get_property_mode(PropertySetDef, Name) -&gt; Reply</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PropertySetDef = #objref</span><br>
+<span class="bold_code">PropertySetDef = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Name = string()</span><br>
+<span class="bold_code">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reply = Mode | {'EXCEPTION', #CosPropertyService_InvalidPropertyName{}} | {'EXCEPTION', #CosPropertyService_PropertyNotFound{}}</span><br>
+<span class="bold_code">Reply = Mode | {'EXCEPTION', #CosPropertyService_InvalidPropertyName{}} | {'EXCEPTION', #CosPropertyService_PropertyNotFound{}}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Mode = normal | read_only | fixed_normal | fixed_readonly | undefined</span><br>
+<span class="bold_code">Mode = normal | read_only | fixed_normal | fixed_readonly | undefined</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This operation returns the type of the given property.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="get_property_modes-2"></a><span class="bold_code bc-9">get_property_modes(PropertySetDef, Names) -&gt; Reply</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_property_modes-2"></a><span class="bold_code">get_property_modes(PropertySetDef, Names) -&gt; Reply</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PropertySetDef = #objref</span><br>
+<span class="bold_code">PropertySetDef = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Names = [string()]</span><br>
+<span class="bold_code">Names = [string()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reply = {boolean(), PropertyModes}</span><br>
+<span class="bold_code">Reply = {boolean(), PropertyModes}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PropertyModes = [#'CosPropertyService_PropertyMode'{property_name = Name, property_mode = Mode}]</span><br>
+<span class="bold_code">PropertyModes = [#'CosPropertyService_PropertyMode'{property_name = Name, property_mode = Mode}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Name = string()</span><br>
+<span class="bold_code">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Mode = normal | read_only | fixed_normal | fixed_readonly | undefined</span><br>
+<span class="bold_code">Mode = normal | read_only | fixed_normal | fixed_readonly | undefined</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This operation returns the modes of the listed properties. If the boolean
           flag is false, all properties with mode <span class="code">undefined</span> this operation
           failed to comply.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="set_property_mode-3"></a><span class="bold_code bc-9">set_property_mode(PropertySetDef, Name, Mode) -&gt; Reply</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="set_property_mode-3"></a><span class="bold_code">set_property_mode(PropertySetDef, Name, Mode) -&gt; Reply</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PropertySetDef = #objref</span><br>
+<span class="bold_code">PropertySetDef = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Name = string()</span><br>
+<span class="bold_code">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Mode = normal | read_only | fixed_normal | fixed_readonly | undefined</span><br>
+<span class="bold_code">Mode = normal | read_only | fixed_normal | fixed_readonly | undefined</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reply = ok | {'EXCEPTION', #CosPropertyService_InvalidPropertyName{}} | {'EXCEPTION', #CosPropertyService_UnsupportedMode{}} | {'EXCEPTION', #CosPropertyService_PropertyNotFound{}}</span><br>
+<span class="bold_code">Reply = ok | {'EXCEPTION', #CosPropertyService_InvalidPropertyName{}} | {'EXCEPTION', #CosPropertyService_UnsupportedMode{}} | {'EXCEPTION', #CosPropertyService_PropertyNotFound{}}</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This operation changes the given property's mode. Return the appropriate
           exception if not able to fulfill the request.</p>
       </p></div>
-</div>
-</div>
-    <div class="func">
-<div class="func-title">
-<a name="set_property_modes-2"></a><span class="bold_code bc-9">set_property_modes(PropertySetDef, PropertyModes) -&gt; Reply</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="set_property_modes-2"></a><span class="bold_code">set_property_modes(PropertySetDef, PropertyModes) -&gt; Reply</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PropertySetDef = #objref</span><br>
+<span class="bold_code">PropertySetDef = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">PropertyModes = [#'CosPropertyService_PropertyMode'{property_name = Name, property_mode = Mode}]</span><br>
+<span class="bold_code">PropertyModes = [#'CosPropertyService_PropertyMode'{property_name = Name, property_mode = Mode}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Name = string()</span><br>
+<span class="bold_code">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Mode = normal | read_only | fixed_normal | fixed_readonly | undefined</span><br>
+<span class="bold_code">Mode = normal | read_only | fixed_normal | fixed_readonly | undefined</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reply = ok | {'EXCEPTION', #CosPropertyService_MultipleExceptions{exceptions = Excs}}</span><br>
+<span class="bold_code">Reply = ok | {'EXCEPTION', #CosPropertyService_MultipleExceptions{exceptions = Excs}}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Excs = [#'CosPropertyService_PropertyException{reason = Reason, failing_property_name = Name}]</span><br>
+<span class="bold_code">Excs = [#'CosPropertyService_PropertyException{reason = Reason, failing_property_name = Name}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = invalid_property_name | conflicting_property | property_not_found | unsupported_type_code | unsupported_property | unsupported_mode | fixed_property | read_only_property</span><br>
+<span class="bold_code">Reason = invalid_property_name | conflicting_property | property_not_found | unsupported_type_code | unsupported_property | unsupported_mode | fixed_property | read_only_property</span><br>
 </div>
       </div>
-<div class="REFBODY data-type-desc"><p>
+<div class="REFBODY"><p>
         <p>This operation attempts to update the listed properties mode's. Raises an 
           exception which describe which and why an operation failed.</p>
       </p></div>
-</div>
-</div>
-  </div>
+  
   
 </div>
 <div class="footer">

@@ -443,16 +443,16 @@
 <!-- refpage --><center><h1>unix_telnet</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">unix_telnet</div>
+<div class="REFBODY">unix_telnet</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Callback module for ct_telnet, for connecting to a Telnet
+<div class="REFBODY">Callback module for ct_telnet, for connecting to a Telnet
     server on a UNIX host.</div>
 
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
 
     <p>Callback module for
-      <span class="bold_code bc-19"><a href="ct_telnet.html"><span class="code">ct_telnet</span></a></span>,
+      <span class="bold_code"><a href="ct_telnet.html"><span class="code">ct_telnet</span></a></span>,
       for connecting to a Telnet server on a UNIX host.</p>
 
     <p>It requires the following entry in the configuration file:</p>
@@ -466,7 +466,7 @@
 
     <p>To communicate through Telnet to the host specified by
       <span class="code">HostNameOrIpAddress</span>, use the interface functions in
-      <span class="bold_code bc-19"><a href="ct_telnet.html"><span class="code">ct_telnet</span></a></span>, for example,
+      <span class="bold_code"><a href="ct_telnet.html"><span class="code">ct_telnet</span></a></span>, for example,
       <span class="code">open(Name)</span> and <span class="code">cmd(Name,Cmd)</span>.</p>
 
     <p><span class="code">Name</span> is the name you allocated to the Unix host in your
@@ -484,97 +484,84 @@
       to the server every 10 seconds if the connection is idle) can be
       enabled or disabled for one particular connection as described here.
       It can be disabled for all connections using <span class="code">telnet_settings</span>
-      (see <span class="bold_code bc-19"><a href="ct_telnet.html"><span class="code">ct_telnet</span></a></span>).</p>
+      (see <span class="bold_code"><a href="ct_telnet.html"><span class="code">ct_telnet</span></a></span>).</p>
 
     <p>The <span class="code">{port,PortNum}</span> tuple is optional and if omitted, default 
       Telnet port 23 is used. Also the <span class="code">keep_alive</span> tuple is optional,
       and the value defauls to <span class="code">true</span> (enabled).</p>
-  </div>
+  </p></div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="connect-7"></a><span class="bold_code bc-9">connect(ConnName, Ip, Port, Timeout, KeepAlive, TCPNoDelay, Extra) -&gt; {ok, Handle} | {error, Reason}</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="connect-7"></a><span class="bold_code">connect(ConnName, Ip, Port, Timeout, KeepAlive, TCPNoDelay, Extra) -&gt; {ok, Handle} | {error, Reason}</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
           <div class="REFTYPES">
-<span class="bold_code bc-11">ConnName = target_name()</span><br>
+<span class="bold_code">ConnName = target_name()</span><br>
 </div>
           <div class="REFTYPES">
-<span class="bold_code bc-11">Ip = string() | {integer(), integer(), integer(), integer()}</span><br>
+<span class="bold_code">Ip = string() | {integer(), integer(), integer(), integer()}</span><br>
 </div>
           <div class="REFTYPES">
-<span class="bold_code bc-11">Port = integer()</span><br>
+<span class="bold_code">Port = integer()</span><br>
 </div>
           <div class="REFTYPES">
-<span class="bold_code bc-11">Timeout = integer()</span><br>
+<span class="bold_code">Timeout = integer()</span><br>
 </div>
           <div class="REFTYPES">
-<span class="bold_code bc-11">KeepAlive = bool()</span><br>
+<span class="bold_code">KeepAlive = bool()</span><br>
 </div>
 	  <div class="REFTYPES">
-<span class="bold_code bc-11">TCPNoDelay = bool()</span><br>
+<span class="bold_code">TCPNoDelay = bool()</span><br>
 </div>
           <div class="REFTYPES">
-<span class="bold_code bc-11">Extra = target_name() | {Username, Password}</span><br>
+<span class="bold_code">Extra = target_name() | {Username, Password}</span><br>
 </div>
           <div class="REFTYPES">
-<span class="bold_code bc-11">Username = string()</span><br>
+<span class="bold_code">Username = string()</span><br>
 </div>
           <div class="REFTYPES">
-<span class="bold_code bc-11">Password = string()</span><br>
+<span class="bold_code">Password = string()</span><br>
 </div>
           <div class="REFTYPES">
-<span class="bold_code bc-11">Handle = handle()</span><br>
+<span class="bold_code">Handle = handle()</span><br>
 </div>
           <div class="REFTYPES">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code">Reason = term()</span><br>
 </div>
         </div>
-<div class="REFBODY data-type-desc"><p><a name="connect-6"></a>
+<div class="REFBODY"><p><a name="connect-6"></a>
         <p>Callback for <span class="code">ct_telnet.erl</span>.</p>
 
         <p>Setup Telnet connection to a Unix host.</p>
 
         <p>For <span class="code">target_name()</span>, see
-          <span class="bold_code bc-19"><a href="ct.html"><span class="code">ct</span></a></span>. For <span class="code">handle()</span>, see
-          <span class="bold_code bc-19"><a href="ct_telnet.html"><span class="code">ct_telnet</span></a></span>.</p>
+          <span class="bold_code"><a href="ct.html"><span class="code">ct</span></a></span>. For <span class="code">handle()</span>, see
+          <span class="bold_code"><a href="ct_telnet.html"><span class="code">ct_telnet</span></a></span>.</p>
       </p></div>
-</div>
-</div>
 
-    <div class="func">
-<div class="func-title">
-<a name="get_prompt_regexp-0"></a><span class="bold_code bc-9">get_prompt_regexp() -&gt; PromptRegexp</span><br>
-</div>
-<div class="func-body">
-<div class="REFBODY rb-5">
+    <p><a name="get_prompt_regexp-0"></a><span class="bold_code">get_prompt_regexp() -&gt; PromptRegexp</span><br></p>
+<div class="REFBODY">
 <p>Types:</p>
           <div class="REFTYPES">
-<span class="bold_code bc-11">PromptRegexp = prompt_regexp()</span><br>
+<span class="bold_code">PromptRegexp = prompt_regexp()</span><br>
 </div>
         </div>
-<div class="REFBODY data-type-desc"><p><a name="get_prompt_regexp-0"></a>
+<div class="REFBODY"><p><a name="get_prompt_regexp-0"></a>
         <p>Callback for <span class="code">ct_telnet.erl</span>.</p>
 
         <p>Returns a suitable <span class="code">regexp</span> string matching common prompts
           for users on Unix hosts.</p>
 
         <p>For <span class="code">prompt_regexp()</span>, see
-          <span class="bold_code bc-19"><a href="ct_telnet.html"><span class="code">ct_telnet</span></a></span>.</p>
+          <span class="bold_code"><a href="ct_telnet.html"><span class="code">ct_telnet</span></a></span>.</p>
       </p></div>
-</div>
-</div>
-   </div>
+   
 
-  <h3><a name="idm46407703708256">See Also</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm45523888612736">See Also</a></h3>
+<div class="REFBODY">
     
-      <p><span class="bold_code bc-19"><a href="ct.html"><span class="code">ct</span></a></span>,
-        <span class="bold_code bc-19"><a href="ct_telnet.html"><span class="code">ct_telnet</span></a></span></p>
+      <p><span class="bold_code"><a href="ct.html"><span class="code">ct</span></a></span>,
+        <span class="bold_code"><a href="ct_telnet.html"><span class="code">ct_telnet</span></a></span></p>
   </div>
 
 </div>

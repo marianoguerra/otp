@@ -1717,11 +1717,11 @@
 <!-- refpage --><center><h1>win32reg</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY module-body">win32reg</div>
+<div class="REFBODY">win32reg</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY modules-summary-body">Provides access to the registry on Windows.</div>
+<div class="REFBODY">Provides access to the registry on Windows.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY description-body">
+<div class="REFBODY"><p>
     <p>This module provides read and write access to the
       registry on Windows. It is essentially a port driver wrapped around the
       Win32 API calls for accessing the registry.</p>
@@ -1777,189 +1777,146 @@ hkdd             HKEY_DYN_DATA</pre></div>
     <p>Some registry values are stored as strings with references to environment
       variables, for example, <span class="code">%SystemRoot%Windows</span>. <span class="code">SystemRoot</span> is
       an environment variable, and is to be replaced with its value. Function
-      <span class="bold_code data-type-ref"><a href="#expand-1"><span class="code">expand/1</span></a></span> is provided so that
+      <span class="bold_code"><a href="#expand-1"><span class="code">expand/1</span></a></span> is provided so that
       environment variables surrounded by <span class="code">%</span> can be expanded to their
       values.</p>
     <p>For more information on the Windows registry, see consult the Win32
       Programmer's Reference.</p>
-  </div>
+  </p></div>
 
-  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
-<div class="data-types-body">
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-reg_handle">reg_handle()</a></span><div class="REFBODY data-type-desc"><p>
+  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
+    <p>
+      <span class="bold_code"><a name="type-reg_handle">reg_handle()</a></span><br></p>
+<div class="REFBODY"><p>
         <p>As returned by
-          <span class="bold_code data-type-ref"><a href="#open-1"><span class="code">open/1</span></a></span>.</p>
+          <span class="bold_code"><a href="#open-1"><span class="code">open/1</span></a></span>.</p>
       </p></div>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-name">name()</a> = string() | default</span>
-</div>
-    <div class="data-type-def">
-      <span class="bold_code data-type-def-name"><a name="type-value">value()</a> = string() | integer() | binary()</span>
-</div>
-  </div>
+    <p>
+      <span class="bold_code"><a name="type-name">name()</a> = string() | default</span><br></p>
+    <p>
+      <span class="bold_code"><a name="type-value">value()</a> = string() | integer() | binary()</span><br></p>
+  
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-<div class="exports-body">
-    <div class="func">
-<div class="func-title">
-<a name="change_key-2"></a><span class="bold_code func-name">change_key(RegHandle, Key) -&gt; ReturnValue</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">RegHandle = <span class="bold_code data-type-ref"><a href="#type-reg_handle">reg_handle()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Key = string()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ReturnValue = ok | {error, ErrorId :: atom()}</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="change_key-2"></a><span class="bold_code">change_key(RegHandle, Key) -&gt; ReturnValue</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">RegHandle = <span class="bold_code"><a href="#type-reg_handle">reg_handle()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Key = string()</span></div>
+<div class="REFTYPES"><span class="bold_code">ReturnValue = ok | {error, ErrorId :: atom()}</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Changes the current key to another key. Works like <span class="code">cd</span>.
           The key can be specified as a relative path or as an
           absolute path, starting with <span class="code">\.</span></p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="change_key_create-2"></a><span class="bold_code func-name">change_key_create(RegHandle, Key) -&gt; ReturnValue</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">RegHandle = <span class="bold_code data-type-ref"><a href="#type-reg_handle">reg_handle()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Key = string()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ReturnValue = ok | {error, ErrorId :: atom()}</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="change_key_create-2"></a><span class="bold_code">change_key_create(RegHandle, Key) -&gt; ReturnValue</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">RegHandle = <span class="bold_code"><a href="#type-reg_handle">reg_handle()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Key = string()</span></div>
+<div class="REFTYPES"><span class="bold_code">ReturnValue = ok | {error, ErrorId :: atom()}</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Creates a key, or just changes to it, if it is already there. Works
           like a combination of <span class="code">mkdir</span> and <span class="code">cd</span>.
           Calls the Win32 API function <span class="code">RegCreateKeyEx()</span>.</p>
         <p>The registry must have been opened in write mode.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="close-1"></a><span class="bold_code func-name">close(RegHandle) -&gt; ok</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">RegHandle = <span class="bold_code data-type-ref"><a href="#type-reg_handle">reg_handle()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="close-1"></a><span class="bold_code">close(RegHandle) -&gt; ok</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">RegHandle = <span class="bold_code"><a href="#type-reg_handle">reg_handle()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Closes the registry. After that, the <span class="code">RegHandle</span>
           cannot be used.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="current_key-1"></a><span class="bold_code func-name">current_key(RegHandle) -&gt; ReturnValue</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">RegHandle = <span class="bold_code data-type-ref"><a href="#type-reg_handle">reg_handle()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ReturnValue = {ok, string()}</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="current_key-1"></a><span class="bold_code">current_key(RegHandle) -&gt; ReturnValue</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">RegHandle = <span class="bold_code"><a href="#type-reg_handle">reg_handle()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">ReturnValue = {ok, string()}</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns the path to the current key. This is the equivalent of
           <span class="code">pwd</span>.</p>
         <p>Notice that the current key is stored in the driver, and can be
           invalid (for example, if the key has been removed).</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="delete_key-1"></a><span class="bold_code func-name">delete_key(RegHandle) -&gt; ReturnValue</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">RegHandle = <span class="bold_code data-type-ref"><a href="#type-reg_handle">reg_handle()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ReturnValue = ok | {error, ErrorId :: atom()}</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="delete_key-1"></a><span class="bold_code">delete_key(RegHandle) -&gt; ReturnValue</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">RegHandle = <span class="bold_code"><a href="#type-reg_handle">reg_handle()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">ReturnValue = ok | {error, ErrorId :: atom()}</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Deletes the current key, if it is valid. Calls the Win32 API
           function <span class="code">RegDeleteKey()</span>. Notice that this call does not change
 	  the current key (unlike
-          <span class="bold_code data-type-ref"><a href="#change_key_create-2"><span class="code">change_key_create/2</span></a></span>).
+          <span class="bold_code"><a href="#change_key_create-2"><span class="code">change_key_create/2</span></a></span>).
           This means that after the call, the current key is invalid.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="delete_value-2"></a><span class="bold_code func-name">delete_value(RegHandle, Name) -&gt; ReturnValue</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">RegHandle = <span class="bold_code data-type-ref"><a href="#type-reg_handle">reg_handle()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-name">name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ReturnValue = ok | {error, ErrorId :: atom()}</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="delete_value-2"></a><span class="bold_code">delete_value(RegHandle, Name) -&gt; ReturnValue</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">RegHandle = <span class="bold_code"><a href="#type-reg_handle">reg_handle()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-name">name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">ReturnValue = ok | {error, ErrorId :: atom()}</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Deletes a named value on the current key. The atom <span class="code">default</span> is
           used for the default value.</p>
         <p>The registry must have been opened in write mode.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="expand-1"></a><span class="bold_code func-name">expand(String) -&gt; ExpandedString</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">String = ExpandedString = string()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="expand-1"></a><span class="bold_code">expand(String) -&gt; ExpandedString</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">String = ExpandedString = string()</span></div>
+<div class="REFTYPES"><span class="bold_code"></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Expands a string containing environment variables between percent
           characters. Anything between two <span class="code">%</span> is taken for an environment
           variable, and is replaced by the value. Two consecutive <span class="code">%</span> are
           replaced by one <span class="code">%</span>.</p>
         <p>A variable name that is not in the environment results in an
           error.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="format_error-1"></a><span class="bold_code func-name">format_error(ErrorId) -&gt; ErrorString</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ErrorId = atom()</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ErrorString = string()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="format_error-1"></a><span class="bold_code">format_error(ErrorId) -&gt; ErrorString</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">ErrorId = atom()</span></div>
+<div class="REFTYPES"><span class="bold_code">ErrorString = string()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Converts a POSIX error code to a string
 	(by calling <span class="code">erl_posix_msg:message/1</span>).</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="open-1"></a><span class="bold_code func-name">open(OpenModeList) -&gt; ReturnValue</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">OpenModeList = [OpenMode]</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">OpenMode = read | write</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ReturnValue = {ok, RegHandle} | {error, ErrorId :: enotsup}</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">RegHandle = <span class="bold_code data-type-ref"><a href="#type-reg_handle">reg_handle()</a></span></span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="open-1"></a><span class="bold_code">open(OpenModeList) -&gt; ReturnValue</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">OpenModeList = [OpenMode]</span></div>
+<div class="REFTYPES"><span class="bold_code">OpenMode = read | write</span></div>
+<div class="REFTYPES"><span class="bold_code">ReturnValue = {ok, RegHandle} | {error, ErrorId :: enotsup}</span></div>
+<div class="REFTYPES"><span class="bold_code">RegHandle = <span class="bold_code"><a href="#type-reg_handle">reg_handle()</a></span></span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Opens the registry for reading or writing. The current key is the
           root (<span class="code">HKEY_CLASSES_ROOT</span>). Flag <span class="code">read</span> in the mode list
           can be omitted.</p>
-        <p>Use <span class="bold_code data-type-ref"><a href="#change_key-2"><span class="code">change_key/2</span></a></span>
+        <p>Use <span class="bold_code"><a href="#change_key-2"><span class="code">change_key/2</span></a></span>
           with an absolute path after
-          <span class="bold_code data-type-ref"><a href="#open-1"><span class="code">open</span></a></span>.</p>
-      </p></div></div>
-</div>
+          <span class="bold_code"><a href="#open-1"><span class="code">open</span></a></span>.</p>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="set_value-3"></a><span class="bold_code func-name">set_value(RegHandle, Name, Value) -&gt; ReturnValue</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">RegHandle = <span class="bold_code data-type-ref"><a href="#type-reg_handle">reg_handle()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-name">name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Value = <span class="bold_code data-type-ref"><a href="#type-value">value()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ReturnValue = ok | {error, ErrorId :: atom()}</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="set_value-3"></a><span class="bold_code">set_value(RegHandle, Name, Value) -&gt; ReturnValue</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">RegHandle = <span class="bold_code"><a href="#type-reg_handle">reg_handle()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-name">name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Value = <span class="bold_code"><a href="#type-value">value()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">ReturnValue = ok | {error, ErrorId :: atom()}</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Sets the named (or default) value to <span class="code">value</span>. Calls the Win32
           API function <span class="code">RegSetValueEx()</span>. The value can be of three types,
           and the corresponding registry type is used. The supported types
@@ -1974,62 +1931,49 @@ hkdd             HKEY_DYN_DATA</pre></div>
         </ul>
         <p>Other types cannot be added or changed.</p>
         <p>The registry must have been opened in write mode.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="sub_keys-1"></a><span class="bold_code func-name">sub_keys(RegHandle) -&gt; ReturnValue</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">RegHandle = <span class="bold_code data-type-ref"><a href="#type-reg_handle">reg_handle()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ReturnValue = {ok, [SubKey]} | {error, ErrorId :: atom()}</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">SubKey = string()</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="sub_keys-1"></a><span class="bold_code">sub_keys(RegHandle) -&gt; ReturnValue</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">RegHandle = <span class="bold_code"><a href="#type-reg_handle">reg_handle()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">ReturnValue = {ok, [SubKey]} | {error, ErrorId :: atom()}</span></div>
+<div class="REFTYPES"><span class="bold_code">SubKey = string()</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Returns a list of subkeys to the current key. Calls the Win32
           API function <span class="code">EnumRegKeysEx()</span>.</p>
         <p>Avoid calling this on the root keys, as it can be slow.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="value-2"></a><span class="bold_code func-name">value(RegHandle, Name) -&gt; ReturnValue</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">RegHandle = <span class="bold_code data-type-ref"><a href="#type-reg_handle">reg_handle()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-name">name()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ReturnValue = <br>    {ok, Value :: <span class="bold_code data-type-ref"><a href="#type-value">value()</a></span>} | {error, ErrorId :: atom()}</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="value-2"></a><span class="bold_code">value(RegHandle, Name) -&gt; ReturnValue</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">RegHandle = <span class="bold_code"><a href="#type-reg_handle">reg_handle()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-name">name()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">ReturnValue = <br>    {ok, Value :: <span class="bold_code"><a href="#type-value">value()</a></span>} | {error, ErrorId :: atom()}</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Retrieves the named value (or default) on the current key.
           Registry values of type <span class="code">REG_SZ</span> are returned as strings.
 	  Type <span class="code">REG_DWORD</span> values are returned as integers. All other
 	  types are returned as binaries.</p>
-      </p></div></div>
-</div>
+      </p></div>
 
-    <div class="func">
-<div class="func-title">
-<a name="values-1"></a><span class="bold_code func-name">values(RegHandle) -&gt; ReturnValue</span><div class="REFBODY func-types">
-<p class="func-types-title">Types:</p>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">RegHandle = <span class="bold_code data-type-ref"><a href="#type-reg_handle">reg_handle()</a></span></span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ReturnValue = {ok, [ValuePair]} | {error, ErrorId :: atom()}</span></div>
-<div class="REFTYPES subtype"><span class="bold_code subtype-def">ValuePair = {Name :: <span class="bold_code data-type-ref"><a href="#type-name">name()</a></span>, Value :: <span class="bold_code data-type-ref"><a href="#type-value">value()</a></span>}</span></div>
-</div>
-</div>
-<div class="func-body"><div class="REFBODY data-type-desc"><p>
+    <p><a name="values-1"></a><span class="bold_code">values(RegHandle) -&gt; ReturnValue</span><br><div class="REFBODY">
+<p>Types:</p>
+<div class="REFTYPES"><span class="bold_code">RegHandle = <span class="bold_code"><a href="#type-reg_handle">reg_handle()</a></span></span></div>
+<div class="REFTYPES"><span class="bold_code">ReturnValue = {ok, [ValuePair]} | {error, ErrorId :: atom()}</span></div>
+<div class="REFTYPES"><span class="bold_code">ValuePair = {Name :: <span class="bold_code"><a href="#type-name">name()</a></span>, Value :: <span class="bold_code"><a href="#type-value">value()</a></span>}</span></div>
+</div></p>
+<div class="REFBODY"><p>
         <p>Retrieves a list of all values on the current key. The values
           have types corresponding to the registry types, see
-	  <span class="bold_code data-type-ref"><a href="#value-2"><span class="code">value/2</span></a></span>.
+	  <span class="bold_code"><a href="#value-2"><span class="code">value/2</span></a></span>.
           Calls the Win32 API function <span class="code">EnumRegValuesEx()</span>.</p>
-      </p></div></div>
-</div>
-  </div>
+      </p></div>
+  
 
-  <h3><a name="idm45461559812752">See Also</a></h3>
-<div class="REFBODY rb-3">
+  <h3><a name="idm46007666246432">See Also</a></h3>
+<div class="REFBODY">
     
     <p><span class="code">erl_posix_msg</span>,
       The Windows 95 Registry (book from O'Reilly),
