@@ -1717,63 +1717,63 @@
 <!-- refpage --><center><h1>qlc</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">qlc</div>
+<div class="REFBODY module-body">qlc</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Query interface to Mnesia, ETS, Dets, and so on.
+<div class="REFBODY modules-summary-body">Query interface to Mnesia, ETS, Dets, and so on.
   </div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>This module provides a query interface to
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','mnesia','mnesia.html');">Mnesia</a></span>,
-      <span class="bold_code"><a href="ets.html">ETS</a></span>,
-      <span class="bold_code"><a href="dets.html">Dets</a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','mnesia','mnesia.html');">Mnesia</a></span>,
+      <span class="bold_code bc-19"><a href="ets.html">ETS</a></span>,
+      <span class="bold_code bc-19"><a href="dets.html">Dets</a></span>,
       and other data structures that provide an iterator style
       traversal of objects.</p>
-  </p></div>
+  </div>
 
-  <h3><a name="idm45518935398688">Overview</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45461564069424">Overview</a></h3>
+<div class="REFBODY rb-3">
     
     <p>This module provides a query interface to <strong>QLC
       tables</strong>. Typical QLC tables are Mnesia, ETS, and
       Dets tables. Support is also provided for user-defined tables, see section
-      <span class="bold_code"><a href="#implementing_a_qlc_table">Implementing a QLC Table</a></span>.
+      <span class="bold_code data-type-ref"><a href="#implementing_a_qlc_table">Implementing a QLC Table</a></span>.
       <a name="query_list_comprehension"></a>
       A <strong>query</strong> is expressed using
       <strong>Query List Comprehensions</strong> (QLCs). The answers to a
       query are determined by data in QLC tables that fulfill the
       constraints expressed by the QLCs of the query. QLCs are similar
       to ordinary list comprehensions as described in
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/reference_manual','expressions.html#lcs');">Erlang Reference Manual</a></span> and
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/programming_examples','list_comprehensions.html');">Programming Examples</a></span>, except that variables
+      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','doc/reference_manual','expressions.html#lcs');">Erlang Reference Manual</a></span> and
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/programming_examples','list_comprehensions.html');">Programming Examples</a></span>, except that variables
       introduced in patterns cannot be used in list expressions.
       In the absence of optimizations and options such as
       <span class="code">cache</span> and <span class="code">unique</span> (see section
-      <span class="bold_code"><a href="#common_options">Common Options</a></span>, every
+      <span class="bold_code data-type-ref"><a href="#common_options">Common Options</a></span>, every
       QLC free of QLC tables evaluates to the same list of answers as the
       identical ordinary list comprehension.</p>
 
     <p>While ordinary list comprehensions evaluate to lists, calling
-      <span class="bold_code"><a href="#q-1"><span class="code">q/1,2</span></a></span> returns a
+      <span class="bold_code data-type-ref"><a href="#q-1"><span class="code">q/1,2</span></a></span> returns a
       <a name="query_handle"></a><strong>query handle</strong>.
-      To obtain all the answers to a query, <span class="bold_code"><a href="#eval-1"><span class="code">eval/1,2</span></a></span> is to be called with the
+      To obtain all the answers to a query, <span class="bold_code data-type-ref"><a href="#eval-1"><span class="code">eval/1,2</span></a></span> is to be called with the
       query handle as first argument. Query handles are essentially
       functional objects (funs) created in the module calling <span class="code">q/1,2</span>.
       As the funs refer to the module code, be careful not to keep query
       handles too long if the module code is to be replaced.
       Code replacement is described in section
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/reference_manual','code_loading.html');">Compilation and Code Loading</a></span> in the Erlang Reference Manual.
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/reference_manual','code_loading.html');">Compilation and Code Loading</a></span> in the Erlang Reference Manual.
       The list of answers can also be traversed in chunks by use of a
       <a name="query_cursor"></a><strong>query cursor</strong>.
       Query cursors are created by calling
-      <span class="bold_code"><a href="#cursor-1"><span class="code">cursor/1,2</span></a></span> with a query
+      <span class="bold_code data-type-ref"><a href="#cursor-1"><span class="code">cursor/1,2</span></a></span> with a query
       handle as first argument. Query cursors are essentially Erlang processes.
       One answer at a time is sent from the query cursor process to
       the process that created the cursor.</p>
   </div>
 
-  <h3><a name="idm45518935384128">Syntax</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45461564054864">Syntax</a></h3>
+<div class="REFBODY rb-3">
     
     <p>Syntactically QLCs have the same parts as ordinary list
       comprehensions:</p>
@@ -1788,16 +1788,16 @@
       <span class="code">Pattern &lt;- ListExpression</span>, where
       <span class="code">ListExpression</span> is an expression evaluating to a query
       handle or a list. Query handles are returned from
-      <span class="bold_code"><a href="#append-1"><span class="code">append/1,2</span></a></span>,
-      <span class="bold_code"><a href="#keysort-2"><span class="code">keysort/2,3</span></a></span>,
-      <span class="bold_code"><a href="#q-1"><span class="code">q/1,2</span></a></span>,
-      <span class="bold_code"><a href="#sort-1"><span class="code">sort/1,2</span></a></span>,
-      <span class="bold_code"><a href="#string_to_handle-1"><span class="code">string_to_handle/1,2,3</span></a></span>, and
-      <span class="bold_code"><a href="#table-2"><span class="code">table/2</span></a></span>.</p>
+      <span class="bold_code data-type-ref"><a href="#append-1"><span class="code">append/1,2</span></a></span>,
+      <span class="bold_code data-type-ref"><a href="#keysort-2"><span class="code">keysort/2,3</span></a></span>,
+      <span class="bold_code data-type-ref"><a href="#q-1"><span class="code">q/1,2</span></a></span>,
+      <span class="bold_code data-type-ref"><a href="#sort-1"><span class="code">sort/1,2</span></a></span>,
+      <span class="bold_code data-type-ref"><a href="#string_to_handle-1"><span class="code">string_to_handle/1,2,3</span></a></span>, and
+      <span class="bold_code data-type-ref"><a href="#table-2"><span class="code">table/2</span></a></span>.</p>
   </div>
 
-  <h3><a name="idm45518935373104">Evaluation</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45461564043840">Evaluation</a></h3>
+<div class="REFBODY rb-3">
     
     <p>A query handle is evaluated in the following order:</p>
 
@@ -1840,8 +1840,8 @@
       be excluded by looking up a key or running a match specification.</p>
   </div>
 
-  <h3><a name="idm45518935363552">Join</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45461564034288">Join</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The <span class="code">qlc</span> module supports fast join of two query handles.
       Fast join is possible if some position <span class="code">P1</span> of one query
@@ -1884,16 +1884,16 @@
   </div>
 
   <h3>
-<a name="common_options"></a><a name="idm45518935347776">Common Options</a>
+<a name="common_options"></a><a name="idm45461564018512">Common Options</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
     <p>The following options are accepted by
-    <span class="bold_code"><a href="#cursor-2"><span class="code">cursor/2</span></a></span>,
-    <span class="bold_code"><a href="#eval-2"><span class="code">eval/2</span></a></span>,
-    <span class="bold_code"><a href="#fold-4"><span class="code">fold/4</span></a></span>, and
-    <span class="bold_code"><a href="#info-2"><span class="code">info/2</span></a></span>:</p>
+    <span class="bold_code data-type-ref"><a href="#cursor-2"><span class="code">cursor/2</span></a></span>,
+    <span class="bold_code data-type-ref"><a href="#eval-2"><span class="code">eval/2</span></a></span>,
+    <span class="bold_code data-type-ref"><a href="#fold-4"><span class="code">fold/4</span></a></span>, and
+    <span class="bold_code data-type-ref"><a href="#info-2"><span class="code">info/2</span></a></span>:</p>
 
     <ul>
       <li>
@@ -1923,7 +1923,7 @@
         The values <span class="code">info_msg</span>, <span class="code">warning_msg</span>, and
         <span class="code">error_msg</span> mean that the function with the corresponding
         name in module
-        <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','error_logger.html');"><span class="code">error_logger</span></a></span>
+        <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','error_logger.html');"><span class="code">error_logger</span></a></span>
         is called for printing some information (currently the stacktrace).</p>
       </li>
       <li>
@@ -1931,8 +1931,8 @@
         merge join for temporary files and by option
         <span class="code">{cache, list}</span>. The option also overrides
         option <span class="code">tmpdir</span> of
-        <span class="bold_code"><a href="#keysort-3"><span class="code">keysort/3</span></a></span> and
-        <span class="bold_code"><a href="#sort-2"><span class="code">sort/2</span></a></span>.
+        <span class="bold_code data-type-ref"><a href="#keysort-3"><span class="code">keysort/3</span></a></span> and
+        <span class="bold_code data-type-ref"><a href="#sort-2"><span class="code">sort/2</span></a></span>.
         Defaults to <span class="code">""</span>, which means that
         the directory returned by <span class="code">file:get_cwd()</span> is used.</p>
       </li>
@@ -1947,18 +1947,18 @@
   </div>
 
   <h3>
-<a name="getting_started"></a><a name="idm45518935321520">Getting Started</a>
+<a name="getting_started"></a><a name="idm45461563992256">Getting Started</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
     <p>As mentioned earlier,
       queries are expressed in the list comprehension syntax as described
       in section
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/reference_manual','expressions.html');">Expressions</a></span>
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/reference_manual','expressions.html');">Expressions</a></span>
       in Erlang Reference Manual. In the following, some familiarity
       with list comprehensions is assumed. The examples in section
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/programming_examples','list_comprehensions.html');">List Comprehensions</a></span> in Programming Examples can get you
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/programming_examples','list_comprehensions.html');">List Comprehensions</a></span> in Programming Examples can get you
       started. Notice that list comprehensions do not add any computational
       power to the language; anything that can be done with list
       comprehensions can also be done without them. But they add
@@ -1974,7 +1974,7 @@
       <span class="code">Y</span> is introduced in the first generator and used in the second.
       The ordinary list comprehension is normally to be preferred when
       there is a choice as to which to use. One difference is that
-      <span class="bold_code"><a href="#eval-1"><span class="code">eval/1,2</span></a></span>
+      <span class="bold_code data-type-ref"><a href="#eval-1"><span class="code">eval/1,2</span></a></span>
       collects answers in a list that is finally
       reversed, while list comprehensions collect answers on the stack
       that is finally unwound.</p>
@@ -1982,25 +1982,25 @@
     <p>What the <span class="code">qlc</span> module primarily adds to list
       comprehensions is that data can be read from QLC tables in small
       chunks. A QLC table is created by calling
-      <span class="bold_code"><a href="#table-2"><span class="code">qlc:table/2</span></a></span>.
+      <span class="bold_code data-type-ref"><a href="#table-2"><span class="code">qlc:table/2</span></a></span>.
       Usually <span class="code">qlc:table/2</span> is not called directly from the query
       but through an interface function of some data structure.
       Erlang/OTP includes a few examples of such functions:
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','mnesia','mnesia.html#table-1');"><span class="code">mnesia:table/1,2</span></a></span>,
-      <span class="bold_code"><a href="ets.html#table-1"><span class="code">ets:table/1,2</span></a></span>, and
-      <span class="bold_code"><a href="dets.html#table-1"><span class="code">dets:table/1,2</span></a></span>.
+      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','mnesia','mnesia.html#table-1');"><span class="code">mnesia:table/1,2</span></a></span>,
+      <span class="bold_code bc-15"><a href="ets.html#table-1"><span class="code">ets:table/1,2</span></a></span>, and
+      <span class="bold_code bc-15"><a href="dets.html#table-1"><span class="code">dets:table/1,2</span></a></span>.
       For a given data structure, many functions can create QLC tables, but
       common for these functions is that they return a query handle created by
-      <span class="bold_code"><a href="#table-2"><span class="code">qlc:table/2</span></a></span>.
+      <span class="bold_code data-type-ref"><a href="#table-2"><span class="code">qlc:table/2</span></a></span>.
       Using the QLC tables provided by Erlang/OTP is usually
       probably sufficient, but for the more advanced user section
-      <span class="bold_code"><a href="#implementing_a_qlc_table">Implementing a QLC Table</a></span> describes the implementation of a function
+      <span class="bold_code data-type-ref"><a href="#implementing_a_qlc_table">Implementing a QLC Table</a></span> describes the implementation of a function
       calling <span class="code">qlc:table/2</span>.</p>
 
     <p>Besides <span class="code">qlc:table/2</span>, other functions
       return query handles. They are used more seldom than tables,
       but are sometimes useful.
-      <span class="bold_code"><a href="#append-1"><span class="code">qlc:append/1,2</span></a></span> traverses
+      <span class="bold_code data-type-ref"><a href="#append-1"><span class="code">qlc:append/1,2</span></a></span> traverses
       objects from many tables or lists after each other. If, for
       example, you want to traverse all answers to a query <span class="code">QH</span> and
       then finish off by a term <span class="code">{finished}</span>, you can do that by
@@ -2085,8 +2085,8 @@ qlc:q([{X1,X2,X3,Y1} ||
       the filter is run M*N times.</p>
 
     <p>If <span class="code">QH2</span> is a call to the function for
-      <span class="bold_code"><a href="gb_trees.html"><span class="code">gb_trees</span></a></span>, as defined
-      in section <span class="bold_code"><a href="#implementing_a_qlc_table">Implementing a QLC Table</a></span>, then <span class="code">gb_table:table/1</span>, the
+      <span class="bold_code bc-19"><a href="gb_trees.html"><span class="code">gb_trees</span></a></span>, as defined
+      in section <span class="bold_code data-type-ref"><a href="#implementing_a_qlc_table">Implementing a QLC Table</a></span>, then <span class="code">gb_table:table/1</span>, the
       iterator for the gb-tree is initiated for each answer to
       <span class="code">QH1</span>. The objects of the gb-tree are then returned one
       by one. This is probably the most efficient way of traversing
@@ -2127,7 +2127,7 @@ QH2' = qlc:q([X || X &lt;- QH2], cache)</pre></div>
       lists is that if the list size exceeds a limit, a
       temporary file is used. Reading the answers from a file is
       much slower than copying them from an ETS table. But if the
-      available RAM memory is scarce, setting the <span class="bold_code"><a href="#max_list_size">limit</a></span> to some low value is an
+      available RAM memory is scarce, setting the <span class="bold_code data-type-ref"><a href="#max_list_size">limit</a></span> to some low value is an
       alternative.</p>
 
     <p>Option <span class="code">cache_all</span> can be set to
@@ -2140,14 +2140,14 @@ QH2' = qlc:q([X || X &lt;- QH2], cache)</pre></div>
   </div>
 
   <h3>
-<a name="implementing_a_qlc_table"></a><a name="idm45518935261488">Implementing a QLC Table</a>
+<a name="implementing_a_qlc_table"></a><a name="idm45461563932224">Implementing a QLC Table</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
     <p>As an example of
-      how to use function <span class="bold_code"><a href="#table-2"><span class="code">table/2</span></a></span>,
-      the implementation of a QLC table for the <span class="bold_code"><a href="gb_trees.html"><span class="code">gb_trees</span></a></span> module is given:</p>
+      how to use function <span class="bold_code data-type-ref"><a href="#table-2"><span class="code">table/2</span></a></span>,
+      the implementation of a QLC table for the <span class="bold_code bc-19"><a href="gb_trees.html"><span class="code">gb_trees</span></a></span> module is given:</p>
 
     <div class="example"><pre>
 -module(gb_table).
@@ -2225,7 +2225,7 @@ gb_iter(I0, N, EFun) -&gt;
       <span class="code">{Key, Value}</span> pairs, as the traversal function does.</p>
 
     <p>The format function is also optional. It is called by
-      <span class="bold_code"><a href="#info-1"><span class="code">info/1,2</span></a></span>
+      <span class="bold_code data-type-ref"><a href="#info-1"><span class="code">info/1,2</span></a></span>
       to give feedback at runtime of how the query
       is to be evaluated. Try to give as good feedback as
       possible without showing too much details. In the example, at
@@ -2257,8 +2257,8 @@ qlc:q([T || P &lt;- LE, F])</pre></div>
       keys regardless of the number of constants to look up.</p>
   </div>
 
-  <h3><a name="idm45518935242864">Key Equality</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45461563913600">Key Equality</a></h3>
+<div class="REFBODY rb-3">
     
     <p>Erlang/OTP has two operators for testing term equality: <span class="code">==/2</span>
       and <span class="code">=:=/2</span>. The difference is all about the integers that can be
@@ -2273,11 +2273,11 @@ qlc:q([T || P &lt;- LE, F])</pre></div>
       <span class="code">==/2</span> or <span class="code">=:=/2</span> is used:</p>
 
     <div class="example"><pre>
-1&gt; <span class="bold_code">E1 = ets:new(t, [set]), % uses =:=/2 for key equality</span>
-<span class="bold_code">Q1 = qlc:q([K ||</span>
-<span class="bold_code">{K} &lt;- ets:table(E1),</span>
-<span class="bold_code">K == 2.71 orelse K == a]),</span>
-<span class="bold_code">io:format("~s~n", [qlc:info(Q1)]).</span>
+1&gt; <span class="bold_code bc-12">E1 = ets:new(t, [set]), % uses =:=/2 for key equality</span>
+<span class="bold_code bc-12">Q1 = qlc:q([K ||</span>
+<span class="bold_code bc-12">{K} &lt;- ets:table(E1),</span>
+<span class="bold_code bc-12">K == 2.71 orelse K == a]),</span>
+<span class="bold_code bc-12">io:format("~s~n", [qlc:info(Q1)]).</span>
 ets:match_spec_run(lists:flatmap(fun(V) -&gt;
                                         ets:lookup(20493, V)
                                  end,
@@ -2288,7 +2288,7 @@ ets:match_spec_run(lists:flatmap(fun(V) -&gt;
       exactly as <span class="code">=:=/2</span> would have been handled. However,
       if it cannot be determined at compile time that some
       constant is free of integers, and the table uses <span class="code">=:=/2</span>
-      when comparing keys for equality (see option <span class="bold_code"><a href="#key_equality">key_equality</a></span>), then the
+      when comparing keys for equality (see option <span class="bold_code data-type-ref"><a href="#key_equality">key_equality</a></span>), then the
       <span class="code">qlc</span> module does not try to look up the constant. The
       reason is that there is in the general case no upper limit on
       the number of key values that can compare equal to such a
@@ -2296,17 +2296,17 @@ ets:match_spec_run(lists:flatmap(fun(V) -&gt;
       looked up:</p>
 
     <div class="example"><pre>
-2&gt; <span class="bold_code">E2 = ets:new(t, [set]),</span>
-<span class="bold_code">true = ets:insert(E2, [{{2,2},a},{{2,2.0},b},{{2.0,2},c}]),</span>
-<span class="bold_code">F2 = fun(I) -&gt;</span>
-<span class="bold_code">qlc:q([V || {K,V} &lt;- ets:table(E2), K == I])</span>
-<span class="bold_code">end,</span>
-<span class="bold_code">Q2 = F2({2,2}),</span>
-<span class="bold_code">io:format("~s~n", [qlc:info(Q2)]).</span>
+2&gt; <span class="bold_code bc-12">E2 = ets:new(t, [set]),</span>
+<span class="bold_code bc-12">true = ets:insert(E2, [{{2,2},a},{{2,2.0},b},{{2.0,2},c}]),</span>
+<span class="bold_code bc-12">F2 = fun(I) -&gt;</span>
+<span class="bold_code bc-12">qlc:q([V || {K,V} &lt;- ets:table(E2), K == I])</span>
+<span class="bold_code bc-12">end,</span>
+<span class="bold_code bc-12">Q2 = F2({2,2}),</span>
+<span class="bold_code bc-12">io:format("~s~n", [qlc:info(Q2)]).</span>
 ets:table(53264,
           [{traverse,
             {select,[{{'$1','$2'},[{'==','$1',{const,{2,2}}}],['$2']}]}}])
-3&gt; <span class="bold_code">lists:sort(qlc:e(Q2)).</span>
+3&gt; <span class="bold_code bc-12">lists:sort(qlc:e(Q2)).</span>
 [a,b,c]</pre></div>
 
     <p>Looking up only <span class="code">{2,2}</span> would not return <span class="code">b</span> and
@@ -2318,16 +2318,16 @@ ets:table(53264,
       be preferred:</p>
 
     <div class="example"><pre>
-4&gt; <span class="bold_code">E3 = ets:new(t, [ordered_set]), % uses ==/2 for key equality</span>
-<span class="bold_code">true = ets:insert(E3, [{{2,2.0},b}]),</span>
-<span class="bold_code">F3 = fun(I) -&gt;</span>
-<span class="bold_code">qlc:q([V || {K,V} &lt;- ets:table(E3), K == I])</span>
-<span class="bold_code">end,</span>
-<span class="bold_code">Q3 = F3({2,2}),</span>
-<span class="bold_code">io:format("~s~n", [qlc:info(Q3)]).</span>
+4&gt; <span class="bold_code bc-12">E3 = ets:new(t, [ordered_set]), % uses ==/2 for key equality</span>
+<span class="bold_code bc-12">true = ets:insert(E3, [{{2,2.0},b}]),</span>
+<span class="bold_code bc-12">F3 = fun(I) -&gt;</span>
+<span class="bold_code bc-12">qlc:q([V || {K,V} &lt;- ets:table(E3), K == I])</span>
+<span class="bold_code bc-12">end,</span>
+<span class="bold_code bc-12">Q3 = F3({2,2}),</span>
+<span class="bold_code bc-12">io:format("~s~n", [qlc:info(Q3)]).</span>
 ets:match_spec_run(ets:lookup(86033, {2,2}),
                    ets:match_spec_compile([{{'$1','$2'},[],['$2']}]))
-5&gt; <span class="bold_code">qlc:e(Q3).</span>
+5&gt; <span class="bold_code bc-12">qlc:e(Q3).</span>
 [b]</pre></div>
 
     <p>Lookup join is handled analogously to lookup of constants in a
@@ -2337,164 +2337,201 @@ ets:match_spec_run(ets:lookup(86033, {2,2}),
       lookup join for that table.</p>
   </div>
 
-  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
-    <p>
-      <span class="bold_code"><a name="type-abstract_expr">abstract_expr()</a> = <span class="bold_code"><a href="erl_parse.html#type-abstract_expr">erl_parse:abstract_expr()</a></span></span><br></p>
-<div class="REFBODY"><p><p>Parse trees for Erlang expression, see section <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','absform.html');">The Abstract Format</a></span>
+  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
+<div class="data-types-body">
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-abstract_expr">abstract_expr()</a> = <span class="bold_code bc-15"><a href="erl_parse.html#type-abstract_expr">erl_parse:abstract_expr()</a></span></span><div class="REFBODY data-type-desc"><p><p>Parse trees for Erlang expression, see section <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','absform.html');">The Abstract Format</a></span>
         in the ERTS User's Guide.</p></p></div>
-    <p>
-      <span class="bold_code"><a name="type-answer">answer()</a> = term()</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-answers">answers()</a> = [<span class="bold_code"><a href="#type-answer">answer()</a></span>]</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-cache">cache()</a> = ets | list | no</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-match_expression">match_expression()</a> = <span class="bold_code"><a href="ets.html#type-match_spec">ets:match_spec()</a></span></span><br></p>
-<div class="REFBODY"><p><p>Match specification, see section <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','match_spec.html');">Match Specifications in Erlang</a></span>
-          in the ERTS User's Guide and <span class="bold_code"><a href="ms_transform.html"><span class="code">ms_transform(3)</span></a></span>.</p></p></div>
-    <p>
-      <span class="bold_code"><a name="type-no_files">no_files()</a> = integer() &gt;= 1</span><br></p>
-<div class="REFBODY"><p><p>An integer &gt; 1.</p></p></div>
-    <p>
-      <span class="bold_code"><a name="type-key_pos">key_pos()</a> = integer() &gt;= 1 | [integer() &gt;= 1]</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-max_list_size">max_list_size()</a> = integer() &gt;= 0</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-order">order()</a> = ascending | descending | <span class="bold_code"><a href="#type-order_fun">order_fun()</a></span></span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-order_fun">order_fun()</a> = fun((term(), term()) -&gt; boolean())</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-query_cursor">query_cursor()</a></span><br></p>
-<div class="REFBODY"><p><p>A <span class="bold_code"><a href="#query_cursor">query cursor</a></span>.</p>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-answer">answer()</a> = term()</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-answers">answers()</a> = [<span class="bold_code data-type-ref"><a href="#type-answer">answer()</a></span>]</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-cache">cache()</a> = ets | list | no</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-match_expression">match_expression()</a> = <span class="bold_code bc-15"><a href="ets.html#type-match_spec">ets:match_spec()</a></span></span><div class="REFBODY data-type-desc"><p><p>Match specification, see section <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','match_spec.html');">Match Specifications in Erlang</a></span>
+          in the ERTS User's Guide and <span class="bold_code bc-19"><a href="ms_transform.html"><span class="code">ms_transform(3)</span></a></span>.</p></p></div>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-no_files">no_files()</a> = integer() &gt;= 1</span><div class="REFBODY data-type-desc"><p><p>An integer &gt; 1.</p></p></div>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-key_pos">key_pos()</a> = integer() &gt;= 1 | [integer() &gt;= 1]</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-max_list_size">max_list_size()</a> = integer() &gt;= 0</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-order">order()</a> = ascending | descending | <span class="bold_code data-type-ref"><a href="#type-order_fun">order_fun()</a></span></span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-order_fun">order_fun()</a> = fun((term(), term()) -&gt; boolean())</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-query_cursor">query_cursor()</a></span><div class="REFBODY data-type-desc"><p><p>A <span class="bold_code data-type-ref"><a href="#query_cursor">query cursor</a></span>.</p>
       </p></div>
-    <p>
-      <span class="bold_code"><a name="type-query_handle">query_handle()</a></span><br></p>
-<div class="REFBODY"><p><p>A <span class="bold_code"><a href="#query_handle">query handle</a></span>.</p>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-query_handle">query_handle()</a></span><div class="REFBODY data-type-desc"><p><p>A <span class="bold_code data-type-ref"><a href="#query_handle">query handle</a></span>.</p>
       </p></div>
-    <p>
-      <span class="bold_code"><a name="type-query_handle_or_list">query_handle_or_list()</a> = <span class="bold_code"><a href="#type-query_handle">query_handle()</a></span> | list()</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-query_list_comprehension">query_list_comprehension()</a> = term()</span><br></p>
-<div class="REFBODY"><p><p>A literal
-        <span class="bold_code"><a href="#query_list_comprehension">query list comprehension</a></span>.</p></p></div>
-    <p>
-      <span class="bold_code"><a name="type-spawn_options">spawn_options()</a> = default | [<span class="bold_code"><a href="proc_lib.html#type-spawn_option">proc_lib:spawn_option()</a></span>]</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-sort_options">sort_options()</a> = [<span class="bold_code"><a href="#type-sort_option">sort_option()</a></span>] | <span class="bold_code"><a href="#type-sort_option">sort_option()</a></span></span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-sort_option">sort_option()</a> = <br>    {compressed, boolean()} |<br>    {no_files, <span class="bold_code"><a href="#type-no_files">no_files()</a></span>} |<br>    {order, <span class="bold_code"><a href="#type-order">order()</a></span>} |<br>    {size, integer() &gt;= 1} |<br>    {tmpdir, <span class="bold_code"><a href="#type-tmp_directory">tmp_directory()</a></span>} |<br>    {unique, boolean()}</span><br></p>
-<div class="REFBODY"><p><p>See <span class="bold_code"><a href="file_sorter.html"><span class="code">file_sorter(3)</span></a></span>.</p></p></div>
-    <p>
-      <span class="bold_code"><a name="type-tmp_directory">tmp_directory()</a> = [] | <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">file:name()</a></span></span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-tmp_file_usage">tmp_file_usage()</a> = <br>    allowed | not_allowed | info_msg | warning_msg | error_msg</span><br></p>
-  
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-query_handle_or_list">query_handle_or_list()</a> = <span class="bold_code data-type-ref"><a href="#type-query_handle">query_handle()</a></span> | list()</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-query_list_comprehension">query_list_comprehension()</a> = term()</span><div class="REFBODY data-type-desc"><p><p>A literal
+        <span class="bold_code data-type-ref"><a href="#query_list_comprehension">query list comprehension</a></span>.</p></p></div>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-spawn_options">spawn_options()</a> = default | [<span class="bold_code bc-15"><a href="proc_lib.html#type-spawn_option">proc_lib:spawn_option()</a></span>]</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-sort_options">sort_options()</a> = [<span class="bold_code data-type-ref"><a href="#type-sort_option">sort_option()</a></span>] | <span class="bold_code data-type-ref"><a href="#type-sort_option">sort_option()</a></span></span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-sort_option">sort_option()</a> = <br>    {compressed, boolean()} |<br>    {no_files, <span class="bold_code data-type-ref"><a href="#type-no_files">no_files()</a></span>} |<br>    {order, <span class="bold_code data-type-ref"><a href="#type-order">order()</a></span>} |<br>    {size, integer() &gt;= 1} |<br>    {tmpdir, <span class="bold_code data-type-ref"><a href="#type-tmp_directory">tmp_directory()</a></span>} |<br>    {unique, boolean()}</span><div class="REFBODY data-type-desc"><p><p>See <span class="bold_code bc-19"><a href="file_sorter.html"><span class="code">file_sorter(3)</span></a></span>.</p></p></div>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-tmp_directory">tmp_directory()</a> = [] | <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">file:name()</a></span></span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-tmp_file_usage">tmp_file_usage()</a> = <br>    allowed | not_allowed | info_msg | warning_msg | error_msg</span>
+</div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="append-1"></a><span class="bold_code">append(QHL) -&gt; QH</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">QHL = [<span class="bold_code"><a href="#type-query_handle_or_list">query_handle_or_list()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">QH = <span class="bold_code"><a href="#type-query_handle">query_handle()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="append-1"></a><span class="bold_code func-name">append(QHL) -&gt; QH</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">QHL = [<span class="bold_code data-type-ref"><a href="#type-query_handle_or_list">query_handle_or_list()</a></span>]</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">QH = <span class="bold_code data-type-ref"><a href="#type-query_handle">query_handle()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns a query handle. When evaluating query handle
           <span class="code">QH</span>, all answers to the first query handle in
           <span class="code">QHL</span> are returned, followed by all answers
           to the remaining query handles in <span class="code">QHL</span>.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="append-2"></a><span class="bold_code">append(QH1, QH2) -&gt; QH3</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">QH1 = QH2 = <span class="bold_code"><a href="#type-query_handle_or_list">query_handle_or_list()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">QH3 = <span class="bold_code"><a href="#type-query_handle">query_handle()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="append-2"></a><span class="bold_code func-name">append(QH1, QH2) -&gt; QH3</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">QH1 = QH2 = <span class="bold_code data-type-ref"><a href="#type-query_handle_or_list">query_handle_or_list()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">QH3 = <span class="bold_code data-type-ref"><a href="#type-query_handle">query_handle()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns a query handle. When evaluating query handle
           <span class="code">QH3</span>, all answers to
           <span class="code">QH1</span> are returned, followed by all answers
           to <span class="code">QH2</span>.</p>
         <p><span class="code">append(QH1, QH2)</span> is equivalent to
           <span class="code">append([QH1, QH2])</span>.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="cursor-1"></a><span class="bold_code">cursor(QH) -&gt; Cursor</span><br><a name="cursor-2"></a><span class="bold_code">cursor(QH, Options) -&gt; Cursor</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">QH = <span class="bold_code"><a href="#type-query_handle_or_list">query_handle_or_list()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Options = [Option] | Option</span></div>
-<div class="REFTYPES"><span class="bold_code">Option = <br>    {cache_all, <span class="bold_code"><a href="#type-cache">cache()</a></span>} |<br>    cache_all |<br>    {max_list_size, <span class="bold_code"><a href="#type-max_list_size">max_list_size()</a></span>} |<br>    {spawn_options, <span class="bold_code"><a href="#type-spawn_options">spawn_options()</a></span>} |<br>    {tmpdir_usage, <span class="bold_code"><a href="#type-tmp_file_usage">tmp_file_usage()</a></span>} |<br>    {tmpdir, <span class="bold_code"><a href="#type-tmp_directory">tmp_directory()</a></span>} |<br>    {unique_all, boolean()} |<br>    unique_all</span></div>
-<div class="REFTYPES"><span class="bold_code">Cursor = <span class="bold_code"><a href="#type-query_cursor">query_cursor()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="cursor-1"></a><span class="bold_code func-name">cursor(QH) -&gt; Cursor</span><a name="cursor-2"></a><span class="bold_code func-name">cursor(QH, Options) -&gt; Cursor</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">QH = <span class="bold_code data-type-ref"><a href="#type-query_handle_or_list">query_handle_or_list()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = [Option] | Option</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Option = <br>    {cache_all, <span class="bold_code data-type-ref"><a href="#type-cache">cache()</a></span>} |<br>    cache_all |<br>    {max_list_size, <span class="bold_code data-type-ref"><a href="#type-max_list_size">max_list_size()</a></span>} |<br>    {spawn_options, <span class="bold_code data-type-ref"><a href="#type-spawn_options">spawn_options()</a></span>} |<br>    {tmpdir_usage, <span class="bold_code data-type-ref"><a href="#type-tmp_file_usage">tmp_file_usage()</a></span>} |<br>    {tmpdir, <span class="bold_code data-type-ref"><a href="#type-tmp_directory">tmp_directory()</a></span>} |<br>    {unique_all, boolean()} |<br>    unique_all</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Cursor = <span class="bold_code data-type-ref"><a href="#type-query_cursor">query_cursor()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Creates a query cursor and
           makes the calling process the owner of the cursor. The
           cursor is to be used as argument to
-          <span class="bold_code"><a href="#next_answers-1"><span class="code">next_answers/1,2</span></a></span> and (eventually)
-          <span class="bold_code"><a href="#delete_cursor-1"><span class="code">delete_cursor/1</span></a></span>.
-          Calls <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#spawn_opt-2');"><span class="code">erlang:spawn_opt/2</span></a></span> to spawn and link to
+          <span class="bold_code data-type-ref"><a href="#next_answers-1"><span class="code">next_answers/1,2</span></a></span> and (eventually)
+          <span class="bold_code data-type-ref"><a href="#delete_cursor-1"><span class="code">delete_cursor/1</span></a></span>.
+          Calls <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#spawn_opt-2');"><span class="code">erlang:spawn_opt/2</span></a></span> to spawn and link to
 	  a process that evaluates the query handle. The value of option
           <span class="code">spawn_options</span> is used as last argument when calling
           <span class="code">spawn_opt/2</span>. Defaults to <span class="code">[link]</span>.</p>
         <p><strong>Example:</strong></p>
         <div class="example"><pre>
-1&gt; <span class="bold_code">QH = qlc:q([{X,Y} || X &lt;- [a,b], Y &lt;- [1,2]]),</span>
-<span class="bold_code">QC = qlc:cursor(QH),</span>
-<span class="bold_code">qlc:next_answers(QC, 1).</span>
+1&gt; <span class="bold_code bc-12">QH = qlc:q([{X,Y} || X &lt;- [a,b], Y &lt;- [1,2]]),</span>
+<span class="bold_code bc-12">QC = qlc:cursor(QH),</span>
+<span class="bold_code bc-12">qlc:next_answers(QC, 1).</span>
 [{a,1}]
-2&gt; <span class="bold_code">qlc:next_answers(QC, 1).</span>
+2&gt; <span class="bold_code bc-12">qlc:next_answers(QC, 1).</span>
 [{a,2}]
-3&gt; <span class="bold_code">qlc:next_answers(QC, all_remaining).</span>
+3&gt; <span class="bold_code bc-12">qlc:next_answers(QC, all_remaining).</span>
 [{b,1},{b,2}]
-4&gt; <span class="bold_code">qlc:delete_cursor(QC).</span>
+4&gt; <span class="bold_code bc-12">qlc:delete_cursor(QC).</span>
 ok</pre></div>
         <p><span class="code">cursor(QH)</span> is equivalent to
           <span class="code">cursor(QH, [])</span>.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="delete_cursor-1"></a><span class="bold_code">delete_cursor(QueryCursor) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">QueryCursor = <span class="bold_code"><a href="#type-query_cursor">query_cursor()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="delete_cursor-1"></a><span class="bold_code func-name">delete_cursor(QueryCursor) -&gt; ok</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">QueryCursor = <span class="bold_code data-type-ref"><a href="#type-query_cursor">query_cursor()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Deletes a query cursor. Only the owner of the cursor can
           delete the cursor.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="e-1"></a><span class="bold_code">e(QH) -&gt; Answers | Error</span><br><a name="e-2"></a><span class="bold_code">e(QH, Options) -&gt; Answers | Error</span><br><a name="eval-1"></a><span class="bold_code">eval(QH) -&gt; Answers | Error</span><br><a name="eval-2"></a><span class="bold_code">eval(QH, Options) -&gt; Answers | Error</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">QH = <span class="bold_code"><a href="#type-query_handle_or_list">query_handle_or_list()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Answers = <span class="bold_code"><a href="#type-answers">answers()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Options = [Option] | Option</span></div>
-<div class="REFTYPES"><span class="bold_code">Option = <br>    {cache_all, <span class="bold_code"><a href="#type-cache">cache()</a></span>} |<br>    cache_all |<br>    {max_list_size, <span class="bold_code"><a href="#type-max_list_size">max_list_size()</a></span>} |<br>    {tmpdir_usage, <span class="bold_code"><a href="#type-tmp_file_usage">tmp_file_usage()</a></span>} |<br>    {tmpdir, <span class="bold_code"><a href="#type-tmp_directory">tmp_directory()</a></span>} |<br>    {unique_all, boolean()} |<br>    unique_all</span></div>
-<div class="REFTYPES"><span class="bold_code">Error = {error, module(), Reason}</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="file_sorter.html#type-reason">file_sorter:reason()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="e-1"></a><span class="bold_code func-name">e(QH) -&gt; Answers | Error</span><a name="e-2"></a><span class="bold_code func-name">e(QH, Options) -&gt; Answers | Error</span><a name="eval-1"></a><span class="bold_code func-name">eval(QH) -&gt; Answers | Error</span><a name="eval-2"></a><span class="bold_code func-name">eval(QH, Options) -&gt; Answers | Error</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">QH = <span class="bold_code data-type-ref"><a href="#type-query_handle_or_list">query_handle_or_list()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Answers = <span class="bold_code data-type-ref"><a href="#type-answers">answers()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = [Option] | Option</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Option = <br>    {cache_all, <span class="bold_code data-type-ref"><a href="#type-cache">cache()</a></span>} |<br>    cache_all |<br>    {max_list_size, <span class="bold_code data-type-ref"><a href="#type-max_list_size">max_list_size()</a></span>} |<br>    {tmpdir_usage, <span class="bold_code data-type-ref"><a href="#type-tmp_file_usage">tmp_file_usage()</a></span>} |<br>    {tmpdir, <span class="bold_code data-type-ref"><a href="#type-tmp_directory">tmp_directory()</a></span>} |<br>    {unique_all, boolean()} |<br>    unique_all</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Error = {error, module(), Reason}</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = <span class="bold_code bc-15"><a href="file_sorter.html#type-reason">file_sorter:reason()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Evaluates a query handle in the
           calling process and collects all answers in a list.</p>
         <p><strong>Example:</strong></p>
         <div class="example"><pre>
-1&gt; <span class="bold_code">QH = qlc:q([{X,Y} || X &lt;- [a,b], Y &lt;- [1,2]]),</span>
-<span class="bold_code">qlc:eval(QH).</span>
+1&gt; <span class="bold_code bc-12">QH = qlc:q([{X,Y} || X &lt;- [a,b], Y &lt;- [1,2]]),</span>
+<span class="bold_code bc-12">qlc:eval(QH).</span>
 [{a,1},{a,2},{b,1},{b,2}]</pre></div>
         <p><span class="code">eval(QH)</span> is equivalent to
           <span class="code">eval(QH, [])</span>.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="fold-3"></a><span class="bold_code">fold(Function, Acc0, QH) -&gt; Acc1 | Error</span><br><a name="fold-4"></a><span class="bold_code">fold(Function, Acc0, QH, Options) -&gt; Acc1 | Error</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">QH = <span class="bold_code"><a href="#type-query_handle_or_list">query_handle_or_list()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Function = fun((<span class="bold_code"><a href="#type-answer">answer()</a></span>, AccIn) -&gt; AccOut)</span></div>
-<div class="REFTYPES"><span class="bold_code">Acc0 = Acc1 = AccIn = AccOut = term()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Options = [Option] | Option</span></div>
-<div class="REFTYPES"><span class="bold_code">Option = <br>    {cache_all, <span class="bold_code"><a href="#type-cache">cache()</a></span>} |<br>    cache_all |<br>    {max_list_size, <span class="bold_code"><a href="#type-max_list_size">max_list_size()</a></span>} |<br>    {tmpdir_usage, <span class="bold_code"><a href="#type-tmp_file_usage">tmp_file_usage()</a></span>} |<br>    {tmpdir, <span class="bold_code"><a href="#type-tmp_directory">tmp_directory()</a></span>} |<br>    {unique_all, boolean()} |<br>    unique_all</span></div>
-<div class="REFTYPES"><span class="bold_code">Error = {error, module(), Reason}</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="file_sorter.html#type-reason">file_sorter:reason()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="fold-3"></a><span class="bold_code func-name">fold(Function, Acc0, QH) -&gt; Acc1 | Error</span><a name="fold-4"></a><span class="bold_code func-name">fold(Function, Acc0, QH, Options) -&gt; Acc1 | Error</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">QH = <span class="bold_code data-type-ref"><a href="#type-query_handle_or_list">query_handle_or_list()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Function = fun((<span class="bold_code data-type-ref"><a href="#type-answer">answer()</a></span>, AccIn) -&gt; AccOut)</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Acc0 = Acc1 = AccIn = AccOut = term()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = [Option] | Option</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Option = <br>    {cache_all, <span class="bold_code data-type-ref"><a href="#type-cache">cache()</a></span>} |<br>    cache_all |<br>    {max_list_size, <span class="bold_code data-type-ref"><a href="#type-max_list_size">max_list_size()</a></span>} |<br>    {tmpdir_usage, <span class="bold_code data-type-ref"><a href="#type-tmp_file_usage">tmp_file_usage()</a></span>} |<br>    {tmpdir, <span class="bold_code data-type-ref"><a href="#type-tmp_directory">tmp_directory()</a></span>} |<br>    {unique_all, boolean()} |<br>    unique_all</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Error = {error, module(), Reason}</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = <span class="bold_code bc-15"><a href="file_sorter.html#type-reason">file_sorter:reason()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Calls <span class="code">Function</span> on successive answers to
           the query handle together with an extra argument
           <span class="code">AccIn</span>. The query handle and the function
@@ -2505,40 +2542,48 @@ ok</pre></div>
           to the query handle.</p>
         <p><strong>Example:</strong></p>
         <div class="example"><pre>
-1&gt; <span class="bold_code">QH = [1,2,3,4,5,6],</span>
-<span class="bold_code">qlc:fold(fun(X, Sum) -&gt; X + Sum end, 0, QH).</span>
+1&gt; <span class="bold_code bc-12">QH = [1,2,3,4,5,6],</span>
+<span class="bold_code bc-12">qlc:fold(fun(X, Sum) -&gt; X + Sum end, 0, QH).</span>
 21</pre></div>
         <p><span class="code">fold(Function, Acc0,
           QH)</span> is equivalent to
           <span class="code">fold(Function, Acc0,
           QH, [])</span>.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="format_error-1"></a><span class="bold_code">format_error(Error) -&gt; Chars</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Error = {error, module(), term()}</span></div>
-<div class="REFTYPES"><span class="bold_code">Chars = <span class="bold_code"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="format_error-1"></a><span class="bold_code func-name">format_error(Error) -&gt; Chars</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Error = {error, module(), term()}</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Chars = <span class="bold_code bc-15"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns a descriptive string in English of an error tuple
           returned by some of the functions of the <span class="code">qlc</span> module
           or the parse transform. This function is mainly used by the
           compiler invoking the parse transform.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="info-1"></a><span class="bold_code">info(QH) -&gt; Info</span><br><a name="info-2"></a><span class="bold_code">info(QH, Options) -&gt; Info</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">QH = <span class="bold_code"><a href="#type-query_handle_or_list">query_handle_or_list()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Options = [Option] | Option</span></div>
-<div class="REFTYPES"><span class="bold_code">Option = EvalOption | ReturnOption</span></div>
-<div class="REFTYPES"><span class="bold_code">EvalOption = <br>    {cache_all, <span class="bold_code"><a href="#type-cache">cache()</a></span>} |<br>    cache_all |<br>    {max_list_size, <span class="bold_code"><a href="#type-max_list_size">max_list_size()</a></span>} |<br>    {tmpdir_usage, <span class="bold_code"><a href="#type-tmp_file_usage">tmp_file_usage()</a></span>} |<br>    {tmpdir, <span class="bold_code"><a href="#type-tmp_directory">tmp_directory()</a></span>} |<br>    {unique_all, boolean()} |<br>    unique_all</span></div>
-<div class="REFTYPES"><span class="bold_code">ReturnOption = <br>    {depth, Depth} |<br>    {flat, boolean()} |<br>    {format, Format} |<br>    {n_elements, NElements}</span></div>
-<div class="REFTYPES"><span class="bold_code">Depth = infinity | integer() &gt;= 0</span></div>
-<div class="REFTYPES"><span class="bold_code">Format = abstract_code | string</span></div>
-<div class="REFTYPES"><span class="bold_code">NElements = infinity | integer() &gt;= 1</span></div>
-<div class="REFTYPES"><span class="bold_code">Info = <span class="bold_code"><a href="#type-abstract_expr">abstract_expr()</a></span> | string()</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="info-1"></a><span class="bold_code func-name">info(QH) -&gt; Info</span><a name="info-2"></a><span class="bold_code func-name">info(QH, Options) -&gt; Info</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">QH = <span class="bold_code data-type-ref"><a href="#type-query_handle_or_list">query_handle_or_list()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = [Option] | Option</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Option = EvalOption | ReturnOption</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">EvalOption = <br>    {cache_all, <span class="bold_code data-type-ref"><a href="#type-cache">cache()</a></span>} |<br>    cache_all |<br>    {max_list_size, <span class="bold_code data-type-ref"><a href="#type-max_list_size">max_list_size()</a></span>} |<br>    {tmpdir_usage, <span class="bold_code data-type-ref"><a href="#type-tmp_file_usage">tmp_file_usage()</a></span>} |<br>    {tmpdir, <span class="bold_code data-type-ref"><a href="#type-tmp_directory">tmp_directory()</a></span>} |<br>    {unique_all, boolean()} |<br>    unique_all</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">ReturnOption = <br>    {depth, Depth} |<br>    {flat, boolean()} |<br>    {format, Format} |<br>    {n_elements, NElements}</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Depth = infinity | integer() &gt;= 0</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Format = abstract_code | string</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">NElements = infinity | integer() &gt;= 1</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Info = <span class="bold_code data-type-ref"><a href="#type-abstract_expr">abstract_expr()</a></span> | string()</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns information about a
           query handle. The information describes the simplifications
           and optimizations that are the results of preparing the
@@ -2580,8 +2625,8 @@ ok</pre></div>
         <p>In the following example two simple QLCs are inserted only to
           hold option <span class="code">{unique, true}</span>:</p>
         <div class="example"><pre>
-1&gt; <span class="bold_code">QH = qlc:q([{X,Y} || X &lt;- [x,y], Y &lt;- [a,b]]),</span>
-<span class="bold_code">io:format("~s~n", [qlc:info(QH, unique_all)]).</span>
+1&gt; <span class="bold_code bc-12">QH = qlc:q([{X,Y} || X &lt;- [x,y], Y &lt;- [a,b]]),</span>
+<span class="bold_code bc-12">io:format("~s~n", [qlc:info(QH, unique_all)]).</span>
 begin
     V1 =
         qlc:q([
@@ -2608,15 +2653,15 @@ end</pre></div>
           first generator (<span class="code">G2</span>) is the one traversed, the second
           (<span class="code">G1</span>) is the table where constants are looked up.</p>
         <div class="example"><pre>
-1&gt; <span class="bold_code">E1 = ets:new(e1, []),</span>
-<span class="bold_code">E2 = ets:new(e2, []),</span>
-<span class="bold_code">true = ets:insert(E1, [{1,a},{2,b}]),</span>
-<span class="bold_code">true = ets:insert(E2, [{a,1},{b,2}]),</span>
-<span class="bold_code">Q = qlc:q([{X,Z,W} ||</span>
-<span class="bold_code">{X, Z} &lt;- ets:table(E1),</span>
-<span class="bold_code">{W, Y} &lt;- ets:table(E2),</span>
-<span class="bold_code">X =:= Y]),</span>
-<span class="bold_code">io:format("~s~n", [qlc:info(Q)]).</span>
+1&gt; <span class="bold_code bc-12">E1 = ets:new(e1, []),</span>
+<span class="bold_code bc-12">E2 = ets:new(e2, []),</span>
+<span class="bold_code bc-12">true = ets:insert(E1, [{1,a},{2,b}]),</span>
+<span class="bold_code bc-12">true = ets:insert(E2, [{a,1},{b,2}]),</span>
+<span class="bold_code bc-12">Q = qlc:q([{X,Z,W} ||</span>
+<span class="bold_code bc-12">{X, Z} &lt;- ets:table(E1),</span>
+<span class="bold_code bc-12">{W, Y} &lt;- ets:table(E2),</span>
+<span class="bold_code bc-12">X =:= Y]),</span>
+<span class="bold_code bc-12">io:format("~s~n", [qlc:info(Q)]).</span>
 begin
     V1 =
         qlc:q([
@@ -2636,19 +2681,23 @@ begin
                [{X,Z}|{W,Y}] &lt;- V2
           ])
 end</pre></div>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="keysort-2"></a><span class="bold_code">keysort(KeyPos, QH1) -&gt; QH2</span><br><a name="keysort-3"></a><span class="bold_code">keysort(KeyPos, QH1, SortOptions) -&gt; QH2</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">KeyPos = <span class="bold_code"><a href="#type-key_pos">key_pos()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">SortOptions = <span class="bold_code"><a href="#type-sort_options">sort_options()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">QH1 = <span class="bold_code"><a href="#type-query_handle_or_list">query_handle_or_list()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">QH2 = <span class="bold_code"><a href="#type-query_handle">query_handle()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="keysort-2"></a><span class="bold_code func-name">keysort(KeyPos, QH1) -&gt; QH2</span><a name="keysort-3"></a><span class="bold_code func-name">keysort(KeyPos, QH1, SortOptions) -&gt; QH2</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">KeyPos = <span class="bold_code data-type-ref"><a href="#type-key_pos">key_pos()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">SortOptions = <span class="bold_code data-type-ref"><a href="#type-sort_options">sort_options()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">QH1 = <span class="bold_code data-type-ref"><a href="#type-query_handle_or_list">query_handle_or_list()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">QH2 = <span class="bold_code data-type-ref"><a href="#type-query_handle">query_handle()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns a query handle. When evaluating query handle
           <span class="code">QH2</span>, the answers to query handle
-          <span class="code">QH1</span> are sorted by <span class="bold_code"><a href="file_sorter.html#keysort-4"><span class="code">file_sorter:keysort/4</span></a></span>
+          <span class="code">QH1</span> are sorted by <span class="bold_code bc-15"><a href="file_sorter.html#keysort-4"><span class="code">file_sorter:keysort/4</span></a></span>
           according to the options.</p>
         <p>The sorter uses temporary files only if
           <span class="code">QH1</span> does not evaluate to a list and the
@@ -2658,17 +2707,21 @@ end</pre></div>
         <p><span class="code">keysort(KeyPos, QH1)</span>
           is equivalent to
           <span class="code">keysort(KeyPos, QH1, [])</span>.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="next_answers-1"></a><span class="bold_code">next_answers(QueryCursor) -&gt; Answers | Error</span><br><a name="next_answers-2"></a><span class="bold_code">next_answers(QueryCursor, NumberOfAnswers) -&gt; Answers | Error</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">QueryCursor = <span class="bold_code"><a href="#type-query_cursor">query_cursor()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Answers = <span class="bold_code"><a href="#type-answers">answers()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">NumberOfAnswers = all_remaining | integer() &gt;= 1</span></div>
-<div class="REFTYPES"><span class="bold_code">Error = {error, module(), Reason}</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="file_sorter.html#type-reason">file_sorter:reason()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="next_answers-1"></a><span class="bold_code func-name">next_answers(QueryCursor) -&gt; Answers | Error</span><a name="next_answers-2"></a><span class="bold_code func-name">next_answers(QueryCursor, NumberOfAnswers) -&gt; Answers | Error</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">QueryCursor = <span class="bold_code data-type-ref"><a href="#type-query_cursor">query_cursor()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Answers = <span class="bold_code data-type-ref"><a href="#type-answers">answers()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">NumberOfAnswers = all_remaining | integer() &gt;= 1</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Error = {error, module(), Reason}</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = <span class="bold_code bc-15"><a href="file_sorter.html#type-reason">file_sorter:reason()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns some or all of the remaining answers to a query
           cursor. Only the owner of <span class="code">QueryCursor</span> can
           retrieve answers.</p>
@@ -2677,19 +2730,23 @@ end</pre></div>
           <span class="code">10</span>. If less than the requested number of answers is
           returned, subsequent calls to <span class="code">next_answers</span>
           return <span class="code">[]</span>.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="q-1"></a><span class="bold_code">q(QLC) -&gt; QH</span><br><a name="q-2"></a><span class="bold_code">q(QLC, Options) -&gt; QH</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">QH = <span class="bold_code"><a href="#type-query_handle">query_handle()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Options = [Option] | Option</span></div>
-<div class="REFTYPES"><span class="bold_code">Option = <br>    {max_lookup, MaxLookup} |<br>    {cache, <span class="bold_code"><a href="#type-cache">cache()</a></span>} |<br>    cache |<br>    {join, Join} |<br>    {lookup, Lookup} |<br>    {unique, boolean()} |<br>    unique</span></div>
-<div class="REFTYPES"><span class="bold_code">MaxLookup = integer() &gt;= 0 | infinity</span></div>
-<div class="REFTYPES"><span class="bold_code">Join = any | lookup | merge | nested_loop</span></div>
-<div class="REFTYPES"><span class="bold_code">Lookup = boolean() | any</span></div>
-<div class="REFTYPES"><span class="bold_code">QLC = <span class="bold_code"><a href="#type-query_list_comprehension">query_list_comprehension()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="q-1"></a><span class="bold_code func-name">q(QLC) -&gt; QH</span><a name="q-2"></a><span class="bold_code func-name">q(QLC, Options) -&gt; QH</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">QH = <span class="bold_code data-type-ref"><a href="#type-query_handle">query_handle()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = [Option] | Option</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Option = <br>    {max_lookup, MaxLookup} |<br>    {cache, <span class="bold_code data-type-ref"><a href="#type-cache">cache()</a></span>} |<br>    cache |<br>    {join, Join} |<br>    {lookup, Lookup} |<br>    {unique, boolean()} |<br>    unique</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">MaxLookup = integer() &gt;= 0 | infinity</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Join = any | lookup | merge | nested_loop</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Lookup = boolean() | any</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">QLC = <span class="bold_code data-type-ref"><a href="#type-query_list_comprehension">query_list_comprehension()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns a query handle for a QLC.
           The QLC must be the first argument to this function, otherwise
           it is evaluated as an ordinary list comprehension. It is also
@@ -2701,7 +2758,7 @@ end</pre></div>
         <p>When calling <span class="code">qlc:q/1,2</span> from the Erlang shell, the
           parse transform is automatically called. When this occurs, the fun
           substituted for the QLC is not compiled but is evaluated by
-          <span class="bold_code"><a href="erl_eval.html"><span class="code">erl_eval(3)</span></a></span>. This
+          <span class="bold_code bc-19"><a href="erl_eval.html"><span class="code">erl_eval(3)</span></a></span>. This
           is also true when expressions are evaluated by
           <span class="code">file:eval/1,2</span> or in the debugger.</p>
         <p>To be explicit, this does not work:</p>
@@ -2759,7 +2816,7 @@ QH = qlc:q(A),
               table only. If option <span class="code">unique</span> is combined with option
               <span class="code">{cache, list}</span>, the answers are sorted
               twice using
-              <span class="bold_code"><a href="#keysort-3"><span class="code">keysort/3</span></a></span>;
+              <span class="bold_code data-type-ref"><a href="#keysort-3"><span class="code">keysort/3</span></a></span>;
               once to remove duplicates and once to restore the order.</p>
           </li>
         </ul>
@@ -2772,13 +2829,13 @@ QH = qlc:q(A),
           <span class="code">cache</span> the join would have been carried out
           three times, once for each value of <span class="code">A</span>.</p>
         <div class="example"><pre>
-1&gt; <span class="bold_code">Q = qlc:q([{A,X,Z,W} ||</span>
-<span class="bold_code">A &lt;- [a,b,c],</span>
-<span class="bold_code">{X,Z} &lt;- [{a,1},{b,4},{c,6}],</span>
-<span class="bold_code">{W,Y} &lt;- [{2,a},{3,b},{4,c}],</span>
-<span class="bold_code">X =:= Y],</span>
-<span class="bold_code">{cache, list}),</span>
-<span class="bold_code">io:format("~s~n", [qlc:info(Q)]).</span>
+1&gt; <span class="bold_code bc-12">Q = qlc:q([{A,X,Z,W} ||</span>
+<span class="bold_code bc-12">A &lt;- [a,b,c],</span>
+<span class="bold_code bc-12">{X,Z} &lt;- [{a,1},{b,4},{c,6}],</span>
+<span class="bold_code bc-12">{W,Y} &lt;- [{2,a},{3,b},{4,c}],</span>
+<span class="bold_code bc-12">X =:= Y],</span>
+<span class="bold_code bc-12">{cache, list}),</span>
+<span class="bold_code bc-12">io:format("~s~n", [qlc:info(Q)]).</span>
 begin
     V1 =
         qlc:q([
@@ -2807,13 +2864,13 @@ begin
                X =:= Y
           ])
 end</pre></div>
-        <p><span class="bold_code"><a href="#sort-1"><span class="code">sort/1,2</span></a></span> and
-          <span class="bold_code"><a href="#keysort-2"><span class="code">keysort/2,3</span></a></span>
+        <p><span class="bold_code data-type-ref"><a href="#sort-1"><span class="code">sort/1,2</span></a></span> and
+          <span class="bold_code data-type-ref"><a href="#keysort-2"><span class="code">keysort/2,3</span></a></span>
           can also be used for
           caching answers and for removing duplicates. When sorting
           answers are cached in a list, possibly stored on a temporary
           file, and no ETS tables are used.</p>
-        <p>Sometimes (see <span class="bold_code"><a href="#table-2"><span class="code">table/2</span></a></span>) traversal
+        <p>Sometimes (see <span class="bold_code data-type-ref"><a href="#table-2"><span class="code">table/2</span></a></span>) traversal
           of tables can be done by looking up key values, which is
           assumed to be fast. Under certain (rare) circumstances
           there can be too many key values to look up.
@@ -2826,16 +2883,16 @@ end</pre></div>
           number of keys to look up.</p>
         <p><strong>Example:</strong></p>
         <p>In the following example, using the <span class="code">gb_table</span> module from
-          section <span class="bold_code"><a href="#implementing_a_qlc_table">Implementing a QLC Table</a></span>, there are six keys to look up:
+          section <span class="bold_code data-type-ref"><a href="#implementing_a_qlc_table">Implementing a QLC Table</a></span>, there are six keys to look up:
           <span class="code">{1,a}</span>, <span class="code">{1,b}</span>, <span class="code">{1,c}</span>, <span class="code">{2,a}</span>,
           <span class="code">{2,b}</span>, and <span class="code">{2,c}</span>. The reason is that the two
           elements of key <span class="code">{X, Y}</span> are compared separately.</p>
         <div class="example"><pre>
-1&gt; <span class="bold_code">T = gb_trees:empty(),</span>
-<span class="bold_code">QH = qlc:q([X || {{X,Y},_} &lt;- gb_table:table(T),</span>
-<span class="bold_code">((X == 1) or (X == 2)) andalso</span>
-<span class="bold_code">((Y == a) or (Y == b) or (Y == c))]),</span>
-<span class="bold_code">io:format("~s~n", [qlc:info(QH)]).</span>
+1&gt; <span class="bold_code bc-12">T = gb_trees:empty(),</span>
+<span class="bold_code bc-12">QH = qlc:q([X || {{X,Y},_} &lt;- gb_table:table(T),</span>
+<span class="bold_code bc-12">((X == 1) or (X == 2)) andalso</span>
+<span class="bold_code bc-12">((Y == a) or (Y == b) or (Y == c))]),</span>
+<span class="bold_code bc-12">io:format("~s~n", [qlc:info(QH)]).</span>
 ets:match_spec_run(
        lists:flatmap(fun(K) -&gt;
                             case
@@ -2888,18 +2945,22 @@ ets:match_spec_run(
               method is used if possible.</p>
           </li>
         </ul>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="sort-1"></a><span class="bold_code">sort(QH1) -&gt; QH2</span><br><a name="sort-2"></a><span class="bold_code">sort(QH1, SortOptions) -&gt; QH2</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">SortOptions = <span class="bold_code"><a href="#type-sort_options">sort_options()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">QH1 = <span class="bold_code"><a href="#type-query_handle_or_list">query_handle_or_list()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">QH2 = <span class="bold_code"><a href="#type-query_handle">query_handle()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="sort-1"></a><span class="bold_code func-name">sort(QH1) -&gt; QH2</span><a name="sort-2"></a><span class="bold_code func-name">sort(QH1, SortOptions) -&gt; QH2</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">SortOptions = <span class="bold_code data-type-ref"><a href="#type-sort_options">sort_options()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">QH1 = <span class="bold_code data-type-ref"><a href="#type-query_handle_or_list">query_handle_or_list()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">QH2 = <span class="bold_code data-type-ref"><a href="#type-query_handle">query_handle()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns a query handle. When evaluating query handle
           <span class="code">QH2</span>, the answers to query handle
-          <span class="code">QH1</span> are sorted by <span class="bold_code"><a href="file_sorter.html#sort-3"><span class="code">file_sorter:sort/3</span></a></span>
+          <span class="code">QH1</span> are sorted by <span class="bold_code bc-15"><a href="file_sorter.html#sort-3"><span class="code">file_sorter:sort/3</span></a></span>
           according to the options.</p>
         <p>The sorter uses temporary files only if
           <span class="code">QH1</span> does not evaluate to a list and the
@@ -2908,33 +2969,37 @@ ets:match_spec_run(
           <span class="code">size</span>.</p>
         <p><span class="code">sort(QH1)</span> is equivalent to
           <span class="code">sort(QH1, [])</span>.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="string_to_handle-1"></a><span class="bold_code">string_to_handle(QueryString) -&gt; QH | Error</span><br><a name="string_to_handle-2"></a><span class="bold_code">string_to_handle(QueryString, Options) -&gt; QH | Error</span><br><a name="string_to_handle-3"></a><span class="bold_code">string_to_handle(QueryString, Options, Bindings) -&gt; QH | Error</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">QueryString = string()</span></div>
-<div class="REFTYPES"><span class="bold_code">Options = [Option] | Option</span></div>
-<div class="REFTYPES"><span class="bold_code">Option = <br>    {max_lookup, MaxLookup} |<br>    {cache, <span class="bold_code"><a href="#type-cache">cache()</a></span>} |<br>    cache |<br>    {join, Join} |<br>    {lookup, Lookup} |<br>    {unique, boolean()} |<br>    unique</span></div>
-<div class="REFTYPES"><span class="bold_code">MaxLookup = integer() &gt;= 0 | infinity</span></div>
-<div class="REFTYPES"><span class="bold_code">Join = any | lookup | merge | nested_loop</span></div>
-<div class="REFTYPES"><span class="bold_code">Lookup = boolean() | any</span></div>
-<div class="REFTYPES"><span class="bold_code">Bindings = <span class="bold_code"><a href="erl_eval.html#type-binding_struct">erl_eval:binding_struct()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">QH = <span class="bold_code"><a href="#type-query_handle">query_handle()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Error = {error, module(), Reason}</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="erl_parse.html#type-error_info">erl_parse:error_info()</a></span> | <span class="bold_code"><a href="erl_scan.html#type-error_info">erl_scan:error_info()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
-        <p>A string version of <span class="bold_code"><a href="#q-1"><span class="code">q/1,2</span></a></span>.
+    <div class="func">
+<div class="func-title">
+<a name="string_to_handle-1"></a><span class="bold_code func-name">string_to_handle(QueryString) -&gt; QH | Error</span><a name="string_to_handle-2"></a><span class="bold_code func-name">string_to_handle(QueryString, Options) -&gt; QH | Error</span><a name="string_to_handle-3"></a><span class="bold_code func-name">string_to_handle(QueryString, Options, Bindings) -&gt; QH | Error</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">QueryString = string()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = [Option] | Option</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Option = <br>    {max_lookup, MaxLookup} |<br>    {cache, <span class="bold_code data-type-ref"><a href="#type-cache">cache()</a></span>} |<br>    cache |<br>    {join, Join} |<br>    {lookup, Lookup} |<br>    {unique, boolean()} |<br>    unique</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">MaxLookup = integer() &gt;= 0 | infinity</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Join = any | lookup | merge | nested_loop</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Lookup = boolean() | any</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Bindings = <span class="bold_code bc-15"><a href="erl_eval.html#type-binding_struct">erl_eval:binding_struct()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">QH = <span class="bold_code data-type-ref"><a href="#type-query_handle">query_handle()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Error = {error, module(), Reason}</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = <span class="bold_code bc-15"><a href="erl_parse.html#type-error_info">erl_parse:error_info()</a></span> | <span class="bold_code bc-15"><a href="erl_scan.html#type-error_info">erl_scan:error_info()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
+        <p>A string version of <span class="bold_code data-type-ref"><a href="#q-1"><span class="code">q/1,2</span></a></span>.
           When the query handle is evaluated, the fun created by the parse
           transform is interpreted by
-          <span class="bold_code"><a href="erl_eval.html"><span class="code">erl_eval(3)</span></a></span>.
+          <span class="bold_code bc-19"><a href="erl_eval.html"><span class="code">erl_eval(3)</span></a></span>.
           The query string is to be one single QLC terminated by a period.</p>
         <p><strong>Example:</strong></p>
         <div class="example"><pre>
-1&gt; <span class="bold_code">L = [1,2,3],</span>
-<span class="bold_code">Bs = erl_eval:add_binding('L', L, erl_eval:new_bindings()),</span>
-<span class="bold_code">QH = qlc:string_to_handle("[X+1 || X &lt;- L].", [], Bs),</span>
-<span class="bold_code">qlc:eval(QH).</span>
+1&gt; <span class="bold_code bc-12">L = [1,2,3],</span>
+<span class="bold_code bc-12">Bs = erl_eval:add_binding('L', L, erl_eval:new_bindings()),</span>
+<span class="bold_code bc-12">QH = qlc:string_to_handle("[X+1 || X &lt;- L].", [], Bs),</span>
+<span class="bold_code bc-12">qlc:eval(QH).</span>
 [2,3,4]</pre></div>
         <p><span class="code">string_to_handle(QueryString)</span>
           is equivalent to
@@ -2945,44 +3010,48 @@ ets:match_spec_run(
           Options, erl_eval:new_bindings())</span>.</p>
         <p>This function is probably mainly useful when called from
           outside of Erlang, for example from a driver written in C.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="table-2"></a><span class="bold_code">table(TraverseFun, Options) -&gt; QH</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">TraverseFun = TraverseFun0 | TraverseFun1</span></div>
-<div class="REFTYPES"><span class="bold_code">TraverseFun0 = fun(() -&gt; TraverseResult)</span></div>
-<div class="REFTYPES"><span class="bold_code">TraverseFun1 = fun((<span class="bold_code"><a href="#type-match_expression">match_expression()</a></span>) -&gt; TraverseResult)</span></div>
-<div class="REFTYPES"><span class="bold_code">TraverseResult = Objects | term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Objects = [] | [term() | ObjectList]</span></div>
-<div class="REFTYPES"><span class="bold_code">ObjectList = TraverseFun0 | Objects</span></div>
-<div class="REFTYPES"><span class="bold_code">Options = [Option] | Option</span></div>
-<div class="REFTYPES"><span class="bold_code">Option = <br>    {format_fun, FormatFun} |<br>    {info_fun, InfoFun} |<br>    {lookup_fun, LookupFun} |<br>    {parent_fun, ParentFun} |<br>    {post_fun, PostFun} |<br>    {pre_fun, PreFun} |<br>    {key_equality, KeyComparison}</span></div>
-<div class="REFTYPES"><span class="bold_code">FormatFun = undefined | fun((SelectedObjects) -&gt; FormatedTable)</span></div>
-<div class="REFTYPES"><span class="bold_code">SelectedObjects = <br>    all |<br>    {all, NElements, DepthFun} |<br>    {match_spec, <span class="bold_code"><a href="#type-match_expression">match_expression()</a></span>} |<br>    {lookup, Position, Keys} |<br>    {lookup, Position, Keys, NElements, DepthFun}</span></div>
-<div class="REFTYPES"><span class="bold_code">NElements = infinity | integer() &gt;= 1</span></div>
-<div class="REFTYPES"><span class="bold_code">DepthFun = fun((term()) -&gt; term())</span></div>
-<div class="REFTYPES"><span class="bold_code">FormatedTable = {Mod, Fun, Args} | <span class="bold_code"><a href="#type-abstract_expr">abstract_expr()</a></span> | string()</span></div>
-<div class="REFTYPES"><span class="bold_code">InfoFun = undefined | fun((InfoTag) -&gt; InfoValue)</span></div>
-<div class="REFTYPES"><span class="bold_code">InfoTag = indices | is_unique_objects | keypos | num_of_objects</span></div>
-<div class="REFTYPES"><span class="bold_code">InfoValue = undefined | term()</span></div>
-<div class="REFTYPES"><span class="bold_code">LookupFun = undefined | fun((Position, Keys) -&gt; LookupResult)</span></div>
-<div class="REFTYPES"><span class="bold_code">LookupResult = [term()] | term()</span></div>
-<div class="REFTYPES"><span class="bold_code">ParentFun = undefined | fun(() -&gt; ParentFunValue)</span></div>
-<div class="REFTYPES"><span class="bold_code">PostFun = undefined | fun(() -&gt; term())</span></div>
-<div class="REFTYPES"><span class="bold_code">PreFun = undefined | fun((PreArgs) -&gt; term())</span></div>
-<div class="REFTYPES"><span class="bold_code">PreArgs = [PreArg]</span></div>
-<div class="REFTYPES"><span class="bold_code">PreArg = {parent_value, ParentFunValue} | {stop_fun, StopFun}</span></div>
-<div class="REFTYPES"><span class="bold_code">ParentFunValue = undefined | term()</span></div>
-<div class="REFTYPES"><span class="bold_code">StopFun = undefined | fun(() -&gt; term())</span></div>
-<div class="REFTYPES"><span class="bold_code">KeyComparison = '=:=' | '=='</span></div>
-<div class="REFTYPES"><span class="bold_code">Position = integer() &gt;= 1</span></div>
-<div class="REFTYPES"><span class="bold_code">Keys = [term()]</span></div>
-<div class="REFTYPES"><span class="bold_code">Mod = Fun = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Args = [term()]</span></div>
-<div class="REFTYPES"><span class="bold_code">QH = <span class="bold_code"><a href="#type-query_handle">query_handle()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="table-2"></a><span class="bold_code func-name">table(TraverseFun, Options) -&gt; QH</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">TraverseFun = TraverseFun0 | TraverseFun1</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">TraverseFun0 = fun(() -&gt; TraverseResult)</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">TraverseFun1 = fun((<span class="bold_code data-type-ref"><a href="#type-match_expression">match_expression()</a></span>) -&gt; TraverseResult)</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">TraverseResult = Objects | term()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Objects = [] | [term() | ObjectList]</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">ObjectList = TraverseFun0 | Objects</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = [Option] | Option</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Option = <br>    {format_fun, FormatFun} |<br>    {info_fun, InfoFun} |<br>    {lookup_fun, LookupFun} |<br>    {parent_fun, ParentFun} |<br>    {post_fun, PostFun} |<br>    {pre_fun, PreFun} |<br>    {key_equality, KeyComparison}</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">FormatFun = undefined | fun((SelectedObjects) -&gt; FormatedTable)</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">SelectedObjects = <br>    all |<br>    {all, NElements, DepthFun} |<br>    {match_spec, <span class="bold_code data-type-ref"><a href="#type-match_expression">match_expression()</a></span>} |<br>    {lookup, Position, Keys} |<br>    {lookup, Position, Keys, NElements, DepthFun}</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">NElements = infinity | integer() &gt;= 1</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">DepthFun = fun((term()) -&gt; term())</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">FormatedTable = {Mod, Fun, Args} | <span class="bold_code data-type-ref"><a href="#type-abstract_expr">abstract_expr()</a></span> | string()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">InfoFun = undefined | fun((InfoTag) -&gt; InfoValue)</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">InfoTag = indices | is_unique_objects | keypos | num_of_objects</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">InfoValue = undefined | term()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">LookupFun = undefined | fun((Position, Keys) -&gt; LookupResult)</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">LookupResult = [term()] | term()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">ParentFun = undefined | fun(() -&gt; ParentFunValue)</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">PostFun = undefined | fun(() -&gt; term())</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">PreFun = undefined | fun((PreArgs) -&gt; term())</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">PreArgs = [PreArg]</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">PreArg = {parent_value, ParentFunValue} | {stop_fun, StopFun}</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">ParentFunValue = undefined | term()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">StopFun = undefined | fun(() -&gt; term())</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">KeyComparison = '=:=' | '=='</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Position = integer() &gt;= 1</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Keys = [term()]</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Mod = Fun = atom()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Args = [term()]</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">QH = <span class="bold_code data-type-ref"><a href="#type-query_handle">query_handle()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns a query handle for a QLC table.
           In Erlang/OTP there is support for ETS, Dets, and
           Mnesia tables, but many other data structures can be turned
@@ -3012,13 +3081,13 @@ ets:match_spec_run(
                 <p>Modules that can use match specifications for optimized
                   traversal of tables are to call <span class="code">qlc:table/2</span> with an unary
                   <span class="code">TraverseFun</span>. An example is
-                  <span class="bold_code"><a href="ets.html#table-2"><span class="code">ets:table/2</span></a></span>.</p>
+                  <span class="bold_code bc-15"><a href="ets.html#table-2"><span class="code">ets:table/2</span></a></span>.</p>
               </li>
               <li>
                 <p>Other modules can provide a nullary
                   <span class="code">TraverseFun</span>. An example is
                   <span class="code">gb_table:table/1</span> in section
-                  <span class="bold_code"><a href="#implementing_a_qlc_table">Implementing a QLC Table</a></span>.</p>
+                  <span class="bold_code data-type-ref"><a href="#implementing_a_qlc_table">Implementing a QLC Table</a></span>.</p>
               </li>
             </ul>
           </li>
@@ -3037,9 +3106,9 @@ ets:match_spec_run(
                   <span class="code">ParentFun</span> is called once just before the
                   call of <span class="code">PreFun</span> in the context of the
                   process calling
-		  <span class="bold_code"><a href="#eval-1"><span class="code">eval/1,2</span></a></span>,
-		  <span class="bold_code"><a href="#fold-3"><span class="code">fold/3,4</span></a></span>, or
-		  <span class="bold_code"><a href="#cursor-1"><span class="code">cursor/1,2</span></a></span>.
+		  <span class="bold_code data-type-ref"><a href="#eval-1"><span class="code">eval/1,2</span></a></span>,
+		  <span class="bold_code data-type-ref"><a href="#fold-3"><span class="code">fold/3,4</span></a></span>, or
+		  <span class="bold_code data-type-ref"><a href="#cursor-1"><span class="code">cursor/1,2</span></a></span>.
                 </p>
               </li>
               <li>
@@ -3088,7 +3157,7 @@ ets:match_spec_run(
               chosen. If there is a tie between two indexed positions, the
               one occurring first in the list returned by
               <span class="code">InfoFun</span> is chosen. Positions requiring
-              more than <span class="bold_code"><a href="#max_lookup">max_lookup</a></span>
+              more than <span class="bold_code data-type-ref"><a href="#max_lookup">max_lookup</a></span>
               lookups are ignored.</p>
           </li>
           <li>
@@ -3118,7 +3187,7 @@ ets:match_spec_run(
           </li>
           <li>
             <p>Unary callback function <span class="code">FormatFun</span>
-              is used by <span class="bold_code"><a href="#info-1"><span class="code">info/1,2</span></a></span>
+              is used by <span class="bold_code data-type-ref"><a href="#info-1"><span class="code">info/1,2</span></a></span>
               for displaying the call that created the query handle of the
               table. Defaults to <span class="code">undefined</span>, which means that
               <span class="code">info/1,2</span> displays a call to <span class="code">'$MOD':'$FUN'/0</span>.
@@ -3176,27 +3245,28 @@ ets:match_spec_run(
         </ul>
         <p>For the various options recognized by <span class="code">table/1,2</span>
 	  in respective module, see
-          <span class="bold_code"><a href="ets.html#table-1"><span class="code">ets(3)</span></a></span>,
-          <span class="bold_code"><a href="dets.html#table-1"><span class="code">dets(3)</span></a></span>, and
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','mnesia','mnesia.html#table-1');"><span class="code">mnesia(3)</span></a></span>.
+          <span class="bold_code bc-15"><a href="ets.html#table-1"><span class="code">ets(3)</span></a></span>,
+          <span class="bold_code bc-15"><a href="dets.html#table-1"><span class="code">dets(3)</span></a></span>, and
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','mnesia','mnesia.html#table-1');"><span class="code">mnesia(3)</span></a></span>.
         </p>
-      </p></div>
-  
+      </p></div></div>
+</div>
+  </div>
 
-  <h3><a name="idm45518934925248">See Also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45461563595984">See Also</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="dets.html"><span class="code">dets(3)</span></a></span>,
-      <span class="bold_code"><a href="erl_eval.html"><span class="code">erl_eval(3)</span></a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html');"><span class="code">erlang(3)</span></a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','error_logger.html');"><span class="code">error_logger(3)</span></a></span>,
-      <span class="bold_code"><a href="ets.html"><span class="code">ets(3)</span></a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html');"><span class="code">file(3)</span></a></span>,
-      <span class="bold_code"><a href="file_sorter.html"><span class="code">file_sorter(3)</span></a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','mnesia','mnesia.html');"><span class="code">mnesia(3)</span></a></span>,
-      <span class="bold_code"><a href="shell.html"><span class="code">shell(3)</span></a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/reference_manual','users_guide.html');">Erlang Reference Manual</a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/programming_examples','users_guide.html');">Programming Examples</a></span></p>
+    <p><span class="bold_code bc-19"><a href="dets.html"><span class="code">dets(3)</span></a></span>,
+      <span class="bold_code bc-19"><a href="erl_eval.html"><span class="code">erl_eval(3)</span></a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html');"><span class="code">erlang(3)</span></a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','error_logger.html');"><span class="code">error_logger(3)</span></a></span>,
+      <span class="bold_code bc-19"><a href="ets.html"><span class="code">ets(3)</span></a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html');"><span class="code">file(3)</span></a></span>,
+      <span class="bold_code bc-19"><a href="file_sorter.html"><span class="code">file_sorter(3)</span></a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','mnesia','mnesia.html');"><span class="code">mnesia(3)</span></a></span>,
+      <span class="bold_code bc-19"><a href="shell.html"><span class="code">shell(3)</span></a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/reference_manual','users_guide.html');">Erlang Reference Manual</a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/programming_examples','users_guide.html');">Programming Examples</a></span></p>
   </div>
 </div>
 <div class="footer">

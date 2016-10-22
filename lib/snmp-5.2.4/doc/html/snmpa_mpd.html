@@ -802,38 +802,43 @@
 <!-- refpage --><center><h1>snmpa_mpd</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">snmpa_mpd</div>
+<div class="REFBODY module-body">snmpa_mpd</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Message Processing and Dispatch module for the SNMP agent</div>
+<div class="REFBODY modules-summary-body">Message Processing and Dispatch module for the SNMP agent</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>The module <span class="code">snmpa_mpd</span> implements the version independent
       Message Processing and Dispatch functionality in SNMP for the agent. 
       It is supposed to be used from a Network Interface process 
-      (<span class="bold_code"><a href="snmp_agent_netif.html">Definition of Agent Net if</a></span>).
+      (<span class="bold_code bc-19"><a href="snmp_agent_netif.html">Definition of Agent Net if</a></span>).
       </p>
 
     <a name="init"></a>
-  </p></div>
+  </div>
 
-  <h3><a name="idm45488682525424">DATA TYPES</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46069276751776">DATA TYPES</a></h3>
+<div class="REFBODY rb-3">
     
-    <p>See the <span class="bold_code"><a href="snmpa_conf.html#types">data types in<span class="code">snmpa_conf</span></a></span>.</p>
+    <p>See the <span class="bold_code bc-15"><a href="snmpa_conf.html#types">data types in<span class="code">snmpa_conf</span></a></span>.</p>
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="init-1"></a><span class="bold_code">init(Vsns) -&gt; mpd_state()</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="init-1"></a><span class="bold_code bc-9">init(Vsns) -&gt; mpd_state()</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Vsns = [Vsn]</span><br>
+<span class="bold_code bc-11">Vsns = [Vsn]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Vsn = v1 | v2 | v3</span><br>
+<span class="bold_code bc-11">Vsn = v1 | v2 | v3</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function can be called from the net_if process at start-up.
           The options list defines which versions to use.
           </p>
@@ -842,60 +847,66 @@
 
         <a name="process_packet"></a>
       </p></div>
+</div>
+</div>
 
-    <p><a name="process_packet-5"></a><span class="bold_code">process_packet(Packet, From, State, NoteStore, Log) -&gt; {ok, Vsn, Pdu, PduMS, ACMData} | {discarded, Reason} | {discovery, DiscoPacket}</span><br><a name="process_packet-6"></a><span class="bold_code">process_packet(Packet, From, LocalEngineID, State, NoteStore, Log) -&gt; {ok, Vsn, Pdu, PduMS, ACMData} | {discarded, Reason} | {discovery, DiscoPacket}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="process_packet-5"></a><span class="bold_code bc-9">process_packet(Packet, From, State, NoteStore, Log) -&gt; {ok, Vsn, Pdu, PduMS, ACMData} | {discarded, Reason} | {discovery, DiscoPacket}</span><br><a name="process_packet-6"></a><span class="bold_code bc-9">process_packet(Packet, From, LocalEngineID, State, NoteStore, Log) -&gt; {ok, Vsn, Pdu, PduMS, ACMData} | {discarded, Reason} | {discovery, DiscoPacket}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Packet = binary()</span><br>
+<span class="bold_code bc-11">Packet = binary()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">From = {TDomain, TAddr}</span><br>
+<span class="bold_code bc-11">From = {TDomain, TAddr}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">TDomain = transportDomainUdpIpv4 | transportDomainUdpIpv6</span><br>
+<span class="bold_code bc-11">TDomain = transportDomainUdpIpv4 | transportDomainUdpIpv6</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">TAddr = {IpAddr, IpPort}</span><br>
+<span class="bold_code bc-11">TAddr = {IpAddr, IpPort}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">LocalEngineID = string()</span><br>
+<span class="bold_code bc-11">LocalEngineID = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">IpAddr = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#type-ip_address');">inet:ip_address()</a></span></span><br>
+<span class="bold_code bc-11">IpAddr = <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#type-ip_address');">inet:ip_address()</a></span></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">IpPort = inet:port_number()</span><br>
+<span class="bold_code bc-11">IpPort = inet:port_number()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">State = mpd_state()</span><br>
+<span class="bold_code bc-11">State = mpd_state()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">NoteStore = pid()</span><br>
+<span class="bold_code bc-11">NoteStore = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Log = snmp_log()</span><br>
+<span class="bold_code bc-11">Log = snmp_log()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Vsn = 'version-1' | 'version-2' | 'version-3'</span><br>
+<span class="bold_code bc-11">Vsn = 'version-1' | 'version-2' | 'version-3'</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Pdu = #pdu</span><br>
+<span class="bold_code bc-11">Pdu = #pdu</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">PduMs = integer()</span><br>
+<span class="bold_code bc-11">PduMs = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">ACMData = acm_data()</span><br>
+<span class="bold_code bc-11">ACMData = acm_data()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">DiscoPacket = binary()</span><br>
+<span class="bold_code bc-11">DiscoPacket = binary()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Processes an incoming packet.  Performs authentication and 
           decryption as necessary.  The return values should be passed to the
           agent.</p>
@@ -912,30 +923,36 @@
 
         <a name="generate_response_msg"></a>
       </p></div>
+</div>
+</div>
 
-    <p><a name="generate_response_msg-5"></a><span class="bold_code">generate_response_msg(Vsn, RePdu, Type, ACMData, Log) -&gt; {ok, Packet} | {discarded, Reason}</span><br><a name="generate_response_msg-6"></a><span class="bold_code">generate_response_msg(Vsn, RePdu, Type, ACMData, LocalEngineID, Log) -&gt; {ok, Packet} | {discarded, Reason}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="generate_response_msg-5"></a><span class="bold_code bc-9">generate_response_msg(Vsn, RePdu, Type, ACMData, Log) -&gt; {ok, Packet} | {discarded, Reason}</span><br><a name="generate_response_msg-6"></a><span class="bold_code bc-9">generate_response_msg(Vsn, RePdu, Type, ACMData, LocalEngineID, Log) -&gt; {ok, Packet} | {discarded, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Vsn = 'version-1' | 'version-2' | 'version-3'</span><br>
+<span class="bold_code bc-11">Vsn = 'version-1' | 'version-2' | 'version-3'</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">RePdu = #pdu</span><br>
+<span class="bold_code bc-11">RePdu = #pdu</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Type = atom()</span><br>
+<span class="bold_code bc-11">Type = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">ACMData = acm_data()</span><br>
+<span class="bold_code bc-11">ACMData = acm_data()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">LocalEngineID = string()</span><br>
+<span class="bold_code bc-11">LocalEngineID = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Packet = binary()</span><br>
+<span class="bold_code bc-11">Packet = binary()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Generates a possibly encrypted response packet to be sent to the
           network. <span class="code">Type</span> is the <span class="code">#pdu.type</span> of the original
           request.</p>
@@ -952,56 +969,62 @@
 
         <a name="generate_msg"></a>
       </p></div>
+</div>
+</div>
 
-    <p><a name="generate_msg-5"></a><span class="bold_code">generate_msg(Vsn, NoteStore, Pdu, MsgData, To) -&gt; {ok, PacketsAndAddresses} | {discarded, Reason}</span><br><a name="generate_msg-6"></a><span class="bold_code">generate_msg(Vsn, NoteStore, Pdu, MsgData, LocalEngineID, To) -&gt; {ok, PacketsAndAddresses} | {discarded, Reason}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="generate_msg-5"></a><span class="bold_code bc-9">generate_msg(Vsn, NoteStore, Pdu, MsgData, To) -&gt; {ok, PacketsAndAddresses} | {discarded, Reason}</span><br><a name="generate_msg-6"></a><span class="bold_code bc-9">generate_msg(Vsn, NoteStore, Pdu, MsgData, LocalEngineID, To) -&gt; {ok, PacketsAndAddresses} | {discarded, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Vsn = 'version-1' | 'version-2' | 'version-3'</span><br>
+<span class="bold_code bc-11">Vsn = 'version-1' | 'version-2' | 'version-3'</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">NoteStore = pid()</span><br>
+<span class="bold_code bc-11">NoteStore = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Pdu = #pdu</span><br>
+<span class="bold_code bc-11">Pdu = #pdu</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">MsgData = msg_data()</span><br>
+<span class="bold_code bc-11">MsgData = msg_data()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">LocalEngineID = string()</span><br>
+<span class="bold_code bc-11">LocalEngineID = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">To = [dest_addrs()]</span><br>
+<span class="bold_code bc-11">To = [dest_addrs()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">PacketsAndAddresses = [{TDomain, TAddress, Packet}]</span><br>
+<span class="bold_code bc-11">PacketsAndAddresses = [{TDomain, TAddress, Packet}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">TDomain = snmpUDPDomain</span><br>
+<span class="bold_code bc-11">TDomain = snmpUDPDomain</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">TAddress = {Ip, Udp}</span><br>
+<span class="bold_code bc-11">TAddress = {Ip, Udp}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Ip = {integer(), integer(), integer(), integer()}</span><br>
+<span class="bold_code bc-11">Ip = {integer(), integer(), integer(), integer()}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Udp = integer()</span><br>
+<span class="bold_code bc-11">Udp = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Packet = binary()</span><br>
+<span class="bold_code bc-11">Packet = binary()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Generates a possibly encrypted request packet to be sent to the
           network.
           </p>
         <p><span class="code">MsgData</span> is the message specific data used in
           the SNMP message.  This value is received in a
-	  <span class="bold_code"><a href="snmp_agent_netif.html#im_send_pdu"><span class="code">send_pdu</span></a></span>
+	  <span class="bold_code bc-15"><a href="snmp_agent_netif.html#im_send_pdu"><span class="code">send_pdu</span></a></span>
           or
-	  <span class="bold_code"><a href="snmp_agent_netif.html#im_send_pdu_req"><span class="code">send_pdu_req</span></a></span>
+	  <span class="bold_code bc-15"><a href="snmp_agent_netif.html#im_send_pdu_req"><span class="code">send_pdu_req</span></a></span>
 	  message from the agent.  In SNMPv1 and
           SNMPv2c, this message data is the community string.  In
           SNMPv3, it is the context information.</p>
@@ -1009,7 +1032,7 @@
           <span class="code">To</span> is a list of destination addresses and
           their corresponding security parameters.  This value is
           received in the same message from the agent and then transformed
-	  trough <span class="bold_code"><a href="#process_taddrs"><span class="code">process_taddrs</span></a></span>
+	  trough <span class="bold_code data-type-ref"><a href="#process_taddrs"><span class="code">process_taddrs</span></a></span>
 	  before passed to this function.</p>
 
         <div class="note">
@@ -1024,62 +1047,76 @@
 
         <a name="process_taddrs"></a>
       </p></div>
+</div>
+</div>
 
-    <p><a name="process_taddrs-1"></a><span class="bold_code">process_taddrs(TDests) -&gt; Dests</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="process_taddrs-1"></a><span class="bold_code bc-9">process_taddrs(TDests) -&gt; Dests</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">TDests = [TDest]</span><br>
+<span class="bold_code bc-11">TDests = [TDest]</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">TDest = {{TDomain, TAddr}, SecData} | {TDomain, TAddr}</span><br>
+<span class="bold_code bc-11">TDest = {{TDomain, TAddr}, SecData} | {TDomain, TAddr}</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">TDomain = term()  % Not at tuple</span><br>
+<span class="bold_code bc-11">TDomain = term()  % Not at tuple</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">TAddr = term()</span><br>
+<span class="bold_code bc-11">TAddr = term()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">SecData = term()</span><br>
+<span class="bold_code bc-11">SecData = term()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Dests = [Dest]</span><br>
+<span class="bold_code bc-11">Dests = [Dest]</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Dest = {{Domain, Addr}, SecData} | {Domain, Addr}</span><br>
+<span class="bold_code bc-11">Dest = {{Domain, Addr}, SecData} | {Domain, Addr}</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Domain = transportDomain()</span><br>
+<span class="bold_code bc-11">Domain = transportDomain()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Addr = transportAddress()  % Depends on Domain</span><br>
+<span class="bold_code bc-11">Addr = transportAddress()  % Depends on Domain</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
 	<p>Transforms addresses from internal MIB format to one
-	more useful to <span class="bold_code"><a href="snmp_agent_netif.html">Agent Net if</a></span>.
+	more useful to <span class="bold_code bc-19"><a href="snmp_agent_netif.html">Agent Net if</a></span>.
 	</p>
-	<p>See also <span class="bold_code"><a href="#generate_msg"><span class="code">generate_msg</span>.</a></span>
+	<p>See also <span class="bold_code data-type-ref"><a href="#generate_msg"><span class="code">generate_msg</span>.</a></span>
 	</p>
 
         <a name="discarded_pdu"></a>
       </p></div>
+</div>
+</div>
 
-    <p><a name="discarded_pdu-1"></a><span class="bold_code">discarded_pdu(Variable) -&gt; void()</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="discarded_pdu-1"></a><span class="bold_code bc-9">discarded_pdu(Variable) -&gt; void()</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Variable = atom()</span><br>
+<span class="bold_code bc-11">Variable = atom()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Increments the variable associated with a discarded pdu.
           This function can be used when the net_if process receives a
           <span class="code">discarded_pdu</span> message from the agent.
           </p>
       </p></div>
-  
+</div>
+</div>
+  </div>
   
 </div>
 <div class="footer">

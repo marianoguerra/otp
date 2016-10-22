@@ -334,19 +334,19 @@
   
 
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">http_uri</div>
+<div class="REFBODY module-body">http_uri</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">URI utility module</div>
+<div class="REFBODY modules-summary-body">URI utility module</div>
 
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>This module provides utility functions for working with URIs, 
     according to 
-    <span class="bold_code"><a href="http://www.ietf.org/rfc/rfc3986.txt">RFC 3986</a></span>.</p>
-  </p></div>
+    <span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc3986.txt">RFC 3986</a></span>.</p>
+  </div>
   
-  <h3><a name="idm45664911954464">DATA TYPES</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45717574704752">DATA TYPES</a></h3>
+<div class="REFBODY rb-3">
     
     <p>Type definitions that are used more than once in
       this module:</p>
@@ -355,8 +355,8 @@
 
   </div>
   
-  <h3><a name="idm45664911951728">URI DATA TYPES</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45717574702016">URI DATA TYPES</a></h3>
+<div class="REFBODY rb-3">
     
     <p>Type definitions that are related to URI:</p>
     
@@ -381,86 +381,103 @@
      </dl>
    
      <p>For more information about URI, see
-     <span class="bold_code"><a href="http://www.ietf.org/rfc/rfc3986.txt">RFC 3986</a></span>.</p>
+     <span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc3986.txt">RFC 3986</a></span>.</p>
     <a name="scheme_defaults"></a>
   </div>
   
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="decode-1"></a><span class="bold_code">decode(HexEncodedURI) -&gt; URI</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="decode-1"></a><span class="bold_code bc-9">decode(HexEncodedURI) -&gt; URI</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">HexEncodedURI = string() - A possibly hexadecimal encoded URI</span><br>
+<span class="bold_code bc-11">HexEncodedURI = string() - A possibly hexadecimal encoded URI</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">URI = uri()</span><br>
+<span class="bold_code bc-11">URI = uri()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Decodes a possibly hexadecimal encoded URI.</p>
 
       </p></div>
-    <p><a name="encode-1"></a><span class="bold_code">encode(URI) -&gt; HexEncodedURI</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="encode-1"></a><span class="bold_code bc-9">encode(URI) -&gt; HexEncodedURI</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">URI = uri()</span><br>
+<span class="bold_code bc-11">URI = uri()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">HexEncodedURI = string() - Hexadecimal encoded URI</span><br>
+<span class="bold_code bc-11">HexEncodedURI = string() - Hexadecimal encoded URI</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Encodes a hexadecimal encoded URI.</p>
 
         <a name="decode"></a>
       </p></div>
+</div>
+</div>
 
-    <p><a name="parse-1"></a><span class="bold_code">parse(URI) -&gt; {ok, Result} | {error, Reason}</span><br><a name="parse-2"></a><span class="bold_code">parse(URI, Options) -&gt; {ok, Result} | {error, Reason}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="parse-1"></a><span class="bold_code bc-9">parse(URI) -&gt; {ok, Result} | {error, Reason}</span><br><a name="parse-2"></a><span class="bold_code bc-9">parse(URI, Options) -&gt; {ok, Result} | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">URI = uri()</span><br>
+<span class="bold_code bc-11">URI = uri()</span><br>
 </div> 
         <div class="REFTYPES">
-<span class="bold_code">Options = [Option]</span><br>
+<span class="bold_code bc-11">Options = [Option]</span><br>
 </div> 
         <div class="REFTYPES">
-<span class="bold_code">Option = {ipv6_host_with_brackets, boolean()} | 
+<span class="bold_code bc-11">Option = {ipv6_host_with_brackets, boolean()} | 
                     {scheme_defaults, scheme_defaults()} |
                     {fragment, boolean()} |
                     {schema_validation_fun, fun()}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Result = {Scheme, UserInfo, Host, Port, Path, Query} |
+<span class="bold_code bc-11">Result = {Scheme, UserInfo, Host, Port, Path, Query} |
                     {Scheme, UserInfo, Host, Port, Path, Query, Fragment}</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">UserInfo = user_info()</span><br>
+<span class="bold_code bc-11">UserInfo = user_info()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Host = host()</span><br>
+<span class="bold_code bc-11">Host = host()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Port = pos_integer()</span><br>
+<span class="bold_code bc-11">Port = pos_integer()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Path = path()</span><br>
+<span class="bold_code bc-11">Path = path()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Query = query()</span><br>
+<span class="bold_code bc-11">Query = query()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Fragment = fragment()</span><br>
+<span class="bold_code bc-11">Fragment = fragment()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Parses a URI. If no scheme defaults 
 	are provided, the value of the
-	<span class="bold_code"><a href="#scheme_defaults">scheme_defaults</a></span>
+	<span class="bold_code data-type-ref"><a href="#scheme_defaults">scheme_defaults</a></span>
 	function is used.</p>
 
         <p>When parsing a URI with an unknown scheme (that is, 
@@ -482,27 +499,35 @@ fun(SchemeStr :: string()) -&gt;
 
         <a name="encode"></a>
       </p></div>
+</div>
+</div>
 
-    <p><a name="scheme_defaults-0"></a><span class="bold_code">scheme_defaults() -&gt; SchemeDefaults</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="scheme_defaults-0"></a><span class="bold_code bc-9">scheme_defaults() -&gt; SchemeDefaults</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">SchemeDefaults = [{scheme(), default_scheme_port_number()}] </span><br>
+<span class="bold_code bc-11">SchemeDefaults = [{scheme(), default_scheme_port_number()}] </span><br>
 </div> 
 	<div class="REFTYPES">
-<span class="bold_code">default_scheme_port_number() = pos_integer()</span><br>
+<span class="bold_code bc-11">default_scheme_port_number() = pos_integer()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Provides a list of the scheme and their default 
 	port numbers supported (by default) by this utility.</p>
 
         <a name="parse"></a>
       </p></div>
+</div>
+</div>
 
    
 
-  
+  </div>
 
 
 

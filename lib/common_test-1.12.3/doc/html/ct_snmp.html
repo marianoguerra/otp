@@ -443,12 +443,12 @@
 <!-- refpage --><center><h1>ct_snmp</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">ct_snmp</div>
+<div class="REFBODY module-body">ct_snmp</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Common Test user interface module for the SNMP application.</div>
+<div class="REFBODY modules-summary-body">Common Test user interface module for the SNMP application.</div>
 
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
 
     <p><span class="code">Common Test</span> user interface module for the <span class="code">SNMP</span>
       application.</p>
@@ -561,7 +561,7 @@
 
     <p>SNMP traps, inform, and report messages are handled by the user
       callback module. For details, see the
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','snmp','index.html');"><span class="code">SNMP</span></a></span> application.</p>
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','snmp','index.html');"><span class="code">SNMP</span></a></span> application.</p>
 
     <p>It is recommended to use the <span class="code">.hrl</span> files created by the
       Erlang/OTP MIB compiler to define the Object Identifiers (OIDs).
@@ -573,7 +573,7 @@
 
     <p>Furthermore, values can be set for <span class="code">SNMP</span> application configuration
       parameters, <span class="code">config</span>, <span class="code">server</span>, <span class="code">net_if</span>, and so on (for
-      a list of valid parameters and types, see the  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','snmp','users_guide.html');"><span class="code">User's Guide for the SNMP application</span></a></span>). This is
+      a list of valid parameters and types, see the  <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','snmp','users_guide.html');"><span class="code">User's Guide for the SNMP application</span></a></span>). This is
       done by defining a configuration data variable on the following form:</p>
 
     <div class="example"><pre>
@@ -583,17 +583,17 @@
     <p>A name for the data must be allocated in the suite using
       <span class="code">require</span> (see the example above). Pass this name as argument
       <span class="code">SnmpAppConfName</span> to
-      <span class="bold_code"><a href="#start-3"><span class="code">ct_snmp:start/3</span></a></span>.
+      <span class="bold_code data-type-ref"><a href="#start-3"><span class="code">ct_snmp:start/3</span></a></span>.
       <span class="code">ct_snmp</span> specifies default values for some <span class="code">SNMP</span> application
       configuration parameters (such as <span class="code">{verbosity,trace}</span> for parameter
       <span class="code">config</span>). This set of defaults is merged with the parameters
       specified by the user. The user values override <span class="code">ct_snmp</span>
       defaults.</p>
 
-  </p></div>
+  </div>
 
-  <h3><a name="idm45554683015184">Data Types</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46407704097424">Data Types</a></h3>
+<div class="REFBODY rb-3">
     
     <a name="types"></a>
     <dl>
@@ -674,81 +674,104 @@
 <a name="type-varsandvals"></a> </dd>
     </dl>
     <p>These data types are described in the documentation for
-      the <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','snmp','index.html');"><span class="code">SNMP</span></a></span> application.</p>
+      the <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','snmp','index.html');"><span class="code">SNMP</span></a></span> application.</p>
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="get_next_values-3"></a><span class="bold_code">get_next_values(Agent, Oids, MgrAgentConfName) -&gt; SnmpReply</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="get_next_values-3"></a><span class="bold_code bc-9">get_next_values(Agent, Oids, MgrAgentConfName) -&gt; SnmpReply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Agent = agent_name()</span><br>
+<span class="bold_code bc-11">Agent = agent_name()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Oids = oids()</span><br>
+<span class="bold_code bc-11">Oids = oids()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">MgrAgentConfName = atom()</span><br>
+<span class="bold_code bc-11">MgrAgentConfName = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">SnmpReply = snmpreply()</span><br>
+<span class="bold_code bc-11">SnmpReply = snmpreply()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p><a name="get_next_values-3"></a>
+<div class="REFBODY data-type-desc"><p><a name="get_next_values-3"></a>
         <p>Issues a synchronous SNMP <span class="code">get next</span> request.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="get_values-3"></a><span class="bold_code">get_values(Agent, Oids, MgrAgentConfName) -&gt; SnmpReply</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="get_values-3"></a><span class="bold_code bc-9">get_values(Agent, Oids, MgrAgentConfName) -&gt; SnmpReply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Agent = agent_name()</span><br>
+<span class="bold_code bc-11">Agent = agent_name()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Oids = oids()</span><br>
+<span class="bold_code bc-11">Oids = oids()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">MgrAgentConfName = atom()</span><br>
+<span class="bold_code bc-11">MgrAgentConfName = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">SnmpReply = snmpreply()</span><br>
+<span class="bold_code bc-11">SnmpReply = snmpreply()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p><a name="get_values-3"></a>
+<div class="REFBODY data-type-desc"><p><a name="get_values-3"></a>
         <p>Issues a synchronous SNMP <span class="code">get</span> request.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="load_mibs-1"></a><span class="bold_code">load_mibs(Mibs) -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="load_mibs-1"></a><span class="bold_code bc-9">load_mibs(Mibs) -&gt; ok | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Mibs = [MibName]</span><br>
+<span class="bold_code bc-11">Mibs = [MibName]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">MibName = string()</span><br>
+<span class="bold_code bc-11">MibName = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p><a name="load_mibs-1"></a>
+<div class="REFBODY data-type-desc"><p><a name="load_mibs-1"></a>
         <p>Loads the MIBs into agent <span class="code">snmp_master_agent</span>.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="register_agents-2"></a><span class="bold_code">register_agents(MgrAgentConfName, ManagedAgents) -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="register_agents-2"></a><span class="bold_code bc-9">register_agents(MgrAgentConfName, ManagedAgents) -&gt; ok | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">MgrAgentConfName = atom()</span><br>
+<span class="bold_code bc-11">MgrAgentConfName = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">ManagedAgents = [agent()]</span><br>
+<span class="bold_code bc-11">ManagedAgents = [agent()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p><a name="register_agents-2"></a>
+<div class="REFBODY data-type-desc"><p><a name="register_agents-2"></a>
         <p>Explicitly instructs the manager to handle this agent. Corresponds
           to making an entry in <span class="code">agents.conf</span>.</p>
 
@@ -756,21 +779,27 @@
           checking if any of them exist. To change a registered managed agent,
           the agent must first be unregistered.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="register_users-2"></a><span class="bold_code">register_users(MgrAgentConfName, Users) -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="register_users-2"></a><span class="bold_code bc-9">register_users(MgrAgentConfName, Users) -&gt; ok | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">MgrAgentConfName = atom()</span><br>
+<span class="bold_code bc-11">MgrAgentConfName = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Users = [user()]</span><br>
+<span class="bold_code bc-11">Users = [user()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p><a name="register_users-2"></a>
+<div class="REFBODY data-type-desc"><p><a name="register_users-2"></a>
         <p>Registers the manager entity (=user) responsible for specific
           agent(s). Corresponds to making an entry in <span class="code">users.conf</span>.</p>
 
@@ -778,21 +807,27 @@
           if any of them exist. To change a registered user, the user must
           first be unregistered.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="register_usm_users-2"></a><span class="bold_code">register_usm_users(MgrAgentConfName, UsmUsers) -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="register_usm_users-2"></a><span class="bold_code bc-9">register_usm_users(MgrAgentConfName, UsmUsers) -&gt; ok | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">MgrAgentConfName = atom()</span><br>
+<span class="bold_code bc-11">MgrAgentConfName = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">UsmUsers = [usm_user()]</span><br>
+<span class="bold_code bc-11">UsmUsers = [usm_user()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p><a name="register_usm_users-2"></a>
+<div class="REFBODY data-type-desc"><p><a name="register_usm_users-2"></a>
         <p>Explicitly instructs the manager to handle this USM user.
           Corresponds to making an entry in <span class="code">usm.conf</span>.</p>
 
@@ -800,24 +835,30 @@
           if any of them exist. To change a registered user, the user must
           first be unregistered.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="set_info-1"></a><span class="bold_code">set_info(Config) -&gt; [{Agent, OldVarsAndVals, NewVarsAndVals}]</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="set_info-1"></a><span class="bold_code bc-9">set_info(Config) -&gt; [{Agent, OldVarsAndVals, NewVarsAndVals}]</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Config = [{Key, Value}]</span><br>
+<span class="bold_code bc-11">Config = [{Key, Value}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Agent = agent_name()</span><br>
+<span class="bold_code bc-11">Agent = agent_name()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">OldVarsAndVals = varsandvals()</span><br>
+<span class="bold_code bc-11">OldVarsAndVals = varsandvals()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">NewVarsAndVals = varsandvals()</span><br>
+<span class="bold_code bc-11">NewVarsAndVals = varsandvals()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p><a name="set_info-1"></a>
+<div class="REFBODY data-type-desc"><p><a name="set_info-1"></a>
         <p>Returns a list of all successful <span class="code">set</span> requests performed in
           the test case in reverse order. The list contains the involved user
           and agent, the value before <span class="code">set</span>, and the new value. This is
@@ -825,68 +866,84 @@
           that is, the undoing of the <span class="code">set</span> requests and their possible
           side-effects.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="set_values-4"></a><span class="bold_code">set_values(Agent, VarsAndVals, MgrAgentConfName, Config) -&gt; SnmpReply</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="set_values-4"></a><span class="bold_code bc-9">set_values(Agent, VarsAndVals, MgrAgentConfName, Config) -&gt; SnmpReply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Agent = agent_name()</span><br>
+<span class="bold_code bc-11">Agent = agent_name()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Oids = oids()</span><br>
+<span class="bold_code bc-11">Oids = oids()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">MgrAgentConfName = atom()</span><br>
+<span class="bold_code bc-11">MgrAgentConfName = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Config = [{Key, Value}]</span><br>
+<span class="bold_code bc-11">Config = [{Key, Value}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">SnmpReply = snmpreply()</span><br>
+<span class="bold_code bc-11">SnmpReply = snmpreply()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p><a name="set_values-4"></a>
+<div class="REFBODY data-type-desc"><p><a name="set_values-4"></a>
         <p>Issues a synchronous SNMP <span class="code">set</span> request.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="start-2"></a><span class="bold_code">start(Config, MgrAgentConfName) -&gt; ok</span><br></p>
-<div class="REFBODY"><p><a name="start-2"></a>
+    <div class="func">
+<div class="func-title">
+<a name="start-2"></a><span class="bold_code bc-9">start(Config, MgrAgentConfName) -&gt; ok</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="start-2"></a>
         <p>Equivalent to
-          <span class="bold_code"><a href="#start-3"><span class="code">ct_snmp:start(Config, MgrAgentConfName, undefined)</span></a></span>.</p>
-      </p></div>
+          <span class="bold_code data-type-ref"><a href="#start-3"><span class="code">ct_snmp:start(Config, MgrAgentConfName, undefined)</span></a></span>.</p>
+      </p></div></div>
+</div>
 
-    <p><a name="start-3"></a><span class="bold_code">start(Config, MgrAgentConfName, SnmpAppConfName) -&gt; ok</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="start-3"></a><span class="bold_code bc-9">start(Config, MgrAgentConfName, SnmpAppConfName) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Config = [{Key, Value}]</span><br>
+<span class="bold_code bc-11">Config = [{Key, Value}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Key = atom()</span><br>
+<span class="bold_code bc-11">Key = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Value = term()</span><br>
+<span class="bold_code bc-11">Value = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">MgrAgentConfName = atom()</span><br>
+<span class="bold_code bc-11">MgrAgentConfName = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">SnmpConfName = atom()</span><br>
+<span class="bold_code bc-11">SnmpConfName = atom()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p><a name="start-3"></a>
+<div class="REFBODY data-type-desc"><p><a name="start-3"></a>
         <p>Starts an SNMP manager and/or agent. In the manager case,
           registrations of users and agents, as specified by the configuration
           <span class="code">MgrAgentConfName</span>, are performed. When using SNMPv3, called
           USM users are also registered. Users, <span class="code">usm_users</span>, and
           managed agents can also be registered later using
-          <span class="bold_code"><a href="#register_users-2"><span class="code">ct_snmp:register_users/2</span></a></span>,
-          <span class="bold_code"><a href="#register_agents-2"><span class="code">ct_snmp:register_agents/2</span></a></span>,
+          <span class="bold_code data-type-ref"><a href="#register_users-2"><span class="code">ct_snmp:register_users/2</span></a></span>,
+          <span class="bold_code data-type-ref"><a href="#register_agents-2"><span class="code">ct_snmp:register_agents/2</span></a></span>,
           and
-          <span class="bold_code"><a href="#register_usm_users-2"><span class="code">ct_snmp:register_usm_users/2</span></a></span>.</p>
+          <span class="bold_code data-type-ref"><a href="#register_usm_users-2"><span class="code">ct_snmp:register_usm_users/2</span></a></span>.</p>
 
         <p>The agent started is called <span class="code">snmp_master_agent</span>. Use
-          <span class="bold_code"><a href="#load_mibs-1"><span class="code">ct_snmp:load_mibs/1</span></a></span>
+          <span class="bold_code data-type-ref"><a href="#load_mibs-1"><span class="code">ct_snmp:load_mibs/1</span></a></span>
           to load MIBs into the agent.</p>
 
         <p>With <span class="code">SnmpAppConfName</span> SNMP applications can be configured
@@ -894,135 +951,185 @@
           The values are merged with (and possibly override) default values
           set by <span class="code">ct_snmp</span>.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="stop-1"></a><span class="bold_code">stop(Config) -&gt; ok</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="stop-1"></a><span class="bold_code bc-9">stop(Config) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Config = [{Key, Value}]</span><br>
+<span class="bold_code bc-11">Config = [{Key, Value}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Key = atom()</span><br>
+<span class="bold_code bc-11">Key = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Value = term()</span><br>
+<span class="bold_code bc-11">Value = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p><a name="stop-1"></a>
+<div class="REFBODY data-type-desc"><p><a name="stop-1"></a>
         <p>Stops the SNMP manager and/or agent, and removes all files
           created.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="unload_mibs-1"></a><span class="bold_code">unload_mibs(Mibs) -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="unload_mibs-1"></a><span class="bold_code bc-9">unload_mibs(Mibs) -&gt; ok | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Mibs = [MibName]</span><br>
+<span class="bold_code bc-11">Mibs = [MibName]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">MibName = string()</span><br>
+<span class="bold_code bc-11">MibName = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p><a name="unload_mibs-1"></a>
+<div class="REFBODY data-type-desc"><p><a name="unload_mibs-1"></a>
         <p>Unloads the MIBs from agent <span class="code">snmp_master_agent</span>.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="unregister_agents-1"></a><span class="bold_code">unregister_agents(MgrAgentConfName) -&gt; ok</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="unregister_agents-1"></a><span class="bold_code bc-9">unregister_agents(MgrAgentConfName) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">MgrAgentConfName = atom()</span><br>
+<span class="bold_code bc-11">MgrAgentConfName = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p><a name="unregister_agents-1"></a>
+<div class="REFBODY data-type-desc"><p><a name="unregister_agents-1"></a>
         <p>Unregisters all managed agents.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="unregister_agents-2"></a><span class="bold_code">unregister_agents(MgrAgentConfName, ManagedAgents) -&gt; ok</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="unregister_agents-2"></a><span class="bold_code bc-9">unregister_agents(MgrAgentConfName, ManagedAgents) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">MgrAgentConfName = atom()</span><br>
+<span class="bold_code bc-11">MgrAgentConfName = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">ManagedAgents = [agent_name()]</span><br>
+<span class="bold_code bc-11">ManagedAgents = [agent_name()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p><a name="unregister_agents-2"></a>
+<div class="REFBODY data-type-desc"><p><a name="unregister_agents-2"></a>
         <p>Unregisters the specified managed agents.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="unregister_users-1"></a><span class="bold_code">unregister_users(MgrAgentConfName) -&gt; ok</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="unregister_users-1"></a><span class="bold_code bc-9">unregister_users(MgrAgentConfName) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">MgrAgentConfName = atom()</span><br>
+<span class="bold_code bc-11">MgrAgentConfName = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
      </div>
-<div class="REFBODY"><p><a name="unregister_users-1"></a>
+<div class="REFBODY data-type-desc"><p><a name="unregister_users-1"></a>
        <p>Unregisters all users.</p>
      </p></div>
+</div>
+</div>
 
-    <p><a name="unregister_users-2"></a><span class="bold_code">unregister_users(MgrAgentConfName, Users) -&gt; ok</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="unregister_users-2"></a><span class="bold_code bc-9">unregister_users(MgrAgentConfName, Users) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">MgrAgentConfName = atom()</span><br>
+<span class="bold_code bc-11">MgrAgentConfName = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Users = [user_name()]</span><br>
+<span class="bold_code bc-11">Users = [user_name()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p><a name="unregister_users-2"></a>
+<div class="REFBODY data-type-desc"><p><a name="unregister_users-2"></a>
         <p>Unregisters the specified users.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="unregister_usm_users-1"></a><span class="bold_code">unregister_usm_users(MgrAgentConfName) -&gt; ok</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="unregister_usm_users-1"></a><span class="bold_code bc-9">unregister_usm_users(MgrAgentConfName) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">MgrAgentConfName = atom()</span><br>
+<span class="bold_code bc-11">MgrAgentConfName = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p><a name="unregister_usm_users-1"></a>
+<div class="REFBODY data-type-desc"><p><a name="unregister_usm_users-1"></a>
         <p>Unregisters all USM users.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="unregister_usm_users-2"></a><span class="bold_code">unregister_usm_users(MgrAgentConfName, UsmUsers) -&gt; ok</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="unregister_usm_users-2"></a><span class="bold_code bc-9">unregister_usm_users(MgrAgentConfName, UsmUsers) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">MgrAgentConfName = atom()</span><br>
+<span class="bold_code bc-11">MgrAgentConfName = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">UsmUsers = [usm_user_name()]</span><br>
+<span class="bold_code bc-11">UsmUsers = [usm_user_name()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p><a name="unregister_usm_users-2"></a>
+<div class="REFBODY data-type-desc"><p><a name="unregister_usm_users-2"></a>
         <p>Unregisters the specified USM users.</p>
       </p></div>
-  
+</div>
+</div>
+  </div>
 
 </div>
 <div class="footer">

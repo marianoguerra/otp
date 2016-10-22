@@ -274,49 +274,54 @@
 <!-- refpage --><center><h1>megaco_transport</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">megaco_transport</div>
+<div class="REFBODY module-body">megaco_transport</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Megaco transport behaviour.</div>
+<div class="REFBODY modules-summary-body">Megaco transport behaviour.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>The following functions should be exported from a 
       <span class="code">megaco_transport</span> callback module:</p>
     <ul>
       <li>
-        <p><span class="bold_code"><a href="#send_message">send_message/2</a></span> [<span class="code">mandatory</span>]</p>
+        <p><span class="bold_code data-type-ref"><a href="#send_message">send_message/2</a></span> [<span class="code">mandatory</span>]</p>
       </li>
       <li>
-        <p><span class="bold_code"><a href="#send_message">send_message/3</a></span> [<span class="code">optional</span>]</p> 
+        <p><span class="bold_code data-type-ref"><a href="#send_message">send_message/3</a></span> [<span class="code">optional</span>]</p> 
       </li>
       <li>
-        <p><span class="bold_code"><a href="#resend_message">resend_message/2</a></span> [<span class="code">optional</span>]</p>
+        <p><span class="bold_code data-type-ref"><a href="#resend_message">resend_message/2</a></span> [<span class="code">optional</span>]</p>
       </li>
       <li>
       </li>
     </ul>
     <a name="send_message"></a>
-  </p></div>
+  </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="Module:send_message-2"></a><span class="bold_code">Module:send_message(Handle, Msg) -&gt; ok | {cancel, Reason} | Error</span><br><a name="Module:send_message-3"></a><span class="bold_code">Module:send_message(Handle, Msg, Resend) -&gt; ok | {cancel, Reason} | Error</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="Module:send_message-2"></a><span class="bold_code bc-9">Module:send_message(Handle, Msg) -&gt; ok | {cancel, Reason} | Error</span><br><a name="Module:send_message-3"></a><span class="bold_code bc-9">Module:send_message(Handle, Msg, Resend) -&gt; ok | {cancel, Reason} | Error</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Handle = term()</span><br>
+<span class="bold_code bc-11">Handle = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Msg = binary() | iolist()</span><br>
+<span class="bold_code bc-11">Msg = binary() | iolist()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Resend = boolean()</span><br>
+<span class="bold_code bc-11">Resend = boolean()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Error = term()</span><br>
+<span class="bold_code bc-11">Error = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Send a megaco message. </p>
         <p>If the function returns <span class="code">{cancel, Reason}</span>, 
           this means the transport module decided not to send the message. 
@@ -330,45 +335,51 @@
           (after a successfull send). The information will be propagated
           back to the user differently depending on how the request(s) where
           issued: For requests issued using 
-          <span class="bold_code"><a href="megaco.html#call">megaco:call</a></span>, the info
+          <span class="bold_code bc-15"><a href="megaco.html#call">megaco:call</a></span>, the info
           will be delivered in the return value. For requests issued 
           using <span class="code">megaco:cast</span> the info will be delivered 
           via a call to the callback function 
-          <span class="bold_code"><a href="megaco_user.html#trans_reply">handle_trans_reply</a></span>. </p>
+          <span class="bold_code bc-15"><a href="megaco_user.html#trans_reply">handle_trans_reply</a></span>. </p>
         <p>In the case of reply, megaco will cancel the reply and information
           of this will be returned to the user via a call to the 
           callback function 
-          <span class="bold_code"><a href="megaco_user.html#trans_ack">handle_trans_ack</a></span>. </p>
+          <span class="bold_code bc-15"><a href="megaco_user.html#trans_ack">handle_trans_ack</a></span>. </p>
 
         <p>The function <span class="code">send_message/3</span> will only be called if the 
-          <span class="bold_code"><a href="megaco.html#ui_resend_indication">resend_indication</a></span>
+          <span class="bold_code bc-15"><a href="megaco.html#ui_resend_indication">resend_indication</a></span>
           config option has been set to the value <span class="code">flag</span>. The third 
           argument, <span class="code">Resend</span> then indicates if the message send is 
           a resend or not. </p>
 
         <a name="resend_message"></a>
       </p></div>
+</div>
+</div>
 
-    <p><a name="Module:resend_message-2"></a><span class="bold_code">Module:resend_message(Handle, Msg) -&gt; ok | {cancel, Reason} | Error</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="Module:resend_message-2"></a><span class="bold_code bc-9">Module:resend_message(Handle, Msg) -&gt; ok | {cancel, Reason} | Error</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Handle = term()</span><br>
+<span class="bold_code bc-11">Handle = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Msg = binary() | iolist()</span><br>
+<span class="bold_code bc-11">Msg = binary() | iolist()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Error = term()</span><br>
+<span class="bold_code bc-11">Error = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Re-send a megaco message. </p>
         <p>Note that this function will only be called if the user has set the 
-          <span class="bold_code"><a href="megaco.html#ui_resend_indication">resend_indication</a></span> 
+          <span class="bold_code bc-15"><a href="megaco.html#ui_resend_indication">resend_indication</a></span> 
           config option to <span class="code">true</span><strong>and</strong> it is in fact a message 
           resend. If not <strong>both</strong> of these condition's are meet, 
           <span class="code">send_message</span> will be called. </p>
@@ -383,17 +394,19 @@
           (after a successfull send). The information will be propagated
           back to the user differently depending on how the request(s) where
           issued: For requests issued using 
-          <span class="bold_code"><a href="megaco.html#call">megaco:call</a></span>, the info
+          <span class="bold_code bc-15"><a href="megaco.html#call">megaco:call</a></span>, the info
           will be delivered in the return value. For requests issued 
           using <span class="code">megaco:cast</span> the info will be delivered via a call
           to the callback function 
-          <span class="bold_code"><a href="megaco_user.html#trans_reply">handle_trans_reply</a></span>. </p>
+          <span class="bold_code bc-15"><a href="megaco_user.html#trans_reply">handle_trans_reply</a></span>. </p>
         <p>In the case of reply, megaco will cancel the reply and information
           of this will be returned to the user via a call to the 
           callback function 
-          <span class="bold_code"><a href="megaco_user.html#trans_ack">handle_trans_ack</a></span>. </p>
+          <span class="bold_code bc-15"><a href="megaco_user.html#trans_ack">handle_trans_ack</a></span>. </p>
       </p></div>
-  
+</div>
+</div>
+  </div>
 
 </div>
 <div class="footer">

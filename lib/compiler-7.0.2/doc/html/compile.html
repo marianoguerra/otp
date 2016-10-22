@@ -82,49 +82,62 @@
 <!-- refpage --><center><h1>compile</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">compile</div>
+<div class="REFBODY module-body">compile</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Erlang Compiler</div>
+<div class="REFBODY modules-summary-body">Erlang Compiler</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>This module provides an interface to the standard Erlang
       compiler. It can generate either a new file, which contains
       the object code, or return a binary, which can be loaded directly.
     </p>
-  </p></div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="env_compiler_options-0"></a><span class="bold_code">env_compiler_options()</span><br></p>
-<div class="REFBODY"><p>
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="env_compiler_options-0"></a><span class="bold_code bc-9">env_compiler_options()</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
 	<p>Return compiler options given via the environment variable
 	  <span class="code">ERL_COMPILER_OPTIONS</span>. If the value is a list, it is
 	  returned as is. If it is not a list, it is put into a list.
 	</p>
-      </p></div>
-    <p><a name="file-1"></a><span class="bold_code">file(File)</span><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="file-1"></a><span class="bold_code bc-9">file(File)</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Is the same as
 	  <span class="code">file(File, [verbose,report_errors,report_warnings])</span>.
 	</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="file-2"></a><span class="bold_code">file(File, Options) -&gt; CompRet</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="file-2"></a><span class="bold_code bc-9">file(File, Options) -&gt; CompRet</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">CompRet = ModRet | BinRet | ErrRet</span><br>
+<span class="bold_code bc-11">CompRet = ModRet | BinRet | ErrRet</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">ModRet = {ok,ModuleName} | {ok,ModuleName,Warnings}</span><br>
+<span class="bold_code bc-11">ModRet = {ok,ModuleName} | {ok,ModuleName,Warnings}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">BinRet = {ok,ModuleName,Binary} | {ok,ModuleName,Binary,Warnings}</span><br>
+<span class="bold_code bc-11">BinRet = {ok,ModuleName,Binary} | {ok,ModuleName,Binary,Warnings}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">ErrRet = error | {error,Errors,Warnings}</span><br>
+<span class="bold_code bc-11">ErrRet = error | {error,Errors,Warnings}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Compiles the code in the file <span class="code">File</span>, which is an
 	  Erlang source code file without the <span class="code">.erl</span> extension.
 	  <span class="code">Options</span> determine the behavior of the compiler.</p>
@@ -172,7 +185,7 @@
             <p>The compiler will emit informational warnings about binary
 	    matching optimizations (both successful and unsuccessful).
 	    For more information, see the section about
-	    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/efficiency_guide','binaryhandling.html#bin_opt_info');">bin_opt_info</a></span>
+	    <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','doc/efficiency_guide','binaryhandling.html#bin_opt_info');">bin_opt_info</a></span>
 	    in the Efficiency Guide.</p>
           </dd>
 
@@ -187,7 +200,7 @@
             <a name="debug_info"></a>
             <p>Includes debug information in the form of abstract code
               (see
-              <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','absform.html');">The Abstract Format</a></span>
+              <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','absform.html');">The Abstract Format</a></span>
               in ERTS User's Guide) in the compiled beam module. Tools
 	      such as Debugger, Xref, and Cover require
 	      the debug information to be included.</p>
@@ -197,7 +210,7 @@
               (<span class="code">encrypt_debug_info</span>) to prevent this.</p>
 
             <p>For details, see
-              <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','beam_lib.html#debug_info');">beam_lib(3)</a></span>.</p>
+              <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','beam_lib.html#debug_info');">beam_lib(3)</a></span>.</p>
           </dd>
 
           <dt><strong><span class="code">{debug_info_key,KeyString}</span></strong></dt>
@@ -215,7 +228,7 @@
               for encrypting the debug information. The default
               (and currently the only) type is <span class="code">des3_cbc</span>.</p>
             <p>For details, see
-              <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','beam_lib.html#debug_info');">beam_lib(3)</a></span>.</p>
+              <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','beam_lib.html#debug_info');">beam_lib(3)</a></span>.</p>
           </dd>
 
           <dt><strong><span class="code">encrypt_debug_info</span></strong></dt>
@@ -226,7 +239,7 @@
 	    </p>
 
 	    <p>For details, see
-              <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','beam_lib.html#debug_info');">beam_lib(3)</a></span>.</p>
+              <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','beam_lib.html#debug_info');">beam_lib(3)</a></span>.</p>
           </dd>
 
           <dt><strong><span class="code">makedep</span></strong></dt>
@@ -611,11 +624,11 @@ module.beam: module.erl \
 	      assembled list of deprecated functions in Erlang/OTP. To
 	      do a more general check, the Xref tool can be used.
 	      See also
-	      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','tools','xref.html#deprecated_function');">xref(3)</a></span>
+	      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','tools','xref.html#deprecated_function');">xref(3)</a></span>
               and the function
-	      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','tools','xref.html#m-1');">xref:m/1</a></span>, also
+	      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','tools','xref.html#m-1');">xref:m/1</a></span>, also
               accessible through the function 
-	    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','c.html#xm-1');">c:xm/1</a></span>.</p>
+	    <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','c.html#xm-1');">c:xm/1</a></span>.</p>
           </dd>
 
 	  <dt><strong><span class="code">{nowarn_deprecated_function, MFAs}</span></strong></dt>
@@ -637,7 +650,7 @@ module.beam: module.erl \
           <dd>
             <p>Emits warnings for calls to old type testing BIFs, 
 	    such as <span class="code">pid/1</span> and <span class="code">list/1</span>. See the
-	    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/reference_manual','expressions.html#guards');">Erlang Reference Manual</a></span>
+	    <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','doc/reference_manual','expressions.html#guards');">Erlang Reference Manual</a></span>
 	      for a complete list of type testing BIFs and their old
 	      equivalents. Default is to emit no warnings for calls to 
 	      old type testing BIFs.</p>
@@ -739,34 +752,44 @@ module.beam: module.erl \
 	  <strong>which</strong> file the line number of an error or a warning refers.
 	</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="forms-1"></a><span class="bold_code">forms(Forms)</span><br></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="forms-1"></a><span class="bold_code bc-9">forms(Forms)</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Is the same as
 	  <span class="code">forms(File, [verbose,report_errors,report_warnings])</span>.
 	</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="forms-2"></a><span class="bold_code">forms(Forms, Options) -&gt; CompRet</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="forms-2"></a><span class="bold_code bc-9">forms(Forms, Options) -&gt; CompRet</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Forms = [Form]</span><br>
+<span class="bold_code bc-11">Forms = [Form]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">CompRet = BinRet | ErrRet</span><br>
+<span class="bold_code bc-11">CompRet = BinRet | ErrRet</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">BinRet = {ok,ModuleName,BinaryOrCode} | {ok,ModuleName,BinaryOrCode,Warnings}</span><br>
+<span class="bold_code bc-11">BinRet = {ok,ModuleName,BinaryOrCode} | {ok,ModuleName,BinaryOrCode,Warnings}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">BinaryOrCode = binary() | term()</span><br>
+<span class="bold_code bc-11">BinaryOrCode = binary() | term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">ErrRet = error | {error,Errors,Warnings}</span><br>
+<span class="bold_code bc-11">ErrRet = error | {error,Errors,Warnings}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Analogous to <span class="code">file/1</span>, but takes a list of forms (in
 	  the Erlang abstract format representation) as first argument.
           Option <span class="code">binary</span> is implicit, that is, no object code
@@ -775,69 +798,97 @@ module.beam: module.erl \
 	  (an Erlang term, usually not a binary) is returned instead of 
 	a binary.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="format_error-1"></a><span class="bold_code">format_error(ErrorDescriptor) -&gt; chars()</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="format_error-1"></a><span class="bold_code bc-9">format_error(ErrorDescriptor) -&gt; chars()</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ErrorDescriptor = errordesc()</span><br>
+<span class="bold_code bc-11">ErrorDescriptor = errordesc()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Uses an <span class="code">ErrorDescriptor</span> and returns a deep list of
 	  characters that describes the error. This function is
 	  usually called implicitly when an <span class="code">ErrorInfo</span> structure 
 	(described in section 
-	<span class="bold_code"><a href="#error_information">Error Information</a></span>) is processed.</p>
+	<span class="bold_code data-type-ref"><a href="#error_information">Error Information</a></span>) is processed.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="output_generated-1"></a><span class="bold_code">output_generated(Options) -&gt; true | false</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="output_generated-1"></a><span class="bold_code bc-9">output_generated(Options) -&gt; true | false</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Options = [term()]</span><br>
+<span class="bold_code bc-11">Options = [term()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Determines whether the compiler generates a <span class="code">beam</span>
 	file with the given options. <span class="code">true</span> means that a <span class="code">beam</span>
 	file is generated. <span class="code">false</span> means that the compiler
 	generates some listing file, returns a binary, or merely
 	checks the syntax of the source code.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="noenv_file-2"></a><span class="bold_code">noenv_file(File, Options) -&gt; CompRet</span><br></p>
-<div class="REFBODY"><p>
-      <p>Works like <span class="bold_code"><a href="#file-2">file/2</a></span>,
+    <div class="func">
+<div class="func-title">
+<a name="noenv_file-2"></a><span class="bold_code bc-9">noenv_file(File, Options) -&gt; CompRet</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
+      <p>Works like <span class="bold_code data-type-ref"><a href="#file-2">file/2</a></span>,
 	 except that the environment variable <span class="code">ERL_COMPILER_OPTIONS</span>
 	 is not consulted.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="noenv_forms-2"></a><span class="bold_code">noenv_forms(Forms, Options) -&gt; CompRet</span><br></p>
-<div class="REFBODY"><p>
-        <p>Works like <span class="bold_code"><a href="#forms-2">forms/2</a></span>,
+    <div class="func">
+<div class="func-title">
+<a name="noenv_forms-2"></a><span class="bold_code bc-9">noenv_forms(Forms, Options) -&gt; CompRet</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
+        <p>Works like <span class="bold_code data-type-ref"><a href="#forms-2">forms/2</a></span>,
 	 except that the environment variable <span class="code">ERL_COMPILER_OPTIONS</span>
 	 is not consulted.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="noenv_output_generated-1"></a><span class="bold_code">noenv_output_generated(Options) -&gt; true | false</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="noenv_output_generated-1"></a><span class="bold_code bc-9">noenv_output_generated(Options) -&gt; true | false</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Options = [term()]</span><br>
+<span class="bold_code bc-11">Options = [term()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Works like
-	<span class="bold_code"><a href="#output_generated-1">output_generated/1</a></span>,
+	<span class="bold_code data-type-ref"><a href="#output_generated-1">output_generated/1</a></span>,
 	except that the environment variable <span class="code">ERL_COMPILER_OPTIONS</span>
 	is not consulted.</p>
       </p></div>
+</div>
+</div>
 
-  
+  </div>
 
-  <h3><a name="idm45845399320432">Default Compiler Options</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46687892180288">Default Compiler Options</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The (host operating system) environment variable
       <span class="code">ERL_COMPILER_OPTIONS</span> can be used to give default compiler
@@ -846,23 +897,23 @@ module.beam: module.erl \
       into a list.</p>
 
       <p>The list is appended to any options given to
-      <span class="bold_code"><a href="#file-2">file/2</a></span>,
-      <span class="bold_code"><a href="#forms-2">forms/2</a></span>, and
-      <span class="bold_code"><a href="#output_generated-1">output_generated/2</a></span>.
+      <span class="bold_code data-type-ref"><a href="#file-2">file/2</a></span>,
+      <span class="bold_code data-type-ref"><a href="#forms-2">forms/2</a></span>, and
+      <span class="bold_code data-type-ref"><a href="#output_generated-1">output_generated/2</a></span>.
       Use the alternative functions
-      <span class="bold_code"><a href="#noenv_file-2">noenv_file/2</a></span>,
-      <span class="bold_code"><a href="#noenv_forms-2">noenv_forms/2</a></span>, or
-      <span class="bold_code"><a href="#noenv_output_generated-1">noenv_output_generated/2</a></span>
+      <span class="bold_code data-type-ref"><a href="#noenv_file-2">noenv_file/2</a></span>,
+      <span class="bold_code data-type-ref"><a href="#noenv_forms-2">noenv_forms/2</a></span>, or
+      <span class="bold_code data-type-ref"><a href="#noenv_output_generated-1">noenv_output_generated/2</a></span>
       if you do not want the environment variable to be consulted,
       for example, if you are calling the compiler recursively from
       inside a parse transform.</p>
 
       <p>The list can be retrieved with
-      <span class="bold_code"><a href="#env_compiler_options-0">env_compiler_options/0</a></span>.</p>
+      <span class="bold_code data-type-ref"><a href="#env_compiler_options-0">env_compiler_options/0</a></span>.</p>
   </div>
 
-  <h3><a name="idm45845399328960">Inlining</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46687892188336">Inlining</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The compiler can do function inlining within an Erlang
       module. Inlining means that a call to a function is replaced with
@@ -919,8 +970,8 @@ pi() -&gt; 3.1416.
 -compile({inline_size,100}).</pre></div>
   </div>
 
-  <h3><a name="idm45845399094640">Inlining of List Functions</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46687892471184">Inlining of List Functions</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The compiler can also inline various list manipulation functions
       from the module <span class="code">list</span> in STDLIB.</p>
@@ -932,21 +983,21 @@ pi() -&gt; 3.1416.
 
     <p>The following functions are inlined:</p>
     <ul>
-      <li><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','lists.html#all-2');">lists:all/2</a></span></li>
-      <li><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','lists.html#any-2');">lists:any/2</a></span></li>
-      <li><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','lists.html#foreach-2');">lists:foreach/2</a></span></li>
-      <li><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','lists.html#map-2');">lists:map/2</a></span></li>
-      <li><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','lists.html#flatmap-2');">lists:flatmap/2</a></span></li>
-      <li><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','lists.html#filter-2');">lists:filter/2</a></span></li>
-      <li><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','lists.html#foldl-3');">lists:foldl/3</a></span></li>
-      <li><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','lists.html#foldr-3');">lists:foldr/3</a></span></li>
-      <li><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','lists.html#mapfoldl-3');">lists:mapfoldl/3</a></span></li>
-      <li><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','lists.html#mapfoldr-3');">lists:mapfoldr/3</a></span></li>
+      <li><span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','lists.html#all-2');">lists:all/2</a></span></li>
+      <li><span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','lists.html#any-2');">lists:any/2</a></span></li>
+      <li><span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','lists.html#foreach-2');">lists:foreach/2</a></span></li>
+      <li><span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','lists.html#map-2');">lists:map/2</a></span></li>
+      <li><span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','lists.html#flatmap-2');">lists:flatmap/2</a></span></li>
+      <li><span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','lists.html#filter-2');">lists:filter/2</a></span></li>
+      <li><span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','lists.html#foldl-3');">lists:foldl/3</a></span></li>
+      <li><span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','lists.html#foldr-3');">lists:foldr/3</a></span></li>
+      <li><span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','lists.html#mapfoldl-3');">lists:mapfoldl/3</a></span></li>
+      <li><span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','lists.html#mapfoldr-3');">lists:mapfoldr/3</a></span></li>
     </ul>
   </div>
 
-  <h3><a name="idm45845399478608">Parse Transformations</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46687892202224">Parse Transformations</a></h3>
+<div class="REFBODY rb-3">
     
 
     <p>Parse transformations are used when a programmer wants to use
@@ -955,9 +1006,9 @@ pi() -&gt; 3.1416.
   </div>
 
   <h3>
-<a name="error_information"></a><a name="idm45845399480560">Error Information</a>
+<a name="error_information"></a><a name="idm46687892205632">Error Information</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
 
@@ -977,14 +1028,14 @@ pi() -&gt; 3.1416.
 Module:format_error(ErrorDescriptor)</pre></div>
   </div>
 
-  <h3><a name="idm45845399104416">See Also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46687892048960">See Also</a></h3>
+<div class="REFBODY rb-3">
     
     <p>
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','epp.html');">epp(3)</a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','erl_id_trans.html');">erl_id_trans(3)</a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','erl_lint.html');">erl_lint(3)</a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','beam_lib.html');">beam_lib(3)</a></span>
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','epp.html');">epp(3)</a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','erl_id_trans.html');">erl_id_trans(3)</a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','erl_lint.html');">erl_lint(3)</a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','beam_lib.html');">beam_lib(3)</a></span>
     </p>
   </div>
 </div>

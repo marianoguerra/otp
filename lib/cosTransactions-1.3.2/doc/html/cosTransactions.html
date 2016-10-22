@@ -148,11 +148,11 @@
 <!-- refpage --><center><h1>cosTransactions</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">cosTransactions</div>
+<div class="REFBODY module-body">cosTransactions</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">The main module of the cosTransactions application.</div>
+<div class="REFBODY modules-summary-body">The main module of the cosTransactions application.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>To get access to the record definitions for the structures use:      <br>
 <span class="code">-include_lib("cosTransactions/include/CosTransactions.hrl").</span></p>
     <p>This module contains the functions for starting and stopping the application.
@@ -168,61 +168,84 @@
 <strong>comFailWait</strong> - default is 5000 milliseconds, i.e., before the application
        retries to contact unreachable transaction participants the application wait <span class="code">Time</span> milliseconds.</li>
     </ul>
-  </p></div>
+  </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="start-0"></a><span class="bold_code">start() -&gt; Return</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="start-0"></a><span class="bold_code bc-9">start() -&gt; Return</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Return = ok | {error, Reason}</span><br>
+<span class="bold_code bc-11">Return = ok | {error, Reason}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation starts the cosTransactions application.</p>
       </p></div>
-    <p><a name="stop-0"></a><span class="bold_code">stop() -&gt; Return</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="stop-0"></a><span class="bold_code bc-9">stop() -&gt; Return</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Return = ok | {error, Reason}</span><br>
+<span class="bold_code bc-11">Return = ok | {error, Reason}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation stops the cosTransactions application.</p>
       </p></div>
-    <p><a name="start_factory-0"></a><span class="bold_code">start_factory() -&gt; TransactionFactory</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="start_factory-0"></a><span class="bold_code bc-9">start_factory() -&gt; TransactionFactory</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">TransactionFactory = #objref</span><br>
+<span class="bold_code bc-11">TransactionFactory = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
-        <p>This operation creates a <span class="bold_code"><a href="CosTransactions_TransactionFactory.html">Transaction Factory</a></span>.
-          The Factory is used to create a new top-level <span class="bold_code"><a href="CosTransactions_Control.html">transaction</a></span> using default options (see listing below).</p>
+<div class="REFBODY data-type-desc"><p>
+        <p>This operation creates a <span class="bold_code bc-19"><a href="CosTransactions_TransactionFactory.html">Transaction Factory</a></span>.
+          The Factory is used to create a new top-level <span class="bold_code bc-19"><a href="CosTransactions_Control.html">transaction</a></span> using default options (see listing below).</p>
       </p></div>
-    <p><a name="start_factory-1"></a><span class="bold_code">start_factory(FacDef) -&gt; TransactionFactory</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="start_factory-1"></a><span class="bold_code bc-9">start_factory(FacDef) -&gt; TransactionFactory</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">FacDef = [Options], see Option listing below.</span><br>
+<span class="bold_code bc-11">FacDef = [Options], see Option listing below.</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">TransactionFactory = #objref</span><br>
+<span class="bold_code bc-11">TransactionFactory = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
-        <p>This operation creates a <span class="bold_code"><a href="CosTransactions_TransactionFactory.html">Transaction Factory</a></span>.
+<div class="REFBODY data-type-desc"><p>
+        <p>This operation creates a <span class="bold_code bc-19"><a href="CosTransactions_TransactionFactory.html">Transaction Factory</a></span>.
           The Factory is used to create a new top-level transaction. </p>
         <p>The FacDef list must be a list of {Item, Value} tuples, 
           where the following values are allowed: </p>
         <ul>
           <li>{hash_max, HashValue} - 
            This value denotes the upper bound of the hash value the 
-          <span class="bold_code"><a href="CosTransactions_Coordinator.html">Coordinator</a></span> uses.
+          <span class="bold_code bc-19"><a href="CosTransactions_Coordinator.html">Coordinator</a></span> uses.
            Default is <span class="code">1013</span>. HashValue must be an integer.</li>
           <li>{allow_subtr, Boolean} -
-           If set to true it is possible to create <span class="bold_code"><a href="CosTransactions_Coordinator.html">subtransactions</a></span>.
+           If set to true it is possible to create <span class="bold_code bc-19"><a href="CosTransactions_Coordinator.html">subtransactions</a></span>.
            Default is <span class="code">true</span>.</li>
           <li>{typecheck, Boolean} -
            If set to to true all transaction operation's arguments will be type-checked.
@@ -248,20 +271,28 @@
            This option overrides the application configuration parameter.</li>
         </ul>
       </p></div>
-    <p><a name="stop_factory-1"></a><span class="bold_code">stop_factory(TransactionFactory) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="stop_factory-1"></a><span class="bold_code bc-9">stop_factory(TransactionFactory) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">TransactionFactory = #objref</span><br>
+<span class="bold_code bc-11">TransactionFactory = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = ok | {'EXCEPTION', E}</span><br>
+<span class="bold_code bc-11">Reply = ok | {'EXCEPTION', E}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation stop the target transaction factory.</p>
       </p></div>
-  
+</div>
+</div>
+  </div>
   
 </div>
 <div class="footer">

@@ -419,98 +419,129 @@
 <!-- refpage --><center><h1>CosNotifyFilter_FilterAdmin</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">CosNotifyFilter_FilterAdmin</div>
+<div class="REFBODY module-body">CosNotifyFilter_FilterAdmin</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">This module implements the OMG CosNotifyFilter::FilterAdmin interface.</div>
+<div class="REFBODY modules-summary-body">This module implements the OMG CosNotifyFilter::FilterAdmin interface.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>To get access to the record definitions for the structures use:      <br>
 <span class="code">-include_lib("cosNotification/include/*.hrl").</span></p>
     <p>All objects, which inherit this interface, export functions described in this module.</p>
-  </p></div>
+  </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="add_filter-2"></a><span class="bold_code">add_filter(Object, Filter) -&gt; FilterID</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="add_filter-2"></a><span class="bold_code bc-9">add_filter(Object, Filter) -&gt; FilterID</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Object = #objref</span><br>
+<span class="bold_code bc-11">Object = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Filter = #objref</span><br>
+<span class="bold_code bc-11">Filter = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">FilterID = long()</span><br>
+<span class="bold_code bc-11">FilterID = long()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation connects a new <span class="code">Filter</span> to the target object. This <span class="code">Filter</span> will, together
           with other associated <span class="code">Filters</span>, be used to select events to forward. A unique Id is
           returned and should be used if we no longer want to consult the given <span class="code">Filter</span>.</p>
       </p></div>
-    <p><a name="remove_filter-2"></a><span class="bold_code">remove_filter(Object, FilterID) -&gt; ok</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="remove_filter-2"></a><span class="bold_code bc-9">remove_filter(Object, FilterID) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Object = #objref</span><br>
+<span class="bold_code bc-11">Object = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">FilterID = long()</span><br>
+<span class="bold_code bc-11">FilterID = long()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>If a certain <span class="code">Filter</span> no longer should be associated with the target object
           this operation must be used. Events will no longer be tested against the <span class="code">Filter</span>
           associated with the given Id.</p>
       </p></div>
-    <p><a name="get_filter-2"></a><span class="bold_code">get_filter(Object, FilterID) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="get_filter-2"></a><span class="bold_code bc-9">get_filter(Object, FilterID) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Object = #objref</span><br>
+<span class="bold_code bc-11">Object = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">FilterID = long()</span><br>
+<span class="bold_code bc-11">FilterID = long()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = Filter | {'EXCEPTION', #'CosNotifyFilter_FilterNotFound'{}}</span><br>
+<span class="bold_code bc-11">Reply = Filter | {'EXCEPTION', #'CosNotifyFilter_FilterNotFound'{}}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Filter = #objref</span><br>
+<span class="bold_code bc-11">Filter = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>If the target object is associated with a <span class="code">Filter</span> matching the given Id the
           reference will be returned. If no such <span class="code">Filter</span> is known by the target object
           an exception is raised.</p>
       </p></div>
-    <p><a name="get_all_filters-1"></a><span class="bold_code">get_all_filters(Object) -&gt; FilterIDSeq</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="get_all_filters-1"></a><span class="bold_code bc-9">get_all_filters(Object) -&gt; FilterIDSeq</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Object = #objref</span><br>
+<span class="bold_code bc-11">Object = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">FilterIDSeq = [FilterID]</span><br>
+<span class="bold_code bc-11">FilterIDSeq = [FilterID]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">FilterID = long()</span><br>
+<span class="bold_code bc-11">FilterID = long()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Id's for all <span class="code">Filter</span> objects associated with the target object is
           returned by this operation.</p>
       </p></div>
-    <p><a name="remove_all_filters-1"></a><span class="bold_code">remove_all_filters(Object) -&gt; ok</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="remove_all_filters-1"></a><span class="bold_code bc-9">remove_all_filters(Object) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Object = #objref</span><br>
+<span class="bold_code bc-11">Object = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>If we want to remove all <span class="code">Filters</span> associated with the target object we can use this function.</p>
       </p></div>
-  
+</div>
+</div>
+  </div>
   
 </div>
 <div class="footer">

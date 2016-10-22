@@ -419,38 +419,43 @@
 <!-- refpage --><center><h1>CosNotifyChannelAdmin_EventChannelFactory</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">CosNotifyChannelAdmin_EventChannelFactory</div>
+<div class="REFBODY module-body">CosNotifyChannelAdmin_EventChannelFactory</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">This module implements the OMG  CosNotifyChannelAdmin::EventChannelFactory interface.</div>
+<div class="REFBODY modules-summary-body">This module implements the OMG  CosNotifyChannelAdmin::EventChannelFactory interface.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>To get access to the record definitions for the structures use:      <br>
 <span class="code">-include_lib("cosNotification/include/*.hrl").</span></p>
-  </p></div>
+  </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="create_channel-3"></a><span class="bold_code">create_channel(ChannelFactory, InitialQoS, InitialAdmin) -&gt; Return</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="create_channel-3"></a><span class="bold_code bc-9">create_channel(ChannelFactory, InitialQoS, InitialAdmin) -&gt; Return</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ChannelFactory = #objref</span><br>
+<span class="bold_code bc-11">ChannelFactory = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">InitialQoS = CosNotification::QoSProperties</span><br>
+<span class="bold_code bc-11">InitialQoS = CosNotification::QoSProperties</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">InitialAdmin = CosNotification::AdminProperties</span><br>
+<span class="bold_code bc-11">InitialAdmin = CosNotification::AdminProperties</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Return = {EventChannel, ChannelID}</span><br>
+<span class="bold_code bc-11">Return = {EventChannel, ChannelID}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">EventChannel = #objref</span><br>
+<span class="bold_code bc-11">EventChannel = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">ChannelID = long()</span><br>
+<span class="bold_code bc-11">ChannelID = long()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation creates a new event channel. Along with the channel
           reference an id is returned which can be used when invoking other
           operations exported by this module. The Quality of Service argument
@@ -460,40 +465,54 @@
           the <strong>default</strong> settings will be used. For more information, see the 
           User's Guide.</p>
       </p></div>
-    <p><a name="get_all_channels-1"></a><span class="bold_code">get_all_channels(ChannelFactory) -&gt; ChannelIDSeq</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="get_all_channels-1"></a><span class="bold_code bc-9">get_all_channels(ChannelFactory) -&gt; ChannelIDSeq</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ChannelFactory = #objref</span><br>
+<span class="bold_code bc-11">ChannelFactory = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">ChannelIDSeq = [long()]</span><br>
+<span class="bold_code bc-11">ChannelIDSeq = [long()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation returns a id sequence of all channel's created by this ChannelFactory.</p>
       </p></div>
-    <p><a name="get_event_channel-2"></a><span class="bold_code">get_event_channel(ChannelFactory, ChannelID) -&gt; Return</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="get_event_channel-2"></a><span class="bold_code bc-9">get_event_channel(ChannelFactory, ChannelID) -&gt; Return</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ChannelFactory = #objref</span><br>
+<span class="bold_code bc-11">ChannelFactory = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">ChannelID = long()</span><br>
+<span class="bold_code bc-11">ChannelID = long()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Retrurn = EventChannel | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+<span class="bold_code bc-11">Retrurn = EventChannel | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">EventChannel = #objref</span><br>
+<span class="bold_code bc-11">EventChannel = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation returns the EventChannel associated with the given id. If no channel is
           associated with the id, i.e., never existed or have been terminated, an exception is raised.</p>
       </p></div>
-  
+</div>
+</div>
+  </div>
   
 </div>
 <div class="footer">

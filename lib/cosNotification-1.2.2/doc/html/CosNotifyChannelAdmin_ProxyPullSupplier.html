@@ -419,92 +419,117 @@
 <!-- refpage --><center><h1>CosNotifyChannelAdmin_ProxyPullSupplier</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">CosNotifyChannelAdmin_ProxyPullSupplier</div>
+<div class="REFBODY module-body">CosNotifyChannelAdmin_ProxyPullSupplier</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">This module implements the OMG  CosNotifyChannelAdmin::ProxyPullSupplier interface.</div>
+<div class="REFBODY modules-summary-body">This module implements the OMG  CosNotifyChannelAdmin::ProxyPullSupplier interface.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>To get access to the record definitions for the structures use:      <br>
 <span class="code">-include_lib("cosNotification/include/*.hrl").</span></p>
     <p>This module also exports the functions described in:</p>
     <ul>
       <li>
-        <p><span class="bold_code"><a href="CosNotifyComm_NotifySubscribe.html">CosNotifyComm_NotifySubscribe</a></span></p>
+        <p><span class="bold_code bc-19"><a href="CosNotifyComm_NotifySubscribe.html">CosNotifyComm_NotifySubscribe</a></span></p>
       </li>
       <li>
-        <p><span class="bold_code"><a href="CosNotification_QoSAdmin.html">CosNotification_QoSAdmin</a></span></p>
+        <p><span class="bold_code bc-19"><a href="CosNotification_QoSAdmin.html">CosNotification_QoSAdmin</a></span></p>
       </li>
       <li>
-        <p><span class="bold_code"><a href="CosNotifyFilter_FilterAdmin.html">CosNotifyFilter_FilterAdmin</a></span></p>
+        <p><span class="bold_code bc-19"><a href="CosNotifyFilter_FilterAdmin.html">CosNotifyFilter_FilterAdmin</a></span></p>
       </li>
       <li>
-        <p><span class="bold_code"><a href="CosNotifyChannelAdmin_ProxySupplier.html">CosNotifyChannelAdmin_ProxySupplier</a></span></p>
+        <p><span class="bold_code bc-19"><a href="CosNotifyChannelAdmin_ProxySupplier.html">CosNotifyChannelAdmin_ProxySupplier</a></span></p>
       </li>
     </ul>
-  </p></div>
+  </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="connect_any_pull_consumer-2"></a><span class="bold_code">connect_any_pull_consumer(ProxyPullSupplier, PullConsumer) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="connect_any_pull_consumer-2"></a><span class="bold_code bc-9">connect_any_pull_consumer(ProxyPullSupplier, PullConsumer) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ProxyPullSupplier = #objref</span><br>
+<span class="bold_code bc-11">ProxyPullSupplier = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">PullConsumer = #objref</span><br>
+<span class="bold_code bc-11">PullConsumer = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = ok | {'EXCEPTION', #'CosEventChannelAdmin_AlreadyConnected'{}}</span><br>
+<span class="bold_code bc-11">Reply = ok | {'EXCEPTION', #'CosEventChannelAdmin_AlreadyConnected'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation connects the given <span class="code">PullConsumer</span> to the target object.
           If a connection already exists the <span class="code">AlreadyConnected</span> exception is
           raised.</p>
       </p></div>
-    <p><a name="pull-1"></a><span class="bold_code">pull(ProxyPullSupplier) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="pull-1"></a><span class="bold_code bc-9">pull(ProxyPullSupplier) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ProxyPullSupplier = #objref</span><br>
+<span class="bold_code bc-11">ProxyPullSupplier = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = #any | {'EXCEPTION', #'CosEventChannelAdmin_Disconnected'{}}</span><br>
+<span class="bold_code bc-11">Reply = #any | {'EXCEPTION', #'CosEventChannelAdmin_Disconnected'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation pulls next <span class="code">#any{}</span> event, and blocks, if the target object
           have no events to forward, until an event can be delivered. If no client have
           been connected the <span class="code">Disconnected</span> exception is raised.</p>
       </p></div>
-    <p><a name="try_pull-1"></a><span class="bold_code">try_pull(ProxyPullSupplier) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="try_pull-1"></a><span class="bold_code bc-9">try_pull(ProxyPullSupplier) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ProxyPullSupplier = #objref</span><br>
+<span class="bold_code bc-11">ProxyPullSupplier = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = {#any, HasEvent} | {'EXCEPTION', #'CosEventChannelAdmin_Disconnected'{}}</span><br>
+<span class="bold_code bc-11">Reply = {#any, HasEvent} | {'EXCEPTION', #'CosEventChannelAdmin_Disconnected'{}}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">HasEvent = boolean()</span><br>
+<span class="bold_code bc-11">HasEvent = boolean()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation pulls next event, but do not block if the target object
           have no event to forward. If no client have
           been connected the <span class="code">Disconnected</span> exception is raised.</p>
       </p></div>
-    <p><a name="disconnect_pull_supplier-1"></a><span class="bold_code">disconnect_pull_supplier(ProxyPullSupplier) -&gt; ok</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="disconnect_pull_supplier-1"></a><span class="bold_code bc-9">disconnect_pull_supplier(ProxyPullSupplier) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ProxyPullSupplier = #objref</span><br>
+<span class="bold_code bc-11">ProxyPullSupplier = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Invoking this operation will cause the target object to close the connection and terminate.</p>
       </p></div>
-  
+</div>
+</div>
+  </div>
   
 </div>
 <div class="footer">

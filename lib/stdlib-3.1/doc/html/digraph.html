@@ -1717,11 +1717,11 @@
 <!-- refpage --><center><h1>digraph</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">digraph</div>
+<div class="REFBODY module-body">digraph</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Directed graphs.</div>
+<div class="REFBODY modules-summary-body">Directed graphs.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>This module provides a version of labeled
       directed graphs. What makes the graphs provided here
       non-proper directed graphs is that multiple edges between
@@ -1801,44 +1801,57 @@
           is a digraph without cycles.</p>
       </li>
     </ul>
-  </p></div>
+  </div>
 
-  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
-    <p>
-      <span class="bold_code"><a name="type-d_type">d_type()</a> = <span class="bold_code"><a href="#type-d_cyclicity">d_cyclicity()</a></span> | <span class="bold_code"><a href="#type-d_protection">d_protection()</a></span></span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-d_cyclicity">d_cyclicity()</a> = acyclic | cyclic</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-d_protection">d_protection()</a> = private | protected</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-graph">graph()</a></span><br></p>
-<div class="REFBODY"><p><p>A digraph as returned by
-        <span class="bold_code"><a href="#new-0"><span class="code">new/0,1</span></a></span>.</p></p></div>
-    <p><a name="type-edge"></a><span class="bold_code">edge()</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-label">label()</a> = term()</span><br></p>
-    <p><a name="type-vertex"></a><span class="bold_code">vertex()</span><br></p>
-  
+  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
+<div class="data-types-body">
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-d_type">d_type()</a> = <span class="bold_code data-type-ref"><a href="#type-d_cyclicity">d_cyclicity()</a></span> | <span class="bold_code data-type-ref"><a href="#type-d_protection">d_protection()</a></span></span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-d_cyclicity">d_cyclicity()</a> = acyclic | cyclic</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-d_protection">d_protection()</a> = private | protected</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-graph">graph()</a></span><div class="REFBODY data-type-desc"><p><p>A digraph as returned by
+        <span class="bold_code data-type-ref"><a href="#new-0"><span class="code">new/0,1</span></a></span>.</p></p></div>
+</div>
+    <div class="data-type-def">
+<a name="type-edge"></a><span class="bold_code bc-8">edge()</span><br>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-label">label()</a> = term()</span>
+</div>
+    <div class="data-type-def">
+<a name="type-vertex"></a><span class="bold_code bc-8">vertex()</span><br>
+</div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="add_edge-3"></a><span class="bold_code">add_edge(G, V1, V2) -&gt; <span class="bold_code"><a href="#type-edge">edge()</a></span> | {error, add_edge_err_rsn()}</span><br><a name="add_edge-4"></a><span class="bold_code">add_edge(G, V1, V2, Label) -&gt; <span class="bold_code"><a href="#type-edge">edge()</a></span> | {error, add_edge_err_rsn()}</span><br><a name="add_edge-5"></a><span class="bold_code">add_edge(G, E, V1, V2, Label) -&gt;<br>            <span class="bold_code"><a href="#type-edge">edge()</a></span> | {error, add_edge_err_rsn()}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">G = <span class="bold_code"><a href="#type-graph">graph()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">E = <span class="bold_code"><a href="#type-edge">edge()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">V1 = V2 = <span class="bold_code"><a href="#type-vertex">vertex()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Label = <span class="bold_code"><a href="#type-label">label()</a></span></span></div>
-<div class="REFTYPES">
-      <span class="bold_code">add_edge_err_rsn() = <br>    {bad_edge, Path :: [<span class="bold_code"><a href="#type-vertex">vertex()</a></span>]} | {bad_vertex, V :: <span class="bold_code"><a href="#type-vertex">vertex()</a></span>}</span><br>
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="add_edge-3"></a><span class="bold_code func-name">add_edge(G, V1, V2) -&gt; <span class="bold_code data-type-ref"><a href="#type-edge">edge()</a></span> | {error, add_edge_err_rsn()}</span><a name="add_edge-4"></a><span class="bold_code func-name">add_edge(G, V1, V2, Label) -&gt; <span class="bold_code data-type-ref"><a href="#type-edge">edge()</a></span> | {error, add_edge_err_rsn()}</span><a name="add_edge-5"></a><span class="bold_code func-name">add_edge(G, E, V1, V2, Label) -&gt;<br>            <span class="bold_code data-type-ref"><a href="#type-edge">edge()</a></span> | {error, add_edge_err_rsn()}</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">G = <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">E = <span class="bold_code data-type-ref"><a href="#type-edge">edge()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">V1 = V2 = <span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Label = <span class="bold_code data-type-ref"><a href="#type-label">label()</a></span></span></div>
+<div class="REFTYPES local-type">
+      <span class="bold_code type-head">add_edge_err_rsn() = <br>    {bad_edge, Path :: [<span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span>]} | {bad_vertex, V :: <span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span>}</span><br>
 </div>
-</div></p>
-<div class="REFBODY"><p>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p><span class="code">add_edge/5</span> creates (or modifies) edge <span class="code">E</span>
           of digraph <span class="code">G</span>, using <span class="code">Label</span> as
-          the (new) <span class="bold_code"><a href="#label">label</a></span> of the edge. The
-          edge is <span class="bold_code"><a href="#emanate">emanating</a></span> from
+          the (new) <span class="bold_code data-type-ref"><a href="#label">label</a></span> of the edge. The
+          edge is <span class="bold_code data-type-ref"><a href="#emanate">emanating</a></span> from
           <span class="code">V1</span> and
-          <span class="bold_code"><a href="#incident">incident</a></span>
+          <span class="bold_code data-type-ref"><a href="#incident">incident</a></span>
           on <span class="code">V2</span>. Returns <span class="code">E</span>.</p>
         <p><span class="code">add_edge(G, V1, V2, Label)</span>
           is equivalent to
@@ -1851,26 +1864,30 @@
           <span class="code">add_edge(G, V1, V2, [])</span>.
         </p>
         <p>If the edge would create a cycle in
-          an <span class="bold_code"><a href="#acyclic_digraph">acyclic digraph</a></span>,
+          an <span class="bold_code data-type-ref"><a href="#acyclic_digraph">acyclic digraph</a></span>,
           <span class="code">{error, {bad_edge, Path}}</span> is returned.
           If either of <span class="code">V1</span> or <span class="code">V2</span> is not
           a vertex of digraph <span class="code">G</span>,
           <span class="code">{error, {bad_vertex, </span>V<span class="code">}}</span> is
           returned, V = <span class="code">V1</span> or
           V = <span class="code">V2</span>.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="add_vertex-1"></a><span class="bold_code">add_vertex(G) -&gt; <span class="bold_code"><a href="#type-vertex">vertex()</a></span></span><br><a name="add_vertex-2"></a><span class="bold_code">add_vertex(G, V) -&gt; <span class="bold_code"><a href="#type-vertex">vertex()</a></span></span><br><a name="add_vertex-3"></a><span class="bold_code">add_vertex(G, V, Label) -&gt; <span class="bold_code"><a href="#type-vertex">vertex()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">G = <span class="bold_code"><a href="#type-graph">graph()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">V = <span class="bold_code"><a href="#type-vertex">vertex()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Label = <span class="bold_code"><a href="#type-label">label()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="add_vertex-1"></a><span class="bold_code func-name">add_vertex(G) -&gt; <span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span></span><a name="add_vertex-2"></a><span class="bold_code func-name">add_vertex(G, V) -&gt; <span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span></span><a name="add_vertex-3"></a><span class="bold_code func-name">add_vertex(G, V, Label) -&gt; <span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span></span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">G = <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">V = <span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Label = <span class="bold_code data-type-ref"><a href="#type-label">label()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p><span class="code">add_vertex/3</span> creates (or modifies) vertex
           <span class="code">V</span> of digraph <span class="code">G</span>, using
           <span class="code">Label</span> as the (new)
-          <span class="bold_code"><a href="#label">label</a></span> of the
+          <span class="bold_code data-type-ref"><a href="#label">label</a></span> of the
           vertex. Returns <span class="code">V</span>.</p>
         <p><span class="code">add_vertex(G, V)</span> is equivalent
           to <span class="code">add_vertex(G, V, [])</span>.
@@ -1879,50 +1896,62 @@
           as label, and returns the created vertex. The created vertex
           is represented by term <span class="code">['$v' | N]</span>,
           where <span class="code">N</span> is an integer &gt;= 0.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="del_edge-2"></a><span class="bold_code">del_edge(G, E) -&gt; true</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">G = <span class="bold_code"><a href="#type-graph">graph()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">E = <span class="bold_code"><a href="#type-edge">edge()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="del_edge-2"></a><span class="bold_code func-name">del_edge(G, E) -&gt; true</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">G = <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">E = <span class="bold_code data-type-ref"><a href="#type-edge">edge()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Deletes edge <span class="code">E</span> from digraph
           <span class="code">G</span>.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="del_edges-2"></a><span class="bold_code">del_edges(G, Edges) -&gt; true</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">G = <span class="bold_code"><a href="#type-graph">graph()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Edges = [<span class="bold_code"><a href="#type-edge">edge()</a></span>]</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="del_edges-2"></a><span class="bold_code func-name">del_edges(G, Edges) -&gt; true</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">G = <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Edges = [<span class="bold_code data-type-ref"><a href="#type-edge">edge()</a></span>]</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Deletes the edges in list <span class="code">Edges</span> from digraph
           <span class="code">G</span>.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="del_path-3"></a><span class="bold_code">del_path(G, V1, V2) -&gt; true</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">G = <span class="bold_code"><a href="#type-graph">graph()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">V1 = V2 = <span class="bold_code"><a href="#type-vertex">vertex()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="del_path-3"></a><span class="bold_code func-name">del_path(G, V1, V2) -&gt; true</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">G = <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">V1 = V2 = <span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Deletes edges from digraph <span class="code">G</span> until there are no
-          <span class="bold_code"><a href="#path">paths</a></span> from vertex
+          <span class="bold_code data-type-ref"><a href="#path">paths</a></span> from vertex
           <span class="code">V1</span> to vertex <span class="code">V2</span>.</p>
         <p>A sketch of the procedure employed:</p>
         <ul>
           <li>
             <p>Find an arbitrary
-              <span class="bold_code"><a href="#simple_path">simple path</a></span>
+              <span class="bold_code data-type-ref"><a href="#simple_path">simple path</a></span>
               v[1], v[2], ..., v[k] from <span class="code">V1</span>
               to <span class="code">V2</span> in <span class="code">G</span>.</p>
           </li>
           <li>
             <p>Remove all edges of <span class="code">G</span>
-              <span class="bold_code"><a href="#emanate">emanating</a></span> from v[i] and
-              <span class="bold_code"><a href="#incident">incident</a></span> to v[i+1] for
+              <span class="bold_code data-type-ref"><a href="#emanate">emanating</a></span> from v[i] and
+              <span class="bold_code data-type-ref"><a href="#incident">incident</a></span> to v[i+1] for
               1 &lt;= i &lt; k (including multiple
               edges).</p>
           </li>
@@ -1931,116 +1960,148 @@
               and <span class="code">V2</span>.</p>
           </li>
 	</ul>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="del_vertex-2"></a><span class="bold_code">del_vertex(G, V) -&gt; true</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">G = <span class="bold_code"><a href="#type-graph">graph()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">V = <span class="bold_code"><a href="#type-vertex">vertex()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="del_vertex-2"></a><span class="bold_code func-name">del_vertex(G, V) -&gt; true</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">G = <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">V = <span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Deletes vertex <span class="code">V</span> from digraph
           <span class="code">G</span>. Any edges
-          <span class="bold_code"><a href="#emanate">emanating</a></span> from
+          <span class="bold_code data-type-ref"><a href="#emanate">emanating</a></span> from
           <span class="code">V</span> or
-          <span class="bold_code"><a href="#incident">incident</a></span>
+          <span class="bold_code data-type-ref"><a href="#incident">incident</a></span>
           on <span class="code">V</span> are also deleted.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="del_vertices-2"></a><span class="bold_code">del_vertices(G, Vertices) -&gt; true</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">G = <span class="bold_code"><a href="#type-graph">graph()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Vertices = [<span class="bold_code"><a href="#type-vertex">vertex()</a></span>]</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="del_vertices-2"></a><span class="bold_code func-name">del_vertices(G, Vertices) -&gt; true</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">G = <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Vertices = [<span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span>]</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Deletes the vertices in list <span class="code">Vertices</span> from
           digraph <span class="code">G</span>.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="delete-1"></a><span class="bold_code">delete(G) -&gt; true</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">G = <span class="bold_code"><a href="#type-graph">graph()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="delete-1"></a><span class="bold_code func-name">delete(G) -&gt; true</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">G = <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Deletes digraph <span class="code">G</span>. This call is important
           as digraphs are implemented with ETS. There is
           no garbage collection of ETS tables. However, the digraph
           is deleted if the process that created the digraph terminates.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="edge-2"></a><span class="bold_code">edge(G, E) -&gt; {E, V1, V2, Label} | false</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">G = <span class="bold_code"><a href="#type-graph">graph()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">E = <span class="bold_code"><a href="#type-edge">edge()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">V1 = V2 = <span class="bold_code"><a href="#type-vertex">vertex()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Label = <span class="bold_code"><a href="#type-label">label()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="edge-2"></a><span class="bold_code func-name">edge(G, E) -&gt; {E, V1, V2, Label} | false</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">G = <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">E = <span class="bold_code data-type-ref"><a href="#type-edge">edge()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">V1 = V2 = <span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Label = <span class="bold_code data-type-ref"><a href="#type-label">label()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns
           <span class="code">{E, V1, V2, Label}</span>,
           where <span class="code">Label</span> is the
-          <span class="bold_code"><a href="#label">label</a></span> of edge
-	  <span class="code">E</span> <span class="bold_code"><a href="#emanate">emanating</a></span>
+          <span class="bold_code data-type-ref"><a href="#label">label</a></span> of edge
+	  <span class="code">E</span> <span class="bold_code data-type-ref"><a href="#emanate">emanating</a></span>
           from <span class="code">V1</span> and
-          <span class="bold_code"><a href="#incident">incident</a></span> on
+          <span class="bold_code data-type-ref"><a href="#incident">incident</a></span> on
           <span class="code">V2</span> of digraph <span class="code">G</span>.
 	  If no edge <span class="code">E</span> of
           digraph <span class="code">G</span> exists, <span class="code">false</span> is returned.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="edges-1"></a><span class="bold_code">edges(G) -&gt; Edges</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">G = <span class="bold_code"><a href="#type-graph">graph()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Edges = [<span class="bold_code"><a href="#type-edge">edge()</a></span>]</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="edges-1"></a><span class="bold_code func-name">edges(G) -&gt; Edges</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">G = <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Edges = [<span class="bold_code data-type-ref"><a href="#type-edge">edge()</a></span>]</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns a list of all edges of digraph <span class="code">G</span>, in
           some unspecified order.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="edges-2"></a><span class="bold_code">edges(G, V) -&gt; Edges</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">G = <span class="bold_code"><a href="#type-graph">graph()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">V = <span class="bold_code"><a href="#type-vertex">vertex()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Edges = [<span class="bold_code"><a href="#type-edge">edge()</a></span>]</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="edges-2"></a><span class="bold_code func-name">edges(G, V) -&gt; Edges</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">G = <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">V = <span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Edges = [<span class="bold_code data-type-ref"><a href="#type-edge">edge()</a></span>]</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns a list of all
-        edges <span class="bold_code"><a href="#emanate">emanating</a></span> from or 
-        <span class="bold_code"><a href="#incident">incident</a></span> on<span class="code">V</span>
+        edges <span class="bold_code data-type-ref"><a href="#emanate">emanating</a></span> from or 
+        <span class="bold_code data-type-ref"><a href="#incident">incident</a></span> on<span class="code">V</span>
         of digraph <span class="code">G</span>, in some unspecified order.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="get_cycle-2"></a><span class="bold_code">get_cycle(G, V) -&gt; Vertices | false</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">G = <span class="bold_code"><a href="#type-graph">graph()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">V = <span class="bold_code"><a href="#type-vertex">vertex()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Vertices = [<span class="bold_code"><a href="#type-vertex">vertex()</a></span>, ...]</span></div>
-</div></p>
-<div class="REFBODY"><p>
-        <p>If a <span class="bold_code"><a href="#simple_cycle">simple cycle</a></span> of
+    <div class="func">
+<div class="func-title">
+<a name="get_cycle-2"></a><span class="bold_code func-name">get_cycle(G, V) -&gt; Vertices | false</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">G = <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">V = <span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Vertices = [<span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span>, ...]</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
+        <p>If a <span class="bold_code data-type-ref"><a href="#simple_cycle">simple cycle</a></span> of
           length two or more exists through vertex <span class="code">V</span>, the
           cycle is returned as a list
           <span class="code">[V, ..., V]</span> of vertices.
-          If a <span class="bold_code"><a href="#loop">loop</a></span> through
+          If a <span class="bold_code data-type-ref"><a href="#loop">loop</a></span> through
           <span class="code">V</span> exists, the loop is returned as a list
           <span class="code">[V]</span>. If no cycles through
           <span class="code">V</span> exist, <span class="code">false</span> is returned.</p>
-        <p><span class="bold_code"><a href="#get_path-3"><span class="code">get_path/3</span></a></span> is used
+        <p><span class="bold_code data-type-ref"><a href="#get_path-3"><span class="code">get_path/3</span></a></span> is used
           for finding a simple cycle through <span class="code">V</span>.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="get_path-3"></a><span class="bold_code">get_path(G, V1, V2) -&gt; Vertices | false</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">G = <span class="bold_code"><a href="#type-graph">graph()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">V1 = V2 = <span class="bold_code"><a href="#type-vertex">vertex()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Vertices = [<span class="bold_code"><a href="#type-vertex">vertex()</a></span>, ...]</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="get_path-3"></a><span class="bold_code func-name">get_path(G, V1, V2) -&gt; Vertices | false</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">G = <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">V1 = V2 = <span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Vertices = [<span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span>, ...]</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Tries to find
-          a <span class="bold_code"><a href="#simple_path">simple path</a></span> from vertex 
+          a <span class="bold_code data-type-ref"><a href="#simple_path">simple path</a></span> from vertex 
           <span class="code">V1</span> to vertex <span class="code">V2</span> of digraph
           <span class="code">G</span>. Returns the path as a list
           <span class="code">[V1, ..., V2]</span> of vertices,
@@ -2048,38 +2109,46 @@
           <span class="code">V2</span> of length one or more exists.</p>
         <p>Digraph <span class="code">G</span> is traversed in a depth-first manner,
           and the first found path is returned.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="get_short_cycle-2"></a><span class="bold_code">get_short_cycle(G, V) -&gt; Vertices | false</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">G = <span class="bold_code"><a href="#type-graph">graph()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">V = <span class="bold_code"><a href="#type-vertex">vertex()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Vertices = [<span class="bold_code"><a href="#type-vertex">vertex()</a></span>, ...]</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="get_short_cycle-2"></a><span class="bold_code func-name">get_short_cycle(G, V) -&gt; Vertices | false</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">G = <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">V = <span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Vertices = [<span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span>, ...]</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Tries to find an as short as possible
-          <span class="bold_code"><a href="#simple_cycle">simple cycle</a></span> through
+          <span class="bold_code data-type-ref"><a href="#simple_cycle">simple cycle</a></span> through
           vertex <span class="code">V</span> of digraph <span class="code">G</span>. Returns the cycle
           as a list <span class="code">[V, ..., V]</span>
           of vertices, or
           <span class="code">false</span> if no simple cycle through <span class="code">V</span> exists.
-          Notice that a <span class="bold_code"><a href="#loop">loop</a></span> through
+          Notice that a <span class="bold_code data-type-ref"><a href="#loop">loop</a></span> through
           <span class="code">V</span> is returned as list
           <span class="code">[V, V]</span>.</p>
-        <p><span class="bold_code"><a href="#get_short_path-3"><span class="code">get_short_path/3</span></a></span>
+        <p><span class="bold_code data-type-ref"><a href="#get_short_path-3"><span class="code">get_short_path/3</span></a></span>
           is used for finding a simple cycle through <span class="code">V</span>.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="get_short_path-3"></a><span class="bold_code">get_short_path(G, V1, V2) -&gt; Vertices | false</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">G = <span class="bold_code"><a href="#type-graph">graph()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">V1 = V2 = <span class="bold_code"><a href="#type-vertex">vertex()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Vertices = [<span class="bold_code"><a href="#type-vertex">vertex()</a></span>, ...]</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="get_short_path-3"></a><span class="bold_code func-name">get_short_path(G, V1, V2) -&gt; Vertices | false</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">G = <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">V1 = V2 = <span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Vertices = [<span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span>, ...]</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Tries to find an as short as possible
-          <span class="bold_code"><a href="#simple_path">simple path</a></span> from vertex
+          <span class="bold_code data-type-ref"><a href="#simple_path">simple path</a></span> from vertex
           <span class="code">V1</span> to vertex <span class="code">V2</span> of digraph
           <span class="code">G</span>. Returns the path as a list
           <span class="code">[V1, ..., V2]</span> of
@@ -2088,56 +2157,72 @@
           to <span class="code">V2</span> of length one or more exists.</p>
         <p>Digraph <span class="code">G</span> is traversed in a breadth-first
           manner, and the first found path is returned.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="in_degree-2"></a><span class="bold_code">in_degree(G, V) -&gt; integer() &gt;= 0</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">G = <span class="bold_code"><a href="#type-graph">graph()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">V = <span class="bold_code"><a href="#type-vertex">vertex()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
-        <p>Returns the <span class="bold_code"><a href="#in_degree">in-degree</a></span> of
+    <div class="func">
+<div class="func-title">
+<a name="in_degree-2"></a><span class="bold_code func-name">in_degree(G, V) -&gt; integer() &gt;= 0</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">G = <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">V = <span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
+        <p>Returns the <span class="bold_code data-type-ref"><a href="#in_degree">in-degree</a></span> of
           vertex <span class="code">V</span> of digraph <span class="code">G</span>.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="in_edges-2"></a><span class="bold_code">in_edges(G, V) -&gt; Edges</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">G = <span class="bold_code"><a href="#type-graph">graph()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">V = <span class="bold_code"><a href="#type-vertex">vertex()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Edges = [<span class="bold_code"><a href="#type-edge">edge()</a></span>]</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="in_edges-2"></a><span class="bold_code func-name">in_edges(G, V) -&gt; Edges</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">G = <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">V = <span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Edges = [<span class="bold_code data-type-ref"><a href="#type-edge">edge()</a></span>]</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns a list of all
-          edges <span class="bold_code"><a href="#incident">incident</a></span> on
+          edges <span class="bold_code data-type-ref"><a href="#incident">incident</a></span> on
           <span class="code">V</span> of digraph <span class="code">G</span>,
           in some unspecified order.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="in_neighbours-2"></a><span class="bold_code">in_neighbours(G, V) -&gt; Vertex</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">G = <span class="bold_code"><a href="#type-graph">graph()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">V = <span class="bold_code"><a href="#type-vertex">vertex()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Vertex = [<span class="bold_code"><a href="#type-vertex">vertex()</a></span>]</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="in_neighbours-2"></a><span class="bold_code func-name">in_neighbours(G, V) -&gt; Vertex</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">G = <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">V = <span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Vertex = [<span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span>]</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns a list of
-          all <span class="bold_code"><a href="#in_neighbour">in-neighbors</a></span> of 
+          all <span class="bold_code data-type-ref"><a href="#in_neighbour">in-neighbors</a></span> of 
           <span class="code">V</span> of digraph <span class="code">G</span>,
           in some unspecified order.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="info-1"></a><span class="bold_code">info(G) -&gt; InfoList</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">G = <span class="bold_code"><a href="#type-graph">graph()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">InfoList = <br>    [{cyclicity, Cyclicity :: <span class="bold_code"><a href="#type-d_cyclicity">d_cyclicity()</a></span>} |<br>     {memory, NoWords :: integer() &gt;= 0} |<br>     {protection, Protection :: <span class="bold_code"><a href="#type-d_protection">d_protection()</a></span>}]</span></div>
-<div class="REFTYPES">
-      <span class="bold_code">d_cyclicity() = acyclic | cyclic</span><br>
+    <div class="func">
+<div class="func-title">
+<a name="info-1"></a><span class="bold_code func-name">info(G) -&gt; InfoList</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">G = <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">InfoList = <br>    [{cyclicity, Cyclicity :: <span class="bold_code data-type-ref"><a href="#type-d_cyclicity">d_cyclicity()</a></span>} |<br>     {memory, NoWords :: integer() &gt;= 0} |<br>     {protection, Protection :: <span class="bold_code data-type-ref"><a href="#type-d_protection">d_protection()</a></span>}]</span></div>
+<div class="REFTYPES local-type">
+      <span class="bold_code type-head">d_cyclicity() = acyclic | cyclic</span><br>
 </div>
-<div class="REFTYPES">
-      <span class="bold_code">d_protection() = private | protected</span><br>
+<div class="REFTYPES local-type">
+      <span class="bold_code type-head">d_protection() = private | protected</span><br>
 </div>
-</div></p>
-<div class="REFBODY"><p>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns a list of <span class="code">{Tag, Value}</span> pairs describing
           digraph <span class="code">G</span>. The following pairs are returned:</p>
         <ul>
@@ -2159,37 +2244,45 @@
               to the options given to <span class="code">new</span>.</p>
           </li>
         </ul>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="new-0"></a><span class="bold_code">new() -&gt; <span class="bold_code"><a href="#type-graph">graph()</a></span></span><br></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="new-0"></a><span class="bold_code func-name">new() -&gt; <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Equivalent to <span class="code">new([])</span>.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="new-1"></a><span class="bold_code">new(Type) -&gt; <span class="bold_code"><a href="#type-graph">graph()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Type = [<span class="bold_code"><a href="#type-d_type">d_type()</a></span>]</span></div>
-<div class="REFTYPES">
-      <span class="bold_code">d_type() = <span class="bold_code"><a href="#type-d_cyclicity">d_cyclicity()</a></span> | <span class="bold_code"><a href="#type-d_protection">d_protection()</a></span></span><br>
+    <div class="func">
+<div class="func-title">
+<a name="new-1"></a><span class="bold_code func-name">new(Type) -&gt; <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Type = [<span class="bold_code data-type-ref"><a href="#type-d_type">d_type()</a></span>]</span></div>
+<div class="REFTYPES local-type">
+      <span class="bold_code type-head">d_type() = <span class="bold_code data-type-ref"><a href="#type-d_cyclicity">d_cyclicity()</a></span> | <span class="bold_code data-type-ref"><a href="#type-d_protection">d_protection()</a></span></span><br>
 </div>
-<div class="REFTYPES">
-      <span class="bold_code">d_cyclicity() = acyclic | cyclic</span><br>
+<div class="REFTYPES local-type">
+      <span class="bold_code type-head">d_cyclicity() = acyclic | cyclic</span><br>
 </div>
-<div class="REFTYPES">
-      <span class="bold_code">d_protection() = private | protected</span><br>
+<div class="REFTYPES local-type">
+      <span class="bold_code type-head">d_protection() = private | protected</span><br>
 </div>
-</div></p>
-<div class="REFBODY"><p>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns
-          an <span class="bold_code"><a href="#empty_digraph">empty digraph</a></span> with 
+          an <span class="bold_code data-type-ref"><a href="#empty_digraph">empty digraph</a></span> with 
           properties according to the options in <span class="code">Type</span>:</p>
         <dl>
           <dt><strong><span class="code">cyclic</span></strong></dt>
-          <dd><p>Allows <span class="bold_code"><a href="#cycle">cycles</a></span> in the
+          <dd><p>Allows <span class="bold_code data-type-ref"><a href="#cycle">cycles</a></span> in the
             digraph (default).</p></dd>
           <dt><strong><span class="code">acyclic</span></strong></dt>
           <dd><p>The digraph is to be kept
-          <span class="bold_code"><a href="#acyclic_digraph">acyclic</a></span>.</p></dd>
+          <span class="bold_code data-type-ref"><a href="#acyclic_digraph">acyclic</a></span>.</p></dd>
           <dt><strong><span class="code">protected</span></strong></dt>
           <dd><p>Other processes can read the digraph (default).</p></dd>
           <dt><strong><span class="code">private</span></strong></dt>
@@ -2199,91 +2292,120 @@
         <p>If an unrecognized type option <span class="code">T</span> is specified or
            <span class="code">Type</span>
            is not a proper list, a <span class="code">badarg</span> exception is raised.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="no_edges-1"></a><span class="bold_code">no_edges(G) -&gt; integer() &gt;= 0</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">G = <span class="bold_code"><a href="#type-graph">graph()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="no_edges-1"></a><span class="bold_code func-name">no_edges(G) -&gt; integer() &gt;= 0</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">G = <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns the number of edges of digraph <span class="code">G</span>.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="no_vertices-1"></a><span class="bold_code">no_vertices(G) -&gt; integer() &gt;= 0</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">G = <span class="bold_code"><a href="#type-graph">graph()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="no_vertices-1"></a><span class="bold_code func-name">no_vertices(G) -&gt; integer() &gt;= 0</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">G = <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns the number of vertices of digraph <span class="code">G</span>.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="out_degree-2"></a><span class="bold_code">out_degree(G, V) -&gt; integer() &gt;= 0</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">G = <span class="bold_code"><a href="#type-graph">graph()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">V = <span class="bold_code"><a href="#type-vertex">vertex()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
-        <p>Returns the <span class="bold_code"><a href="#out_degree">out-degree</a></span> of
+    <div class="func">
+<div class="func-title">
+<a name="out_degree-2"></a><span class="bold_code func-name">out_degree(G, V) -&gt; integer() &gt;= 0</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">G = <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">V = <span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
+        <p>Returns the <span class="bold_code data-type-ref"><a href="#out_degree">out-degree</a></span> of
           vertex <span class="code">V</span> of digraph <span class="code">G</span>.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="out_edges-2"></a><span class="bold_code">out_edges(G, V) -&gt; Edges</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">G = <span class="bold_code"><a href="#type-graph">graph()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">V = <span class="bold_code"><a href="#type-vertex">vertex()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Edges = [<span class="bold_code"><a href="#type-edge">edge()</a></span>]</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="out_edges-2"></a><span class="bold_code func-name">out_edges(G, V) -&gt; Edges</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">G = <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">V = <span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Edges = [<span class="bold_code data-type-ref"><a href="#type-edge">edge()</a></span>]</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns a list of all
-          edges <span class="bold_code"><a href="#emanate">emanating</a></span> from
+          edges <span class="bold_code data-type-ref"><a href="#emanate">emanating</a></span> from
           <span class="code">V</span> of digraph <span class="code">G</span>,
           in some unspecified order.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="out_neighbours-2"></a><span class="bold_code">out_neighbours(G, V) -&gt; Vertices</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">G = <span class="bold_code"><a href="#type-graph">graph()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">V = <span class="bold_code"><a href="#type-vertex">vertex()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Vertices = [<span class="bold_code"><a href="#type-vertex">vertex()</a></span>]</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="out_neighbours-2"></a><span class="bold_code func-name">out_neighbours(G, V) -&gt; Vertices</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">G = <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">V = <span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Vertices = [<span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span>]</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns a list of 
-          all <span class="bold_code"><a href="#out_neighbour">out-neighbors</a></span> of 
+          all <span class="bold_code data-type-ref"><a href="#out_neighbour">out-neighbors</a></span> of 
           <span class="code">V</span> of digraph <span class="code">G</span>,
           in some unspecified order.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="vertex-2"></a><span class="bold_code">vertex(G, V) -&gt; {V, Label} | false</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">G = <span class="bold_code"><a href="#type-graph">graph()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">V = <span class="bold_code"><a href="#type-vertex">vertex()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Label = <span class="bold_code"><a href="#type-label">label()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="vertex-2"></a><span class="bold_code func-name">vertex(G, V) -&gt; {V, Label} | false</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">G = <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">V = <span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Label = <span class="bold_code data-type-ref"><a href="#type-label">label()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns <span class="code">{V, Label}</span>,
           where <span class="code">Label</span> is the
-          <span class="bold_code"><a href="#label">label</a></span> of the vertex
+          <span class="bold_code data-type-ref"><a href="#label">label</a></span> of the vertex
           <span class="code">V</span> of digraph <span class="code">G</span>,
           or <span class="code">false</span> if no vertex <span class="code">V</span>
           of digraph <span class="code">G</span> exists.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="vertices-1"></a><span class="bold_code">vertices(G) -&gt; Vertices</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">G = <span class="bold_code"><a href="#type-graph">graph()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Vertices = [<span class="bold_code"><a href="#type-vertex">vertex()</a></span>]</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="vertices-1"></a><span class="bold_code func-name">vertices(G) -&gt; Vertices</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">G = <span class="bold_code data-type-ref"><a href="#type-graph">graph()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Vertices = [<span class="bold_code data-type-ref"><a href="#type-vertex">vertex()</a></span>]</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns a list of all vertices of digraph <span class="code">G</span>, in
           some unspecified order.</p>
-      </p></div>
-  
+      </p></div></div>
+</div>
+  </div>
 
-  <h3><a name="idm45518941944624">See Also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45461570615360">See Also</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="digraph_utils.html"><span class="code">digraph_utils(3)</span></a></span>,
-      <span class="bold_code"><a href="ets.html"><span class="code">ets(3)</span></a></span></p>
+    <p><span class="bold_code bc-19"><a href="digraph_utils.html"><span class="code">digraph_utils(3)</span></a></span>,
+      <span class="bold_code bc-19"><a href="ets.html"><span class="code">ets(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

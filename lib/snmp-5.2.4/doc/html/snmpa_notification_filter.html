@@ -802,11 +802,11 @@
 <!-- refpage --><center><h1>snmpa_notification_filter</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">snmpa_notification_filter</div>
+<div class="REFBODY module-body">snmpa_notification_filter</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Behaviour module for the SNMP agent notification filters.</div>
+<div class="REFBODY modules-summary-body">Behaviour module for the SNMP agent notification filters.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>This module defines the behaviour of the agent notification
       filters. A <span class="code">snmpa_notification_filter</span> compliant module 
       must export the following functions: </p>
@@ -820,31 +820,38 @@
     <p>The purpose of notification filters is to allow for modification
       and/or suppression of a notification.</p>
     <p>A misbehaving filter will be removed.</p>
-  </p></div>
+  </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="handle_notification-2"></a><span class="bold_code">handle_notification(Notif, Data) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="handle_notification-2"></a><span class="bold_code bc-9">handle_notification(Notif, Data) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Reply = send | {send, NewNotif} | dont_send</span><br>
+<span class="bold_code bc-11">Reply = send | {send, NewNotif} | dont_send</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Notif =  NewNotif = notification() | trap()</span><br>
+<span class="bold_code bc-11">Notif =  NewNotif = notification() | trap()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Data  = term()</span><br>
+<span class="bold_code bc-11">Data  = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Handle a notification to be sent. The filter can either
           accept the notification as is, return <span class="code">send</span>, modify
           the notification, return <span class="code">{send, NewNotif}</span> or
           suppress the notification, return <span class="code">dont_send</span>.</p>
         <p><span class="code">Data</span> is supplied at filter registration time,
-          see <span class="bold_code"><a href="snmpa.html#register_notification_filter">register_notification_filter</a></span>.
+          see <span class="bold_code bc-15"><a href="snmpa.html#register_notification_filter">register_notification_filter</a></span>.
           </p>
       </p></div>
-  
+</div>
+</div>
+  </div>
   
 </div>
 <div class="footer">

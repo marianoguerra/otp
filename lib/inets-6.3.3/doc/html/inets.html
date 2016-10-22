@@ -333,20 +333,20 @@
 <!-- refpage --><center><h1>inets</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">inets</div>
+<div class="REFBODY module-body">inets</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">The Inets services API.</div>
+<div class="REFBODY modules-summary-body">The Inets services API.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>This module provides the most basic API to the 
     clients and servers that are part of the <span class="code">Inets</span> application,
     such as start and stop.</p>
 
     <a name="common_data_types"></a>
-  </p></div>
+  </div>
 
-  <h3><a name="idm45664913671952">DATA TYPES</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45717577008656">DATA TYPES</a></h3>
+<div class="REFBODY rb-3">
     
     <p>Type definitions that are used more than once in
       this module:</p>
@@ -357,17 +357,22 @@
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="services-0"></a><span class="bold_code">services() -&gt; [{Service, Pid}]</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="services-0"></a><span class="bold_code bc-9">services() -&gt; [{Service, Pid}]</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Service = service()</span><br>
+<span class="bold_code bc-11">Service = service()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Pid = pid()</span><br>
+<span class="bold_code bc-11">Pid = pid()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Returns a list of currently running services.</p>
         <div class="note">
 <div class="label">Note</div>
@@ -378,27 +383,33 @@
 
 	<a name="services_info"></a>
       </p></div>
+</div>
+</div>
 
-    <p><a name="services_info-0"></a><span class="bold_code">services_info() -&gt; [{Service, Pid, Info}]</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="services_info-0"></a><span class="bold_code bc-9">services_info() -&gt; [{Service, Pid, Info}]</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Service = service()</span><br>
+<span class="bold_code bc-11">Service = service()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Pid = pid()</span><br>
+<span class="bold_code bc-11">Pid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Info = [{Option, Value}]</span><br>
+<span class="bold_code bc-11">Info = [{Option, Value}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Option = property()</span><br>
+<span class="bold_code bc-11">Option = property()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Value = term()</span><br>
+<span class="bold_code bc-11">Value = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Returns a list of currently running services where each
 	service is described by an <span class="code">[{Option, Value}]</span> list. The
 	information in the list is specific for each service
@@ -407,55 +418,73 @@
 
 	<a name="service_names"></a>
       </p></div>
+</div>
+</div>
     
-    <p><a name="service_names-0"></a><span class="bold_code">service_names() -&gt; [Service] </span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="service_names-0"></a><span class="bold_code bc-9">service_names() -&gt; [Service] </span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">Service = service()</span><br>
+<span class="bold_code bc-11">Service = service()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Returns a list of available service names.</p>
 
 	<a name="start"></a>
       </p></div>
+</div>
+</div>
     
-    <p><a name="start-0"></a><span class="bold_code">start() -&gt; </span><br><a name="start-1"></a><span class="bold_code">start(Type) -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="start-0"></a><span class="bold_code bc-9">start() -&gt; </span><br><a name="start-1"></a><span class="bold_code bc-9">start(Type) -&gt; ok | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Type = permanent | transient | temporary</span><br>
+<span class="bold_code bc-11">Type = permanent | transient | temporary</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Starts the <span class="code">Inets</span> application. Default type
 	is <span class="code">temporary</span>. See also
-	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','application.html');">application(3)</a></span>.</p>
+	<span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','application.html');">application(3)</a></span>.</p>
 
 	<a name="stop"></a>
       </p></div>
+</div>
+</div>
 
-    <p><a name="start-2"></a><span class="bold_code">start(Service, ServiceConfig) -&gt; {ok, Pid} | {error, Reason}</span><br><a name="start-3"></a><span class="bold_code">start(Service, ServiceConfig, How) -&gt; {ok, Pid} | {error, Reason}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="start-2"></a><span class="bold_code bc-9">start(Service, ServiceConfig) -&gt; {ok, Pid} | {error, Reason}</span><br><a name="start-3"></a><span class="bold_code bc-9">start(Service, ServiceConfig, How) -&gt; {ok, Pid} | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Service = service()</span><br>
+<span class="bold_code bc-11">Service = service()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">ServiceConfig = [{Option, Value}]</span><br>
+<span class="bold_code bc-11">ServiceConfig = [{Option, Value}]</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Option = property()</span><br>
+<span class="bold_code bc-11">Option = property()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Value = term()</span><br>
+<span class="bold_code bc-11">Value = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">How = inets | stand_alone - default is inets.</span><br>
+<span class="bold_code bc-11">How = inets | stand_alone - default is inets.</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Dynamically starts an <span class="code">Inets</span> service after the <span class="code">Inets</span>
           application has been started.</p>
         <div class="note">
@@ -480,29 +509,39 @@
 	
 	<a name="stop2"></a>
       </p></div>
+</div>
+</div>
 
-     <p><a name="stop-0"></a><span class="bold_code">stop() -&gt; ok </span><br></p>
-<div class="REFBODY"><p>
+     <div class="func">
+<div class="func-title">
+<a name="stop-0"></a><span class="bold_code bc-9">stop() -&gt; ok </span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Stops the <span class="code">Inets</span> application. See also
-	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','application.html');">application(3)</a></span>.</p>
+	<span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','application.html');">application(3)</a></span>.</p>
 	
 	<a name="start2"></a>
-      </p></div>
+      </p></div></div>
+</div>
     
-    <p><a name="stop-2"></a><span class="bold_code">stop(Service, Reference) -&gt; ok | {error, Reason} </span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="stop-2"></a><span class="bold_code bc-9">stop(Service, Reference) -&gt; ok | {error, Reason} </span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">Service = service() | stand_alone</span><br>
+<span class="bold_code bc-11">Service = service() | stand_alone</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Reference = pid() | term() - service-specified reference</span><br>
+<span class="bold_code bc-11">Reference = pid() | term() - service-specified reference</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Stops a started service of the <span class="code">Inets</span> application or takes
 	down a <span class="code">stand_alone</span>-service gracefully. When option
 	<span class="code">stand_alone</span> is used in start,
@@ -510,15 +549,17 @@
 	
 	<a name="see_also"></a>
       </p></div>
-  
+</div>
+</div>
+  </div>
 
-  <h3><a name="idm45664915246160">SEE ALSO</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45717577252816">SEE ALSO</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="ftp.html">ftp(3)</a></span>,
-      <span class="bold_code"><a href="httpc.html">httpc(3)</a></span>,
-      <span class="bold_code"><a href="httpd.html">httpd(3)</a></span>,
-      <span class="bold_code"><a href="tftp.html">tftp(3)</a></span></p>
+    <p><span class="bold_code bc-19"><a href="ftp.html">ftp(3)</a></span>,
+      <span class="bold_code bc-19"><a href="httpc.html">httpc(3)</a></span>,
+      <span class="bold_code bc-19"><a href="httpd.html">httpd(3)</a></span>,
+      <span class="bold_code bc-19"><a href="tftp.html">tftp(3)</a></span></p>
   </div>
   
 </div>

@@ -333,56 +333,75 @@
 <!-- refpage --><center><h1>httpd_custom_api</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">httpd_custom_api</div>
+<div class="REFBODY module-body">httpd_custom_api</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Behaviour with optional callbacks to customize the inets HTTP server.</div>
+<div class="REFBODY modules-summary-body">Behaviour with optional callbacks to customize the inets HTTP server.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p> The module implementing this behaviour shall be supplied to to the servers
-    configuration with the option <span class="bold_code"><a href="httpd.html#prop_customize">customize</a></span></p>
+    configuration with the option <span class="bold_code bc-15"><a href="httpd.html#prop_customize">customize</a></span></p>
     
-  </p></div>  
+  </div>  
   <h3><a name="exports" href="#exports">Exports</a></h3>
-     <p><a name="response_default_headers-0"></a><span class="bold_code">response_default_headers() -&gt; [Header] </span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+     <div class="func">
+<div class="func-title">
+<a name="response_default_headers-0"></a><span class="bold_code bc-9">response_default_headers() -&gt; [Header] </span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Header = {HeaderName :: string(), HeaderValue::string()}</span><br>
+<span class="bold_code bc-11">Header = {HeaderName :: string(), HeaderValue::string()}</span><br>
 </div>
-	<div class="REFBODY">string:to_lower/1 will be performed on the HeaderName</div>
+	<div class="REFBODY rb-1">string:to_lower/1 will be performed on the HeaderName</div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Provide default headers for the HTTP servers responses. Note that this
 	option may override built-in defaults. 
 	</p>
       </p></div>
+</div>
+</div>
     
-    <p><a name="response_header-1"></a><span class="bold_code">response_header({HeaderName, HeaderValue}) -&gt;  {true, Header} | false </span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="response_header-1"></a><span class="bold_code bc-9">response_header({HeaderName, HeaderValue}) -&gt;  {true, Header} | false </span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Header = {HeaderName :: string(), HeaderValue::string()}</span><br>
+<span class="bold_code bc-11">Header = {HeaderName :: string(), HeaderValue::string()}</span><br>
 </div>
-	<div class="REFBODY">The header name will be in lower case and should not be altered.</div>
+	<div class="REFBODY rb-1">The header name will be in lower case and should not be altered.</div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p> Filter and possible alter HTTP response headers before they are sent to the client.
 	</p>
       </p></div>
+</div>
+</div>
    
-    <p><a name="request_header-1"></a><span class="bold_code">request_header({HeaderName, HeaderValue}) -&gt;   {true, Header} | false </span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="request_header-1"></a><span class="bold_code bc-9">request_header({HeaderName, HeaderValue}) -&gt;   {true, Header} | false </span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">Header = {HeaderName :: string(), HeaderValue::string()}</span><br>
+<span class="bold_code bc-11">Header = {HeaderName :: string(), HeaderValue::string()}</span><br>
 </div>
-	<div class="REFBODY">The header name will be in lower case and should not be altered.</div>
+	<div class="REFBODY rb-1">The header name will be in lower case and should not be altered.</div>
 	</div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
 	  <p> Filter and possible alter HTTP request headers before they are processed by the server.
 	  </p>
 	</p></div>
-  
+</div>
+</div>
+  </div>
 </div>
 <div class="footer">
 <hr>

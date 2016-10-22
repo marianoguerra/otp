@@ -1717,112 +1717,155 @@
 <!-- refpage --><center><h1>erl_scan</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">erl_scan</div>
+<div class="REFBODY module-body">erl_scan</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">The Erlang token scanner.</div>
+<div class="REFBODY modules-summary-body">The Erlang token scanner.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>This module contains functions for tokenizing (scanning) characters into
       Erlang tokens.</p>
-  </p></div>
+  </div>
 
-  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
-    <p>
-      <span class="bold_code"><a name="type-category">category()</a> = atom()</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-error_description">error_description()</a> = term()</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-error_info">error_info()</a> = <br>    {<span class="bold_code"><a href="erl_anno.html#type-location">erl_anno:location()</a></span>, module(), <span class="bold_code"><a href="#type-error_description">error_description()</a></span>}</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-option">option()</a> = <br>    return |<br>    return_white_spaces |<br>    return_comments |<br>    text |<br>    {reserved_word_fun, <span class="bold_code"><a href="#type-resword_fun">resword_fun()</a></span>}</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-options">options()</a> = <span class="bold_code"><a href="#type-option">option()</a></span> | [<span class="bold_code"><a href="#type-option">option()</a></span>]</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-symbol">symbol()</a> = atom() | float() | integer() | string()</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-resword_fun">resword_fun()</a> = fun((atom()) -&gt; boolean())</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-token">token()</a> = <br>    {<span class="bold_code"><a href="#type-category">category()</a></span>, Anno :: <span class="bold_code"><a href="erl_anno.html#type-anno">erl_anno:anno()</a></span>, <span class="bold_code"><a href="#type-symbol">symbol()</a></span>} |<br>    {<span class="bold_code"><a href="#type-category">category()</a></span>, Anno :: <span class="bold_code"><a href="erl_anno.html#type-anno">erl_anno:anno()</a></span>}</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-tokens">tokens()</a> = [<span class="bold_code"><a href="#type-token">token()</a></span>]</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-tokens_result">tokens_result()</a> = <br>    {ok, Tokens :: <span class="bold_code"><a href="#type-tokens">tokens()</a></span>, EndLocation :: <span class="bold_code"><a href="erl_anno.html#type-location">erl_anno:location()</a></span>} |<br>    {eof, EndLocation :: <span class="bold_code"><a href="erl_anno.html#type-location">erl_anno:location()</a></span>} |<br>    {error,<br>     ErrorInfo :: <span class="bold_code"><a href="#type-error_info">error_info()</a></span>,<br>     EndLocation :: <span class="bold_code"><a href="erl_anno.html#type-location">erl_anno:location()</a></span>}</span><br></p>
-  
+  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
+<div class="data-types-body">
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-category">category()</a> = atom()</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-error_description">error_description()</a> = term()</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-error_info">error_info()</a> = <br>    {<span class="bold_code bc-15"><a href="erl_anno.html#type-location">erl_anno:location()</a></span>, module(), <span class="bold_code data-type-ref"><a href="#type-error_description">error_description()</a></span>}</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-option">option()</a> = <br>    return |<br>    return_white_spaces |<br>    return_comments |<br>    text |<br>    {reserved_word_fun, <span class="bold_code data-type-ref"><a href="#type-resword_fun">resword_fun()</a></span>}</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-options">options()</a> = <span class="bold_code data-type-ref"><a href="#type-option">option()</a></span> | [<span class="bold_code data-type-ref"><a href="#type-option">option()</a></span>]</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-symbol">symbol()</a> = atom() | float() | integer() | string()</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-resword_fun">resword_fun()</a> = fun((atom()) -&gt; boolean())</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-token">token()</a> = <br>    {<span class="bold_code data-type-ref"><a href="#type-category">category()</a></span>, Anno :: <span class="bold_code bc-15"><a href="erl_anno.html#type-anno">erl_anno:anno()</a></span>, <span class="bold_code data-type-ref"><a href="#type-symbol">symbol()</a></span>} |<br>    {<span class="bold_code data-type-ref"><a href="#type-category">category()</a></span>, Anno :: <span class="bold_code bc-15"><a href="erl_anno.html#type-anno">erl_anno:anno()</a></span>}</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-tokens">tokens()</a> = [<span class="bold_code data-type-ref"><a href="#type-token">token()</a></span>]</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-tokens_result">tokens_result()</a> = <br>    {ok, Tokens :: <span class="bold_code data-type-ref"><a href="#type-tokens">tokens()</a></span>, EndLocation :: <span class="bold_code bc-15"><a href="erl_anno.html#type-location">erl_anno:location()</a></span>} |<br>    {eof, EndLocation :: <span class="bold_code bc-15"><a href="erl_anno.html#type-location">erl_anno:location()</a></span>} |<br>    {error,<br>     ErrorInfo :: <span class="bold_code data-type-ref"><a href="#type-error_info">error_info()</a></span>,<br>     EndLocation :: <span class="bold_code bc-15"><a href="erl_anno.html#type-location">erl_anno:location()</a></span>}</span>
+</div>
+  </div>
  
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="category-1"></a><span class="bold_code">category(Token) -&gt; <span class="bold_code"><a href="#type-category">category()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Token = <span class="bold_code"><a href="#type-token">token()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="category-1"></a><span class="bold_code func-name">category(Token) -&gt; <span class="bold_code data-type-ref"><a href="#type-category">category()</a></span></span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Token = <span class="bold_code data-type-ref"><a href="#type-token">token()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns the category of <span class="code">Token</span>.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="column-1"></a><span class="bold_code">column(Token) -&gt; <span class="bold_code"><a href="erl_anno.html#type-column">erl_anno:column()</a></span> | undefined</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Token = <span class="bold_code"><a href="#type-token">token()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="column-1"></a><span class="bold_code func-name">column(Token) -&gt; <span class="bold_code bc-15"><a href="erl_anno.html#type-column">erl_anno:column()</a></span> | undefined</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Token = <span class="bold_code data-type-ref"><a href="#type-token">token()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns the column of <span class="code">Token</span>'s
           collection of annotations.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="end_location-1"></a><span class="bold_code">end_location(Token) -&gt; <span class="bold_code"><a href="erl_anno.html#type-location">erl_anno:location()</a></span> | undefined</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Token = <span class="bold_code"><a href="#type-token">token()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="end_location-1"></a><span class="bold_code func-name">end_location(Token) -&gt; <span class="bold_code bc-15"><a href="erl_anno.html#type-location">erl_anno:location()</a></span> | undefined</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Token = <span class="bold_code data-type-ref"><a href="#type-token">token()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns the end location of the text of
           <span class="code">Token</span>'s collection of annotations. If
             there is no text, <span class="code">undefined</span> is returned.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="format_error-1"></a><span class="bold_code">format_error(ErrorDescriptor) -&gt; string()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">ErrorDescriptor = <span class="bold_code"><a href="#type-error_description">error_description()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="format_error-1"></a><span class="bold_code func-name">format_error(ErrorDescriptor) -&gt; string()</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">ErrorDescriptor = <span class="bold_code data-type-ref"><a href="#type-error_description">error_description()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Uses an <span class="code">ErrorDescriptor</span> and returns a string 
           that describes the error or warning. This function is usually
           called implicitly when an <span class="code">ErrorInfo</span> structure is
           processed (see section
-          <span class="bold_code"><a href="#errorinfo">Error Information</a></span>).</p>
-      </p></div>
+          <span class="bold_code data-type-ref"><a href="#errorinfo">Error Information</a></span>).</p>
+      </p></div></div>
+</div>
 
-    <p><a name="line-1"></a><span class="bold_code">line(Token) -&gt; <span class="bold_code"><a href="erl_anno.html#type-line">erl_anno:line()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Token = <span class="bold_code"><a href="#type-token">token()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="line-1"></a><span class="bold_code func-name">line(Token) -&gt; <span class="bold_code bc-15"><a href="erl_anno.html#type-line">erl_anno:line()</a></span></span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Token = <span class="bold_code data-type-ref"><a href="#type-token">token()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns the line of <span class="code">Token</span>'s collection
           of annotations.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="location-1"></a><span class="bold_code">location(Token) -&gt; <span class="bold_code"><a href="erl_anno.html#type-location">erl_anno:location()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Token = <span class="bold_code"><a href="#type-token">token()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="location-1"></a><span class="bold_code func-name">location(Token) -&gt; <span class="bold_code bc-15"><a href="erl_anno.html#type-location">erl_anno:location()</a></span></span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Token = <span class="bold_code data-type-ref"><a href="#type-token">token()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns the location of <span class="code">Token</span>'s
           collection of annotations.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="reserved_word-1"></a><span class="bold_code">reserved_word(Atom :: atom()) -&gt; boolean()</span><br></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="reserved_word-1"></a><span class="bold_code func-name">reserved_word(Atom :: atom()) -&gt; boolean()</span>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns <span class="code">true</span> if <span class="code">Atom</span> is an
          Erlang reserved word, otherwise <span class="code">false</span>.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="string-1"></a><span class="bold_code">string(String) -&gt; Return</span><br><a name="string-2"></a><span class="bold_code">string(String, StartLocation) -&gt; Return</span><br><a name="string-3"></a><span class="bold_code">string(String, StartLocation, Options) -&gt; Return</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">String = string()</span></div>
-<div class="REFTYPES"><span class="bold_code">Options = <span class="bold_code"><a href="#type-options">options()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Return = <br>    {ok, Tokens :: <span class="bold_code"><a href="#type-tokens">tokens()</a></span>, EndLocation} |<br>    {error, ErrorInfo :: <span class="bold_code"><a href="#type-error_info">error_info()</a></span>, ErrorLocation}</span></div>
-<div class="REFTYPES"><span class="bold_code">StartLocation = EndLocation = ErrorLocation = <span class="bold_code"><a href="erl_anno.html#type-location">erl_anno:location()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="string-1"></a><span class="bold_code func-name">string(String) -&gt; Return</span><a name="string-2"></a><span class="bold_code func-name">string(String, StartLocation) -&gt; Return</span><a name="string-3"></a><span class="bold_code func-name">string(String, StartLocation, Options) -&gt; Return</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">String = string()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = <span class="bold_code data-type-ref"><a href="#type-options">options()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Return = <br>    {ok, Tokens :: <span class="bold_code data-type-ref"><a href="#type-tokens">tokens()</a></span>, EndLocation} |<br>    {error, ErrorInfo :: <span class="bold_code data-type-ref"><a href="#type-error_info">error_info()</a></span>, ErrorLocation}</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">StartLocation = EndLocation = ErrorLocation = <span class="bold_code bc-15"><a href="erl_anno.html#type-location">erl_anno:location()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Takes the list of characters <span class="code">String</span> and tries to
           scan (tokenize) them. Returns one of the following:</p>
         <dl>
@@ -1858,10 +1901,10 @@
           line where the token begins, as well as the text of the
           token (if option <span class="code">text</span> is specified), all of which can
           be accessed by calling
-          <span class="bold_code"><a href="#column-1"><span class="code">column/1</span></a></span>,
-          <span class="bold_code"><a href="#line-1"><span class="code">line/1</span></a></span>,
-          <span class="bold_code"><a href="#location-1"><span class="code">location/1</span></a></span>, and
-          <span class="bold_code"><a href="#text-1"><span class="code">text/1</span></a></span>.</p>
+          <span class="bold_code data-type-ref"><a href="#column-1"><span class="code">column/1</span></a></span>,
+          <span class="bold_code data-type-ref"><a href="#line-1"><span class="code">line/1</span></a></span>,
+          <span class="bold_code data-type-ref"><a href="#location-1"><span class="code">location/1</span></a></span>, and
+          <span class="bold_code data-type-ref"><a href="#text-1"><span class="code">text/1</span></a></span>.</p>
         <p>A <strong>token</strong> is a tuple containing information about
           syntactic category, the token annotations, and the
           terminal symbol. For punctuation characters (such as <span class="code">;</span> and 
@@ -1908,42 +1951,54 @@
             text is the part of the input corresponding to the token.</p>
           </dd>
         </dl>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="symbol-1"></a><span class="bold_code">symbol(Token) -&gt; <span class="bold_code"><a href="#type-symbol">symbol()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Token = <span class="bold_code"><a href="#type-token">token()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="symbol-1"></a><span class="bold_code func-name">symbol(Token) -&gt; <span class="bold_code data-type-ref"><a href="#type-symbol">symbol()</a></span></span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Token = <span class="bold_code data-type-ref"><a href="#type-token">token()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns the symbol of <span class="code">Token</span>.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="text-1"></a><span class="bold_code">text(Token) -&gt; <span class="bold_code"><a href="erl_anno.html#type-text">erl_anno:text()</a></span> | undefined</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Token = <span class="bold_code"><a href="#type-token">token()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="text-1"></a><span class="bold_code func-name">text(Token) -&gt; <span class="bold_code bc-15"><a href="erl_anno.html#type-text">erl_anno:text()</a></span> | undefined</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Token = <span class="bold_code data-type-ref"><a href="#type-token">token()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns the text of <span class="code">Token</span>'s collection
           of annotations. If there is no text, <span class="code">undefined</span> is
           returned.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="tokens-3"></a><span class="bold_code">tokens(Continuation, CharSpec, StartLocation) -&gt; Return</span><br><a name="tokens-4"></a><span class="bold_code">tokens(Continuation, CharSpec, StartLocation, Options) -&gt; Return</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Continuation = return_cont() | []</span></div>
-<div class="REFTYPES"><span class="bold_code">CharSpec = char_spec()</span></div>
-<div class="REFTYPES"><span class="bold_code">StartLocation = <span class="bold_code"><a href="erl_anno.html#type-location">erl_anno:location()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Options = <span class="bold_code"><a href="#type-options">options()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Return = <br>    {done,<br>     Result :: <span class="bold_code"><a href="#type-tokens_result">tokens_result()</a></span>,<br>     LeftOverChars :: char_spec()} |<br>    {more, Continuation1 :: return_cont()}</span></div>
-<div class="REFTYPES">
-      <span class="bold_code">char_spec() = string() | eof</span><br>
+    <div class="func">
+<div class="func-title">
+<a name="tokens-3"></a><span class="bold_code func-name">tokens(Continuation, CharSpec, StartLocation) -&gt; Return</span><a name="tokens-4"></a><span class="bold_code func-name">tokens(Continuation, CharSpec, StartLocation, Options) -&gt; Return</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Continuation = return_cont() | []</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">CharSpec = char_spec()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">StartLocation = <span class="bold_code bc-15"><a href="erl_anno.html#type-location">erl_anno:location()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Options = <span class="bold_code data-type-ref"><a href="#type-options">options()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Return = <br>    {done,<br>     Result :: <span class="bold_code data-type-ref"><a href="#type-tokens_result">tokens_result()</a></span>,<br>     LeftOverChars :: char_spec()} |<br>    {more, Continuation1 :: return_cont()}</span></div>
+<div class="REFTYPES local-type">
+      <span class="bold_code type-head">char_spec() = string() | eof</span><br>
 </div>
-<div class="REFTYPES">
-      <span class="bold_code">return_cont()</span><br>
+<div class="REFTYPES local-type">
+      <span class="bold_code type-head">return_cont()</span><br>
 </div>
-<div class="REFBODY">An opaque continuation.</div>
-</div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY type-desc">An opaque continuation.</div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This is the re-entrant scanner, which scans characters until
           either a <strong>dot</strong> ('.' followed by a white space) or
           <span class="code">eof</span> is reached. It returns:</p>
@@ -1986,14 +2041,15 @@
           <span class="code">tokens(Continuation, CharSpec,
           StartLocation, [])</span>.</p>
         <p>For a description of the options, see
-          <span class="bold_code"><a href="#string-3"><span class="code">string/3</span></a></span>.</p>
-      </p></div>
-  
+          <span class="bold_code data-type-ref"><a href="#string-3"><span class="code">string/3</span></a></span>.</p>
+      </p></div></div>
+</div>
+  </div>
 
   <h3>
-<a name="errorinfo"></a><a name="idm45518940992960">Error Information</a>
+<a name="errorinfo"></a><a name="idm45461569663696">Error Information</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
     <p><span class="code">ErrorInfo</span> is the standard <span class="code">ErrorInfo</span> structure that is
@@ -2005,8 +2061,8 @@
 Module:format_error(ErrorDescriptor)</pre></div>
   </div>
 
-  <h3><a name="idm45518940988832">Notes</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45461569659568">Notes</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The continuation of the first call to the re-entrant input
       functions must be <span class="code">[]</span>. For a complete description of how the
@@ -2014,12 +2070,12 @@ Module:format_error(ErrorDescriptor)</pre></div>
       Williams: 'Concurrent Programming in Erlang', Chapter 13.</p>
   </div>
 
-  <h3><a name="idm45518940986832">See Also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45461569657568">See Also</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="erl_anno.html"><span class="code">erl_anno(3)</span></a></span>,
-      <span class="bold_code"><a href="erl_parse.html"><span class="code">erl_parse(3)</span></a></span>,
-      <span class="bold_code"><a href="io.html"><span class="code">io(3)</span></a></span></p>
+    <p><span class="bold_code bc-19"><a href="erl_anno.html"><span class="code">erl_anno(3)</span></a></span>,
+      <span class="bold_code bc-19"><a href="erl_parse.html"><span class="code">erl_parse(3)</span></a></span>,
+      <span class="bold_code bc-19"><a href="io.html"><span class="code">io(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

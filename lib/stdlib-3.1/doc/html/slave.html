@@ -1717,12 +1717,12 @@
 <!-- refpage --><center><h1>slave</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">slave</div>
+<div class="REFBODY module-body">slave</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Functions for starting and controlling slave nodes.
+<div class="REFBODY modules-summary-body">Functions for starting and controlling slave nodes.
   </div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>This module provides functions for starting Erlang slave nodes.
       All slave nodes that are started by a master terminate
       automatically when the master terminates. All terminal output produced
@@ -1742,7 +1742,7 @@
 
     <p>An alternative to the <span class="code">rsh</span> program can be specified on
       the command line to
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html#erl');"><span class="code">erl(1)</span></a></span> as follows:</p>
+      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html#erl');"><span class="code">erl(1)</span></a></span> as follows:</p>
 
     <div class="example"><pre>
 -rsh Program</pre></div>
@@ -1755,33 +1755,43 @@
       nodes on the host on which it is running.</p>
 
     <p>The master node must be alive.</p>
-  </p></div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="pseudo-1"></a><span class="bold_code">pseudo([Master | ServerList]) -&gt; ok</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="pseudo-1"></a><span class="bold_code bc-9">pseudo([Master | ServerList]) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Master = node()</span><br>
+<span class="bold_code bc-11">Master = node()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">ServerList = [atom()]</span><br>
+<span class="bold_code bc-11">ServerList = [atom()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Calls <span class="code">pseudo(Master, ServerList)</span>. If you want to start
           a node from the command line and set up a number of pseudo
           servers, an Erlang runtime system can be started as follows:</p>
         <div class="example"><pre>
 % erl -name abc -s slave pseudo klacke@super x --</pre></div>
       </p></div>
+</div>
+</div>
 
-    <p><a name="pseudo-2"></a><span class="bold_code">pseudo(Master, ServerList) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Master = node()</span></div>
-<div class="REFTYPES"><span class="bold_code">ServerList = [atom()]</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="pseudo-2"></a><span class="bold_code func-name">pseudo(Master, ServerList) -&gt; ok</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Master = node()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">ServerList = [atom()]</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Starts a number of pseudo servers. A pseudo server is a
           server with a registered name that does nothing
           but pass on all message to the real server that executes at a
@@ -1793,28 +1803,36 @@
           the slave node. This is illustrated as follows:</p>
         <div class="example"><pre>
 rpc:call(N, slave, pseudo, [node(), [pxw_server]]).</pre></div>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="relay-1"></a><span class="bold_code">relay(Pid) -&gt; no_return()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Pid = pid()</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="relay-1"></a><span class="bold_code func-name">relay(Pid) -&gt; no_return()</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Pid = pid()</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Runs a pseudo server. This function never returns any value
           and the process that executes the function receives
           messages. All messages received are simply passed on to
           <span class="code">Pid</span>.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="start-1"></a><span class="bold_code">start(Host) -&gt; {ok, Node} | {error, Reason}</span><br><a name="start-2"></a><span class="bold_code">start(Host, Name) -&gt; {ok, Node} | {error, Reason}</span><br><a name="start-3"></a><span class="bold_code">start(Host, Name, Args) -&gt; {ok, Node} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Host = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#type-hostname');">inet:hostname()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Name = atom() | string()</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = string()</span></div>
-<div class="REFTYPES"><span class="bold_code">Node = node()</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = timeout | no_rsh | {already_running, Node}</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="start-1"></a><span class="bold_code func-name">start(Host) -&gt; {ok, Node} | {error, Reason}</span><a name="start-2"></a><span class="bold_code func-name">start(Host, Name) -&gt; {ok, Node} | {error, Reason}</span><a name="start-3"></a><span class="bold_code func-name">start(Host, Name, Args) -&gt; {ok, Node} | {error, Reason}</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Host = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#type-hostname');">inet:hostname()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = atom() | string()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Args = string()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Node = node()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = timeout | no_rsh | {already_running, Node}</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Starts a slave node on host <span class="code">Host</span>. Host names
           need not necessarily be specified as fully qualified names; short
           names can also be used. This is the same condition that
@@ -1830,7 +1848,7 @@ rpc:call(N, slave, pseudo, [node(), [pxw_server]]).</pre></div>
         <p>Argument <span class="code">Args</span> is used to set <span class="code">erl</span>
           command-line arguments. If provided, it is passed to the new
           node and can be used for a variety of purposes; see
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html#erl');"><span class="code">erl(1)</span></a></span>.</p>
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html#erl');"><span class="code">erl(1)</span></a></span>.</p>
         <p>As an example, suppose that you want to start a slave node at
           host <span class="code">H</span> with node name <span class="code">Name@H</span> and
           want the slave node to have the following properties:</p>
@@ -1871,33 +1889,42 @@ slave:start(H, Name, Arg).</pre></div>
               already exists.</p>
           </dd>
         </dl>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="start_link-1"></a><span class="bold_code">start_link(Host) -&gt; {ok, Node} | {error, Reason}</span><br><a name="start_link-2"></a><span class="bold_code">start_link(Host, Name) -&gt; {ok, Node} | {error, Reason}</span><br><a name="start_link-3"></a><span class="bold_code">start_link(Host, Name, Args) -&gt; {ok, Node} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Host = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#type-hostname');">inet:hostname()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Name = atom() | string()</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = string()</span></div>
-<div class="REFTYPES"><span class="bold_code">Node = node()</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = timeout | no_rsh | {already_running, Node}</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="start_link-1"></a><span class="bold_code func-name">start_link(Host) -&gt; {ok, Node} | {error, Reason}</span><a name="start_link-2"></a><span class="bold_code func-name">start_link(Host, Name) -&gt; {ok, Node} | {error, Reason}</span><a name="start_link-3"></a><span class="bold_code func-name">start_link(Host, Name, Args) -&gt; {ok, Node} | {error, Reason}</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Host = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#type-hostname');">inet:hostname()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = atom() | string()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Args = string()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Node = node()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = timeout | no_rsh | {already_running, Node}</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Starts a slave node in the same way as <span class="code">start/1,2,3</span>,
           except that the slave node is linked to the currently
           executing process. If that process terminates, the slave node
           also terminates.</p>
         <p>For a description of arguments and return values, see
-          <span class="bold_code"><a href="#start-1"><span class="code">start/1,2,3</span></a></span>.</p>
-      </p></div>
+          <span class="bold_code data-type-ref"><a href="#start-1"><span class="code">start/1,2,3</span></a></span>.</p>
+      </p></div></div>
+</div>
 
-    <p><a name="stop-1"></a><span class="bold_code">stop(Node) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Node = node()</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="stop-1"></a><span class="bold_code func-name">stop(Node) -&gt; ok</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Node = node()</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Stops (kills) a node.</p>
-      </p></div>
-  
+      </p></div></div>
+</div>
+  </div>
 </div>
 <div class="footer">
 <hr>

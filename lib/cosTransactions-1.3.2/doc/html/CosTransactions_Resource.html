@@ -148,29 +148,34 @@
 <!-- refpage --><center><h1>CosTransactions_Resource</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">CosTransactions_Resource</div>
+<div class="REFBODY module-body">CosTransactions_Resource</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">This module implements the OMG CosTransactions::Resource interface.</div>
+<div class="REFBODY modules-summary-body">This module implements the OMG CosTransactions::Resource interface.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>To get access to the record definitions for the structures use:      <br>
 <span class="code">-include_lib("cosTransactions/include/CosTransactions.hrl").</span></p>
-  </p></div>
+  </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="commit-1"></a><span class="bold_code">commit(Resource) -&gt; Return</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="commit-1"></a><span class="bold_code bc-9">commit(Resource) -&gt; Return</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Resource = #objref</span><br>
+<span class="bold_code bc-11">Resource = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Return = ok | {'EXCEPTION', E}</span><br>
+<span class="bold_code bc-11">Return = ok | {'EXCEPTION', E}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">E = #'CosTransactions_NotPrepared'{} | #'CosTransactions_HeuristicRollback'{} | #'CosTransactions_HeuristicMixed'{} | #'CosTransactions_HeuristicHazard'{}</span><br>
+<span class="bold_code bc-11">E = #'CosTransactions_NotPrepared'{} | #'CosTransactions_HeuristicRollback'{} | #'CosTransactions_HeuristicMixed'{} | #'CosTransactions_HeuristicHazard'{}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation instructs the Resource to commit all changes made as a part of the transaction.</p>
         <p>The Resource can raise:</p>
         <ul>
@@ -179,55 +184,73 @@
            the Heuristic outcome until the <span class="code">forget</span> operation is performed.</li>
         </ul>
       </p></div>
-    <p><a name="commit_one_phase-1"></a><span class="bold_code">commit_one_phase(Resource) -&gt; Return</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="commit_one_phase-1"></a><span class="bold_code bc-9">commit_one_phase(Resource) -&gt; Return</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Resource = #objref</span><br>
+<span class="bold_code bc-11">Resource = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Return = ok | {'EXCEPTION', E}</span><br>
+<span class="bold_code bc-11">Return = ok | {'EXCEPTION', E}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">E = #'CosTransactions_HeuristicHazard'{} | #'CosTransactions_TransactionRolledBack'{}</span><br>
+<span class="bold_code bc-11">E = #'CosTransactions_HeuristicHazard'{} | #'CosTransactions_TransactionRolledBack'{}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>If possible, the Resource should commit all changes made as part of the transaction,
           else it should raise the TRANSACTION_ROLLEDBACK exception. 
           This operation can only be used if the Resource is the only child of its parent.</p>
       </p></div>
-    <p><a name="forget-1"></a><span class="bold_code">forget(Resource) -&gt; Return</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="forget-1"></a><span class="bold_code bc-9">forget(Resource) -&gt; Return</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Resource = #objref</span><br>
+<span class="bold_code bc-11">Resource = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Return = ok</span><br>
+<span class="bold_code bc-11">Return = ok</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation informs the Resource that it is safe to forget any Heuristic
           decisions and the knowledge of the transaction.</p>
       </p></div>
-    <p><a name="prepare-1"></a><span class="bold_code">prepare(Resource) -&gt; Return</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="prepare-1"></a><span class="bold_code bc-9">prepare(Resource) -&gt; Return</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Resource = #objref</span><br>
+<span class="bold_code bc-11">Resource = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Return = Vote | {'EXCEPTION', E}</span><br>
+<span class="bold_code bc-11">Return = Vote | {'EXCEPTION', E}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Vote = 'VoteReadOnly' | 'VoteCommit' | 'VoteRollback'</span><br>
+<span class="bold_code bc-11">Vote = 'VoteReadOnly' | 'VoteCommit' | 'VoteRollback'</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">E = #'CosTransactions_HeuristicMixed'{} | #'CosTransactions_HeuristicHazard'{}</span><br>
+<span class="bold_code bc-11">E = #'CosTransactions_HeuristicMixed'{} | #'CosTransactions_HeuristicHazard'{}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation is invoked on the Resource to begin the two-phase commit protocol.</p>
         <p>The Resource can reply:</p>
         <ul>
@@ -242,20 +265,26 @@
            the Heuristic outcome until the <span class="code">forget</span> operation is performed.</li>
         </ul>
       </p></div>
-    <p><a name="rollback-1"></a><span class="bold_code">rollback(Resource) -&gt; Return</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="rollback-1"></a><span class="bold_code bc-9">rollback(Resource) -&gt; Return</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Resource = #objref</span><br>
+<span class="bold_code bc-11">Resource = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Return = ok | {'EXCEPTION', E}</span><br>
+<span class="bold_code bc-11">Return = ok | {'EXCEPTION', E}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">E = #'CosTransactions_HeuristicCommit'{} | #'CosTransactions_HeuristicMixed'{} | #'CosTransactions_HeuristicHazard'{}</span><br>
+<span class="bold_code bc-11">E = #'CosTransactions_HeuristicCommit'{} | #'CosTransactions_HeuristicMixed'{} | #'CosTransactions_HeuristicHazard'{}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation instructs the Resource to rollback all changes made as a part of the transaction.</p>
         <p>The Resource can raise:</p>
         <ul>
@@ -264,7 +293,9 @@
            the Heuristic outcome until the <span class="code">forget</span> operation is performed.</li>
         </ul>
       </p></div>
-  
+</div>
+</div>
+  </div>
   
 </div>
 <div class="footer">

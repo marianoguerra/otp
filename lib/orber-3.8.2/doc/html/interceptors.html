@@ -437,11 +437,11 @@
 <!-- refpage --><center><h1>interceptors</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">interceptors</div>
+<div class="REFBODY module-body">interceptors</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Describe the functions which must be exported by any supplied Orber native interceptor.</div>
+<div class="REFBODY modules-summary-body">Describe the functions which must be exported by any supplied Orber native interceptor.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>This module contains the mandatory functions for user supplied native
       interceptors and their intended behavior. See also the User's Guide.</p>
     <div class="warning">
@@ -483,25 +483,30 @@
         passed on to the next interceptor in the list uninterpreted.</p>
     </p></div>
 </div>
-  </p></div>
+  </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="new_in_connection-3"></a><span class="bold_code">new_in_connection(Ref, PeerHost, PeerPort) -&gt; NewRef</span><br><a name="new_in_connection-5"></a><span class="bold_code">new_in_connection(Ref, PeerHost, PeerPort, SocketHost, SocketPort) -&gt; NewRef</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="new_in_connection-3"></a><span class="bold_code bc-9">new_in_connection(Ref, PeerHost, PeerPort) -&gt; NewRef</span><br><a name="new_in_connection-5"></a><span class="bold_code bc-9">new_in_connection(Ref, PeerHost, PeerPort, SocketHost, SocketPort) -&gt; NewRef</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Ref    = term() | undefined</span><br>
+<span class="bold_code bc-11">Ref    = term() | undefined</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">PeerHost = SocketHost = string(), e.g., "myHost@myServer" or "192.0.0.10"</span><br>
+<span class="bold_code bc-11">PeerHost = SocketHost = string(), e.g., "myHost@myServer" or "192.0.0.10"</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">PeerPort = SocketPort = integer()</span><br>
+<span class="bold_code bc-11">PeerPort = SocketPort = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">NewRef = term() | {'EXIT', Reason}</span><br>
+<span class="bold_code bc-11">NewRef = term() | {'EXIT', Reason}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>When a new connection is requested by a client side ORB this operation
           is invoked. If more than one interceptor is supplied, e.g., 
           <span class="code">{native, ['myInterceptor1', 'myInterceptor2']}</span>, the return value
@@ -520,279 +525,347 @@
         <p>If, for some reason, we do not allow the client ORB to connect
           simply invoke <span class="code">exit(Reason)</span>.</p>
       </p></div>
-    <p><a name="new_out_connection-3"></a><span class="bold_code">new_out_connection(Ref, PeerHost, PeerPort) -&gt; NewRef</span><br><a name="new_out_connection-5"></a><span class="bold_code">new_out_connection(Ref, PeerHost, PeerPort, SocketHost, SocketPort) -&gt; NewRef</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="new_out_connection-3"></a><span class="bold_code bc-9">new_out_connection(Ref, PeerHost, PeerPort) -&gt; NewRef</span><br><a name="new_out_connection-5"></a><span class="bold_code bc-9">new_out_connection(Ref, PeerHost, PeerPort, SocketHost, SocketPort) -&gt; NewRef</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Ref    = term() | undefined</span><br>
+<span class="bold_code bc-11">Ref    = term() | undefined</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">PeerHost = SocketHost = string(), e.g., "myHost@myServer" or "192.0.0.10"</span><br>
+<span class="bold_code bc-11">PeerHost = SocketHost = string(), e.g., "myHost@myServer" or "192.0.0.10"</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">PeerPort = SocketPort = integer()</span><br>
+<span class="bold_code bc-11">PeerPort = SocketPort = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">NewRef = term() | {'EXIT', Reason}</span><br>
+<span class="bold_code bc-11">NewRef = term() | {'EXIT', Reason}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>When a new connection is set up this function is invoked. Behaves
           just like <span class="code">new_in_connection</span>; the only difference is that
           the PeerHost and PeerPort variables identifies the target ORB's bootstrap
           data and SocketHost and SocketPort are the local interface and port
           the client ORB connected via.</p>
       </p></div>
-    <p><a name="closed_in_connection-1"></a><span class="bold_code">closed_in_connection(Ref) -&gt; NewRef</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="closed_in_connection-1"></a><span class="bold_code bc-9">closed_in_connection(Ref) -&gt; NewRef</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Ref    = term()</span><br>
+<span class="bold_code bc-11">Ref    = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">NewRef = term()</span><br>
+<span class="bold_code bc-11">NewRef = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>When an existing connection is terminated this operation is invoked.
           The main purpose of this function is to make it possible for a user
           to clean up all data associated with the associated connection.</p>
         <p>The input parameter <span class="code">Ref</span> is the return value from 
           <span class="code">new_in_connection/3</span>.</p>
       </p></div>
-    <p><a name="closed_out_connection-1"></a><span class="bold_code">closed_out_connection(Ref) -&gt; NewRef</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="closed_out_connection-1"></a><span class="bold_code bc-9">closed_out_connection(Ref) -&gt; NewRef</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Ref    = term()</span><br>
+<span class="bold_code bc-11">Ref    = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">NewRef = term()</span><br>
+<span class="bold_code bc-11">NewRef = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>When an existing connection is terminated this operation is invoked.
           The main purpose of this function is to make it possible for a user
           to clean up all data associated with the associated connection.</p>
         <p>The input parameter <span class="code">Ref</span> is the return value from 
           <span class="code">new_out_connection/3</span>.</p>
       </p></div>
-    <p><a name="in_reply-6"></a><span class="bold_code">in_reply(Ref, Obj, Ctx, Op, Data, Extra) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="in_reply-6"></a><span class="bold_code bc-9">in_reply(Ref, Obj, Ctx, Op, Data, Extra) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Ref   = term()</span><br>
+<span class="bold_code bc-11">Ref   = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Obj   = #objref</span><br>
+<span class="bold_code bc-11">Obj   = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Ctx   = [#'IOP_ServiceContext'{}]</span><br>
+<span class="bold_code bc-11">Ctx   = [#'IOP_ServiceContext'{}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Op    = atom()</span><br>
+<span class="bold_code bc-11">Op    = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Data  = [Result, OutParameter1, ..., OutPramaterN]</span><br>
+<span class="bold_code bc-11">Data  = [Result, OutParameter1, ..., OutPramaterN]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = {NewData, NewExtra}</span><br>
+<span class="bold_code bc-11">Reply = {NewData, NewExtra}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>When replies are delivered from the server side ORB to the client side
           ORB this operation is invoked. The <span class="code">Data</span> parameter is a list in which
           the first element is the return value value from the target object and
           the rest is a all parameters defined as <span class="code">out</span> or <span class="code">inout</span> in
           the IDL-specification.</p>
       </p></div>
-    <p><a name="in_reply_encoded-6"></a><span class="bold_code">in_reply_encoded(Ref, Obj, Ctx, Op, Bin, Extra) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="in_reply_encoded-6"></a><span class="bold_code bc-9">in_reply_encoded(Ref, Obj, Ctx, Op, Bin, Extra) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Ref   = term()</span><br>
+<span class="bold_code bc-11">Ref   = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Obj   = #objref</span><br>
+<span class="bold_code bc-11">Obj   = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Ctx   = [#'IOP_ServiceContext'{}]</span><br>
+<span class="bold_code bc-11">Ctx   = [#'IOP_ServiceContext'{}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Op    = atom()</span><br>
+<span class="bold_code bc-11">Op    = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Bin   = #binary</span><br>
+<span class="bold_code bc-11">Bin   = #binary</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = {NewBin, NewExtra}</span><br>
+<span class="bold_code bc-11">Reply = {NewBin, NewExtra}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>When replies are delivered from the server side ORB to the client side
           ORB this operation is invoked. The <span class="code">Bin</span> parameter is the reply 
           body still uncoded.</p>
       </p></div>
-    <p><a name="in_request-6"></a><span class="bold_code">in_request(Ref, Obj, Ctx, Op, Args, Extra) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="in_request-6"></a><span class="bold_code bc-9">in_request(Ref, Obj, Ctx, Op, Args, Extra) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Ref   = term()</span><br>
+<span class="bold_code bc-11">Ref   = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Obj   = #objref</span><br>
+<span class="bold_code bc-11">Obj   = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Ctx   = [#'IOP_ServiceContext'{}]</span><br>
+<span class="bold_code bc-11">Ctx   = [#'IOP_ServiceContext'{}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Op    = atom()</span><br>
+<span class="bold_code bc-11">Op    = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Args  = [Argument] - defined in the IDL-specification</span><br>
+<span class="bold_code bc-11">Args  = [Argument] - defined in the IDL-specification</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = {NewArgs, NewExtra}</span><br>
+<span class="bold_code bc-11">Reply = {NewArgs, NewExtra}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>When a new request arrives at the server side ORB this operation is 
           invoked.</p>
       </p></div>
-    <p><a name="in_request_encoded-6"></a><span class="bold_code">in_request_encoded(Ref, Obj, Ctx, Op, Bin, Extra) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="in_request_encoded-6"></a><span class="bold_code bc-9">in_request_encoded(Ref, Obj, Ctx, Op, Bin, Extra) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Ref   = term()</span><br>
+<span class="bold_code bc-11">Ref   = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Obj   = #objref</span><br>
+<span class="bold_code bc-11">Obj   = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Ctx   = [#'IOP_ServiceContext'{}]</span><br>
+<span class="bold_code bc-11">Ctx   = [#'IOP_ServiceContext'{}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Op    = atom()</span><br>
+<span class="bold_code bc-11">Op    = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Bin   = #binary</span><br>
+<span class="bold_code bc-11">Bin   = #binary</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = {NewBin, NewExtra}</span><br>
+<span class="bold_code bc-11">Reply = {NewBin, NewExtra}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>When a new request arrives at the server side ORB this operation is 
           invoked before decoding the request body.</p>
       </p></div>
-    <p><a name="out_reply-6"></a><span class="bold_code">out_reply(Ref, Obj, Ctx, Op, Data, Extra) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="out_reply-6"></a><span class="bold_code bc-9">out_reply(Ref, Obj, Ctx, Op, Data, Extra) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Ref   = term()</span><br>
+<span class="bold_code bc-11">Ref   = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Obj   = #objref</span><br>
+<span class="bold_code bc-11">Obj   = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Ctx   = [#'IOP_ServiceContext'{}]</span><br>
+<span class="bold_code bc-11">Ctx   = [#'IOP_ServiceContext'{}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Op    = atom()</span><br>
+<span class="bold_code bc-11">Op    = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Data  = [Result, OutParameter1, ..., OutPramaterN]</span><br>
+<span class="bold_code bc-11">Data  = [Result, OutParameter1, ..., OutPramaterN]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = {NewData, NewExtra}</span><br>
+<span class="bold_code bc-11">Reply = {NewData, NewExtra}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>After the target object have been invoked this operation is invoked
           with the result. The <span class="code">Data</span> parameter is a list in which
           the first element is the return value value from the target object and
           the rest is a all parameters defined as <span class="code">out</span> or <span class="code">inout</span> in
           the IDL-specification.</p>
       </p></div>
-    <p><a name="out_reply_encoded-6"></a><span class="bold_code">out_reply_encoded(Ref, Obj, Ctx, Op, Bin, Extra) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="out_reply_encoded-6"></a><span class="bold_code bc-9">out_reply_encoded(Ref, Obj, Ctx, Op, Bin, Extra) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Ref   = term()</span><br>
+<span class="bold_code bc-11">Ref   = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Obj   = #objref</span><br>
+<span class="bold_code bc-11">Obj   = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Ctx   = [#'IOP_ServiceContext'{}]</span><br>
+<span class="bold_code bc-11">Ctx   = [#'IOP_ServiceContext'{}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Op    = atom()</span><br>
+<span class="bold_code bc-11">Op    = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Bin   = #binary</span><br>
+<span class="bold_code bc-11">Bin   = #binary</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = {NewBin, NewExtra}</span><br>
+<span class="bold_code bc-11">Reply = {NewBin, NewExtra}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation is similar to <span class="code">out_reply</span>; the only difference is
           that the reply body have been encoded.</p>
       </p></div>
-    <p><a name="out_request-6"></a><span class="bold_code">out_request(Ref, Obj, Ctx, Op, Args, Extra) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="out_request-6"></a><span class="bold_code bc-9">out_request(Ref, Obj, Ctx, Op, Args, Extra) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Ref   = term()</span><br>
+<span class="bold_code bc-11">Ref   = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Obj   = #objref</span><br>
+<span class="bold_code bc-11">Obj   = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Ctx   = [#'IOP_ServiceContext'{}]</span><br>
+<span class="bold_code bc-11">Ctx   = [#'IOP_ServiceContext'{}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Op    = atom()</span><br>
+<span class="bold_code bc-11">Op    = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Args  = [Argument] - defined in the IDL-specification</span><br>
+<span class="bold_code bc-11">Args  = [Argument] - defined in the IDL-specification</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = {NewArgs, NewExtra}</span><br>
+<span class="bold_code bc-11">Reply = {NewArgs, NewExtra}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Before a request is sent to the server side ORB, <span class="code">out_request</span> is
           invoked.</p>
       </p></div>
-    <p><a name="out_request_encoded-6"></a><span class="bold_code">out_request_encoded(Ref, Obj, Ctx, Op, Bin, Extra) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="out_request_encoded-6"></a><span class="bold_code bc-9">out_request_encoded(Ref, Obj, Ctx, Op, Bin, Extra) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Ref   = term()</span><br>
+<span class="bold_code bc-11">Ref   = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Obj   = #objref</span><br>
+<span class="bold_code bc-11">Obj   = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Ctx   = [#'IOP_ServiceContext'{}]</span><br>
+<span class="bold_code bc-11">Ctx   = [#'IOP_ServiceContext'{}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Op    = atom()</span><br>
+<span class="bold_code bc-11">Op    = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Bin   = #binary</span><br>
+<span class="bold_code bc-11">Bin   = #binary</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = {NewBin, NewExtra}</span><br>
+<span class="bold_code bc-11">Reply = {NewBin, NewExtra}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation is similar to <span class="code">out_request</span>; the only
           difference is that the request body have been encoded.</p>
       </p></div>
-  
+</div>
+</div>
+  </div>
   
 </div>
 <div class="footer">

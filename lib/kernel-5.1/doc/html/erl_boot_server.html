@@ -646,11 +646,11 @@
 <!-- refpage --><center><h1>erl_boot_server</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">erl_boot_server</div>
+<div class="REFBODY module-body">erl_boot_server</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Boot server for other Erlang machines.</div>
+<div class="REFBODY modules-summary-body">Boot server for other Erlang machines.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>This server is used to assist diskless Erlang nodes that fetch
       all Erlang code from another machine.</p>
     <p>This server is used to fetch all code, including the start
@@ -661,9 +661,9 @@
     <p>This server can be started with the Kernel configuration
       parameter <span class="code">start_boot_server</span>.</p>
     <p>The <span class="code">erl_boot_server</span> can read regular files and
-      files in archives. See <span class="bold_code"><a href="code.html"><span class="code">code(3)</span></a></span>
+      files in archives. See <span class="bold_code bc-19"><a href="code.html"><span class="code">code(3)</span></a></span>
       and
-    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl_prim_loader.html');"><span class="code">erl_prim_loader(3)</span></a></span>
+    <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','erl_prim_loader.html');"><span class="code">erl_prim_loader(3)</span></a></span>
     in ERTS.</p>
     <div class="warning">
 <div class="label">Warning</div>
@@ -672,65 +672,86 @@
      to obtain early feedback. The file format, semantics,
      interfaces, and so on, can be changed in a future release.</p></p></div>
 </div>
-  </p></div>
+  </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="add_slave-1"></a><span class="bold_code">add_slave(Slave) -&gt; ok | {error, What}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Slave = Host</span></div>
-<div class="REFTYPES"><span class="bold_code">Host = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">What = any()</span></div>
-</div></p>
-<div class="REFBODY"><p>
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="add_slave-1"></a><span class="bold_code func-name">add_slave(Slave) -&gt; ok | {error, What}</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Slave = Host</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Host = atom()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">What = any()</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Adds a <span class="code">Slave</span> node to the list of allowed slave hosts.</p>
-      </p></div>
-    <p><a name="delete_slave-1"></a><span class="bold_code">delete_slave(Slave) -&gt; ok | {error, What}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Slave = Host</span></div>
-<div class="REFTYPES"><span class="bold_code">Host = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">What = any()</span></div>
-</div></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="delete_slave-1"></a><span class="bold_code func-name">delete_slave(Slave) -&gt; ok | {error, What}</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Slave = Host</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Host = atom()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">What = any()</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Deletes a <span class="code">Slave</span> node from the list of allowed slave
           hosts.</p>
-      </p></div>
-    <p><a name="start-1"></a><span class="bold_code">start(Slaves) -&gt; {ok, Pid} | {error, What}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Slaves = [Host]</span></div>
-<div class="REFTYPES"><span class="bold_code">Host = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Pid = pid()</span></div>
-<div class="REFTYPES"><span class="bold_code">What = any()</span></div>
-</div></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="start-1"></a><span class="bold_code func-name">start(Slaves) -&gt; {ok, Pid} | {error, What}</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Slaves = [Host]</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Host = atom()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Pid = pid()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">What = any()</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Starts the boot server. <span class="code">Slaves</span> is a list of
           IP addresses for hosts, which are allowed to use this server as a
           boot server.</p>
-      </p></div>
-    <p><a name="start_link-1"></a><span class="bold_code">start_link(Slaves) -&gt; {ok, Pid} | {error, What}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Slaves = [Host]</span></div>
-<div class="REFTYPES"><span class="bold_code">Host = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Pid = pid()</span></div>
-<div class="REFTYPES"><span class="bold_code">What = any()</span></div>
-</div></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="start_link-1"></a><span class="bold_code func-name">start_link(Slaves) -&gt; {ok, Pid} | {error, What}</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Slaves = [Host]</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Host = atom()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Pid = pid()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">What = any()</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Starts the boot server and links to the caller. This function
           is used to start the server if it is included in a supervision
           tree.</p>
-      </p></div>
-    <p><a name="which_slaves-0"></a><span class="bold_code">which_slaves() -&gt; Slaves</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Slaves = [Host]</span></div>
-<div class="REFTYPES"><span class="bold_code">Host = atom()</span></div>
-</div></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="which_slaves-0"></a><span class="bold_code func-name">which_slaves() -&gt; Slaves</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Slaves = [Host]</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Host = atom()</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns the current list of allowed slave hosts.</p>
-      </p></div>
-  
-  <h3><a name="idm46748408817072">SEE ALSO</a></h3>
-<div class="REFBODY">
+      </p></div></div>
+</div>
+  </div>
+  <h3><a name="idm45917638702752">SEE ALSO</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','init.html');"><span class="code">erts:init(3)</span></a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl_prim_loader.html');"><span class="code">erts:erl_prim_loader(3)</span></a></span></p>
+    <p><span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','init.html');"><span class="code">erts:init(3)</span></a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','erl_prim_loader.html');"><span class="code">erts:erl_prim_loader(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

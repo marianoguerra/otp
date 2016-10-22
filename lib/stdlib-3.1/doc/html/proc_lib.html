@@ -1717,20 +1717,20 @@
 <!-- refpage --><center><h1>proc_lib</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">proc_lib</div>
+<div class="REFBODY module-body">proc_lib</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Functions for asynchronous and synchronous start of processes
+<div class="REFBODY modules-summary-body">Functions for asynchronous and synchronous start of processes
     adhering to the OTP design principles.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>This module is used to start processes adhering to
-      the <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','des_princ.html');">OTP Design Principles</a></span>. Specifically, the functions in this
+      the <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','des_princ.html');">OTP Design Principles</a></span>. Specifically, the functions in this
       module are used by the OTP standard behaviors (for example,
       <span class="code">gen_server</span>, <span class="code">gen_fsm</span>, and <span class="code">gen_statem</span>)
       when starting new processes. The functions
       can also be used to start <strong>special processes</strong>, user-defined
       processes that comply to the OTP design principles. For an example,
-      see section <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','spec_proc.html');">sys and proc_lib</a></span> in OTP Design Principles.</p>
+      see section <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','spec_proc.html');">sys and proc_lib</a></span> in OTP Design Principles.</p>
 
 
     <p>Some useful information is initialized when a process starts.
@@ -1751,95 +1751,118 @@
       is generated, which is written to terminal by the default SASL
       event handler. That is, the crash report is normally only visible
       if the SASL application is started; see
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','sasl','sasl_app.html');"><span class="code">sasl(6)</span></a></span> and section
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','sasl','error_logging.html');">SASL Error Logging</a></span>
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','sasl','sasl_app.html');"><span class="code">sasl(6)</span></a></span> and section
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','sasl','error_logging.html');">SASL Error Logging</a></span>
       in the SASL User's Guide.</p>
 
     <p>The crash report contains the previously stored information, such
       as ancestors and initial function, the termination reason, and
       information about other processes that terminate as a result
       of this process terminating.</p>
-  </p></div>
+  </div>
 
-  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
-    <p>
-      <span class="bold_code"><a name="type-spawn_option">spawn_option()</a> = <br>    link |<br>    monitor |<br>    {priority, <span class="bold_code"><a href="#type-priority_level">priority_level()</a></span>} |<br>    {max_heap_size, <span class="bold_code"><a href="#type-max_heap_size">max_heap_size()</a></span>} |<br>    {min_heap_size, integer() &gt;= 0} |<br>    {min_bin_vheap_size, integer() &gt;= 0} |<br>    {fullsweep_after, integer() &gt;= 0} |<br>    {message_queue_data, off_heap | on_heap | mixed}</span><br></p>
-<div class="REFBODY"><p>
-        <p>See <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#spawn_opt-4');"><span class="code">erlang:spawn_opt/2,3,4,5</span></a></span>.</p>
+  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
+<div class="data-types-body">
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-spawn_option">spawn_option()</a> = <br>    link |<br>    monitor |<br>    {priority, <span class="bold_code data-type-ref"><a href="#type-priority_level">priority_level()</a></span>} |<br>    {max_heap_size, <span class="bold_code data-type-ref"><a href="#type-max_heap_size">max_heap_size()</a></span>} |<br>    {min_heap_size, integer() &gt;= 0} |<br>    {min_bin_vheap_size, integer() &gt;= 0} |<br>    {fullsweep_after, integer() &gt;= 0} |<br>    {message_queue_data, off_heap | on_heap | mixed}</span><div class="REFBODY data-type-desc"><p>
+        <p>See <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#spawn_opt-4');"><span class="code">erlang:spawn_opt/2,3,4,5</span></a></span>.</p>
       </p></div>
-    <p>
-      <span class="bold_code"><a name="type-priority_level">priority_level()</a> = high | low | max | normal</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-max_heap_size">max_heap_size()</a> = <br>    integer() &gt;= 0 |<br>    #{size =&gt; integer() &gt;= 0,<br>      kill =&gt; true,<br>      error_logger =&gt; true}</span><br></p>
-<div class="REFBODY"><p>
-        <p>See <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#process_flag_max_heap_size');">erlang:process_flag(max_heap_size, MaxHeapSize)</a></span>.</p>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-priority_level">priority_level()</a> = high | low | max | normal</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-max_heap_size">max_heap_size()</a> = <br>    integer() &gt;= 0 |<br>    #{size =&gt; integer() &gt;= 0,<br>      kill =&gt; true,<br>      error_logger =&gt; true}</span><div class="REFBODY data-type-desc"><p>
+        <p>See <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#process_flag_max_heap_size');">erlang:process_flag(max_heap_size, MaxHeapSize)</a></span>.</p>
       </p></div>
-    <p>
-      <span class="bold_code"><a name="type-dict_or_pid">dict_or_pid()</a> = <br>    pid() |<br>    (ProcInfo :: [term()]) |<br>    {X :: integer(), Y :: integer(), Z :: integer()}</span><br></p>
-  
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-dict_or_pid">dict_or_pid()</a> = <br>    pid() |<br>    (ProcInfo :: [term()]) |<br>    {X :: integer(), Y :: integer(), Z :: integer()}</span>
+</div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="format-1"></a><span class="bold_code">format(CrashReport) -&gt; string()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">CrashReport = [term()]</span></div>
-</div></p>
-<div class="REFBODY"><p>
-        <p>Equivalent to <span class="bold_code"><a href="#format-2"><span class="code">format(CrashReport, latin1)</span></a></span>.</p>
-      </p></div>
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="format-1"></a><span class="bold_code func-name">format(CrashReport) -&gt; string()</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">CrashReport = [term()]</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
+        <p>Equivalent to <span class="bold_code data-type-ref"><a href="#format-2"><span class="code">format(CrashReport, latin1)</span></a></span>.</p>
+      </p></div></div>
+</div>
 
-    <p><a name="format-2"></a><span class="bold_code">format(CrashReport, Encoding) -&gt; string()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">CrashReport = [term()]</span></div>
-<div class="REFTYPES"><span class="bold_code">Encoding = latin1 | unicode | utf8</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="format-2"></a><span class="bold_code func-name">format(CrashReport, Encoding) -&gt; string()</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">CrashReport = [term()]</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Encoding = latin1 | unicode | utf8</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function can be used by a user-defined event handler to
           format a crash report. The crash report is sent using
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','error_logger.html#error_report-2');"><span class="code">error_logger:error_report(crash_report,CrashReport)</span></a></span>.
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','error_logger.html#error_report-2');"><span class="code">error_logger:error_report(crash_report,CrashReport)</span></a></span>.
           That is, the event to be handled is of the format
           <span class="code">{error_report, GL, {Pid, crash_report,
           CrashReport}}</span>,
           where <span class="code">GL</span> is the group leader pid of process
           <span class="code">Pid</span> that sent the crash report.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="format-3"></a><span class="bold_code">format(CrashReport, Encoding, Depth) -&gt; string()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">CrashReport = [term()]</span></div>
-<div class="REFTYPES"><span class="bold_code">Encoding = latin1 | unicode | utf8</span></div>
-<div class="REFTYPES"><span class="bold_code">Depth = unlimited | integer() &gt;= 1</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="format-3"></a><span class="bold_code func-name">format(CrashReport, Encoding, Depth) -&gt; string()</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">CrashReport = [term()]</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Encoding = latin1 | unicode | utf8</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Depth = unlimited | integer() &gt;= 1</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function can be used by a user-defined event handler to
           format a crash report. When Depth is specified as a
           positive integer, it is used in the format string to
           limit the output as follows: <span class="code">io_lib:format("~P",
           [Term,Depth])</span>.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="hibernate-3"></a><span class="bold_code">hibernate(Module, Function, Args) -&gt; no_return()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Function = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = [term()]</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="hibernate-3"></a><span class="bold_code func-name">hibernate(Module, Function, Args) -&gt; no_return()</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Module = module()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Function = atom()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Args = [term()]</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function does the same as (and does call) the
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#erlang:hibernate-3');"><span class="code">hibernate/3</span></a></span> BIF,
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#erlang:hibernate-3');"><span class="code">hibernate/3</span></a></span> BIF,
           but ensures that exception handling and logging continues to
           work as expected when the process wakes up.</p>
         <p>Always use this function instead of the BIF for processes started
           using <span class="code">proc_lib</span> functions.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="init_ack-1"></a><span class="bold_code">init_ack(Ret) -&gt; ok</span><br><a name="init_ack-2"></a><span class="bold_code">init_ack(Parent, Ret) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Parent = pid()</span></div>
-<div class="REFTYPES"><span class="bold_code">Ret = term()</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="init_ack-1"></a><span class="bold_code func-name">init_ack(Ret) -&gt; ok</span><a name="init_ack-2"></a><span class="bold_code func-name">init_ack(Parent, Ret) -&gt; ok</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Parent = pid()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Ret = term()</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function must be used by a process that has been started by
-          a <span class="bold_code"><a href="#start-3"><span class="code">start[_link]/3,4,5</span></a></span>
+          a <span class="bold_code data-type-ref"><a href="#start-3"><span class="code">start[_link]/3,4,5</span></a></span>
           function. It tells <span class="code">Parent</span> that the process has
           initialized itself, has started, or has failed to initialize
           itself.</p>
@@ -1868,16 +1891,20 @@ init(Parent) -&gt;
     loop().
 
 ...</pre></div>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="initial_call-1"></a><span class="bold_code">initial_call(Process) -&gt; {Module, Function, Args} | false</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Process = <span class="bold_code"><a href="#type-dict_or_pid">dict_or_pid()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Function = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = [atom()]</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="initial_call-1"></a><span class="bold_code func-name">initial_call(Process) -&gt; {Module, Function, Args} | false</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Process = <span class="bold_code data-type-ref"><a href="#type-dict_or_pid">dict_or_pid()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Module = module()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Function = atom()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Args = [atom()]</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Extracts the initial call of a process that was started
           using one of the spawn or start functions in this module.
           <span class="code">Process</span> can either be a pid, an integer tuple
@@ -1903,50 +1930,62 @@ init(Parent) -&gt;
             a significant amount of memory could be wasted.</p>
         </p></div>
 </div>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="spawn-1"></a><span class="bold_code">spawn(Fun) -&gt; pid()</span><br><a name="spawn-2"></a><span class="bold_code">spawn(Node, Fun) -&gt; pid()</span><br><a name="spawn-3"></a><span class="bold_code">spawn(Module, Function, Args) -&gt; pid()</span><br><a name="spawn-4"></a><span class="bold_code">spawn(Node, Module, Function, Args) -&gt; pid()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Node = node()</span></div>
-<div class="REFTYPES"><span class="bold_code">Fun = function()</span></div>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Function = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = [term()]</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="spawn-1"></a><span class="bold_code func-name">spawn(Fun) -&gt; pid()</span><a name="spawn-2"></a><span class="bold_code func-name">spawn(Node, Fun) -&gt; pid()</span><a name="spawn-3"></a><span class="bold_code func-name">spawn(Module, Function, Args) -&gt; pid()</span><a name="spawn-4"></a><span class="bold_code func-name">spawn(Node, Module, Function, Args) -&gt; pid()</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Node = node()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Fun = function()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Module = module()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Function = atom()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Args = [term()]</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Spawns a new process and initializes it as described in the
           beginning of this manual page. The process is spawned using the
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#spawn-1');"><span class="code">spawn</span></a></span> BIFs.</p>
-      </p></div>
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#spawn-1');"><span class="code">spawn</span></a></span> BIFs.</p>
+      </p></div></div>
+</div>
 
-    <p><a name="spawn_link-1"></a><span class="bold_code">spawn_link(Fun) -&gt; pid()</span><br><a name="spawn_link-2"></a><span class="bold_code">spawn_link(Node, Fun) -&gt; pid()</span><br><a name="spawn_link-3"></a><span class="bold_code">spawn_link(Module, Function, Args) -&gt; pid()</span><br><a name="spawn_link-4"></a><span class="bold_code">spawn_link(Node, Module, Function, Args) -&gt; pid()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Node = node()</span></div>
-<div class="REFTYPES"><span class="bold_code">Fun = function()</span></div>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Function = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = [term()]</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="spawn_link-1"></a><span class="bold_code func-name">spawn_link(Fun) -&gt; pid()</span><a name="spawn_link-2"></a><span class="bold_code func-name">spawn_link(Node, Fun) -&gt; pid()</span><a name="spawn_link-3"></a><span class="bold_code func-name">spawn_link(Module, Function, Args) -&gt; pid()</span><a name="spawn_link-4"></a><span class="bold_code func-name">spawn_link(Node, Module, Function, Args) -&gt; pid()</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Node = node()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Fun = function()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Module = module()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Function = atom()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Args = [term()]</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Spawns a new process and initializes it as described in the
           beginning of this manual page. The process is spawned using the
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#spawn_link-1');"><span class="code">spawn_link</span></a></span>
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#spawn_link-1');"><span class="code">spawn_link</span></a></span>
           BIFs.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="spawn_opt-2"></a><span class="bold_code">spawn_opt(Fun, SpawnOpts) -&gt; pid()</span><br><a name="spawn_opt-3"></a><span class="bold_code">spawn_opt(Node, Function, SpawnOpts) -&gt; pid()</span><br><a name="spawn_opt-4"></a><span class="bold_code">spawn_opt(Module, Function, Args, SpawnOpts) -&gt; pid()</span><br><a name="spawn_opt-5"></a><span class="bold_code">spawn_opt(Node, Module, Function, Args, SpawnOpts) -&gt; pid()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Node = node()</span></div>
-<div class="REFTYPES"><span class="bold_code">Fun = function()</span></div>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Function = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = [term()]</span></div>
-<div class="REFTYPES"><span class="bold_code">SpawnOpts = [<span class="bold_code"><a href="#type-spawn_option">spawn_option()</a></span>]</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="spawn_opt-2"></a><span class="bold_code func-name">spawn_opt(Fun, SpawnOpts) -&gt; pid()</span><a name="spawn_opt-3"></a><span class="bold_code func-name">spawn_opt(Node, Function, SpawnOpts) -&gt; pid()</span><a name="spawn_opt-4"></a><span class="bold_code func-name">spawn_opt(Module, Function, Args, SpawnOpts) -&gt; pid()</span><a name="spawn_opt-5"></a><span class="bold_code func-name">spawn_opt(Node, Module, Function, Args, SpawnOpts) -&gt; pid()</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Node = node()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Fun = function()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Module = module()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Function = atom()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Args = [term()]</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">SpawnOpts = [<span class="bold_code data-type-ref"><a href="#type-spawn_option">spawn_option()</a></span>]</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Spawns a new process and initializes it as described in the
           beginning of this manual page. The process is spawned using the
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#spawn_opt-2');"><span class="code">spawn_opt</span></a></span>
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#spawn_opt-2');"><span class="code">spawn_opt</span></a></span>
           BIFs.</p>
         <div class="note">
 <div class="label">Note</div>
@@ -1956,23 +1995,27 @@ init(Parent) -&gt;
             <span class="code">badarg</span>.</p>
         </p></div>
 </div>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="start-3"></a><span class="bold_code">start(Module, Function, Args) -&gt; Ret</span><br><a name="start-4"></a><span class="bold_code">start(Module, Function, Args, Time) -&gt; Ret</span><br><a name="start-5"></a><span class="bold_code">start(Module, Function, Args, Time, SpawnOpts) -&gt; Ret</span><br><a name="start_link-3"></a><span class="bold_code">start_link(Module, Function, Args) -&gt; Ret</span><br><a name="start_link-4"></a><span class="bold_code">start_link(Module, Function, Args, Time) -&gt; Ret</span><br><a name="start_link-5"></a><span class="bold_code">start_link(Module, Function, Args, Time, SpawnOpts) -&gt; Ret</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Function = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = [term()]</span></div>
-<div class="REFTYPES"><span class="bold_code">Time = timeout()</span></div>
-<div class="REFTYPES"><span class="bold_code">SpawnOpts = [<span class="bold_code"><a href="#type-spawn_option">spawn_option()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">Ret = term() | {error, Reason :: term()}</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="start-3"></a><span class="bold_code func-name">start(Module, Function, Args) -&gt; Ret</span><a name="start-4"></a><span class="bold_code func-name">start(Module, Function, Args, Time) -&gt; Ret</span><a name="start-5"></a><span class="bold_code func-name">start(Module, Function, Args, Time, SpawnOpts) -&gt; Ret</span><a name="start_link-3"></a><span class="bold_code func-name">start_link(Module, Function, Args) -&gt; Ret</span><a name="start_link-4"></a><span class="bold_code func-name">start_link(Module, Function, Args, Time) -&gt; Ret</span><a name="start_link-5"></a><span class="bold_code func-name">start_link(Module, Function, Args, Time, SpawnOpts) -&gt; Ret</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Module = module()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Function = atom()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Args = [term()]</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Time = timeout()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">SpawnOpts = [<span class="bold_code data-type-ref"><a href="#type-spawn_option">spawn_option()</a></span>]</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Ret = term() | {error, Reason :: term()}</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Starts a new process synchronously. Spawns the process and
           waits for it to start. When the process has started, it
           <strong>must</strong> call
-          <span class="bold_code"><a href="#init_ack-2"><span class="code">init_ack(Parent, Ret)</span></a></span>
-          or <span class="bold_code"><a href="#init_ack-1"><span class="code">init_ack(Ret)</span></a></span>,
+          <span class="bold_code data-type-ref"><a href="#init_ack-2"><span class="code">init_ack(Parent, Ret)</span></a></span>
+          or <span class="bold_code data-type-ref"><a href="#init_ack-1"><span class="code">init_ack(Ret)</span></a></span>,
           where <span class="code">Parent</span> is the process that evaluates this
           function. At this time, <span class="code">Ret</span> is returned.</p>
         <p>If function <span class="code">start_link/3,4,5</span> is used and
@@ -1984,7 +2027,7 @@ init(Parent) -&gt;
           new process to call <span class="code">init_ack</span>, or <span class="code">{error, timeout}</span> is
           returned, and the process is killed.</p>
         <p>Argument <span class="code">SpawnOpts</span>, if specified, is passed
-          as the last argument to the <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#spawn_opt-2');"><span class="code">spawn_opt/2,3,4,5</span></a></span> BIF.</p>
+          as the last argument to the <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#spawn_opt-2');"><span class="code">spawn_opt/2,3,4,5</span></a></span> BIF.</p>
         <div class="note">
 <div class="label">Note</div>
 <div class="content"><p>
@@ -1993,23 +2036,31 @@ init(Parent) -&gt;
             <span class="code">badarg</span>.</p>
         </p></div>
 </div>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="stop-1"></a><span class="bold_code">stop(Process) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Process = pid() | RegName | {RegName, node()}</span></div>
-</div></p>
-<div class="REFBODY"><p>
-        <p>Equivalent to <span class="bold_code"><a href="#stop-3"><span class="code">stop(Process, normal, infinity)</span></a></span>.</p>
-      </p></div>
+    <div class="func">
+<div class="func-title">
+<a name="stop-1"></a><span class="bold_code func-name">stop(Process) -&gt; ok</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Process = pid() | RegName | {RegName, node()}</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
+        <p>Equivalent to <span class="bold_code data-type-ref"><a href="#stop-3"><span class="code">stop(Process, normal, infinity)</span></a></span>.</p>
+      </p></div></div>
+</div>
 
-    <p><a name="stop-3"></a><span class="bold_code">stop(Process, Reason, Timeout) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Process = pid() | RegName | {RegName, node()}</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="stop-3"></a><span class="bold_code func-name">stop(Process, Reason, Timeout) -&gt; ok</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Process = pid() | RegName | {RegName, node()}</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = term()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Timeout = timeout()</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Orders the process to exit with the specified <span class="code">Reason</span> and
           waits for it to terminate.</p>
         <p>Returns <span class="code">ok</span> if the process exits with
@@ -2021,21 +2072,25 @@ init(Parent) -&gt;
           <span class="code">terminate</span> system message, and requires that the
           process handles system messages correctly.
           For information about system messages, see
-          <span class="bold_code"><a href="sys.html"><span class="code">sys(3)</span></a></span> and section
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','spec_proc.html');">sys and proc_lib</a></span> in OTP Design Principles.</p>
-      </p></div>
+          <span class="bold_code bc-19"><a href="sys.html"><span class="code">sys(3)</span></a></span> and section
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','spec_proc.html');">sys and proc_lib</a></span> in OTP Design Principles.</p>
+      </p></div></div>
+</div>
 
-    <p><a name="translate_initial_call-1"></a><span class="bold_code">translate_initial_call(Process) -&gt; {Module, Function, Arity}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Process = <span class="bold_code"><a href="#type-dict_or_pid">dict_or_pid()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Function = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Arity = byte()</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="translate_initial_call-1"></a><span class="bold_code func-name">translate_initial_call(Process) -&gt; {Module, Function, Arity}</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Process = <span class="bold_code data-type-ref"><a href="#type-dict_or_pid">dict_or_pid()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Module = module()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Function = atom()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Arity = byte()</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function is used by functions
-          <span class="bold_code"><a href="c.html#i-0"><span class="code">c:i/0</span></a></span> and
-          <span class="bold_code"><a href="c.html#regs-0"><span class="code">c:regs/0</span></a></span>
+          <span class="bold_code bc-15"><a href="c.html#i-0"><span class="code">c:i/0</span></a></span> and
+          <span class="bold_code bc-15"><a href="c.html#regs-0"><span class="code">c:regs/0</span></a></span>
           to present process information.</p>
         <p>This function extracts the initial call of a process that was
           started using one of the spawn or start functions in this module,
@@ -2062,13 +2117,14 @@ init(Parent) -&gt;
           information about the initial call can be found. It is
           assumed that the caller knows that the process has been
           spawned with the <span class="code">proc_lib</span> module.</p>
-      </p></div>
-  
+      </p></div></div>
+</div>
+  </div>
 
-  <h3><a name="idm45518935571440">See Also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45461564242176">See Also</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','error_logger.html');"><span class="code">error_logger(3)</span></a></span></p>
+    <p><span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','error_logger.html');"><span class="code">error_logger(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

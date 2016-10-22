@@ -111,18 +111,19 @@
 <!-- refpage --><center><h1>percept_profile</h1></center>
 
 <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">percept_profile</div>
+<div class="REFBODY module-body">percept_profile</div>
 <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Percept Collector.</div>
+<div class="REFBODY modules-summary-body">Percept Collector.</div>
 <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
 <p>Percept Collector</p>
  
  	<p>This module provides the user interface for the percept data
 	collection (profiling).
- </p></p></div>
-<h3><a name="idm46151479728992">DATA TYPES</a></h3>
-<div class="REFBODY">
+ </p>
+</div>
+<h3><a name="idm45580322969568">DATA TYPES</a></h3>
+<div class="REFBODY rb-3">
 <a name="types"></a>
 
 <dl>
@@ -132,42 +133,64 @@
 </dl>
 </div>
 <h3><a name="exports" href="#exports">Exports</a></h3>
-<p><a name="start-1"></a><span class="bold_code">start(Filename::string()) -&gt; {ok, Port} | {already_started, Port}</span><br></p>
-<div class="REFBODY"><p><a name="start-1"></a>
-<p>Equivalent to <span class="bold_code"><a href="#start-2">start(Filename, [procs])</a></span>.</p>
-</p></div>
-<p><a name="start-2"></a><span class="bold_code">start(Filename::string(), Options::[<span class="bold_code"><a href="#type-percept_option">percept_option()</a></span>]) -&gt; {ok, Port} | {already_started, Port}</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+<div class="func">
+<div class="func-title">
+<a name="start-1"></a><span class="bold_code bc-9">start(Filename::string()) -&gt; {ok, Port} | {already_started, Port}</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="start-1"></a>
+<p>Equivalent to <span class="bold_code data-type-ref"><a href="#start-2">start(Filename, [procs])</a></span>.</p>
+</p></div></div>
+</div>
+<div class="func">
+<div class="func-title">
+<a name="start-2"></a><span class="bold_code bc-9">start(Filename::string(), Options::[<span class="bold_code data-type-ref"><a href="#type-percept_option">percept_option()</a></span>]) -&gt; {ok, Port} | {already_started, Port}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 <div class="REFTYPES">
-<span class="bold_code">Port = port()</span><br>
+<span class="bold_code bc-11">Port = port()</span><br>
 </div>
 </div>
-<div class="REFBODY"><p><a name="start-2"></a>
+<div class="REFBODY data-type-desc"><p><a name="start-2"></a>
 
 <p>Starts profiling with supplied options.
  	All events are stored in the file given by Filename.
  	An explicit call to stop/0 is needed to stop profiling.</p>
 </p></div>
-<p><a name="start-3"></a><span class="bold_code">start(Filename::string(), MFA::mfa(), Options::[<span class="bold_code"><a href="#type-percept_option">percept_option()</a></span>]) -&gt; ok | {already_started, Port} | {error, not_started}</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+<div class="func">
+<div class="func-title">
+<a name="start-3"></a><span class="bold_code bc-9">start(Filename::string(), MFA::mfa(), Options::[<span class="bold_code data-type-ref"><a href="#type-percept_option">percept_option()</a></span>]) -&gt; ok | {already_started, Port} | {error, not_started}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 <div class="REFTYPES">
-<span class="bold_code">Port = port()</span><br>
+<span class="bold_code bc-11">Port = port()</span><br>
 </div>
 </div>
-<div class="REFBODY"><p><a name="start-3"></a>
+<div class="REFBODY data-type-desc"><p><a name="start-3"></a>
 
 <p>Starts profiling at the entrypoint specified by the MFA. All events are collected,
  	this means that processes outside the scope of the entry-point are also profiled.
  	No explicit call to stop/0 is needed, the profiling stops when
  	the entry function returns.</p>
 </p></div>
-<p><a name="stop-0"></a><span class="bold_code">stop() -&gt; ok | {error, not_started}</span><br></p>
-<div class="REFBODY"><p><a name="stop-0"></a>
+</div>
+</div>
+<div class="func">
+<div class="func-title">
+<a name="stop-0"></a><span class="bold_code bc-9">stop() -&gt; ok | {error, not_started}</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="stop-0"></a>
 
 <p>Stops profiling.</p>
-</p></div>
+</p></div></div>
+</div>
+</div>
 
 
  

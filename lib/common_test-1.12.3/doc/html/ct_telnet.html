@@ -443,12 +443,12 @@
 <!-- refpage --><center><h1>ct_telnet</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">ct_telnet</div>
+<div class="REFBODY module-body">ct_telnet</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Common Test specific layer on top of Telnet client ct_telnet_client.erl</div>
+<div class="REFBODY modules-summary-body">Common Test specific layer on top of Telnet client ct_telnet_client.erl</div>
 
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
 
     <p><span class="code">Common Test</span> specific layer on top of Telnet client
       <span class="code">ct_telnet_client.erl</span>.</p>
@@ -457,7 +457,7 @@
       perform string matching on the result. For information about how to use
       <span class="code">ct_telnet</span> and configure connections, specifically for UNIX hosts,
       see the
-      <span class="bold_code"><a href="unix_telnet.html"><span class="code">unix_telnet</span></a></span> manual page.
+      <span class="bold_code bc-19"><a href="unix_telnet.html"><span class="code">unix_telnet</span></a></span> manual page.
     </p>
 
     <p>Default values defined in <span class="code">ct_telnet</span>:</p>
@@ -503,12 +503,12 @@
 
     <p><span class="code">keep_alive</span> can be specified per connection, if necessary. For
       details, see
-      <span class="bold_code"><a href="unix_telnet.html"><span class="code">unix_telnet</span></a></span>.</p>
+      <span class="bold_code bc-19"><a href="unix_telnet.html"><span class="code">unix_telnet</span></a></span>.</p>
 
-  </p></div>
+  </div>
 
-  <h3><a name="idm45554682852016">Logging</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46407703934256">Logging</a></h3>
+<div class="REFBODY rb-3">
     
     <a name="Logging"></a>
 
@@ -542,7 +542,7 @@
       option <span class="code">hosts</span> and list the names of the servers/connections
       to be used in the suite. The connections must be named for this to
       work (see
-      <span class="bold_code"><a href="#open-1"><span class="code">ct_telnet:open/1,2,3,4</span></a></span>).</p>
+      <span class="bold_code data-type-ref"><a href="#open-1"><span class="code">ct_telnet:open/1,2,3,4</span></a></span>).</p>
 
     <p>Hook option <span class="code">log_type</span> can be used to change the
       <span class="code">cth_conn_log</span> behavior. The default value of this option is
@@ -595,8 +595,8 @@
      [{ct_hooks, [{cth_conn_log, []}]}].</pre></div>
   </div>
 
-  <h3><a name="idm45554682828192">Data Types</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46407703910432">Data Types</a></h3>
+<div class="REFBODY rb-3">
     
     <a name="types"></a>
     <dl>
@@ -604,7 +604,7 @@
       <dd>
 <a name="type-connection"></a>
         <p>For <span class="code">target_name()</span>, see module
-          <span class="bold_code"><a href="ct.html"><span class="code">ct</span></a></span>.</p>
+          <span class="bold_code bc-19"><a href="ct.html"><span class="code">ct</span></a></span>.</p>
 </dd>
 
       <dt><strong><span class="code">connection_type() = telnet | ts1 | ts2</span></strong></dt>
@@ -615,7 +615,7 @@
       <dd>
 <a name="type-handle"></a>
         <p>Handle for a specific Telnet connection, see module
-          <span class="bold_code"><a href="ct.html"><span class="code">ct</span></a></span>.</p>
+          <span class="bold_code bc-19"><a href="ct.html"><span class="code">ct</span></a></span>.</p>
 </dd>
 
       <dt><strong><span class="code">prompt_regexp() = string()</span></strong></dt>
@@ -630,54 +630,69 @@
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="close-1"></a><span class="bold_code">close(Connection) -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="close-1"></a><span class="bold_code bc-9">close(Connection) -&gt; ok | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Connection = connection()</span><br>
+<span class="bold_code bc-11">Connection = connection()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p><a name="close-1"></a>
+<div class="REFBODY data-type-desc"><p><a name="close-1"></a>
         <p>Closes the Telnet connection and stops the process managing it.</p>
 
         <p>A connection can be associated with a target name and/or a handle.
           If <span class="code">Connection</span> has no associated target name, it can only
           be closed with the handle value (see
-          <span class="bold_code"><a href="#open-4"><span class="code">ct_telnet:open/4</span></a></span>).</p>
+          <span class="bold_code data-type-ref"><a href="#open-4"><span class="code">ct_telnet:open/4</span></a></span>).</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="cmd-2"></a><span class="bold_code">cmd(Connection, Cmd) -&gt; {ok, Data} | {error, Reason}</span><br></p>
-<div class="REFBODY"><p><a name="cmd-2"></a>
+    <div class="func">
+<div class="func-title">
+<a name="cmd-2"></a><span class="bold_code bc-9">cmd(Connection, Cmd) -&gt; {ok, Data} | {error, Reason}</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="cmd-2"></a>
         <p>Equivalent to
-          <span class="bold_code"><a href="#cmd-3"><span class="code">ct_telnet:cmd(Connection, Cmd, [])</span></a></span>.</p>
-      </p></div>
+          <span class="bold_code data-type-ref"><a href="#cmd-3"><span class="code">ct_telnet:cmd(Connection, Cmd, [])</span></a></span>.</p>
+      </p></div></div>
+</div>
 
-    <p><a name="cmd-3"></a><span class="bold_code">cmd(Connection, Cmd, Opts) -&gt; {ok, Data} | {error, Reason}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="cmd-3"></a><span class="bold_code bc-9">cmd(Connection, Cmd, Opts) -&gt; {ok, Data} | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Connection = connection()</span><br>
+<span class="bold_code bc-11">Connection = connection()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Cmd = string()</span><br>
+<span class="bold_code bc-11">Cmd = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Opts = [Opt]</span><br>
+<span class="bold_code bc-11">Opts = [Opt]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Opt = {timeout, timeout()} | {newline, boolean()}</span><br>
+<span class="bold_code bc-11">Opt = {timeout, timeout()} | {newline, boolean()}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Data = [string()]</span><br>
+<span class="bold_code bc-11">Data = [string()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p><a name="cmd-3"></a>
+<div class="REFBODY data-type-desc"><p><a name="cmd-3"></a>
         <p>Sends a command through Telnet and waits for prompt.</p>
 
         <p>By default, this function adds a new line to the end of the
@@ -690,108 +705,128 @@
           for prompt. If the time expires, the function returns
           <span class="code">{error,timeout}</span>. For information about the default value
           for the command timeout, see the
-          <span class="bold_code"><a href="#Default_values">list of default values</a></span>
+          <span class="bold_code data-type-ref"><a href="#Default_values">list of default values</a></span>
           in the beginning of this module.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="cmdf-3"></a><span class="bold_code">cmdf(Connection, CmdFormat, Args) -&gt; {ok, Data} | {error, Reason}</span><br></p>
-<div class="REFBODY"><p><a name="cmdf-3"></a>
+    <div class="func">
+<div class="func-title">
+<a name="cmdf-3"></a><span class="bold_code bc-9">cmdf(Connection, CmdFormat, Args) -&gt; {ok, Data} | {error, Reason}</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="cmdf-3"></a>
         <p>Equivalent to
-          <span class="bold_code"><a href="#cmdf-4"><span class="code">ct_telnet:cmdf(Connection, CmdFormat, Args, [])</span></a></span>.</p>
-      </p></div>
+          <span class="bold_code data-type-ref"><a href="#cmdf-4"><span class="code">ct_telnet:cmdf(Connection, CmdFormat, Args, [])</span></a></span>.</p>
+      </p></div></div>
+</div>
 
-    <p><a name="cmdf-4"></a><span class="bold_code">cmdf(Connection, CmdFormat, Args, Opts) -&gt; {ok, Data} | {error, Reason}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="cmdf-4"></a><span class="bold_code bc-9">cmdf(Connection, CmdFormat, Args, Opts) -&gt; {ok, Data} | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Connection = connection()</span><br>
+<span class="bold_code bc-11">Connection = connection()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">CmdFormat = string()</span><br>
+<span class="bold_code bc-11">CmdFormat = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Args = list()</span><br>
+<span class="bold_code bc-11">Args = list()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Opts = [Opt]</span><br>
+<span class="bold_code bc-11">Opts = [Opt]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Opt = {timeout, timeout()} | {newline, boolean()}</span><br>
+<span class="bold_code bc-11">Opt = {timeout, timeout()} | {newline, boolean()}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Data = [string()]</span><br>
+<span class="bold_code bc-11">Data = [string()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p><a name="cmdf-4"></a>
+<div class="REFBODY data-type-desc"><p><a name="cmdf-4"></a>
         <p>Sends a Telnet command and waits for prompt (uses a format string
           and a list of arguments to build the command).</p>
 
         <p>For details, see
-          <span class="bold_code"><a href="#cmd-3"><span class="code">ct_telnet:cmd/3</span></a></span>.</p>
+          <span class="bold_code data-type-ref"><a href="#cmd-3"><span class="code">ct_telnet:cmd/3</span></a></span>.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="expect-2"></a><span class="bold_code">expect(Connection, Patterns) -&gt; term()</span><br></p>
-<div class="REFBODY"><p><a name="expect-2"></a>
+    <div class="func">
+<div class="func-title">
+<a name="expect-2"></a><span class="bold_code bc-9">expect(Connection, Patterns) -&gt; term()</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="expect-2"></a>
         <p>Equivalent to
-          <span class="bold_code"><a href="#expect-3"><span class="code">ct_telnet:expect(Connections, Patterns, [])</span></a></span>.</p>
-      </p></div>
+          <span class="bold_code data-type-ref"><a href="#expect-3"><span class="code">ct_telnet:expect(Connections, Patterns, [])</span></a></span>.</p>
+      </p></div></div>
+</div>
 
-    <p><a name="expect-3"></a><span class="bold_code">expect(Connection, Patterns, Opts) -&gt; {ok, Match} | {ok, MatchList, HaltReason} | {error, Reason}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="expect-3"></a><span class="bold_code bc-9">expect(Connection, Patterns, Opts) -&gt; {ok, Match} | {ok, MatchList, HaltReason} | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Connection = connection()</span><br>
+<span class="bold_code bc-11">Connection = connection()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Patterns = Pattern | [Pattern]</span><br>
+<span class="bold_code bc-11">Patterns = Pattern | [Pattern]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Pattern = string() | {Tag, string()} | prompt | {prompt, Prompt}</span><br>
+<span class="bold_code bc-11">Pattern = string() | {Tag, string()} | prompt | {prompt, Prompt}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Prompt = string()</span><br>
+<span class="bold_code bc-11">Prompt = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Tag = term()</span><br>
+<span class="bold_code bc-11">Tag = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Opts = [Opt]</span><br>
+<span class="bold_code bc-11">Opts = [Opt]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Opt = {idle_timeout, IdleTimeout} | {total_timeout, TotalTimeout} | repeat | {repeat, N} | sequence | {halt, HaltPatterns} | ignore_prompt | no_prompt_check | wait_for_prompt | {wait_for_prompt, Prompt}</span><br>
+<span class="bold_code bc-11">Opt = {idle_timeout, IdleTimeout} | {total_timeout, TotalTimeout} | repeat | {repeat, N} | sequence | {halt, HaltPatterns} | ignore_prompt | no_prompt_check | wait_for_prompt | {wait_for_prompt, Prompt}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">IdleTimeout = infinity | integer()</span><br>
+<span class="bold_code bc-11">IdleTimeout = infinity | integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">TotalTimeout = infinity | integer()</span><br>
+<span class="bold_code bc-11">TotalTimeout = infinity | integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">N = integer()</span><br>
+<span class="bold_code bc-11">N = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">HaltPatterns = Patterns</span><br>
+<span class="bold_code bc-11">HaltPatterns = Patterns</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">MatchList = [Match]</span><br>
+<span class="bold_code bc-11">MatchList = [Match]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Match = RxMatch | {Tag, RxMatch} | {prompt, Prompt}</span><br>
+<span class="bold_code bc-11">Match = RxMatch | {Tag, RxMatch} | {prompt, Prompt}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">RxMatch = [string()]</span><br>
+<span class="bold_code bc-11">RxMatch = [string()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">HaltReason = done | Match</span><br>
+<span class="bold_code bc-11">HaltReason = done | Match</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = timeout | {prompt, Prompt}</span><br>
+<span class="bold_code bc-11">Reason = timeout | {prompt, Prompt}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p><a name="expect-3"></a>
+<div class="REFBODY data-type-desc"><p><a name="expect-3"></a>
         <p>Gets data from Telnet and waits for the expected pattern.</p>
 
         <p><span class="code">Pattern</span> can be a POSIX regular expression. The function
@@ -887,21 +922,27 @@
         <p>Options <span class="code">repeat</span> and <span class="code">sequence</span> can be combined to
           match a sequence multiple times.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="get_data-1"></a><span class="bold_code">get_data(Connection) -&gt; {ok, Data} | {error, Reason}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="get_data-1"></a><span class="bold_code bc-9">get_data(Connection) -&gt; {ok, Data} | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Connection = connection()</span><br>
+<span class="bold_code bc-11">Connection = connection()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Data = [string()]</span><br>
+<span class="bold_code bc-11">Data = [string()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p><a name="get_data-1"></a>
+<div class="REFBODY data-type-desc"><p><a name="get_data-1"></a>
         <p>Gets all data received by the Telnet client since the last
           command was sent. Only newline-terminated strings are returned.
           If the last received string has not yet been terminated, the
@@ -914,68 +955,88 @@
           complete strings received and saves a remaining non-terminated
           string for a later <span class="code">get_data</span> call.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="open-1"></a><span class="bold_code">open(Name) -&gt; {ok, Handle} | {error, Reason}</span><br></p>
-<div class="REFBODY"><p><a name="open-1"></a>
+    <div class="func">
+<div class="func-title">
+<a name="open-1"></a><span class="bold_code bc-9">open(Name) -&gt; {ok, Handle} | {error, Reason}</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="open-1"></a>
         <p>Equivalent to
-          <span class="bold_code"><a href="#open-2"><span class="code">ct_telnet:open(Name, telnet)</span></a></span>.</p>
-      </p></div>
+          <span class="bold_code data-type-ref"><a href="#open-2"><span class="code">ct_telnet:open(Name, telnet)</span></a></span>.</p>
+      </p></div></div>
+</div>
 
-    <p><a name="open-2"></a><span class="bold_code">open(Name, ConnType) -&gt; {ok, Handle} | {error, Reason}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="open-2"></a><span class="bold_code bc-9">open(Name, ConnType) -&gt; {ok, Handle} | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Name = target_name()</span><br>
+<span class="bold_code bc-11">Name = target_name()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">ConnType = connection_type()</span><br>
+<span class="bold_code bc-11">ConnType = connection_type()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Handle = handle()</span><br>
+<span class="bold_code bc-11">Handle = handle()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p><a name="open-2"></a>
+<div class="REFBODY data-type-desc"><p><a name="open-2"></a>
         <p>Opens a Telnet connection to the specified target host.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="open-3"></a><span class="bold_code">open(KeyOrName, ConnType, TargetMod) -&gt; {ok, Handle} | {error, Reason}</span><br></p>
-<div class="REFBODY"><p><a name="open-3"></a>
+    <div class="func">
+<div class="func-title">
+<a name="open-3"></a><span class="bold_code bc-9">open(KeyOrName, ConnType, TargetMod) -&gt; {ok, Handle} | {error, Reason}</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="open-3"></a>
         <p>Equivalent to
-          <span class="bold_code"><a href="#open-4"><span class="code">ct_telnet:ct_telnet:open(KeyOrName, ConnType, TargetMod, [])</span></a></span>.</p>
-      </p></div>
+          <span class="bold_code data-type-ref"><a href="#open-4"><span class="code">ct_telnet:ct_telnet:open(KeyOrName, ConnType, TargetMod, [])</span></a></span>.</p>
+      </p></div></div>
+</div>
 
-    <p><a name="open-4"></a><span class="bold_code">open(KeyOrName, ConnType, TargetMod, Extra) -&gt; {ok, Handle} | {error, Reason}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="open-4"></a><span class="bold_code bc-9">open(KeyOrName, ConnType, TargetMod, Extra) -&gt; {ok, Handle} | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">KeyOrName = Key | Name</span><br>
+<span class="bold_code bc-11">KeyOrName = Key | Name</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Key = atom()</span><br>
+<span class="bold_code bc-11">Key = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Name = target_name()</span><br>
+<span class="bold_code bc-11">Name = target_name()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">ConnType = connection_type()</span><br>
+<span class="bold_code bc-11">ConnType = connection_type()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">TargetMod = atom()</span><br>
+<span class="bold_code bc-11">TargetMod = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Extra = term()</span><br>
+<span class="bold_code bc-11">Extra = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Handle = handle()</span><br>
+<span class="bold_code bc-11">Handle = handle()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p><a name="open-4"></a>
+<div class="REFBODY data-type-desc"><p><a name="open-4"></a>
         <p>Opens a Telnet connection to the specified target host.</p>
 
         <p>The target data must exist in a configuration file. The connection
@@ -984,7 +1045,7 @@
           alternatives:</p>
 
         <ul>
-          <li><p><span class="bold_code"><a href="ct.html#require-2"><span class="code">ct:require/2</span></a></span>
+          <li><p><span class="bold_code bc-15"><a href="ct.html#require-2"><span class="code">ct:require/2</span></a></span>
              in a test case</p></li>
           <li><p>A <span class="code">require</span> statement in the suite information
             function (<span class="code">suite/0</span>)</p></li>
@@ -1004,38 +1065,48 @@
           (for example, <span class="code">unix_telnet</span>).</p>
 
         <p>For <span class="code">target_name()</span>, see module
-          <span class="bold_code"><a href="ct.html"><span class="code">ct</span></a></span>.</p>
+          <span class="bold_code bc-19"><a href="ct.html"><span class="code">ct</span></a></span>.</p>
 
         <p>See also
-          <span class="bold_code"><a href="ct.html#require-2"><span class="code">ct:require/2</span></a></span>.</p>
+          <span class="bold_code bc-15"><a href="ct.html#require-2"><span class="code">ct:require/2</span></a></span>.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="send-2"></a><span class="bold_code">send(Connection, Cmd) -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY"><p><a name="send-2"></a>
+    <div class="func">
+<div class="func-title">
+<a name="send-2"></a><span class="bold_code bc-9">send(Connection, Cmd) -&gt; ok | {error, Reason}</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="send-2"></a>
         <p>Equivalent to
-          <span class="bold_code"><a href="#send-3"><span class="code">ct_telnet:send(Connection, Cmd, [])</span></a></span>.</p>
-      </p></div>
+          <span class="bold_code data-type-ref"><a href="#send-3"><span class="code">ct_telnet:send(Connection, Cmd, [])</span></a></span>.</p>
+      </p></div></div>
+</div>
 
-    <p><a name="send-3"></a><span class="bold_code">send(Connection, Cmd, Opts) -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="send-3"></a><span class="bold_code bc-9">send(Connection, Cmd, Opts) -&gt; ok | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Connection = connection()</span><br>
+<span class="bold_code bc-11">Connection = connection()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Cmd = string()</span><br>
+<span class="bold_code bc-11">Cmd = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Opts = [Opt]</span><br>
+<span class="bold_code bc-11">Opts = [Opt]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Opt = {newline, boolean()}</span><br>
+<span class="bold_code bc-11">Opt = {newline, boolean()}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p><a name="send-3"></a>
+<div class="REFBODY data-type-desc"><p><a name="send-3"></a>
         <p>Sends a Telnet command and returns immediately.</p>
 
         <p>By default, this function adds a newline to the end of the
@@ -1045,48 +1116,60 @@
           Interprete As Command (IAC).</p>
 
         <p>The resulting output from the command can be read with
-          <span class="bold_code"><a href="#get_data-1"><span class="code">ct_telnet:get_data/2</span></a></span> or
-          <span class="bold_code"><a href="#expect-2"><span class="code">ct_telnet:expect/2,3</span></a></span>.</p>
+          <span class="bold_code data-type-ref"><a href="#get_data-1"><span class="code">ct_telnet:get_data/2</span></a></span> or
+          <span class="bold_code data-type-ref"><a href="#expect-2"><span class="code">ct_telnet:expect/2,3</span></a></span>.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="sendf-3"></a><span class="bold_code">sendf(Connection, CmdFormat, Args) -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY"><p><a name="sendf-3"></a>
+    <div class="func">
+<div class="func-title">
+<a name="sendf-3"></a><span class="bold_code bc-9">sendf(Connection, CmdFormat, Args) -&gt; ok | {error, Reason}</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="sendf-3"></a>
         <p>Equivalent to
-          <span class="bold_code"><a href="#sendf-4"><span class="code">ct_telnet:sendf(Connection, CmdFormat, Args, [])</span></a></span>.</p>
-      </p></div>
+          <span class="bold_code data-type-ref"><a href="#sendf-4"><span class="code">ct_telnet:sendf(Connection, CmdFormat, Args, [])</span></a></span>.</p>
+      </p></div></div>
+</div>
 
-    <p><a name="sendf-4"></a><span class="bold_code">sendf(Connection, CmdFormat, Args, Opts) -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="sendf-4"></a><span class="bold_code bc-9">sendf(Connection, CmdFormat, Args, Opts) -&gt; ok | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Connection = connection()</span><br>
+<span class="bold_code bc-11">Connection = connection()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">CmdFormat = string()</span><br>
+<span class="bold_code bc-11">CmdFormat = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Args = list()</span><br>
+<span class="bold_code bc-11">Args = list()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Opts = [Opt]</span><br>
+<span class="bold_code bc-11">Opts = [Opt]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Opt = {newline, boolean()}</span><br>
+<span class="bold_code bc-11">Opt = {newline, boolean()}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p><a name="sendf-4"></a>
+<div class="REFBODY data-type-desc"><p><a name="sendf-4"></a>
         <p>Sends a Telnet command and returns immediately (uses a format
           string and a list of arguments to build the command).</p>
       </p></div>
-  
+</div>
+</div>
+  </div>
 
-  <h3><a name="idm45554682667920">See Also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46407703750160">See Also</a></h3>
+<div class="REFBODY rb-3">
     
-      <p><span class="bold_code"><a href="unix_telnet.html"><span class="code">unix_telnet</span></a></span></p>
+      <p><span class="bold_code bc-19"><a href="unix_telnet.html"><span class="code">unix_telnet</span></a></span></p>
   </div>
 
 </div>

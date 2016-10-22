@@ -228,18 +228,18 @@
 <!-- refpage --><center><h1>ssh_sftp</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">ssh_sftp</div>
+<div class="REFBODY module-body">ssh_sftp</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">SFTP client.</div>
+<div class="REFBODY modules-summary-body">SFTP client.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>This module implements an SSH FTP (SFTP) client. SFTP is a
     secure, encrypted file transfer service available for
     SSH.</p>
-  </p></div>
+  </div>
   
- <h3><a name="idm46052429799424">DATA TYPES</a></h3>
-<div class="REFBODY">
+ <h3><a name="idm45749166091344">DATA TYPES</a></h3>
+<div class="REFBODY rb-3">
     
     <p>Type definitions that are used more than once in this module,
     or abstractions to indicate the intended use of the data type, or both:
@@ -251,7 +251,7 @@
 	<p>= <span class="code">atom()</span> A description of the reason why an operation failed.</p>
 	<p>
 	  The value is formed from the sftp error codes in the protocol-level responses as defined in 
-	  <span class="bold_code"><a href="https://tools.ietf.org/id/draft-ietf-secsh-filexfer-13.txt">draft-ietf-secsh-filexfer-13.txt</a></span>
+	  <span class="bold_code bc-20"><a href="https://tools.ietf.org/id/draft-ietf-secsh-filexfer-13.txt">draft-ietf-secsh-filexfer-13.txt</a></span>
 	  section 9.1.
 	</p>
 	<p>
@@ -263,15 +263,15 @@
 
       <dt><strong><span class="code">ssh_connection_ref() =</span></strong></dt>
       <dd><p><span class="code">opaque()</span> - as returned by 
-      <span class="bold_code"><a href="ssh.html#connect-3"><span class="code">ssh:connect/3</span></a></span></p></dd>
+      <span class="bold_code bc-15"><a href="ssh.html#connect-3"><span class="code">ssh:connect/3</span></a></span></p></dd>
 
       <dt><strong><span class="code">timeout()</span></strong></dt>
       <dd><p>= <span class="code">infinity | integer()</span> in milliseconds. Default infinity.</p></dd>
     </dl>
    </div>
 
- <h3><a name="idm46052429788160">Time-outs</a></h3>
-<div class="REFBODY">
+ <h3><a name="idm45749166080080">Time-outs</a></h3>
+<div class="REFBODY rb-3">
     
     <p>If the request functions for the SFTP channel return <span class="code">{error, timeout}</span>,
      no answer was received from the server within the expected time.</p>
@@ -280,80 +280,97 @@
    </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-     <p><a name="apread-4"></a><span class="bold_code">apread(ChannelPid, Handle, Position, Len) -&gt; {async, N} | {error, reason()}</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+     <div class="func">
+<div class="func-title">
+<a name="apread-4"></a><span class="bold_code bc-9">apread(ChannelPid, Handle, Position, Len) -&gt; {async, N} | {error, reason()}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	 <div class="REFTYPES">
-<span class="bold_code">ChannelPid = pid()</span><br>
+<span class="bold_code bc-11">ChannelPid = pid()</span><br>
 </div>
          <div class="REFTYPES">
-<span class="bold_code">Handle = term()</span><br>
+<span class="bold_code bc-11">Handle = term()</span><br>
 </div>
          <div class="REFTYPES">
-<span class="bold_code">Position = integer()</span><br>
+<span class="bold_code bc-11">Position = integer()</span><br>
 </div>
          <div class="REFTYPES">
-<span class="bold_code">Len = integer()</span><br>
+<span class="bold_code bc-11">Len = integer()</span><br>
 </div>
          <div class="REFTYPES">
-<span class="bold_code">N = term()</span><br>
+<span class="bold_code bc-11">N = term()</span><br>
 </div>
        </div>
-<div class="REFBODY"><p><p>The <span class="code">apread/4</span> function reads from a specified position,
-       combining the <span class="bold_code"><a href="#position-3"><span class="code">position/3</span></a></span> and 
-       <span class="bold_code"><a href="#aread-3"><span class="code">aread/3</span></a></span> functions.</p>
+<div class="REFBODY data-type-desc"><p><p>The <span class="code">apread/4</span> function reads from a specified position,
+       combining the <span class="bold_code data-type-ref"><a href="#position-3"><span class="code">position/3</span></a></span> and 
+       <span class="bold_code data-type-ref"><a href="#aread-3"><span class="code">aread/3</span></a></span> functions.</p>
        </p></div>
+</div>
+</div>
      
-     <p><a name="apwrite-4"></a><span class="bold_code">apwrite(ChannelPid, Handle, Position, Data) -&gt; {async, N} | {error, reason()}</span><br></p>
-<div class="REFBODY">
+     <div class="func">
+<div class="func-title">
+<a name="apwrite-4"></a><span class="bold_code bc-9">apwrite(ChannelPid, Handle, Position, Data) -&gt; {async, N} | {error, reason()}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	  <div class="REFTYPES">
-<span class="bold_code">ChannelPid = pid()</span><br>
+<span class="bold_code bc-11">ChannelPid = pid()</span><br>
 </div>
 	  <div class="REFTYPES">
-<span class="bold_code">Handle = term()</span><br>
+<span class="bold_code bc-11">Handle = term()</span><br>
 </div>
 	  <div class="REFTYPES">
-<span class="bold_code">Position = integer()</span><br>
+<span class="bold_code bc-11">Position = integer()</span><br>
 </div>
 	  <div class="REFTYPES">
-<span class="bold_code">Len = integer()</span><br>
+<span class="bold_code bc-11">Len = integer()</span><br>
 </div>
 	  <div class="REFTYPES">
-<span class="bold_code">Data = binary()</span><br>
+<span class="bold_code bc-11">Data = binary()</span><br>
 </div>
 	  <div class="REFTYPES">
-<span class="bold_code">Timeout = timeout()</span><br>
+<span class="bold_code bc-11">Timeout = timeout()</span><br>
 </div>
           <div class="REFTYPES">
-<span class="bold_code">N = term()</span><br>
+<span class="bold_code bc-11">N = term()</span><br>
 </div>
 	</div>
-<div class="REFBODY"><p><p>The <span class="code">apwrite/4</span> function writes to a specified position,
-       combining the <span class="bold_code"><a href="#position-3"><span class="code">position/3</span></a></span> and 
-       <span class="bold_code"><a href="#awrite-3"><span class="code">awrite/3</span></a></span> functions.</p>
+<div class="REFBODY data-type-desc"><p><p>The <span class="code">apwrite/4</span> function writes to a specified position,
+       combining the <span class="bold_code data-type-ref"><a href="#position-3"><span class="code">position/3</span></a></span> and 
+       <span class="bold_code data-type-ref"><a href="#awrite-3"><span class="code">awrite/3</span></a></span> functions.</p>
        </p></div>
+</div>
+</div>
       
-      <p><a name="aread-3"></a><span class="bold_code">aread(ChannelPid, Handle, Len) -&gt; {async, N} | {error, reason()}</span><br></p>
-<div class="REFBODY">
+      <div class="func">
+<div class="func-title">
+<a name="aread-3"></a><span class="bold_code bc-9">aread(ChannelPid, Handle, Len) -&gt; {async, N} | {error, reason()}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	  <div class="REFTYPES">
-<span class="bold_code">ChannelPid = pid()</span><br>
+<span class="bold_code bc-11">ChannelPid = pid()</span><br>
 </div>
 	  <div class="REFTYPES">
-<span class="bold_code">Handle = term()</span><br>
+<span class="bold_code bc-11">Handle = term()</span><br>
 </div>
 	  <div class="REFTYPES">
-<span class="bold_code">Position = integer()</span><br>
+<span class="bold_code bc-11">Position = integer()</span><br>
 </div>
 	  <div class="REFTYPES">
-<span class="bold_code">Len = integer()</span><br>
+<span class="bold_code bc-11">Len = integer()</span><br>
 </div>
 	  <div class="REFTYPES">
-<span class="bold_code">N = term()</span><br>
+<span class="bold_code bc-11">N = term()</span><br>
 </div>
 	</div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
 	  <p>Reads from an open file, without waiting for the result. If the
           handle is valid, the function returns <span class="code">{async, N}</span>, where <span class="code">N</span>
           is a term guaranteed to be unique between calls of <span class="code">aread</span>.
@@ -362,30 +379,36 @@
           <span class="code">Result</span> is the result from the read, either <span class="code">{ok, Data}</span>,
           <span class="code">eof</span>, or <span class="code">{error, reason()}</span>.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="awrite-3"></a><span class="bold_code">awrite(ChannelPid, Handle, Data) -&gt; {async, N} | {error, reason()}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="awrite-3"></a><span class="bold_code bc-9">awrite(ChannelPid, Handle, Data) -&gt; {async, N} | {error, reason()}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ChannelPid = pid()</span><br>
+<span class="bold_code bc-11">ChannelPid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Handle = term()</span><br>
+<span class="bold_code bc-11">Handle = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Position = integer()</span><br>
+<span class="bold_code bc-11">Position = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Len = integer()</span><br>
+<span class="bold_code bc-11">Len = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Data = binary()</span><br>
+<span class="bold_code bc-11">Data = binary()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Timeout = timeout()</span><br>
+<span class="bold_code bc-11">Timeout = timeout()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Writes to an open file, without waiting for the result. If the
           handle is valid, the function returns <span class="code">{async, N}</span>, where <span class="code">N</span>
           is a term guaranteed to be unique between calls of
@@ -394,227 +417,281 @@
           <span class="code">{async_reply, N, Result}</span>, where <span class="code">Result</span> is the result
           from the write, either <span class="code">ok</span>, or <span class="code">{error, reason()}</span>.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="close-2"></a><span class="bold_code">close(ChannelPid, Handle) -&gt;</span><br><a name="close-3"></a><span class="bold_code">close(ChannelPid, Handle, Timeout) -&gt; ok | {error, reason()}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="close-2"></a><span class="bold_code bc-9">close(ChannelPid, Handle) -&gt;</span><br><a name="close-3"></a><span class="bold_code bc-9">close(ChannelPid, Handle, Timeout) -&gt; ok | {error, reason()}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ChannelPid = pid()</span><br>
+<span class="bold_code bc-11">ChannelPid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Handle = term()</span><br>
+<span class="bold_code bc-11">Handle = term()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Timeout = timeout()</span><br>
+<span class="bold_code bc-11">Timeout = timeout()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Closes a handle to an open file or directory on the server.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="delete-2"></a><span class="bold_code">delete(ChannelPid, Name) -&gt;</span><br><a name="delete-3"></a><span class="bold_code">delete(ChannelPid, Name, Timeout) -&gt; ok | {error, reason()}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="delete-2"></a><span class="bold_code bc-9">delete(ChannelPid, Name) -&gt;</span><br><a name="delete-3"></a><span class="bold_code bc-9">delete(ChannelPid, Name, Timeout) -&gt; ok | {error, reason()}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ChannelPid = pid()</span><br>
+<span class="bold_code bc-11">ChannelPid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Name = string()</span><br>
+<span class="bold_code bc-11">Name = string()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Timeout = timeout()</span><br>
+<span class="bold_code bc-11">Timeout = timeout()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Deletes the file specified by <span class="code">Name</span>.
 	</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="del_dir-2"></a><span class="bold_code">del_dir(ChannelPid, Name) -&gt;</span><br><a name="del_dir-3"></a><span class="bold_code">del_dir(ChannelPid, Name, Timeout) -&gt; ok | {error, reason()}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="del_dir-2"></a><span class="bold_code bc-9">del_dir(ChannelPid, Name) -&gt;</span><br><a name="del_dir-3"></a><span class="bold_code bc-9">del_dir(ChannelPid, Name, Timeout) -&gt; ok | {error, reason()}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ChannelPid = pid()</span><br>
+<span class="bold_code bc-11">ChannelPid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Name = string()</span><br>
+<span class="bold_code bc-11">Name = string()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Timeout = timeout()</span><br>
+<span class="bold_code bc-11">Timeout = timeout()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
 	<p>Deletes a directory specified by <span class="code">Name</span>.
 	The directory must be empty before it can be successfully deleted.
 	</p>
       </p></div>
+</div>
+</div>
 
-     <p><a name="list_dir-2"></a><span class="bold_code">list_dir(ChannelPid, Path) -&gt;</span><br><a name="list_dir-3"></a><span class="bold_code">list_dir(ChannelPid, Path, Timeout) -&gt; {ok, Filenames} | {error, reason()}</span><br></p>
-<div class="REFBODY">
+     <div class="func">
+<div class="func-title">
+<a name="list_dir-2"></a><span class="bold_code bc-9">list_dir(ChannelPid, Path) -&gt;</span><br><a name="list_dir-3"></a><span class="bold_code bc-9">list_dir(ChannelPid, Path, Timeout) -&gt; {ok, Filenames} | {error, reason()}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ChannelPid = pid()</span><br>
+<span class="bold_code bc-11">ChannelPid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Path = string()</span><br>
+<span class="bold_code bc-11">Path = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Filenames = [Filename]</span><br>
+<span class="bold_code bc-11">Filenames = [Filename]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Filename = string()</span><br>
+<span class="bold_code bc-11">Filename = string()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Timeout = timeout()</span><br>
+<span class="bold_code bc-11">Timeout = timeout()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Lists the given directory on the server, returning the
           filenames as a list of strings.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="make_dir-2"></a><span class="bold_code">make_dir(ChannelPid, Name) -&gt;</span><br><a name="make_dir-3"></a><span class="bold_code">make_dir(ChannelPid, Name, Timeout) -&gt; ok | {error, reason()}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="make_dir-2"></a><span class="bold_code bc-9">make_dir(ChannelPid, Name) -&gt;</span><br><a name="make_dir-3"></a><span class="bold_code bc-9">make_dir(ChannelPid, Name, Timeout) -&gt; ok | {error, reason()}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ChannelPid = pid()</span><br>
+<span class="bold_code bc-11">ChannelPid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Name = string()</span><br>
+<span class="bold_code bc-11">Name = string()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Timeout = timeout()</span><br>
+<span class="bold_code bc-11">Timeout = timeout()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Creates a directory specified by <span class="code">Name</span>. <span class="code">Name</span>
           must be a full path to a new directory. The directory can only be
 	created in an existing directory.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="make_symlink-3"></a><span class="bold_code">make_symlink(ChannelPid, Name, Target) -&gt;</span><br><a name="make_symlink-4"></a><span class="bold_code">make_symlink(ChannelPid, Name, Target, Timeout) -&gt; ok | {error, reason()}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="make_symlink-3"></a><span class="bold_code bc-9">make_symlink(ChannelPid, Name, Target) -&gt;</span><br><a name="make_symlink-4"></a><span class="bold_code bc-9">make_symlink(ChannelPid, Name, Target, Timeout) -&gt; ok | {error, reason()}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ChannelPid = pid()</span><br>
+<span class="bold_code bc-11">ChannelPid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Name = string()</span><br>
+<span class="bold_code bc-11">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Target = string()</span><br>
+<span class="bold_code bc-11">Target = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Creates a symbolic link pointing to <span class="code">Target</span> with the
           name <span class="code">Name</span>.
 	</p>
       </p></div>
+</div>
+</div>
 
-       <p><a name="open-3"></a><span class="bold_code">open(ChannelPid, File, Mode) -&gt;</span><br><a name="open-4"></a><span class="bold_code">open(ChannelPid, File, Mode, Timeout) -&gt; {ok, Handle} | {error, reason()}</span><br></p>
-<div class="REFBODY">
+       <div class="func">
+<div class="func-title">
+<a name="open-3"></a><span class="bold_code bc-9">open(ChannelPid, File, Mode) -&gt;</span><br><a name="open-4"></a><span class="bold_code bc-9">open(ChannelPid, File, Mode, Timeout) -&gt; {ok, Handle} | {error, reason()}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ChannelPid = pid()</span><br>
+<span class="bold_code bc-11">ChannelPid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">File = string()</span><br>
+<span class="bold_code bc-11">File = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Mode = [Modeflag]</span><br>
+<span class="bold_code bc-11">Mode = [Modeflag]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Modeflag = read | write | creat | trunc | append | binary</span><br>
+<span class="bold_code bc-11">Modeflag = read | write | creat | trunc | append | binary</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Timeout = timeout()</span><br>
+<span class="bold_code bc-11">Timeout = timeout()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Handle = term()</span><br>
+<span class="bold_code bc-11">Handle = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Opens a file on the server and returns a handle, which
           can be used for reading or writing.</p>
       </p></div>
-    <p><a name="opendir-2"></a><span class="bold_code">opendir(ChannelPid, Path) -&gt;</span><br><a name="opendir-3"></a><span class="bold_code">opendir(ChannelPid, Path, Timeout) -&gt; {ok, Handle} | {error, reason()}</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="opendir-2"></a><span class="bold_code bc-9">opendir(ChannelPid, Path) -&gt;</span><br><a name="opendir-3"></a><span class="bold_code bc-9">opendir(ChannelPid, Path, Timeout) -&gt; {ok, Handle} | {error, reason()}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ChannelPid = pid()</span><br>
+<span class="bold_code bc-11">ChannelPid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Path = string()</span><br>
+<span class="bold_code bc-11">Path = string()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Timeout = timeout()</span><br>
+<span class="bold_code bc-11">Timeout = timeout()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Opens a handle to a directory on the server. The handle
           can be used for reading directory contents.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="open_tar-3"></a><span class="bold_code">open_tar(ChannelPid, Path, Mode) -&gt;</span><br><a name="open_tar-4"></a><span class="bold_code">open_tar(ChannelPid, Path, Mode, Timeout) -&gt; {ok, Handle} | {error, reason()}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="open_tar-3"></a><span class="bold_code bc-9">open_tar(ChannelPid, Path, Mode) -&gt;</span><br><a name="open_tar-4"></a><span class="bold_code bc-9">open_tar(ChannelPid, Path, Mode, Timeout) -&gt; {ok, Handle} | {error, reason()}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ChannelPid = pid()</span><br>
+<span class="bold_code bc-11">ChannelPid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Path = string()</span><br>
+<span class="bold_code bc-11">Path = string()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Mode = [read] | [write] | [read,EncryptOpt] | [write,DecryptOpt]</span><br>
+<span class="bold_code bc-11">Mode = [read] | [write] | [read,EncryptOpt] | [write,DecryptOpt]</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">EncryptOpt = {crypto,{InitFun,EncryptFun,CloseFun}}</span><br>
+<span class="bold_code bc-11">EncryptOpt = {crypto,{InitFun,EncryptFun,CloseFun}}</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">DecryptOpt = {crypto,{InitFun,DecryptFun}}</span><br>
+<span class="bold_code bc-11">DecryptOpt = {crypto,{InitFun,DecryptFun}}</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">InitFun = (fun() -&gt; {ok,CryptoState}) | (fun() -&gt; {ok,CryptoState,ChunkSize})</span><br>
+<span class="bold_code bc-11">InitFun = (fun() -&gt; {ok,CryptoState}) | (fun() -&gt; {ok,CryptoState,ChunkSize})</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">CryptoState = any()</span><br>
+<span class="bold_code bc-11">CryptoState = any()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">ChunkSize = undefined | pos_integer()</span><br>
+<span class="bold_code bc-11">ChunkSize = undefined | pos_integer()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">EncryptFun = (fun(PlainBin,CryptoState) -&gt; EncryptResult)</span><br>
+<span class="bold_code bc-11">EncryptFun = (fun(PlainBin,CryptoState) -&gt; EncryptResult)</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">EncryptResult = {ok,EncryptedBin,CryptoState} | {ok,EncryptedBin,CryptoState,ChunkSize}</span><br>
+<span class="bold_code bc-11">EncryptResult = {ok,EncryptedBin,CryptoState} | {ok,EncryptedBin,CryptoState,ChunkSize}</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">PlainBin = binary()</span><br>
+<span class="bold_code bc-11">PlainBin = binary()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">EncryptedBin = binary()</span><br>
+<span class="bold_code bc-11">EncryptedBin = binary()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">DecryptFun = (fun(EncryptedBin,CryptoState) -&gt; DecryptResult)</span><br>
+<span class="bold_code bc-11">DecryptFun = (fun(EncryptedBin,CryptoState) -&gt; DecryptResult)</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">DecryptResult = {ok,PlainBin,CryptoState} | {ok,PlainBin,CryptoState,ChunkSize}</span><br>
+<span class="bold_code bc-11">DecryptResult = {ok,PlainBin,CryptoState} | {ok,PlainBin,CryptoState,ChunkSize}</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">CloseFun = (fun(PlainBin,CryptoState) -&gt; {ok,EncryptedBin})</span><br>
+<span class="bold_code bc-11">CloseFun = (fun(PlainBin,CryptoState) -&gt; {ok,EncryptedBin})</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Timeout = timeout()</span><br>
+<span class="bold_code bc-11">Timeout = timeout()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Opens a handle to a tar file on the server, associated with <span class="code">ChannelPid</span>.
 	The handle can be used for remote tar creation and extraction, as defined by the
-	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','erl_tar.html#init-3');">erl_tar:init/3</a></span> function.
+	<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','erl_tar.html#init-3');">erl_tar:init/3</a></span> function.
 	</p>
 
 	<p> For code exampel see Section
-	<span class="bold_code"><a href="using_ssh.html">SFTP Client with TAR Compression and Encryption</a></span> in
+	<span class="bold_code bc-19"><a href="using_ssh.html">SFTP Client with TAR Compression and Encryption</a></span> in
 	the ssh Users Guide. </p>
 
 	<p>The <span class="code">crypto</span> mode option is applied to the generated stream of bytes prior to sending
@@ -636,31 +713,37 @@
 	</p>
 
       </p></div>
+</div>
+</div>
 
-    <p><a name="position-3"></a><span class="bold_code">position(ChannelPid, Handle, Location) -&gt;</span><br><a name="position-4"></a><span class="bold_code">position(ChannelPid, Handle, Location, Timeout) -&gt; {ok, NewPosition | {error, reason()}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="position-3"></a><span class="bold_code bc-9">position(ChannelPid, Handle, Location) -&gt;</span><br><a name="position-4"></a><span class="bold_code bc-9">position(ChannelPid, Handle, Location, Timeout) -&gt; {ok, NewPosition | {error, reason()}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ChannelPid = pid()</span><br>
+<span class="bold_code bc-11">ChannelPid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Handle = term()</span><br>
+<span class="bold_code bc-11">Handle = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Location = Offset
+<span class="bold_code bc-11">Location = Offset
  | {bof, Offset} | {cur, Offset} | {eof, Offset} | bof | cur | eof</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Offset = integer()</span><br>
+<span class="bold_code bc-11">Offset = integer()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Timeout = timeout()</span><br>
+<span class="bold_code bc-11">Timeout = timeout()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">NewPosition = integer()</span><br>
+<span class="bold_code bc-11">NewPosition = integer()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Sets the file position of the file referenced by <span class="code">Handle</span>.
           Returns <span class="code">{ok, NewPosition}</span> (as an absolute offset) if
           successful, otherwise <span class="code">{error, reason()}</span>. <span class="code">Location</span> is
@@ -690,81 +773,99 @@
           </dd>
         </dl>
       </p></div>
+</div>
+</div>
 
-    <p><a name="pread-4"></a><span class="bold_code">pread(ChannelPid, Handle, Position, Len) -&gt;</span><br><a name="pread-5"></a><span class="bold_code">pread(ChannelPid, Handle, Position, Len, Timeout) -&gt; {ok, Data} | eof | {error, reason()}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="pread-4"></a><span class="bold_code bc-9">pread(ChannelPid, Handle, Position, Len) -&gt;</span><br><a name="pread-5"></a><span class="bold_code bc-9">pread(ChannelPid, Handle, Position, Len, Timeout) -&gt; {ok, Data} | eof | {error, reason()}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ChannelPid = pid()</span><br>
+<span class="bold_code bc-11">ChannelPid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Handle = term()</span><br>
+<span class="bold_code bc-11">Handle = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Position = integer()</span><br>
+<span class="bold_code bc-11">Position = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Len = integer()</span><br>
+<span class="bold_code bc-11">Len = integer()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Timeout = timeout()</span><br>
+<span class="bold_code bc-11">Timeout = timeout()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Data = string() | binary()</span><br>
+<span class="bold_code bc-11">Data = string() | binary()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p><p>The <span class="code">pread/3,4</span> function reads from a specified position,
-       combining the <span class="bold_code"><a href="#position-3"><span class="code">position/3</span></a></span> and 
-       <span class="bold_code"><a href="#read-3"><span class="code">read/3,4</span></a></span> functions.</p>
+<div class="REFBODY data-type-desc"><p><p>The <span class="code">pread/3,4</span> function reads from a specified position,
+       combining the <span class="bold_code data-type-ref"><a href="#position-3"><span class="code">position/3</span></a></span> and 
+       <span class="bold_code data-type-ref"><a href="#read-3"><span class="code">read/3,4</span></a></span> functions.</p>
        </p></div>
+</div>
+</div>
 
-    <p><a name="pwrite-4"></a><span class="bold_code">pwrite(ChannelPid, Handle, Position, Data) -&gt; ok</span><br><a name="pwrite-5"></a><span class="bold_code">pwrite(ChannelPid, Handle, Position, Data, Timeout) -&gt; ok | {error, reason()}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="pwrite-4"></a><span class="bold_code bc-9">pwrite(ChannelPid, Handle, Position, Data) -&gt; ok</span><br><a name="pwrite-5"></a><span class="bold_code bc-9">pwrite(ChannelPid, Handle, Position, Data, Timeout) -&gt; ok | {error, reason()}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ChannelPid = pid()</span><br>
+<span class="bold_code bc-11">ChannelPid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Handle = term()</span><br>
+<span class="bold_code bc-11">Handle = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Position = integer()</span><br>
+<span class="bold_code bc-11">Position = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Data = iolist()</span><br>
+<span class="bold_code bc-11">Data = iolist()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Timeout = timeout()</span><br>
+<span class="bold_code bc-11">Timeout = timeout()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p><p>The <span class="code">pwrite/3,4</span> function writes to a specified position,
-       combining the <span class="bold_code"><a href="#position-3"><span class="code">position/3</span></a></span> and 
-       <span class="bold_code"><a href="#write-3"><span class="code">write/3,4</span></a></span> functions.</p>
+<div class="REFBODY data-type-desc"><p><p>The <span class="code">pwrite/3,4</span> function writes to a specified position,
+       combining the <span class="bold_code data-type-ref"><a href="#position-3"><span class="code">position/3</span></a></span> and 
+       <span class="bold_code data-type-ref"><a href="#write-3"><span class="code">write/3,4</span></a></span> functions.</p>
        </p></div>
+</div>
+</div>
 
-    <p><a name="read-3"></a><span class="bold_code">read(ChannelPid, Handle, Len) -&gt;</span><br><a name="read-4"></a><span class="bold_code">read(ChannelPid, Handle, Len, Timeout) -&gt; {ok, Data} | eof | {error, reason()}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="read-3"></a><span class="bold_code bc-9">read(ChannelPid, Handle, Len) -&gt;</span><br><a name="read-4"></a><span class="bold_code bc-9">read(ChannelPid, Handle, Len, Timeout) -&gt; {ok, Data} | eof | {error, reason()}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ChannelPid = pid()</span><br>
+<span class="bold_code bc-11">ChannelPid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Handle = term()</span><br>
+<span class="bold_code bc-11">Handle = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Position = integer()</span><br>
+<span class="bold_code bc-11">Position = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Len = integer()</span><br>
+<span class="bold_code bc-11">Len = integer()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Timeout = timeout()</span><br>
+<span class="bold_code bc-11">Timeout = timeout()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Data = string() | binary()</span><br>
+<span class="bold_code bc-11">Data = string() | binary()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Reads <span class="code">Len</span> bytes from the file referenced by
           <span class="code">Handle</span>. Returns <span class="code">{ok, Data}</span>, <span class="code">eof</span>, or
           <span class="code">{error, reason()}</span>. If the file is opened with <span class="code">binary</span>,
@@ -773,147 +874,183 @@
           are read and returned. If no bytes are read, <span class="code">eof</span>
           is returned.</p>
       </p></div>
+</div>
+</div>
 
-      <p><a name="read_file-2"></a><span class="bold_code">read_file(ChannelPid, File) -&gt;</span><br><a name="read_file-3"></a><span class="bold_code">read_file(ChannelPid, File, Timeout) -&gt; {ok, Data} | {error, reason()}</span><br></p>
-<div class="REFBODY">
+      <div class="func">
+<div class="func-title">
+<a name="read_file-2"></a><span class="bold_code bc-9">read_file(ChannelPid, File) -&gt;</span><br><a name="read_file-3"></a><span class="bold_code bc-9">read_file(ChannelPid, File, Timeout) -&gt; {ok, Data} | {error, reason()}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">ChannelPid = pid()</span><br>
+<span class="bold_code bc-11">ChannelPid = pid()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">File = string()</span><br>
+<span class="bold_code bc-11">File = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Data = binary()</span><br>
+<span class="bold_code bc-11">Data = binary()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Timeout = timeout()</span><br>
+<span class="bold_code bc-11">Timeout = timeout()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Reads a file from the server, and returns the data in a binary.</p>
       </p></div>
+</div>
+</div>
 
-      <p><a name="read_file_info-2"></a><span class="bold_code">read_file_info(ChannelPid, Name) -&gt;</span><br><a name="read_file_info-3"></a><span class="bold_code">read_file_info(ChannelPid, Name, Timeout) -&gt; {ok, FileInfo} | {error, reason()}</span><br></p>
-<div class="REFBODY">
+      <div class="func">
+<div class="func-title">
+<a name="read_file_info-2"></a><span class="bold_code bc-9">read_file_info(ChannelPid, Name) -&gt;</span><br><a name="read_file_info-3"></a><span class="bold_code bc-9">read_file_info(ChannelPid, Name, Timeout) -&gt; {ok, FileInfo} | {error, reason()}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ChannelPid = pid()</span><br>
+<span class="bold_code bc-11">ChannelPid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Name = string()</span><br>
+<span class="bold_code bc-11">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Handle = term()</span><br>
+<span class="bold_code bc-11">Handle = term()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Timeout = timeout()</span><br>
+<span class="bold_code bc-11">Timeout = timeout()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">FileInfo = record()</span><br>
+<span class="bold_code bc-11">FileInfo = record()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Returns a <span class="code">file_info</span> record from the file specified by
           <span class="code">Name</span> or <span class="code">Handle</span>. See
-	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#read_file_info-2');">file:read_file_info/2</a></span>
+	<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#read_file_info-2');">file:read_file_info/2</a></span>
 	for information about the record.
 	</p>
       </p></div>
+</div>
+</div>
 
-     <p><a name="read_link-2"></a><span class="bold_code">read_link(ChannelPid, Name) -&gt;</span><br><a name="read_link-3"></a><span class="bold_code">read_link(ChannelPid, Name, Timeout) -&gt; {ok, Target} | {error, reason()}</span><br></p>
-<div class="REFBODY">
+     <div class="func">
+<div class="func-title">
+<a name="read_link-2"></a><span class="bold_code bc-9">read_link(ChannelPid, Name) -&gt;</span><br><a name="read_link-3"></a><span class="bold_code bc-9">read_link(ChannelPid, Name, Timeout) -&gt; {ok, Target} | {error, reason()}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ChannelPid = pid()</span><br>
+<span class="bold_code bc-11">ChannelPid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Name = string()</span><br>
+<span class="bold_code bc-11">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Target = string()</span><br>
+<span class="bold_code bc-11">Target = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Reads the link target from the symbolic link specified by <span class="code">name</span>.
 	</p>
       </p></div>
+</div>
+</div>
 
-     <p><a name="read_link_info-2"></a><span class="bold_code">read_link_info(ChannelPid, Name) -&gt; {ok, FileInfo} | {error, reason()}</span><br><a name="read_link_info-3"></a><span class="bold_code">read_link_info(ChannelPid, Name, Timeout) -&gt; {ok, FileInfo} | {error, reason()}</span><br></p>
-<div class="REFBODY">
+     <div class="func">
+<div class="func-title">
+<a name="read_link_info-2"></a><span class="bold_code bc-9">read_link_info(ChannelPid, Name) -&gt; {ok, FileInfo} | {error, reason()}</span><br><a name="read_link_info-3"></a><span class="bold_code bc-9">read_link_info(ChannelPid, Name, Timeout) -&gt; {ok, FileInfo} | {error, reason()}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ChannelPid = pid()</span><br>
+<span class="bold_code bc-11">ChannelPid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Name = string()</span><br>
+<span class="bold_code bc-11">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Handle = term()</span><br>
+<span class="bold_code bc-11">Handle = term()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Timeout = timeout()</span><br>
+<span class="bold_code bc-11">Timeout = timeout()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">FileInfo = record()</span><br>
+<span class="bold_code bc-11">FileInfo = record()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Returns a <span class="code">file_info</span> record from the symbolic
           link specified by <span class="code">Name</span> or <span class="code">Handle</span>.
 	  See
-	  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#read_link_info-2');">file:read_link_info/2</a></span>
+	  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#read_link_info-2');">file:read_link_info/2</a></span>
 	  for information about the record.
 	</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="rename-3"></a><span class="bold_code">rename(ChannelPid, OldName, NewName) -&gt; </span><br><a name="rename-4"></a><span class="bold_code">rename(ChannelPid, OldName, NewName, Timeout) -&gt; ok | {error, reason()}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="rename-3"></a><span class="bold_code bc-9">rename(ChannelPid, OldName, NewName) -&gt; </span><br><a name="rename-4"></a><span class="bold_code bc-9">rename(ChannelPid, OldName, NewName, Timeout) -&gt; ok | {error, reason()}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ChannelPid = pid()</span><br>
+<span class="bold_code bc-11">ChannelPid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">OldName = string()</span><br>
+<span class="bold_code bc-11">OldName = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">NewName = string()</span><br>
+<span class="bold_code bc-11">NewName = string()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Timeout = timeout()</span><br>
+<span class="bold_code bc-11">Timeout = timeout()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Renames a file named <span class="code">OldName</span> and gives it the name
           <span class="code">NewName</span>.
 	</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="start_channel-1"></a><span class="bold_code">start_channel(ConnectionRef) -&gt;</span><br><a name="start_channel-2"></a><span class="bold_code">start_channel(ConnectionRef, Options) -&gt;
-      {ok, Pid} | {error, reason()|term()}</span><br><a name="start_channel-2"></a><span class="bold_code">start_channel(Host, Options) -&gt;</span><br><a name="start_channel-3"></a><span class="bold_code">start_channel(Host, Port, Options) -&gt; 
-      {ok, Pid, ConnectionRef} | {error, reason()|term()}</span><br><a name="start_channel-1"></a><span class="bold_code">start_channel(TcpSocket) -&gt;</span><br><a name="start_channel-2"></a><span class="bold_code">start_channel(TcpSocket, Options) -&gt;
-      {ok, Pid, ConnectionRef} | {error, reason()|term()}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="start_channel-1"></a><span class="bold_code bc-9">start_channel(ConnectionRef) -&gt;</span><br><a name="start_channel-2"></a><span class="bold_code bc-9">start_channel(ConnectionRef, Options) -&gt;
+      {ok, Pid} | {error, reason()|term()}</span><br><a name="start_channel-2"></a><span class="bold_code bc-9">start_channel(Host, Options) -&gt;</span><br><a name="start_channel-3"></a><span class="bold_code bc-9">start_channel(Host, Port, Options) -&gt; 
+      {ok, Pid, ConnectionRef} | {error, reason()|term()}</span><br><a name="start_channel-1"></a><span class="bold_code bc-9">start_channel(TcpSocket) -&gt;</span><br><a name="start_channel-2"></a><span class="bold_code bc-9">start_channel(TcpSocket, Options) -&gt;
+      {ok, Pid, ConnectionRef} | {error, reason()|term()}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Host = string()</span><br>
+<span class="bold_code bc-11">Host = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">ConnectionRef = ssh_connection_ref()</span><br>
+<span class="bold_code bc-11">ConnectionRef = ssh_connection_ref()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Port = integer()</span><br>
+<span class="bold_code bc-11">Port = integer()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">TcpSocket = port()</span><br>
+<span class="bold_code bc-11">TcpSocket = port()</span><br>
 </div>
-	<div class="REFBODY">The socket is supposed to be from <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html#connect-3');">gen_tcp:connect</a></span> or <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html#accept-1');">gen_tcp:accept</a></span> with option <span class="code">{active,false}</span>
+	<div class="REFBODY rb-1">The socket is supposed to be from <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html#connect-3');">gen_tcp:connect</a></span> or <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html#accept-1');">gen_tcp:accept</a></span> with option <span class="code">{active,false}</span>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Options = [{Option, Value}]</span><br>
+<span class="bold_code bc-11">Options = [{Option, Value}]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
 	<p>If no connection reference is provided, a connection is set
 	up, and the new connection is returned. An SSH channel process
 	is started to handle the communication with the SFTP server.
@@ -940,93 +1077,119 @@
 	  </dd>
 	</dl>
 	<p>All other options are directly passed to
-	<span class="bold_code"><a href="ssh.html">ssh:connect/3</a></span> or ignored if a
+	<span class="bold_code bc-19"><a href="ssh.html">ssh:connect/3</a></span> or ignored if a
 	connection is already provided.</p>
       </p></div>
+</div>
+</div>
 
-     <p><a name="stop_channel-1"></a><span class="bold_code">stop_channel(ChannelPid) -&gt; ok</span><br></p>
-<div class="REFBODY">
+     <div class="func">
+<div class="func-title">
+<a name="stop_channel-1"></a><span class="bold_code bc-9">stop_channel(ChannelPid) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ChannelPid = pid()</span><br>
+<span class="bold_code bc-11">ChannelPid = pid()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
 	<p>Stops an SFTP channel. Does not close the SSH connection.
-	Use <span class="bold_code"><a href="ssh.html#close-1">ssh:close/1</a></span> to close it.</p>
+	Use <span class="bold_code bc-15"><a href="ssh.html#close-1">ssh:close/1</a></span> to close it.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="write-3"></a><span class="bold_code">write(ChannelPid, Handle, Data) -&gt;</span><br><a name="write-4"></a><span class="bold_code">write(ChannelPid, Handle, Data, Timeout) -&gt; ok | {error, reason()}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="write-3"></a><span class="bold_code bc-9">write(ChannelPid, Handle, Data) -&gt;</span><br><a name="write-4"></a><span class="bold_code bc-9">write(ChannelPid, Handle, Data, Timeout) -&gt; ok | {error, reason()}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ChannelPid = pid()</span><br>
+<span class="bold_code bc-11">ChannelPid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Handle = term()</span><br>
+<span class="bold_code bc-11">Handle = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Position = integer()</span><br>
+<span class="bold_code bc-11">Position = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Data = iolist()</span><br>
+<span class="bold_code bc-11">Data = iolist()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Timeout = timeout()</span><br>
+<span class="bold_code bc-11">Timeout = timeout()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Writes <span class="code">data</span> to the file referenced by <span class="code">Handle</span>.
 	The file is to be opened with <span class="code">write</span> or <span class="code">append</span>
 	flag. Returns <span class="code">ok</span> if successful or <span class="code">{error, reason()}</span>
 	otherwise.</p>
       </p></div>
+</div>
+</div>
     
-    <p><a name="write_file-3"></a><span class="bold_code">write_file(ChannelPid, File, Iolist) -&gt;</span><br><a name="write_file-4"></a><span class="bold_code">write_file(ChannelPid, File, Iolist, Timeout) -&gt; ok | {error, reason()}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="write_file-3"></a><span class="bold_code bc-9">write_file(ChannelPid, File, Iolist) -&gt;</span><br><a name="write_file-4"></a><span class="bold_code bc-9">write_file(ChannelPid, File, Iolist, Timeout) -&gt; ok | {error, reason()}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ChannelPid = pid()</span><br>
+<span class="bold_code bc-11">ChannelPid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">File = string()</span><br>
+<span class="bold_code bc-11">File = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Iolist = iolist()</span><br>
+<span class="bold_code bc-11">Iolist = iolist()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Timeout = timeout()</span><br>
+<span class="bold_code bc-11">Timeout = timeout()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Writes a file to the server.	The file is created if it does not exist
 	but overwritten if it exists.</p>
       </p></div>
+</div>
+</div>
     
-    <p><a name="write_file_info-3"></a><span class="bold_code">write_file_info(ChannelPid, Name, Info) -&gt;</span><br><a name="write_file_info-4"></a><span class="bold_code">write_file_info(ChannelPid, Name, Info, Timeout) -&gt; ok | {error, reason()}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="write_file_info-3"></a><span class="bold_code bc-9">write_file_info(ChannelPid, Name, Info) -&gt;</span><br><a name="write_file_info-4"></a><span class="bold_code bc-9">write_file_info(ChannelPid, Name, Info, Timeout) -&gt; ok | {error, reason()}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ChannelPid = pid()</span><br>
+<span class="bold_code bc-11">ChannelPid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Name = string()</span><br>
+<span class="bold_code bc-11">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Info = record()</span><br>
+<span class="bold_code bc-11">Info = record()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Timeout = timeout()</span><br>
+<span class="bold_code bc-11">Timeout = timeout()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Writes file information from a <span class="code">file_info</span> record to the
 	file specified by <span class="code">Name</span>. See
-	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#write_file_info-2');">file:write_file_info/[2,3]</a></span>
+	<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#write_file_info-2');">file:write_file_info/[2,3]</a></span>
 	for information about the record.
 	</p>
       </p></div>
-  
+</div>
+</div>
+  </div>
   
 </div>
 <div class="footer">

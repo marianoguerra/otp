@@ -147,54 +147,59 @@
 <!-- refpage --><center><h1>systools</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">systools</div>
+<div class="REFBODY module-body">systools</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">A Set of Release Handling Tools</div>
+<div class="REFBODY modules-summary-body">A Set of Release Handling Tools</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>This module contains functions to generate boot scripts
       (<span class="code">.boot</span>, <span class="code">.script</span>), a release upgrade file
       (<span class="code">relup</span>), and release packages.</p>
-  </p></div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="make_relup-3"></a><span class="bold_code">make_relup(Name, UpFrom, DownTo) -&gt; Result</span><br><a name="make_relup-4"></a><span class="bold_code">make_relup(Name, UpFrom, DownTo, [Opt]) -&gt; Result</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="make_relup-3"></a><span class="bold_code bc-9">make_relup(Name, UpFrom, DownTo) -&gt; Result</span><br><a name="make_relup-4"></a><span class="bold_code bc-9">make_relup(Name, UpFrom, DownTo, [Opt]) -&gt; Result</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Name = string()</span><br>
+<span class="bold_code bc-11">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">UpFrom = DownTo = [Name | {Name,Descr}]</span><br>
+<span class="bold_code bc-11">UpFrom = DownTo = [Name | {Name,Descr}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code"> Descr = term()</span><br>
+<span class="bold_code bc-11"> Descr = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Opt = {path,[Dir]} | restart_emulator | silent | noexec | {outdir,Dir}
+<span class="bold_code bc-11">Opt = {path,[Dir]} | restart_emulator | silent | noexec | {outdir,Dir}
 	| warnings_as_errors</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code"> Dir = string()</span><br>
+<span class="bold_code bc-11"> Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Result = ok | error | {ok,Relup,Module,Warnings} | {error,Module,Error}</span><br>
+<span class="bold_code bc-11">Result = ok | error | {ok,Relup,Module,Warnings} | {error,Module,Error}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code"> Relup, see relup(4)</span><br>
+<span class="bold_code bc-11"> Relup, see relup(4)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code"> Module = atom()</span><br>
+<span class="bold_code bc-11"> Module = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code"> Warnings = Error = term()</span><br>
+<span class="bold_code bc-11"> Warnings = Error = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Generates a release upgrade file <span class="code">relup</span> containing instructions 
 	for upgrading from or downgrading to one or more previous releases. 
 	The instructions are used by 
-	<span class="bold_code"><a href="release_handler.html"><span class="code">release_handler</span></a></span> 
+	<span class="bold_code bc-19"><a href="release_handler.html"><span class="code">release_handler</span></a></span> 
 	when installing a new version of a release in runtime.</p>
         <p>By default, <span class="code">relup</span> file is located in the current working
           directory. If option <span class="code">{outdir,Dir}</span> is specified,
@@ -229,13 +234,13 @@
           between application versions are fetched from the relevant
           application upgrade files <span class="code">App.appup</span>, sorted in
           the same order as when generating a boot script, see
-          <span class="bold_code"><a href="#make_script-1"><span class="code">make_script/1,2</span></a></span>. 
+          <span class="bold_code data-type-ref"><a href="#make_script-1"><span class="code">make_script/1,2</span></a></span>. 
 	  High-level instructions are translated
           into low-level instructions and the result is printed to the
           <span class="code">relup</span> file.</p>
         <p>The optional <span class="code">Descr</span> parameter is included "as is" in
           the <span class="code">relup</span> file, see
-          <span class="bold_code"><a href="relup.html"><span class="code">relup(4)</span></a></span>. Defaults to
+          <span class="bold_code bc-19"><a href="relup.html"><span class="code">relup(4)</span></a></span>. Defaults to
           the empty list.</p>
         <p>All the files are searched for in the code path. It is
           assumed that the <span class="code">.app</span> and <span class="code">.appup</span> files for an
@@ -252,7 +257,7 @@
           than OTP R15 to OTP R15 or later, the warning
           <span class="code">pre_R15_emulator_upgrade</span> is issued. For more information
           about this, see
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','appup_cookbook.html');">Design Principles</a></span> in <strong>System Documentation</strong>.</p>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','appup_cookbook.html');">Design Principles</a></span> in <strong>System Documentation</strong>.</p>
         <p>By default, errors and warnings are printed to tty and
           the function returns <span class="code">ok</span> or <span class="code">error</span>. If option
           <span class="code">silent</span> is specified, the function instead either returns
@@ -267,53 +272,59 @@
         <p>If option <span class="code">warnings_as_errors</span> is specified, warnings
           are treated as errors.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="make_script-1"></a><span class="bold_code">make_script(Name) -&gt; Result</span><br><a name="make_script-2"></a><span class="bold_code">make_script(Name, [Opt]) -&gt; Result</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="make_script-1"></a><span class="bold_code bc-9">make_script(Name) -&gt; Result</span><br><a name="make_script-2"></a><span class="bold_code bc-9">make_script(Name, [Opt]) -&gt; Result</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Name = string()</span><br>
+<span class="bold_code bc-11">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Opt = src_tests | {path,[Dir]} | local | {variables,[Var]} | exref |
+<span class="bold_code bc-11">Opt = src_tests | {path,[Dir]} | local | {variables,[Var]} | exref |
 	  {exref,[App]}] | silent | {outdir,Dir} | no_dot_erlang | no_warn_sasl |
 	  warnings_as_errors</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code"> Dir = string()</span><br>
+<span class="bold_code bc-11"> Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code"> Var = {VarName,Prefix}</span><br>
+<span class="bold_code bc-11"> Var = {VarName,Prefix}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">  VarName = Prefix = string()</span><br>
+<span class="bold_code bc-11">  VarName = Prefix = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code"> App = atom()</span><br>
+<span class="bold_code bc-11"> App = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Result = ok | error | {ok,Module,Warnings} | {error,Module,Error}</span><br>
+<span class="bold_code bc-11">Result = ok | error | {ok,Module,Warnings} | {error,Module,Error}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code"> Module = atom()</span><br>
+<span class="bold_code bc-11"> Module = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code"> Warnings = Error = term()</span><br>
+<span class="bold_code bc-11"> Warnings = Error = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Generates a boot script <span class="code">Name.script</span> and its binary
           version, the boot file <span class="code">Name.boot</span>. The boot file
           specifies which code to be loaded and which applications
           to be started when the Erlang runtime system is started.
-          See <span class="bold_code"><a href="script.html"><span class="code">script(4)</span></a></span>.</p>
+          See <span class="bold_code bc-19"><a href="script.html"><span class="code">script(4)</span></a></span>.</p>
         <p>The release resource file <span class="code">Name.rel</span> is read to determine
           which applications are included in the release. Then
           the relevant application resource files <span class="code">App.app</span> are read
           to determine which modules to be loaded, and if and
           how the applications are to be started. (Keys <span class="code">modules</span>
           and <span class="code">mod</span>, see
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','app.html');"><span class="code">app(4)</span></a></span>.</p>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','app.html');"><span class="code">app(4)</span></a></span>.</p>
         <p>By default, the boot script and boot file are located in
           the same directory as <span class="code">Name.rel</span>. That is, in the current
           working directory unless <span class="code">Name</span> contains a path. If
@@ -409,59 +420,65 @@
           load the <span class="code">.erlang</span> file during boot is <strong>not</strong>
           included.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="make_tar-1"></a><span class="bold_code">make_tar(Name) -&gt; Result</span><br><a name="make_tar-2"></a><span class="bold_code">make_tar(Name, [Opt]) -&gt; Result</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="make_tar-1"></a><span class="bold_code bc-9">make_tar(Name) -&gt; Result</span><br><a name="make_tar-2"></a><span class="bold_code bc-9">make_tar(Name, [Opt]) -&gt; Result</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Name = string()</span><br>
+<span class="bold_code bc-11">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Opt = {dirs,[IncDir]} | {path,[Dir]} | {variables,[Var]} | {var_tar,VarTar} | {erts,Dir} | src_tests | exref | {exref,[App]} | silent | {outdir,Dir}</span><br>
+<span class="bold_code bc-11">Opt = {dirs,[IncDir]} | {path,[Dir]} | {variables,[Var]} | {var_tar,VarTar} | {erts,Dir} | src_tests | exref | {exref,[App]} | silent | {outdir,Dir}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code"> Dir = string()</span><br>
+<span class="bold_code bc-11"> Dir = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code"> IncDir = src | include | atom()</span><br>
+<span class="bold_code bc-11"> IncDir = src | include | atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code"> Var = {VarName,PreFix}</span><br>
+<span class="bold_code bc-11"> Var = {VarName,PreFix}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">  VarName = Prefix = string()</span><br>
+<span class="bold_code bc-11">  VarName = Prefix = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code"> VarTar = include | ownfile | omit</span><br>
+<span class="bold_code bc-11"> VarTar = include | ownfile | omit</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code"> Machine = atom()</span><br>
+<span class="bold_code bc-11"> Machine = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code"> App = atom()</span><br>
+<span class="bold_code bc-11"> App = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Result = ok | error | {ok,Module,Warnings} | {error,Module,Error}</span><br>
+<span class="bold_code bc-11">Result = ok | error | {ok,Module,Warnings} | {error,Module,Error}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code"> Module = atom()</span><br>
+<span class="bold_code bc-11"> Module = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code"> Warning = Error = term()</span><br>
+<span class="bold_code bc-11"> Warning = Error = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Creates a release package file <span class="code">Name.tar.gz</span>.
           This file must be uncompressed and unpacked on the target
           system using 
-	  <span class="bold_code"><a href="release_handler.html"><span class="code">release_handler</span></a></span> 
+	  <span class="bold_code bc-19"><a href="release_handler.html"><span class="code">release_handler</span></a></span> 
 	  before the new release can be installed.</p>
         <p>The release resource file <span class="code">Name.rel</span> is read to determine
           which applications are included in the release. Then
           the relevant application resource files <span class="code">App.app</span> are
           read to determine the version and modules of each application
           (keys <span class="code">vsn</span> and <span class="code">modules</span>, see
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','app.html');"><span class="code">app(4)</span></a></span>).</p>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','app.html');"><span class="code">app(4)</span></a></span>).</p>
         <p>By default, the release package file is located in the same
           directory as <span class="code">Name.rel</span>. That is, in the current working
           directory unless <span class="code">Name</span> contains a path. If option
@@ -489,7 +506,7 @@
           <span class="code">lib/myapp-1/ebin</span>, application <span class="code">myapp</span> is
           included in <span class="code">TEST.tar.gz</span>:</p>
         <div class="example"><pre>
-% <span class="bold_code">tar tf TEST.tar</span>
+% <span class="bold_code bc-12">tar tf TEST.tar</span>
 myapp-1/ebin/myapp.app
 ...</pre></div>
         <p>Option <span class="code">{var_tar,VarTar}</span> can be used to specify if
@@ -523,44 +540,52 @@ myapp-1/ebin/myapp.app
           system, the <span class="code">bin</span> directory of the specified runtime
           system <span class="code">{erts,Dir}</span> is copied to <span class="code">erts-ErtsVsn/bin</span>.</p>
         <p>All checks with function 
-	<span class="bold_code"><a href="#make_script-1"><span class="code">make_script</span></a></span>
+	<span class="bold_code data-type-ref"><a href="#make_script-1"><span class="code">make_script</span></a></span>
           are performed before the release package is created.
           Options <span class="code">src_tests</span> and <span class="code">exref</span> are also
           valid here.</p>
         <p>The return value and the handling of errors and warnings
           are the same as described for 
-	<span class="bold_code"><a href="#make_script-1"><span class="code">make_script</span></a></span>.</p>
+	<span class="bold_code data-type-ref"><a href="#make_script-1"><span class="code">make_script</span></a></span>.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="script2boot-1"></a><span class="bold_code">script2boot(File) -&gt; ok | error</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="script2boot-1"></a><span class="bold_code bc-9">script2boot(File) -&gt; ok | error</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">File = string()</span><br>
+<span class="bold_code bc-11">File = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>The Erlang runtime system requires that the contents of
           the script used to boot the system is a binary Erlang term.
           This function transforms the <span class="code">File.script</span> boot script
           to a binary term, which is stored in the <span class="code">File.boot</span>
           file.</p>
         <p>A boot script generated using 
-	<span class="bold_code"><a href="#make_script-1"><span class="code">make_script</span></a></span>
+	<span class="bold_code data-type-ref"><a href="#make_script-1"><span class="code">make_script</span></a></span>
           is already transformed to the binary form.</p>
       </p></div>
-  
+</div>
+</div>
+  </div>
 
-  <h3><a name="idm45180018252128">See Also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45292385761072">See Also</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','app.html');"><span class="code">app(4)</span></a></span>,
-      <span class="bold_code"><a href="appup.html"><span class="code">appup(4)</span></a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html');"><span class="code">erl(1)</span></a></span>,
-      <span class="bold_code"><a href="rel.html"><span class="code">rel(4)</span></a></span>,
-      <span class="bold_code"><a href="release_handler.html"><span class="code">release_handler(3)</span></a></span>,
-      <span class="bold_code"><a href="relup.html"><span class="code">relup(4)</span></a></span>,
-      <span class="bold_code"><a href="script.html"><span class="code">script(4)</span></a></span></p>
+    <p><span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','app.html');"><span class="code">app(4)</span></a></span>,
+      <span class="bold_code bc-19"><a href="appup.html"><span class="code">appup(4)</span></a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html');"><span class="code">erl(1)</span></a></span>,
+      <span class="bold_code bc-19"><a href="rel.html"><span class="code">rel(4)</span></a></span>,
+      <span class="bold_code bc-19"><a href="release_handler.html"><span class="code">release_handler(3)</span></a></span>,
+      <span class="bold_code bc-19"><a href="relup.html"><span class="code">relup(4)</span></a></span>,
+      <span class="bold_code bc-19"><a href="script.html"><span class="code">script(4)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

@@ -129,11 +129,11 @@
 <!-- refpage --><center><h1>ic</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">ic</div>
+<div class="REFBODY module-body">ic</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">The Erlang IDL Compiler</div>
+<div class="REFBODY modules-summary-body">The Erlang IDL Compiler</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>The ic module is an Erlang implementation of an OMG IDL
       compiler. Depending on the choice of back-end the code will map
       to Erlang, C, or Java. The compiler generates client stubs and
@@ -142,112 +142,117 @@
       files and header files. The latter are used for defining record
       definitions, while the ordinary files contain the object
       interface functions.</p>
-  </p></div>
+  </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="ic:gen-1"></a><span class="bold_code">ic:gen(FileName) -&gt; Result</span><br><a name="ic:gen-2"></a><span class="bold_code">ic:gen(FileName, [Option]) -&gt; Result</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="ic:gen-1"></a><span class="bold_code bc-9">ic:gen(FileName) -&gt; Result</span><br><a name="ic:gen-2"></a><span class="bold_code bc-9">ic:gen(FileName, [Option]) -&gt; Result</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Result = ok | error | {ok, [Warning]} | {error, [Warning], [Error]}</span><br>
+<span class="bold_code bc-11">Result = ok | error | {ok, [Warning]} | {error, [Warning], [Error]}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code"></span><br>
+<span class="bold_code bc-11"></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Option = [ GeneralOption | CodeOption | WarningOption | BackendOption]</span><br>
+<span class="bold_code bc-11">Option = [ GeneralOption | CodeOption | WarningOption | BackendOption]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code"></span><br>
+<span class="bold_code bc-11"></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">GeneralOption = </span><br>
+<span class="bold_code bc-11">GeneralOption = </span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">{outdir, String()} | {cfgfile, String()} | {use_preproc, bool()} |</span><br>
+<span class="bold_code bc-11">{outdir, String()} | {cfgfile, String()} | {use_preproc, bool()} |</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">{preproc_cmd, String()} | {preproc_flags, String()}</span><br>
+<span class="bold_code bc-11">{preproc_cmd, String()} | {preproc_flags, String()}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code"></span><br>
+<span class="bold_code bc-11"></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">CodeOption =</span><br>
+<span class="bold_code bc-11">CodeOption =</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">{gen_hrl, bool()} | {serv_last_call, exception | exit} | {{impl, String()}, String()} | {light_ifr, bool()}</span><br>
+<span class="bold_code bc-11">{gen_hrl, bool()} | {serv_last_call, exception | exit} | {{impl, String()}, String()} | {light_ifr, bool()}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">this | {this, String()} | {{this, String()}, bool()} |</span><br>
+<span class="bold_code bc-11">this | {this, String()} | {{this, String()}, bool()} |</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">from | {from, String()} | {{from, String()}, bool()} |</span><br>
+<span class="bold_code bc-11">from | {from, String()} | {{from, String()}, bool()} |</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">handle_info | {handle_info, String()} | {{handle_info, String()}, bool()} |</span><br>
+<span class="bold_code bc-11">handle_info | {handle_info, String()} | {{handle_info, String()}, bool()} |</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">timeout | {timeout, String()} | {{timeout, String()}, bool()} |</span><br>
+<span class="bold_code bc-11">timeout | {timeout, String()} | {{timeout, String()}, bool()} |</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">{scoped_op_calls, bool()} | {scl, bool()} |</span><br>
+<span class="bold_code bc-11">{scoped_op_calls, bool()} | {scl, bool()} |</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">{user_protocol, Prefix} |</span><br>
+<span class="bold_code bc-11">{user_protocol, Prefix} |</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">{c_timeout, {SendTimeout, RecvTimeout}} |</span><br>
+<span class="bold_code bc-11">{c_timeout, {SendTimeout, RecvTimeout}} |</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">{c_report, bool()} |</span><br>
+<span class="bold_code bc-11">{c_report, bool()} |</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">{precond, {atom(), atom()}} | {{precond, String()} {atom(), atom()}} |</span><br>
+<span class="bold_code bc-11">{precond, {atom(), atom()}} | {{precond, String()} {atom(), atom()}} |</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">{postcond, {atom(), atom()}} | {{postcond, String()} {atom(), atom()}}</span><br>
+<span class="bold_code bc-11">{postcond, {atom(), atom()}} | {{postcond, String()} {atom(), atom()}}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code"></span><br>
+<span class="bold_code bc-11"></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">WarningOption =</span><br>
+<span class="bold_code bc-11">WarningOption =</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">{'Wall', bool()} | {maxerrs, int() | infinity} |</span><br>
+<span class="bold_code bc-11">{'Wall', bool()} | {maxerrs, int() | infinity} |</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">{maxwarns, int() | infinity} | {nowarn, bool()} |</span><br>
+<span class="bold_code bc-11">{maxwarns, int() | infinity} | {nowarn, bool()} |</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">{warn_name_shadow, bool()} | {pedantic, bool()} |</span><br>
+<span class="bold_code bc-11">{warn_name_shadow, bool()} | {pedantic, bool()} |</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">{silent, bool()}</span><br>
+<span class="bold_code bc-11">{silent, bool()}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code"></span><br>
+<span class="bold_code bc-11"></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">BackendOption = {be, Backend}</span><br>
+<span class="bold_code bc-11">BackendOption = {be, Backend}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code"></span><br>
+<span class="bold_code bc-11"></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Backend = erl_corba | erl_template | erl_plain | erl_genserv | c_client | c_server | java</span><br>
+<span class="bold_code bc-11">Backend = erl_corba | erl_template | erl_plain | erl_genserv | c_client | c_server | java</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code"></span><br>
+<span class="bold_code bc-11"></span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">DirNAme = string() | atom()</span><br>
+<span class="bold_code bc-11">DirNAme = string() | atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">FileName = string() | atom()</span><br>
+<span class="bold_code bc-11">FileName = string() | atom()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>The tuple <span class="code">{Option, true}</span> can be replaced by
           <span class="code">Option</span> for boolean values.</p>
         <p>The <span class="code">ic:gen/2</span> function can be called from the command 
@@ -256,10 +261,12 @@
         <p>Example:</p>
         <p><span class="code">erlc "+{be,c_client}"  '+{outdir, "../out"}' File.idl</span></p>
       </p></div>
-  
+</div>
+</div>
+  </div>
 
-  <h3><a name="idm46072133086704">General options</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45312583065136">General options</a></h3>
+<div class="REFBODY rb-3">
     
     <dl>
       <dt><strong><strong>outdir</strong></strong></dt>
@@ -295,8 +302,8 @@
     </dl>
   </div>
 
-  <h3><a name="idm46072133236560">Code options</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45312583021200">Code options</a></h3>
+<div class="REFBODY rb-3">
     
     <dl>
       <dt><strong><strong>light_ifr</strong></strong></dt>
@@ -419,7 +426,7 @@ The option
       <dd>
         <p>Used to define a own protocol different from the default
           Erlang distribution + gen_server protocol. Currently only
-          valid for C back-ends. For further details see <span class="bold_code"><a href="ic_c_protocol.html">IC C protocol</a></span>.</p>
+          valid for C back-ends. For further details see <span class="bold_code bc-19"><a href="ic_c_protocol.html">IC C protocol</a></span>.</p>
         <p>Example options:
           <span class="code">[{be,c_client},{user_protocol, "my_special"}])</span> produces
           client stubs which use C protocol functions with the prefix 
@@ -491,8 +498,8 @@ The option
     </dl>
   </div>
 
-  <h3><a name="idm46072133327312">Warning options</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45312583279984">Warning options</a></h3>
+<div class="REFBODY rb-3">
     
     <dl>
       <dt><strong><strong>'Wall'</strong></strong></dt>
@@ -536,8 +543,8 @@ The option
     </dl>
   </div>
 
-  <h3><a name="idm46072133330944">Back-End options</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45312583032112">Back-End options</a></h3>
+<div class="REFBODY rb-3">
     
     <p>Which back-end IC will generate code for is determined by the supplied
       <span class="code">{be,atom()}</span> option. If left out, <span class="code">erl_corba</span> is used.
@@ -582,8 +589,8 @@ The option
     </dl>
   </div>
 
-  <h3><a name="idm46072132754384">Preprocessor</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45312582989648">Preprocessor</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The IDL compiler allows several preprocessors to be used, the
       <span class="code">Erlang IDL preprocessor</span> or other standard <span class="code">C</span> preprocessors.
@@ -596,8 +603,8 @@ The option
       file name.</p>
   </div>
 
-  <h3><a name="idm46072131908160">Configuration</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45312582986112">Configuration</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The compiler can be configured in two ways:</p>
     <ul>
@@ -621,8 +628,8 @@ The option
     </pre></div>
   </div>
 
-  <h3><a name="idm46072131902160">Output files</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45312583258544">Output files</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The compiler will produce output in several files depending on
       scope declarations found in the IDL file. At most

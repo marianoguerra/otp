@@ -802,26 +802,26 @@
 <!-- refpage --><center><h1>snmpm_network_interface_filter</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">snmpm_network_interface_filter</div>
+<div class="REFBODY module-body">snmpm_network_interface_filter</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Behaviour module for the SNMP manager network-interface filter.</div>
+<div class="REFBODY modules-summary-body">Behaviour module for the SNMP manager network-interface filter.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>This module defines the behaviour of the manager network interface
       filter. A <span class="code">snmpm_network_interface_filter</span> compliant module 
       must export the following functions: </p>
     <ul>
       <li>
-        <p><span class="bold_code"><a href="#accept_recv">accept_recv/2</a></span></p>
+        <p><span class="bold_code data-type-ref"><a href="#accept_recv">accept_recv/2</a></span></p>
       </li>
       <li>
-        <p><span class="bold_code"><a href="#accept_send">accept_send/2</a></span></p>
+        <p><span class="bold_code data-type-ref"><a href="#accept_send">accept_send/2</a></span></p>
       </li>
       <li>
-        <p><span class="bold_code"><a href="#accept_recv_pdu">accept_recv_pdu/3</a></span></p>
+        <p><span class="bold_code data-type-ref"><a href="#accept_recv_pdu">accept_recv_pdu/3</a></span></p>
       </li>
       <li>
-        <p><span class="bold_code"><a href="#accept_send_pdu">accept_send_pdu/2</a></span></p>
+        <p><span class="bold_code data-type-ref"><a href="#accept_send_pdu">accept_send_pdu/2</a></span></p>
       </li>
     </ul>
     <p>The semantics of them and their exact signatures are explained
@@ -855,10 +855,10 @@
       changing the configuration to use transport domains
       the network interface filter will still get
       the old arguments and work as before.</p>
-  </p></div>
+  </div>
 
-  <h3><a name="idm45488680616528">DATA TYPES</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46069274842880">DATA TYPES</a></h3>
+<div class="REFBODY rb-3">
     
     <div class="example"><pre>
 port() = integer() &gt; 0
@@ -866,61 +866,78 @@ pdu_type() = 'get-request' | 'get-next-request' | 'get-response' |
              'set-request' | trap | 'get-bulk-request' | 'inform-request' | 
              report | trappdu
     </pre></div>
-    <p>See also the <span class="bold_code"><a href="snmpa_conf.html#types">data types in<span class="code">snmpa_conf</span></a></span>.</p>
+    <p>See also the <span class="bold_code bc-15"><a href="snmpa_conf.html#types">data types in<span class="code">snmpa_conf</span></a></span>.</p>
     <a name="accept_recv"></a>
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="accept_recv-2"></a><span class="bold_code">accept_recv(Domain, Addr) -&gt; boolean()</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="accept_recv-2"></a><span class="bold_code bc-9">accept_recv(Domain, Addr) -&gt; boolean()</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">Domain = transportDomain()</span><br>
+<span class="bold_code bc-11">Domain = transportDomain()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Addr = transportAddressWithPort()</span><br>
+<span class="bold_code bc-11">Addr = transportAddressWithPort()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Called at the reception of a message (before <strong>any</strong> processing 
           has been done).</p>
         <p>For the message to be rejected, the function <strong>must</strong> return
           <strong>false</strong>. </p>
         <a name="accept_send"></a>
       </p></div>
+</div>
+</div>
 
-    <p><a name="accept_send-2"></a><span class="bold_code">accept_send(Domain, Addr) -&gt; boolean()</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="accept_send-2"></a><span class="bold_code bc-9">accept_send(Domain, Addr) -&gt; boolean()</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">Domain = transportDomain()</span><br>
+<span class="bold_code bc-11">Domain = transportDomain()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Addr = transportAddressWithPort()</span><br>
+<span class="bold_code bc-11">Addr = transportAddressWithPort()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Called before the sending of a message (after <strong>all</strong> processing 
           has been done).</p>
         <p>For the message to be rejected, the function <strong>must</strong> return
           <strong>false</strong>. </p>
         <a name="accept_recv_pdu"></a>
       </p></div>
+</div>
+</div>
 
-    <p><a name="accept_recv_pdu-3"></a><span class="bold_code">accept_recv_pdu(Domain, Addr, PduType) -&gt; boolean()</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="accept_recv_pdu-3"></a><span class="bold_code bc-9">accept_recv_pdu(Domain, Addr, PduType) -&gt; boolean()</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">Domain = transportDomain()</span><br>
+<span class="bold_code bc-11">Domain = transportDomain()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Addr = transportAddressWithPort()</span><br>
+<span class="bold_code bc-11">Addr = transportAddressWithPort()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">PduType = pdu_type()</span><br>
+<span class="bold_code bc-11">PduType = pdu_type()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Called after the basic message processing (MPD) has been done, 
           but before the pdu is handed over to the server for primary 
           processing.</p>
@@ -928,27 +945,35 @@ pdu_type() = 'get-request' | 'get-next-request' | 'get-response' |
           <strong>false</strong>. </p>
         <a name="accept_send_pdu"></a>
       </p></div>
+</div>
+</div>
 
-    <p><a name="accept_send_pdu-3"></a><span class="bold_code">accept_send_pdu(Domain, Addr, PduType) -&gt; boolean()</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="accept_send_pdu-3"></a><span class="bold_code bc-9">accept_send_pdu(Domain, Addr, PduType) -&gt; boolean()</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">Domain = transportDomain()</span><br>
+<span class="bold_code bc-11">Domain = transportDomain()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Addr = transportAddressWithPort()</span><br>
+<span class="bold_code bc-11">Addr = transportAddressWithPort()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">PduType = pdu_type() &gt; 0</span><br>
+<span class="bold_code bc-11">PduType = pdu_type() &gt; 0</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Called before the basic message processing (MPD) is done, 
           when a pdu has been received from the master-agent.</p>
         <p>For the message to be rejected, the function <strong>must</strong> return 
           <strong>false</strong>. </p>
       </p></div>
-  
+</div>
+</div>
+  </div>
   
 </div>
 <div class="footer">

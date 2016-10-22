@@ -646,59 +646,75 @@
 <!-- refpage --><center><h1>gen_udp</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">gen_udp</div>
+<div class="REFBODY module-body">gen_udp</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Interface to UDP sockets.</div>
+<div class="REFBODY modules-summary-body">Interface to UDP sockets.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>This module provides functions for communicating
       with sockets using the UDP protocol.</p>
-  </p></div>
+  </div>
 
-  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
-    <p>
-      <span class="bold_code"><a name="type-option">option()</a> = <br>    {active, true | false | once | -32768..32767} |<br>    {add_membership, {<span class="bold_code"><a href="inet.html#type-ip_address">inet:ip_address()</a></span>, <span class="bold_code"><a href="inet.html#type-ip_address">inet:ip_address()</a></span>}} |<br>    {broadcast, boolean()} |<br>    {buffer, integer() &gt;= 0} |<br>    {deliver, port | term} |<br>    {dontroute, boolean()} |<br>    {drop_membership, {<span class="bold_code"><a href="inet.html#type-ip_address">inet:ip_address()</a></span>, <span class="bold_code"><a href="inet.html#type-ip_address">inet:ip_address()</a></span>}} |<br>    {header, integer() &gt;= 0} |<br>    {high_msgq_watermark, integer() &gt;= 1} |<br>    {low_msgq_watermark, integer() &gt;= 1} |<br>    {mode, list | binary} |<br>    list |<br>    binary |<br>    {multicast_if, <span class="bold_code"><a href="inet.html#type-ip_address">inet:ip_address()</a></span>} |<br>    {multicast_loop, boolean()} |<br>    {multicast_ttl, integer() &gt;= 0} |<br>    {priority, integer() &gt;= 0} |<br>    {raw,<br>     Protocol :: integer() &gt;= 0,<br>     OptionNum :: integer() &gt;= 0,<br>     ValueBin :: binary()} |<br>    {read_packets, integer() &gt;= 0} |<br>    {recbuf, integer() &gt;= 0} |<br>    {reuseaddr, boolean()} |<br>    {sndbuf, integer() &gt;= 0} |<br>    {tos, integer() &gt;= 0} |<br>    {ipv6_v6only, boolean()}</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-option_name">option_name()</a> = <br>    active |<br>    broadcast |<br>    buffer |<br>    deliver |<br>    dontroute |<br>    header |<br>    high_msgq_watermark |<br>    low_msgq_watermark |<br>    mode |<br>    multicast_if |<br>    multicast_loop |<br>    multicast_ttl |<br>    priority |<br>    {raw,<br>     Protocol :: integer() &gt;= 0,<br>     OptionNum :: integer() &gt;= 0,<br>     ValueSpec ::<br>         (ValueSize :: integer() &gt;= 0) | (ValueBin :: binary())} |<br>    read_packets |<br>    recbuf |<br>    reuseaddr |<br>    sndbuf |<br>    tos |<br>    ipv6_v6only</span><br></p>
-    <p><a name="type-socket"></a><span class="bold_code">socket()</span><br></p>
-<div class="REFBODY"><p>
+  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
+<div class="data-types-body">
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-option">option()</a> = <br>    {active, true | false | once | -32768..32767} |<br>    {add_membership, {<span class="bold_code bc-15"><a href="inet.html#type-ip_address">inet:ip_address()</a></span>, <span class="bold_code bc-15"><a href="inet.html#type-ip_address">inet:ip_address()</a></span>}} |<br>    {broadcast, boolean()} |<br>    {buffer, integer() &gt;= 0} |<br>    {deliver, port | term} |<br>    {dontroute, boolean()} |<br>    {drop_membership, {<span class="bold_code bc-15"><a href="inet.html#type-ip_address">inet:ip_address()</a></span>, <span class="bold_code bc-15"><a href="inet.html#type-ip_address">inet:ip_address()</a></span>}} |<br>    {header, integer() &gt;= 0} |<br>    {high_msgq_watermark, integer() &gt;= 1} |<br>    {low_msgq_watermark, integer() &gt;= 1} |<br>    {mode, list | binary} |<br>    list |<br>    binary |<br>    {multicast_if, <span class="bold_code bc-15"><a href="inet.html#type-ip_address">inet:ip_address()</a></span>} |<br>    {multicast_loop, boolean()} |<br>    {multicast_ttl, integer() &gt;= 0} |<br>    {priority, integer() &gt;= 0} |<br>    {raw,<br>     Protocol :: integer() &gt;= 0,<br>     OptionNum :: integer() &gt;= 0,<br>     ValueBin :: binary()} |<br>    {read_packets, integer() &gt;= 0} |<br>    {recbuf, integer() &gt;= 0} |<br>    {reuseaddr, boolean()} |<br>    {sndbuf, integer() &gt;= 0} |<br>    {tos, integer() &gt;= 0} |<br>    {ipv6_v6only, boolean()}</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-option_name">option_name()</a> = <br>    active |<br>    broadcast |<br>    buffer |<br>    deliver |<br>    dontroute |<br>    header |<br>    high_msgq_watermark |<br>    low_msgq_watermark |<br>    mode |<br>    multicast_if |<br>    multicast_loop |<br>    multicast_ttl |<br>    priority |<br>    {raw,<br>     Protocol :: integer() &gt;= 0,<br>     OptionNum :: integer() &gt;= 0,<br>     ValueSpec ::<br>         (ValueSize :: integer() &gt;= 0) | (ValueBin :: binary())} |<br>    read_packets |<br>    recbuf |<br>    reuseaddr |<br>    sndbuf |<br>    tos |<br>    ipv6_v6only</span>
+</div>
+    <div class="data-type-def">
+<a name="type-socket"></a><span class="bold_code bc-8">socket()</span><br><div class="REFBODY data-type-desc"><p>
         <p>As returned by
-          <span class="bold_code"><a href="#open-1"><span class="code">open/1,2</span></a></span>.</p>
+          <span class="bold_code data-type-ref"><a href="#open-1"><span class="code">open/1,2</span></a></span>.</p>
       </p></div>
-  
+</div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="close-1"></a><span class="bold_code">close(Socket) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="#type-socket">socket()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="close-1"></a><span class="bold_code func-name">close(Socket) -&gt; ok</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Socket = <span class="bold_code data-type-ref"><a href="#type-socket">socket()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Closes a UDP socket.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="controlling_process-2"></a><span class="bold_code">controlling_process(Socket, Pid) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="#type-socket">socket()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Pid = pid()</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = closed | not_owner | <span class="bold_code"><a href="inet.html#type-posix">inet:posix()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="controlling_process-2"></a><span class="bold_code func-name">controlling_process(Socket, Pid) -&gt; ok | {error, Reason}</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Socket = <span class="bold_code data-type-ref"><a href="#type-socket">socket()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Pid = pid()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = closed | not_owner | <span class="bold_code bc-15"><a href="inet.html#type-posix">inet:posix()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Assigns a new controlling process <span class="code">Pid</span> to
           <span class="code">Socket</span>. The controlling process is the process
           that receives messages from the socket. If called by any other
           process than the current controlling process,
           <span class="code">{error, not_owner}</span> is returned.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="open-1"></a><span class="bold_code">open(Port) -&gt; {ok, Socket} | {error, Reason}</span><br><a name="open-2"></a><span class="bold_code">open(Port, Opts) -&gt; {ok, Socket} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Port = <span class="bold_code"><a href="inet.html#type-port_number">inet:port_number()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Opts = [Option]</span></div>
-<div class="REFTYPES"><span class="bold_code">Option = <br>    {ip, <span class="bold_code"><a href="inet.html#type-socket_address">inet:socket_address()</a></span>} |<br>    {fd, integer() &gt;= 0} |<br>    {ifaddr, <span class="bold_code"><a href="inet.html#type-socket_address">inet:socket_address()</a></span>} |<br>    <span class="bold_code"><a href="inet.html#type-address_family">inet:address_family()</a></span> |<br>    {port, <span class="bold_code"><a href="inet.html#type-port_number">inet:port_number()</a></span>} |<br>    <span class="bold_code"><a href="#type-option">option()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="#type-socket">socket()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="inet.html#type-posix">inet:posix()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="open-1"></a><span class="bold_code func-name">open(Port) -&gt; {ok, Socket} | {error, Reason}</span><a name="open-2"></a><span class="bold_code func-name">open(Port, Opts) -&gt; {ok, Socket} | {error, Reason}</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Port = <span class="bold_code bc-15"><a href="inet.html#type-port_number">inet:port_number()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Opts = [Option]</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Option = <br>    {ip, <span class="bold_code bc-15"><a href="inet.html#type-socket_address">inet:socket_address()</a></span>} |<br>    {fd, integer() &gt;= 0} |<br>    {ifaddr, <span class="bold_code bc-15"><a href="inet.html#type-socket_address">inet:socket_address()</a></span>} |<br>    <span class="bold_code bc-15"><a href="inet.html#type-address_family">inet:address_family()</a></span> |<br>    {port, <span class="bold_code bc-15"><a href="inet.html#type-port_number">inet:port_number()</a></span>} |<br>    <span class="bold_code data-type-ref"><a href="#type-option">option()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Socket = <span class="bold_code data-type-ref"><a href="#type-socket">socket()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = <span class="bold_code bc-15"><a href="inet.html#type-posix">inet:posix()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Associates a UDP port number (<span class="code">Port</span>) with the
           calling process.</p>
         <p>The following options are available:</p>
@@ -730,7 +746,7 @@
 	  <dd>
             <p>
 	      Sets up a Unix Domain Socket. See
-	      <span class="bold_code"><a href="inet.html#type-local_address"><span class="code">inet:local_address()</span></a></span>
+	      <span class="bold_code bc-15"><a href="inet.html#type-local_address"><span class="code">inet:local_address()</span></a></span>
 	    </p>
           </dd>
           <dt><strong><span class="code">{udp_module, module()}</span></strong></dt>
@@ -755,12 +771,12 @@
           <dd><p>Leaves a multicast group.</p></dd>
           <dt><strong><span class="code">Opt</span></strong></dt>
           <dd><p>See
-            <span class="bold_code"><a href="inet.html#setopts-2"><span class="code">inet:setopts/2</span></a></span>.
+            <span class="bold_code bc-15"><a href="inet.html#setopts-2"><span class="code">inet:setopts/2</span></a></span>.
             </p></dd>
         </dl>
         <p>The returned socket <span class="code">Socket</span> is used to send
           packets from this port with
-          <span class="bold_code"><a href="#send-4"><span class="code">send/4</span></a></span>.
+          <span class="bold_code data-type-ref"><a href="#send-4"><span class="code">send/4</span></a></span>.
           When UDP packets arrive
           at the opened port, if the socket is in an active mode, the packets
           are delivered as messages to the controlling process:</p>
@@ -768,12 +784,12 @@
 {udp, Socket, IP, InPortNo, Packet}</pre></div>
         <p>If the socket is not in an active mode, data can be
           retrieved through the
-          <span class="bold_code"><a href="#recv-2"><span class="code">recv/2,3</span></a></span> calls.
+          <span class="bold_code data-type-ref"><a href="#recv-2"><span class="code">recv/2,3</span></a></span> calls.
           Notice that arriving UDP packets that are longer than
           the receive buffer option specifies can be truncated
           without warning.</p>
         <p>When a socket in <span class="code">{active, N}</span> mode (see
-          <span class="bold_code"><a href="inet.html#setopts-2"><span class="code">inet:setopts/2</span></a></span>
+          <span class="bold_code bc-15"><a href="inet.html#setopts-2"><span class="code">inet:setopts/2</span></a></span>
           for details), transitions to passive (<span class="code">{active, false}</span>) mode,
           the controlling process is notified by a message of the following
           form:</p>
@@ -787,41 +803,50 @@
           <span class="code">{recbuf, 8192}</span>.</p>
         <p>If <span class="code">Port == 0</span>, the underlying OS assigns a free
           UDP port, use
-          <span class="bold_code"><a href="inet.html#port-1"><span class="code">inet:port/1</span></a></span>
+          <span class="bold_code bc-15"><a href="inet.html#port-1"><span class="code">inet:port/1</span></a></span>
           to retrieve it.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="recv-2"></a><span class="bold_code">recv(Socket, Length) -&gt;<br>        {ok, {Address, Port, Packet}} | {error, Reason}</span><br><a name="recv-3"></a><span class="bold_code">recv(Socket, Length, Timeout) -&gt;<br>        {ok, {Address, Port, Packet}} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="#type-socket">socket()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Length = integer() &gt;= 0</span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
-<div class="REFTYPES"><span class="bold_code">Address = <span class="bold_code"><a href="inet.html#type-ip_address">inet:ip_address()</a></span> | <span class="bold_code"><a href="inet.html#type-returned_non_ip_address">inet:returned_non_ip_address()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Port = <span class="bold_code"><a href="inet.html#type-port_number">inet:port_number()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Packet = string() | binary()</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = not_owner | <span class="bold_code"><a href="inet.html#type-posix">inet:posix()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="recv-2"></a><span class="bold_code func-name">recv(Socket, Length) -&gt;<br>        {ok, {Address, Port, Packet}} | {error, Reason}</span><a name="recv-3"></a><span class="bold_code func-name">recv(Socket, Length, Timeout) -&gt;<br>        {ok, {Address, Port, Packet}} | {error, Reason}</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Socket = <span class="bold_code data-type-ref"><a href="#type-socket">socket()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Length = integer() &gt;= 0</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Timeout = timeout()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Address = <span class="bold_code bc-15"><a href="inet.html#type-ip_address">inet:ip_address()</a></span> | <span class="bold_code bc-15"><a href="inet.html#type-returned_non_ip_address">inet:returned_non_ip_address()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Port = <span class="bold_code bc-15"><a href="inet.html#type-port_number">inet:port_number()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Packet = string() | binary()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = not_owner | <span class="bold_code bc-15"><a href="inet.html#type-posix">inet:posix()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Receives a packet from a socket in passive mode. Optional parameter
           <span class="code">Timeout</span> specifies a time-out in milliseconds.
           Defaults to <span class="code">infinity</span>.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="send-4"></a><span class="bold_code">send(Socket, Address, Port, Packet) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="#type-socket">socket()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Address = <span class="bold_code"><a href="inet.html#type-socket_address">inet:socket_address()</a></span> | <span class="bold_code"><a href="inet.html#type-hostname">inet:hostname()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Port = <span class="bold_code"><a href="inet.html#type-port_number">inet:port_number()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Packet = iodata()</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = not_owner | <span class="bold_code"><a href="inet.html#type-posix">inet:posix()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="send-4"></a><span class="bold_code func-name">send(Socket, Address, Port, Packet) -&gt; ok | {error, Reason}</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Socket = <span class="bold_code data-type-ref"><a href="#type-socket">socket()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Address = <span class="bold_code bc-15"><a href="inet.html#type-socket_address">inet:socket_address()</a></span> | <span class="bold_code bc-15"><a href="inet.html#type-hostname">inet:hostname()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Port = <span class="bold_code bc-15"><a href="inet.html#type-port_number">inet:port_number()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Packet = iodata()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = not_owner | <span class="bold_code bc-15"><a href="inet.html#type-posix">inet:posix()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>
 	  Sends a packet to the specified address and port. Argument
           <span class="code">Address</span> can be a hostname or a socket address.
 	</p>
-      </p></div>
-  
+      </p></div></div>
+</div>
+  </div>
 </div>
 <div class="footer">
 <hr>

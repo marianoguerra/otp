@@ -1717,12 +1717,12 @@
 <!-- refpage --><center><h1>calendar</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">calendar</div>
+<div class="REFBODY module-body">calendar</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Local and universal time, day of the week, date and time
+<div class="REFBODY modules-summary-body">Local and universal time, day of the week, date and time
     conversions.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>This module provides computation of local and universal time,
       day of the week, and many time conversion functions.</p>
     <p>Time is local when it is adjusted in accordance with the current
@@ -1763,146 +1763,205 @@
       year, it is important to specify both the year and the week number.
       Functions <span class="code">iso_week_number/0</span> and <span class="code">iso_week_number/1</span>
       return a tuple of the year and the week number.</p>
-  </p></div>
+  </div>
 
-  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
-    <p>
-      <span class="bold_code"><a name="type-datetime">datetime()</a> = {<span class="bold_code"><a href="#type-date">date()</a></span>, <span class="bold_code"><a href="#type-time">time()</a></span>}</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-datetime1970">datetime1970()</a> = {{<span class="bold_code"><a href="#type-year1970">year1970()</a></span>, <span class="bold_code"><a href="#type-month">month()</a></span>, <span class="bold_code"><a href="#type-day">day()</a></span>}, <span class="bold_code"><a href="#type-time">time()</a></span>}</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-date">date()</a> = {<span class="bold_code"><a href="#type-year">year()</a></span>, <span class="bold_code"><a href="#type-month">month()</a></span>, <span class="bold_code"><a href="#type-day">day()</a></span>}</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-year">year()</a> = integer() &gt;= 0</span><br></p>
-<div class="REFBODY"><p><p>Year cannot be abbreviated. For example, 93 denotes year
+  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
+<div class="data-types-body">
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-datetime">datetime()</a> = {<span class="bold_code data-type-ref"><a href="#type-date">date()</a></span>, <span class="bold_code data-type-ref"><a href="#type-time">time()</a></span>}</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-datetime1970">datetime1970()</a> = {{<span class="bold_code data-type-ref"><a href="#type-year1970">year1970()</a></span>, <span class="bold_code data-type-ref"><a href="#type-month">month()</a></span>, <span class="bold_code data-type-ref"><a href="#type-day">day()</a></span>}, <span class="bold_code data-type-ref"><a href="#type-time">time()</a></span>}</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-date">date()</a> = {<span class="bold_code data-type-ref"><a href="#type-year">year()</a></span>, <span class="bold_code data-type-ref"><a href="#type-month">month()</a></span>, <span class="bold_code data-type-ref"><a href="#type-day">day()</a></span>}</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-year">year()</a> = integer() &gt;= 0</span><div class="REFBODY data-type-desc"><p><p>Year cannot be abbreviated. For example, 93 denotes year
         93, not 1993. The valid range depends on the underlying operating
         system. The date tuple must denote a valid date.</p>
       </p></div>
-    <p>
-      <span class="bold_code"><a name="type-year1970">year1970()</a> = 1970..10000</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-month">month()</a> = 1..12</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-day">day()</a> = 1..31</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-time">time()</a> = {<span class="bold_code"><a href="#type-hour">hour()</a></span>, <span class="bold_code"><a href="#type-minute">minute()</a></span>, <span class="bold_code"><a href="#type-second">second()</a></span>}</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-hour">hour()</a> = 0..23</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-minute">minute()</a> = 0..59</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-second">second()</a> = 0..59</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-daynum">daynum()</a> = 1..7</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-ldom">ldom()</a> = 28 | 29 | 30 | 31</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-yearweeknum">yearweeknum()</a> = {<span class="bold_code"><a href="#type-year">year()</a></span>, <span class="bold_code"><a href="#type-weeknum">weeknum()</a></span>}</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-weeknum">weeknum()</a> = 1..53</span><br></p>
-  
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-year1970">year1970()</a> = 1970..10000</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-month">month()</a> = 1..12</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-day">day()</a> = 1..31</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-time">time()</a> = {<span class="bold_code data-type-ref"><a href="#type-hour">hour()</a></span>, <span class="bold_code data-type-ref"><a href="#type-minute">minute()</a></span>, <span class="bold_code data-type-ref"><a href="#type-second">second()</a></span>}</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-hour">hour()</a> = 0..23</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-minute">minute()</a> = 0..59</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-second">second()</a> = 0..59</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-daynum">daynum()</a> = 1..7</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-ldom">ldom()</a> = 28 | 29 | 30 | 31</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-yearweeknum">yearweeknum()</a> = {<span class="bold_code data-type-ref"><a href="#type-year">year()</a></span>, <span class="bold_code data-type-ref"><a href="#type-weeknum">weeknum()</a></span>}</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-weeknum">weeknum()</a> = 1..53</span>
+</div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="date_to_gregorian_days-1"></a><span class="bold_code">date_to_gregorian_days(Date) -&gt; Days</span><br><a name="date_to_gregorian_days-3"></a><span class="bold_code">date_to_gregorian_days(Year, Month, Day) -&gt; Days</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Date = <span class="bold_code"><a href="#type-date">date()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Year = <span class="bold_code"><a href="#type-year">year()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Month = <span class="bold_code"><a href="#type-month">month()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Day = <span class="bold_code"><a href="#type-day">day()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="date_to_gregorian_days-1"></a><span class="bold_code func-name">date_to_gregorian_days(Date) -&gt; Days</span><a name="date_to_gregorian_days-3"></a><span class="bold_code func-name">date_to_gregorian_days(Year, Month, Day) -&gt; Days</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Date = <span class="bold_code data-type-ref"><a href="#type-date">date()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Year = <span class="bold_code data-type-ref"><a href="#type-year">year()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Month = <span class="bold_code data-type-ref"><a href="#type-month">month()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Day = <span class="bold_code data-type-ref"><a href="#type-day">day()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Computes the number of gregorian days starting
           with year 0 and ending at the specified date.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="datetime_to_gregorian_seconds-1"></a><span class="bold_code">datetime_to_gregorian_seconds(DateTime) -&gt; Seconds</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">DateTime = <span class="bold_code"><a href="#type-datetime">datetime()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Seconds = integer() &gt;= 0</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="datetime_to_gregorian_seconds-1"></a><span class="bold_code func-name">datetime_to_gregorian_seconds(DateTime) -&gt; Seconds</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">DateTime = <span class="bold_code data-type-ref"><a href="#type-datetime">datetime()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Seconds = integer() &gt;= 0</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Computes the number of gregorian seconds starting
           with year 0 and ending at the specified date and time.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="day_of_the_week-1"></a><span class="bold_code">day_of_the_week(Date) -&gt; <span class="bold_code"><a href="#type-daynum">daynum()</a></span></span><br><a name="day_of_the_week-3"></a><span class="bold_code">day_of_the_week(Year, Month, Day) -&gt; <span class="bold_code"><a href="#type-daynum">daynum()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Date = <span class="bold_code"><a href="#type-date">date()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Year = <span class="bold_code"><a href="#type-year">year()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Month = <span class="bold_code"><a href="#type-month">month()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Day = <span class="bold_code"><a href="#type-day">day()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="day_of_the_week-1"></a><span class="bold_code func-name">day_of_the_week(Date) -&gt; <span class="bold_code data-type-ref"><a href="#type-daynum">daynum()</a></span></span><a name="day_of_the_week-3"></a><span class="bold_code func-name">day_of_the_week(Year, Month, Day) -&gt; <span class="bold_code data-type-ref"><a href="#type-daynum">daynum()</a></span></span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Date = <span class="bold_code data-type-ref"><a href="#type-date">date()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Year = <span class="bold_code data-type-ref"><a href="#type-year">year()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Month = <span class="bold_code data-type-ref"><a href="#type-month">month()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Day = <span class="bold_code data-type-ref"><a href="#type-day">day()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Computes the day of the week from the specified
           <span class="code">Year</span>, <span class="code">Month</span>, and
           <span class="code">Day</span>. Returns the day of the week as
           <span class="code">1</span>: Monday, <span class="code">2</span>: Tuesday, and so on.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="gregorian_days_to_date-1"></a><span class="bold_code">gregorian_days_to_date(Days) -&gt; <span class="bold_code"><a href="#type-date">date()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Days = integer() &gt;= 0</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="gregorian_days_to_date-1"></a><span class="bold_code func-name">gregorian_days_to_date(Days) -&gt; <span class="bold_code data-type-ref"><a href="#type-date">date()</a></span></span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Days = integer() &gt;= 0</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Computes the date from the specified number of gregorian days.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="gregorian_seconds_to_datetime-1"></a><span class="bold_code">gregorian_seconds_to_datetime(Seconds) -&gt; <span class="bold_code"><a href="#type-datetime">datetime()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Seconds = integer() &gt;= 0</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="gregorian_seconds_to_datetime-1"></a><span class="bold_code func-name">gregorian_seconds_to_datetime(Seconds) -&gt; <span class="bold_code data-type-ref"><a href="#type-datetime">datetime()</a></span></span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Seconds = integer() &gt;= 0</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Computes the date and time from the specified
           number of gregorian seconds.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="is_leap_year-1"></a><span class="bold_code">is_leap_year(Year) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Year = <span class="bold_code"><a href="#type-year">year()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="is_leap_year-1"></a><span class="bold_code func-name">is_leap_year(Year) -&gt; boolean()</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Year = <span class="bold_code data-type-ref"><a href="#type-year">year()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Checks if the specified year is a leap year.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="iso_week_number-0"></a><span class="bold_code">iso_week_number() -&gt; <span class="bold_code"><a href="#type-yearweeknum">yearweeknum()</a></span></span><br></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="iso_week_number-0"></a><span class="bold_code func-name">iso_week_number() -&gt; <span class="bold_code data-type-ref"><a href="#type-yearweeknum">yearweeknum()</a></span></span>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns tuple <span class="code">{Year, WeekNum}</span> representing
           the ISO week number for the actual date. To determine the
           actual date, use function
-          <span class="bold_code"><a href="#local_time-0"><span class="code">local_time/0</span></a></span>.</p>
-      </p></div>
+          <span class="bold_code data-type-ref"><a href="#local_time-0"><span class="code">local_time/0</span></a></span>.</p>
+      </p></div></div>
+</div>
 
-    <p><a name="iso_week_number-1"></a><span class="bold_code">iso_week_number(Date) -&gt; <span class="bold_code"><a href="#type-yearweeknum">yearweeknum()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Date = <span class="bold_code"><a href="#type-date">date()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="iso_week_number-1"></a><span class="bold_code func-name">iso_week_number(Date) -&gt; <span class="bold_code data-type-ref"><a href="#type-yearweeknum">yearweeknum()</a></span></span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Date = <span class="bold_code data-type-ref"><a href="#type-date">date()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns tuple <span class="code">{Year, WeekNum}</span> representing
           the ISO week number for the specified date.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="last_day_of_the_month-2"></a><span class="bold_code">last_day_of_the_month(Year, Month) -&gt; LastDay</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Year = <span class="bold_code"><a href="#type-year">year()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Month = <span class="bold_code"><a href="#type-month">month()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">LastDay = <span class="bold_code"><a href="#type-ldom">ldom()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="last_day_of_the_month-2"></a><span class="bold_code func-name">last_day_of_the_month(Year, Month) -&gt; LastDay</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Year = <span class="bold_code data-type-ref"><a href="#type-year">year()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Month = <span class="bold_code data-type-ref"><a href="#type-month">month()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">LastDay = <span class="bold_code data-type-ref"><a href="#type-ldom">ldom()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Computes the number of days in a month.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="local_time-0"></a><span class="bold_code">local_time() -&gt; <span class="bold_code"><a href="#type-datetime">datetime()</a></span></span><br></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="local_time-0"></a><span class="bold_code func-name">local_time() -&gt; <span class="bold_code data-type-ref"><a href="#type-datetime">datetime()</a></span></span>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns the local time reported by
           the underlying operating system.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="local_time_to_universal_time-1"></a><span class="bold_code">local_time_to_universal_time(DateTime1) -&gt; DateTime2</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">DateTime1 = DateTime2 = <span class="bold_code"><a href="#type-datetime1970">datetime1970()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="local_time_to_universal_time-1"></a><span class="bold_code func-name">local_time_to_universal_time(DateTime1) -&gt; DateTime2</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">DateTime1 = DateTime2 = <span class="bold_code data-type-ref"><a href="#type-datetime1970">datetime1970()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Converts from local time to Universal Coordinated Time (UTC).
           <span class="code">DateTime1</span> must refer to a local
           date after Jan 1, 1970.</p>
@@ -1910,7 +1969,7 @@
 <div class="label">Warning</div>
 <div class="content"><p>
           <p>This function is deprecated. Use
-            <span class="bold_code"><a href="#local_time_to_universal_time_dst-1"><span class="code">local_time_to_universal_time_dst/1</span></a></span>
+            <span class="bold_code data-type-ref"><a href="#local_time_to_universal_time_dst-1"><span class="code">local_time_to_universal_time_dst/1</span></a></span>
             instead, as it gives a more correct and complete result.
             Especially for
             the period that does not exist, as it is skipped during
@@ -1918,14 +1977,18 @@
             still returns a result.</p>
         </p></div>
 </div>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="local_time_to_universal_time_dst-1"></a><span class="bold_code">local_time_to_universal_time_dst(DateTime1) -&gt; [DateTime]</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">DateTime1 = DateTime = <span class="bold_code"><a href="#type-datetime1970">datetime1970()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="local_time_to_universal_time_dst-1"></a><span class="bold_code func-name">local_time_to_universal_time_dst(DateTime1) -&gt; [DateTime]</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">DateTime1 = DateTime = <span class="bold_code data-type-ref"><a href="#type-datetime1970">datetime1970()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Converts from local time to Universal Coordinated Time (UTC).
           <span class="code">DateTime1</span> must refer to a local
           date after Jan 1, 1970.</p>
@@ -1951,74 +2014,98 @@
             <p>For all other local times only one corresponding UTC exists.</p>
           </dd>
         </dl>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="now_to_datetime-1"></a><span class="bold_code">now_to_datetime(Now) -&gt; <span class="bold_code"><a href="#type-datetime1970">datetime1970()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Now = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#type-timestamp');">erlang:timestamp()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="now_to_datetime-1"></a><span class="bold_code func-name">now_to_datetime(Now) -&gt; <span class="bold_code data-type-ref"><a href="#type-datetime1970">datetime1970()</a></span></span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Now = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#type-timestamp');">erlang:timestamp()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns Universal Coordinated Time (UTC)
           converted from the return value from
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#timestamp-0');"><span class="code">erlang:timestamp/0</span></a></span>.
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#timestamp-0');"><span class="code">erlang:timestamp/0</span></a></span>.
         </p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="now_to_local_time-1"></a><span class="bold_code">now_to_local_time(Now) -&gt; <span class="bold_code"><a href="#type-datetime1970">datetime1970()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Now = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#type-timestamp');">erlang:timestamp()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="now_to_local_time-1"></a><span class="bold_code func-name">now_to_local_time(Now) -&gt; <span class="bold_code data-type-ref"><a href="#type-datetime1970">datetime1970()</a></span></span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Now = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#type-timestamp');">erlang:timestamp()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns local date and time converted from the return value from
-        <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#timestamp-0');"><span class="code">erlang:timestamp/0</span></a></span>.
+        <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#timestamp-0');"><span class="code">erlang:timestamp/0</span></a></span>.
         </p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="now_to_universal_time-1"></a><span class="bold_code">now_to_universal_time(Now) -&gt; <span class="bold_code"><a href="#type-datetime1970">datetime1970()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Now = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#type-timestamp');">erlang:timestamp()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="now_to_universal_time-1"></a><span class="bold_code func-name">now_to_universal_time(Now) -&gt; <span class="bold_code data-type-ref"><a href="#type-datetime1970">datetime1970()</a></span></span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Now = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#type-timestamp');">erlang:timestamp()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns Universal Coordinated Time (UTC)
           converted from the return value from
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#timestamp-0');"><span class="code">erlang:timestamp/0</span></a></span>.
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#timestamp-0');"><span class="code">erlang:timestamp/0</span></a></span>.
         </p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="seconds_to_daystime-1"></a><span class="bold_code">seconds_to_daystime(Seconds) -&gt; {Days, Time}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Seconds = Days = integer()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Time = <span class="bold_code"><a href="#type-time">time()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="seconds_to_daystime-1"></a><span class="bold_code func-name">seconds_to_daystime(Seconds) -&gt; {Days, Time}</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Seconds = Days = integer()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Time = <span class="bold_code data-type-ref"><a href="#type-time">time()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Converts a specified number of seconds into days, hours, minutes,
           and seconds. <span class="code">Time</span> is always non-negative, but
           <span class="code">Days</span> is negative if argument
           <span class="code">Seconds</span> is.</p>
-      </p></div>
-
-    <p><a name="seconds_to_time-1"></a><span class="bold_code">seconds_to_time(Seconds) -&gt; <span class="bold_code"><a href="#type-time">time()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Seconds = secs_per_day()</span></div>
-<div class="REFTYPES">
-      <span class="bold_code">secs_per_day() = 0..86400</span><br>
+      </p></div></div>
 </div>
-</div></p>
-<div class="REFBODY"><p>
+
+    <div class="func">
+<div class="func-title">
+<a name="seconds_to_time-1"></a><span class="bold_code func-name">seconds_to_time(Seconds) -&gt; <span class="bold_code data-type-ref"><a href="#type-time">time()</a></span></span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Seconds = secs_per_day()</span></div>
+<div class="REFTYPES local-type">
+      <span class="bold_code type-head">secs_per_day() = 0..86400</span><br>
+</div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Computes the time from the specified number of seconds.
           <span class="code">Seconds</span> must be less than the number of
           seconds per day (86400).</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="time_difference-2"></a><span class="bold_code">time_difference(T1, T2) -&gt; {Days, Time}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">T1 = T2 = <span class="bold_code"><a href="#type-datetime">datetime()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Days = integer()</span></div>
-<div class="REFTYPES"><span class="bold_code">Time = <span class="bold_code"><a href="#type-time">time()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="time_difference-2"></a><span class="bold_code func-name">time_difference(T1, T2) -&gt; {Days, Time}</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">T1 = T2 = <span class="bold_code data-type-ref"><a href="#type-datetime">datetime()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Days = integer()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Time = <span class="bold_code data-type-ref"><a href="#type-time">time()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns the difference between two <span class="code">{Date, Time}</span> tuples.
           <span class="code">T2</span> is to refer to an epoch later
           than <span class="code">T1</span>.</p>
@@ -2029,51 +2116,68 @@
             gregorian days and seconds instead.</p>
         </p></div>
 </div>
-      </p></div>
-
-    <p><a name="time_to_seconds-1"></a><span class="bold_code">time_to_seconds(Time) -&gt; secs_per_day()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Time = <span class="bold_code"><a href="#type-time">time()</a></span></span></div>
-<div class="REFTYPES">
-      <span class="bold_code">secs_per_day() = 0..86400</span><br>
+      </p></div></div>
 </div>
-</div></p>
-<div class="REFBODY"><p>
+
+    <div class="func">
+<div class="func-title">
+<a name="time_to_seconds-1"></a><span class="bold_code func-name">time_to_seconds(Time) -&gt; secs_per_day()</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Time = <span class="bold_code data-type-ref"><a href="#type-time">time()</a></span></span></div>
+<div class="REFTYPES local-type">
+      <span class="bold_code type-head">secs_per_day() = 0..86400</span><br>
+</div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns the number of seconds since midnight
           up to the specified time.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="universal_time-0"></a><span class="bold_code">universal_time() -&gt; <span class="bold_code"><a href="#type-datetime">datetime()</a></span></span><br></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="universal_time-0"></a><span class="bold_code func-name">universal_time() -&gt; <span class="bold_code data-type-ref"><a href="#type-datetime">datetime()</a></span></span>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns the Universal Coordinated Time (UTC)
           reported by the underlying operating system. Returns local time if
           universal time is unavailable.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="universal_time_to_local_time-1"></a><span class="bold_code">universal_time_to_local_time(DateTime) -&gt; <span class="bold_code"><a href="#type-datetime">datetime()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">DateTime = <span class="bold_code"><a href="#type-datetime1970">datetime1970()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="universal_time_to_local_time-1"></a><span class="bold_code func-name">universal_time_to_local_time(DateTime) -&gt; <span class="bold_code data-type-ref"><a href="#type-datetime">datetime()</a></span></span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">DateTime = <span class="bold_code data-type-ref"><a href="#type-datetime1970">datetime1970()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Converts from Universal Coordinated Time (UTC) to local time.
           <span class="code">DateTime</span> must refer to a date after Jan 1, 1970.
         </p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="valid_date-1"></a><span class="bold_code">valid_date(Date) -&gt; boolean()</span><br><a name="valid_date-3"></a><span class="bold_code">valid_date(Year, Month, Day) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Date = <span class="bold_code"><a href="#type-date">date()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Year = Month = Day = integer()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="valid_date-1"></a><span class="bold_code func-name">valid_date(Date) -&gt; boolean()</span><a name="valid_date-3"></a><span class="bold_code func-name">valid_date(Year, Month, Day) -&gt; boolean()</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Date = <span class="bold_code data-type-ref"><a href="#type-date">date()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Year = Month = Day = integer()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function checks if a date is a valid.</p>
-      </p></div>
-  
+      </p></div></div>
+</div>
+  </div>
 
-  <h3><a name="idm45518942810272">Leap Years</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45461571481008">Leap Years</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The notion that every fourth year is a leap year is not
       completely true. By the Gregorian rule, a year Y is a leap year if
@@ -2089,8 +2193,8 @@
     <p>Hence, 1996 is a leap year, 1900 is not, but 2000 is.</p>
   </div>
 
-  <h3><a name="idm45518942805760">Date and Time Source</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45461571476496">Date and Time Source</a></h3>
+<div class="REFBODY rb-3">
     
     <p>Local time is obtained from the Erlang BIF <span class="code">localtime/0</span>.
       Universal time is computed from the BIF <span class="code">universaltime/0</span>.</p>

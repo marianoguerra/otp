@@ -147,13 +147,13 @@
 <!-- refpage --><center><h1>ssl</h1></center>
   
   <h3><a name="application" href="#application">Application</a></h3>
-<div class="REFBODY">ssl</div>
+<div class="REFBODY application-body">ssl</div>
   <h3><a name="application-summary" href="#application-summary">Application Summary</a></h3>
-<div class="REFBODY">The ssl application provides secure communication over
+<div class="REFBODY app-summary-body">The ssl application provides secure communication over
   sockets.</div>
 
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>
       The ssl application is an implementation of the SSL/TLS protocol in Erlang.
     </p>
@@ -165,7 +165,7 @@
       but can be configured.</li>
       <li>For security reasons DES cipher suites are no longer supported by default,
       but can be configured.</li>
-      <li> Renegotiation Indication Extension <span class="bold_code"><a href="http://www.ietf.org/rfc/rfc5746.txt">RFC 5746</a></span> is supported
+      <li> Renegotiation Indication Extension <span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc5746.txt">RFC 5746</a></span> is supported
       </li>
       <li>Ephemeral Diffie-Hellman cipher suites are supported,
       but not Diffie Hellman Certificates cipher suites.</li>
@@ -181,17 +181,17 @@
       <li>CRL validation is supported.</li>
       <li>Policy certificate extensions are not supported.</li>
       <li>'Server Name Indication' extension
-      (<span class="bold_code"><a href="http://www.ietf.org/rfc/rfc6066.txt">RFC 6066</a></span>) is supported.</li>
+      (<span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc6066.txt">RFC 6066</a></span>) is supported.</li>
       <li>Application Layer Protocol Negotiation (ALPN) and its successor Next Protocol Negotiation (NPN)
       are supported. </li>
       <li>It is possible to use Pre-Shared Key (PSK) and Secure Remote Password (SRP)
       cipher suites, but they are not enabled by default.
       </li>
     </ul>
-   </p></div>
+   </div>
 
-  <h3><a name="idm44901487660448">DEPENDENCIES</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45391040080544">DEPENDENCIES</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The SSL application uses the <span class="code">public_key</span> and
     Crypto application to handle public keys and encryption, hence
@@ -201,13 +201,13 @@
     started.</p>
   </div>
 
-  <h3><a name="idm44901487564096">CONFIGURATION</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45391039727568">CONFIGURATION</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The application environment configuration parameters in this section 
     are defined for the SSL application. For more information 
     about configuration parameters, see the 
-    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','application.html');">application(3)</a></span>
+    <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','application.html');">application(3)</a></span>
     manual page in Kernel.</p>
 
     <p>The environment parameters can be set on the command line,
@@ -216,7 +216,7 @@
     <p><span class="code">erl -ssl protocol_version "['tlsv1.2', 'tlsv1.1']"</span></p>
 
     <dl>
-      <dt><strong><span class="code">protocol_version = </span><span class="bold_code"><a href="ssl.html#type-protocol">ssl:protocol()</a></span><span class="code">&lt;optional&gt;</span></strong></dt>
+      <dt><strong><span class="code">protocol_version = </span><span class="bold_code bc-15"><a href="ssl.html#type-protocol">ssl:protocol()</a></span><span class="code">&lt;optional&gt;</span></strong></dt>
       <dd><p>Protocol supported by started clients and
       servers. If this option is not set, it defaults to all
       protocols currently supported by the SSL application.
@@ -225,7 +225,7 @@
 
       <dt><strong><span class="code">session_lifetime = integer() &lt;optional&gt;</span></strong></dt>
       <dd><p>Maximum lifetime of the session data in seconds. Defaults to 24 hours which is the maximum
-      recommended lifetime by <span class="bold_code"><a href="http://www.ietf.org/rfc/5246rfc.txt">RFC 5246</a></span>. However
+      recommended lifetime by <span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/5246rfc.txt">RFC 5246</a></span>. However
       sessions may be invalidated earlier due to the maximum limitation of the session cache table.
       </p></dd>
 
@@ -259,7 +259,7 @@
 	<p>
 	  Number of milliseconds between PEM cache validations. Defaults to 2 minutes.
 	</p>
-	<span class="bold_code"><a href="ssl.html#clear_pem_cache-0">ssl:clear_pem_cache/0</a></span>
+	<span class="bold_code bc-15"><a href="ssl.html#clear_pem_cache-0">ssl:clear_pem_cache/0</a></span>
 	
       </dd>
 
@@ -284,18 +284,18 @@
     </dl>
   </div>
 
-  <h3><a name="idm44901488097600">ERROR LOGGER AND EVENT HANDLERS</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45391040429088">ERROR LOGGER AND EVENT HANDLERS</a></h3>
+<div class="REFBODY rb-3">
     
-    <p>The SSL application uses the default <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','error_logger.html');">OTP error logger</a></span> to log
+    <p>The SSL application uses the default <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','error_logger.html');">OTP error logger</a></span> to log
     unexpected errors and TLS alerts. The logging of TLS alerts may be
     turned off with the <span class="code">log_alert</span> option. </p>
   </div>
 
-  <h3><a name="idm44901488089344">SEE ALSO</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45391039358464">SEE ALSO</a></h3>
+<div class="REFBODY rb-3">
     
-	<p><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','application.html');">application(3)</a></span></p>
+	<p><span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','application.html');">application(3)</a></span></p>
   </div>
   
 </div>

@@ -802,11 +802,11 @@
 <!-- refpage --><center><h1>snmpa_local_db</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">snmpa_local_db</div>
+<div class="REFBODY module-body">snmpa_local_db</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">The SNMP built-in database</div>
+<div class="REFBODY modules-summary-body">The SNMP built-in database</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>The module <span class="code">snmpa_local_db</span> contains functions for
       implementing tables (and variables) using the SNMP built-in 
       database. The database exists in two instances, one volatile 
@@ -829,10 +829,10 @@
       <span class="code">persistent</span>. <span class="code">mnesia</span> is not possible since all these 
       functions are <span class="code">snmpa_local_db</span> specific.
       </p>
-  </p></div>
+  </div>
 
-  <h3><a name="idm45488682789536">Common Data Types</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46069277015888">Common Data Types</a></h3>
+<div class="REFBODY rb-3">
     
     <p>In the functions defined below, the following types are
       used:
@@ -858,31 +858,46 @@
       </p>
   </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="dump-0"></a><span class="bold_code">dump() -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="dump-0"></a><span class="bold_code bc-9">dump() -&gt; ok | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function can be used to manually dump the database 
           to file.</p>
       </p></div>
-    <p><a name="match-2"></a><span class="bold_code">match(NameDb, Pattern)</span><br></p>
-<div class="REFBODY"><p>
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="match-2"></a><span class="bold_code bc-9">match(NameDb, Pattern)</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Performs an ets/dets matching on the table. 
           See Stdlib documentation, module ets, for a description of 
           <span class="code">Pattern</span> and the return values.</p>
-      </p></div>
-    <p><a name="print-0"></a><span class="bold_code">print()</span><br><a name="print-1"></a><span class="bold_code">print(TableName)</span><br><a name="print-2"></a><span class="bold_code">print(TableName, Db)</span><br></p>
-<div class="REFBODY">
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="print-0"></a><span class="bold_code bc-9">print()</span><br><a name="print-1"></a><span class="bold_code bc-9">print(TableName)</span><br><a name="print-2"></a><span class="bold_code bc-9">print(TableName, Db)</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">TableName = atom()</span><br>
+<span class="bold_code bc-11">TableName = atom()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Prints the contents of the database on
           screen. This is useful for debugging since the 
           <span class="code">STANDARD-MIB</span> and <span class="code">OTP-SNMPEA-MIB</span> 
@@ -891,58 +906,88 @@
         <p><span class="code">TableName</span> is an atom for a table in the database. 
           When no name is supplied, the whole database is shown.</p>
       </p></div>
-    <p><a name="table_create-1"></a><span class="bold_code">table_create(NameDb) -&gt; bool()</span><br></p>
-<div class="REFBODY"><p>
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="table_create-1"></a><span class="bold_code bc-9">table_create(NameDb) -&gt; bool()</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Creates a table. If the table already exist, the old copy
           is destroyed.
           </p>
         <p>Returns <span class="code">false</span> if the <span class="code">NameDb</span> argument is
           incorrectly specified, <span class="code">true</span> otherwise.</p>
-      </p></div>
-    <p><a name="table_create_row-3"></a><span class="bold_code">table_create_row(NameDb, RowIndex, Row) -&gt; bool()</span><br></p>
-<div class="REFBODY">
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="table_create_row-3"></a><span class="bold_code bc-9">table_create_row(NameDb, RowIndex, Row) -&gt; bool()</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Row = {Val1, Val2, ..., ValN}</span><br>
+<span class="bold_code bc-11">Row = {Val1, Val2, ..., ValN}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Val1 = Val2 = ... = ValN = term()</span><br>
+<span class="bold_code bc-11">Val1 = Val2 = ... = ValN = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Creates a row in a table.  <span class="code">Row</span> is a tuple with
           values for all columns, including the index columns.</p>
       </p></div>
-    <p><a name="table_delete-1"></a><span class="bold_code">table_delete(NameDb) -&gt; void()</span><br></p>
-<div class="REFBODY"><p>
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="table_delete-1"></a><span class="bold_code bc-9">table_delete(NameDb) -&gt; void()</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Deletes a table.</p>
-      </p></div>
-    <p><a name="table_delete_row-2"></a><span class="bold_code">table_delete_row(NameDb, RowIndex) -&gt; bool()</span><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="table_delete_row-2"></a><span class="bold_code bc-9">table_delete_row(NameDb, RowIndex) -&gt; bool()</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Deletes the row in the table.</p>
-      </p></div>
-    <p><a name="table_exists-1"></a><span class="bold_code">table_exists(NameDb) -&gt; bool()</span><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="table_exists-1"></a><span class="bold_code bc-9">table_exists(NameDb) -&gt; bool()</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Checks if a table exists.</p>
-      </p></div>
-    <p><a name="table_get_row-2"></a><span class="bold_code">table_get_row(NameDb, RowIndex) -&gt; Row | undefined</span><br></p>
-<div class="REFBODY">
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="table_get_row-2"></a><span class="bold_code bc-9">table_get_row(NameDb, RowIndex) -&gt; Row | undefined</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Row = {Val1, Val2, ..., ValN}</span><br>
+<span class="bold_code bc-11">Row = {Val1, Val2, ..., ValN}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Val1 = Val2 = ... = ValN = term()</span><br>
+<span class="bold_code bc-11">Val1 = Val2 = ... = ValN = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p><span class="code">Row</span> is a tuple with values for all columns,
           including the index columns.</p>
       </p></div>
-  
+</div>
+</div>
+  </div>
 
-  <h3><a name="idm45488682749648">See Also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46069276976000">See Also</a></h3>
+<div class="REFBODY rb-3">
     
     <p>ets(3), dets(3), snmp_generic(3)
       </p>

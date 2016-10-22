@@ -1717,11 +1717,11 @@
 <!-- refpage --><center><h1>pool</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">pool</div>
+<div class="REFBODY module-body">pool</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Load distribution facility.</div>
+<div class="REFBODY modules-summary-body">Load distribution facility.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>This module can be used to run a set of Erlang nodes as a pool
       of computational processors. It is organized as a master and a
       set of slave nodes and includes the following features:</p>
@@ -1738,66 +1738,90 @@
       processes in the Erlang runtime system.</p>
 
     <p>The slave nodes are started with the
-      <span class="bold_code"><a href="slave.html"><span class="code">slave(3)</span></a></span> module. This
+      <span class="bold_code bc-19"><a href="slave.html"><span class="code">slave(3)</span></a></span> module. This
       effects terminal I/O, file I/O, and code loading.</p>
     <p>If the master node fails, the entire pool exits.</p>
-  </p></div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="attach-1"></a><span class="bold_code">attach(Node) -&gt; already_attached | attached</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Node = node()</span></div>
-</div></p>
-<div class="REFBODY"><p>
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="attach-1"></a><span class="bold_code func-name">attach(Node) -&gt; already_attached | attached</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Node = node()</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Ensures that a pool master is running and includes
           <span class="code">Node</span> in the pool master's pool of nodes.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="get_node-0"></a><span class="bold_code">get_node() -&gt; node()</span><br></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="get_node-0"></a><span class="bold_code func-name">get_node() -&gt; node()</span>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns the node with the expected lowest future load.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="get_nodes-0"></a><span class="bold_code">get_nodes() -&gt; [node()]</span><br></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="get_nodes-0"></a><span class="bold_code func-name">get_nodes() -&gt; [node()]</span>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns a list of the current member nodes of the pool.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="pspawn-3"></a><span class="bold_code">pspawn(Mod, Fun, Args) -&gt; pid()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Mod = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Fun = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = [term()]</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="pspawn-3"></a><span class="bold_code func-name">pspawn(Mod, Fun, Args) -&gt; pid()</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Mod = module()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Fun = atom()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Args = [term()]</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Spawns a process on the pool node that is expected to have
           the lowest future load.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="pspawn_link-3"></a><span class="bold_code">pspawn_link(Mod, Fun, Args) -&gt; pid()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Mod = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Fun = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = [term()]</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="pspawn_link-3"></a><span class="bold_code func-name">pspawn_link(Mod, Fun, Args) -&gt; pid()</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Mod = module()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Fun = atom()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Args = [term()]</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Spawns and links to a process on the pool node that is expected to
           have the lowest future load.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="start-1"></a><span class="bold_code">start(Name) -&gt; Nodes</span><br><a name="start-2"></a><span class="bold_code">start(Name, Args) -&gt; Nodes</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = string()</span></div>
-<div class="REFTYPES"><span class="bold_code">Nodes = [node()]</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="start-1"></a><span class="bold_code func-name">start(Name) -&gt; Nodes</span><a name="start-2"></a><span class="bold_code func-name">start(Name, Args) -&gt; Nodes</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = atom()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Args = string()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Nodes = [node()]</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Starts a new pool. The file <span class="code">.hosts.erlang</span> is read to
           find host names where the pool nodes can be started; see
-          section <span class="bold_code"><a href="#files">Files</a></span>. The
+          section <span class="bold_code data-type-ref"><a href="#files">Files</a></span>. The
           startup procedure fails if the file is not found.</p>
         <p>The slave nodes are started with
-          <span class="bold_code"><a href="slave.html#start-2"><span class="code">slave:start/2,3</span></a></span>,
+          <span class="bold_code bc-15"><a href="slave.html#start-2"><span class="code">slave:start/2,3</span></a></span>,
           passing along <span class="code">Name</span> and, if provided,
           <span class="code">Args</span>. <span class="code">Name</span> is used as the
           first part of the node names, <span class="code">Args</span> is used to
@@ -1806,23 +1830,28 @@
           the authority to access each other.</p>
         <p>The function is synchronous and all the nodes, and
           all the system servers, are running when it returns a value.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="stop-0"></a><span class="bold_code">stop() -&gt; stopped</span><br></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="stop-0"></a><span class="bold_code func-name">stop() -&gt; stopped</span>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Stops the pool and kills all the slave nodes.</p>
-      </p></div>
-  
+      </p></div></div>
+</div>
+  </div>
 
   <h3>
-<a name="files"></a><a name="idm45518935722704">Files</a>
+<a name="files"></a><a name="idm45461564393440">Files</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
     <p><span class="code">.hosts.erlang</span> is used to pick hosts where nodes can
       be started. For information about format and location of this file, see
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','net_adm.html#host_file-0');"><span class="code">net_adm:host_file/0</span></a></span>.</p>
+      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','net_adm.html#host_file-0');"><span class="code">net_adm:host_file/0</span></a></span>.</p>
     <p><span class="code">$HOME/.erlang.slave.out.HOST</span> is used for all extra I/O
       that can come from the slave nodes on standard I/O. If the startup
       procedure does not work, this file can indicate the reason.</p>

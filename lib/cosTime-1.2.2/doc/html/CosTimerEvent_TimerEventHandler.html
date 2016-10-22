@@ -139,26 +139,31 @@
 <!-- refpage --><center><h1>CosTimerEvent_TimerEventHandler</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">CosTimerEvent_TimerEventHandler</div>
+<div class="REFBODY module-body">CosTimerEvent_TimerEventHandler</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">This module implements the OMG  CosTimerEvent::TimerEventHandler interface.</div>
+<div class="REFBODY modules-summary-body">This module implements the OMG  CosTimerEvent::TimerEventHandler interface.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>To get access to the record definitions for the structures use:      <br>
 <span class="code">-include_lib("cosTime/include/*.hrl").</span></p>
-  </p></div>
+  </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="'_get_status'-1"></a><span class="bold_code">'_get_status'(TimerEventHandler) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="'_get_status'-1"></a><span class="bold_code bc-9">'_get_status'(TimerEventHandler) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">TimerEventHandler = #objref</span><br>
+<span class="bold_code bc-11">TimerEventHandler = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = 'ESTimeSet' | 'ESTimeCleared' | 'ESTriggered' | 'ESFailedTrigger'</span><br>
+<span class="bold_code bc-11">Reply = 'ESTimeSet' | 'ESTimeCleared' | 'ESTriggered' | 'ESFailedTrigger'</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation returns the status of the target object. </p>
         <ul>
           <li>'ESTimeSet' - timer is set to trigger event(s).</li>
@@ -169,41 +174,53 @@
         <p>If the target object is of type 'TTPeriodic' the status value 
           'ESTriggered' is not valid.</p>
       </p></div>
-    <p><a name="time_set-1"></a><span class="bold_code">time_set(TimerEventHandler) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="time_set-1"></a><span class="bold_code bc-9">time_set(TimerEventHandler) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">TimerEventHandler = #objref</span><br>
+<span class="bold_code bc-11">TimerEventHandler = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = {boolean(), UTO}</span><br>
+<span class="bold_code bc-11">Reply = {boolean(), UTO}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">UTO = #objref</span><br>
+<span class="bold_code bc-11">UTO = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation returns <span class="code">true</span> if the time has been set for an event that
           is yet to be triggered, <span class="code">false</span> otherwise. The outparameter represents
           the current time value of the target object.</p>
       </p></div>
-    <p><a name="set_timer-3"></a><span class="bold_code">set_timer(TimerEventHandler, TimeType, TriggerTime) -&gt; void()</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="set_timer-3"></a><span class="bold_code bc-9">set_timer(TimerEventHandler, TimeType, TriggerTime) -&gt; void()</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">TimerEventHandler = #objref</span><br>
+<span class="bold_code bc-11">TimerEventHandler = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">TimeType = 'TTAbsolute' | 'TTRelative' | 'TTPeriodic'</span><br>
+<span class="bold_code bc-11">TimeType = 'TTAbsolute' | 'TTRelative' | 'TTPeriodic'</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">TriggerTime = UTO</span><br>
+<span class="bold_code bc-11">TriggerTime = UTO</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">UTO = #objref</span><br>
+<span class="bold_code bc-11">UTO = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation terminates any previous set trigger, and set a new trigger
           specified by the <span class="code">TimeType</span> and <span class="code">UTO</span> objects.</p>
         <p>The relation between the UTO object and the TimeTypes are:</p>
@@ -217,31 +234,45 @@
            will trigger an event periodically until timer cancelled.</li>
         </ul>
       </p></div>
-    <p><a name="cancel_timer-1"></a><span class="bold_code">cancel_timer(TimerEventHandler) -&gt; boolean()</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="cancel_timer-1"></a><span class="bold_code bc-9">cancel_timer(TimerEventHandler) -&gt; boolean()</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">TimerEventHandler = #objref</span><br>
+<span class="bold_code bc-11">TimerEventHandler = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation cancel, if possible, the triggering of event(s). Returns
           <span class="code">true</span> if an event is actually cancelled, <span class="code">false</span> otherwise.</p>
       </p></div>
-    <p><a name="set_data-2"></a><span class="bold_code">set_data(TimerEventHandler, EventData) -&gt; ok</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="set_data-2"></a><span class="bold_code bc-9">set_data(TimerEventHandler, EventData) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">TimerEventHandler = #objref</span><br>
+<span class="bold_code bc-11">TimerEventHandler = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">EventData = #any</span><br>
+<span class="bold_code bc-11">EventData = #any</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation changes the event data sent when triggered.</p>
       </p></div>
-  
+</div>
+</div>
+  </div>
   
 </div>
 <div class="footer">

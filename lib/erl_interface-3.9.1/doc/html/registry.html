@@ -592,25 +592,30 @@
 <!-- refpage --><center><h1>registry</h1></center>
   
   <h3><a name="c-library" href="#c-library">C Library</a></h3>
-<div class="REFBODY">registry</div>
+<div class="REFBODY c-library-body">registry</div>
   <h3><a name="library-sumary" href="#library-sumary">Library Summary</a></h3>
-<div class="REFBODY">Store and backup key-value pairs</div>
+<div class="REFBODY library-summary-body">Store and backup key-value pairs</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>This module provides support for storing key-value
       pairs in a table known as a registry, backing up registries to
       Mnesia in an atomic manner, and later restoring the contents of a
       registry from Mnesia.</p>
-  </p></div>
+  </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="ei_reg_open"><span class="bold_code">ei_reg *ei_reg_open(size)</span></a><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="ei_reg_open"><span class="bold_code bc-7">ei_reg *ei_reg_open(size)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">int size;</span><br>
+<span class="bold_code bc-11">int size;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Open (create) a registry. The registry will be
           initially empty. Use <span class="code">ei_reg_close()</span> to close the registry
           later.
@@ -628,17 +633,23 @@
         <p>On success, an empty registry will be returned. On failure, NULL
           will be returned.</p>
       </p></div>
-    <p><a name="ei_reg_resize"><span class="bold_code">int ei_reg_resize(reg,newsize)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_reg_resize"><span class="bold_code bc-7">int ei_reg_resize(reg,newsize)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ei_reg *reg;</span><br>
+<span class="bold_code bc-11">ei_reg *reg;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">int newsize;</span><br>
+<span class="bold_code bc-11">int newsize;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Change the size of a registry.
           </p>
         <p><span class="code">newsize</span> is the new size to make the registry. The
@@ -648,14 +659,20 @@
           rehashed, and the function will return 0. On failure, the
           registry will be left unchanged and the function will return -1.</p>
       </p></div>
-    <p><a name="ei_reg_close"><span class="bold_code">int ei_reg_close(reg)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_reg_close"><span class="bold_code bc-7">int ei_reg_close(reg)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ei_reg *reg;</span><br>
+<span class="bold_code bc-11">ei_reg *reg;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>A registry that has previously been created with
           <span class="code">ei_reg_open()</span> is closed, and all the objects it contains
           are freed.
@@ -664,20 +681,26 @@
           </p>
         <p>The function returns 0.</p>
       </p></div>
-    <p><a name="ei_reg_setival"><span class="bold_code">int ei_reg_setival(reg,key,i)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_reg_setival"><span class="bold_code bc-7">int ei_reg_setival(reg,key,i)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ei_reg *reg;</span><br>
+<span class="bold_code bc-11">ei_reg *reg;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">const char *key;</span><br>
+<span class="bold_code bc-11">const char *key;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">int i;</span><br>
+<span class="bold_code bc-11">int i;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Create a key-value pair with the specified <span class="code">key</span> and integer
           value <span class="code">i</span>. If an object already existed with the same
           <span class="code">key</span>, the new value replaces the old one. If the previous
@@ -691,20 +714,26 @@
           </p>
         <p>The function returns 0 on success, or -1 on failure.</p>
       </p></div>
-    <p><a name="ei_reg_setfval"><span class="bold_code">int ei_reg_setfval(reg,key,f)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_reg_setfval"><span class="bold_code bc-7">int ei_reg_setfval(reg,key,f)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ei_reg *reg;</span><br>
+<span class="bold_code bc-11">ei_reg *reg;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">const char *key;</span><br>
+<span class="bold_code bc-11">const char *key;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">double f;</span><br>
+<span class="bold_code bc-11">double f;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Create a key-value pair with the specified <span class="code">key</span> and
           floating point value <span class="code">f</span>. If an object already existed with
           the same <span class="code">key</span>, the new value replaces the old one. If the
@@ -718,20 +747,26 @@
           </p>
         <p>The function returns 0 on success, or -1 on failure.</p>
       </p></div>
-    <p><a name="ei_reg_setsval"><span class="bold_code">int ei_reg_setsval(reg,key,s)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_reg_setsval"><span class="bold_code bc-7">int ei_reg_setsval(reg,key,s)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ei_reg *reg;</span><br>
+<span class="bold_code bc-11">ei_reg *reg;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">const char *key;</span><br>
+<span class="bold_code bc-11">const char *key;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">const char *s;</span><br>
+<span class="bold_code bc-11">const char *s;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Create a key-value pair with the specified <span class="code">key</span> whose
           "value" is the specified string <span class="code">s</span>. If an object already
           existed with the same <span class="code">key</span>, the new value replaces the old
@@ -749,23 +784,29 @@
           </p>
         <p>The function returns 0 on success, or -1 on failure.</p>
       </p></div>
-    <p><a name="ei_reg_setpval"><span class="bold_code">int ei_reg_setpval(reg,key,p,size)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_reg_setpval"><span class="bold_code bc-7">int ei_reg_setpval(reg,key,p,size)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ei_reg *reg;</span><br>
+<span class="bold_code bc-11">ei_reg *reg;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">const char *key;</span><br>
+<span class="bold_code bc-11">const char *key;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">const void *p;</span><br>
+<span class="bold_code bc-11">const void *p;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">int size;</span><br>
+<span class="bold_code bc-11">int size;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Create a key-value pair with the specified <span class="code">key</span> whose
           "value" is the binary object pointed to by <span class="code">p</span>. If an
           object already existed with the same <span class="code">key</span>, the new value
@@ -785,23 +826,29 @@
           </p>
         <p>The function returns 0 on success, or -1 on failure.</p>
       </p></div>
-    <p><a name="ei_reg_setval"><span class="bold_code">int ei_reg_setval(reg,key,flags,v,...)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_reg_setval"><span class="bold_code bc-7">int ei_reg_setval(reg,key,flags,v,...)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ei_reg *reg;</span><br>
+<span class="bold_code bc-11">ei_reg *reg;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">const char *key;</span><br>
+<span class="bold_code bc-11">const char *key;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">int flags;</span><br>
+<span class="bold_code bc-11">int flags;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">v (see below)</span><br>
+<span class="bold_code bc-11">v (see below)</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Create a key-value pair with the specified <span class="code">key</span> whose
           value is specified by <span class="code">v</span>. If an object already
           existed with the same <span class="code">key</span>, the new value replaces the old
@@ -826,17 +873,23 @@
           </p>
         <p>The function returns 0 on success, or -1 on failure.</p>
       </p></div>
-    <p><a name="ei_reg_getival"><span class="bold_code">int ei_reg_getival(reg,key)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_reg_getival"><span class="bold_code bc-7">int ei_reg_getival(reg,key)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ei_reg *reg;</span><br>
+<span class="bold_code bc-11">ei_reg *reg;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">const char *key;</span><br>
+<span class="bold_code bc-11">const char *key;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Get the value associated with <span class="code">key</span> in the
           registry. The value must be an integer.
           </p>
@@ -852,17 +905,23 @@
           valid result) use the more general function <span class="code">ei_reg_getval()</span>
           instead.</p>
       </p></div>
-    <p><a name="ei_reg_getfval"><span class="bold_code">double ei_reg_getfval(reg,key)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_reg_getfval"><span class="bold_code bc-7">double ei_reg_getfval(reg,key)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ei_reg *reg;</span><br>
+<span class="bold_code bc-11">ei_reg *reg;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">const char *key;</span><br>
+<span class="bold_code bc-11">const char *key;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Get the value associated with <span class="code">key</span> in the
           registry. The value must be a floating point type.
           </p>
@@ -878,17 +937,23 @@
           valid result) use the more general function <span class="code">ei_reg_getval()</span>
           instead.</p>
       </p></div>
-    <p><a name="ei_reg_getsval"><span class="bold_code">const char *ei_reg_getsval(reg,key)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_reg_getsval"><span class="bold_code bc-7">const char *ei_reg_getsval(reg,key)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ei_reg *reg;</span><br>
+<span class="bold_code bc-11">ei_reg *reg;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">const char *key;</span><br>
+<span class="bold_code bc-11">const char *key;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Get the value associated with <span class="code">key</span> in the
           registry. The value must be a string.
           </p>
@@ -904,20 +969,26 @@
           valid result) use the more general function <span class="code">ei_reg_getval()</span>
           instead.</p>
       </p></div>
-    <p><a name="ei_reg_getpval"><span class="bold_code">const void *ei_reg_getpval(reg,key,size)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_reg_getpval"><span class="bold_code bc-7">const void *ei_reg_getpval(reg,key,size)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ei_reg *reg;</span><br>
+<span class="bold_code bc-11">ei_reg *reg;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">const char *key;</span><br>
+<span class="bold_code bc-11">const char *key;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">int size;</span><br>
+<span class="bold_code bc-11">int size;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Get the value associated with <span class="code">key</span> in the
           registry. The value must be a binary (pointer) type.
           </p>
@@ -937,23 +1008,29 @@
           valid result) use the more general function <span class="code">ei_reg_getval()</span>
           instead.</p>
       </p></div>
-    <p><a name="ei_reg_getval"><span class="bold_code">int ei_reg_getval(reg,key,flags,v,...)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_reg_getval"><span class="bold_code bc-7">int ei_reg_getval(reg,key,flags,v,...)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ei_reg *reg;</span><br>
+<span class="bold_code bc-11">ei_reg *reg;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">const char *key;</span><br>
+<span class="bold_code bc-11">const char *key;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">int flags;</span><br>
+<span class="bold_code bc-11">int flags;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">void *v (see below)</span><br>
+<span class="bold_code bc-11">void *v (see below)</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This is a general function for retrieving any kind of
           object from the registry. 
           </p>
@@ -978,17 +1055,23 @@
           EI_FLT, EI_STR or EI_BIN, indicating the type of object. On failure the
           function will return -1 and the arguments will not be updated.</p>
       </p></div>
-    <p><a name="ei_reg_markdirty"><span class="bold_code">int ei_reg_markdirty(reg,key)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_reg_markdirty"><span class="bold_code bc-7">int ei_reg_markdirty(reg,key)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ei_reg *reg;</span><br>
+<span class="bold_code bc-11">ei_reg *reg;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">const char *key;</span><br>
+<span class="bold_code bc-11">const char *key;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Mark a registry object as dirty. This will ensure that
           it is included in the next backup to Mnesia. Normally this
           operation will not be necessary since all of the normal registry
@@ -1005,17 +1088,23 @@
           </p>
         <p>The function returns 0 on success, or -1 on failure.</p>
       </p></div>
-    <p><a name="ei_reg_delete"><span class="bold_code">int ei_reg_delete(reg,key)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_reg_delete"><span class="bold_code bc-7">int ei_reg_delete(reg,key)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ei_reg *reg;</span><br>
+<span class="bold_code bc-11">ei_reg *reg;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">const char *key;</span><br>
+<span class="bold_code bc-11">const char *key;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Delete an object from the registry. The object is not
           actually removed from the registry, it is only marked for later
           removal so that on subsequent backups to Mnesia, the
@@ -1033,20 +1122,26 @@
         <p>If the object was found, the function returns 0 indicating
           success. Otherwise the function returns -1.</p>
       </p></div>
-    <p><a name="ei_reg_stat"><span class="bold_code">int ei_reg_stat(reg,key,obuf)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_reg_stat"><span class="bold_code bc-7">int ei_reg_stat(reg,key,obuf)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ei_reg *reg;</span><br>
+<span class="bold_code bc-11">ei_reg *reg;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">const char *key;</span><br>
+<span class="bold_code bc-11">const char *key;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">struct ei_reg_stat *obuf;</span><br>
+<span class="bold_code bc-11">struct ei_reg_stat *obuf;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Return information about an object.
           </p>
         <p><span class="code">reg</span> is the registry containing the object.
@@ -1074,17 +1169,23 @@ struct ei_reg_stat {
         <p>The function returns 0 and initializes <span class="code">obuf</span> on
           success, or returns -1 on failure.</p>
       </p></div>
-    <p><a name="ei_reg_tabstat"><span class="bold_code">int ei_reg_tabstat(reg,obuf)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_reg_tabstat"><span class="bold_code bc-7">int ei_reg_tabstat(reg,obuf)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ei_reg *reg;</span><br>
+<span class="bold_code bc-11">ei_reg *reg;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">struct ei_reg_tabstat *obuf;</span><br>
+<span class="bold_code bc-11">struct ei_reg_tabstat *obuf;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Return information about a registry. Using information
           returned by this function, you can see whether the size of the
           registry is suitable for the amount of data it contains.
@@ -1120,23 +1221,29 @@ struct ei_reg_tabstat {
           initialized to contain table statistics. On failure, the function
           returns -1.</p>
       </p></div>
-    <p><a name="ei_reg_dump"><span class="bold_code">int ei_reg_dump(fd,reg,mntab,flags)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_reg_dump"><span class="bold_code bc-7">int ei_reg_dump(fd,reg,mntab,flags)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">int fd;</span><br>
+<span class="bold_code bc-11">int fd;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">ei_reg *reg;</span><br>
+<span class="bold_code bc-11">ei_reg *reg;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">const char *mntab;</span><br>
+<span class="bold_code bc-11">const char *mntab;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">int flags;</span><br>
+<span class="bold_code bc-11">int flags;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Dump the contents of a registry to a Mnesia table in an
           atomic manner, i.e. either all data will be updated, or none of
           it will. If any errors are encountered while backing up
@@ -1168,20 +1275,26 @@ struct ei_reg_tabstat {
           </p>
         <p>The function returns 0 on success, or -1 on failure.</p>
       </p></div>
-    <p><a name="ei_reg_restore"><span class="bold_code">int ei_reg_restore(fd,reg,mntab)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_reg_restore"><span class="bold_code bc-7">int ei_reg_restore(fd,reg,mntab)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">int fd;</span><br>
+<span class="bold_code bc-11">int fd;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">ei_reg *reg;</span><br>
+<span class="bold_code bc-11">ei_reg *reg;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">const char *mntab;</span><br>
+<span class="bold_code bc-11">const char *mntab;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>The contents of a Mnesia table are read into the
           registry. 
           </p>
@@ -1210,14 +1323,20 @@ struct ei_reg_tabstat {
           </p>
         <p>The function returns 0 on success, or -1 on failure.</p>
       </p></div>
-    <p><a name="ei_reg_purge"><span class="bold_code">int ei_reg_purge(reg)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_reg_purge"><span class="bold_code bc-7">int ei_reg_purge(reg)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ei_reg *reg;</span><br>
+<span class="bold_code bc-11">ei_reg *reg;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Remove all objects marked for deletion. When objects
           are deleted with <span class="code">ei_reg_delete()</span> they are not actually
           removed from the registry, only marked for later removal. This
@@ -1231,7 +1350,9 @@ struct ei_reg_tabstat {
           </p>
         <p>The function returns 0 on success, or -1 on failure.</p>
       </p></div>
-  
+</div>
+</div>
+  </div>
 </div>
 <div class="footer">
 <hr>

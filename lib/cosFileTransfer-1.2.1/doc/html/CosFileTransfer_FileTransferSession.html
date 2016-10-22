@@ -137,145 +137,186 @@
 <!-- refpage --><center><h1>CosFileTransfer_FileTransferSession</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">CosFileTransfer_FileTransferSession</div>
+<div class="REFBODY module-body">CosFileTransfer_FileTransferSession</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">This module implements the OMG CosFileTransfer::FileTransferSession interface.</div>
+<div class="REFBODY modules-summary-body">This module implements the OMG CosFileTransfer::FileTransferSession interface.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>To get access to the record definitions for the structures use:      <br>
 <span class="code">-include_lib("cosFileTransfer/include/*.hrl").</span></p>
-  </p></div>
+  </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="'_get_protocols_supported'-1"></a><span class="bold_code">'_get_protocols_supported'(FTS) -&gt; Return</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="'_get_protocols_supported'-1"></a><span class="bold_code bc-9">'_get_protocols_supported'(FTS) -&gt; Return</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">FTS = #objref</span><br>
+<span class="bold_code bc-11">FTS = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Return = [#'CosFileTransfer_ProtocolSupport'{protocol_name=Type, addresses=[Address]}]</span><br>
+<span class="bold_code bc-11">Return = [#'CosFileTransfer_ProtocolSupport'{protocol_name=Type, addresses=[Address]}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Type = Address = string()</span><br>
+<span class="bold_code bc-11">Type = Address = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This read only attribute returns the protocols supported by the
           target object.</p>
       </p></div>
-    <p><a name="set_directory-2"></a><span class="bold_code">set_directory(FTS, Directory) -&gt; Return</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="set_directory-2"></a><span class="bold_code bc-9">set_directory(FTS, Directory) -&gt; Return</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">FTS = Directory = #objref</span><br>
+<span class="bold_code bc-11">FTS = Directory = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Return = ok | {'EXCEPTION, E}</span><br>
+<span class="bold_code bc-11">Return = ok | {'EXCEPTION, E}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Invoking this operation will change the current working directory of
           the target object's associated file system. If fail to do so the
           appropriate exception is raised. </p>
       </p></div>
-    <p><a name="create_file-2"></a><span class="bold_code">create_file(FTS, FileNameList) -&gt; Return</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="create_file-2"></a><span class="bold_code bc-9">create_file(FTS, FileNameList) -&gt; Return</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">FTS = #objref</span><br>
+<span class="bold_code bc-11">FTS = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">FileNameList = [string()]</span><br>
+<span class="bold_code bc-11">FileNameList = [string()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Return = File | {'EXCEPTION, E}</span><br>
+<span class="bold_code bc-11">Return = File | {'EXCEPTION, E}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">File = #objref</span><br>
+<span class="bold_code bc-11">File = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation creates a <span class="code">File</span> Object representing a file which 
           may or may not exist. 
           For this operation to be independent of the working directory the
           supplied <span class="code">FileNameList</span> must represent the absolute name.</p>
       </p></div>
-    <p><a name="create_directory-2"></a><span class="bold_code">create_directory(FTS, FileNameList) -&gt; Return</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="create_directory-2"></a><span class="bold_code bc-9">create_directory(FTS, FileNameList) -&gt; Return</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">FTS = #objref</span><br>
+<span class="bold_code bc-11">FTS = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">FileNameList = [string()]</span><br>
+<span class="bold_code bc-11">FileNameList = [string()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Return = Directory | {'EXCEPTION, E}</span><br>
+<span class="bold_code bc-11">Return = Directory | {'EXCEPTION, E}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Directory = #objref</span><br>
+<span class="bold_code bc-11">Directory = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation creates a new directory in the target objects associated
           file systems domain. If fail to do so an exception is raised but,
           if successful, a <span class="code">Directory</span> object representing the new
           directory is returned.</p>
       </p></div>
-    <p><a name="get_file-2"></a><span class="bold_code">get_file(FTS, FileNameList) -&gt; Return</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="get_file-2"></a><span class="bold_code bc-9">get_file(FTS, FileNameList) -&gt; Return</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">FTS = #objref</span><br>
+<span class="bold_code bc-11">FTS = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">FileNameList = [string()]</span><br>
+<span class="bold_code bc-11">FileNameList = [string()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Return = FileWrapper | {'EXCEPTION, E}</span><br>
+<span class="bold_code bc-11">Return = FileWrapper | {'EXCEPTION, E}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">FileWrapper = #'CosFileTransfer_FileWrapper'{the_file = File file_type = Type}</span><br>
+<span class="bold_code bc-11">FileWrapper = #'CosFileTransfer_FileWrapper'{the_file = File file_type = Type}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">File = #objref</span><br>
+<span class="bold_code bc-11">File = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Type = nfile | ndirectory</span><br>
+<span class="bold_code bc-11">Type = nfile | ndirectory</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation, creates a <span class="code">FileWrapper</span> which represents a file or directory, and 
           should be independent of the working Directory,
           i.e., a full path name must be supplied. Furthermore, the file or
           directory represented by the <span class="code">FileNameList</span> must exist.</p>
       </p></div>
-    <p><a name="delete-2"></a><span class="bold_code">delete(FTS, File) -&gt; Return</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="delete-2"></a><span class="bold_code bc-9">delete(FTS, File) -&gt; Return</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">FTS = File = #objref</span><br>
+<span class="bold_code bc-11">FTS = File = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Return = ok | {'EXCEPTION', E}</span><br>
+<span class="bold_code bc-11">Return = ok | {'EXCEPTION', E}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation removes the file or directory, represented by the <span class="code">File</span>
           object, from the target objects associated file system. If it is a non-empty
           directory or non-existing file or directory an exception is raised.</p>
       </p></div>
-    <p><a name="transfer-3"></a><span class="bold_code">transfer(FTS, SourceFile, DestinationFile) -&gt; Return</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="transfer-3"></a><span class="bold_code bc-9">transfer(FTS, SourceFile, DestinationFile) -&gt; Return</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">FTS = SourceFile = DestinationFile = #objref</span><br>
+<span class="bold_code bc-11">FTS = SourceFile = DestinationFile = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Return = ok | {'EXCEPTION', E}</span><br>
+<span class="bold_code bc-11">Return = ok | {'EXCEPTION', E}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>If the target object's and the <span class="code">DestinationFile's</span> associated
           <span class="code">FileTransferSession's</span> support the same protocol(s) this operation
           will copy the file represented by the <span class="code">SourceFile</span> from the target 
@@ -285,55 +326,75 @@
           This operation must be invoked on the <span class="code">FileTransferSession</span>
           associated with the <span class="code">SourceFile</span> object.</p>
       </p></div>
-    <p><a name="append-3"></a><span class="bold_code">append(FTS, SourceFile, DestinationFile) -&gt; Return</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="append-3"></a><span class="bold_code bc-9">append(FTS, SourceFile, DestinationFile) -&gt; Return</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">FTS = SourceFile = DestinationFile = #objref</span><br>
+<span class="bold_code bc-11">FTS = SourceFile = DestinationFile = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Return =  ok | {'EXCEPTION', E}</span><br>
+<span class="bold_code bc-11">Return =  ok | {'EXCEPTION', E}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation behaves almost like the <span class="code">transfer/3</span> operation. The
           difference is that the <span class="code">DestinationFile</span> must exist since the
           <span class="code">SourceFile</span> will be appended to the <span class="code">DestinationFile</span>.</p>
         <p>Currently, it is not possible to use this operation when the target 
           object represents FTP.</p>
       </p></div>
-    <p><a name="insert-4"></a><span class="bold_code">insert(FTS, SourceFile, DestinationFile, Offset) -&gt; Return</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="insert-4"></a><span class="bold_code bc-9">insert(FTS, SourceFile, DestinationFile, Offset) -&gt; Return</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">FTS = SourceFile = DestinationFile = #objref</span><br>
+<span class="bold_code bc-11">FTS = SourceFile = DestinationFile = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Offset = long()</span><br>
+<span class="bold_code bc-11">Offset = long()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Return =  ok | {'EXCEPTION', E}</span><br>
+<span class="bold_code bc-11">Return =  ok | {'EXCEPTION', E}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation behaves almost like the <span class="code">append/3</span> operation. The 
           difference is that the <span class="code">SourceFile</span> will be inserted into the
           <span class="code">DestinationFile</span> <span class="code">Offset</span> bytes from the start of the file.</p>
         <p>Currently, it is not possible to use this operation when the target 
           object represents FTP.</p>
       </p></div>
-    <p><a name="logout-1"></a><span class="bold_code">logout(FTS) -&gt; ok</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="logout-1"></a><span class="bold_code bc-9">logout(FTS) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">FTS = #objref</span><br>
+<span class="bold_code bc-11">FTS = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation terminates the target object and closes the connection
           to the file system it represents.</p>
       </p></div>
-  
+</div>
+</div>
+  </div>
   
 </div>
 <div class="footer">

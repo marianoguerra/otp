@@ -437,11 +437,11 @@
 <!-- refpage --><center><h1>orber_acl</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">orber_acl</div>
+<div class="REFBODY module-body">orber_acl</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Orber ACL operations</div>
+<div class="REFBODY modules-summary-body">Orber ACL operations</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>This module contains functions intended for analyzing Access 
       Control List (ACL) filters. The filters uses a extended format of 
       Classless Inter Domain Routing (CIDR). 
@@ -451,31 +451,36 @@
       also allow the user to specify a certain port or port range, for example,
       <span class="code">"123.123.123.10/17#4001"</span> and <span class="code">"123.123.123.10/17#4001/5001"</span>
       respectively. IPv4 or none compressed IPv6 strings are accepted.</p>
-  </p></div>
+  </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="match-2"></a><span class="bold_code">match(IP, Direction) -&gt; boolean()</span><br><a name="match-3"></a><span class="bold_code">match(IP, Direction, GetInfo) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="match-2"></a><span class="bold_code bc-9">match(IP, Direction) -&gt; boolean()</span><br><a name="match-3"></a><span class="bold_code bc-9">match(IP, Direction, GetInfo) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">IP = tuple() | [integer()]</span><br>
+<span class="bold_code bc-11">IP = tuple() | [integer()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Direction = tcp_in | ssl_in | tcp_out | ssl_out</span><br>
+<span class="bold_code bc-11">Direction = tcp_in | ssl_in | tcp_out | ssl_out</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">GetInfo = boolean()</span><br>
+<span class="bold_code bc-11">GetInfo = boolean()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = boolean() | {boolean(), [Interface], PortInfo}</span><br>
+<span class="bold_code bc-11">Reply = boolean() | {boolean(), [Interface], PortInfo}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Interface = string()</span><br>
+<span class="bold_code bc-11">Interface = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">PortInfo = integer() | {integer(), integer()}</span><br>
+<span class="bold_code bc-11">PortInfo = integer() | {integer(), integer()}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>If <span class="code">GetInfo</span> is not supplied or set to false, this operation returns
           a boolean which tells if the IPv4 or IPv6 address would pass the ACL
           filter, defined by the <span class="code">iiop_acl</span> configuration parameter, or not.
@@ -484,57 +489,71 @@
           interfaces and port(s). This operation requires that Orber is running and
           can be used on a live node to determine if Orber has been properly configured.</p>
       </p></div>
-    <p><a name="verify-3"></a><span class="bold_code">verify(IP, Filter, Family) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="verify-3"></a><span class="bold_code bc-9">verify(IP, Filter, Family) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">IP = string()</span><br>
+<span class="bold_code bc-11">IP = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Filter = string()</span><br>
+<span class="bold_code bc-11">Filter = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Family = inet | inet6</span><br>
+<span class="bold_code bc-11">Family = inet | inet6</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = true | {false, From, To} | {error, string()}</span><br>
+<span class="bold_code bc-11">Reply = true | {false, From, To} | {error, string()}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">From = string()</span><br>
+<span class="bold_code bc-11">From = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">To = string()</span><br>
+<span class="bold_code bc-11">To = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation returns true if the IPv4 or IPv6 address would pass the
           supplied ACL. If that is not the case, a tuple containing the accepted range
           is returned. This operation should only be used for test purposes.</p>
       </p></div>
-    <p><a name="range-2"></a><span class="bold_code">range(Filter, Family) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="range-2"></a><span class="bold_code bc-9">range(Filter, Family) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Filter = string()</span><br>
+<span class="bold_code bc-11">Filter = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Family = inet | inet6</span><br>
+<span class="bold_code bc-11">Family = inet | inet6</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = {ok, From, To} | {error, string()}</span><br>
+<span class="bold_code bc-11">Reply = {ok, From, To} | {error, string()}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">From = string()</span><br>
+<span class="bold_code bc-11">From = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">To = string()</span><br>
+<span class="bold_code bc-11">To = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Returns the range of accepted IP addresses based on the supplied filter. 
           This operation should only be used for test purposes.</p>
       </p></div>
-  
+</div>
+</div>
+  </div>
   
 </div>
 <div class="footer">

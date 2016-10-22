@@ -802,28 +802,33 @@
 <!-- refpage --><center><h1>snmp_view_based_acm_mib</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">snmp_view_based_acm_mib</div>
+<div class="REFBODY module-body">snmp_view_based_acm_mib</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Instrumentation Functions for SNMP-VIEW-BASED-ACM-MIB</div>
+<div class="REFBODY modules-summary-body">Instrumentation Functions for SNMP-VIEW-BASED-ACM-MIB</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>The module <span class="code">snmp_view_based_acm_mib</span> implements the instrumentation functions for the
       SNMP-VIEW-BASED-ACM-MIB, and functions for configuring the database.
       </p>
     <p>The configuration files are described in the SNMP User's Manual.</p>
 
     <a name="configure"></a>
-  </p></div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="configure-1"></a><span class="bold_code">configure(ConfDir) -&gt; void()</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="configure-1"></a><span class="bold_code bc-9">configure(ConfDir) -&gt; void()</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ConfDir = string()</span><br>
+<span class="bold_code bc-11">ConfDir = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function is called from the supervisor at system
 	start-up. </p>
         <p>Inserts all data in the configuration files into the
@@ -841,15 +846,21 @@
 
 	<a name="reconfigure"></a>
       </p></div>
+</div>
+</div>
 
-    <p><a name="reconfigure-1"></a><span class="bold_code">reconfigure(ConfDir) -&gt; void()</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="reconfigure-1"></a><span class="bold_code bc-9">reconfigure(ConfDir) -&gt; void()</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ConfDir = string()</span><br>
+<span class="bold_code bc-11">ConfDir = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Inserts all data in the configuration files into the
           database and destroys all old data, including the rows with
           StorageType <span class="code">nonVolatile</span>.  The rows created from the
@@ -863,7 +874,7 @@
           </p>
         <p>If an error is found in the configuration file, it is
           reported using the function 
-	  <span class="bold_code"><a href="snmpa_error.html#config_err">config_err/2</a></span> 
+	  <span class="bold_code bc-15"><a href="snmpa_error.html#config_err">config_err/2</a></span> 
 	  of the error report module, and the function fails with the reason 
           <span class="code">configuration_error</span>.
           </p>
@@ -874,169 +885,207 @@
 
 	<a name="add_sec2group"></a>
       </p></div>
+</div>
+</div>
 
-    <p><a name="add_sec2group-3"></a><span class="bold_code">add_sec2group(SecModel, SecName, GroupName) -&gt; Ret</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="add_sec2group-3"></a><span class="bold_code bc-9">add_sec2group(SecModel, SecName, GroupName) -&gt; Ret</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">SecModel = v1 | v2c | usm</span><br>
+<span class="bold_code bc-11">SecModel = v1 | v2c | usm</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">SecName = string()</span><br>
+<span class="bold_code bc-11">SecName = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">GroupName = string()</span><br>
+<span class="bold_code bc-11">GroupName = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Ret = {ok, Key} | {error, Reason}</span><br>
+<span class="bold_code bc-11">Ret = {ok, Key} | {error, Reason}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Key = term()</span><br>
+<span class="bold_code bc-11">Key = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Adds a security to group definition to the agent config. 
 	Equivalent to one vacmSecurityToGroup-line in the 
 	<span class="code">vacm.conf</span> file.</p>
 
         <a name="delete_sec2group"></a>
       </p></div>
+</div>
+</div>
 
-    <p><a name="delete_sec2group-1"></a><span class="bold_code">delete_sec2group(Key) -&gt; Ret</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="delete_sec2group-1"></a><span class="bold_code bc-9">delete_sec2group(Key) -&gt; Ret</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Key = term()</span><br>
+<span class="bold_code bc-11">Key = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Ret = ok | {error, Reason}</span><br>
+<span class="bold_code bc-11">Ret = ok | {error, Reason}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Delete a security to group definition from the agent config.</p>
 
         <a name="add_access"></a>
       </p></div>
+</div>
+</div>
 
-    <p><a name="add_access-8"></a><span class="bold_code">add_access(GroupName, Prefix, SecModel, SecLevel, Match, RV, WV, NV) -&gt; Ret</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="add_access-8"></a><span class="bold_code bc-9">add_access(GroupName, Prefix, SecModel, SecLevel, Match, RV, WV, NV) -&gt; Ret</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">GroupName = string()</span><br>
+<span class="bold_code bc-11">GroupName = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Prefix = string()</span><br>
+<span class="bold_code bc-11">Prefix = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">SecModel = v1 | v2c | usm</span><br>
+<span class="bold_code bc-11">SecModel = v1 | v2c | usm</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">SecLevel = string()</span><br>
+<span class="bold_code bc-11">SecLevel = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Match = prefix | exact</span><br>
+<span class="bold_code bc-11">Match = prefix | exact</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">RV = string()</span><br>
+<span class="bold_code bc-11">RV = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">WV = string()</span><br>
+<span class="bold_code bc-11">WV = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">NV = string()</span><br>
+<span class="bold_code bc-11">NV = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Ret = {ok, Key} | {error, Reason}</span><br>
+<span class="bold_code bc-11">Ret = {ok, Key} | {error, Reason}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Key = term()</span><br>
+<span class="bold_code bc-11">Key = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Adds a access definition to the agent config. 
 	Equivalent to one vacmAccess-line in the <span class="code">vacm.conf</span> file.</p>
         
 	<a name="delete_access"></a>
       </p></div>
+</div>
+</div>
 
-    <p><a name="delete_access-1"></a><span class="bold_code">delete_access(Key) -&gt; Ret</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="delete_access-1"></a><span class="bold_code bc-9">delete_access(Key) -&gt; Ret</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Key = term()</span><br>
+<span class="bold_code bc-11">Key = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Ret = ok | {error, Reason}</span><br>
+<span class="bold_code bc-11">Ret = ok | {error, Reason}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
 	<p>Delete a access definition from the agent config.</p>
 
 	<a name="add_view_tree_fam"></a>
       </p></div>
+</div>
+</div>
 
-    <p><a name="add_view_tree_fam-4"></a><span class="bold_code">add_view_tree_fam(ViewIndex, SubTree, Status, Mask) -&gt; Ret</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="add_view_tree_fam-4"></a><span class="bold_code bc-9">add_view_tree_fam(ViewIndex, SubTree, Status, Mask) -&gt; Ret</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ViewIndex = integer()</span><br>
+<span class="bold_code bc-11">ViewIndex = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">SubTree = oid()</span><br>
+<span class="bold_code bc-11">SubTree = oid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Status = included | excluded</span><br>
+<span class="bold_code bc-11">Status = included | excluded</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Mask = null | [integer()], where all values are either 0 or 1</span><br>
+<span class="bold_code bc-11">Mask = null | [integer()], where all values are either 0 or 1</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Ret = {ok, Key} | {error, Reason}</span><br>
+<span class="bold_code bc-11">Ret = {ok, Key} | {error, Reason}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Key = term()</span><br>
+<span class="bold_code bc-11">Key = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
 	<p>Adds a view tree family definition to the agent config. 
 	Equivalent to one vacmViewTreeFamily-line in the 
 	<span class="code">vacm.conf</span> file.</p>
 	  
 	  <a name="delete_view_tree_fam"></a>
       </p></div>
+</div>
+</div>
 
-    <p><a name="delete_view_tree_fam-1"></a><span class="bold_code">delete_view_tree_fam(Key) -&gt; Ret</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="delete_view_tree_fam-1"></a><span class="bold_code bc-9">delete_view_tree_fam(Key) -&gt; Ret</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Key = term()</span><br>
+<span class="bold_code bc-11">Key = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Ret = ok | {error, Reason}</span><br>
+<span class="bold_code bc-11">Ret = ok | {error, Reason}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Delete a view tree family definition from the agent config.</p>
       </p></div>
-  
+</div>
+</div>
+  </div>
   
 </div>
 <div class="footer">

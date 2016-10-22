@@ -646,35 +646,40 @@
 <!-- refpage --><center><h1>seq_trace</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">seq_trace</div>
+<div class="REFBODY module-body">seq_trace</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Sequential tracing of messages.</div>
+<div class="REFBODY modules-summary-body">Sequential tracing of messages.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>Sequential tracing makes it possible to trace all messages
       resulting from one initial message. Sequential tracing is
       independent of the ordinary tracing in Erlang, which
       is controlled by the <span class="code">erlang:trace/3</span> BIF. For more information
       about what sequential tracing is and how it can be used, see section
-      <span class="bold_code"><a href="#whatis">Sequential Tracing</a></span>.</p>
+      <span class="bold_code data-type-ref"><a href="#whatis">Sequential Tracing</a></span>.</p>
     <p><span class="code">seq_trace</span> provides functions that control all aspects of
       sequential tracing. There are functions for activation,
       deactivation, inspection, and for collection of the trace output.</p>
-  </p></div>
-  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
-    <p>
-      <span class="bold_code"><a name="type-token">token()</a> = {integer(), boolean(), term(), term(), term()}</span><br></p>
-<div class="REFBODY"><p>
+  </div>
+  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
+<div class="data-types-body">
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-token">token()</a> = {integer(), boolean(), term(), term(), term()}</span><div class="REFBODY data-type-desc"><p>
         <p>An opaque term (a tuple) representing a trace token.</p>
       </p></div>
-  
+</div>
+  </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="set_token-1"></a><span class="bold_code">set_token(Token) -&gt; PreviousToken | ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Token = PreviousToken = [] | <span class="bold_code"><a href="#type-token">token()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-</div></p>
-<div class="REFBODY"><p>
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="set_token-1"></a><span class="bold_code func-name">set_token(Token) -&gt; PreviousToken | ok</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Token = PreviousToken = [] | <span class="bold_code data-type-ref"><a href="#type-token">token()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Sets the trace token for the calling process to <span class="code">Token</span>.
           If <span class="code">Token == []</span> then tracing is disabled, otherwise
           <span class="code">Token</span> should be an Erlang term returned from
@@ -689,23 +694,27 @@ io:format("Exclude the signalling caused by this~n"),
 seq_trace:set_token(OldToken), % activate the trace token again
 ...  </pre></div>
         <p>Returns the previous value of the trace token.</p>
-      </p></div>
-    <p><a name="set_token-2"></a><span class="bold_code">set_token(Component, Val) -&gt; {Component, OldVal}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Component = component()</span></div>
-<div class="REFTYPES"><span class="bold_code">Val = OldVal = value()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES">
-      <span class="bold_code">component() = label | serial | flag()</span><br>
+      </p></div></div>
 </div>
-<div class="REFTYPES">
-      <span class="bold_code">flag() = <br>    send |<br>    'receive' |<br>    print |<br>    timestamp |<br>    monotonic_timestamp |<br>    strict_monotonic_timestamp</span><br>
+    <div class="func">
+<div class="func-title">
+<a name="set_token-2"></a><span class="bold_code func-name">set_token(Component, Val) -&gt; {Component, OldVal}</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Component = component()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Val = OldVal = value()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+<div class="REFTYPES local-type">
+      <span class="bold_code type-head">component() = label | serial | flag()</span><br>
 </div>
-<div class="REFTYPES">
-      <span class="bold_code">value() = <br>    (Integer :: integer() &gt;= 0) |<br>    {Previous :: integer() &gt;= 0, Current :: integer() &gt;= 0} |<br>    (Bool :: boolean())</span><br>
+<div class="REFTYPES local-type">
+      <span class="bold_code type-head">flag() = <br>    send |<br>    'receive' |<br>    print |<br>    timestamp |<br>    monotonic_timestamp |<br>    strict_monotonic_timestamp</span><br>
 </div>
-</div></p>
-<div class="REFBODY"><p>
+<div class="REFTYPES local-type">
+      <span class="bold_code type-head">value() = <br>    (Integer :: integer() &gt;= 0) |<br>    {Previous :: integer() &gt;= 0, Current :: integer() &gt;= 0} |<br>    (Bool :: boolean())</span><br>
+</div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Sets the individual <span class="code">Component</span> of the trace token to
           <span class="code">Val</span>. Returns the previous value of the component.</p>
         <dl>
@@ -755,7 +764,7 @@ seq_trace:set_token(OldToken), % activate the trace token again
             enables/disables a strict monotonic timestamp to be generated
 	    for each traced event. Default is <span class="code">false</span>. Timestamps will
 	    consist of
-	    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','time_correction.html#Erlang_Monotonic_Time');">Erlang monotonic time</a></span> and a monotonically increasing
+	    <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','time_correction.html#Erlang_Monotonic_Time');">Erlang monotonic time</a></span> and a monotonically increasing
 	    integer. The time-stamp has the same format and value
 	    as produced by <span class="code">{erlang:monotonic_time(nanosecond),
 	    erlang:unique_integer([monotonic])}</span>.</p>
@@ -766,7 +775,7 @@ seq_trace:set_token(OldToken), % activate the trace token again
             enables/disables a strict monotonic timestamp to be generated
 	    for each traced event. Default is <span class="code">false</span>. Timestamps
 	    will use
-	    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','time_correction.html#Erlang_Monotonic_Time');">Erlang monotonic time</a></span>. The time-stamp has the same
+	    <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','time_correction.html#Erlang_Monotonic_Time');">Erlang monotonic time</a></span>. The time-stamp has the same
 	    format and value as produced by
 	    <span class="code">erlang:monotonic_time(nanosecond)</span>.</p>
           </dd>
@@ -777,96 +786,125 @@ seq_trace:set_token(OldToken), % activate the trace token again
 	  timestamp flags are remembered, so if two are passed
 	  and the one with highest precedence later is disabled
 	  the other one will become active.</p>
-      </p></div>
-    <p><a name="get_token-0"></a><span class="bold_code">get_token() -&gt; [] | <span class="bold_code"><a href="#type-token">token()</a></span></span><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="get_token-0"></a><span class="bold_code func-name">get_token() -&gt; [] | <span class="bold_code data-type-ref"><a href="#type-token">token()</a></span></span>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns the value of the trace token for the calling process.
           If <span class="code">[]</span> is returned, it means that tracing is not active.
           Any other value returned is the value of an active trace
           token. The value returned can be used as input to
           the <span class="code">set_token/1</span> function.</p>
-      </p></div>
-    <p><a name="get_token-1"></a><span class="bold_code">get_token(Component) -&gt; {Component, Val}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Component = component()</span></div>
-<div class="REFTYPES"><span class="bold_code">Val = value()</span></div>
-<div class="REFTYPES">
-      <span class="bold_code">component() = label | serial | flag()</span><br>
+      </p></div></div>
 </div>
-<div class="REFTYPES">
-      <span class="bold_code">flag() = <br>    send |<br>    'receive' |<br>    print |<br>    timestamp |<br>    monotonic_timestamp |<br>    strict_monotonic_timestamp</span><br>
+    <div class="func">
+<div class="func-title">
+<a name="get_token-1"></a><span class="bold_code func-name">get_token(Component) -&gt; {Component, Val}</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Component = component()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Val = value()</span></div>
+<div class="REFTYPES local-type">
+      <span class="bold_code type-head">component() = label | serial | flag()</span><br>
 </div>
-<div class="REFTYPES">
-      <span class="bold_code">value() = <br>    (Integer :: integer() &gt;= 0) |<br>    {Previous :: integer() &gt;= 0, Current :: integer() &gt;= 0} |<br>    (Bool :: boolean())</span><br>
+<div class="REFTYPES local-type">
+      <span class="bold_code type-head">flag() = <br>    send |<br>    'receive' |<br>    print |<br>    timestamp |<br>    monotonic_timestamp |<br>    strict_monotonic_timestamp</span><br>
 </div>
-</div></p>
-<div class="REFBODY"><p>
+<div class="REFTYPES local-type">
+      <span class="bold_code type-head">value() = <br>    (Integer :: integer() &gt;= 0) |<br>    {Previous :: integer() &gt;= 0, Current :: integer() &gt;= 0} |<br>    (Bool :: boolean())</span><br>
+</div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns the value of the trace token component
           <span class="code">Component</span>. See
-          <span class="bold_code"><a href="#set_token-2">set_token/2</a></span> for
+          <span class="bold_code data-type-ref"><a href="#set_token-2">set_token/2</a></span> for
           possible values of <span class="code">Component</span> and <span class="code">Val</span>.</p>
-      </p></div>
-    <p><a name="print-1"></a><span class="bold_code">print(TraceInfo) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">TraceInfo = term()</span></div>
-</div></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="print-1"></a><span class="bold_code func-name">print(TraceInfo) -&gt; ok</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">TraceInfo = term()</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Puts the Erlang term <span class="code">TraceInfo</span> into the sequential
           trace output if the calling process currently is executing
           within a sequential trace and the <span class="code">print</span> flag of
           the trace token is set.</p>
-      </p></div>
-    <p><a name="print-2"></a><span class="bold_code">print(Label, TraceInfo) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Label = integer()</span></div>
-<div class="REFTYPES"><span class="bold_code">TraceInfo = term()</span></div>
-</div></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="print-2"></a><span class="bold_code func-name">print(Label, TraceInfo) -&gt; ok</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Label = integer()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">TraceInfo = term()</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Same as <span class="code">print/1</span> with the additional condition that
           <span class="code">TraceInfo</span> is output only if <span class="code">Label</span> is equal to
           the label component of the trace token.</p>
-      </p></div>
-    <p><a name="reset_trace-0"></a><span class="bold_code">reset_trace() -&gt; true</span><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="reset_trace-0"></a><span class="bold_code func-name">reset_trace() -&gt; true</span>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Sets the trace token to empty for all processes on the
           local node. The process internal counters used to create
           the serial of the trace token is set to 0. The trace token is
           set to empty for all messages in message queues. Together
           this will effectively stop all ongoing sequential tracing in
           the local node.</p>
-      </p></div>
-    <p><a name="set_system_tracer-1"></a><span class="bold_code">set_system_tracer(Tracer) -&gt; OldTracer</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tracer = OldTracer = tracer()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES">
-      <span class="bold_code">tracer() = <br>    (Pid :: pid()) |<br>    port() |<br>    (TracerModule :: {module(), term()}) |<br>    false</span><br>
+      </p></div></div>
 </div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="set_system_tracer-1"></a><span class="bold_code func-name">set_system_tracer(Tracer) -&gt; OldTracer</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Tracer = OldTracer = tracer()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+<div class="REFTYPES local-type">
+      <span class="bold_code type-head">tracer() = <br>    (Pid :: pid()) |<br>    port() |<br>    (TracerModule :: {module(), term()}) |<br>    false</span><br>
+</div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Sets the system tracer. The system tracer can be either a
-          process, port or <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl_tracer.html');">tracer module</a></span>
+          process, port or <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','erl_tracer.html');">tracer module</a></span>
           denoted by <span class="code">Tracer</span>.
           Returns the previous value (which can be <span class="code">false</span> if no system
           tracer is active).</p>
         <p>Failure: <span class="code">{badarg, Info}}</span> if <span class="code">Pid</span> is not an
           existing local pid.</p>
-      </p></div>
-    <p><a name="get_system_tracer-0"></a><span class="bold_code">get_system_tracer() -&gt; Tracer</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tracer = tracer()</span></div>
-<div class="REFTYPES">
-      <span class="bold_code">tracer() = <br>    (Pid :: pid()) |<br>    port() |<br>    (TracerModule :: {module(), term()}) |<br>    false</span><br>
+      </p></div></div>
 </div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="get_system_tracer-0"></a><span class="bold_code func-name">get_system_tracer() -&gt; Tracer</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Tracer = tracer()</span></div>
+<div class="REFTYPES local-type">
+      <span class="bold_code type-head">tracer() = <br>    (Pid :: pid()) |<br>    port() |<br>    (TracerModule :: {module(), term()}) |<br>    false</span><br>
+</div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns the pid, port identifier or tracer module of the current system
           tracer or <span class="code">false</span> if no system tracer is activated.</p>
-      </p></div>
-  
+      </p></div></div>
+</div>
+  </div>
 
-  <h3><a name="idm46748405058576">Trace Messages Sent to the System Tracer</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45917634944256">Trace Messages Sent to the System Tracer</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The format of the messages is one of the following, depending on if
       flag <span class="code">timestamp</span> of the trace token is set to <span class="code">true</span> or
@@ -917,9 +955,9 @@ TimeStamp = {Seconds, Milliseconds, Microseconds}
   </div>
 
   <h3>
-<a name="whatis"></a><a name="idm46748405036032">Sequential Tracing</a>
+<a name="whatis"></a><a name="idm45917634921712">Sequential Tracing</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
     <p>Sequential tracing is a way to trace a sequence of messages sent
@@ -955,8 +993,8 @@ TimeStamp = {Seconds, Milliseconds, Microseconds}
       fundamental concepts.</p>
   </div>
 
-  <h3><a name="idm46748405028032">Trace Token</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45917634913712">Trace Token</a></h3>
+<div class="REFBODY rb-3">
     
     <p>Each process has a current trace token. Initially, the token is
       empty. When the process sends a message to another process, a
@@ -980,8 +1018,8 @@ TimeStamp = {Seconds, Milliseconds, Microseconds}
       the label and the flags are set in both alternatives above.</p>
   </div>
 
-  <h3><a name="idm46748405021968">Serial</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45917634907648">Serial</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The trace token contains a component called
       <span class="code">serial</span>. It consists of two integers, <span class="code">Previous</span> and
@@ -1038,8 +1076,8 @@ prev_cnt := tcurr</pre></div>
       thus stops all ongoing sequential tracing.</p>
   </div>
 
-  <h3><a name="idm46748405001456">Performance Considerations</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45917634887136">Performance Considerations</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The performance degradation for a system that is enabled for
       sequential tracing is negligible as long as no tracing is
@@ -1048,8 +1086,8 @@ prev_cnt := tcurr</pre></div>
       unaffected.</p>
   </div>
 
-  <h3><a name="idm46748404999840">Ports</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45917634885520">Ports</a></h3>
+<div class="REFBODY rb-3">
     
     <p>Sequential tracing is not performed across ports.</p>
     <p>If the user for some reason wants to pass the trace token to a
@@ -1064,8 +1102,8 @@ prev_cnt := tcurr</pre></div>
       <span class="code">seq_trace:set_token/2</span>.</p>
   </div>
 
-  <h3><a name="idm46748404996160">Distribution</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45917634881840">Distribution</a></h3>
+<div class="REFBODY rb-3">
     
     <p>Sequential tracing between nodes is performed transparently.
       This applies to C-nodes built with <span class="code">Erl_Interface</span> too. A C-node
@@ -1080,8 +1118,8 @@ prev_cnt := tcurr</pre></div>
       not be traced.</p>
   </div>
 
-  <h3><a name="idm46748404992928">Example of Use</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45917634878608">Example of Use</a></h3>
+<div class="REFBODY rb-3">
     
     <p>This example gives a rough idea of how the new
       primitives can be used and what kind of output it produces.</p>

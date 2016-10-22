@@ -94,11 +94,11 @@
 <!-- refpage --><center><h1>asn1ct</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">asn1ct</div>
+<div class="REFBODY module-body">asn1ct</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">ASN.1 compiler and compile-time support functions</div>
+<div class="REFBODY modules-summary-body">ASN.1 compiler and compile-time support functions</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>The ASN.1 compiler takes an ASN.1 module as input and generates a 
       corresponding Erlang module, which can encode and decode the specified
       data types. Alternatively, the compiler takes a specification module
@@ -114,8 +114,8 @@
 	and <span class="code">OCTET STRING</span> types as Erlang terms were changed. <span class="code">BIT
 	STRING</span> values are now Erlang bit strings and <span class="code">OCTET STRING</span>
 	values are binaries. Also, an undecoded open type is now wrapped in
-	an <span class="code">asn1_OPENTYPE</span> tuple. For details, see <span class="bold_code"><a href="asn1_getting_started.html#BIT%20STRING">BIT STRING</a></span>, <span class="bold_code"><a href="asn1_getting_started.html#OCTET%20STRING">OCTET STRING</a></span>, and
-	<span class="bold_code"><a href="asn1_getting_started.html#Information%20Object">ASN.1 Information Objects</a></span> in the User's Guide.</p>
+	an <span class="code">asn1_OPENTYPE</span> tuple. For details, see <span class="bold_code bc-15"><a href="asn1_getting_started.html#BIT%20STRING">BIT STRING</a></span>, <span class="bold_code bc-15"><a href="asn1_getting_started.html#OCTET%20STRING">OCTET STRING</a></span>, and
+	<span class="bold_code bc-15"><a href="asn1_getting_started.html#Information%20Object">ASN.1 Information Objects</a></span> in the User's Guide.</p>
 	<p>To revert to the old representation of the types, use option
 	<span class="code">legacy_erlang_types</span>.</p>
       </p></div>
@@ -136,36 +136,41 @@
 	for the <span class="code">BER</span> back end used to return an iolist.</p>
       </p></div>
 </div>
-  </p></div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="compile-1"></a><span class="bold_code">compile(Asn1module) -&gt; ok | {error, Reason}</span><br><a name="compile-2"></a><span class="bold_code">compile(Asn1module, Options) -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="compile-1"></a><span class="bold_code bc-9">compile(Asn1module) -&gt; ok | {error, Reason}</span><br><a name="compile-2"></a><span class="bold_code bc-9">compile(Asn1module, Options) -&gt; ok | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Asn1module = atom() | string()</span><br>
+<span class="bold_code bc-11">Asn1module = atom() | string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Options = [Option| OldOption]</span><br>
+<span class="bold_code bc-11">Options = [Option| OldOption]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Option = ber | per | uper | der | compact_bit_string |
+<span class="bold_code bc-11">Option = ber | per | uper | der | compact_bit_string |
 	legacy_bit_string | legacy_erlang_types |
 	noobj | {n2n, EnumTypeName} |{outdir, Dir} | {i, IncludeDir} |
 	asn1config | undec_rest | no_ok_wrapper |
 	{macro_name_prefix, Prefix} | {record_name_prefix, Prefix} | verbose | warnings_as_errors</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">OldOption = ber | per</span><br>
+<span class="bold_code bc-11">OldOption = ber | per</span><br>
 </div> 
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Prefix = string()</span><br>
+<span class="bold_code bc-11">Prefix = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Compiles the <span class="code">ASN.1</span> module <span class="code">Asn1module</span> and generates 
           an Erlang module <span class="code">Asn1module.erl</span> with encode and decode 
           functions for the types defined in <span class="code">Asn1module</span>. For each 
@@ -255,7 +260,7 @@ File3.asn</pre></div>
 	      <strong>This option is not recommended for new code.</strong>
 	    </p>
 	    <p>For details, see Section
-	      <span class="bold_code"><a href="asn1_getting_started.html#BIT%20STRING">BIT STRING</a></span> in the User's Guide.
+	      <span class="bold_code bc-15"><a href="asn1_getting_started.html#BIT%20STRING">BIT STRING</a></span> in the User's Guide.
 	    </p>
 	    <p>This option implies option <span class="code">legacy_erlang_types</span>.</p>
 	  </dd>
@@ -267,7 +272,7 @@ File3.asn</pre></div>
 	      <strong>This option is not recommended for new code.</strong>
 	    </p>
 	    <p>For details, see Section
-	      <span class="bold_code"><a href="asn1_getting_started.html#BIT%20STRING">BIT STRING</a></span>
+	      <span class="bold_code bc-15"><a href="asn1_getting_started.html#BIT%20STRING">BIT STRING</a></span>
 	      in the User's Guide</p>
 	      <p>This option implies option <span class="code">legacy_erlang_types</span>.</p>
 	  </dd>
@@ -275,8 +280,8 @@ File3.asn</pre></div>
           <dd>
             <p>Use the same Erlang types to represent <span class="code">BIT STRING</span> and
             <span class="code">OCTET STRING</span> as in OTP R16.</p>
-	    <p>For details, see Section <span class="bold_code"><a href="asn1_getting_started.html#BIT%20STRING">BIT STRING</a></span> and Section
-            <span class="bold_code"><a href="asn1_getting_started.html#OCTET%20STRING">OCTET STRING</a></span> in the User's Guide.</p>
+	    <p>For details, see Section <span class="bold_code bc-15"><a href="asn1_getting_started.html#BIT%20STRING">BIT STRING</a></span> and Section
+            <span class="bold_code bc-15"><a href="asn1_getting_started.html#OCTET%20STRING">OCTET STRING</a></span> in the User's Guide.</p>
 	    <p><strong>This option is not recommended for new code.</strong></p>
 	  </dd>
           <dt><strong><span class="code">{n2n, EnumTypeName}</span></strong></dt>
@@ -330,10 +335,10 @@ File3.asn</pre></div>
               <span class="code">.asn1config</span>.
               </p>
             <p>For instructions for exclusive decode, see Section
-              <span class="bold_code"><a href="asn1_spec.html#Exclusive%20Instruction">Exclusive Decode</a></span> in the User's Guide.
+              <span class="bold_code bc-15"><a href="asn1_spec.html#Exclusive%20Instruction">Exclusive Decode</a></span> in the User's Guide.
               </p>
             <p>For instructions for selective decode, see Section
-              <span class="bold_code"><a href="asn1_spec.html#Selective%20Instruction">Selective Decode</a></span> in the User's Guide.
+              <span class="bold_code bc-15"><a href="asn1_spec.html#Selective%20Instruction">Selective Decode</a></span> in the User's Guide.
               </p>
           </dd>
           <dt><strong><span class="code">undec_rest</span></strong></dt>
@@ -394,24 +399,30 @@ File3.asn</pre></div>
           </li>
         </ul>
       </p></div>
+</div>
+</div>
 
-    <p><a name="encode-3"></a><span class="bold_code">encode(Module, Type, Value)-&gt; {ok, Bytes} | {error, Reason}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="encode-3"></a><span class="bold_code bc-9">encode(Module, Type, Value)-&gt; {ok, Bytes} | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Module = Type = atom()</span><br>
+<span class="bold_code bc-11">Module = Type = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Value = term()</span><br>
+<span class="bold_code bc-11">Value = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Bytes = binary()</span><br>
+<span class="bold_code bc-11">Bytes = binary()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Encodes <span class="code">Value</span> of <span class="code">Type</span> defined in the <span class="code">ASN.1</span> module
           <span class="code">Module</span>. To get as fast execution as possible, the
           encode function performs only the rudimentary tests that input 
@@ -423,41 +434,53 @@ File3.asn</pre></div>
 	<p>This function is deprecated.
 	Use <span class="code">Module:encode(Type, Value)</span> instead.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="decode-3"></a><span class="bold_code">decode(Module, Type, Bytes) -&gt; {ok, Value} | {error, Reason}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="decode-3"></a><span class="bold_code bc-9">decode(Module, Type, Bytes) -&gt; {ok, Value} | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Module = Type = atom()</span><br>
+<span class="bold_code bc-11">Module = Type = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Value = Reason = term()</span><br>
+<span class="bold_code bc-11">Value = Reason = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Bytes = binary()</span><br>
+<span class="bold_code bc-11">Bytes = binary()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Decodes <span class="code">Type</span> from <span class="code">Module</span> from the binary
           <span class="code">Bytes</span>. Returns <span class="code">{ok, Value}</span> if successful.</p>
 	<p>This function is deprecated.
 	Use <span class="code">Module:decode(Type, Bytes)</span> instead.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="value-2"></a><span class="bold_code">value(Module, Type) -&gt; {ok, Value} | {error, Reason}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="value-2"></a><span class="bold_code bc-9">value(Module, Type) -&gt; {ok, Value} | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Module = Type = atom()</span><br>
+<span class="bold_code bc-11">Module = Type = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Value = term()</span><br>
+<span class="bold_code bc-11">Value = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Returns an Erlang term that is an example of a valid Erlang 
           representation of a value of the <span class="code">ASN.1</span> type <span class="code">Type</span>. The value
           is a random value and subsequent calls to this function will for most
@@ -475,24 +498,30 @@ File3.asn</pre></div>
 	</p></div>
 </div>
       </p></div>
+</div>
+</div>
 
-    <p><a name="test-1"></a><span class="bold_code">test(Module) -&gt; ok | {error, Reason}</span><br><a name="test-2"></a><span class="bold_code">test(Module, Type | Options) -&gt; ok | {error, Reason}</span><br><a name="test-3"></a><span class="bold_code">test(Module, Type, Value | Options) -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="test-1"></a><span class="bold_code bc-9">test(Module) -&gt; ok | {error, Reason}</span><br><a name="test-2"></a><span class="bold_code bc-9">test(Module, Type | Options) -&gt; ok | {error, Reason}</span><br><a name="test-3"></a><span class="bold_code bc-9">test(Module, Type, Value | Options) -&gt; ok | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Module = Type = atom()</span><br>
+<span class="bold_code bc-11">Module = Type = atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Value = term()</span><br>
+<span class="bold_code bc-11">Value = term()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Options = [{i, IncludeDir}]</span><br>
+<span class="bold_code bc-11">Options = [{i, IncludeDir}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Performs a test of encode and decode of types in <span class="code">Module</span>.
           The generated functions are called by this function.
           This function is useful during test to secure that the generated
@@ -534,7 +563,9 @@ File3.asn</pre></div>
           options are needed.</p>
 
       </p></div>
-  
+</div>
+</div>
+  </div>
   
 </div>
 <div class="footer">

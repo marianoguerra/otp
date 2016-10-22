@@ -437,49 +437,60 @@
 <!-- refpage --><center><h1>orber</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">orber</div>
+<div class="REFBODY module-body">orber</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">The main module of the Orber application</div>
+<div class="REFBODY modules-summary-body">The main module of the Orber application</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>This module contains the functions for starting and stopping the 
       application. It also has some utility functions to get some of 
       the configuration information from running application.</p>
-  </p></div>
+  </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="start-0"></a><span class="bold_code">start() -&gt; ok</span><br><a name="start-1"></a><span class="bold_code">start(Type) -&gt; ok</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="start-0"></a><span class="bold_code bc-9">start() -&gt; ok</span><br><a name="start-1"></a><span class="bold_code bc-9">start(Type) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Type = temporary | permanent</span><br>
+<span class="bold_code bc-11">Type = temporary | permanent</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Starts the Orber application (it also starts mnesia if it is not running).
           Which <span class="code">Type</span> parameter is supplied determines the behavior. If not
           supplied Orber is started as <span class="code">temporary</span>. 
           See the Reference Manual <strong>application(3)</strong> for further information. </p>
       </p></div>
-    <p><a name="jump_start-1"></a><span class="bold_code">jump_start(Attributes) -&gt; ok | {'EXIT', Reason}</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="jump_start-1"></a><span class="bold_code bc-9">jump_start(Attributes) -&gt; ok | {'EXIT', Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Attributes = Port | Options</span><br>
+<span class="bold_code bc-11">Attributes = Port | Options</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Port = integer()</span><br>
+<span class="bold_code bc-11">Port = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Options = [{Key, Value}]</span><br>
+<span class="bold_code bc-11">Options = [{Key, Value}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Key = any key listed in the configuration chapter</span><br>
+<span class="bold_code bc-11">Key = any key listed in the configuration chapter</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Value = allowed value associated with the given key</span><br>
+<span class="bold_code bc-11">Value = allowed value associated with the given key</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Installs and starts the Orber and the Mnesia applications with the configuration
           parameters <span class="code">domain</span> and <span class="code">iiop_port</span> set to <span class="code">"IP-number:Port"</span>
           and the supplied Port respectively. Theses settings are in most cases
@@ -489,97 +500,156 @@
           tests; how Orber is configured when using this operation may change 
           at any time without warning.</p>
       </p></div>
-    <p><a name="stop-0"></a><span class="bold_code">stop() -&gt; ok</span><br></p>
-<div class="REFBODY"><p>
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="stop-0"></a><span class="bold_code bc-9">stop() -&gt; ok</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Stops the Orber application.</p>
-      </p></div>
-    <p><a name="info-0"></a><span class="bold_code">info() -&gt; ok</span><br><a name="info-1"></a><span class="bold_code">info(IoType) -&gt; ok | {'EXIT', Reason} | string()</span><br></p>
-<div class="REFBODY">
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="info-0"></a><span class="bold_code bc-9">info() -&gt; ok</span><br><a name="info-1"></a><span class="bold_code bc-9">info(IoType) -&gt; ok | {'EXIT', Reason} | string()</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">IoType = info_msg | string | io | {io, IoDevice}</span><br>
+<span class="bold_code bc-11">IoType = info_msg | string | io | {io, IoDevice}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Generates an Info Report, which contain Orber's configuration settings.
           If no <span class="code">IoType</span> is supplied, <span class="code">info_msg</span> is used (see the
           error_logger documentation). When the atom string is supplied this
           function will return a flat list. For <span class="code">io</span> and <span class="code">{io, IoDevice}</span>,
           <span class="code">io:format/1</span> and <span class="code">io:format/3</span> is used respectively.</p>
       </p></div>
-    <p><a name="exception_info-1"></a><span class="bold_code">exception_info(Exception) -&gt; {ok, string()} | {error, Reason}</span><br></p>
-<div class="REFBODY"><p>
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="exception_info-1"></a><span class="bold_code bc-9">exception_info(Exception) -&gt; {ok, string()} | {error, Reason}</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns a printable string, which describes the supplied exception
           in greater detail. Note, this function is mainly intended for
           system exceptions.</p>
-      </p></div>
-    <p><a name="is_system_exception-1"></a><span class="bold_code">is_system_exception(Exception) -&gt; true | false</span><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="is_system_exception-1"></a><span class="bold_code bc-9">is_system_exception(Exception) -&gt; true | false</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns true if the supplied exception is a system defined 
           exception, otherwise false.</p>
-      </p></div>
-    <p><a name="get_tables-0"></a><span class="bold_code">get_tables() -&gt; [Tables]</span><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="get_tables-0"></a><span class="bold_code bc-9">get_tables() -&gt; [Tables]</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns a list of the Orber specific Mnesia tables. This list is
           required to restore Mnesia if it has been partitioned.</p>
-      </p></div>
-    <p><a name="get_ORBInitRef-0"></a><span class="bold_code">get_ORBInitRef() -&gt; string() | undefined</span><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="get_ORBInitRef-0"></a><span class="bold_code bc-9">get_ORBInitRef() -&gt; string() | undefined</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function returns undefined if we will resolve references locally,
           otherwise a string describing which host we will contact if the Key given
           to <span class="code">corba:resolve_initial_references/1</span> matches the Key set
           in this configuration variable. For more information
           see the user's guide.</p>
-      </p></div>
-    <p><a name="get_ORBDefaultInitRef-0"></a><span class="bold_code">get_ORBDefaultInitRef() -&gt; string() | undefined</span><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="get_ORBDefaultInitRef-0"></a><span class="bold_code bc-9">get_ORBDefaultInitRef() -&gt; string() | undefined</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function returns undefined if we will resolve references locally,
           otherwise a string describing which host, or hosts, from which we
           will try to resolve the Key given to 
           <span class="code">corba:resolve_initial_references/1</span>. For more information
           see the user's guide.</p>
-      </p></div>
-    <p><a name="domain-0"></a><span class="bold_code">domain() -&gt; string()</span><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="domain-0"></a><span class="bold_code bc-9">domain() -&gt; string()</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function returns the domain name of the current Orber domain
           as a string.</p>
-      </p></div>
-    <p><a name="iiop_port-0"></a><span class="bold_code">iiop_port() -&gt; int()</span><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="iiop_port-0"></a><span class="bold_code bc-9">iiop_port() -&gt; int()</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function returns the port-number, which is used by the IIOP
           protocol. It can be configured by setting the application variable 
           <strong>iiop_port</strong>, if it is not set it will have the default number
           4001.</p>
-      </p></div>
-    <p><a name="iiop_out_ports-0"></a><span class="bold_code">iiop_out_ports() -&gt; 0 | {Min, Max}</span><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="iiop_out_ports-0"></a><span class="bold_code bc-9">iiop_out_ports() -&gt; 0 | {Min, Max}</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>The return value of this operation is what the configuration
-          parameter <span class="bold_code"><a href="ch_install.html#config">iiop_out_ports</a></span>
+          parameter <span class="bold_code bc-15"><a href="ch_install.html#config">iiop_out_ports</a></span>
           has been set to.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="iiop_out_ports_random-0"></a><span class="bold_code">iiop_out_ports_random() -&gt; true | false</span><br></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="iiop_out_ports_random-0"></a><span class="bold_code bc-9">iiop_out_ports_random() -&gt; true | false</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Return the value of the configuration parameter
-           <span class="bold_code"><a href="ch_install.html#config">iiop_out_ports_random</a></span>.</p>
-      </p></div>
+           <span class="bold_code bc-15"><a href="ch_install.html#config">iiop_out_ports_random</a></span>.</p>
+      </p></div></div>
+</div>
 
-    <p><a name="iiop_out_ports_attempts-0"></a><span class="bold_code">iiop_out_ports_attempts() -&gt; int()</span><br></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="iiop_out_ports_attempts-0"></a><span class="bold_code bc-9">iiop_out_ports_attempts() -&gt; int()</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Return the value of the configuration parameter
-           <span class="bold_code"><a href="ch_install.html#config">iiop_out_ports_attempts</a></span>.</p>
-      </p></div>
+           <span class="bold_code bc-15"><a href="ch_install.html#config">iiop_out_ports_attempts</a></span>.</p>
+      </p></div></div>
+</div>
 
 
-    <p><a name="iiop_ssl_port-0"></a><span class="bold_code">iiop_ssl_port() -&gt; int()</span><br></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="iiop_ssl_port-0"></a><span class="bold_code bc-9">iiop_ssl_port() -&gt; int()</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function returns the port-number, which is used by the secure IIOP
           protocol. It can be configured by setting the application variable 
           <strong>iiop_ssl_port</strong>, if it is not set it will have the default number
           4002 if Orber is to configured to run in secure mode. Otherwise it returns -1.</p>
-      </p></div>
-    <p><a name="iiop_timeout-0"></a><span class="bold_code">iiop_timeout() -&gt; int() (milliseconds)</span><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="iiop_timeout-0"></a><span class="bold_code bc-9">iiop_timeout() -&gt; int() (milliseconds)</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function returns the timeout value after which outgoing IIOP requests terminate.
           It can be configured by setting the application variable 
           <strong>iiop_timeout TimeVal (seconds)</strong>, if it is not set it will have the default value
@@ -597,9 +667,13 @@
           It is, however, not possible
           to use <span class="code">infinity</span> to override the Timeout parameter. The Timeout
           option is also valid for objects which resides within the same Orber domain.</p>
-      </p></div>
-    <p><a name="iiop_connection_timeout-0"></a><span class="bold_code">iiop_connection_timeout() -&gt; int() (milliseconds)</span><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="iiop_connection_timeout-0"></a><span class="bold_code bc-9">iiop_connection_timeout() -&gt; int() (milliseconds)</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function returns the timeout value after which outgoing IIOP connections terminate.
           It can be configured by setting the application variable 
           <strong>iiop_connection_timeout TimeVal (seconds)</strong>, if it is not set it will have the default value
@@ -607,56 +681,67 @@
           pending requests.</p>
         <p>Note: the iiop_connection_timeout configuration parameter (TimeVal) may only range between 0 and 1000000 seconds. 
           Otherwise, the default value is used.</p>
-      </p></div>
-    <p><a name="iiop_connections-0"></a><span class="bold_code">iiop_connections() -&gt; Result</span><br><a name="iiop_connections-1"></a><span class="bold_code">iiop_connections(Direction) -&gt; Result</span><br></p>
-<div class="REFBODY">
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="iiop_connections-0"></a><span class="bold_code bc-9">iiop_connections() -&gt; Result</span><br><a name="iiop_connections-1"></a><span class="bold_code bc-9">iiop_connections(Direction) -&gt; Result</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Direction = in | out | inout</span><br>
+<span class="bold_code bc-11">Direction = in | out | inout</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Result = [{Host, Port}] | [{Host, Port, Interface}] | {'EXIT',Reason}</span><br>
+<span class="bold_code bc-11">Result = [{Host, Port}] | [{Host, Port, Interface}] | {'EXIT',Reason}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Host = string()</span><br>
+<span class="bold_code bc-11">Host = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Port = integer()</span><br>
+<span class="bold_code bc-11">Port = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Interface = string()</span><br>
+<span class="bold_code bc-11">Interface = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>The list returned by this operation contain tuples of remote hosts/ports
           Orber is currently connected to. If no Direction is not supplied, both
           incoming and outgoing connections are included.</p>
         <p>If a specific local interface has been defined for the connection,
           this will be added to the returned tuple.</p>
       </p></div>
-    <p><a name="iiop_connections_pending-0"></a><span class="bold_code">iiop_connections_pending() -&gt; Result</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="iiop_connections_pending-0"></a><span class="bold_code bc-9">iiop_connections_pending() -&gt; Result</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Result = [{Host, Port}] | [{Host, Port, Interface}] | {'EXIT',Reason}</span><br>
+<span class="bold_code bc-11">Result = [{Host, Port}] | [{Host, Port, Interface}] | {'EXIT',Reason}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Host = string()</span><br>
+<span class="bold_code bc-11">Host = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Port = integer()</span><br>
+<span class="bold_code bc-11">Port = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Interface = string()</span><br>
+<span class="bold_code bc-11">Interface = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>In some cases a connection attempt (i.e. trying to communicate with
           another ORB) may block due to a number of reasons. This operation
           allows the user to check if this is the case. The returned list
@@ -664,8 +749,13 @@
         <p>If a specific local interface has been defined for the connection,
           this will be added to the returned tuple.</p>
       </p></div>
-    <p><a name="iiop_in_connection_timeout-0"></a><span class="bold_code">iiop_in_connection_timeout() -&gt; int() (milliseconds)</span><br></p>
-<div class="REFBODY"><p>
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="iiop_in_connection_timeout-0"></a><span class="bold_code bc-9">iiop_in_connection_timeout() -&gt; int() (milliseconds)</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function returns the timeout value after which incoming IIOP 
           connections terminate. It can be configured by setting the application 
           variable <strong>iiop_in_connection_timeout TimeVal (seconds)</strong>, if it is
@@ -674,24 +764,29 @@
         <p>Note: the iiop_in_connection_timeout configuration parameter (TimeVal) may 
           only range between 0 and 1000000 seconds. Otherwise, the default value is
           used.</p>
-      </p></div>
-    <p><a name="iiop_acl-0"></a><span class="bold_code">iiop_acl() -&gt; Result</span><br></p>
-<div class="REFBODY">
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="iiop_acl-0"></a><span class="bold_code bc-9">iiop_acl() -&gt; Result</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Result = [{Direction, Filter}] | [{Direction, Filter, [Interface]}]</span><br>
+<span class="bold_code bc-11">Result = [{Direction, Filter}] | [{Direction, Filter, [Interface]}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Direction = tcp_in | ssl_in | tcp_out | ssl_out</span><br>
+<span class="bold_code bc-11">Direction = tcp_in | ssl_in | tcp_out | ssl_out</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Filter = string()</span><br>
+<span class="bold_code bc-11">Filter = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Interface = string()</span><br>
+<span class="bold_code bc-11">Interface = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Returns the ACL configuration. The <span class="code">Filter</span> uses a extended format of 
           Classless Inter Domain Routing (CIDR). For example, <span class="code">"123.123.123.10"</span> limits
           the connection to that particular host, while <span class="code">"123.123.123.10/17"</span> allows
@@ -703,23 +798,29 @@
           The list of <span class="code">Interfaces</span>, IPv4 or IPv6 strings, are currently only used
           for outgoing connections and may only contain <strong>one</strong> address. If set and
           access is granted, Orber will use that local interface when connecting to the
-          other ORB. The module <span class="bold_code"><a href="orber_acl.html">orber_acl</a></span>
+          other ORB. The module <span class="bold_code bc-19"><a href="orber_acl.html">orber_acl</a></span>
           provides operations for evaluating the access control for filters and addresses.</p>
       </p></div>
-    <p><a name="activate_audit_trail-0"></a><span class="bold_code">activate_audit_trail() -&gt; Result</span><br><a name="activate_audit_trail-1"></a><span class="bold_code">activate_audit_trail(Verbosity) -&gt; Result</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="activate_audit_trail-0"></a><span class="bold_code bc-9">activate_audit_trail() -&gt; Result</span><br><a name="activate_audit_trail-1"></a><span class="bold_code bc-9">activate_audit_trail(Verbosity) -&gt; Result</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Verbosity = stealth | normal | verbose</span><br>
+<span class="bold_code bc-11">Verbosity = stealth | normal | verbose</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Result = ok | {error, Reason}</span><br>
+<span class="bold_code bc-11">Result = ok | {error, Reason}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = string()</span><br>
+<span class="bold_code bc-11">Reason = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Activates audit/trail for all existing incoming and outgoing IIOP
           connections. The <span class="code">Verbosity</span> parameter, <span class="code">stealth</span>, 
           <span class="code">normal</span> or <span class="code">verbose</span>, determines which of the built in
@@ -729,53 +830,65 @@
         <p>In case Orber is configured to use other interceptors, the audit/trail
           interceptors will simply be added to that list.</p>
       </p></div>
-    <p><a name="deactivate_audit_trail-0"></a><span class="bold_code">deactivate_audit_trail() -&gt; Result</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="deactivate_audit_trail-0"></a><span class="bold_code bc-9">deactivate_audit_trail() -&gt; Result</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Result = ok | {error, Reason}</span><br>
+<span class="bold_code bc-11">Result = ok | {error, Reason}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = string()</span><br>
+<span class="bold_code bc-11">Reason = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Deactivates audit/trail for all existing incoming and outgoing IIOP
           connections. In case Orber is configured to use other interceptors, 
           those will still be used.</p>
       </p></div>
-    <p><a name="add_listen_interface-2"></a><span class="bold_code">add_listen_interface(IP, Type) -&gt; Result</span><br><a name="add_listen_interface-3"></a><span class="bold_code">add_listen_interface(IP, Type, Port) -&gt; Result</span><br><a name="add_listen_interface-3"></a><span class="bold_code">add_listen_interface(IP, Type, ConfigurationParameters) -&gt; Result</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="add_listen_interface-2"></a><span class="bold_code bc-9">add_listen_interface(IP, Type) -&gt; Result</span><br><a name="add_listen_interface-3"></a><span class="bold_code bc-9">add_listen_interface(IP, Type, Port) -&gt; Result</span><br><a name="add_listen_interface-3"></a><span class="bold_code bc-9">add_listen_interface(IP, Type, ConfigurationParameters) -&gt; Result</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">IP = string</span><br>
+<span class="bold_code bc-11">IP = string</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Type = normal | ssl</span><br>
+<span class="bold_code bc-11">Type = normal | ssl</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Port = integer() &gt; 0</span><br>
+<span class="bold_code bc-11">Port = integer() &gt; 0</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">ConfigurationParameters = [{Key, Value}]</span><br>
+<span class="bold_code bc-11">ConfigurationParameters = [{Key, Value}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Key = flags | ip_family | iiop_in_connection_timeout | iiop_max_fragments | iiop_max_in_requests | interceptors | iiop_port | iiop_ssl_port | ssl_server_options</span><br>
+<span class="bold_code bc-11">Key = flags | ip_family | iiop_in_connection_timeout | iiop_max_fragments | iiop_max_in_requests | interceptors | iiop_port | iiop_ssl_port | ssl_server_options</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Value = as described in the User's Guide or below</span><br>
+<span class="bold_code bc-11">Value = as described in the User's Guide or below</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Result = {ok, Ref} | {error, Reason} | {'EXCEPTION', #'BAD_PARAM'{}}</span><br>
+<span class="bold_code bc-11">Result = {ok, Ref} | {error, Reason} | {'EXCEPTION', #'BAD_PARAM'{}}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Ref = #Ref</span><br>
+<span class="bold_code bc-11">Ref = #Ref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = string()</span><br>
+<span class="bold_code bc-11">Reason = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Create a new process that handle requests for creating a new incoming
           IIOP connection via the given interface and port. If the latter is 
           excluded, Orber will use the value of the <span class="code">iiop_port</span> or 
@@ -789,7 +902,7 @@
           <strong>iiop_max_fragments</strong>, <strong>iiop_max_in_requests</strong> and
           <strong>interceptors</strong> parameters simply overrides the global
           counterparts (See the
-          <span class="bold_code"><a href="ch_install.html#config">Configuration</a></span> chapter
+          <span class="bold_code bc-15"><a href="ch_install.html#config">Configuration</a></span> chapter
           in the User's Guide). 
           But for the following parameters there are a few restrictions:</p>
         <ul>
@@ -816,48 +929,60 @@
           and port, the error message is one of the ones described in <span class="code">inet</span>
           and/or <span class="code">ssl</span> documentation.</p>
       </p></div>
-    <p><a name="remove_listen_interface-1"></a><span class="bold_code">remove_listen_interface(Ref) -&gt; ok</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="remove_listen_interface-1"></a><span class="bold_code bc-9">remove_listen_interface(Ref) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Ref = #Ref</span><br>
+<span class="bold_code bc-11">Ref = #Ref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Terminates the listen process, associated with the supplied <span class="code">#Ref</span>,
           for incoming a connection. The Ref parameter is the return value from
           the <span class="code">orber:add_listen_interface/2/3</span> operation. When terminating
           the connection, all associated requests will not deliver a reply to
           the clients.</p>
       </p></div>
-    <p><a name="close_connection-1"></a><span class="bold_code">close_connection(Connection) -&gt; Result</span><br><a name="close_connection-2"></a><span class="bold_code">close_connection(Connection, Interface) -&gt; Result</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="close_connection-1"></a><span class="bold_code bc-9">close_connection(Connection) -&gt; Result</span><br><a name="close_connection-2"></a><span class="bold_code bc-9">close_connection(Connection, Interface) -&gt; Result</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Connection = Object | [{Host, Port}]</span><br>
+<span class="bold_code bc-11">Connection = Object | [{Host, Port}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Object = #objref (external)</span><br>
+<span class="bold_code bc-11">Object = #objref (external)</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Host = string()</span><br>
+<span class="bold_code bc-11">Host = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Port = string()</span><br>
+<span class="bold_code bc-11">Port = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Interface = string()</span><br>
+<span class="bold_code bc-11">Interface = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Result = ok | {'EXCEPTION', #'BAD_PARAM'{}}</span><br>
+<span class="bold_code bc-11">Result = ok | {'EXCEPTION', #'BAD_PARAM'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Will try to close all outgoing connections to the host/port combinations
           found in the supplied object reference or the given list of hosts/ports.
           If a <span class="code">#'IOP_ServiceContext'{}</span> containing a local interface has been
           used when communicating with the remote object
-          (see also <span class="bold_code"><a href="Module_Interface.html">Module_Interface</a></span>), 
+          (see also <span class="bold_code bc-19"><a href="Module_Interface.html">Module_Interface</a></span>), 
           that interface shall be passed as the second argument. Otherwise, connections
           via the default local interface, will be terminated.</p>
         <p></p>
@@ -870,38 +995,61 @@
         </p></div>
 </div>
       </p></div>
-    <p><a name="secure-0"></a><span class="bold_code">secure() -&gt; no | ssl</span><br></p>
-<div class="REFBODY"><p>
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="secure-0"></a><span class="bold_code bc-9">secure() -&gt; no | ssl</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function returns the security mode Orber is running in, which is either no if it is an 
           insecure domain or the type of security mechanism used. For the moment the only security 
           mechanism is ssl. This is configured by setting the application variable 
           <strong>secure</strong>.</p>
-      </p></div>
-    <p><a name="ssl_server_options-0"></a><span class="bold_code">ssl_server_options() -&gt; list()</span><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ssl_server_options-0"></a><span class="bold_code bc-9">ssl_server_options() -&gt; list()</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function returns the list of SSL options set for the Orber domain as server. 
           This is configured by setting the application variable 
           <strong>ssl_server_options</strong>.</p>
-      </p></div>
-    <p><a name="ssl_client_options-0"></a><span class="bold_code">ssl_client_options() -&gt; list()</span><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ssl_client_options-0"></a><span class="bold_code bc-9">ssl_client_options() -&gt; list()</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function returns the list of SSL options used in outgoing calls in the current process.
           The default value is configured by setting the application variable 
           <strong>ssl_client_options</strong>.</p>
-      </p></div>
-    <p><a name="set_ssl_client_options-1"></a><span class="bold_code">set_ssl_client_options(Options) -&gt; ok</span><br></p>
-<div class="REFBODY">
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="set_ssl_client_options-1"></a><span class="bold_code bc-9">set_ssl_client_options(Options) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Options = list()</span><br>
+<span class="bold_code bc-11">Options = list()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function takes a list of SSL options as parameter and sets 
 	it for the current process.</p>
       </p></div>
-    <p><a name="objectkeys_gc_time-0"></a><span class="bold_code">objectkeys_gc_time() -&gt; int() (seconds)</span><br></p>
-<div class="REFBODY"><p>
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="objectkeys_gc_time-0"></a><span class="bold_code bc-9">objectkeys_gc_time() -&gt; int() (seconds)</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function returns the timeout value after which after which terminated object keys, 
           related to servers started with the configuration parameter <span class="code">{persistent, true}</span>,
           will be removed.
@@ -910,41 +1058,52 @@
         <p>Objects terminating with reason <strong>normal</strong> or <strong>shutdown</strong> are removed automatically.</p>
         <p>Note: the objectkeys_gc_time configuration parameter (TimeVal) may only range between 0 and 1000000 seconds. 
           Otherwise, the default value is used.</p>
-      </p></div>
-    <p><a name="orber_nodes-0"></a><span class="bold_code">orber_nodes() -&gt; RetVal</span><br></p>
-<div class="REFBODY">
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="orber_nodes-0"></a><span class="bold_code bc-9">orber_nodes() -&gt; RetVal</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">RetVal = [node()]</span><br>
+<span class="bold_code bc-11">RetVal = [node()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function returns the list of node names that this orber 
           domain consists of. </p>
       </p></div>
-    <p><a name="install-1"></a><span class="bold_code">install(NodeList) -&gt; ok</span><br><a name="install-2"></a><span class="bold_code">install(NodeList, Options) -&gt; ok</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="install-1"></a><span class="bold_code bc-9">install(NodeList) -&gt; ok</span><br><a name="install-2"></a><span class="bold_code bc-9">install(NodeList, Options) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">NodeList = [node()]</span><br>
+<span class="bold_code bc-11">NodeList = [node()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Options = [Option]</span><br>
+<span class="bold_code bc-11">Options = [Option]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Option = {install_timeout, Timeout} | {ifr_storage_type, TableType} | {nameservice_storage_type, TableType} | {initialreferences_storage_type, TableType} | {load_order, Priority}</span><br>
+<span class="bold_code bc-11">Option = {install_timeout, Timeout} | {ifr_storage_type, TableType} | {nameservice_storage_type, TableType} | {initialreferences_storage_type, TableType} | {load_order, Priority}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Timeout = infinity | integer()</span><br>
+<span class="bold_code bc-11">Timeout = infinity | integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">TableType = disc_copies | ram_copies</span><br>
+<span class="bold_code bc-11">TableType = disc_copies | ram_copies</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Priority = integer()</span><br>
+<span class="bold_code bc-11">Priority = integer()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function installs all the necessary mnesia tables and
           load default data in some of them. If one or more Orber tables
           already exists the installation fails. The function
@@ -991,39 +1150,49 @@
            consult the Mnesia documentation.</li>
         </ul>
       </p></div>
-    <p><a name="uninstall-0"></a><span class="bold_code">uninstall() -&gt; ok</span><br></p>
-<div class="REFBODY"><p>
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="uninstall-0"></a><span class="bold_code bc-9">uninstall() -&gt; ok</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function stops the Orber application, terminates all server
           objects and removes all Orber related mnesia tables.</p>
         <p>Note: Since other applications may be running on the same node
           using mnesia <strong>uninstall</strong> will not stop the mnesia application.</p>
-      </p></div>
-    <p><a name="add_node-2"></a><span class="bold_code">add_node(Node, Options) -&gt; RetVal</span><br></p>
-<div class="REFBODY">
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="add_node-2"></a><span class="bold_code bc-9">add_node(Node, Options) -&gt; RetVal</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Node = node()</span><br>
+<span class="bold_code bc-11">Node = node()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Options = IFRStorageType | [KeyValue] </span><br>
+<span class="bold_code bc-11">Options = IFRStorageType | [KeyValue] </span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">IFRStorageType = StorageType</span><br>
+<span class="bold_code bc-11">IFRStorageType = StorageType</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">StorageType = disc_copies | ram_copies</span><br>
+<span class="bold_code bc-11">StorageType = disc_copies | ram_copies</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">KeyValue = {ifr_storage_type, StorageType} |  {initialreferences_storage_type, StorageType} |  {nameservice_storage_type, StorageType} |  {type, Type} </span><br>
+<span class="bold_code bc-11">KeyValue = {ifr_storage_type, StorageType} |  {initialreferences_storage_type, StorageType} |  {nameservice_storage_type, StorageType} |  {type, Type} </span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Type = temporary | permanent</span><br>
+<span class="bold_code bc-11">Type = temporary | permanent</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">RetVal = ok | exit()</span><br>
+<span class="bold_code bc-11">RetVal = ok | exit()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function add given node to a existing Orber node group and starts
           Orber on the new node. <span class="code">orber:add_node</span> is called from a member in the Orber
           node group.</p>
@@ -1050,31 +1219,43 @@
         <p>The function do not remove already copied tables after a failure.
           Use <span class="code">orber:remove_node</span> to remove these tables.</p>
       </p></div>
-    <p><a name="remove_node-1"></a><span class="bold_code">remove_node(Node) -&gt; RetVal</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="remove_node-1"></a><span class="bold_code bc-9">remove_node(Node) -&gt; RetVal</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Node = node()</span><br>
+<span class="bold_code bc-11">Node = node()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">RetVal = ok | exit()</span><br>
+<span class="bold_code bc-11">RetVal = ok | exit()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function removes given node from a Orber node group. The Mnesia
           application is not stopped.</p>
       </p></div>
-    <p><a name="configure-2"></a><span class="bold_code">configure(Key, Value) -&gt; ok | {'EXIT', Reason}</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="configure-2"></a><span class="bold_code bc-9">configure(Key, Value) -&gt; ok | {'EXIT', Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Key = orbDefaultInitRef | orbInitRef | giop_version | iiop_timeout | iiop_connection_timeout | iiop_setup_connection_timeout | iiop_in_connection_timeout | objectkeys_gc_time | orber_debug_level</span><br>
+<span class="bold_code bc-11">Key = orbDefaultInitRef | orbInitRef | giop_version | iiop_timeout | iiop_connection_timeout | iiop_setup_connection_timeout | iiop_in_connection_timeout | objectkeys_gc_time | orber_debug_level</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Value = allowed value associated with the given key</span><br>
+<span class="bold_code bc-11">Value = allowed value associated with the given key</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function allows the user to configure Orber in, for example,
           an Erlang shell. It is possible to invoke <span class="code">configure</span> at any time
           the keys specified above.</p>
@@ -1082,7 +1263,7 @@
         <p>Trying to change the configuration in any other way is <strong>NOT</strong>
           allowed since it may affect the behavior of Orber.</p>
         <p>For more information regarding allowed values, see
-          <span class="bold_code"><a href="ch_install.html#config">configuration settings</a></span>
+          <span class="bold_code bc-15"><a href="ch_install.html#config">configuration settings</a></span>
           in the User's Guide.</p>
         <p></p>
         <div class="note">
@@ -1094,7 +1275,9 @@
         </p></div>
 </div>
       </p></div>
-  
+</div>
+</div>
+  </div>
   
 </div>
 <div class="footer">

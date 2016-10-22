@@ -646,27 +646,27 @@
 <!-- refpage --><center><h1>inet_res</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">inet_res</div>
+<div class="REFBODY module-body">inet_res</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">A rudimentary DNS client.</div>
+<div class="REFBODY modules-summary-body">A rudimentary DNS client.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>This module performs DNS name resolving to recursive name servers.</p>
     <p>See also
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','inet_cfg.html');">ERTS User's Guide: Inet Configuration</a></span>
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','inet_cfg.html');">ERTS User's Guide: Inet Configuration</a></span>
       for more information about how to configure an Erlang runtime system
       for IP communication, and how to enable this DNS client by defining
       <span class="code">'dns'</span> as a lookup method.
       The DNS client then acts as a backend for the resolving functions in
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html');"><span class="code">inet</span></a></span>.</p>
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html');"><span class="code">inet</span></a></span>.</p>
     <p>This DNS client can resolve DNS records even if it
       is not used for normal name resolving in the node.</p>
     <p>This is not a full-fledged resolver, only a
       DNS client that relies on asking trusted recursive name servers.</p>
-  </p></div>
+  </div>
 
-  <h3><a name="idm46748405796976">Name Resolving</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45917635682656">Name Resolving</a></h3>
+<div class="REFBODY rb-3">
     
     <p>UDP queries are used unless resolver option
       <span class="code">usevc</span> is <span class="code">true</span>, which forces TCP queries.
@@ -696,38 +696,44 @@
       query is tried for <span class="code">alt_nameservers</span>.</p>
   </div>
 
-  <h3><a name="idm46748405785824">Resolver Types</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45917635671504">Resolver Types</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The following data types concern the resolver:</p>
   </div>
-  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
-    <p>
-      <span class="bold_code"><a name="type-res_option">res_option()</a> = <br>    {alt_nameservers, [<span class="bold_code"><a href="#type-nameserver">nameserver()</a></span>]} |<br>    {edns, 0 | false} |<br>    {inet6, boolean()} |<br>    {nameservers, [<span class="bold_code"><a href="#type-nameserver">nameserver()</a></span>]} |<br>    {recurse, boolean()} |<br>    {retry, integer()} |<br>    {timeout, integer()} |<br>    {udp_payload_size, integer()} |<br>    {usevc, boolean()}</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-nameserver">nameserver()</a> = {<span class="bold_code"><a href="inet.html#type-ip_address">inet:ip_address()</a></span>, Port :: 1..65535}</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-res_error">res_error()</a> = <br>    formerr |<br>    qfmterror |<br>    servfail |<br>    nxdomain |<br>    notimp |<br>    refused |<br>    badvers |<br>    timeout</span><br></p>
-  
+  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
+<div class="data-types-body">
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-res_option">res_option()</a> = <br>    {alt_nameservers, [<span class="bold_code data-type-ref"><a href="#type-nameserver">nameserver()</a></span>]} |<br>    {edns, 0 | false} |<br>    {inet6, boolean()} |<br>    {nameservers, [<span class="bold_code data-type-ref"><a href="#type-nameserver">nameserver()</a></span>]} |<br>    {recurse, boolean()} |<br>    {retry, integer()} |<br>    {timeout, integer()} |<br>    {udp_payload_size, integer()} |<br>    {usevc, boolean()}</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-nameserver">nameserver()</a> = {<span class="bold_code bc-15"><a href="inet.html#type-ip_address">inet:ip_address()</a></span>, Port :: 1..65535}</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-res_error">res_error()</a> = <br>    formerr |<br>    qfmterror |<br>    servfail |<br>    nxdomain |<br>    notimp |<br>    refused |<br>    badvers |<br>    timeout</span>
+</div>
+  </div>
 
-  <h3><a name="idm46748405780976">DNS Types</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45917635666656">DNS Types</a></h3>
+<div class="REFBODY rb-3">
     
     <p><a name="dns_types"></a>
       The following data types concern the DNS client:</p>
   </div>
 
-  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
-    <p>
-      <span class="bold_code"><a name="type-dns_name">dns_name()</a> = string()</span><br></p>
-<div class="REFBODY"><p><p>A string with no adjacent dots.</p></p></div>
-    <p>
-      <span class="bold_code"><a name="type-rr_type">rr_type()</a> = <br>    a |<br>    aaaa |<br>    cname |<br>    gid |<br>    hinfo |<br>    ns |<br>    mb |<br>    md |<br>    mg |<br>    mf |<br>    minfo |<br>    mx |<br>    naptr |<br>    null |<br>    ptr |<br>    soa |<br>    spf |<br>    srv |<br>    txt |<br>    uid |<br>    uinfo |<br>    unspec |<br>    wks</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-dns_class">dns_class()</a> = in | chaos | hs | any</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-dns_msg">dns_msg()</a> = term()</span><br></p>
-<div class="REFBODY"><p>
+  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
+<div class="data-types-body">
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-dns_name">dns_name()</a> = string()</span><div class="REFBODY data-type-desc"><p><p>A string with no adjacent dots.</p></p></div>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-rr_type">rr_type()</a> = <br>    a |<br>    aaaa |<br>    cname |<br>    gid |<br>    hinfo |<br>    ns |<br>    mb |<br>    md |<br>    mg |<br>    mf |<br>    minfo |<br>    mx |<br>    naptr |<br>    null |<br>    ptr |<br>    soa |<br>    spf |<br>    srv |<br>    txt |<br>    uid |<br>    uinfo |<br>    unspec |<br>    wks</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-dns_class">dns_class()</a> = in | chaos | hs | any</span>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-dns_msg">dns_msg()</a> = term()</span><div class="REFBODY data-type-desc"><p>
         <p>This is the start of a hiearchy of opaque data structures
           that can be examined with access functions in <span class="code">inet_dns</span>, which
           return lists of <span class="code">{Field,Value}</span> tuples. The arity 2 functions
@@ -790,24 +796,29 @@ inet_dns:record_type(_) -&gt; undefined.</pre></div>
         <p>So, <span class="code">inet_dns:(inet_dns:record_type(X))(X)</span> converts
           any of these data structures into a <span class="code">{Field,Value}</span> list.</p>
       </p></div>
-    <p>
-      <span class="bold_code"><a name="type-dns_data">dns_data()</a> = <br>    <span class="bold_code"><a href="#type-dns_name">dns_name()</a></span> |<br>    <span class="bold_code"><a href="inet.html#type-ip4_address">inet:ip4_address()</a></span> |<br>    <span class="bold_code"><a href="inet.html#type-ip6_address">inet:ip6_address()</a></span> |<br>    {MName :: <span class="bold_code"><a href="#type-dns_name">dns_name()</a></span>,<br>     RName :: <span class="bold_code"><a href="#type-dns_name">dns_name()</a></span>,<br>     Serial :: integer(),<br>     Refresh :: integer(),<br>     Retry :: integer(),<br>     Expiry :: integer(),<br>     Minimum :: integer()} |<br>    {<span class="bold_code"><a href="inet.html#type-ip4_address">inet:ip4_address()</a></span>, Proto :: integer(), BitMap :: binary()} |<br>    {CpuString :: string(), OsString :: string()} |<br>    {RM :: <span class="bold_code"><a href="#type-dns_name">dns_name()</a></span>, EM :: <span class="bold_code"><a href="#type-dns_name">dns_name()</a></span>} |<br>    {Prio :: integer(), <span class="bold_code"><a href="#type-dns_name">dns_name()</a></span>} |<br>    {Prio :: integer(),<br>     Weight :: integer(),<br>     Port :: integer(),<br>     <span class="bold_code"><a href="#type-dns_name">dns_name()</a></span>} |<br>    {Order :: integer(),<br>     Preference :: integer(),<br>     Flags :: string(),<br>     Services :: string(),<br>     Regexp :: string(),<br>     <span class="bold_code"><a href="#type-dns_name">dns_name()</a></span>} |<br>    [string()] |<br>    binary()</span><br></p>
-<div class="REFBODY"><p>
+</div>
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-dns_data">dns_data()</a> = <br>    <span class="bold_code data-type-ref"><a href="#type-dns_name">dns_name()</a></span> |<br>    <span class="bold_code bc-15"><a href="inet.html#type-ip4_address">inet:ip4_address()</a></span> |<br>    <span class="bold_code bc-15"><a href="inet.html#type-ip6_address">inet:ip6_address()</a></span> |<br>    {MName :: <span class="bold_code data-type-ref"><a href="#type-dns_name">dns_name()</a></span>,<br>     RName :: <span class="bold_code data-type-ref"><a href="#type-dns_name">dns_name()</a></span>,<br>     Serial :: integer(),<br>     Refresh :: integer(),<br>     Retry :: integer(),<br>     Expiry :: integer(),<br>     Minimum :: integer()} |<br>    {<span class="bold_code bc-15"><a href="inet.html#type-ip4_address">inet:ip4_address()</a></span>, Proto :: integer(), BitMap :: binary()} |<br>    {CpuString :: string(), OsString :: string()} |<br>    {RM :: <span class="bold_code data-type-ref"><a href="#type-dns_name">dns_name()</a></span>, EM :: <span class="bold_code data-type-ref"><a href="#type-dns_name">dns_name()</a></span>} |<br>    {Prio :: integer(), <span class="bold_code data-type-ref"><a href="#type-dns_name">dns_name()</a></span>} |<br>    {Prio :: integer(),<br>     Weight :: integer(),<br>     Port :: integer(),<br>     <span class="bold_code data-type-ref"><a href="#type-dns_name">dns_name()</a></span>} |<br>    {Order :: integer(),<br>     Preference :: integer(),<br>     Flags :: string(),<br>     Services :: string(),<br>     Regexp :: string(),<br>     <span class="bold_code data-type-ref"><a href="#type-dns_name">dns_name()</a></span>} |<br>    [string()] |<br>    binary()</span><div class="REFBODY data-type-desc"><p>
         <p><span class="code">Regexp</span> is a string with characters encoded
           in the UTF-8 coding standard.</p>
       </p></div>
-  
+</div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="getbyname-2"></a><span class="bold_code">getbyname(Name, Type) -&gt; {ok, Hostent} | {error, Reason}</span><br><a name="getbyname-3"></a><span class="bold_code">getbyname(Name, Type, Timeout) -&gt; {ok, Hostent} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-dns_name">dns_name()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Type = <span class="bold_code"><a href="#type-rr_type">rr_type()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
-<div class="REFTYPES"><span class="bold_code">Hostent = <span class="bold_code"><a href="inet.html#type-hostent">inet:hostent()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="inet.html#type-posix">inet:posix()</a></span> | <span class="bold_code"><a href="#type-res_error">res_error()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="getbyname-2"></a><span class="bold_code func-name">getbyname(Name, Type) -&gt; {ok, Hostent} | {error, Reason}</span><a name="getbyname-3"></a><span class="bold_code func-name">getbyname(Name, Type, Timeout) -&gt; {ok, Hostent} | {error, Reason}</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-dns_name">dns_name()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Type = <span class="bold_code data-type-ref"><a href="#type-rr_type">rr_type()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Timeout = timeout()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Hostent = <span class="bold_code bc-15"><a href="inet.html#type-hostent">inet:hostent()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = <span class="bold_code bc-15"><a href="inet.html#type-posix">inet:posix()</a></span> | <span class="bold_code data-type-ref"><a href="#type-res_error">res_error()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Resolves a DNS record of the specified type for the specified host,
           of class <span class="code">in</span>. Returns, on success, a <span class="code">hostent()</span> record
           with <span class="code">dns_data()</span> elements in the address list field.</p>
@@ -819,51 +830,63 @@ inet_dns:record_type(_) -&gt; undefined.</pre></div>
           and if that fails, the search list is used. If the name
           has a trailing dot, it is supposed to be
           an absolute name and the search list is not used.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="gethostbyaddr-1"></a><span class="bold_code">gethostbyaddr(Address) -&gt; {ok, Hostent} | {error, Reason}</span><br><a name="gethostbyaddr-2"></a><span class="bold_code">gethostbyaddr(Address, Timeout) -&gt; {ok, Hostent} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Address = <span class="bold_code"><a href="inet.html#type-ip_address">inet:ip_address()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
-<div class="REFTYPES"><span class="bold_code">Hostent = <span class="bold_code"><a href="inet.html#type-hostent">inet:hostent()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="inet.html#type-posix">inet:posix()</a></span> | <span class="bold_code"><a href="#type-res_error">res_error()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="gethostbyaddr-1"></a><span class="bold_code func-name">gethostbyaddr(Address) -&gt; {ok, Hostent} | {error, Reason}</span><a name="gethostbyaddr-2"></a><span class="bold_code func-name">gethostbyaddr(Address, Timeout) -&gt; {ok, Hostent} | {error, Reason}</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Address = <span class="bold_code bc-15"><a href="inet.html#type-ip_address">inet:ip_address()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Timeout = timeout()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Hostent = <span class="bold_code bc-15"><a href="inet.html#type-hostent">inet:hostent()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = <span class="bold_code bc-15"><a href="inet.html#type-posix">inet:posix()</a></span> | <span class="bold_code data-type-ref"><a href="#type-res_error">res_error()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Backend functions used by
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#gethostbyaddr-1');"><span class="code">inet:gethostbyaddr/1</span></a></span>.
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#gethostbyaddr-1');"><span class="code">inet:gethostbyaddr/1</span></a></span>.
         </p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="gethostbyname-1"></a><span class="bold_code">gethostbyname(Name) -&gt; {ok, Hostent} | {error, Reason}</span><br><a name="gethostbyname-2"></a><span class="bold_code">gethostbyname(Name, Family) -&gt; {ok, Hostent} | {error, Reason}</span><br><a name="gethostbyname-3"></a><span class="bold_code">gethostbyname(Name, Family, Timeout) -&gt;<br>                 {ok, Hostent} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-dns_name">dns_name()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Hostent = <span class="bold_code"><a href="inet.html#type-hostent">inet:hostent()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
-<div class="REFTYPES"><span class="bold_code">Family = <span class="bold_code"><a href="inet.html#type-address_family">inet:address_family()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="inet.html#type-posix">inet:posix()</a></span> | <span class="bold_code"><a href="#type-res_error">res_error()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="gethostbyname-1"></a><span class="bold_code func-name">gethostbyname(Name) -&gt; {ok, Hostent} | {error, Reason}</span><a name="gethostbyname-2"></a><span class="bold_code func-name">gethostbyname(Name, Family) -&gt; {ok, Hostent} | {error, Reason}</span><a name="gethostbyname-3"></a><span class="bold_code func-name">gethostbyname(Name, Family, Timeout) -&gt;<br>                 {ok, Hostent} | {error, Reason}</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-dns_name">dns_name()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Hostent = <span class="bold_code bc-15"><a href="inet.html#type-hostent">inet:hostent()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Timeout = timeout()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Family = <span class="bold_code bc-15"><a href="inet.html#type-address_family">inet:address_family()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = <span class="bold_code bc-15"><a href="inet.html#type-posix">inet:posix()</a></span> | <span class="bold_code data-type-ref"><a href="#type-res_error">res_error()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Backend functions used by
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#gethostbyname-1');"><span class="code">inet:gethostbyname/1,2</span></a></span>.
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#gethostbyname-1');"><span class="code">inet:gethostbyname/1,2</span></a></span>.
         </p>
         <p>This function uses resolver option <span class="code">search</span> just like
-          <span class="bold_code"><a href="#getbyname-2"><span class="code">getbyname/2,3</span></a></span>.
+          <span class="bold_code data-type-ref"><a href="#getbyname-2"><span class="code">getbyname/2,3</span></a></span>.
         </p>
         <p>If resolver option <span class="code">inet6</span> is <span class="code">true</span>,
           an IPv6 address is looked up. If that fails,
           the IPv4 address is looked up and returned on
           IPv6-mapped IPv4 format.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="lookup-3"></a><span class="bold_code">lookup(Name, Class, Type) -&gt; [<span class="bold_code"><a href="#type-dns_data">dns_data()</a></span>]</span><br><a name="lookup-4"></a><span class="bold_code">lookup(Name, Class, Type, Opts) -&gt; [<span class="bold_code"><a href="#type-dns_data">dns_data()</a></span>]</span><br><a name="lookup-5"></a><span class="bold_code">lookup(Name, Class, Type, Opts, Timeout) -&gt; [<span class="bold_code"><a href="#type-dns_data">dns_data()</a></span>]</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-dns_name">dns_name()</a></span> | <span class="bold_code"><a href="inet.html#type-ip_address">inet:ip_address()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Class = <span class="bold_code"><a href="#type-dns_class">dns_class()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Type = <span class="bold_code"><a href="#type-rr_type">rr_type()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Opts = [<span class="bold_code"><a href="#type-res_option">res_option()</a></span> | verbose]</span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="lookup-3"></a><span class="bold_code func-name">lookup(Name, Class, Type) -&gt; [<span class="bold_code data-type-ref"><a href="#type-dns_data">dns_data()</a></span>]</span><a name="lookup-4"></a><span class="bold_code func-name">lookup(Name, Class, Type, Opts) -&gt; [<span class="bold_code data-type-ref"><a href="#type-dns_data">dns_data()</a></span>]</span><a name="lookup-5"></a><span class="bold_code func-name">lookup(Name, Class, Type, Opts, Timeout) -&gt; [<span class="bold_code data-type-ref"><a href="#type-dns_data">dns_data()</a></span>]</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-dns_name">dns_name()</a></span> | <span class="bold_code bc-15"><a href="inet.html#type-ip_address">inet:ip_address()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Class = <span class="bold_code data-type-ref"><a href="#type-dns_class">dns_class()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Type = <span class="bold_code data-type-ref"><a href="#type-rr_type">rr_type()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Opts = [<span class="bold_code data-type-ref"><a href="#type-res_option">res_option()</a></span> | verbose]</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Timeout = timeout()</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Resolves the DNS data for the record of the specified type and class
           for the specified name. On success, filters out the answer records
           with the correct <span class="code">Class</span> and
@@ -873,27 +896,31 @@ inet_dns:record_type(_) -&gt; undefined.</pre></div>
           specific types that are not <span class="code">any</span>. An empty answer
           or a failed lookup returns an empty list.</p>
         <p>Calls
-          <span class="bold_code"><a href="#resolve-3"><span class="code">resolve/*</span></a></span>
+          <span class="bold_code data-type-ref"><a href="#resolve-3"><span class="code">resolve/*</span></a></span>
           with the same arguments and filters the result, so
           <span class="code">Opts</span> is described for those functions.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="resolve-3"></a><span class="bold_code">resolve(Name, Class, Type) -&gt; {ok, <span class="bold_code"><a href="#type-dns_msg">dns_msg()</a></span>} | Error</span><br><a name="resolve-4"></a><span class="bold_code">resolve(Name, Class, Type, Opts) -&gt; {ok, <span class="bold_code"><a href="#type-dns_msg">dns_msg()</a></span>} | Error</span><br><a name="resolve-5"></a><span class="bold_code">resolve(Name, Class, Type, Opts, Timeout) -&gt;<br>           {ok, <span class="bold_code"><a href="#type-dns_msg">dns_msg()</a></span>} | Error</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-dns_name">dns_name()</a></span> | <span class="bold_code"><a href="inet.html#type-ip_address">inet:ip_address()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Class = <span class="bold_code"><a href="#type-dns_class">dns_class()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Type = <span class="bold_code"><a href="#type-rr_type">rr_type()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Opts = [Opt]</span></div>
-<div class="REFTYPES"><span class="bold_code">Opt = <span class="bold_code"><a href="#type-res_option">res_option()</a></span> | verbose | atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
-<div class="REFTYPES"><span class="bold_code">Error = {error, Reason} | {error, {Reason, <span class="bold_code"><a href="#type-dns_msg">dns_msg()</a></span>}}</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="inet.html#type-posix">inet:posix()</a></span> | <span class="bold_code"><a href="#type-res_error">res_error()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="resolve-3"></a><span class="bold_code func-name">resolve(Name, Class, Type) -&gt; {ok, <span class="bold_code data-type-ref"><a href="#type-dns_msg">dns_msg()</a></span>} | Error</span><a name="resolve-4"></a><span class="bold_code func-name">resolve(Name, Class, Type, Opts) -&gt; {ok, <span class="bold_code data-type-ref"><a href="#type-dns_msg">dns_msg()</a></span>} | Error</span><a name="resolve-5"></a><span class="bold_code func-name">resolve(Name, Class, Type, Opts, Timeout) -&gt;<br>           {ok, <span class="bold_code data-type-ref"><a href="#type-dns_msg">dns_msg()</a></span>} | Error</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-dns_name">dns_name()</a></span> | <span class="bold_code bc-15"><a href="inet.html#type-ip_address">inet:ip_address()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Class = <span class="bold_code data-type-ref"><a href="#type-dns_class">dns_class()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Type = <span class="bold_code data-type-ref"><a href="#type-rr_type">rr_type()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Opts = [Opt]</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Opt = <span class="bold_code data-type-ref"><a href="#type-res_option">res_option()</a></span> | verbose | atom()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Timeout = timeout()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Error = {error, Reason} | {error, {Reason, <span class="bold_code data-type-ref"><a href="#type-dns_msg">dns_msg()</a></span>}}</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = <span class="bold_code bc-15"><a href="inet.html#type-posix">inet:posix()</a></span> | <span class="bold_code data-type-ref"><a href="#type-res_error">res_error()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Resolves a DNS record of the specified type and class for the
           specified name. The returned <span class="code">dns_msg()</span> can be examined using
           access functions in <span class="code">inet_db</span>, as described in section
-          in <span class="bold_code"><a href="#dns_types">DNS Types</a></span>.</p>
+          in <span class="bold_code data-type-ref"><a href="#dns_types">DNS Types</a></span>.</p>
         <p>If <span class="code">Name</span> is an <span class="code">ip_address()</span>, the domain
           name to query for is generated as the standard reverse
           <span class="code">".IN-ADDR.ARPA."</span> name for an IPv4 address, or the
@@ -909,7 +936,7 @@ inet_dns:record_type(_) -&gt; undefined.</pre></div>
           function, it is used.</p>
         <p>Option <span class="code">verbose</span> (or rather <span class="code">{verbose,true}</span>)
           causes diagnostics printout through
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html#format-3');"><span class="code">io:format/2</span></a></span>
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html#format-3');"><span class="code">io:format/2</span></a></span>
           of queries, replies retransmissions, and so on, similar
           to from utilities, such as <span class="code">dig</span> and <span class="code">nslookup</span>.</p>
         <p>If <span class="code">Opt</span> is any atom, it is interpreted
@@ -920,16 +947,17 @@ inet_dns:record_type(_) -&gt; undefined.</pre></div>
           and <span class="code">nousevc</span> is an alias for <span class="code">{usevc,false}</span>.</p>
         <p>Option <span class="code">inet6</span> has no effect on this function. You
           probably want to use <span class="code">Type = a | aaaa</span> instead.</p>
-      </p></div>
-  
+      </p></div></div>
+</div>
+  </div>
 
-  <h3><a name="idm46748405714272">Example</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45917635599952">Example</a></h3>
+<div class="REFBODY rb-3">
     
     <p>This access functions example shows how
-      <span class="bold_code"><a href="#lookup-3"><span class="code">lookup/3</span></a></span>
+      <span class="bold_code data-type-ref"><a href="#lookup-3"><span class="code">lookup/3</span></a></span>
       can be implemented using
-      <span class="bold_code"><a href="#resolve-3"><span class="code">resolve/3</span></a></span>
+      <span class="bold_code data-type-ref"><a href="#resolve-3"><span class="code">resolve/3</span></a></span>
       from outside the module:</p>
     <div class="example"><pre>
 example_lookup(Name, Class, Type) -&gt;
@@ -944,8 +972,8 @@ example_lookup(Name, Class, Type) -&gt;
      end.</pre></div>
   </div>
 
-  <h3><a name="idm46748405710128">Legacy Functions</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45917635595808">Legacy Functions</a></h3>
+<div class="REFBODY rb-3">
     
     <p>These are deprecated because the annoying double
       meaning of the name servers/time-out argument, and
@@ -953,34 +981,43 @@ example_lookup(Name, Class, Type) -&gt;
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="nslookup-3"></a><span class="bold_code">nslookup(Name, Class, Type) -&gt; {ok, <span class="bold_code"><a href="#type-dns_msg">dns_msg()</a></span>} | {error, Reason}</span><br><a name="nslookup-4"></a><span class="bold_code">nslookup(Name, Class, Type, Timeout) -&gt;<br>            {ok, <span class="bold_code"><a href="#type-dns_msg">dns_msg()</a></span>} | {error, Reason}</span><br><span class="bold_code">nslookup(Name, Class, Type, Nameservers) -&gt;<br>            {ok, <span class="bold_code"><a href="#type-dns_msg">dns_msg()</a></span>} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-dns_name">dns_name()</a></span> | <span class="bold_code"><a href="inet.html#type-ip_address">inet:ip_address()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Class = <span class="bold_code"><a href="#type-dns_class">dns_class()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Type = <span class="bold_code"><a href="#type-rr_type">rr_type()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
-<div class="REFTYPES"><span class="bold_code">Nameservers = [<span class="bold_code"><a href="#type-nameserver">nameserver()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="inet.html#type-posix">inet:posix()</a></span> | <span class="bold_code"><a href="#type-res_error">res_error()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="nslookup-3"></a><span class="bold_code func-name">nslookup(Name, Class, Type) -&gt; {ok, <span class="bold_code data-type-ref"><a href="#type-dns_msg">dns_msg()</a></span>} | {error, Reason}</span><a name="nslookup-4"></a><span class="bold_code func-name">nslookup(Name, Class, Type, Timeout) -&gt;<br>            {ok, <span class="bold_code data-type-ref"><a href="#type-dns_msg">dns_msg()</a></span>} | {error, Reason}</span><span class="bold_code func-name">nslookup(Name, Class, Type, Nameservers) -&gt;<br>            {ok, <span class="bold_code data-type-ref"><a href="#type-dns_msg">dns_msg()</a></span>} | {error, Reason}</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-dns_name">dns_name()</a></span> | <span class="bold_code bc-15"><a href="inet.html#type-ip_address">inet:ip_address()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Class = <span class="bold_code data-type-ref"><a href="#type-dns_class">dns_class()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Type = <span class="bold_code data-type-ref"><a href="#type-rr_type">rr_type()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Timeout = timeout()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Nameservers = [<span class="bold_code data-type-ref"><a href="#type-nameserver">nameserver()</a></span>]</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = <span class="bold_code bc-15"><a href="inet.html#type-posix">inet:posix()</a></span> | <span class="bold_code data-type-ref"><a href="#type-res_error">res_error()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Resolves a DNS record of the specified type and class for the
           specified name.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="nnslookup-4"></a><span class="bold_code">nnslookup(Name, Class, Type, Nameservers) -&gt;<br>             {ok, <span class="bold_code"><a href="#type-dns_msg">dns_msg()</a></span>} | {error, Reason}</span><br><a name="nnslookup-5"></a><span class="bold_code">nnslookup(Name, Class, Type, Nameservers, Timeout) -&gt;<br>             {ok, <span class="bold_code"><a href="#type-dns_msg">dns_msg()</a></span>} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-dns_name">dns_name()</a></span> | <span class="bold_code"><a href="inet.html#type-ip_address">inet:ip_address()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Class = <span class="bold_code"><a href="#type-dns_class">dns_class()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Type = <span class="bold_code"><a href="#type-rr_type">rr_type()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
-<div class="REFTYPES"><span class="bold_code">Nameservers = [<span class="bold_code"><a href="#type-nameserver">nameserver()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="inet.html#type-posix">inet:posix()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="nnslookup-4"></a><span class="bold_code func-name">nnslookup(Name, Class, Type, Nameservers) -&gt;<br>             {ok, <span class="bold_code data-type-ref"><a href="#type-dns_msg">dns_msg()</a></span>} | {error, Reason}</span><a name="nnslookup-5"></a><span class="bold_code func-name">nnslookup(Name, Class, Type, Nameservers, Timeout) -&gt;<br>             {ok, <span class="bold_code data-type-ref"><a href="#type-dns_msg">dns_msg()</a></span>} | {error, Reason}</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = <span class="bold_code data-type-ref"><a href="#type-dns_name">dns_name()</a></span> | <span class="bold_code bc-15"><a href="inet.html#type-ip_address">inet:ip_address()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Class = <span class="bold_code data-type-ref"><a href="#type-dns_class">dns_class()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Type = <span class="bold_code data-type-ref"><a href="#type-rr_type">rr_type()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Timeout = timeout()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Nameservers = [<span class="bold_code data-type-ref"><a href="#type-nameserver">nameserver()</a></span>]</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Reason = <span class="bold_code bc-15"><a href="inet.html#type-posix">inet:posix()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Resolves a DNS record of the specified type and class for the
           specified name.</p>
-      </p></div>
-  
+      </p></div></div>
+</div>
+  </div>
 </div>
 <div class="footer">
 <hr>

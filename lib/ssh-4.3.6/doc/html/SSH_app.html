@@ -228,38 +228,38 @@
 <!-- refpage --><center><h1>SSH</h1></center>
   
   <h3><a name="application" href="#application">Application</a></h3>
-<div class="REFBODY">SSH</div>
+<div class="REFBODY application-body">SSH</div>
   <h3><a name="application-summary" href="#application-summary">Application Summary</a></h3>
-<div class="REFBODY">The ssh application implements the Secure Shell (SSH) protocol and
+<div class="REFBODY app-summary-body">The ssh application implements the Secure Shell (SSH) protocol and
   provides an SSH File Transfer Protocol (SFTP) client and server.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>The <span class="code">ssh</span> application is an implementation of the SSH protocol in Erlang.
     <span class="code">ssh</span> offers API functions to write customized SSH clients and servers as well as
     making the Erlang shell available over SSH. An SFTP client, <span class="code">ssh_sftp</span>, and server,
     <span class="code">ssh_sftpd</span>, are also included.</p>
-  </p></div>
+  </div>
 
-   <h3><a name="idm46052431032016">DEPENDENCIES</a></h3>
-<div class="REFBODY">
+   <h3><a name="idm45749167470432">DEPENDENCIES</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The <span class="code">ssh</span> application uses the applications
-    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html');">public_key</a></span> and
-    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','crypto','crypto.html');">crypto</a></span> 
+    <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html');">public_key</a></span> and
+    <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','crypto','crypto.html');">crypto</a></span> 
     to handle public keys and encryption. Hence, these
     applications must be loaded for the <span class="code">ssh</span> application to work. In
     an embedded environment this means that they must be started with
-    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','application.html#start-1');">application:start/1,2</a></span> before the
+    <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','application.html#start-1');">application:start/1,2</a></span> before the
     <span class="code">ssh</span> application is started.
     </p>
   </div>
 
-   <h3><a name="idm46052432045840">CONFIGURATION</a></h3>
-<div class="REFBODY">
+   <h3><a name="idm45749167849072">CONFIGURATION</a></h3>
+<div class="REFBODY rb-3">
     
 
     <p>The <span class="code">ssh</span> application does not have an application-
-    specific configuration file, as described in <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','application.html');">application(3)</a></span>.
+    specific configuration file, as described in <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','application.html');">application(3)</a></span>.
     However, by default it use the following configuration files
     from OpenSSH:</p>
     <ul>
@@ -281,13 +281,13 @@
       </p>
       <p>Public key handling can also be customized through a callback module that
       implements the behaviors
-      <span class="bold_code"><a href="ssh_client_key_api.html">ssh_client_key_api</a></span> and
-      <span class="bold_code"><a href="ssh_server_key_api.html">ssh_server_key_api</a></span>.
+      <span class="bold_code bc-19"><a href="ssh_client_key_api.html">ssh_client_key_api</a></span> and
+      <span class="bold_code bc-19"><a href="ssh_server_key_api.html">ssh_server_key_api</a></span>.
       </p>
 
   </div>
-  <h3><a name="idm46052431184496">Public Keys</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45749168240512">Public Keys</a></h3>
+<div class="REFBODY rb-3">
     
     <p><span class="code">id_dsa</span>, <span class="code">id_rsa</span> and <span class="code">id_ecdsa</span> are the users private key files.
 	Notice that the public key is part of the private key so the <span class="code">ssh</span>
@@ -296,16 +296,16 @@
 	public key.
       </p>
   </div>
- <h3><a name="idm46052432013296">Known Hosts</a></h3>
-<div class="REFBODY">
+ <h3><a name="idm45749167984368">Known Hosts</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The <span class="code">known_hosts</span> file contains a list of approved servers and
       their public keys. Once a server is listed, it can be verified
       without user interaction.
       </p>
   </div>
- <h3><a name="idm46052431365744">Authorized Keys</a></h3>
-<div class="REFBODY">
+ <h3><a name="idm45749167663712">Authorized Keys</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The <span class="code">authorized_key</span> file keeps track of the user's authorized
       public keys. The most common use of this file is to let users
@@ -313,37 +313,37 @@
       Erlang <span class="code">ssh</span> daemon.
       </p>
   </div>
- <h3><a name="idm46052431401600">Host Keys</a></h3>
-<div class="REFBODY">
+ <h3><a name="idm45749167326496">Host Keys</a></h3>
+<div class="REFBODY rb-3">
     
     <p>RSA and DSA host keys are supported and are
        expected to be found in files named <span class="code">ssh_host_rsa_key</span>,
        <span class="code">ssh_host_dsa_key</span> and <span class="code">ssh_host_ecdsa_key</span>.
        </p>
   </div>
-  <h3><a name="idm46052431095984">ERROR LOGGER AND EVENT HANDLERS</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45749167966192">ERROR LOGGER AND EVENT HANDLERS</a></h3>
+<div class="REFBODY rb-3">
     
-    <p>The <span class="code">ssh</span> application uses the default <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','error_logger.html');">OTP error logger</a></span> to log unexpected errors or print information about special events.</p>
+    <p>The <span class="code">ssh</span> application uses the default <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','error_logger.html');">OTP error logger</a></span> to log unexpected errors or print information about special events.</p>
   </div>
 
   <h3>
-<a name="supported"></a><a name="idm46052430775856">SUPPORTED SPECIFICATIONS AND STANDARDS</a>
+<a name="supported"></a><a name="idm45749168218624">SUPPORTED SPECIFICATIONS AND STANDARDS</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
     <p>The supported SSH version is 2.0.</p>
   </div>
-  <h3><a name="idm46052431202640">Algorithms</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45749167324320">Algorithms</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The actual set of algorithms may vary depending on which OpenSSL crypto library that is installed on the machine.
     For the list on a particular installation, use the command
-    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','ssh','ssh.html#default_algorithms-0');">ssh:default_algorithms/0</a></span>. 
+    <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','ssh','ssh.html#default_algorithms-0');">ssh:default_algorithms/0</a></span>. 
     The user may override the default algorithm configuration both on the server side and the client side.
-    See the option <span class="code">preferred_algorithms</span> in the <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','ssh','ssh.html#daemon-1');">ssh:daemon/1,2,3</a></span> and
-    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','ssh','ssh.html#connect-3');">ssh:connect/3,4</a></span> functions.
+    See the option <span class="code">preferred_algorithms</span> in the <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','ssh','ssh.html#daemon-1');">ssh:daemon/1,2,3</a></span> and
+    <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','ssh','ssh.html#connect-3');">ssh:connect/3,4</a></span> functions.
     </p>
 
     <p>Supported algorithms are:</p>
@@ -397,7 +397,7 @@
 	cipher aes128-gcm@openssh.com is negotiated. The cipher and mac algorithm AEAD_AES_256_GCM is selected when the
 	cipher aes256-gcm@openssh.com is negotiated.
 	</p>
-	<p>See the text at the description of <span class="bold_code"><a href="#rfc5647_note">the rfc 5647 further down</a></span>
+	<p>See the text at the description of <span class="bold_code data-type-ref"><a href="#rfc5647_note">the rfc 5647 further down</a></span>
 	for more information.
 	</p>
       </dd>
@@ -412,23 +412,23 @@
       </dd>
     </dl>
   </div>
-  <h3><a name="idm46052431093744">Unicode support</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45749168241728">Unicode support</a></h3>
+<div class="REFBODY rb-3">
     
     <p>Unicode filenames are supported if the emulator and the underlaying OS support it. See section DESCRIPTION in the
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html');">file</a></span> manual page in Kernel for information about this subject.
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html');">file</a></span> manual page in Kernel for information about this subject.
     </p>
     <p>The shell and the cli both support unicode.
     </p>
   </div>
 
-  <h3><a name="idm46052431282208">Rfcs</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45749167720688">Rfcs</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The following rfc:s are supported:</p>
     <ul>
       <li>
-<span class="bold_code"><a href="https://tools.ietf.org/html/rfc4251">RFC 4251</a></span>, The Secure Shell (SSH) Protocol Architecture.
+<span class="bold_code bc-20"><a href="https://tools.ietf.org/html/rfc4251">RFC 4251</a></span>, The Secure Shell (SSH) Protocol Architecture.
       <p>Except</p>
       <ul>
 	<li>9.4.6 Host-Based Authentication</li>
@@ -439,7 +439,7 @@
       </li>
 
       <li>
-<span class="bold_code"><a href="https://tools.ietf.org/html/rfc4252">RFC 4252</a></span>, The Secure Shell (SSH) Authentication Protocol.
+<span class="bold_code bc-20"><a href="https://tools.ietf.org/html/rfc4252">RFC 4252</a></span>, The Secure Shell (SSH) Authentication Protocol.
       <p>Except</p>
       <ul>
 	<li>9. Host-Based Authentication: "hostbased"</li>
@@ -448,12 +448,12 @@
       </li>
 
       <li>
-<span class="bold_code"><a href="https://tools.ietf.org/html/rfc4253">RFC 4253</a></span>, The Secure Shell (SSH) Transport Layer Protocol.
+<span class="bold_code bc-20"><a href="https://tools.ietf.org/html/rfc4253">RFC 4253</a></span>, The Secure Shell (SSH) Transport Layer Protocol.
        <p></p>
       </li>
 
       <li>
-<span class="bold_code"><a href="https://tools.ietf.org/html/rfc4254">RFC 4254</a></span>, The Secure Shell (SSH) Connection Protocol.
+<span class="bold_code bc-20"><a href="https://tools.ietf.org/html/rfc4254">RFC 4254</a></span>, The Secure Shell (SSH) Connection Protocol.
       <p>Except</p>
       <ul>
 	<li>6.3. X11 Forwarding</li>
@@ -463,7 +463,7 @@
       </li>
 
       <li>
-<span class="bold_code"><a href="https://tools.ietf.org/html/rfc4256">RFC 4256</a></span>, Generic Message Exchange Authentication for
+<span class="bold_code bc-20"><a href="https://tools.ietf.org/html/rfc4256">RFC 4256</a></span>, Generic Message Exchange Authentication for
       the Secure Shell Protocol (SSH).
       <p>Except</p>
       <ul>
@@ -475,18 +475,18 @@
       </li>
 
       <li>
-<span class="bold_code"><a href="https://tools.ietf.org/html/rfc4419">RFC 4419</a></span>, Diffie-Hellman Group Exchange for
+<span class="bold_code bc-20"><a href="https://tools.ietf.org/html/rfc4419">RFC 4419</a></span>, Diffie-Hellman Group Exchange for
       the Secure Shell (SSH) Transport Layer Protocol.
        <p></p>
       </li>
 
       <li>
-<span class="bold_code"><a href="https://tools.ietf.org/html/rfc4716">RFC 4716</a></span>, The Secure Shell (SSH) Public Key File Format.
+<span class="bold_code bc-20"><a href="https://tools.ietf.org/html/rfc4716">RFC 4716</a></span>, The Secure Shell (SSH) Public Key File Format.
       <p></p>
       </li>
 
       <li>
-<span class="bold_code"><a href="https://tools.ietf.org/html/rfc5647">RFC 5647</a></span>, AES Galois Counter Mode for
+<span class="bold_code bc-20"><a href="https://tools.ietf.org/html/rfc5647">RFC 5647</a></span>, AES Galois Counter Mode for
       the Secure Shell Transport Layer Protocol.
       <p><a name="rfc5647_note"></a>There is an ambiguity in the synchronized selection of cipher and mac algorithm. 
       This is resolved by OpenSSH in the ciphers aes128-gcm@openssh.com and aes256-gcm@openssh.com which are implemented.
@@ -515,7 +515,7 @@
       </li>
 	
       <li>
-<span class="bold_code"><a href="https://tools.ietf.org/html/rfc5656">RFC 5656</a></span>, Elliptic Curve Algorithm Integration in 
+<span class="bold_code bc-20"><a href="https://tools.ietf.org/html/rfc5656">RFC 5656</a></span>, Elliptic Curve Algorithm Integration in 
       the Secure Shell Transport Layer.
       <p>Except</p>
       <ul>
@@ -528,7 +528,7 @@
       </li>
       
       <li>
-<span class="bold_code"><a href="https://tools.ietf.org/html/rfc6668">RFC 6668</a></span>, SHA-2 Data Integrity Verification for
+<span class="bold_code bc-20"><a href="https://tools.ietf.org/html/rfc6668">RFC 6668</a></span>, SHA-2 Data Integrity Verification for
       the Secure Shell (SSH) Transport Layer Protocol
       <p>Comment: Defines hmac-sha2-256 and hmac-sha2-512
       </p>
@@ -538,10 +538,10 @@
 
   </div>
 
-  <h3><a name="idm46052431144512">SEE ALSO</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45749167947712">SEE ALSO</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','application.html');">application(3)</a></span></p>
+    <p><span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','application.html');">application(3)</a></span></p>
   </div>
 
 </div>

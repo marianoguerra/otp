@@ -592,11 +592,11 @@
 <!-- refpage --><center><h1>ei_connect</h1></center>
   
   <h3><a name="c-library" href="#c-library">C Library</a></h3>
-<div class="REFBODY">ei_connect</div>
+<div class="REFBODY c-library-body">ei_connect</div>
   <h3><a name="library-sumary" href="#library-sumary">Library Summary</a></h3>
-<div class="REFBODY">Communicate with distributed erlang</div>
+<div class="REFBODY library-summary-body">Communicate with distributed erlang</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>This module enables C programs to communicate with erlang nodes,
       using the erlang distribution over TCP/IP.</p>
     <p>A C node appears to Erlang as a
@@ -607,10 +607,10 @@
       Erlang function <span class="code">nodes/0</span>.</p>
     <p>The environment variable <span class="code">ERL_EPMD_PORT</span> can be used
       to indicate which logical cluster a C node belongs to.</p>
-  </p></div>
+  </div>
 
-  <h3><a name="idm46499956482144">Timeout functions</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46172180703024">Timeout functions</a></h3>
+<div class="REFBODY rb-3">
     
     <p>Most functions appear in a version with the suffix
       <span class="code">_tmo</span> appended to the function name. Those function take
@@ -641,8 +641,12 @@
       the <span class="code">_tmo</span> suffix.</p>
   </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="ei_connect_init"><span class="bold_code">int ei_connect_init(ei_cnode* ec, const char* this_node_name, const char *cookie, short creation)</span></a><br><a name="ei_connect_xinit"><span class="bold_code">int ei_connect_xinit(ei_cnode* ec, const char *thishostname, const char *thisalivename, const char *thisnodename, Erl_IpAddr thisipaddr, const char *cookie, short creation)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="ei_connect_init"><span class="bold_code bc-7">int ei_connect_init(ei_cnode* ec, const char* this_node_name, const char *cookie, short creation)</span></a><br><a name="ei_connect_xinit"><span class="bold_code bc-7">int ei_connect_xinit(ei_cnode* ec, const char *thishostname, const char *thisalivename, const char *thisnodename, Erl_IpAddr thisipaddr, const char *cookie, short creation)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>These function initializes the <span class="code">ec</span> structure, to
           identify the node name and cookie of the server. One of them
           has to be called before other functions that works on the
@@ -698,9 +702,13 @@ if (ei_connect_init(&amp;ec, "madonna", "cookie...", n++) &lt; 0) {
     exit(-1);
 }
         </pre></div>
-      </p></div>
-    <p><a name="ei_connect"><span class="bold_code">int ei_connect(ei_cnode* ec, char *nodename)</span></a><br><a name="ei_xconnect"><span class="bold_code">int ei_xconnect(ei_cnode* ec, Erl_IpAddr adr, char *alivename)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_connect"><span class="bold_code bc-7">int ei_connect(ei_cnode* ec, char *nodename)</span></a><br><a name="ei_xconnect"><span class="bold_code bc-7">int ei_xconnect(ei_cnode* ec, Erl_IpAddr adr, char *alivename)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>These functions set up a connection to an Erlang node.</p>
         <p><span class="code">ei_xconnect()</span> requires the IP address of the remote
           host and the alive name of the remote node
@@ -738,14 +746,22 @@ struct in_addr addr;
 addr.s_addr = inet_addr(IP_ADDR);
 fd = ei_xconnect(&amp;ec, &amp;addr, ALIVE);
         </pre></div>
-      </p></div>
-    <p><a name="ei_connect_tmo"><span class="bold_code">int ei_connect_tmo(ei_cnode* ec, char *nodename, unsigned timeout_ms)</span></a><br><a name="ei_xconnect_tmo"><span class="bold_code">int ei_xconnect_tmo(ei_cnode* ec, Erl_IpAddr adr, char *alivename, unsigned timeout_ms)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_connect_tmo"><span class="bold_code bc-7">int ei_connect_tmo(ei_cnode* ec, char *nodename, unsigned timeout_ms)</span></a><br><a name="ei_xconnect_tmo"><span class="bold_code bc-7">int ei_xconnect_tmo(ei_cnode* ec, Erl_IpAddr adr, char *alivename, unsigned timeout_ms)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>ei_connect and ei_xconnect with an optional timeout argument,
           see the description at the beginning of this document.</p>
-      </p></div>
-    <p><a name="ei_receive"><span class="bold_code">int ei_receive(int fd, unsigned char* bufp, int bufsize)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_receive"><span class="bold_code bc-7">int ei_receive(int fd, unsigned char* bufp, int bufsize)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function receives a message consisting of a sequence
           of bytes in the Erlang external format.</p>
         <p><span class="code">fd</span> is an open descriptor to an Erlang connection. It
@@ -771,14 +787,22 @@ fd = ei_xconnect(&amp;ec, &amp;addr, ALIVE);
           <dt><strong><span class="code">EIO</span></strong></dt>
           <dd>I/O error.</dd>
         </dl>
-      </p></div>
-    <p><a name="ei_receive_tmo"><span class="bold_code">int ei_receive_tmo(int fd, unsigned char* bufp, int bufsize, unsigned timeout_ms)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_receive_tmo"><span class="bold_code bc-7">int ei_receive_tmo(int fd, unsigned char* bufp, int bufsize, unsigned timeout_ms)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>ei_receive with an optional timeout argument,
           see the description at the beginning of this document.</p>
-      </p></div>
-    <p><a name="ei_receive_msg"><span class="bold_code">int ei_receive_msg(int fd, erlang_msg* msg, ei_x_buff* x)</span></a><br><a name="ei_xreceive_msg"><span class="bold_code">int ei_xreceive_msg(int fd, erlang_msg* msg, ei_x_buff* x)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_receive_msg"><span class="bold_code bc-7">int ei_receive_msg(int fd, erlang_msg* msg, ei_x_buff* x)</span></a><br><a name="ei_xreceive_msg"><span class="bold_code bc-7">int ei_xreceive_msg(int fd, erlang_msg* msg, ei_x_buff* x)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>These functions receives a message to the buffer in
           <span class="code">x</span>.  <span class="code">ei_xreceive_msg</span> allows the buffer in
           <span class="code">x</span> to grow, but <span class="code">ei_receive_msg</span> fails if the
@@ -817,14 +841,22 @@ typedef struct {
           <span class="code">msg-&gt;from</span> contain the pids of the linked processes.</p>
         <p>The return value is the same as for <span class="code">ei_receive</span>, see
           above.</p>
-      </p></div>
-    <p><a name="ei_receive_msg_tmo"><span class="bold_code">int ei_receive_msg_tmo(int fd, erlang_msg* msg, ei_x_buff* x, unsigned imeout_ms)</span></a><br><a name="ei_xreceive_msg_tmo"><span class="bold_code">int ei_xreceive_msg_tmo(int fd, erlang_msg* msg, ei_x_buff* x, unsigned timeout_ms)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_receive_msg_tmo"><span class="bold_code bc-7">int ei_receive_msg_tmo(int fd, erlang_msg* msg, ei_x_buff* x, unsigned imeout_ms)</span></a><br><a name="ei_xreceive_msg_tmo"><span class="bold_code bc-7">int ei_xreceive_msg_tmo(int fd, erlang_msg* msg, ei_x_buff* x, unsigned timeout_ms)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>ei_receive_msg and ei_xreceive_msg with an optional timeout argument,
           see the description at the beginning of this document.</p>
-      </p></div>
-    <p><a name="ei_receive_encoded"><span class="bold_code">int ei_receive_encoded(int fd, char **mbufp, int *bufsz,  erlang_msg *msg, int *msglen)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_receive_encoded"><span class="bold_code bc-7">int ei_receive_encoded(int fd, char **mbufp, int *bufsz,  erlang_msg *msg, int *msglen)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function is retained for compatibility with code
           generated by the interface compiler and with code following
           examples in the same application.</p>
@@ -846,14 +878,22 @@ typedef struct {
           however be retained in the interface for compatibility and
           will <strong>not</strong> be removed not be removed in future releases
           without notice.</p>
-      </p></div>
-    <p><a name="ei_receive_encoded_tmo"><span class="bold_code">int ei_receive_encoded_tmo(int fd, char **mbufp, int *bufsz,  erlang_msg *msg, int *msglen, unsigned timeout_ms)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_receive_encoded_tmo"><span class="bold_code bc-7">int ei_receive_encoded_tmo(int fd, char **mbufp, int *bufsz,  erlang_msg *msg, int *msglen, unsigned timeout_ms)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>ei_receive_encoded with an optional timeout argument,
           see the description at the beginning of this document.</p>
-      </p></div>
-    <p><a name="ei_send"><span class="bold_code">int ei_send(int fd, erlang_pid* to, char* buf, int len)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_send"><span class="bold_code bc-7">int ei_send(int fd, erlang_pid* to, char* buf, int len)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function sends an Erlang term to a process.</p>
         <p><span class="code">fd</span> is an open descriptor to an Erlang connection.</p>
         <p><span class="code">to</span> is the Pid of the intended recipient of the
@@ -863,25 +903,41 @@ typedef struct {
         <p><span class="code">len</span> is the length of the message in bytes.</p>
         <p>The function returns 0 if successful, otherwise -1, in the
           latter case it will set <span class="code">erl_errno</span> to <span class="code">EIO</span>.</p>
-      </p></div>
-    <p><a name="ei_send_tmo"><span class="bold_code">int ei_send_tmo(int fd, erlang_pid* to, char* buf, int len, unsigned timeout_ms)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_send_tmo"><span class="bold_code bc-7">int ei_send_tmo(int fd, erlang_pid* to, char* buf, int len, unsigned timeout_ms)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>ei_send with an optional timeout argument,
           see the description at the beginning of this document.</p>
-      </p></div>
-    <p><a name="ei_send_encoded"><span class="bold_code">int ei_send_encoded(int fd, erlang_pid* to, char* buf, int len)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_send_encoded"><span class="bold_code bc-7">int ei_send_encoded(int fd, erlang_pid* to, char* buf, int len)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Works exactly as ei_send, the alternative name retained for
           backward compatibility. The function will <strong>not</strong> be
           removed without notice.</p>
-      </p></div>
-    <p><a name="ei_send_encoded_tmo"><span class="bold_code">int ei_send_encoded_tmo(int fd, erlang_pid* to, char* buf, int len, unsigned timeout_ms)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_send_encoded_tmo"><span class="bold_code bc-7">int ei_send_encoded_tmo(int fd, erlang_pid* to, char* buf, int len, unsigned timeout_ms)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>ei_send_encoded with an optional timeout argument,
           see the description at the beginning of this document.</p>
-      </p></div>
-    <p><a name="ei_reg_send"><span class="bold_code">int ei_reg_send(ei_cnode* ec, int fd, char* server_name, char* buf, int len)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_reg_send"><span class="bold_code bc-7">int ei_reg_send(ei_cnode* ec, int fd, char* server_name, char* buf, int len)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function sends an Erlang term to a registered process.
           </p>
         <p>This function sends an Erlang term to a process.</p>
@@ -901,14 +957,22 @@ ei_x_encode_atom(&amp;x, "ok");
 if (ei_reg_send(&amp;ec, fd, x.buff, x.index) &lt; 0)
     handle_error();
         </pre></div>
-      </p></div>
-    <p><a name="ei_reg_send_tmo"><span class="bold_code">int ei_reg_send_tmo(ei_cnode* ec, int fd, char* server_name, char* buf, int len, unsigned timeout_ms)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_reg_send_tmo"><span class="bold_code bc-7">int ei_reg_send_tmo(ei_cnode* ec, int fd, char* server_name, char* buf, int len, unsigned timeout_ms)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>ei_reg_send with an optional timeout argument,
           see the description at the beginning of this document.</p>
-      </p></div>
-    <p><a name="ei_send_reg_encoded"><span class="bold_code">int ei_send_reg_encoded(int fd, const erlang_pid *from, const char *to, const char *buf, int len)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_send_reg_encoded"><span class="bold_code bc-7">int ei_send_reg_encoded(int fd, const erlang_pid *from, const char *to, const char *buf, int len)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function is retained for compatibility with code
           generated by the interface compiler and with code following
           examples in the same application.</p>
@@ -927,14 +991,22 @@ if (ei_reg_send(&amp;ec, fd, x.buff, x.index) &lt; 0)
           self = ei_self(&amp;ec);
           self-&gt;num = fd;
         </pre></div>
-      </p></div>
-    <p><a name="ei_send_reg_encoded_tmo"><span class="bold_code">int ei_send_reg_encoded_tmo(int fd, const erlang_pid *from, const char *to, const char *buf, int len)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_send_reg_encoded_tmo"><span class="bold_code bc-7">int ei_send_reg_encoded_tmo(int fd, const erlang_pid *from, const char *to, const char *buf, int len)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>ei_send_reg_encoded with an optional timeout argument,
           see the description at the beginning of this document.</p>
-      </p></div>
-    <p><a name="ei_rpc"><span class="bold_code">int ei_rpc(ei_cnode *ec, int fd, char *mod, char *fun, const char *argbuf, int argbuflen, ei_x_buff *x)</span></a><br><a name="ei_rpc_to"><span class="bold_code">int ei_rpc_to(ei_cnode *ec, int fd, char *mod, char *fun, const char *argbuf, int argbuflen)</span></a><br><a name="ei_rpc_from"><span class="bold_code">int ei_rpc_from(ei_cnode *ec, int fd, int timeout, erlang_msg *msg, ei_x_buff *x)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_rpc"><span class="bold_code bc-7">int ei_rpc(ei_cnode *ec, int fd, char *mod, char *fun, const char *argbuf, int argbuflen, ei_x_buff *x)</span></a><br><a name="ei_rpc_to"><span class="bold_code bc-7">int ei_rpc_to(ei_cnode *ec, int fd, char *mod, char *fun, const char *argbuf, int argbuflen)</span></a><br><a name="ei_rpc_from"><span class="bold_code bc-7">int ei_rpc_from(ei_cnode *ec, int fd, int timeout, erlang_msg *msg, ei_x_buff *x)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>These functions support calling Erlang functions on remote nodes.
           <span class="code">ei_rpc_to()</span> sends an rpc request to a remote node and
           <span class="code">ei_rpc_from()</span> receives the results of such a call.
@@ -997,9 +1069,13 @@ if (ei_decode_version(result.buff, &amp;index) &lt; 0
     || ei_decode_bool(result.buff, &amp;index, &amp;is_alive) &lt; 0)
     handle_error();
         </pre></div>
-      </p></div>
-    <p><a name="ei_publish"><span class="bold_code">int ei_publish(ei_cnode *ec, int port)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_publish"><span class="bold_code bc-7">int ei_publish(ei_cnode *ec, int port)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>These functions are used by a server process to register
           with the local name server <strong>epmd</strong>, thereby allowing
           other processes to send messages by using the registered name.
@@ -1017,14 +1093,22 @@ if (ei_decode_version(result.buff, &amp;index) &lt; 0
         <p>Additionally, <span class="code">errno</span> values from <span class="code">socket</span><strong>(2)</strong>
           and <span class="code">connect</span><strong>(2)</strong> system calls may be propagated
           into <span class="code">erl_errno</span>.</p>
-      </p></div>
-    <p><a name="ei_publish_tmo"><span class="bold_code">int ei_publish_tmo(ei_cnode *ec, int port, unsigned timeout_ms)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_publish_tmo"><span class="bold_code bc-7">int ei_publish_tmo(ei_cnode *ec, int port, unsigned timeout_ms)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>ei_publish with an optional timeout argument,
           see the description at the beginning of this document.</p>
-      </p></div>
-    <p><a name="ei_accept"><span class="bold_code">int ei_accept(ei_cnode *ec, int listensock, ErlConnect *conp)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_accept"><span class="bold_code bc-7">int ei_accept(ei_cnode *ec, int listensock, ErlConnect *conp)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function is used by a server process to accept a
           connection from a client process.</p>
         <p><span class="code">ec</span> is the C-node structure.</p>
@@ -1042,14 +1126,22 @@ typedef struct {
           node name of the connecting client and a file descriptor is
           returned. On failure, <span class="code">ERL_ERROR</span> is returned and
           <span class="code">erl_errno</span> is set to <span class="code">EIO</span>.</p>
-      </p></div>
-    <p><a name="ei_accept_tmo"><span class="bold_code">int ei_accept_tmo(ei_cnode *ec, int listensock, ErlConnect *conp, unsigned timeout_ms)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_accept_tmo"><span class="bold_code bc-7">int ei_accept_tmo(ei_cnode *ec, int listensock, ErlConnect *conp, unsigned timeout_ms)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>ei_accept with an optional timeout argument,
           see the description at the beginning of this document.</p>
-      </p></div>
-    <p><a name="ei_unpublish"><span class="bold_code">int ei_unpublish(ei_cnode *ec)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_unpublish"><span class="bold_code bc-7">int ei_unpublish(ei_cnode *ec)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function can be called by a process to unregister a
           specified node from epmd on the localhost. This is however usually not 
 	  allowed, unless epmd was started with the -relaxed_command_check 
@@ -1070,43 +1162,64 @@ typedef struct {
         <p>If the node was successfully unregistered from epmd, the
           function returns 0. Otherwise, it returns -1 and sets
           <span class="code">erl_errno</span> is to <span class="code">EIO</span>.</p>
-      </p></div>
-    <p><a name="ei_unpublish_tmo"><span class="bold_code">int ei_unpublish_tmo(ei_cnode *ec, unsigned timeout_ms)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_unpublish_tmo"><span class="bold_code bc-7">int ei_unpublish_tmo(ei_cnode *ec, unsigned timeout_ms)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>ei_unpublish with an optional timeout argument,
           see the description at the beginning of this document.</p>
-      </p></div>
-    <p><a name="ei_thisnodename"><span class="bold_code">const char *ei_thisnodename(ei_cnode *ec)</span></a><br><a name="ei_thishostname"><span class="bold_code">const char *ei_thishostname(ei_cnode *ec)</span></a><br><a name="ei_thisalivename"><span class="bold_code">const char *ei_thisalivename(ei_cnode *ec)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_thisnodename"><span class="bold_code bc-7">const char *ei_thisnodename(ei_cnode *ec)</span></a><br><a name="ei_thishostname"><span class="bold_code bc-7">const char *ei_thishostname(ei_cnode *ec)</span></a><br><a name="ei_thisalivename"><span class="bold_code bc-7">const char *ei_thisalivename(ei_cnode *ec)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>These functions can be used to retrieve information about
           the C Node. These values are initially set with
           <span class="code">ei_connect_init()</span> or <span class="code">ei_connect_xinit()</span>.</p>
         <p>They simply fetches the appropriate field from the <span class="code">ec</span>
           structure. Read the field directly will probably be safe for
           a long time, so these functions are not really needed.</p>
-      </p></div>
-    <p><a name="ei_self"><span class="bold_code">erlang_pid *ei_self(ei_cnode *ec)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_self"><span class="bold_code bc-7">erlang_pid *ei_self(ei_cnode *ec)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function retrieves the Pid of the C-node. Every C-node
           has a (pseudo) pid used in <span class="code">ei_send_reg</span>, <span class="code">ei_rpc</span>
           and others. This is contained in a field in the <span class="code">ec</span>
           structure. It will be safe for a long time to fetch this
           field directly from the <span class="code">ei_cnode</span> structure.</p>
-      </p></div>
-    <p><a name="*ei_gethostbyname"><span class="bold_code">struct hostent *ei_gethostbyname(const char *name)</span></a><br><a name="*ei_gethostbyaddr"><span class="bold_code">struct hostent *ei_gethostbyaddr(const char *addr, int len, int type)</span></a><br><a name="*ei_gethostbyname_r"><span class="bold_code">struct hostent *ei_gethostbyname_r(const char *name,  struct hostent *hostp,  char *buffer,  int buflen,  int *h_errnop)</span></a><br><a name="*ei_gethostbyaddr_r"><span class="bold_code">struct hostent *ei_gethostbyaddr_r(const char *addr, int length,  int type,  struct hostent *hostp, char *buffer,   int buflen,  int *h_errnop)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="*ei_gethostbyname"><span class="bold_code bc-7">struct hostent *ei_gethostbyname(const char *name)</span></a><br><a name="*ei_gethostbyaddr"><span class="bold_code bc-7">struct hostent *ei_gethostbyaddr(const char *addr, int len, int type)</span></a><br><a name="*ei_gethostbyname_r"><span class="bold_code bc-7">struct hostent *ei_gethostbyname_r(const char *name,  struct hostent *hostp,  char *buffer,  int buflen,  int *h_errnop)</span></a><br><a name="*ei_gethostbyaddr_r"><span class="bold_code bc-7">struct hostent *ei_gethostbyaddr_r(const char *addr, int length,  int type,  struct hostent *hostp, char *buffer,   int buflen,  int *h_errnop)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>These are convenience functions for some common name lookup functions.</p>
-      </p></div>
-    <p><a name="ei_get_tracelevel"><span class="bold_code">int ei_get_tracelevel(void)</span></a><br><a name="ei_set_tracelevel"><span class="bold_code">void ei_set_tracelevel(int level)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="ei_get_tracelevel"><span class="bold_code bc-7">int ei_get_tracelevel(void)</span></a><br><a name="ei_set_tracelevel"><span class="bold_code bc-7">void ei_set_tracelevel(int level)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>These functions are used to set tracing on the distribution. The levels are different verbosity levels. A higher level means more information.
 	See also Debug Information and <span class="code">EI_TRACELEVEL</span> below. </p>
 	<p> <span class="code">ei_set_tracelevel</span> and <span class="code">ei_get_tracelevel</span> are not thread safe.  </p>
-      </p></div>
-  
+      </p></div></div>
+</div>
+  </div>
 
-  <h3><a name="idm46499956250192">Debug Information</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46172180471072">Debug Information</a></h3>
+<div class="REFBODY rb-3">
     
     <p>If a connection attempt fails, the following can be checked:</p>
     <ul>

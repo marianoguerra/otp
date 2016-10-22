@@ -137,14 +137,14 @@
 <!-- refpage --><center><h1>cpu_sup</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">cpu_sup</div>
+<div class="REFBODY module-body">cpu_sup</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">A CPU Load and CPU Utilization Supervisor Process</div>
+<div class="REFBODY modules-summary-body">A CPU Load and CPU Utilization Supervisor Process</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p><span class="code">cpu_sup</span> is a process which supervises the CPU load
       and CPU utilization. It is part of the OS_Mon application, see
-      <span class="bold_code"><a href="os_mon_app.html">os_mon(6)</a></span>. Available for Unix,
+      <span class="bold_code bc-19"><a href="os_mon_app.html">os_mon(6)</a></span>. Available for Unix,
       although CPU utilization values (<span class="code">util/0,1</span>) are only
       available for Solaris, Linux and FreeBSD.</p>
     <p>The load values are proportional to how long time a runnable
@@ -184,83 +184,112 @@
     <p>When run on Linux, <span class="code">cpu_sup</span> assumes that the <span class="code">/proc</span>
       file system is present and accessible by <span class="code">cpu_sup</span>. If it is
       not, <span class="code">cpu_sup</span> will terminate.</p>
-  </p></div>
+  </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="nprocs-0"></a><span class="bold_code">nprocs() -&gt; UnixProcesses | {error, Reason}</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="nprocs-0"></a><span class="bold_code bc-9">nprocs() -&gt; UnixProcesses | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">UnixProcesses = int()</span><br>
+<span class="bold_code bc-11">UnixProcesses = int()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Returns the number of UNIX processes running on this machine.
           This is a crude way of measuring the system load, but it may
           be of interest in some cases.</p>
         <p>Returns 0 if <span class="code">cpu_sup</span> is not available.</p>
       </p></div>
-    <p><a name="avg1-0"></a><span class="bold_code">avg1() -&gt; SystemLoad | {error, Reason}</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="avg1-0"></a><span class="bold_code bc-9">avg1() -&gt; SystemLoad | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">SystemLoad = int()</span><br>
+<span class="bold_code bc-11">SystemLoad = int()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Returns the average system load in the last minute, as
           described above. 0 represents no load, 256 represents the load
           reported as 1.00 by <span class="code">rup</span>.</p>
         <p>Returns 0 if <span class="code">cpu_sup</span> is not available.</p>
       </p></div>
-    <p><a name="avg5-0"></a><span class="bold_code">avg5() -&gt; SystemLoad | {error, Reason}</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="avg5-0"></a><span class="bold_code bc-9">avg5() -&gt; SystemLoad | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">SystemLoad = int()</span><br>
+<span class="bold_code bc-11">SystemLoad = int()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Returns the average system load in the last five minutes, as
           described above. 0 represents no load, 256 represents the load
           reported as 1.00 by <span class="code">rup</span>.</p>
         <p>Returns 0 if <span class="code">cpu_sup</span> is not available.</p>
       </p></div>
-    <p><a name="avg15-0"></a><span class="bold_code">avg15() -&gt; SystemLoad | {error, Reason}</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="avg15-0"></a><span class="bold_code bc-9">avg15() -&gt; SystemLoad | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">SystemLoad = int()</span><br>
+<span class="bold_code bc-11">SystemLoad = int()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Returns the average system load in the last 15 minutes, as
           described above. 0 represents no load, 256 represents the load
           reported as 1.00 by <span class="code">rup</span>.</p>
         <p>Returns 0 if <span class="code">cpu_sup</span> is not available.</p>
       </p></div>
-    <p><a name="util-0"></a><span class="bold_code">util() -&gt; CpuUtil | {error, Reason}</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="util-0"></a><span class="bold_code bc-9">util() -&gt; CpuUtil | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">CpuUtil = float()</span><br>
+<span class="bold_code bc-11">CpuUtil = float()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Returns CPU utilization since the last call to
           <span class="code">util/0</span> or <span class="code">util/1</span> by the calling process.</p>
         <div class="note">
@@ -279,41 +308,47 @@
           (see <span class="code">util/1</span> below) in average on all CPUs.</p>
         <p>Returns 0 if <span class="code">cpu_sup</span> is not available.</p>
       </p></div>
-    <p><a name="util-1"></a><span class="bold_code">util(Opts) -&gt; UtilSpec | {error, Reason}</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="util-1"></a><span class="bold_code bc-9">util(Opts) -&gt; UtilSpec | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Opts = [detailed | per_cpu]</span><br>
+<span class="bold_code bc-11">Opts = [detailed | per_cpu]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">UtilSpec = UtilDesc | [UtilDesc]</span><br>
+<span class="bold_code bc-11">UtilSpec = UtilDesc | [UtilDesc]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code"> UtilDesc = {Cpus, Busy, NonBusy, Misc}</span><br>
+<span class="bold_code bc-11"> UtilDesc = {Cpus, Busy, NonBusy, Misc}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">  Cpus = all | int() | [int()]()</span><br>
+<span class="bold_code bc-11">  Cpus = all | int() | [int()]()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">  Busy = NonBusy = {State, Share} | Share</span><br>
+<span class="bold_code bc-11">  Busy = NonBusy = {State, Share} | Share</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">   State = user | nice_user | kernel</span><br>
+<span class="bold_code bc-11">   State = user | nice_user | kernel</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">    | wait | idle | atom()</span><br>
+<span class="bold_code bc-11">    | wait | idle | atom()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">   Share = float()</span><br>
+<span class="bold_code bc-11">   Share = float()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">  Misc = []</span><br>
+<span class="bold_code bc-11">  Misc = []</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Returns CPU utilization since the last call to
           <span class="code">util/0</span> or <span class="code">util/1</span> by the calling process, in
           more detail than <span class="code">util/0</span>.</p>
@@ -420,12 +455,14 @@
         <p>Returns <span class="code">{all,0,0,[]}</span> if <span class="code">cpu_sup</span> is not
           available.</p>
       </p></div>
-  
+</div>
+</div>
+  </div>
 
-  <h3><a name="idm45654279572832">See Also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45705501415104">See Also</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="os_mon_app.html">os_mon(3)</a></span></p>
+    <p><span class="bold_code bc-19"><a href="os_mon_app.html">os_mon(3)</a></span></p>
   </div>
 </div>
 <div class="footer">

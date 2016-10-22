@@ -139,94 +139,119 @@
 <!-- refpage --><center><h1>CosTime_TimeService</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">CosTime_TimeService</div>
+<div class="REFBODY module-body">CosTime_TimeService</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">This module implements the OMG CosTime::TimeService interface.</div>
+<div class="REFBODY modules-summary-body">This module implements the OMG CosTime::TimeService interface.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>To get access to the record definitions for the structures use:      <br>
 <span class="code">-include_lib("cosTime/include/*.hrl").</span></p>
-  </p></div>
+  </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="universal_time-1"></a><span class="bold_code">universal_time(TimeService) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="universal_time-1"></a><span class="bold_code bc-9">universal_time(TimeService) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">TimeService = #objref</span><br>
+<span class="bold_code bc-11">TimeService = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = UTO | {'EXCEPTION", #'TimerService_TimeUnavailable'{}}</span><br>
+<span class="bold_code bc-11">Reply = UTO | {'EXCEPTION", #'TimerService_TimeUnavailable'{}}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">UTO = #objref</span><br>
+<span class="bold_code bc-11">UTO = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation returns the current time and the Inaccuracy given
           when starting this application in a UTO. The time base is 
           <strong>15 october 1582 00:00</strong>. Comparing two time objects which use 
           different time base is, by obvious reasons, pointless.</p>
       </p></div>
-    <p><a name="new_universal_time-4"></a><span class="bold_code">new_universal_time(TimeService, Time, Inaccuracy, Tdf) -&gt; UTO</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="new_universal_time-4"></a><span class="bold_code bc-9">new_universal_time(TimeService, Time, Inaccuracy, Tdf) -&gt; UTO</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">TimeService = UTO = #objref</span><br>
+<span class="bold_code bc-11">TimeService = UTO = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Time = Inaccuracy = ulonglong()</span><br>
+<span class="bold_code bc-11">Time = Inaccuracy = ulonglong()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Tdf = short()</span><br>
+<span class="bold_code bc-11">Tdf = short()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation creates a new UTO object representing the time 
           parameters given. This is the only way to create a UTO with an
           arbitrary time from its components. This is useful when using the 
           Timer Event Service.</p>
       </p></div>
-    <p><a name="uto_from_utc-2"></a><span class="bold_code">uto_from_utc(TimeService, Utc) -&gt; UTO</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="uto_from_utc-2"></a><span class="bold_code bc-9">uto_from_utc(TimeService, Utc) -&gt; UTO</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">TimeService = UTO = #objref</span><br>
+<span class="bold_code bc-11">TimeService = UTO = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Utc = #'TimeBase_UtcT'{time, inacclo, inacchi, tdf}</span><br>
+<span class="bold_code bc-11">Utc = #'TimeBase_UtcT'{time, inacclo, inacchi, tdf}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">time = ulonglong()</span><br>
+<span class="bold_code bc-11">time = ulonglong()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">inacclo = ulong()</span><br>
+<span class="bold_code bc-11">inacclo = ulong()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">inacchi = ushort()</span><br>
+<span class="bold_code bc-11">inacchi = ushort()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">tdf = short()</span><br>
+<span class="bold_code bc-11">tdf = short()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation is used to create a UTO given a time in the Utc form.</p>
       </p></div>
-    <p><a name="new_interval-3"></a><span class="bold_code">new_interval(TimeService, Lower, Upper) -&gt; TIO</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="new_interval-3"></a><span class="bold_code bc-9">new_interval(TimeService, Lower, Upper) -&gt; TIO</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">TimeService = TIO = #objref</span><br>
+<span class="bold_code bc-11">TimeService = TIO = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Lower = Upper = ulonglong()</span><br>
+<span class="bold_code bc-11">Lower = Upper = ulonglong()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation is used to create a new TIO object, representing 
           the input parameters. If <strong>Lower</strong> is greater than Upper 
           BAD_PARAM is raised.</p>
       </p></div>
-  
+</div>
+</div>
+  </div>
   
 </div>
 <div class="footer">

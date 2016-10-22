@@ -154,15 +154,15 @@
 <!-- refpage --><center><h1>int</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">int</div>
+<div class="REFBODY module-body">int</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Interpreter Interface.</div>
+<div class="REFBODY modules-summary-body">Interpreter Interface.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>The Erlang interpreter provides mechanisms for breakpoints and
       stepwise execution of code. It is primarily intended to be used by
       Debugger, see the User's Guide and
-      <span class="bold_code"><a href="debugger.html"><span class="code">debugger(3)</span></a></span>.</p>
+      <span class="bold_code bc-19"><a href="debugger.html"><span class="code">debugger(3)</span></a></span>.</p>
     
     <p>The following can be done from the shell:</p>
     <ul>
@@ -186,12 +186,12 @@
       these applications are not allowed to be interpreted, as it could lead
       to a deadlock or emulator crash. This also applies to modules
       belonging to the Debugger application.</p>
-  </p></div>
+  </div>
 
   <h3>
-<a name="int_breakpoints"></a><a name="idm45927514760768">Breakpoints</a>
+<a name="int_breakpoints"></a><a name="idm45819119937184">Breakpoints</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
 
@@ -224,23 +224,28 @@
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="i-1"></a><span class="bold_code">i(AbsModule) -&gt; {module,Module} | error</span><br><a name="i-1"></a><span class="bold_code">i(AbsModules) -&gt; ok</span><br><a name="ni-1"></a><span class="bold_code">ni(AbsModule) -&gt; {module,Module} | error</span><br><a name="ni-1"></a><span class="bold_code">ni(AbsModules) -&gt; ok</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="i-1"></a><span class="bold_code bc-9">i(AbsModule) -&gt; {module,Module} | error</span><br><a name="i-1"></a><span class="bold_code bc-9">i(AbsModules) -&gt; ok</span><br><a name="ni-1"></a><span class="bold_code bc-9">ni(AbsModule) -&gt; {module,Module} | error</span><br><a name="ni-1"></a><span class="bold_code bc-9">ni(AbsModules) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">AbsModules = [AbsModule]</span><br>
+<span class="bold_code bc-11">AbsModules = [AbsModule]</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">AbsModule = Module | File | [Module | File]</span><br>
+<span class="bold_code bc-11">AbsModule = Module | File | [Module | File]</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code"> Module = atom()</span><br>
+<span class="bold_code bc-11"> Module = atom()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code"> File = string()</span><br>
+<span class="bold_code bc-11"> File = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
 	<p>Interprets the specified module(s). <span class="code">i/1</span> interprets
 	  the module only at the current node. <span class="code">ni/1</span> interprets
 	  the module at all known nodes.</p>
@@ -279,21 +284,27 @@
 	  but prints some information to <span class="code">stdout</span> if a module
 	  cannot be interpreted.</p>
       </p></div>
+</div>
+</div>
 	
-    <p><a name="n-1"></a><span class="bold_code">n(AbsModule) -&gt; ok</span><br><a name="nn-1"></a><span class="bold_code">nn(AbsModule) -&gt; ok</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="n-1"></a><span class="bold_code bc-9">n(AbsModule) -&gt; ok</span><br><a name="nn-1"></a><span class="bold_code bc-9">nn(AbsModule) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">AbsModule = Module | File | [Module | File]</span><br>
+<span class="bold_code bc-11">AbsModule = Module | File | [Module | File]</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code"> Module = atom()</span><br>
+<span class="bold_code bc-11"> Module = atom()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code"> File = string()</span><br>
+<span class="bold_code bc-11"> File = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
 	<p>Stops interpreting the specified module. <span class="code">n/1</span> stops
 	  interpreting the module only at the current node. <span class="code">nn/1</span>
 	  stops interpreting the module at all known nodes.</p>
@@ -301,54 +312,72 @@
 	<p>As for <span class="code">i/1</span> and <span class="code">ni/1</span>, a module can be specified by
 	  its module name or filename.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="interpreted-0"></a><span class="bold_code">interpreted() -&gt; [Module]</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="interpreted-0"></a><span class="bold_code bc-9">interpreted() -&gt; [Module]</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">Module = atom()</span><br>
+<span class="bold_code bc-11">Module = atom()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
 	<p>Returns a list with all interpreted modules.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="file-1"></a><span class="bold_code">file(Module) -&gt; File | {error,not_loaded}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="file-1"></a><span class="bold_code bc-9">file(Module) -&gt; File | {error,not_loaded}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">Module = atom()</span><br>
+<span class="bold_code bc-11">Module = atom()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">File = string()</span><br>
+<span class="bold_code bc-11">File = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
 	<p>Returns the source code filename <span class="code">File</span> for an
 	  interpreted module <span class="code">Module</span>.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="interpretable-1"></a><span class="bold_code">interpretable(AbsModule) -&gt; true | {error,Reason}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="interpretable-1"></a><span class="bold_code bc-9">interpretable(AbsModule) -&gt; true | {error,Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">AbsModule = Module | File</span><br>
+<span class="bold_code bc-11">AbsModule = Module | File</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code"> Module = atom()</span><br>
+<span class="bold_code bc-11"> Module = atom()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code"> File = string()</span><br>
+<span class="bold_code bc-11"> File = string()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Reason = no_src | no_beam | no_debug_info | badarg
+<span class="bold_code bc-11">Reason = no_src | no_beam | no_debug_info | badarg
 	  | {app,App}</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code"> App = atom()</span><br>
+<span class="bold_code bc-11"> App = atom()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
 	<p>Checks if a module can be interpreted. The module can be
 	  specified by its module name <span class="code">Module</span> or its source
 	  filename <span class="code">File</span>. If specified by a module name, the module
@@ -403,24 +432,30 @@
 	  marked as sticky. The reason is that this is not discovered
 	  until the interpreter tries to load the module.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="auto_attach-0"></a><span class="bold_code">auto_attach() -&gt; false | {Flags,Function}</span><br><a name="auto_attach-1"></a><span class="bold_code">auto_attach(false)</span><br><a name="auto_attach-2"></a><span class="bold_code">auto_attach(Flags, Function)</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="auto_attach-0"></a><span class="bold_code bc-9">auto_attach() -&gt; false | {Flags,Function}</span><br><a name="auto_attach-1"></a><span class="bold_code bc-9">auto_attach(false)</span><br><a name="auto_attach-2"></a><span class="bold_code bc-9">auto_attach(Flags, Function)</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">Flags = [init | break | exit]</span><br>
+<span class="bold_code bc-11">Flags = [init | break | exit]</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Function = {Module,Name,Args}</span><br>
+<span class="bold_code bc-11">Function = {Module,Name,Args}</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code"> Module = Name = atom()</span><br>
+<span class="bold_code bc-11"> Module = Name = atom()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code"> Args = [term()]</span><br>
+<span class="bold_code bc-11"> Args = [term()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
 	<p>Gets and sets when and how to attach automatically to a
 	  process executing code in interpreted modules. <span class="code">false</span>
 	  means never attach automatically, this is the default.
@@ -445,15 +480,21 @@ spawn(Module, Name, [Pid | Args])</pre></div>
 	<p><span class="code">Pid</span> is the pid of the process executing interpreted
 	  code.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="stack_trace-0"></a><span class="bold_code">stack_trace() -&gt; Flag</span><br><a name="stack_trace-1"></a><span class="bold_code">stack_trace(Flag)</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="stack_trace-0"></a><span class="bold_code bc-9">stack_trace() -&gt; Flag</span><br><a name="stack_trace-1"></a><span class="bold_code bc-9">stack_trace(Flag)</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">Flag = all | no_tail | false</span><br>
+<span class="bold_code bc-11">Flag = all | no_tail | false</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
 	<p>Gets and sets how to save call frames in the stack. Saving
 	  call frames makes it possible to inspect the call chain of a
 	  process, and is also used to emulate the stack trace if an
@@ -477,231 +518,301 @@ spawn(Module, Name, [Pid | Args])</pre></div>
 	  <dd><p>Save no information about currentcalls.</p></dd>
 	</dl>
       </p></div>
+</div>
+</div>
 
-    <p><a name="break-2"></a><span class="bold_code">break(Module, Line) -&gt; ok | {error,break_exists}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="break-2"></a><span class="bold_code bc-9">break(Module, Line) -&gt; ok | {error,break_exists}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">Module = atom()</span><br>
+<span class="bold_code bc-11">Module = atom()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Line = int()</span><br>
+<span class="bold_code bc-11">Line = int()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
 	<p>Creates a breakpoint at <span class="code">Line</span> in <span class="code">Module</span>.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="delete_break-2"></a><span class="bold_code">delete_break(Module, Line) -&gt; ok</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="delete_break-2"></a><span class="bold_code bc-9">delete_break(Module, Line) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">Module = atom()</span><br>
+<span class="bold_code bc-11">Module = atom()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Line = int()</span><br>
+<span class="bold_code bc-11">Line = int()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
 	<p>Deletes the breakpoint at <span class="code">Line</span> in <span class="code">Module</span>.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="break_in-3"></a><span class="bold_code">break_in(Module, Name, Arity) -&gt; ok
-	| {error,function_not_found}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="break_in-3"></a><span class="bold_code bc-9">break_in(Module, Name, Arity) -&gt; ok
+	| {error,function_not_found}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">Module = Name = atom()</span><br>
+<span class="bold_code bc-11">Module = Name = atom()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Arity = int()</span><br>
+<span class="bold_code bc-11">Arity = int()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
 	<p>Creates a breakpoint at the first line of every clause of 
 	  function <span class="code">Module:Name/Arity</span>.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="del_break_in-3"></a><span class="bold_code">del_break_in(Module, Name, Arity) -&gt; ok
-	| {error,function_not_found}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="del_break_in-3"></a><span class="bold_code bc-9">del_break_in(Module, Name, Arity) -&gt; ok
+	| {error,function_not_found}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">Module = Name = atom()</span><br>
+<span class="bold_code bc-11">Module = Name = atom()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Arity = int()</span><br>
+<span class="bold_code bc-11">Arity = int()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
 	<p>Deletes the breakpoints at the first line of every clause of 
 	  function <span class="code">Module:Name/Arity</span>.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="no_break-0"></a><span class="bold_code">no_break() -&gt; ok</span><br><a name="no_break-1"></a><span class="bold_code">no_break(Module) -&gt; ok</span><br></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="no_break-0"></a><span class="bold_code bc-9">no_break() -&gt; ok</span><br><a name="no_break-1"></a><span class="bold_code bc-9">no_break(Module) -&gt; ok</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
 	<p>Deletes all breakpoints, or all breakpoints in <span class="code">Module</span>.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="disable_break-2"></a><span class="bold_code">disable_break(Module, Line) -&gt; ok</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="disable_break-2"></a><span class="bold_code bc-9">disable_break(Module, Line) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">Module = atom()</span><br>
+<span class="bold_code bc-11">Module = atom()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Line = int()</span><br>
+<span class="bold_code bc-11">Line = int()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
 	<p>Makes the breakpoint at <span class="code">Line</span> in <span class="code">Module</span> inactive.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="enable_break-2"></a><span class="bold_code">enable_break(Module, Line) -&gt; ok</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="enable_break-2"></a><span class="bold_code bc-9">enable_break(Module, Line) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">Module = atom()</span><br>
+<span class="bold_code bc-11">Module = atom()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Line = int()</span><br>
+<span class="bold_code bc-11">Line = int()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
 	<p>Makes the breakpoint at <span class="code">Line</span> in <span class="code">Module</span> active.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="action_at_break-3"></a><span class="bold_code">action_at_break(Module, Line, Action) -&gt; ok</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="action_at_break-3"></a><span class="bold_code bc-9">action_at_break(Module, Line, Action) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">Module = atom()</span><br>
+<span class="bold_code bc-11">Module = atom()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Line = int()</span><br>
+<span class="bold_code bc-11">Line = int()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Action = enable | disable | delete</span><br>
+<span class="bold_code bc-11">Action = enable | disable | delete</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
 	<p>Sets the trigger action of the breakpoint at <span class="code">Line</span> in
 	  <span class="code">Module</span> to <span class="code">Action</span>.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="test_at_break-3"></a><span class="bold_code">test_at_break(Module, Line, Function) -&gt; ok</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="test_at_break-3"></a><span class="bold_code bc-9">test_at_break(Module, Line, Function) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">Module = atom()</span><br>
+<span class="bold_code bc-11">Module = atom()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Line = int()</span><br>
+<span class="bold_code bc-11">Line = int()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Function = {Module,Name}</span><br>
+<span class="bold_code bc-11">Function = {Module,Name}</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code"> Name = atom()</span><br>
+<span class="bold_code bc-11"> Name = atom()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
 	<p>Sets the conditional test of the breakpoint at <span class="code">Line</span> in
 	  <span class="code">Module</span> to <span class="code">Function</span>. The function must
 	  fulfill the requirements specified in section
-          <span class="bold_code"><a href="#int_breakpoints">Breakpoints</a></span>.</p>
+          <span class="bold_code data-type-ref"><a href="#int_breakpoints">Breakpoints</a></span>.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="get_binding-2"></a><span class="bold_code">get_binding(Var, Bindings) -&gt; {value,Value} | unbound</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="get_binding-2"></a><span class="bold_code bc-9">get_binding(Var, Bindings) -&gt; {value,Value} | unbound</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">Var = atom()</span><br>
+<span class="bold_code bc-11">Var = atom()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Bindings = term()</span><br>
+<span class="bold_code bc-11">Bindings = term()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">Value = term()</span><br>
+<span class="bold_code bc-11">Value = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
 	<p>Retrieves the binding of <span class="code">Var</span>. This function is
 	  intended to be used by the conditional function of a
 	  breakpoint.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="all_breaks-0"></a><span class="bold_code">all_breaks() -&gt; [Break]</span><br><a name="all_breaks-1"></a><span class="bold_code">all_breaks(Module) -&gt; [Break]</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="all_breaks-0"></a><span class="bold_code bc-9">all_breaks() -&gt; [Break]</span><br><a name="all_breaks-1"></a><span class="bold_code bc-9">all_breaks(Module) -&gt; [Break]</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">Break = {Point,Options}</span><br>
+<span class="bold_code bc-11">Break = {Point,Options}</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code"> Point = {Module,Line}</span><br>
+<span class="bold_code bc-11"> Point = {Module,Line}</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">  Module = atom()</span><br>
+<span class="bold_code bc-11">  Module = atom()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">  Line = int()</span><br>
+<span class="bold_code bc-11">  Line = int()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code"> Options = [Status,Trigger,null,Cond|]</span><br>
+<span class="bold_code bc-11"> Options = [Status,Trigger,null,Cond|]</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">  Status = active | inactive</span><br>
+<span class="bold_code bc-11">  Status = active | inactive</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">  Trigger = enable | disable | delete</span><br>
+<span class="bold_code bc-11">  Trigger = enable | disable | delete</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">  Cond = null | Function</span><br>
+<span class="bold_code bc-11">  Cond = null | Function</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">   Function = {Module,Name}</span><br>
+<span class="bold_code bc-11">   Function = {Module,Name}</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">    Name = atom()</span><br>
+<span class="bold_code bc-11">    Name = atom()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
 	<p>Gets all breakpoints, or all breakpoints in <span class="code">Module</span>.</p>
       </p></div>
+</div>
+</div>
 
-    <p><a name="snapshot-0"></a><span class="bold_code">snapshot() -&gt; [Snapshot]</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="snapshot-0"></a><span class="bold_code bc-9">snapshot() -&gt; [Snapshot]</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">Snapshot = {Pid, Function, Status, Info}</span><br>
+<span class="bold_code bc-11">Snapshot = {Pid, Function, Status, Info}</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code"> Pid = pid()</span><br>
+<span class="bold_code bc-11"> Pid = pid()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code"> Function = {Module,Name,Args}</span><br>
+<span class="bold_code bc-11"> Function = {Module,Name,Args}</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">  Module = Name = atom()</span><br>
+<span class="bold_code bc-11">  Module = Name = atom()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">  Args = [term()]</span><br>
+<span class="bold_code bc-11">  Args = [term()]</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code"> Status = idle | running | waiting | break | exit
+<span class="bold_code bc-11"> Status = idle | running | waiting | break | exit
 	  | no_conn</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code"> Info = {} | {Module,Line} | ExitReason</span><br>
+<span class="bold_code bc-11"> Info = {} | {Module,Line} | ExitReason</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">  Line = int()</span><br>
+<span class="bold_code bc-11">  Line = int()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">  ExitReason = term()</span><br>
+<span class="bold_code bc-11">  ExitReason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
 	<p>Gets information about all processes executing interpreted code.
 	</p>
 	<ul>
@@ -738,28 +849,40 @@ spawn(Module, Name, [Pid | Args])</pre></div>
 	    where the process is running. <span class="code">Info={}</span>.</li>
 	</ul>
       </p></div>
+</div>
+</div>
 
-    <p><a name="clear-0"></a><span class="bold_code">clear() -&gt; ok</span><br></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="clear-0"></a><span class="bold_code bc-9">clear() -&gt; ok</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
 	<p>Clears information about processes executing interpreted code
 	  by removing all information about terminated processes.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="continue-1"></a><span class="bold_code">continue(Pid) -&gt; ok | {error,not_interpreted}</span><br><a name="continue-3"></a><span class="bold_code">continue(X,Y,Z) -&gt; ok | {error,not_interpreted}</span><br></p>
-<div class="REFBODY">
+    <div class="func">
+<div class="func-title">
+<a name="continue-1"></a><span class="bold_code bc-9">continue(Pid) -&gt; ok | {error,not_interpreted}</span><br><a name="continue-3"></a><span class="bold_code bc-9">continue(X,Y,Z) -&gt; ok | {error,not_interpreted}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 	<div class="REFTYPES">
-<span class="bold_code">Pid = pid()</span><br>
+<span class="bold_code bc-11">Pid = pid()</span><br>
 </div>
 	<div class="REFTYPES">
-<span class="bold_code">X = Y = Z = int()</span><br>
+<span class="bold_code bc-11">X = Y = Z = int()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
 	<p>Resumes process execution for <span class="code">Pid</span> or
 	  <span class="code">c:pid(X,Y,Z)</span>.</p>
       </p></div>
-  
+</div>
+</div>
+  </div>
 </div>
 <div class="footer">
 <hr>

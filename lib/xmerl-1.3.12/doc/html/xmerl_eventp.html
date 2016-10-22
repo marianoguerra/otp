@@ -165,19 +165,20 @@
 <!-- refpage --><center><h1>xmerl_eventp</h1></center>
 
 <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">xmerl_eventp</div>
+<div class="REFBODY module-body">xmerl_eventp</div>
 <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Simple event-based front-ends to xmerl_scan for processing
+<div class="REFBODY modules-summary-body">Simple event-based front-ends to xmerl_scan for processing
   of XML documents in streams and for parsing in SAX style.</div>
 <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
 <p>Simple event-based front-ends to xmerl_scan for processing
   of XML documents in streams and for parsing in SAX style.
   Each contain more elaborate settings of xmerl_scan that makes usage of
   the customization functions.
- </p></p></div>
-<h3><a name="idm45573506174144">DATA TYPES</a></h3>
-<div class="REFBODY">
+ </p>
+</div>
+<h3><a name="idm45970089513360">DATA TYPES</a></h3>
+<div class="REFBODY rb-3">
 <a name="types"></a>
 
 <dl>
@@ -186,7 +187,7 @@
 <p></p>
 <p>Options allow to customize the behaviour of the
       scanner.
-  See also <span class="bold_code"><a href="xmerl_examples.html">tutorial</a></span> on customization
+  See also <span class="bold_code bc-20"><a href="xmerl_examples.html">tutorial</a></span> on customization
   functions.
   </p>
   <p>
@@ -273,16 +274,24 @@
 </dl>
 </div>
 <h3><a name="exports" href="#exports">Exports</a></h3>
-<p><a name="file_sax-4"></a><span class="bold_code">file_sax(Fname::string(), CallBackModule::atom(), UserState, Options::<span class="bold_code"><a href="#type-option_list">option_list()</a></span>) -&gt; NewUserState</span><br></p>
-<div class="REFBODY"><p><a name="file_sax-4"></a>
+<div class="exports-body">
+<div class="func">
+<div class="func-title">
+<a name="file_sax-4"></a><span class="bold_code bc-9">file_sax(Fname::string(), CallBackModule::atom(), UserState, Options::<span class="bold_code data-type-ref"><a href="#type-option_list">option_list()</a></span>) -&gt; NewUserState</span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="file_sax-4"></a>
 
 <p>Parse file containing an XML document, SAX style.
   Wrapper for a call to the XML parser <span class="code">xmerl_scan</span> with a
   <span class="code">hook_fun</span> for using xmerl export functionality directly after
   an entity is parsed.</p>
-</p></div>
-<p><a name="stream-2"></a><span class="bold_code">stream(Fname::string(), Options::<span class="bold_code"><a href="#type-option_list">option_list()</a></span>) -&gt; <span class="bold_code"><a href="#type-xmlElement">xmlElement()</a></span></span><br></p>
-<div class="REFBODY"><p><a name="stream-2"></a>
+</p></div></div>
+</div>
+<div class="func">
+<div class="func-title">
+<a name="stream-2"></a><span class="bold_code bc-9">stream(Fname::string(), Options::<span class="bold_code data-type-ref"><a href="#type-option_list">option_list()</a></span>) -&gt; <span class="bold_code data-type-ref"><a href="#type-xmlElement">xmlElement()</a></span></span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="stream-2"></a>
 
 <p>Parse file containing an XML document as a stream, DOM style.
   Wrapper for a call to the XML parser <span class="code">xmerl_scan</span> with a
@@ -290,21 +299,26 @@
   Note that the <span class="code">continuation_fun</span>, <span class="code">acc_fun</span>,
   <span class="code">fetch_fun</span>, <span class="code">rules</span> and <span class="code">close_fun</span>
   options cannot be user defined using this parser.</p>
-</p></div>
-<p><a name="stream_sax-4"></a><span class="bold_code">stream_sax(Fname, CallBack::CallBackModule, UserState, Options) -&gt; <span class="bold_code"><a href="#type-xmlElement">xmlElement()</a></span></span><br></p>
-<div class="REFBODY">
+</p></div></div>
+</div>
+<div class="func">
+<div class="func-title">
+<a name="stream_sax-4"></a><span class="bold_code bc-9">stream_sax(Fname, CallBack::CallBackModule, UserState, Options) -&gt; <span class="bold_code data-type-ref"><a href="#type-xmlElement">xmlElement()</a></span></span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
 <div class="REFTYPES">
-<span class="bold_code">Fname = string()</span><br>
+<span class="bold_code bc-11">Fname = string()</span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code">CallBackModule = atom()</span><br>
+<span class="bold_code bc-11">CallBackModule = atom()</span><br>
 </div>
 <div class="REFTYPES">
-<span class="bold_code">Options = <span class="bold_code"><a href="#type-option_list">option_list()</a></span></span><br>
+<span class="bold_code bc-11">Options = <span class="bold_code data-type-ref"><a href="#type-option_list">option_list()</a></span></span><br>
 </div>
 </div>
-<div class="REFBODY"><p><a name="stream_sax-4"></a>
+<div class="REFBODY data-type-desc"><p><a name="stream_sax-4"></a>
 
 <p>Parse file containing an XML document as a stream, SAX style.
   Wrapper for a call to the XML parser <span class="code">xmerl_scan</span> with a
@@ -314,14 +328,21 @@
   <span class="code">close_fun</span> and <span class="code">user_state</span> options cannot be user
   defined using this parser.</p>
 </p></div>
-<p><a name="string_sax-4"></a><span class="bold_code">string_sax(String::list(), CallBackModule::atom(), UserState, Options::<span class="bold_code"><a href="#type-option_list">option_list()</a></span>) -&gt; <span class="bold_code"><a href="#type-xmlElement">xmlElement()</a></span></span><br></p>
-<div class="REFBODY"><p><a name="string_sax-4"></a>
+</div>
+</div>
+<div class="func">
+<div class="func-title">
+<a name="string_sax-4"></a><span class="bold_code bc-9">string_sax(String::list(), CallBackModule::atom(), UserState, Options::<span class="bold_code data-type-ref"><a href="#type-option_list">option_list()</a></span>) -&gt; <span class="bold_code data-type-ref"><a href="#type-xmlElement">xmlElement()</a></span></span><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p><a name="string_sax-4"></a>
 
 <p>Parse file containing an XML document, SAX style.
   Wrapper for a call to the XML parser <span class="code">xmerl_scan</span> with a
   <span class="code">hook_fun</span> for using xmerl export functionality directly after
   an entity is parsed.</p>
-</p></div>
+</p></div></div>
+</div>
+</div>
 
 
  

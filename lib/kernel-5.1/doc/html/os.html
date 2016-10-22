@@ -646,24 +646,28 @@
 <!-- refpage --><center><h1>os</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">os</div>
+<div class="REFBODY module-body">os</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Operating system-specific functions.</div>
+<div class="REFBODY modules-summary-body">Operating system-specific functions.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>The functions in this module are operating system-specific.
       Careless use of these functions results in programs that will
       only run on a specific platform. On the other hand, with careful
       use, these functions can be of help in enabling a program to run on
       most platforms.</p>
-  </p></div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="cmd-1"></a><span class="bold_code">cmd(Command) -&gt; string()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Command = atom() | <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','io_lib.html#type-chars');">io_lib:chars()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="cmd-1"></a><span class="bold_code func-name">cmd(Command) -&gt; string()</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Command = atom() | <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','stdlib','io_lib.html#type-chars');">io_lib:chars()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Executes <span class="code">Command</span> in a command shell of the
           target OS,
           captures the standard output of the command, and returns this
@@ -678,15 +682,19 @@ DirOut = os:cmd("dir"), % on Win32 platform</pre></div>
           called from another program (for example, <span class="code">os:cmd/1</span>)
           can differ, compared with the standard output of the command
           when called directly from an OS command shell.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="find_executable-1"></a><span class="bold_code">find_executable(Name) -&gt; Filename | false</span><br><a name="find_executable-2"></a><span class="bold_code">find_executable(Name, Path) -&gt; Filename | false</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = Path = Filename = string()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="find_executable-1"></a><span class="bold_code func-name">find_executable(Name) -&gt; Filename | false</span><a name="find_executable-2"></a><span class="bold_code func-name">find_executable(Name, Path) -&gt; Filename | false</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Name = Path = Filename = string()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>These two functions look up an executable program, with the
           specified name and a search path, in the same way as the underlying
           OS. <span class="code">find_executable/1</span> uses the current
@@ -696,55 +704,71 @@ DirOut = os:cmd("dir"), % on Win32 platform</pre></div>
           of execution paths on the OS. Returns the absolute filename of the
           executable program <span class="code">Name</span>,
           or <span class="code">false</span> if the program is not found.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="getenv-0"></a><span class="bold_code">getenv() -&gt; [string()]</span><br></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="getenv-0"></a><span class="bold_code func-name">getenv() -&gt; [string()]</span>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns a list of all environment variables.
           Each environment variable is expressed as a single string on
           the format <span class="code">"VarName=Value"</span>, where <span class="code">VarName</span> is
           the name of the variable and <span class="code">Value</span> its value.</p>
 	<p>If Unicode filename encoding is in effect (see the
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html#file_name_encoding');"><span class="code">erl</span>manual page</a></span>), the strings can contain characters with
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html#file_name_encoding');"><span class="code">erl</span>manual page</a></span>), the strings can contain characters with
 	  codepoints &gt; 255.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="getenv-1"></a><span class="bold_code">getenv(VarName) -&gt; Value | false</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">VarName = Value = string()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="getenv-1"></a><span class="bold_code func-name">getenv(VarName) -&gt; Value | false</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">VarName = Value = string()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns the <span class="code">Value</span> of the environment variable
           <span class="code">VarName</span>, or <span class="code">false</span> if the environment
           variable is undefined.</p>
 	<p>If Unicode filename encoding is in effect (see the
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html#file_name_encoding');"><span class="code">erl</span>manual page</a></span>), the strings <span class="code">VarName</span> and
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html#file_name_encoding');"><span class="code">erl</span>manual page</a></span>), the strings <span class="code">VarName</span> and
 	  <span class="code">Value</span> can contain characters with
           codepoints &gt; 255.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="getenv-2"></a><span class="bold_code">getenv(VarName, DefaultValue) -&gt; Value</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">VarName = DefaultValue = Value = string()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="getenv-2"></a><span class="bold_code func-name">getenv(VarName, DefaultValue) -&gt; Value</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">VarName = DefaultValue = Value = string()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns the <span class="code">Value</span> of the environment variable
           <span class="code">VarName</span>, or <span class="code">DefaultValue</span> if the
           environment variable is undefined.</p>
 	<p>If Unicode filename encoding is in effect (see the
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html#file_name_encoding');"><span class="code">erl</span>manual page</a></span>), the strings <span class="code">VarName</span> and
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html#file_name_encoding');"><span class="code">erl</span>manual page</a></span>), the strings <span class="code">VarName</span> and
 	<span class="code">Value</span> can contain characters with
         codepoints &gt; 255.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="getpid-0"></a><span class="bold_code">getpid() -&gt; Value</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Value = string()</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="getpid-0"></a><span class="bold_code func-name">getpid() -&gt; Value</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Value = string()</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns the process identifier of the current Erlang emulator
           in the format most commonly used by the OS environment.
           Returns <span class="code">Value</span> as a string containing
@@ -753,69 +777,85 @@ DirOut = os:cmd("dir"), % on Win32 platform</pre></div>
           system call. On Windows,
           the process id as returned by the <span class="code">GetCurrentProcessId()</span>
           system call is used.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="putenv-2"></a><span class="bold_code">putenv(VarName, Value) -&gt; true</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">VarName = Value = string()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="putenv-2"></a><span class="bold_code func-name">putenv(VarName, Value) -&gt; true</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">VarName = Value = string()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Sets a new <span class="code">Value</span> for environment variable
           <span class="code">VarName</span>.</p>
 	<p>If Unicode filename encoding is in effect (see the
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html#file_name_encoding');"><span class="code">erl</span>manual page</a></span>), the strings <span class="code">VarName</span> and
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html#file_name_encoding');"><span class="code">erl</span>manual page</a></span>), the strings <span class="code">VarName</span> and
 	  <span class="code">Value</span> can contain characters with
           codepoints &gt; 255.</p>
 	<p>On Unix platforms, the environment is set using UTF-8 encoding
 	  if Unicode filename translation is in effect. On Windows, the
 	  environment is set using wide character interfaces.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="system_time-0"></a><span class="bold_code">system_time() -&gt; integer()</span><br></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="system_time-0"></a><span class="bold_code func-name">system_time() -&gt; integer()</span>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
 	<p>Returns the current
-	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','time_correction.html#OS_System_Time');">OS system time</a></span>
+	<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','time_correction.html#OS_System_Time');">OS system time</a></span>
 	in <span class="code">native</span>
-	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#type_time_unit');">time unit</a></span>.</p>
+	<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#type_time_unit');">time unit</a></span>.</p>
 	<div class="note">
 <div class="label">Note</div>
 <div class="content"><p><p>This time is <strong>not</strong> a monotonically increasing time.</p>
         </p></div>
 </div>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="system_time-1"></a><span class="bold_code">system_time(Unit) -&gt; integer()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Unit = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#type-time_unit');">erlang:time_unit()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="system_time-1"></a><span class="bold_code func-name">system_time(Unit) -&gt; integer()</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Unit = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#type-time_unit');">erlang:time_unit()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
 	<p>Returns the current
-	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','time_correction.html#OS_System_Time');">OS system time</a></span>
+	<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','time_correction.html#OS_System_Time');">OS system time</a></span>
 	converted into the <span class="code">Unit</span> passed as argument.</p>
 	<p>Calling <span class="code">os:system_time(Unit)</span> is equivalent to
-	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#convert_time_unit-3');"><span class="code">erlang:convert_time_unit</span></a></span>(<span class="bold_code"><a href="#system_time-0"><span class="code">os:system_time()</span></a></span><span class="code">,
+	<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#convert_time_unit-3');"><span class="code">erlang:convert_time_unit</span></a></span>(<span class="bold_code data-type-ref"><a href="#system_time-0"><span class="code">os:system_time()</span></a></span><span class="code">,
 	native, Unit)</span>.</p>
 	<div class="note">
 <div class="label">Note</div>
 <div class="content"><p><p>This time is <strong>not</strong> a monotonically increasing time.</p>
         </p></div>
 </div>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="timestamp-0"></a><span class="bold_code">timestamp() -&gt; Timestamp</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Timestamp = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#type-timestamp');">erlang:timestamp()</a></span></span></div>
-<div class="REFBODY">Timestamp = {MegaSecs, Secs, MicroSecs}</div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="timestamp-0"></a><span class="bold_code func-name">timestamp() -&gt; Timestamp</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Timestamp = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#type-timestamp');">erlang:timestamp()</a></span></span></div>
+<div class="REFBODY type-desc">Timestamp = {MegaSecs, Secs, MicroSecs}</div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
       <p>Returns the current
-	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','time_correction.html#OS_System_Time');">OS system time</a></span>
+	<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','time_correction.html#OS_System_Time');">OS system time</a></span>
         in the same format as
-        <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#timestamp-0');"><span class="code">erlang:timestamp/0</span></a></span>.
+        <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#timestamp-0');"><span class="code">erlang:timestamp/0</span></a></span>.
 	The tuple can be used together with function
-	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','calendar.html#now_to_universal_time-1');"><span class="code">calendar:now_to_universal_time/1</span></a></span>
-        or <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','calendar.html#now_to_local_time-1');"><span class="code">calendar:now_to_local_time/1</span></a></span>
+	<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','calendar.html#now_to_universal_time-1');"><span class="code">calendar:now_to_universal_time/1</span></a></span>
+        or <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','calendar.html#now_to_local_time-1');"><span class="code">calendar:now_to_local_time/1</span></a></span>
         to get calendar time. Using the calendar time, together with the
         <span class="code">MicroSecs</span> part of the return tuple from this function, allows
         you to log time stamps in high resolution and consistent with the
@@ -837,43 +877,55 @@ calendar:now_to_universal_time(TS),
     [Day,Mstr,Year,Hour,Minute,Second,Micro]).</pre></div>
        <p>This module can be used as follows:</p>
        <div class="example"><pre>
-1&gt; <span class="bold_code">io:format("~s~n",[print_time:format_utc_timestamp()]).</span>
+1&gt; <span class="bold_code bc-12">io:format("~s~n",[print_time:format_utc_timestamp()]).</span>
 29 Apr 2009  9:55:30.051711</pre></div>
        <p>OS system time can also be retreived by
-	<span class="bold_code"><a href="#system_time-0"><span class="code">system_time/0</span></a></span> and
-	<span class="bold_code"><a href="#system_time-1"><span class="code">system_time/1</span></a></span>.</p>
-      </p></div>
+	<span class="bold_code data-type-ref"><a href="#system_time-0"><span class="code">system_time/0</span></a></span> and
+	<span class="bold_code data-type-ref"><a href="#system_time-1"><span class="code">system_time/1</span></a></span>.</p>
+      </p></div></div>
+</div>
 
-    <p><a name="perf_counter-0"></a><span class="bold_code">perf_counter() -&gt; Counter</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Counter = integer()</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="perf_counter-0"></a><span class="bold_code func-name">perf_counter() -&gt; Counter</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Counter = integer()</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns the current performance counter value in <span class="code">perf_counter</span>
-	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#type_time_unit');">time unit</a></span>.
+	<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#type_time_unit');">time unit</a></span>.
         This is a highly optimized call that might not be traceable.
         </p>
-      </p></div>
-    <p><a name="perf_counter-1"></a><span class="bold_code">perf_counter(Unit) -&gt; integer()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Unit = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#type-time_unit');">erlang:time_unit()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p><p>Returns a performance counter that can be used as a very fast and
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="perf_counter-1"></a><span class="bold_code func-name">perf_counter(Unit) -&gt; integer()</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Unit = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#type-time_unit');">erlang:time_unit()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p><p>Returns a performance counter that can be used as a very fast and
       high resolution timestamp. This counter is read directly from the hardware or operating
       system with the same guarantees. This means that two consecutive calls
       to the function are not guaranteed to be monotonic, though it most likely will be.
       The performance counter will be converted to the resolution passed as an argument.</p>
-      <div class="example"><pre>1&gt; <span class="bold_code">T1 = os:perf_counter(1000),receive after 10000 -&gt; ok end,T2 = os:perf_counter(1000).</span>
+      <div class="example"><pre>1&gt; <span class="bold_code bc-12">T1 = os:perf_counter(1000),receive after 10000 -&gt; ok end,T2 = os:perf_counter(1000).</span>
 176525861
-2&gt; <span class="bold_code">T2 - T1.</span>
+2&gt; <span class="bold_code bc-12">T2 - T1.</span>
 10004</pre></div>
-      </p></div>
-    <p><a name="type-0"></a><span class="bold_code">type() -&gt; {Osfamily, Osname}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Osfamily = unix | win32</span></div>
-<div class="REFTYPES"><span class="bold_code">Osname = atom()</span></div>
-</div></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="type-0"></a><span class="bold_code func-name">type() -&gt; {Osfamily, Osname}</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Osfamily = unix | win32</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Osname = atom()</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns the <span class="code">Osfamily</span> and, in some cases, the
           <span class="code">Osname</span> of the current OS.</p>
         <p>On Unix, <span class="code">Osname</span> has the same value as
@@ -884,32 +936,40 @@ calendar:now_to_universal_time(TS),
 <div class="label">Note</div>
 <div class="content"><p>
           <p>Think twice before using this function. Use module
-            <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','filename.html');"><span class="code">filename</span></a></span>
+            <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','filename.html');"><span class="code">filename</span></a></span>
             if you want to inspect or build filenames in a portable way.
             Avoid matching on atom <span class="code">Osname</span>.</p>
         </p></div>
 </div>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="unsetenv-1"></a><span class="bold_code">unsetenv(VarName) -&gt; true</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">VarName = string()</span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="unsetenv-1"></a><span class="bold_code func-name">unsetenv(VarName) -&gt; true</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">VarName = string()</span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
 	<p>Deletes the environment variable <span class="code">VarName</span>.</p>
 	<p>If Unicode filename encoding is in effect (see the
-        <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html#file_name_encoding');"><span class="code">erl</span>manual page</a></span>), the string <span class="code">VarName</span> can
+        <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html#file_name_encoding');"><span class="code">erl</span>manual page</a></span>), the string <span class="code">VarName</span> can
 	contain characters with codepoints &gt; 255.</p>
-      </p></div>
+      </p></div></div>
+</div>
 
-    <p><a name="version-0"></a><span class="bold_code">version() -&gt; VersionString | {Major, Minor, Release}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">VersionString = string()</span></div>
-<div class="REFTYPES"><span class="bold_code">Major = Minor = Release = integer() &gt;= 0</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-</div></p>
-<div class="REFBODY"><p>
+    <div class="func">
+<div class="func-title">
+<a name="version-0"></a><span class="bold_code func-name">version() -&gt; VersionString | {Major, Minor, Release}</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">VersionString = string()</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Major = Minor = Release = integer() &gt;= 0</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def"></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns the OS version.
           On most systems, this function returns a tuple, but a string
           is returned instead if the system has versions that
@@ -921,8 +981,9 @@ calendar:now_to_universal_time(TS),
             to use it, always <span class="code">call os:type()</span> first.</p>
         </p></div>
 </div>
-      </p></div>
-  
+      </p></div></div>
+</div>
+  </div>
 </div>
 <div class="footer">
 <hr>

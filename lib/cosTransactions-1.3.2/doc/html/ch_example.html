@@ -66,36 +66,36 @@
 <li><a href="ch_contents.html">
               Top of chapter
             </a></li>
-<li title="Content Overview"><a href="ch_contents.html#idm45478780581824">Content Overview</a></li>
-<li title="Brief Description of the User's Guide"><a href="ch_contents.html#idm45478780495840">Brief Description of the User's Guide</a></li>
+<li title="Content Overview"><a href="ch_contents.html#idm46210526078336">Content Overview</a></li>
+<li title="Brief Description of the User's Guide"><a href="ch_contents.html#idm46210526415216">Brief Description of the User's Guide</a></li>
 </ul>
 </li>
 <li id="no" title="Introduction to cosTransactions" expanded="false">Introduction to cosTransactions<ul>
 <li><a href="ch_introduction.html">
               Top of chapter
             </a></li>
-<li title="Overview"><a href="ch_introduction.html#idm45478780491136">Overview</a></li>
+<li title="Overview"><a href="ch_introduction.html#idm46210526037104">Overview</a></li>
 </ul>
 </li>
 <li id="no" title="Installing cosTransactions" expanded="false">Installing cosTransactions<ul>
 <li><a href="ch_install.html">
               Top of chapter
             </a></li>
-<li title="Installation Process "><a href="ch_install.html#idm45478780572368">Installation Process </a></li>
+<li title="Installation Process "><a href="ch_install.html#idm46210526097328">Installation Process </a></li>
 </ul>
 </li>
 <li id="loadscrollpos" title="cosTransactions Examples" expanded="true">cosTransactions Examples<ul>
 <li><a href="ch_example.html">
               Top of chapter
             </a></li>
-<li title="A Tutorial on How to Create a Simple Service"><a href="ch_example.html#idm45478780439984">A Tutorial on How to Create a Simple Service</a></li>
+<li title="A Tutorial on How to Create a Simple Service"><a href="ch_example.html#idm46210526263056">A Tutorial on How to Create a Simple Service</a></li>
 </ul>
 </li>
 <li id="no" title="Resource Skeletons" expanded="false">Resource Skeletons<ul>
 <li><a href="ch_skeletons.html">
               Top of chapter
             </a></li>
-<li title="Resource Skeletons"><a href="ch_skeletons.html#idm45478780435856">Resource Skeletons</a></li>
+<li title="Resource Skeletons"><a href="ch_skeletons.html#idm46210526423104">Resource Skeletons</a></li>
 </ul>
 </li>
 </ul>
@@ -105,7 +105,7 @@
 <h1>4 cosTransactions Examples</h1>
   
 
-  <h3><a name="idm45478780439984">4.1 
+  <h3><a name="idm46210526263056">4.1 
         A Tutorial on How to Create a Simple Service</a></h3>
     
 
@@ -115,9 +115,9 @@
         There are two types of participants: </p>
       <ul>
         <li>
-<span class="bold_code"><a href="CosTransactions_Resource.html">CosTransactions_Resource</a></span> - operations used to commit or rollback resources.</li>
+<span class="bold_code bc-19"><a href="CosTransactions_Resource.html">CosTransactions_Resource</a></span> - operations used to commit or rollback resources.</li>
         <li>
-<span class="bold_code"><a href="CosTransactions_SubtransactionAwareResource.html">CosTransactions_SubtransactionAwareResource</a></span> - 
+<span class="bold_code bc-19"><a href="CosTransactions_SubtransactionAwareResource.html">CosTransactions_SubtransactionAwareResource</a></span> - 
          operations used when the resources want to be notified when a subtransaction commits. 
          This interface inherits the CosTransactions_Resource</li>
       </ul>
@@ -213,7 +213,7 @@ module ownResourceImpl {
            The Resource may, however, make a unilateral decision (Heuristic) to commit or rollback changes associated 
            with the transaction. When the Resource is informed of the true outcome (rollback/commit) and it is equal to
            the Heuristic decision the Resource just return 'ok'. But, if there is a mismatch and the commit-operation is irreversible,
-           the Resource must raise a <span class="bold_code"><a href="CosTransactions_Resource.html">Heuristic Exception</a></span> and wait 
+           the Resource must raise a <span class="bold_code bc-19"><a href="CosTransactions_Resource.html">Heuristic Exception</a></span> and wait 
            until the <span class="code">forget</span> operation is invoked. The Heuristic Decision must be recorded in stable storage.</li>
           <li>
 <strong>'VoteRollback'</strong> - the Resource may vote VoteRollback under any circumstances.
@@ -223,7 +223,7 @@ module ownResourceImpl {
 <div class="label">Note</div>
 <div class="content"><p>
           <p>Before replying to the prepare operation, the Resource must record the prepare state, the reference of its
-            superior <span class="bold_code"><a href="CosTransactions_RecoveryCoordinator.html">RecoveryCoordinator</a></span> in stable storage.
+            superior <span class="bold_code bc-19"><a href="CosTransactions_RecoveryCoordinator.html">RecoveryCoordinator</a></span> in stable storage.
             The RecoveryCoordinator is obtained when registering as a participant in a transaction.</p>
         </p></div>
 </div>

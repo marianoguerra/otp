@@ -1717,40 +1717,45 @@
 <!-- refpage --><center><h1>log_mf_h</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">log_mf_h</div>
+<div class="REFBODY module-body">log_mf_h</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">An event handler that logs events to disk.</div>
+<div class="REFBODY modules-summary-body">An event handler that logs events to disk.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>This module is a <span class="code">gen_event</span> handler module that can be installed
       in any <span class="code">gen_event</span> process. It logs onto disk all events that are
       sent to an event manager. Each event is written as a binary, which makes
       the logging very fast. However, a tool such as the Report Browser
-      (<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','sasl','rb.html');"><span class="code">rb(3)</span></a></span>) must be used to read
+      (<span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','sasl','rb.html');"><span class="code">rb(3)</span></a></span>) must be used to read
       the files. The events are written to multiple files. When all files have
       been used, the first one is reused and overwritten. The directory
       location, the number of files, and the size of each file are configurable.
       The directory will include one file called <span class="code">index</span>, and report files
       <span class="code">1, 2, ...</span>.</p>
-  </p></div>
+  </div>
 
-  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
-    <p>
-      <span class="bold_code"><a name="type-args">args()</a></span><br></p>
-<div class="REFBODY"><p><p>Term to be sent to <span class="bold_code"><a href="gen_event.html#add_handler-3"><span class="code">gen_event:add_handler/3</span></a></span>.</p>
+  <h3 class="data-type-title"><a name="data-types" href="#data-types">Data Types</a></h3>
+<div class="data-types-body">
+    <div class="data-type-def">
+      <span class="bold_code data-type-def-name"><a name="type-args">args()</a></span><div class="REFBODY data-type-desc"><p><p>Term to be sent to <span class="bold_code bc-15"><a href="gen_event.html#add_handler-3"><span class="code">gen_event:add_handler/3</span></a></span>.</p>
       </p></div>
-  
+</div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="init-3"></a><span class="bold_code">init(Dir, MaxBytes, MaxFiles) -&gt; Args</span><br><a name="init-4"></a><span class="bold_code">init(Dir, MaxBytes, MaxFiles, Pred) -&gt; Args</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dir = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename');">file:filename()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">MaxBytes = integer() &gt;= 0</span></div>
-<div class="REFTYPES"><span class="bold_code">MaxFiles = 1..255</span></div>
-<div class="REFTYPES"><span class="bold_code">Pred = fun((Event :: term()) -&gt; boolean())</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = <span class="bold_code"><a href="#type-args">args()</a></span></span></div>
-</div></p>
-<div class="REFBODY"><p>
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="init-3"></a><span class="bold_code func-name">init(Dir, MaxBytes, MaxFiles) -&gt; Args</span><a name="init-4"></a><span class="bold_code func-name">init(Dir, MaxBytes, MaxFiles, Pred) -&gt; Args</span><div class="REFBODY func-types">
+<p class="func-types-title">Types:</p>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Dir = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename');">file:filename()</a></span></span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">MaxBytes = integer() &gt;= 0</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">MaxFiles = 1..255</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Pred = fun((Event :: term()) -&gt; boolean())</span></div>
+<div class="REFTYPES subtype"><span class="bold_code subtype-def">Args = <span class="bold_code data-type-ref"><a href="#type-args">args()</a></span></span></div>
+</div>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Initiates the event handler. Returns <span class="code">Args</span>, which
           is to be used in a call to
           <span class="code">gen_event:add_handler(EventMgr, log_mf_h, Args)</span>.
@@ -1761,14 +1766,15 @@
           files are used. <span class="code">Pred</span> is a predicate function used
           to filter the events. If no predicate function is specified, all
           events are logged.</p>
-      </p></div>
-  
+      </p></div></div>
+</div>
+  </div>
 
-  <h3><a name="idm45518936410576">See Also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45461565081312">See Also</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="gen_event.html"><span class="code">gen_event(3)</span></a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','sasl','rb.html');"><span class="code">rb(3)</span></a></span></p>
+    <p><span class="bold_code bc-19"><a href="gen_event.html"><span class="code">gen_event(3)</span></a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','sasl','rb.html');"><span class="code">rb(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

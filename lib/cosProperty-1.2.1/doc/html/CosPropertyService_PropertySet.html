@@ -154,225 +154,292 @@
 <!-- refpage --><center><h1>CosPropertyService_PropertySet</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">CosPropertyService_PropertySet</div>
+<div class="REFBODY module-body">CosPropertyService_PropertySet</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">This module implements the OMG CosPropertyService::PropertySet interface.</div>
+<div class="REFBODY modules-summary-body">This module implements the OMG CosPropertyService::PropertySet interface.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>To get access to the record definitions for the structures use:      <br>
 <span class="code">-include_lib("cosProperty/include/CosPropertyService.hrl").</span></p>
-  </p></div>
+  </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="define_property-3"></a><span class="bold_code">define_property(PropertySet, Name, Value) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="define_property-3"></a><span class="bold_code bc-9">define_property(PropertySet, Name, Value) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">PropertySet = #objref</span><br>
+<span class="bold_code bc-11">PropertySet = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Name = non-empty string()</span><br>
+<span class="bold_code bc-11">Name = non-empty string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Value = #any</span><br>
+<span class="bold_code bc-11">Value = #any</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = ok | {'EXCEPTION', #CosPropertyService_InvalidPropertyName{}} | {'EXCEPTION', #CosPropertyService_ConflictingProperty{}} | {'EXCEPTION', #CosPropertyService_UnsupportedTypeCode{}} | {'EXCEPTION', #CosPropertyService_UnsupportedProperty{}} | {'EXCEPTION', #CosPropertyService_ReadOnlyProperty{}}</span><br>
+<span class="bold_code bc-11">Reply = ok | {'EXCEPTION', #CosPropertyService_InvalidPropertyName{}} | {'EXCEPTION', #CosPropertyService_ConflictingProperty{}} | {'EXCEPTION', #CosPropertyService_UnsupportedTypeCode{}} | {'EXCEPTION', #CosPropertyService_UnsupportedProperty{}} | {'EXCEPTION', #CosPropertyService_ReadOnlyProperty{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation adds a new property to the given object. Depending on
           which initial arguments was supplied when starting the object several
           exceptions may be raised.</p>
       </p></div>
-    <p><a name="define_properties-2"></a><span class="bold_code">define_properties(PropertySet, Properties) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="define_properties-2"></a><span class="bold_code bc-9">define_properties(PropertySet, Properties) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">PropertySet = #objref</span><br>
+<span class="bold_code bc-11">PropertySet = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Properties = [#'CosPropertyService_Property'{property_name = Name, property_value = Value}]</span><br>
+<span class="bold_code bc-11">Properties = [#'CosPropertyService_Property'{property_name = Name, property_value = Value}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Name = string()</span><br>
+<span class="bold_code bc-11">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Value = #any</span><br>
+<span class="bold_code bc-11">Value = #any</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = ok | {'EXCEPTION', #CosPropertyService_MultipleExceptions{exceptions = Excs}}</span><br>
+<span class="bold_code bc-11">Reply = ok | {'EXCEPTION', #CosPropertyService_MultipleExceptions{exceptions = Excs}}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Excs = [#'CosPropertyService_PropertyException{reason = Reason, failing_property_name = Name}]</span><br>
+<span class="bold_code bc-11">Excs = [#'CosPropertyService_PropertyException{reason = Reason, failing_property_name = Name}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = invalid_property_name | conflicting_property | property_not_found | unsupported_type_code | unsupported_property | unsupported_mode | fixed_property | read_only_property</span><br>
+<span class="bold_code bc-11">Reason = invalid_property_name | conflicting_property | property_not_found | unsupported_type_code | unsupported_property | unsupported_mode | fixed_property | read_only_property</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation adds several new properties to the given object. Depending on
           which initial arguments was supplied when starting the object an 
           exceptions may be raised listing the properties failing.</p>
       </p></div>
-    <p><a name="get_number_of_properties-1"></a><span class="bold_code">get_number_of_properties(PropertySet) -&gt; ulong()</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="get_number_of_properties-1"></a><span class="bold_code bc-9">get_number_of_properties(PropertySet) -&gt; ulong()</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">PropertySet = #objref</span><br>
+<span class="bold_code bc-11">PropertySet = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation returns the number of properties associated with the target
           object.</p>
       </p></div>
-    <p><a name="get_all_property_names-2"></a><span class="bold_code">get_all_property_names(PropertySet, Max) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="get_all_property_names-2"></a><span class="bold_code bc-9">get_all_property_names(PropertySet, Max) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">PropertySet = NamesIterator = #objref</span><br>
+<span class="bold_code bc-11">PropertySet = NamesIterator = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Max = ulong()</span><br>
+<span class="bold_code bc-11">Max = ulong()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = {ok, Names, NamesIterator}</span><br>
+<span class="bold_code bc-11">Reply = {ok, Names, NamesIterator}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Names = [string()]</span><br>
+<span class="bold_code bc-11">Names = [string()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation returns up to <span class="code">Max</span> property names. If the target
           object have additional associated properties they will be put in the
           returned Iterator, otherwise the Iterator will be a <span class="code">NIL</span> object.</p>
       </p></div>
-    <p><a name="get_property_value-2"></a><span class="bold_code">get_property_value(PropertySet, Name) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="get_property_value-2"></a><span class="bold_code bc-9">get_property_value(PropertySet, Name) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">PropertySet = #objref</span><br>
+<span class="bold_code bc-11">PropertySet = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Name = string()</span><br>
+<span class="bold_code bc-11">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = #any | {'EXCEPTION', #CosPropertyService_PropertyNotFound{}} | {'EXCEPTION', #CosPropertyService_InvalidPropertyName{}}</span><br>
+<span class="bold_code bc-11">Reply = #any | {'EXCEPTION', #CosPropertyService_PropertyNotFound{}} | {'EXCEPTION', #CosPropertyService_InvalidPropertyName{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation returns the property value associated with given name. If no such property
           exists or the given name is an empty string an exception will be raised.</p>
       </p></div>
-    <p><a name="get_properties-2"></a><span class="bold_code">get_properties(PropertySet, Names) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="get_properties-2"></a><span class="bold_code bc-9">get_properties(PropertySet, Names) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">PropertySet = #objref</span><br>
+<span class="bold_code bc-11">PropertySet = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Names = [string()]</span><br>
+<span class="bold_code bc-11">Names = [string()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = {boolean(), Properties}</span><br>
+<span class="bold_code bc-11">Reply = {boolean(), Properties}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Properties = [#'CosPropertyService_Property'{property_name = Name, property_value = Value}]</span><br>
+<span class="bold_code bc-11">Properties = [#'CosPropertyService_Property'{property_name = Name, property_value = Value}]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation returns all properties associated with given names. If the
           boolean flag is true all properties where retrieved correctly, otherwise,
           all properties with the type <span class="code">tk_void</span> was not found.</p>
       </p></div>
-    <p><a name="get_all_properties-2"></a><span class="bold_code">get_all_properties(PropertySet, Max) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="get_all_properties-2"></a><span class="bold_code bc-9">get_all_properties(PropertySet, Max) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">PropertySet = PropertiesIterator = #objref</span><br>
+<span class="bold_code bc-11">PropertySet = PropertiesIterator = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = {ok, Properties, PropertiesIterator}</span><br>
+<span class="bold_code bc-11">Reply = {ok, Properties, PropertiesIterator}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Properties = [#'CosPropertyService_Property'{property_name = Name, property_value = Value}]</span><br>
+<span class="bold_code bc-11">Properties = [#'CosPropertyService_Property'{property_name = Name, property_value = Value}]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation return a list <span class="code">Max</span> properties or less. If more 
           properties are associated with the target object they will be put in the
           <span class="code">PropertiesIterator</span>. If the object had less than <span class="code">Max</span> 
           associated properties the Iterator will be a <span class="code">NIL</span> object.</p>
       </p></div>
-    <p><a name="delete_property-2"></a><span class="bold_code">delete_property(PropertySet, Name) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="delete_property-2"></a><span class="bold_code bc-9">delete_property(PropertySet, Name) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">PropertySet = #objref</span><br>
+<span class="bold_code bc-11">PropertySet = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Name = string()</span><br>
+<span class="bold_code bc-11">Name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = ok | {'EXCEPTION', #CosPropertyService_FixedProperty{}} | {'EXCEPTION', #CosPropertyService_PropertyNotFound{}} | {'EXCEPTION', #CosPropertyService_InvalidPropertyName{}}</span><br>
+<span class="bold_code bc-11">Reply = ok | {'EXCEPTION', #CosPropertyService_FixedProperty{}} | {'EXCEPTION', #CosPropertyService_PropertyNotFound{}} | {'EXCEPTION', #CosPropertyService_InvalidPropertyName{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation tries to delete the property with given Name. An exception
           which indicates why it failed is raised if so needed.</p>
       </p></div>
-    <p><a name="delete_properties-2"></a><span class="bold_code">delete_properties(PropertySet, Names) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="delete_properties-2"></a><span class="bold_code bc-9">delete_properties(PropertySet, Names) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">PropertySet = #objref</span><br>
+<span class="bold_code bc-11">PropertySet = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Names = [string()]</span><br>
+<span class="bold_code bc-11">Names = [string()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = ok | {'EXCEPTION', #CosPropertyService_MultipleExceptions{exceptions = Excs}}</span><br>
+<span class="bold_code bc-11">Reply = ok | {'EXCEPTION', #CosPropertyService_MultipleExceptions{exceptions = Excs}}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Excs = [#'CosPropertyService_PropertyException{reason = Reason, failing_property_name = Name}]</span><br>
+<span class="bold_code bc-11">Excs = [#'CosPropertyService_PropertyException{reason = Reason, failing_property_name = Name}]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = invalid_property_name | conflicting_property | property_not_found | unsupported_type_code | unsupported_property | unsupported_mode | fixed_property | read_only_property</span><br>
+<span class="bold_code bc-11">Reason = invalid_property_name | conflicting_property | property_not_found | unsupported_type_code | unsupported_property | unsupported_mode | fixed_property | read_only_property</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation tries to delete all given Properties. If one or more removal
           fails an exception is raised which describe why.</p>
       </p></div>
-    <p><a name="delete_all_properties-1"></a><span class="bold_code">delete_all_properties(PropertySet) -&gt; boolean()</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="delete_all_properties-1"></a><span class="bold_code bc-9">delete_all_properties(PropertySet) -&gt; boolean()</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">PropertySet = #objref</span><br>
+<span class="bold_code bc-11">PropertySet = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation deletes all properties. The boolean flag, if set to false,
           indicates that it was not possible to remove one or more properties, e.g.,
           may be read only.</p>
       </p></div>
-    <p><a name="is_property_defined-2"></a><span class="bold_code">is_property_defined(PropertySet, Name) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="is_property_defined-2"></a><span class="bold_code bc-9">is_property_defined(PropertySet, Name) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">PropertySet = #objref</span><br>
+<span class="bold_code bc-11">PropertySet = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Name = non-empty string()</span><br>
+<span class="bold_code bc-11">Name = non-empty string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = boolean() | {'EXCEPTION', #CosPropertyService_InvalidPropertyName{}}</span><br>
+<span class="bold_code bc-11">Reply = boolean() | {'EXCEPTION', #CosPropertyService_InvalidPropertyName{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation returns true if the target have an associated property with
           given name.</p>
       </p></div>
-  
+</div>
+</div>
+  </div>
   
 </div>
 <div class="footer">

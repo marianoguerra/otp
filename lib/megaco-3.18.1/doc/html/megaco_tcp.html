@@ -274,67 +274,84 @@
 <!-- refpage --><center><h1>megaco_tcp</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">megaco_tcp</div>
+<div class="REFBODY module-body">megaco_tcp</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Interface module to TPKT transport protocol for Megaco/H.248.</div>
+<div class="REFBODY modules-summary-body">Interface module to TPKT transport protocol for Megaco/H.248.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>This module contains the public interface to the TPKT (TCP/IP) version
       transport protocol for Megaco/H.248.</p>
-  </p></div>
+  </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="start_transport-0"></a><span class="bold_code">start_transport() -&gt; {ok, TransportRef}</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="start_transport-0"></a><span class="bold_code bc-9">start_transport() -&gt; {ok, TransportRef}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">TransportRef = pid()</span><br>
+<span class="bold_code bc-11">TransportRef = pid()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function is used for starting the TCP/IP transport service.
           Use exit(TransportRef, Reason) to stop the transport service.</p>
       </p></div>
-    <p><a name="listen-2"></a><span class="bold_code">listen(TransportRef, ListenPortSpecList) -&gt; ok</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="listen-2"></a><span class="bold_code bc-9">listen(TransportRef, ListenPortSpecList) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">TransportRef = pid() | regname()</span><br>
+<span class="bold_code bc-11">TransportRef = pid() | regname()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">OptionListPerPort = [Option]</span><br>
+<span class="bold_code bc-11">OptionListPerPort = [Option]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Option = {port, integer()} |{options, list()} |{receive_handle, term()}</span><br>
+<span class="bold_code bc-11">Option = {port, integer()} |{options, list()} |{receive_handle, term()}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function is used for starting new TPKT listening socket
           for TCP/IP.  The option list contains the socket
           definitions.</p>
       </p></div>
-    <p><a name="connect-2"></a><span class="bold_code">connect(TransportRef, OptionList) -&gt; {ok, Handle, ControlPid} |  {error, Reason}</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="connect-2"></a><span class="bold_code bc-9">connect(TransportRef, OptionList) -&gt; {ok, Handle, ControlPid} |  {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">TransportRef = pid() | regname()</span><br>
+<span class="bold_code bc-11">TransportRef = pid() | regname()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">OptionList = [Option]</span><br>
+<span class="bold_code bc-11">OptionList = [Option]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Option = {host, Ipaddr} | {port, integer()}  |{options, list()} |{receive_handle, term()} |{module, atom()}</span><br>
+<span class="bold_code bc-11">Option = {host, Ipaddr} | {port, integer()}  |{options, list()} |{receive_handle, term()} |{module, atom()}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Handle = socket_handle()</span><br>
+<span class="bold_code bc-11">Handle = socket_handle()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">ControlPid = pid()</span><br>
+<span class="bold_code bc-11">ControlPid = pid()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function is used to open a TPKT connection.</p>
         <p>The <span class="code">module</span> option makes it possible for the user to provide
           their own callback module. The <span class="code">receive_message/4</span> or
@@ -343,122 +360,172 @@
           message; small - receive_message, large - process_received_message). 
           Default value is <strong>megaco</strong>.</p>
       </p></div>
-    <p><a name="close-1"></a><span class="bold_code">close(Handle) -&gt; ok</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="close-1"></a><span class="bold_code bc-9">close(Handle) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Handle = socket_handle()</span><br>
+<span class="bold_code bc-11">Handle = socket_handle()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function is used for closing an active TPKT connection.</p>
       </p></div>
-    <p><a name="socket-1"></a><span class="bold_code">socket(Handle) -&gt; Socket</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="socket-1"></a><span class="bold_code bc-9">socket(Handle) -&gt; Socket</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Handle = socket_handle()</span><br>
+<span class="bold_code bc-11">Handle = socket_handle()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Socket = inet_socket()</span><br>
+<span class="bold_code bc-11">Socket = inet_socket()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function is used to convert a socket_handle() to
           a inet_socket(). inet_socket() is a plain socket,
           see the inet module for more info.</p>
       </p></div>
-    <p><a name="send_message-2"></a><span class="bold_code">send_message(Handle, Message) -&gt; ok</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="send_message-2"></a><span class="bold_code bc-9">send_message(Handle, Message) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Handle = socket_handle()</span><br>
+<span class="bold_code bc-11">Handle = socket_handle()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Message = binary() | iolist()</span><br>
+<span class="bold_code bc-11">Message = binary() | iolist()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Sends a message on a connection.</p>
       </p></div>
-    <p><a name="block-1"></a><span class="bold_code">block(Handle) -&gt; ok</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="block-1"></a><span class="bold_code bc-9">block(Handle) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Handle = socket_handle()</span><br>
+<span class="bold_code bc-11">Handle = socket_handle()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Stop receiving incoming messages on the socket.</p>
       </p></div>
-    <p><a name="unblock-1"></a><span class="bold_code">unblock(Handle) -&gt; ok</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="unblock-1"></a><span class="bold_code bc-9">unblock(Handle) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Handle = socket_handle()</span><br>
+<span class="bold_code bc-11">Handle = socket_handle()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Starting to receive incoming messages from the socket again.</p>
         <a name="upgrade_receive_handle"></a>
       </p></div>
-    <p><a name="upgrade_receive_handle-1"></a><span class="bold_code">upgrade_receive_handle(ControlPid) -&gt; ok</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="upgrade_receive_handle-1"></a><span class="bold_code bc-9">upgrade_receive_handle(ControlPid) -&gt; ok</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ControlPid = pid()</span><br>
+<span class="bold_code bc-11">ControlPid = pid()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Update the receive handle of the control process (e.g. after
           having changed protocol version).</p>
         <a name="stats"></a>
       </p></div>
-    <p><a name="get_stats-0"></a><span class="bold_code">get_stats() -&gt; {ok, TotalStats} | {error, Reason}</span><br><a name="get_stats-1"></a><span class="bold_code">get_stats(SendHandle) -&gt; {ok, SendHandleStats} | {error, Reason}</span><br><a name="get_stats-2"></a><span class="bold_code">get_stats(SendHandle, Counter) -&gt; {ok, CounterStats} | {error, Reason}</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="get_stats-0"></a><span class="bold_code bc-9">get_stats() -&gt; {ok, TotalStats} | {error, Reason}</span><br><a name="get_stats-1"></a><span class="bold_code bc-9">get_stats(SendHandle) -&gt; {ok, SendHandleStats} | {error, Reason}</span><br><a name="get_stats-2"></a><span class="bold_code bc-9">get_stats(SendHandle, Counter) -&gt; {ok, CounterStats} | {error, Reason}</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">TotalStats = [send_handle_stats()]</span><br>
+<span class="bold_code bc-11">TotalStats = [send_handle_stats()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">total_stats() = {send_handle(), [stats()]}</span><br>
+<span class="bold_code bc-11">total_stats() = {send_handle(), [stats()]}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">SendHandle = send_handle()</span><br>
+<span class="bold_code bc-11">SendHandle = send_handle()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">SendHandleStats = [stats()]</span><br>
+<span class="bold_code bc-11">SendHandleStats = [stats()]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Counter = tcp_stats_counter()</span><br>
+<span class="bold_code bc-11">Counter = tcp_stats_counter()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">CounterStats = integer()</span><br>
+<span class="bold_code bc-11">CounterStats = integer()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">stats() = {tcp_stats_counter(), integer()}</span><br>
+<span class="bold_code bc-11">stats() = {tcp_stats_counter(), integer()}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">tcp_stats_counter() = medGwyGatewayNumInMessages |  medGwyGatewayNumInOctets | medGwyGatewayNumOutMessages | medGwyGatewayNumOutOctets | medGwyGatewayNumErrors</span><br>
+<span class="bold_code bc-11">tcp_stats_counter() = medGwyGatewayNumInMessages |  medGwyGatewayNumInOctets | medGwyGatewayNumOutMessages | medGwyGatewayNumOutOctets | medGwyGatewayNumErrors</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Retreive the TCP related (SNMP) statistics counters.</p>
       </p></div>
-    <p><a name="reset_stats-0"></a><span class="bold_code">reset_stats() -&gt; void()</span><br><a name="reset_stats-1"></a><span class="bold_code">reset_stats(SendHandle) -&gt; void()</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="reset_stats-0"></a><span class="bold_code bc-9">reset_stats() -&gt; void()</span><br><a name="reset_stats-1"></a><span class="bold_code bc-9">reset_stats(SendHandle) -&gt; void()</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">SendHandle = send_handle()</span><br>
+<span class="bold_code bc-11">SendHandle = send_handle()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Reset all TCP related (SNMP) statistics counters.</p>
       </p></div>
-  
+</div>
+</div>
+  </div>
 
 </div>
 <div class="footer">

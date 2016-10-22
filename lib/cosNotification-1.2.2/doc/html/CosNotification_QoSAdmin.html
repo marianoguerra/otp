@@ -419,137 +419,156 @@
 <!-- refpage --><center><h1>CosNotification_QoSAdmin</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">CosNotification_QoSAdmin</div>
+<div class="REFBODY module-body">CosNotification_QoSAdmin</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">This module implements the OMG  CosNotification::QoSAdmin interface.</div>
+<div class="REFBODY modules-summary-body">This module implements the OMG  CosNotification::QoSAdmin interface.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>To get access to the record definitions for the structures use:      <br>
 <span class="code">-include_lib("cosNotification/include/*.hrl").</span></p>
     <p>All objects, which inherit this interface, export functions described in this module.</p>
-  </p></div>
+  </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="get_qos-1"></a><span class="bold_code">get_qos(Object) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="get_qos-1"></a><span class="bold_code bc-9">get_qos(Object) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Object = #objref</span><br>
+<span class="bold_code bc-11">Object = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = [QoSProperty]</span><br>
+<span class="bold_code bc-11">Reply = [QoSProperty]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">QoSProperty = #'CosNotification_Property'{name, value}</span><br>
+<span class="bold_code bc-11">QoSProperty = #'CosNotification_Property'{name, value}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">name = string()</span><br>
+<span class="bold_code bc-11">name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">value = #any</span><br>
+<span class="bold_code bc-11">value = #any</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation returns a list of name-value pairs which encapsulates the current QoS settings
           for the target object.</p>
       </p></div>
-    <p><a name="set_qos-2"></a><span class="bold_code">set_qos(Object, QoS) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="set_qos-2"></a><span class="bold_code bc-9">set_qos(Object, QoS) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Object = #objref</span><br>
+<span class="bold_code bc-11">Object = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">QoS = [QoSProperty]</span><br>
+<span class="bold_code bc-11">QoS = [QoSProperty]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">QoSProperty = #'CosNotification_Property'{name, value}</span><br>
+<span class="bold_code bc-11">QoSProperty = #'CosNotification_Property'{name, value}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">name = string()</span><br>
+<span class="bold_code bc-11">name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">value = #any</span><br>
+<span class="bold_code bc-11">value = #any</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = ok | {'EXCEPTION', #'CosNotification_UnsupportedQoS'{qos_err}}</span><br>
+<span class="bold_code bc-11">Reply = ok | {'EXCEPTION', #'CosNotification_UnsupportedQoS'{qos_err}}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">qos_err = PropertyErrorSeq</span><br>
+<span class="bold_code bc-11">qos_err = PropertyErrorSeq</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">PropertyErrorSeq = [PropertyError]</span><br>
+<span class="bold_code bc-11">PropertyErrorSeq = [PropertyError]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">PropertyError = #'CosNotification_PropertyError'{code, name, available_range}</span><br>
+<span class="bold_code bc-11">PropertyError = #'CosNotification_PropertyError'{code, name, available_range}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">code = 'UNSUPPORTED_PROPERTY' | 'UNAVAILABLE_PROPERTY' | 'UNSUPPORTED_VALUE' |  'UNAVAILABLE_VALUE' | 'BAD_PROPERTY' | 'BAD_TYPE' | 'BAD_VALUE'</span><br>
+<span class="bold_code bc-11">code = 'UNSUPPORTED_PROPERTY' | 'UNAVAILABLE_PROPERTY' | 'UNSUPPORTED_VALUE' |  'UNAVAILABLE_VALUE' | 'BAD_PROPERTY' | 'BAD_TYPE' | 'BAD_VALUE'</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">name = string()</span><br>
+<span class="bold_code bc-11">name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">available_range = PropertyRange</span><br>
+<span class="bold_code bc-11">available_range = PropertyRange</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">PropertyRange = #CosNotification_PropertyRange{low_val, high_val}</span><br>
+<span class="bold_code bc-11">PropertyRange = #CosNotification_PropertyRange{low_val, high_val}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">low_val = high_val = #any</span><br>
+<span class="bold_code bc-11">low_val = high_val = #any</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>To alter the current QoS settings for the target object this function must be used.
           If it is not possible to set the requested QoS the <span class="code">UnsupportedQoS</span>
           exception is raised, which includes a sequence of <span class="code">PropertyError</span>'s
           describing which QoS, possible range and why is not allowed.</p>
       </p></div>
-    <p><a name="validate_qos-2"></a><span class="bold_code">validate_qos(Object, QoS) -&gt; Reply</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="validate_qos-2"></a><span class="bold_code bc-9">validate_qos(Object, QoS) -&gt; Reply</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Object = #objref</span><br>
+<span class="bold_code bc-11">Object = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">QoS = [QoSProperty]</span><br>
+<span class="bold_code bc-11">QoS = [QoSProperty]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">QoSProperty = #'Property'{name, value}</span><br>
+<span class="bold_code bc-11">QoSProperty = #'Property'{name, value}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">name = string()</span><br>
+<span class="bold_code bc-11">name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">value = #any</span><br>
+<span class="bold_code bc-11">value = #any</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Reply = {ok, NamedPropertyRangeSeq} |  {'EXCEPTION', CosNotification_UnsupportedQoS{}}</span><br>
+<span class="bold_code bc-11">Reply = {ok, NamedPropertyRangeSeq} |  {'EXCEPTION', CosNotification_UnsupportedQoS{}}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">NamedPropertyRangeSeq = [NamedPropertyRange]</span><br>
+<span class="bold_code bc-11">NamedPropertyRangeSeq = [NamedPropertyRange]</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">NamedPropertyRange = #CosNotification_NamedPropertyRange{name, range}</span><br>
+<span class="bold_code bc-11">NamedPropertyRange = #CosNotification_NamedPropertyRange{name, range}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">name = string()</span><br>
+<span class="bold_code bc-11">name = string()</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">range = #CosNotification_PropertyRange{low_val, high_val}</span><br>
+<span class="bold_code bc-11">range = #CosNotification_PropertyRange{low_val, high_val}</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">low_val = #any</span><br>
+<span class="bold_code bc-11">low_val = #any</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">high_val = #any</span><br>
+<span class="bold_code bc-11">high_val = #any</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>The purpose of this operations is to check if a QoS setting is supported 
           by the target object and if so, the operation returns additional properties 
           which could be optionally added as well.</p>
       </p></div>
-  
+</div>
+</div>
+  </div>
   
 </div>
 <div class="footer">

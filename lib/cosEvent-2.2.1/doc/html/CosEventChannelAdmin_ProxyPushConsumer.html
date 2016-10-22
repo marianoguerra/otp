@@ -145,11 +145,11 @@
 <!-- refpage --><center><h1>CosEventChannelAdmin_ProxyPushConsumer</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">CosEventChannelAdmin_ProxyPushConsumer</div>
+<div class="REFBODY module-body">CosEventChannelAdmin_ProxyPushConsumer</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">This module implements a ProxyPushConsumer interface which acts as a middleman between push supplier and the event channel.</div>
+<div class="REFBODY modules-summary-body">This module implements a ProxyPushConsumer interface which acts as a middleman between push supplier and the event channel.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>The ProxyPushConsumer interface defines the second step for connecting push
       suppliers to the event channel. A proxy consumer is similar to a normal consumer,
       but includes an additional method for connecting a supplier to the proxy
@@ -158,22 +158,27 @@
       include necessary <span class="code">hrl</span> files by using:<br><span class="code">-include_lib("cosEvent/include/*.hrl").</span></p>
     <p>Any object that possesses an object reference that supports the ProxyPushConsumer
       interface can perform the following operations:</p>
-  </p></div>
+  </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="connect_push_supplier-2"></a><span class="bold_code">connect_push_supplier(Object, PushSupplier) -&gt; Return</span><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="connect_push_supplier-2"></a><span class="bold_code bc-9">connect_push_supplier(Object, PushSupplier) -&gt; Return</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Object       = #objref</span><br>
+<span class="bold_code bc-11">Object       = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">PushSupplier = #objref of PushSupplier type</span><br>
+<span class="bold_code bc-11">PushSupplier = #objref of PushSupplier type</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Return = ok | {'EXCEPTION', #'CosEventChannelAdmin_AlreadyConnected'{}}</span><br>
+<span class="bold_code bc-11">Return = ok | {'EXCEPTION', #'CosEventChannelAdmin_AlreadyConnected'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation connects PushSupplier object to the ProxyPushConsumer object.
           A nil object reference can be passed to this operation. If so a channel
           cannot invoke the disconnect_push_supplier operation on the supplier;
@@ -182,41 +187,55 @@
           PushSupplier, then the <span class="code">CosEventChannelAdmin_AlreadyConnected</span> 
           exception is raised.</p>
       </p></div>
-    <p><a name="disconnect_push_consumer-1"></a><span class="bold_code">disconnect_push_consumer(Object) -&gt; Return</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="disconnect_push_consumer-1"></a><span class="bold_code bc-9">disconnect_push_consumer(Object) -&gt; Return</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Object = #objref</span><br>
+<span class="bold_code bc-11">Object = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Return = ok</span><br>
+<span class="bold_code bc-11">Return = ok</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation disconnects proxy push consumer from the event channel.
           Sends a notification about the loss of the connection to the push supplier
           attached to it, unless nil object reference was passed at the connection
           time.</p>
       </p></div>
-    <p><a name="push-2"></a><span class="bold_code">push(Object, Data) -&gt; Return</span><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="push-2"></a><span class="bold_code bc-9">push(Object, Data) -&gt; Return</span><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">Object = #objref</span><br>
+<span class="bold_code bc-11">Object = #objref</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Data   = any</span><br>
+<span class="bold_code bc-11">Data   = any</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">Return = ok | {'EXCEPTION', #'CosEventComm_Disconnected'{}}</span><br>
+<span class="bold_code bc-11">Return = ok | {'EXCEPTION', #'CosEventComm_Disconnected'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This operation sends event data to all connected consumers via the 
           event channel. If the event communication has already been disconnected,
           the <span class="code">CosEventComm_Disconnected</span> is raised.</p>
       </p></div>
-  
+</div>
+</div>
+  </div>
   
 </div>
 <div class="footer">

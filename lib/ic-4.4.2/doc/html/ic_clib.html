@@ -129,24 +129,28 @@
 <!-- refpage --><center><h1>ic_clib</h1></center>
   
   <h3><a name="c-library" href="#c-library">C Library</a></h3>
-<div class="REFBODY">ic_clib</div>
+<div class="REFBODY c-library-body">ic_clib</div>
   <h3><a name="library-sumary" href="#library-sumary">Library Summary</a></h3>
-<div class="REFBODY">IC C Library Functions</div>
+<div class="REFBODY library-summary-body">IC C Library Functions</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>This manual page lists some of the functions in the IC C runtime
       library. </p>
-  </p></div>
+  </div>
 
-  <h3><a name="idm46072131890400">Allocation and Deallocation Functions</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45312583607616">Allocation and Deallocation Functions</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The following functions are used for allocating and
       deallocating a <strong>CORBA_Environment</strong> structure.</p>
   </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="CORBA_Environment_alloc"><span class="bold_code">CORBA_Environment *CORBA_Environment_alloc(int inbufsz, int outbufsz)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="CORBA_Environment_alloc"><span class="bold_code bc-7">CORBA_Environment *CORBA_Environment_alloc(int inbufsz, int outbufsz)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function is used to allocate and initiate the
           <span class="code">CORBA_Environment</span> structure. In particular, it is used
           to dynamically allocate a CORBA_Environment structure and set
@@ -172,81 +176,121 @@
               CORBA_Environment space.</p>
           </li>
         </ul>
-      </p></div>
-    <p><a name="CORBA_free"><span class="bold_code">void CORBA_free(void *p)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="CORBA_free"><span class="bold_code bc-7">void CORBA_free(void *p)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Frees allocated space pointed to by <span class="code">p</span>.</p>
-      </p></div>
-    <p><a name="CORBA_string_alloc"><span class="bold_code">CORBA_char *CORBA_string_alloc(CORBA_unsigned_long len)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="CORBA_string_alloc"><span class="bold_code bc-7">CORBA_char *CORBA_string_alloc(CORBA_unsigned_long len)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Allocates a (simple) CORBA character string of length <span class="code">len + 1</span>.</p>
-      </p></div>
-    <p><a name="CORBA_wstring_alloc"><span class="bold_code">CORBA_wchar *CORBA_wstring_alloc(CORBA_unsigned_long len)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="CORBA_wstring_alloc"><span class="bold_code bc-7">CORBA_wchar *CORBA_wstring_alloc(CORBA_unsigned_long len)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Allocates a CORBA wide string of length <span class="code">len + 1</span>.</p>
-      </p></div>
-  
+      </p></div></div>
+</div>
+  </div>
 
-  <h3><a name="idm46072133255200">Exception Functions</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45312582712656">Exception Functions</a></h3>
+<div class="REFBODY rb-3">
     
     <p>Functions for retrieving exception ids and values, and for setting
       exceptions. </p>
   </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="CORBA_exception_id"><span class="bold_code">CORBA_char *CORBA_exception_id(CORBA_Environment *env)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="CORBA_exception_id"><span class="bold_code bc-7">CORBA_char *CORBA_exception_id(CORBA_Environment *env)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns the exception identity if an exception is set, otherwise
           it returns <span class="code">NULL</span>.</p>
-      </p></div>
-    <p><a name="CORBA_exception_value"><span class="bold_code">void *CORBA_exception_value(CORBA_Environment *env)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="CORBA_exception_value"><span class="bold_code bc-7">void *CORBA_exception_value(CORBA_Environment *env)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Returns the exception value, if an exception is set, otherwise
           it returns <span class="code">NULL</span>.</p>
-      </p></div>
-    <p><a name="CORBA_exc_set"><span class="bold_code">void CORBA_exc_set(CORBA_Environment *env, CORBA_exception_type Major, CORBA_char *Id, CORBA_char *Value)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="CORBA_exc_set"><span class="bold_code bc-7">void CORBA_exc_set(CORBA_Environment *env, CORBA_exception_type Major, CORBA_char *Id, CORBA_char *Value)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Sets the exception type, exception identity, and exception value
           in the environment pointed to by <span class="code">env</span>.</p>
-      </p></div>
-  
+      </p></div></div>
+</div>
+  </div>
 
-  <h3><a name="idm46072133019552">Server Reception</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45312582701520">Server Reception</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The following function is provided for convenience. </p>
   </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="oe_server_receive"><span class="bold_code">int oe_server_receive(CORBA_Environment *env, oe_map_t *map)</span></a><br><a name="oe_server_receive_tmo"><span class="bold_code">int oe_server_receive_tmo(CORBA_Environment *env, oe_map_t *map,  unsigned int send_ms, unsigned int recv_ms)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="oe_server_receive"><span class="bold_code bc-7">int oe_server_receive(CORBA_Environment *env, oe_map_t *map)</span></a><br><a name="oe_server_receive_tmo"><span class="bold_code bc-7">int oe_server_receive_tmo(CORBA_Environment *env, oe_map_t *map,  unsigned int send_ms, unsigned int recv_ms)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Provides a loop that receives one message, executes the
           operation in question, and in case of a two-way operation
           sends a reply.</p>
         <p><span class="code">send_ms</span> and <span class="code">recv_ms</span> specify timeout values
           in milliseconds for send and receive, respectively.</p>
-      </p></div>
-  
+      </p></div></div>
+</div>
+  </div>
 
-  <h3><a name="idm46072133012880">Generic Execution Switch and Map Merging</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45312583332336">Generic Execution Switch and Map Merging</a></h3>
+<div class="REFBODY rb-3">
     
     <p>Function for searching for server operation function, and for
       calling it if found. Function for merging maps (see the include
       file <span class="code">ic.h</span> for definitions). </p>
   </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="oe_exec_switch"><span class="bold_code">int oe_exec_switch(CORBA_Object obj, CORBA_Environment *env, oe_map_t *map)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="oe_exec_switch"><span class="bold_code bc-7">int oe_exec_switch(CORBA_Object obj, CORBA_Environment *env, oe_map_t *map)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Search for server operation and execute it.</p>
-      </p></div>
-    <p><a name="oe_merge_maps"><span class="bold_code">oe_map_t *oe_merge_maps(oe_map_t *maps, int size)</span></a><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="oe_merge_maps"><span class="bold_code bc-7">oe_map_t *oe_merge_maps(oe_map_t *maps, int size)</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>Merge an array of server maps to one single map.</p>
-      </p></div>
-  
+      </p></div></div>
+</div>
+  </div>
 
-  <h3><a name="idm46072133004976">The CORBA_Environment structure</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45312583324432">The CORBA_Environment structure</a></h3>
+<div class="REFBODY rb-3">
     
     <p>Here is the complete definition of the CORBA_Environment structure,
       defined in file <strong>ic.h</strong>: </p>
@@ -320,8 +364,8 @@
 </div>
   </div>
 
-  <h3><a name="idm46072132737904">SEE ALSO</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45312583314576">SEE ALSO</a></h3>
+<div class="REFBODY rb-3">
     
     <p>ic(3), ic_c_protocol(3)
       </p>

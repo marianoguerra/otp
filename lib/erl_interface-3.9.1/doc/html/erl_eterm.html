@@ -592,11 +592,11 @@
 <!-- refpage --><center><h1>erl_eterm</h1></center>
   
   <h3><a name="c-library" href="#c-library">C Library</a></h3>
-<div class="REFBODY">erl_eterm</div>
+<div class="REFBODY c-library-body">erl_eterm</div>
   <h3><a name="library-sumary" href="#library-sumary">Library Summary</a></h3>
-<div class="REFBODY">Functions for Erlang Term Construction</div>
+<div class="REFBODY library-summary-body">Functions for Erlang Term Construction</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body">
     <p>This module contains functions for creating and manipulating
       Erlang terms. </p>
     <p>An Erlang term is represented by a C structure of type
@@ -693,19 +693,24 @@
       <dt><strong><span class="code">ETERM *ERL_CONS_TAIL(t)</span></strong></dt>
       <dd>A List representing the tail elements of list <span class="code">t</span>.</dd>
     </dl>
-  </p></div>
+  </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="erl_cons"><span class="bold_code">ETERM *erl_cons(head, tail)</span></a><br></p>
-<div class="REFBODY">
+<div class="exports-body">
+    <div class="func">
+<div class="func-title">
+<a name="erl_cons"><span class="bold_code bc-7">ETERM *erl_cons(head, tail)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ETERM *head;</span><br>
+<span class="bold_code bc-11">ETERM *head;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">ETERM *tail;</span><br>
+<span class="bold_code bc-11">ETERM *tail;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function concatenates two Erlang terms, prepending
           <span class="code">head</span> onto <span class="code">tail</span> and thereby creating a <span class="code">cons</span> cell.
           To make a proper list, <span class="code">tail</span> should always be a
@@ -730,28 +735,40 @@ list   = erl_cons(anInt, list);
 erl_free_compound(list);
         </pre></div>
       </p></div>
-    <p><a name="erl_copy_term"><span class="bold_code">ETERM *erl_copy_term(term)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_copy_term"><span class="bold_code bc-7">ETERM *erl_copy_term(term)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ETERM *term;</span><br>
+<span class="bold_code bc-11">ETERM *term;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function creates and returns a copy of the Erlang term 
           <span class="code">term</span>.</p>
       </p></div>
-    <p><a name="erl_element"><span class="bold_code">ETERM *erl_element(position, tuple)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_element"><span class="bold_code bc-7">ETERM *erl_element(position, tuple)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">int position;</span><br>
+<span class="bold_code bc-11">int position;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">ETERM *tuple;</span><br>
+<span class="bold_code bc-11">ETERM *tuple;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function extracts a specified element from an Erlang
           tuple. </p>
         <p><span class="code">position</span> specifies which element to retrieve from
@@ -762,45 +779,63 @@ erl_free_compound(list);
           requested element, or NULL if <span class="code">position</span> was greater than
           the arity of <span class="code">tuple</span>.</p>
       </p></div>
-    <p><a name="erl_init"><span class="bold_code">void erl_init(NULL, 0)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_init"><span class="bold_code bc-7">void erl_init(NULL, 0)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">void *NULL;</span><br>
+<span class="bold_code bc-11">void *NULL;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">int 0;</span><br>
+<span class="bold_code bc-11">int 0;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <a name="erl_init"></a>
         <p>This function must be called before any of the others in 
           the <span class="code">erl_interface</span> library in order to initialize the
           library functions. The arguments must be specified as 
           <span class="code">erl_init(NULL,0)</span>.</p>
       </p></div>
-    <p><a name="erl_hd"><span class="bold_code">ETERM *erl_hd(list)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_hd"><span class="bold_code bc-7">ETERM *erl_hd(list)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ETERM *list;</span><br>
+<span class="bold_code bc-11">ETERM *list;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Extracts the first element from a list.</p>
         <p><span class="code">list</span> is an Erlang term containing a list.</p>
         <p>The function returns an Erlang term corresponding to the
           head element in the list, or a NULL pointer if <span class="code">list</span> was
           not a list.</p>
       </p></div>
-    <p><a name="erl_iolist_to_binary"><span class="bold_code">ETERM *erl_iolist_to_binary(term)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_iolist_to_binary"><span class="bold_code bc-7">ETERM *erl_iolist_to_binary(term)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ETERM *list;</span><br>
+<span class="bold_code bc-11">ETERM *list;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function converts an IO list to a binary term.</p>
         <p><span class="code">list</span> is an Erlang term containing a list.</p>
         <p>This function an Erlang binary term, or NULL if <span class="code">list</span>
@@ -819,14 +854,20 @@ iohead ::= Binary
         ;
         </pre></div>
       </p></div>
-    <p><a name="erl_iolist_to_string"><span class="bold_code">char *erl_iolist_to_string(list)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_iolist_to_string"><span class="bold_code bc-7">char *erl_iolist_to_string(list)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ETERM *list;</span><br>
+<span class="bold_code bc-11">ETERM *list;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function converts an IO list to a '\0' terminated C
           string. </p>
         <p><span class="code">list</span> is an Erlang term containing an IO list. The IO
@@ -840,14 +881,20 @@ iohead ::= Binary
         <p>Refer to <span class="code">erl_iolist_to_binary()</span> for the definition of an
           IO list. </p>
       </p></div>
-    <p><a name="erl_iolist_length"><span class="bold_code">int erl_iolist_length(list)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_iolist_length"><span class="bold_code bc-7">int erl_iolist_length(list)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ETERM *list;</span><br>
+<span class="bold_code bc-11">ETERM *list;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Returns the length of an IO list.
           </p>
         <p><span class="code">list</span> is an Erlang term containing an IO list. </p>
@@ -856,28 +903,40 @@ iohead ::= Binary
         <p>Refer to <span class="code">erl_iolist_to_binary()</span> for the definition of
           an IO list. </p>
       </p></div>
-    <p><a name="erl_length"><span class="bold_code">int erl_length(list)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_length"><span class="bold_code bc-7">int erl_length(list)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ETERM *list;</span><br>
+<span class="bold_code bc-11">ETERM *list;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Determines the length of a proper list.</p>
         <p><span class="code">list</span> is an Erlang term containing proper list. In a
           proper list, all tails except the last point to another list
           cell, and the last tail points to an empty list.</p>
         <p>Returns -1 if <span class="code">list</span> is not a proper list.</p>
       </p></div>
-    <p><a name="erl_mk_atom"><span class="bold_code">ETERM *erl_mk_atom(string)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_mk_atom"><span class="bold_code bc-7">ETERM *erl_mk_atom(string)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">const char *string;</span><br>
+<span class="bold_code bc-11">const char *string;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Creates an atom.</p>
         <p><span class="code">string</span> is the sequence of characters that will be
           used to create the atom.</p>
@@ -894,17 +953,23 @@ iohead ::= Binary
 	</p></div>
 </div>
       </p></div>
-    <p><a name="erl_mk_binary"><span class="bold_code">ETERM *erl_mk_binary(bptr, size)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_mk_binary"><span class="bold_code bc-7">ETERM *erl_mk_binary(bptr, size)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">char *bptr;</span><br>
+<span class="bold_code bc-11">char *bptr;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">int size;</span><br>
+<span class="bold_code bc-11">int size;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function produces an Erlang binary object from a
           buffer containing a sequence of bytes.</p>
         <p><span class="code">bptr</span> is a pointer to a buffer containing data to be converted.</p>
@@ -914,23 +979,33 @@ iohead ::= Binary
           the binary data. <span class="code">ERL_BIN_SIZE(bin)</span> retrieves the 
           size. </p>
       </p></div>
-    <p><a name="erl_mk_empty_list"><span class="bold_code">ETERM *erl_mk_empty_list()</span></a><br></p>
-<div class="REFBODY"><p>
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_mk_empty_list"><span class="bold_code bc-7">ETERM *erl_mk_empty_list()</span></a><br>
+</div>
+<div class="func-body"><div class="REFBODY data-type-desc"><p>
         <p>This function creates and returns an empty Erlang list.
           Note that NULL is not used to represent an empty list;
           Use this function instead.</p>
-      </p></div>
-    <p><a name="erl_mk_estring"><span class="bold_code">ETERM *erl_mk_estring(string, len)</span></a><br></p>
-<div class="REFBODY">
+      </p></div></div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_mk_estring"><span class="bold_code bc-7">ETERM *erl_mk_estring(string, len)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">char *string;</span><br>
+<span class="bold_code bc-11">char *string;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">int len;</span><br>
+<span class="bold_code bc-11">int len;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function creates a list from a sequence of bytes.</p>
         <p><span class="code">string</span> is a buffer containing a sequence of
           bytes. The buffer does not need to be zero-terminated.</p>
@@ -938,14 +1013,20 @@ iohead ::= Binary
         <p>The function returns an Erlang list object corresponding to
           the character sequence in <span class="code">string</span>.</p>
       </p></div>
-    <p><a name="erl_mk_float"><span class="bold_code">ETERM *erl_mk_float(f)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_mk_float"><span class="bold_code bc-7">ETERM *erl_mk_float(f)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">double f;</span><br>
+<span class="bold_code bc-11">double f;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Creates an Erlang float.</p>
         <p><span class="code">f</span> is a value to be converted to an Erlang float.</p>
         <p></p>
@@ -956,14 +1037,20 @@ iohead ::= Binary
         <p><span class="code">ERL_FLOAT_VALUE(t)</span> can be used to retrieve the
             value from an Erlang float.</p>
       </p></div>
-    <p><a name="erl_mk_int"><span class="bold_code">ETERM *erl_mk_int(n)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_mk_int"><span class="bold_code bc-7">ETERM *erl_mk_int(n)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">int n;</span><br>
+<span class="bold_code bc-11">int n;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Creates an Erlang integer.</p>
         <p><span class="code">n</span> is a value to be converted to an Erlang integer.</p>
         <p></p>
@@ -972,17 +1059,23 @@ iohead ::= Binary
         <p><span class="code">ERL_INT_VALUE(t)</span> can be used to retrieve the value 
           value from an Erlang integer.</p>
       </p></div>
-    <p><a name="erl_mk_list"><span class="bold_code">ETERM *erl_mk_list(array, arrsize)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_mk_list"><span class="bold_code bc-7">ETERM *erl_mk_list(array, arrsize)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ETERM **array;</span><br>
+<span class="bold_code bc-11">ETERM **array;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">int arrsize;</span><br>
+<span class="bold_code bc-11">int arrsize;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Creates an Erlang list from an array of Erlang terms, such
           that each element in the list corresponds to one element in
           the array. </p>
@@ -992,23 +1085,29 @@ iohead ::= Binary
           <span class="code">arrsize</span> and whose elements are taken from the terms in
           <span class="code">array</span>.</p>
       </p></div>
-    <p><a name="erl_mk_pid"><span class="bold_code">ETERM *erl_mk_pid(node, number, serial, creation)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_mk_pid"><span class="bold_code bc-7">ETERM *erl_mk_pid(node, number, serial, creation)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">const char *node;</span><br>
+<span class="bold_code bc-11">const char *node;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">unsigned int number;</span><br>
+<span class="bold_code bc-11">unsigned int number;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">unsigned int serial;</span><br>
+<span class="bold_code bc-11">unsigned int serial;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">unsigned int creation;</span><br>
+<span class="bold_code bc-11">unsigned int creation;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function creates an Erlang process identifier. The
           resulting pid can be used by Erlang processes wishing to
           communicate with the C node.</p>
@@ -1022,20 +1121,26 @@ iohead ::= Binary
           <span class="code">ERL_PID_SERIAL(pid)</span> and <span class="code">ERL_PID_CREATION(pid)</span>
           can be used to retrieve the four values used to create the pid.</p>
       </p></div>
-    <p><a name="erl_mk_port"><span class="bold_code">ETERM *erl_mk_port(node, number, creation)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_mk_port"><span class="bold_code bc-7">ETERM *erl_mk_port(node, number, creation)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">const char *node;</span><br>
+<span class="bold_code bc-11">const char *node;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">unsigned int number;</span><br>
+<span class="bold_code bc-11">unsigned int number;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">unsigned int creation;</span><br>
+<span class="bold_code bc-11">unsigned int creation;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function creates an Erlang port identifier. </p>
         <p><span class="code">node</span> is the name of the C node.</p>
         <p><span class="code">number</span> and <span class="code">creation</span> are arbitrary numbers.
@@ -1047,20 +1152,26 @@ iohead ::= Binary
           and <span class="code">ERL_PORT_CREATION</span> can be used to retrieve the three
           values used to create the port. </p>
       </p></div>
-    <p><a name="erl_mk_ref"><span class="bold_code">ETERM *erl_mk_ref(node, number, creation)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_mk_ref"><span class="bold_code bc-7">ETERM *erl_mk_ref(node, number, creation)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">const char *node;</span><br>
+<span class="bold_code bc-11">const char *node;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">unsigned int number;</span><br>
+<span class="bold_code bc-11">unsigned int number;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">unsigned int creation;</span><br>
+<span class="bold_code bc-11">unsigned int creation;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function creates an old Erlang reference, with
           only 18 bits - use <span class="code">erl_mk_long_ref</span> instead.</p>
         <p><span class="code">node</span> is the name of the C node.</p>
@@ -1076,20 +1187,26 @@ iohead ::= Binary
           <span class="code">ERL_REF_CREATION(ref)</span> to retrieve the three values used
           to create the reference. </p>
       </p></div>
-    <p><a name="erl_mk_long_ref"><span class="bold_code">ETERM *erl_mk_long_ref(node, n1, n2, n3, creation)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_mk_long_ref"><span class="bold_code bc-7">ETERM *erl_mk_long_ref(node, n1, n2, n3, creation)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">const char *node;</span><br>
+<span class="bold_code bc-11">const char *node;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">unsigned int n1, n2, n3;</span><br>
+<span class="bold_code bc-11">unsigned int n1, n2, n3;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">unsigned int creation;</span><br>
+<span class="bold_code bc-11">unsigned int creation;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function creates an Erlang reference, with 82 bits.</p>
         <p><span class="code">node</span> is the name of the C node.</p>
         <p><span class="code">n1</span>, <span class="code">n2</span> and <span class="code">n3</span> can be seen as one big number
@@ -1107,30 +1224,42 @@ iohead ::= Binary
           <span class="code">ERL_REF_CREATION(ref)</span> to retrieve the values used
           to create the reference. </p>
       </p></div>
-    <p><a name="erl_mk_string"><span class="bold_code">ETERM *erl_mk_string(string)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_mk_string"><span class="bold_code bc-7">ETERM *erl_mk_string(string)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">char *string;</span><br>
+<span class="bold_code bc-11">char *string;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function creates a list from a zero terminated string.</p>
         <p><span class="code">string</span> is the zero-terminated sequence of characters
           (i.e. a C string) from which the list will be created.</p>
         <p>The function returns an Erlang list.</p>
       </p></div>
-    <p><a name="erl_mk_tuple"><span class="bold_code">ETERM *erl_mk_tuple(array, arrsize)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_mk_tuple"><span class="bold_code bc-7">ETERM *erl_mk_tuple(array, arrsize)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ETERM **array;</span><br>
+<span class="bold_code bc-11">ETERM **array;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">int arrsize;</span><br>
+<span class="bold_code bc-11">int arrsize;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Creates an Erlang tuple from an array of Erlang terms.</p>
         <p><span class="code">array</span> is an array of Erlang terms.</p>
         <p><span class="code">arrsize</span> is the number of elements in <span class="code">array</span>.</p>
@@ -1146,14 +1275,20 @@ iohead ::= Binary
           <span class="code">erl_element(index,tuple)</span> returns the element
           corresponding to a given position in the tuple. </p>
       </p></div>
-    <p><a name="erl_mk_uint"><span class="bold_code">ETERM *erl_mk_uint(n)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_mk_uint"><span class="bold_code bc-7">ETERM *erl_mk_uint(n)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">unsigned int n;</span><br>
+<span class="bold_code bc-11">unsigned int n;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Creates an Erlang unsigned integer.</p>
         <p><span class="code">n</span> is a value to be converted to an Erlang
           unsigned integer.</p>
@@ -1163,31 +1298,43 @@ iohead ::= Binary
         <p><span class="code">ERL_INT_UVALUE(t)</span> can be used to retrieve the
           value from an Erlang unsigned integer.</p>
       </p></div>
-    <p><a name="erl_mk_var"><span class="bold_code">ETERM *erl_mk_var(name)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_mk_var"><span class="bold_code bc-7">ETERM *erl_mk_var(name)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">char *name;</span><br>
+<span class="bold_code bc-11">char *name;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function creates an unbound Erlang variable. The
           variable can later be bound through pattern matching or assignment.</p>
         <p><span class="code">name</span> specifies a name for the variable.</p>
         <p>The function returns an Erlang variable object with the
           name <span class="code">name</span>. </p>
       </p></div>
-    <p><a name="erl_print_term"><span class="bold_code">int erl_print_term(stream, term)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_print_term"><span class="bold_code bc-7">int erl_print_term(stream, term)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">FILE *stream;</span><br>
+<span class="bold_code bc-11">FILE *stream;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">ETERM *term;</span><br>
+<span class="bold_code bc-11">ETERM *term;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function prints the specified Erlang term to the given
           output stream.</p>
         <p><span class="code">stream</span> indicates where the function should send its
@@ -1196,14 +1343,20 @@ iohead ::= Binary
         <p>The function returns the number of characters written, or a
           negative value if there was an error.</p>
       </p></div>
-    <p><a name="erl_set_compat_rel"><span class="bold_code">void erl_set_compat_rel(release_number)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_set_compat_rel"><span class="bold_code bc-7">void erl_set_compat_rel(release_number)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">unsigned release_number;</span><br>
+<span class="bold_code bc-11">unsigned release_number;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <a name="erl_set_compat_rel"></a>
         <p>By default, the <span class="code">erl_interface</span> library is only guaranteed
           to be compatible with other Erlang/OTP components from the same
@@ -1220,7 +1373,7 @@ iohead ::= Binary
 <div class="content"><p>
           <p>If this function is called, it may only be called once
             directly after the call to the
-            <span class="bold_code"><a href="#erl_init">erl_init()</a></span> function.</p>
+            <span class="bold_code data-type-ref"><a href="#erl_init">erl_init()</a></span> function.</p>
         </p></div>
 </div>
         <div class="warning">
@@ -1234,14 +1387,20 @@ iohead ::= Binary
         </p></div>
 </div>
       </p></div>
-    <p><a name="erl_size"><span class="bold_code">int erl_size(term)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_size"><span class="bold_code bc-7">int erl_size(term)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ETERM *term;</span><br>
+<span class="bold_code bc-11">ETERM *term;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Returns the arity of an Erlang tuple, or the
           number of bytes in an Erlang binary object. </p>
         <p><span class="code">term</span> is an Erlang tuple or an Erlang binary object.</p>
@@ -1249,31 +1408,43 @@ iohead ::= Binary
           above, or -1 if <span class="code">term</span> is not one of the two supported
           types. </p>
       </p></div>
-    <p><a name="erl_tl"><span class="bold_code">ETERM *erl_tl(list)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_tl"><span class="bold_code bc-7">ETERM *erl_tl(list)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ETERM *list;</span><br>
+<span class="bold_code bc-11">ETERM *list;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>Extracts the tail from a list.</p>
         <p><span class="code">list</span> is an Erlang term containing a list.</p>
         <p>The function returns an Erlang list corresponding to the
           original list minus the first element, or NULL pointer if
           <span class="code">list</span> was not a list.</p>
       </p></div>
-    <p><a name="erl_var_content"><span class="bold_code">ETERM *erl_var_content(term, name)</span></a><br></p>
-<div class="REFBODY">
+</div>
+</div>
+    <div class="func">
+<div class="func-title">
+<a name="erl_var_content"><span class="bold_code bc-7">ETERM *erl_var_content(term, name)</span></a><br>
+</div>
+<div class="func-body">
+<div class="REFBODY rb-5">
 <p>Types:</p>
         <div class="REFTYPES">
-<span class="bold_code">ETERM *term;</span><br>
+<span class="bold_code bc-11">ETERM *term;</span><br>
 </div>
         <div class="REFTYPES">
-<span class="bold_code">char *name;</span><br>
+<span class="bold_code bc-11">char *name;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY data-type-desc"><p>
         <p>This function returns the contents of the specified
           variable in an Erlang term. 
           </p>
@@ -1288,7 +1459,9 @@ iohead ::= Binary
           <span class="code">name</span> was found in <span class="code">term</span>, or if <span class="code">term</span> is
           not a valid Erlang term, NULL is returned.</p>
       </p></div>
-  
+</div>
+</div>
+  </div>
 </div>
 <div class="footer">
 <hr>
