@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">STDLIB</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 3.1</p>
@@ -1717,52 +1717,57 @@
 <!-- refpage --><center><h1>base64</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">base64</div>
+<div class="REFBODY module-body">base64</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Provides base64 encode and decode, see
+<div class="REFBODY module-summary-body">Provides base64 encode and decode, see
     RFC 2045.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>Provides base64 encode and decode, see
-      <span class="bold_code"><a href="https://www.ietf.org/rfc/rfc2045.txt">RFC 2045</a></span>.</p>
+      <span class="bold_code bc-20"><a href="https://www.ietf.org/rfc/rfc2045.txt">RFC 2045</a></span>.</p>
   </p></div>
 
   <h3><a name="data-types" href="#data-types">Data Types</a></h3>
-    <p>
-      <span class="bold_code"><a name="type-ascii_string">ascii_string()</a> = [1..255]</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-ascii_binary">ascii_binary()</a> = binary()</span><br></p>
-<div class="REFBODY"><p><p>A <span class="code">binary()</span> with ASCII characters in the range 1 to
+<div class="data-types-body">
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-ascii_string">ascii_string()</a> = [1..255]</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-ascii_binary">ascii_binary()</a> = binary()</span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p><p>A <span class="code">binary()</span> with ASCII characters in the range 1 to
         255.</p>
-      </p></div>
-  
+      </p></div></div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="decode-1"></a><span class="bold_code">decode(Base64) -&gt; Data</span><br><a name="decode_to_string-1"></a><span class="bold_code">decode_to_string(Base64) -&gt; DataString</span><br><a name="mime_decode-1"></a><span class="bold_code">mime_decode(Base64) -&gt; Data</span><br><a name="mime_decode_to_string-1"></a><span class="bold_code">mime_decode_to_string(Base64) -&gt; DataString</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Base64 = <span class="bold_code"><a href="#type-ascii_string">ascii_string()</a></span> | <span class="bold_code"><a href="#type-ascii_binary">ascii_binary()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Data = <span class="bold_code"><a href="#type-ascii_binary">ascii_binary()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">DataString = <span class="bold_code"><a href="#type-ascii_string">ascii_string()</a></span></span></div>
+<div class="exports-body">
+    <p><a name="decode-1"></a><span class="bold_code bc-1">decode(Base64) -&gt; Data</span><a name="decode_to_string-1"></a><span class="bold_code bc-1">decode_to_string(Base64) -&gt; DataString</span><a name="mime_decode-1"></a><span class="bold_code bc-1">mime_decode(Base64) -&gt; Data</span><a name="mime_decode_to_string-1"></a><span class="bold_code bc-1">mime_decode_to_string(Base64) -&gt; DataString</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Base64 = <span class="bold_code bc-17"><a href="#type-ascii_string">ascii_string()</a></span> | <span class="bold_code bc-17"><a href="#type-ascii_binary">ascii_binary()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Data = <span class="bold_code bc-17"><a href="#type-ascii_binary">ascii_binary()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">DataString = <span class="bold_code bc-17"><a href="#type-ascii_string">ascii_string()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Decodes a base64-encoded string to plain ASCII. See
-          <span class="bold_code"><a href="https://www.ietf.org/html/rfc4648">RFC 4648</a></span>.</p>
+          <span class="bold_code bc-20"><a href="https://www.ietf.org/html/rfc4648">RFC 4648</a></span>.</p>
         <p><span class="code">mime_decode/1</span> and <span class="code">mime_decode_to_string/1</span> strip away
           illegal characters, while <span class="code">decode/1</span> and
           <span class="code">decode_to_string/1</span> only strip away whitespace characters.</p>
       </p></div>
 
-    <p><a name="encode-1"></a><span class="bold_code">encode(Data) -&gt; Base64</span><br><a name="encode_to_string-1"></a><span class="bold_code">encode_to_string(Data) -&gt; Base64String</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Data = <span class="bold_code"><a href="#type-ascii_string">ascii_string()</a></span> | <span class="bold_code"><a href="#type-ascii_binary">ascii_binary()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Base64 = <span class="bold_code"><a href="#type-ascii_binary">ascii_binary()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Base64String = <span class="bold_code"><a href="#type-ascii_string">ascii_string()</a></span></span></div>
+    <p><a name="encode-1"></a><span class="bold_code bc-1">encode(Data) -&gt; Base64</span><a name="encode_to_string-1"></a><span class="bold_code bc-1">encode_to_string(Data) -&gt; Base64String</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Data = <span class="bold_code bc-17"><a href="#type-ascii_string">ascii_string()</a></span> | <span class="bold_code bc-17"><a href="#type-ascii_binary">ascii_binary()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Base64 = <span class="bold_code bc-17"><a href="#type-ascii_binary">ascii_binary()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Base64String = <span class="bold_code bc-17"><a href="#type-ascii_string">ascii_string()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Encodes a plain ASCII string into base64. The result is 33% larger
           than the data.</p>
       </p></div>
-  
+  </div>
 </div>
 <div class="footer">
 <hr>

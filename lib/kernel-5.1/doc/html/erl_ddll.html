@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Kernel</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 5.1</p>
@@ -646,11 +646,11 @@
 <!-- refpage --><center><h1>erl_ddll</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">erl_ddll</div>
+<div class="REFBODY module-body">erl_ddll</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Dynamic driver loader and linker.</div>
+<div class="REFBODY module-summary-body">Dynamic driver loader and linker.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>This module provides an interface for loading
       and unloading <strong>Erlang linked-in drivers</strong> in runtime.</p>
     <div class="note">
@@ -659,8 +659,8 @@
       <p>This is a large reference document. For casual use of this
         module, and for most real world applications, the
         descriptions of functions
-	<span class="bold_code"><a href="#load-2"><span class="code">load/2</span></a></span> and
-	<span class="bold_code"><a href="#unload-1"><span class="code">unload/1</span></a></span>
+	<span class="bold_code bc-17"><a href="#load-2"><span class="code">load/2</span></a></span> and
+	<span class="bold_code bc-17"><a href="#unload-1"><span class="code">unload/1</span></a></span>
 	are enough to getting started.</p>
     </p></div>
 </div>
@@ -671,7 +671,7 @@
       specific interfaces to the emulator, so this module is not
       designed for loading arbitrary dynamic libraries. For more
       information about Erlang drivers, see
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl_driver.html');"><span class="code">erts:erl_driver</span></a></span>
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','erl_driver.html');"><span class="code">erts:erl_driver</span></a></span>
       .</p>
     <a name="users"></a>
     <p>When describing a set of functions (that is, a module, a part of a
@@ -698,15 +698,15 @@
       <dt><strong><strong>Load and Unload on a "When Needed Basis"</strong></strong></dt>
       <dd>
         <p>This (most common) scenario simply supports that each
-          <span class="bold_code"><a href="#users">user</a></span> of the driver loads
+          <span class="bold_code bc-17"><a href="#users">user</a></span> of the driver loads
           it when needed and unloads it when no longer needed.
           The driver is always reference counted and as long as a
           process keeping the driver loaded is still alive, the driver
           is present in the system.</p>
-        <p>Each <span class="bold_code"><a href="#users">user</a></span> of the driver
+        <p>Each <span class="bold_code bc-17"><a href="#users">user</a></span> of the driver
           use <strong>literally</strong> the same pathname for the driver when
           demanding load, but the
-	  <span class="bold_code"><a href="#users">users</a></span> are not concerned
+	  <span class="bold_code bc-17"><a href="#users">users</a></span> are not concerned
           with if the driver is already loaded from the file system or
           if the object code must be loaded from file system.</p>
         <p>The following two pairs of functions support this scenario:</p>
@@ -717,7 +717,7 @@
               driver is not unloaded until the
               <strong>last port</strong> using the driver is closed. Function
               <span class="code">unload/1</span> can return immediately, as the
-	      <span class="bold_code"><a href="#users">users</a></span>
+	      <span class="bold_code bc-17"><a href="#users">users</a></span>
 	      have no interrest in when the unloading occurs. The
               driver is unloaded when no one needs it any longer.</p>
             <p>If a process having the driver loaded dies, it has
@@ -732,9 +732,9 @@
           <dd>
             <p>These interfaces are intended to be used when it is considered an
               error that ports are open to a driver that no
-	      <span class="bold_code"><a href="#users">user</a></span>
+	      <span class="bold_code bc-17"><a href="#users">user</a></span>
               has loaded. The ports that are still open when the
-              last <span class="bold_code"><a href="#users">user</a></span> calls
+              last <span class="bold_code bc-17"><a href="#users">user</a></span> calls
               <span class="code">unload_driver/1</span> or when the last process having the
               driver loaded dies, are killed with reason
               <span class="code">driver_unloaded</span>.</p>
@@ -751,7 +751,7 @@
           emulator. Implementing driver code replacement is a little
           more tedious than Beam code replacement, as one driver
           cannot be loaded as both "old" and "new" code. All
-	  <span class="bold_code"><a href="#users">users</a></span> of a driver must have it
+	  <span class="bold_code bc-17"><a href="#users">users</a></span> of a driver must have it
           closed (no open ports) before the old code can be unloaded
           and the new code can be loaded.</p>
         <p>The unloading/loading is done as one atomic
@@ -762,18 +762,18 @@
           the process starts, the driver is loaded. When replacement
           is required, the driver is reloaded. Unload is probably never
           done, or done when the process exits. If more than one
-	  <span class="bold_code"><a href="#users">user</a></span> has a driver
+	  <span class="bold_code bc-17"><a href="#users">user</a></span> has a driver
 	  loaded when code replacement is demanded, the replacement cannot
 	  occur until the last "other"
-	  <span class="bold_code"><a href="#users">user</a></span> has
+	  <span class="bold_code bc-17"><a href="#users">user</a></span> has
           unloaded the driver.</p>
         <p>Demanding reload when a reload is already in progress is
           always an error. Using the high-level functions, it is also
           an error to demand reloading when more than one
-	  <span class="bold_code"><a href="#users">user</a></span> has the driver loaded.</p>
+	  <span class="bold_code bc-17"><a href="#users">user</a></span> has the driver loaded.</p>
 	 <p>To simplify driver replacement, avoid designing your system so
           that more than one
-	  <span class="bold_code"><a href="#users">user</a></span> has the driver loaded.</p>
+	  <span class="bold_code bc-17"><a href="#users">user</a></span> has the driver loaded.</p>
         <p>The two functions for reloading drivers are to be used
           together with corresponding load functions to support the two
           different behaviors concerning open ports:</p>
@@ -789,7 +789,7 @@
               infinite waiting for reload. Time-outs must be provided
               outside of the process demanding the reload or by using
               the low-level interface
-	      <span class="bold_code"><a href="#try_load-3"><span class="code">try_load/3</span></a></span>
+	      <span class="bold_code bc-17"><a href="#try_load-3"><span class="code">try_load/3</span></a></span>
 	      in combination with driver monitors.</p>
           </dd>
           <dt><strong><strong>load_driver/2 and reload_driver/2</strong></strong></dt>
@@ -802,7 +802,7 @@
               calling <span class="code">reload_driver</span> returns error code
               <span class="code">pending_process</span>. As stated earlier,
               the recommended design is to not allow other
-	      <span class="bold_code"><a href="#users">users</a></span> than the "driver
+	      <span class="bold_code bc-17"><a href="#users">users</a></span> than the "driver
               reloader" to demand loading of the driver in question.</p>
           </dd>
         </dl>
@@ -810,33 +810,39 @@
     </dl>
   </p></div>
   <h3><a name="data-types" href="#data-types">Data Types</a></h3>
-    <p>
-      <span class="bold_code"><a name="type-driver">driver()</a> = iolist() | atom()</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-path">path()</a> = string() | atom()</span><br></p>
-  
+<div class="data-types-body">
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-driver">driver()</a> = iolist() | atom()</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-path">path()</a> = string() | atom()</span><br>
+</div>
+<div class="data-type-desc"></div>
+  </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="demonitor-1"></a><span class="bold_code">demonitor(MonitorRef) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">MonitorRef = reference()</span></div>
+<div class="exports-body">
+    <p><a name="demonitor-1"></a><span class="bold_code bc-1">demonitor(MonitorRef) -&gt; ok</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">MonitorRef = reference()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Removes a driver monitor in much the same way as 
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#erlang:demonitor-1');"><span class="code">erlang:demonitor/1</span></a></span>
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#erlang:demonitor-1');"><span class="code">erlang:demonitor/1</span></a></span>
 	  in ERTS
 	  does with process monitors. For details about how to create
 	  driver monitors, see
-	  <span class="bold_code"><a href="#monitor-2"><span class="code">monitor/2</span></a></span>,
-	  <span class="bold_code"><a href="#try_load-3"><span class="code">try_load/3</span></a></span>, and
-	  <span class="bold_code"><a href="#try_unload-2"><span class="code">try_unload/2</span></a></span>.</p>
+	  <span class="bold_code bc-17"><a href="#monitor-2"><span class="code">monitor/2</span></a></span>,
+	  <span class="bold_code bc-17"><a href="#try_load-3"><span class="code">try_load/3</span></a></span>, and
+	  <span class="bold_code bc-17"><a href="#try_unload-2"><span class="code">try_unload/2</span></a></span>.</p>
         <p>The function throws a <span class="code">badarg</span> exception if the
           parameter is not a <span class="code">reference()</span>.</p>
       </p></div>
-    <p><a name="format_error-1"></a><span class="bold_code">format_error(ErrorDesc) -&gt; string()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">ErrorDesc = term()</span></div>
+    <p><a name="format_error-1"></a><span class="bold_code bc-1">format_error(ErrorDesc) -&gt; string()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">ErrorDesc = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Takes an <span class="code">ErrorDesc</span> returned by load, unload, or
           reload functions and returns a string that
           describes the error or warning.</p>
@@ -852,32 +858,32 @@
         </p></div>
 </div>
       </p></div>
-    <p><a name="info-0"></a><span class="bold_code">info() -&gt; AllInfoList</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">AllInfoList = [DriverInfo]</span></div>
-<div class="REFTYPES"><span class="bold_code">DriverInfo = {DriverName, InfoList}</span></div>
-<div class="REFTYPES"><span class="bold_code">DriverName = string()</span></div>
-<div class="REFTYPES"><span class="bold_code">InfoList = [InfoItem]</span></div>
-<div class="REFTYPES"><span class="bold_code">InfoItem = {Tag :: atom(), Value :: term()}</span></div>
+    <p><a name="info-0"></a><span class="bold_code bc-1">info() -&gt; AllInfoList</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">AllInfoList = [DriverInfo]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">DriverInfo = {DriverName, InfoList}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">DriverName = string()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">InfoList = [InfoItem]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">InfoItem = {Tag :: atom(), Value :: term()}</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a list of tuples <span class="code">{DriverName, InfoList}</span>,
 	   where <span class="code">InfoList</span> is the result of calling
-	   <span class="bold_code"><a href="#info-1"><span class="code">info/1</span></a></span> for that
+	   <span class="bold_code bc-17"><a href="#info-1"><span class="code">info/1</span></a></span> for that
           <span class="code">DriverName</span>. Only dynamically linked-in drivers are
           included in the list.</p>
       </p></div>
-    <p><a name="info-1"></a><span class="bold_code">info(Name) -&gt; InfoList</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-driver">driver()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">InfoList = [InfoItem, ...]</span></div>
-<div class="REFTYPES"><span class="bold_code">InfoItem = {Tag :: atom(), Value :: term()}</span></div>
+    <p><a name="info-1"></a><span class="bold_code bc-1">info(Name) -&gt; InfoList</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-driver">driver()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">InfoList = [InfoItem, ...]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">InfoItem = {Tag :: atom(), Value :: term()}</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a list of tuples <span class="code">{Tag, Value}</span>,
 	  where <span class="code">Tag</span> is the information item and
 	  <span class="code">Value</span> is the result of calling
-	  <span class="bold_code"><a href="#info-2"><span class="code">info/2</span></a></span> with this driver
+	  <span class="bold_code bc-17"><a href="#info-2"><span class="code">info/2</span></a></span> with this driver
 	  name and this tag. The result is a tuple list containing all information
 	  available about a driver.</p>
         <p>The following tags appears in the list:</p>
@@ -891,17 +897,17 @@
           <li><span class="code">awaiting_unload</span></li>
         </ul>
         <p>For a detailed description of each value, see
-          <span class="bold_code"><a href="#info-2"><span class="code">info/2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#info-2"><span class="code">info/2</span></a></span>.</p>
         <p>The function throws a <span class="code">badarg</span> exception if the driver
           is not present in the system.</p>
       </p></div>
-    <p><a name="info-2"></a><span class="bold_code">info(Name, Tag) -&gt; Value</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-driver">driver()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Tag = <br>    processes |<br>    driver_options |<br>    port_count |<br>    linked_in_driver |<br>    permanent |<br>    awaiting_load |<br>    awaiting_unload</span></div>
-<div class="REFTYPES"><span class="bold_code">Value = term()</span></div>
+    <p><a name="info-2"></a><span class="bold_code bc-1">info(Name, Tag) -&gt; Value</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-driver">driver()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tag = <br>    processes |<br>    driver_options |<br>    port_count |<br>    linked_in_driver |<br>    permanent |<br>    awaiting_load |<br>    awaiting_unload</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Value = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns specific information about one aspect of a driver.
 	  Parameter <span class="code">Tag</span> specifies which aspect
           to get information about. The return <span class="code">Value</span> differs
@@ -910,7 +916,7 @@
           <dt><strong><span class="code">processes</span></strong></dt>
           <dd>
             <p>Returns all processes containing
-	    <span class="bold_code"><a href="#users">users</a></span> of the specific drivers
+	    <span class="bold_code bc-17"><a href="#users">users</a></span> of the specific drivers
               as a list of tuples <span class="code">{pid(),integer() &gt;= 0}</span>, where
               <span class="code">integer()</span> denotes the number of users in process
               <span class="code">pid()</span>.</p>
@@ -959,13 +965,13 @@
         <p>The function throws a <span class="code">badarg</span> exception if the driver
           is not present in the system or if the tag is not supported.</p>
       </p></div>
-    <p><a name="load-2"></a><span class="bold_code">load(Path, Name) -&gt; ok | {error, ErrorDesc}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Path = <span class="bold_code"><a href="#type-path">path()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-driver">driver()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">ErrorDesc = term()</span></div>
+    <p><a name="load-2"></a><span class="bold_code bc-1">load(Path, Name) -&gt; ok | {error, ErrorDesc}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Path = <span class="bold_code bc-17"><a href="#type-path">path()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-driver">driver()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">ErrorDesc = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Loads and links the dynamic driver <span class="code">Name</span>.
 	  <span class="code">Path</span>
           is a file path to the directory containing the driver.
@@ -985,11 +991,11 @@
           <span class="code">load/2</span> stops the unloading and keeps the driver
           (as long as <span class="code">Path</span> is the same), and <span class="code">ok</span> is
           returned. If you really want the object code to be
-          reloaded, use <span class="bold_code"><a href="#reload-2"><span class="code">reload/2</span></a></span>
+          reloaded, use <span class="bold_code bc-17"><a href="#reload-2"><span class="code">reload/2</span></a></span>
 	  or the low-level interface
-	  <span class="bold_code"><a href="#try_load-3"><span class="code">try_load/3</span></a></span> instead.
+	  <span class="bold_code bc-17"><a href="#try_load-3"><span class="code">try_load/3</span></a></span> instead.
 	  See also the description of
-	  <span class="bold_code"><a href="#scenarios"><span class="code">different scenarios</span></a></span> for
+	  <span class="bold_code bc-17"><a href="#scenarios"><span class="code">different scenarios</span></a></span> for
           loading/unloading in the introduction.</p>
         <p>If more than one process tries to load an already loaded
           driver with the same <span class="code">Path</span>, or if the same process
@@ -1019,63 +1025,63 @@
           failure, the return value is <span class="code">{error,ErrorDesc}</span>,
           where <span class="code">ErrorDesc</span> is an opaque term to be
           translated into human readable form by function
-	  <span class="bold_code"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>.</p>
+	  <span class="bold_code bc-17"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>.</p>
         <p>For more control over the error handling, use the
-          <span class="bold_code"><a href="#try_load-3"><span class="code">try_load/3</span></a></span>
+          <span class="bold_code bc-17"><a href="#try_load-3"><span class="code">try_load/3</span></a></span>
           interface instead.</p>
         <p>The function throws a <span class="code">badarg</span> exception if the
           parameters are not specified as described here.</p>
       </p></div>
-    <p><a name="load_driver-2"></a><span class="bold_code">load_driver(Path, Name) -&gt; ok | {error, ErrorDesc}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Path = <span class="bold_code"><a href="#type-path">path()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-driver">driver()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">ErrorDesc = term()</span></div>
+    <p><a name="load_driver-2"></a><span class="bold_code bc-1">load_driver(Path, Name) -&gt; ok | {error, ErrorDesc}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Path = <span class="bold_code bc-17"><a href="#type-path">path()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-driver">driver()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">ErrorDesc = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Works essentially as <span class="code">load/2</span>, but loads the driver
           with other options. All ports using the
           driver are killed with reason <span class="code">driver_unloaded</span>
 	  when the driver is to be unloaded.</p>
         <p>The number of loads and unloads by different
-	  <span class="bold_code"><a href="#users">users</a></span> influences the loading
+	  <span class="bold_code bc-17"><a href="#users">users</a></span> influences the loading
           and unloading of a driver file. The port killing
           therefore only occurs when the <strong>last</strong>
-	  <span class="bold_code"><a href="#users">user</a></span> unloads the driver,
+	  <span class="bold_code bc-17"><a href="#users">user</a></span> unloads the driver,
 	  or when the last process having loaded the driver exits.</p>
         <p>This interface (or at least the name of the functions) is
           kept for backward compatibility.
-	  Using <span class="bold_code"><a href="#try_load-3"><span class="code">try_load/3</span></a></span> with
+	  Using <span class="bold_code bc-17"><a href="#try_load-3"><span class="code">try_load/3</span></a></span> with
           <span class="code">{driver_options,[kill_ports]}</span> in the option list
           gives the same effect regarding the port killing.</p>
         <p>The function throws a <span class="code">badarg</span> exception if the
           parameters are not specified as described here.</p>
       </p></div>
-    <p><a name="loaded_drivers-0"></a><span class="bold_code">loaded_drivers() -&gt; {ok, Drivers}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Drivers = [Driver]</span></div>
-<div class="REFTYPES"><span class="bold_code">Driver = string()</span></div>
+    <p><a name="loaded_drivers-0"></a><span class="bold_code bc-1">loaded_drivers() -&gt; {ok, Drivers}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Drivers = [Driver]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Driver = string()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a list of all the available drivers, both
           (statically) linked-in and dynamically loaded ones.</p>
         <p>The driver names are returned as a list of strings rather
           than a list of atoms for historical reasons.</p>
         <p>For more information about drivers, see
-          <span class="bold_code"><a href="#info-0"><span class="code">info</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#info-0"><span class="code">info</span></a></span>.</p>
       </p></div>
-    <p><a name="monitor-2"></a><span class="bold_code">monitor(Tag, Item) -&gt; MonitorRef</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tag = driver</span></div>
-<div class="REFTYPES"><span class="bold_code">Item = {Name, When}</span></div>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-driver">driver()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">When = loaded | unloaded | unloaded_only</span></div>
-<div class="REFTYPES"><span class="bold_code">MonitorRef = reference()</span></div>
+    <p><a name="monitor-2"></a><span class="bold_code bc-1">monitor(Tag, Item) -&gt; MonitorRef</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tag = driver</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Item = {Name, When}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-driver">driver()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">When = loaded | unloaded | unloaded_only</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">MonitorRef = reference()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Creates a driver monitor and works in many
           ways as
-	  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#erlang:monitor-2');"><span class="code">erlang:monitor/2</span></a></span>
+	  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#erlang:monitor-2');"><span class="code">erlang:monitor/2</span></a></span>
 	  in ERTS,
           does for processes. When a driver changes state, the monitor
           results in a monitor message that is sent to the calling
@@ -1085,9 +1091,9 @@
           generates <strong>one single message</strong>. The monitor is
           "destroyed" after the message is sent, so it is then not
           needed to call
-	<span class="bold_code"><a href="#demonitor-1"><span class="code">demonitor/1</span></a></span>.</p>
+	<span class="bold_code bc-17"><a href="#demonitor-1"><span class="code">demonitor/1</span></a></span>.</p>
         <p><span class="code">MonitorRef</span> can also be used in subsequent calls
-          to <span class="bold_code"><a href="#demonitor-1"><span class="code">demonitor/1</span></a></span> to
+          to <span class="bold_code bc-17"><a href="#demonitor-1"><span class="code">demonitor/1</span></a></span> to
           remove a monitor.</p>
         <p>The function accepts the following parameters:</p>
         <dl>
@@ -1116,7 +1122,7 @@
                   <span class="code">DOWN</span> message sent immediately.
                   Monitoring for loading is therefore most useful when
                   triggered by function
-		  <span class="bold_code"><a href="#try_load-3"><span class="code">try_load/3</span></a></span>,
+		  <span class="bold_code bc-17"><a href="#try_load-3"><span class="code">try_load/3</span></a></span>,
                   where the monitor is created <strong>because</strong> the
                   driver is in such a pending state.</p>
                 <p>Setting a driver monitor for <span class="code">loading</span>
@@ -1129,7 +1135,7 @@
                       driver is already loaded and no reloading is
                       pending, or when reloading is executed if
                       reloading is pending. </p>
-                    <p>The <span class="bold_code"><a href="#users">user</a></span> is
+                    <p>The <span class="bold_code bc-17"><a href="#users">user</a></span> is
                       expected to know if reloading is demanded before
                       creating a monitor for loading.</p>
                   </dd>
@@ -1145,9 +1151,9 @@
                   <dd>
                     <p>This message arrives if reloading was
                       underway, but the requesting
-		      <span class="bold_code"><a href="#users">user</a></span>
+		      <span class="bold_code bc-17"><a href="#users">user</a></span>
                       cancelled it by dying or calling
-                      <span class="bold_code"><a href="#try_unload-2"><span class="code">try_unload/2</span></a></span>
+                      <span class="bold_code bc-17"><a href="#try_unload-2"><span class="code">try_unload/2</span></a></span>
                       (or <span class="code">unload/1</span>/<span class="code">unload_driver/1</span>)
                       again before it was reloaded.</p>
                   </dd>
@@ -1157,9 +1163,9 @@
                       underway but the loading for some reason
                       failed. The <span class="code">Failure</span> term is one of the
                       errors that can be returned from
-		      <span class="bold_code"><a href="#try_load-3"><span class="code">try_load/3</span></a></span>.
+		      <span class="bold_code bc-17"><a href="#try_load-3"><span class="code">try_load/3</span></a></span>.
 		      The error term can be passed to
-		      <span class="bold_code"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>
+		      <span class="bold_code bc-17"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>
                       for translation into human readable form. Notice
                       that the translation must be done in the same
                       running Erlang virtual machine as the error
@@ -1190,15 +1196,15 @@
                     <p>This message is sent if unloading was
                       expected, but while the driver was waiting for
                       all ports to get closed, a new
-		      <span class="bold_code"><a href="#users">user</a></span> of the driver
+		      <span class="bold_code bc-17"><a href="#users">user</a></span> of the driver
                       appeared, and the unloading was cancelled.</p>
                     <p>This message appears if <span class="code">{ok, pending_driver}</span>
 		      was returned from
-		      <span class="bold_code"><a href="#try_unload-2"><span class="code">try_unload/2</span></a></span>
-                      for the last <span class="bold_code"><a href="#users">user</a></span>
+		      <span class="bold_code bc-17"><a href="#try_unload-2"><span class="code">try_unload/2</span></a></span>
+                      for the last <span class="bold_code bc-17"><a href="#users">user</a></span>
 		      of the driver, and then <span class="code">{ok, already_loaded}</span> is returned
                       from a call to
-		    <span class="bold_code"><a href="#try_load-3"><span class="code">try_load/3</span></a></span>.</p>
+		    <span class="bold_code bc-17"><a href="#try_load-3"><span class="code">try_load/3</span></a></span>.</p>
                     <p>If one <strong>really</strong> wants to monitor when the
                       driver gets unloaded, this message distorts
                       the picture, because no unloading was done.
@@ -1231,20 +1237,20 @@
         <p>The function throws a <span class="code">badarg</span> exception if the
           parameters are not specified as described here.</p>
       </p></div>
-    <p><a name="reload-2"></a><span class="bold_code">reload(Path, Name) -&gt; ok | {error, ErrorDesc}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Path = <span class="bold_code"><a href="#type-path">path()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-driver">driver()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">ErrorDesc = pending_process | OpaqueError</span></div>
-<div class="REFTYPES"><span class="bold_code">OpaqueError = term()</span></div>
+    <p><a name="reload-2"></a><span class="bold_code bc-1">reload(Path, Name) -&gt; ok | {error, ErrorDesc}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Path = <span class="bold_code bc-17"><a href="#type-path">path()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-driver">driver()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">ErrorDesc = pending_process | OpaqueError</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">OpaqueError = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Reloads the driver named <span class="code">Name</span> from a possibly
           different <span class="code">Path</span> than previously used. This
           function is used in the code change
-	  <span class="bold_code"><a href="#scenarios"><span class="code">scenario</span></a></span> described in the
+	  <span class="bold_code bc-17"><a href="#scenarios"><span class="code">scenario</span></a></span> described in the
           introduction.</p>
-        <p>If there are other <span class="bold_code"><a href="#users">users</a></span>
+        <p>If there are other <span class="bold_code bc-17"><a href="#users">users</a></span>
           of this driver, the function returns <span class="code">{error, pending_process}</span>,
 	  but if there are no other users, the function call hangs until all
 	  open ports are closed.</p>
@@ -1252,68 +1258,68 @@
 <div class="label">Note</div>
 <div class="content"><p>
           <p>Avoid mixing multiple
-	  <span class="bold_code"><a href="#users">users</a></span>
+	  <span class="bold_code bc-17"><a href="#users">users</a></span>
           with driver reload requests.</p>
         </p></div>
 </div>
         <p>To avoid hanging on open ports, use function
-          <span class="bold_code"><a href="#try_load-3"><span class="code">try_load/3</span></a></span>
+          <span class="bold_code bc-17"><a href="#try_load-3"><span class="code">try_load/3</span></a></span>
           instead.</p>
         <p>The <span class="code">Name</span> and <span class="code">Path</span> parameters
 	  have exactly the same meaning as when calling the plain function
-	<span class="bold_code"><a href="#load-2"><span class="code">load/2</span></a></span>.</p>
+	<span class="bold_code bc-17"><a href="#load-2"><span class="code">load/2</span></a></span>.</p>
 
         <p>On success, the function returns <span class="code">ok</span>. On
           failure, the function returns an opaque error,
           except the <span class="code">pending_process</span> error described
           earlier. The opaque errors are to be translated into human
           readable form by function
-	<span class="bold_code"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>.</p>
+	<span class="bold_code bc-17"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>.</p>
         <p>For more control over the error handling,  use the
-          <span class="bold_code"><a href="#try_load-3"><span class="code">try_load/3</span></a></span>
+          <span class="bold_code bc-17"><a href="#try_load-3"><span class="code">try_load/3</span></a></span>
           interface instead.</p>
         <p>The function throws a <span class="code">badarg</span> exception if the
           parameters are not specified as described here.</p>
       </p></div>
-    <p><a name="reload_driver-2"></a><span class="bold_code">reload_driver(Path, Name) -&gt; ok | {error, ErrorDesc}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Path = <span class="bold_code"><a href="#type-path">path()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-driver">driver()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">ErrorDesc = pending_process | OpaqueError</span></div>
-<div class="REFTYPES"><span class="bold_code">OpaqueError = term()</span></div>
+    <p><a name="reload_driver-2"></a><span class="bold_code bc-1">reload_driver(Path, Name) -&gt; ok | {error, ErrorDesc}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Path = <span class="bold_code bc-17"><a href="#type-path">path()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-driver">driver()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">ErrorDesc = pending_process | OpaqueError</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">OpaqueError = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
-        <p>Works exactly as <span class="bold_code"><a href="#reload-2"><span class="code">reload/2</span></a></span>,
+<div class="REFBODY rb-7"><p>
+        <p>Works exactly as <span class="bold_code bc-17"><a href="#reload-2"><span class="code">reload/2</span></a></span>,
 	  but for drivers loaded with the
-	<span class="bold_code"><a href="#load_driver-2"><span class="code">load_driver/2</span></a></span> interface.</p>
+	<span class="bold_code bc-17"><a href="#load_driver-2"><span class="code">load_driver/2</span></a></span> interface.</p>
         <p>As this interface implies that ports are killed when
           the last user disappears, the function does not hang waiting for
           ports to get closed.</p>
         <p>For more details, see
-	  <span class="bold_code"><a href="#scenarios"><span class="code">scenarios</span></a></span> in this module
+	  <span class="bold_code bc-17"><a href="#scenarios"><span class="code">scenarios</span></a></span> in this module
           description and the function description for
-	  <span class="bold_code"><a href="#reload-2"><span class="code">reload/2</span></a></span>.</p>
+	  <span class="bold_code bc-17"><a href="#reload-2"><span class="code">reload/2</span></a></span>.</p>
         <p>The function throws a <span class="code">badarg</span> exception if the
           parameters are not specified as described here.</p>
       </p></div>
-    <p><a name="try_load-3"></a><span class="bold_code">try_load(Path, Name, OptionList) -&gt;<br>            {ok, Status} |<br>            {ok, PendingStatus, Ref} |<br>            {error, ErrorDesc}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Path = <span class="bold_code"><a href="#type-path">path()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-driver">driver()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">OptionList = [Option]</span></div>
-<div class="REFTYPES"><span class="bold_code">Option = <br>    {driver_options, DriverOptionList} |<br>    {monitor, MonitorOption} |<br>    {reload, ReloadOption}</span></div>
-<div class="REFTYPES"><span class="bold_code">DriverOptionList = [DriverOption]</span></div>
-<div class="REFTYPES"><span class="bold_code">DriverOption = kill_ports</span></div>
-<div class="REFTYPES"><span class="bold_code">MonitorOption = ReloadOption = pending_driver | pending</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Status = loaded | already_loaded | PendingStatus</span></div>
-<div class="REFTYPES"><span class="bold_code">PendingStatus = pending_driver | pending_process</span></div>
-<div class="REFTYPES"><span class="bold_code">Ref = reference()</span></div>
-<div class="REFTYPES"><span class="bold_code">ErrorDesc = ErrorAtom | OpaqueError</span></div>
-<div class="REFTYPES"><span class="bold_code">ErrorAtom = <br>    linked_in_driver |<br>    inconsistent |<br>    permanent |<br>    not_loaded_by_this_process |<br>    not_loaded |<br>    pending_reload |<br>    pending_process</span></div>
-<div class="REFTYPES"><span class="bold_code">OpaqueError = term()</span></div>
+    <p><a name="try_load-3"></a><span class="bold_code bc-1">try_load(Path, Name, OptionList) -&gt;<br>            {ok, Status} |<br>            {ok, PendingStatus, Ref} |<br>            {error, ErrorDesc}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Path = <span class="bold_code bc-17"><a href="#type-path">path()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-driver">driver()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">OptionList = [Option]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Option = <br>    {driver_options, DriverOptionList} |<br>    {monitor, MonitorOption} |<br>    {reload, ReloadOption}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">DriverOptionList = [DriverOption]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">DriverOption = kill_ports</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">MonitorOption = ReloadOption = pending_driver | pending</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Status = loaded | already_loaded | PendingStatus</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">PendingStatus = pending_driver | pending_process</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Ref = reference()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">ErrorDesc = ErrorAtom | OpaqueError</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">ErrorAtom = <br>    linked_in_driver |<br>    inconsistent |<br>    permanent |<br>    not_loaded_by_this_process |<br>    not_loaded |<br>    pending_reload |<br>    pending_process</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">OpaqueError = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Provides more control than the
           <span class="code">load/2</span>/<span class="code">reload/2</span> and
           <span class="code">load_driver/2</span>/<span class="code">reload_driver/2</span> interfaces. It
@@ -1343,7 +1349,7 @@
               <span class="code">{reload,pending_driver}</span> or
               <span class="code">{reload,pending}</span> are used, but
               <strong>can</strong> occur when another
-	      <span class="bold_code"><a href="#users">user</a></span> is unloading a
+	      <span class="bold_code bc-17"><a href="#users">user</a></span> is unloading a
 	      driver in parallel and driver option <span class="code">kill_ports</span> is set.
 	      In other words, this return value always needs
               to be handled.</p>
@@ -1353,7 +1359,7 @@
             <p>The load request is registered, but the loading is
               delayed because an earlier instance of the
               driver is still waiting to get unloaded by another
-              <span class="bold_code"><a href="#users">user</a></span> (not only by a
+              <span class="bold_code bc-17"><a href="#users">user</a></span> (not only by a
               port, in which case <span class="code">{ok,pending_driver}</span> would
               have been returned). Still, unload is expected when you
               are done with the driver. This return value
@@ -1372,7 +1378,7 @@
 	  and the process then gets a monitor message later, when the
 	  driver gets loaded. The monitor message to expect is described in
           the function description of
-	  <span class="bold_code"><a href="#monitor-2"><span class="code">monitor/2</span></a></span>.</p>
+	  <span class="bold_code bc-17"><a href="#monitor-2"><span class="code">monitor/2</span></a></span>.</p>
         <div class="note">
 <div class="label">Note</div>
 <div class="content"><p>
@@ -1398,12 +1404,12 @@
               into a sequence of characters.</p>
             <p>The (possibly flattened) <span class="code">Path</span> parameter must be
               consistent throughout the system. A driver is to, by
-              all <span class="bold_code"><a href="#users">users</a></span>, be loaded
+              all <span class="bold_code bc-17"><a href="#users">users</a></span>, be loaded
               using the same <strong>literal</strong> <span class="code">Path</span>.
 	      The exception is when <strong>reloading</strong> is requested,
 	      in which case <span class="code">Path</span> can be specified
               differently. Notice that all
-	      <span class="bold_code"><a href="#users">users</a></span> trying to load the
+	      <span class="bold_code bc-17"><a href="#users">users</a></span> trying to load the
               driver later need to use the
 	      <strong>new</strong> <span class="code">Path</span> if <span class="code">Path</span>
 	      is changed using a <span class="code">reload</span> option. This is yet another reason
@@ -1414,7 +1420,7 @@
           <dd>
             <p>This parameter is the name of the driver
 	      to be used in subsequent calls to function
-	      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#open_port-2');"><span class="code">erlang:open_port</span></a></span>
+	      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#open_port-2');"><span class="code">erlang:open_port</span></a></span>
 	      in ERTS.
 	      The name can be specified as an <span class="code">iolist()</span> or
               an <span class="code">atom()</span>. The name specified when loading is used
@@ -1444,8 +1450,8 @@
                   to the driver are killed with exit reason
                   <span class="code">driver_unloaded</span> when no process any longer
                   has the driver loaded. This situation arises either
-                  when the last <span class="bold_code"><a href="#users">user</a></span> calls
-		  <span class="bold_code"><a href="#try_unload-2"><span class="code">try_unload/2</span></a></span>, or
+                  when the last <span class="bold_code bc-17"><a href="#users">user</a></span> calls
+		  <span class="bold_code bc-17"><a href="#try_unload-2"><span class="code">try_unload/2</span></a></span>, or
                   when the last process having loaded the driver exits.</p>
               </dd>
               <dt><strong><span class="code">{monitor, MonitorOption}</span></strong></dt>
@@ -1480,7 +1486,7 @@
                   useful to specify option <span class="code">monitor</span>, as
                   forced unloads (driver option <span class="code">kill_ports</span> or
                   option <span class="code">kill_ports</span> to
-		  <span class="bold_code"><a href="#try_unload-2"><span class="code">try_unload/2</span></a></span>)
+		  <span class="bold_code bc-17"><a href="#try_unload-2"><span class="code">try_unload/2</span></a></span>)
 		  trigger a transient state where driver loading
                   cannot be performed until all closing ports are
                   closed. Thus, as <span class="code">try_unload</span> can, in
@@ -1498,7 +1504,7 @@
                   the driver.</p>
                 <p>To reload a driver, the process must have loaded the driver
 		  before, that is, there must be an active
-		  <span class="bold_code"><a href="#users">user</a></span> of the driver
+		  <span class="bold_code bc-17"><a href="#users">user</a></span> of the driver
 		  in the process.</p>
                 <p>The <span class="code">reload</span> option can be either of the following:</p>
 		 <dl>
@@ -1509,23 +1515,23 @@
                        ports opened to the driver are closed. The driver
                        replacement in this case takes
                        place regardless if there are still
-                       pending <span class="bold_code"><a href="#users">users</a></span>
+                       pending <span class="bold_code bc-17"><a href="#users">users</a></span>
                        having the driver loaded.</p>
                      <p>The option also triggers port-killing (if driver
                        option <span class="code">kill_ports</span> is used) although
                        there are pending users, making it usable for forced
                        driver replacement, but laying much
                        responsibility on the driver
-		       <span class="bold_code"><a href="#users">users</a></span>.
+		       <span class="bold_code bc-17"><a href="#users">users</a></span>.
 		       The pending option is seldom used as one does not want other
-		       <span class="bold_code"><a href="#users">users</a></span> to have loaded
+		       <span class="bold_code bc-17"><a href="#users">users</a></span> to have loaded
 		       the driver when code change is underway.</p>
 </dd>
 		   <dt><strong><span class="code">pending_driver</span></strong></dt>
 		   <dd>
 		     <p>This option is more useful. Here, reloading is queued
 		        if the driver is <strong>not</strong> loaded by any other
-		        <span class="bold_code"><a href="#users">users</a></span>, but the
+		        <span class="bold_code bc-17"><a href="#users">users</a></span>, but the
 			driver has opened ports, in which case
 			<span class="code">{ok, pending_driver}</span> is returned
 			(a <span class="code">monitor</span> option is recommended).</p>
@@ -1543,7 +1549,7 @@
           can only be returned given a certain combination of options.</p>
         <p>Some errors are opaque and can only be interpreted by
           passing them to function
-	  <span class="bold_code"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>,
+	  <span class="bold_code bc-17"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>,
           but some can be interpreted directly:</p>
         <dl>
           <dt><strong><span class="code">{error,linked_in_driver}</span></strong></dt>
@@ -1569,20 +1575,20 @@
           <dt><strong><span class="code">{error, pending_process}</span></strong></dt>
           <dd>
             <p>The driver is loaded by other
-	    <span class="bold_code"><a href="#users">users</a></span> when
+	    <span class="bold_code bc-17"><a href="#users">users</a></span> when
 	    option <span class="code">{reload, pending_driver}</span> was specified.</p>
           </dd>
           <dt><strong><span class="code">{error, pending_reload}</span></strong></dt>
           <dd>
             <p>Driver reload is already requested by another
-	    <span class="bold_code"><a href="#users">user</a></span> when option
+	    <span class="bold_code bc-17"><a href="#users">user</a></span> when option
 	    <span class="code">{reload, ReloadOption}</span> was specified.</p>
           </dd>
           <dt><strong><span class="code">{error, not_loaded_by_this_process}</span></strong></dt>
           <dd>
             <p>Appears when option <span class="code">reload</span> is specified. The
               driver <span class="code">Name</span> is present in the system, but there
-	      is no <span class="bold_code"><a href="#users">user</a></span> of it in this
+	      is no <span class="bold_code bc-17"><a href="#users">user</a></span> of it in this
               process.</p>
           </dd>
           <dt><strong><span class="code">{error, not_loaded}</span></strong></dt>
@@ -1593,7 +1599,7 @@
           </dd>
         </dl>
         <p>All other error codes are to be translated by function
-	<span class="bold_code"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>.
+	<span class="bold_code bc-17"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>.
 	  Notice that calls to <span class="code">format_error</span> are to be
           performed from the same running instance of the Erlang
           virtual machine as the error is detected in, because of
@@ -1601,29 +1607,29 @@
         <p>If the arguments or options are malformed, the function
           throws a <span class="code">badarg</span> exception.</p>
       </p></div>
-    <p><a name="try_unload-2"></a><span class="bold_code">try_unload(Name, OptionList) -&gt;<br>              {ok, Status} |<br>              {ok, PendingStatus, Ref} |<br>              {error, ErrorAtom}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-driver">driver()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">OptionList = [Option]</span></div>
-<div class="REFTYPES"><span class="bold_code">Option = {monitor, MonitorOption} | kill_ports</span></div>
-<div class="REFTYPES"><span class="bold_code">MonitorOption = pending_driver | pending</span></div>
-<div class="REFTYPES"><span class="bold_code">Status = unloaded | PendingStatus</span></div>
-<div class="REFTYPES"><span class="bold_code">PendingStatus = pending_driver | pending_process</span></div>
-<div class="REFTYPES"><span class="bold_code">Ref = reference()</span></div>
-<div class="REFTYPES"><span class="bold_code">ErrorAtom = <br>    linked_in_driver |<br>    not_loaded |<br>    not_loaded_by_this_process |<br>    permanent</span></div>
+    <p><a name="try_unload-2"></a><span class="bold_code bc-1">try_unload(Name, OptionList) -&gt;<br>              {ok, Status} |<br>              {ok, PendingStatus, Ref} |<br>              {error, ErrorAtom}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-driver">driver()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">OptionList = [Option]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Option = {monitor, MonitorOption} | kill_ports</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">MonitorOption = pending_driver | pending</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Status = unloaded | PendingStatus</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">PendingStatus = pending_driver | pending_process</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Ref = reference()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">ErrorAtom = <br>    linked_in_driver |<br>    not_loaded |<br>    not_loaded_by_this_process |<br>    permanent</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This is the low-level function to unload (or decrement
           reference counts of) a driver. It can be used to force port
           killing, in much the same way as the driver option
           <span class="code">kill_ports</span> implicitly does. Also, it can trigger a
           monitor either because other
-	  <span class="bold_code"><a href="#users">users</a></span> still have the driver
+	  <span class="bold_code bc-17"><a href="#users">users</a></span> still have the driver
           loaded or because open ports use the driver.</p>
         <p>Unloading can be described as the process of telling the
           emulator that this particular part of the code in this
           particular process (that is, this
-	  <span class="bold_code"><a href="#users">user</a></span>) no longer needs
+	  <span class="bold_code bc-17"><a href="#users">user</a></span>) no longer needs
 	  the driver. That can, if there are no other users, trigger
           unloading of the driver, in which case the driver name
           disappears from the system and (if possible) the memory
@@ -1632,17 +1638,17 @@
           <span class="code">kill_ports</span> is specified as an option to this
           function, all pending ports using this driver are
           killed when unloading is done by the last
-	  <span class="bold_code"><a href="#users">user</a></span>. If no port-killing
+	  <span class="bold_code bc-17"><a href="#users">user</a></span>. If no port-killing
 	  is involved and there are open ports, the unloading
           is delayed until no more open ports use the
           driver. If, in this case, another
-	  <span class="bold_code"><a href="#users">user</a></span> (or even this user)
+	  <span class="bold_code bc-17"><a href="#users">user</a></span> (or even this user)
 	  loads the driver again before the driver is unloaded, the
           unloading never takes place.</p>
-        <p>To allow the <span class="bold_code"><a href="#users">user</a></span> to
+        <p>To allow the <span class="bold_code bc-17"><a href="#users">user</a></span> to
           <strong>request unloading</strong> to wait for <strong>actual unloading</strong>,
           <span class="code">monitor</span> triggers can be specified in much the same way as
-	  when loading. However, as <span class="bold_code"><a href="#users">users</a></span>
+	  when loading. However, as <span class="bold_code bc-17"><a href="#users">users</a></span>
 	  of this function seldom are interested in more than decrementing the
           reference counts, monitoring is seldom needed.</p>
 	<div class="note">
@@ -1654,7 +1660,7 @@
 </div>
         <p>The possible monitor messages to expect are the
           same as when using option <span class="code">unloaded</span> to function
-          <span class="bold_code"><a href="#monitor-2"><span class="code">monitor/2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#monitor-2"><span class="code">monitor/2</span></a></span>.</p>
         <p>The function returns one of the following statuses upon
           success:</p>
         <dl>
@@ -1666,17 +1672,17 @@
               driver object code is now reclaimed.</p>
             <p>The driver can only be unloaded when there are no open
               ports using it and no more
-	      <span class="bold_code"><a href="#users">users</a></span> require it to be
+	      <span class="bold_code bc-17"><a href="#users">users</a></span> require it to be
               loaded.</p>
           </dd>
           <dt><strong><span class="code">{ok, pending_driver}</span>or
 	       <span class="code">{ok, pending_driver, reference()}</span></strong></dt>
           <dd>
             <p>Indicates that this call removed the last
-	      <span class="bold_code"><a href="#users">user</a></span> from the
+	      <span class="bold_code bc-17"><a href="#users">user</a></span> from the
               driver, but there are still open ports using it.
               When all ports are closed and no new
-	      <span class="bold_code"><a href="#users">users</a></span> have arrived,
+	      <span class="bold_code bc-17"><a href="#users">users</a></span> have arrived,
 	      the driver is reloaded and the name and memory
               reclaimed.</p>
             <p>This return value is valid even if option <span class="code">kill_ports</span>
@@ -1689,16 +1695,16 @@
 	       <span class="code">{ok, pending_process, reference()}</span></strong></dt>
           <dd>
             <p>The unload request is registered, but
-              other <span class="bold_code"><a href="#users">users</a></span> still hold
+              other <span class="bold_code bc-17"><a href="#users">users</a></span> still hold
               the driver. Notice that the term <span class="code">pending_process</span>
               can refer to the running process; there can be more
-              than one <span class="bold_code"><a href="#users">user</a></span> in the
+              than one <span class="bold_code bc-17"><a href="#users">user</a></span> in the
               same process.</p>
             <p>This is a normal, healthy, return value if the call was
               just placed to inform the emulator that you have no
               further use of the driver. It is the most
               common return value in the most common
-	      <span class="bold_code"><a href="#scenarios"><span class="code">scenario</span></a></span>
+	      <span class="bold_code bc-17"><a href="#scenarios"><span class="code">scenario</span></a></span>
               described in the introduction.</p>
           </dd>
         </dl>
@@ -1720,12 +1726,12 @@
               <dd>
                 <p>Forces killing of all ports opened using this driver,
                   with exit reason <span class="code">driver_unloaded</span>, if you are
-                  the <strong>last</strong> <span class="bold_code"><a href="#users">user</a></span>
+                  the <strong>last</strong> <span class="bold_code bc-17"><a href="#users">user</a></span>
 		  of the driver.</p>
-                <p>If other <span class="bold_code"><a href="#users">users</a></span>
+                <p>If other <span class="bold_code bc-17"><a href="#users">users</a></span>
 		  have the driver loaded, this option has no effect.</p>
                 <p>To get the consistent behavior of killing ports
-                  when the last <span class="bold_code"><a href="#users">user</a></span>
+                  when the last <span class="bold_code bc-17"><a href="#users">user</a></span>
                   unloads, use driver option
                   <span class="code">kill_ports</span> when loading the driver instead.</p>
               </dd>
@@ -1778,7 +1784,7 @@
           <dt><strong><span class="code">{error, not_loaded_by_this_process}</span></strong></dt>
           <dd>
             <p>The driver <span class="code">Name</span> is present in the system, but
-              there is no <span class="bold_code"><a href="#users">user</a></span> of
+              there is no <span class="bold_code bc-17"><a href="#users">user</a></span> of
               it in this process. </p>
             <p>As a special case, drivers can be unloaded from
               processes that have done no corresponding call to
@@ -1796,68 +1802,68 @@
         <p>The function throws a <span class="code">badarg</span> exception if the
           parameters are not specified as described here.</p>
       </p></div>
-    <p><a name="unload-1"></a><span class="bold_code">unload(Name) -&gt; ok | {error, ErrorDesc}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-driver">driver()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">ErrorDesc = term()</span></div>
+    <p><a name="unload-1"></a><span class="bold_code bc-1">unload(Name) -&gt; ok | {error, ErrorDesc}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-driver">driver()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">ErrorDesc = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Unloads, or at least dereferences the driver named
           <span class="code">Name</span>. If the caller is the last
-	  <span class="bold_code"><a href="#users">user</a></span> of the driver,
+	  <span class="bold_code bc-17"><a href="#users">user</a></span> of the driver,
 	  and no more open ports use the driver, the driver
           gets unloaded. Otherwise, unloading
           is delayed until all ports are closed and no
-          <span class="bold_code"><a href="#users">users</a></span> remain.</p>
-        <p>If there are other <span class="bold_code"><a href="#users">users</a></span>
+          <span class="bold_code bc-17"><a href="#users">users</a></span> remain.</p>
+        <p>If there are other <span class="bold_code bc-17"><a href="#users">users</a></span>
 	  of the driver, the reference counts of the driver is merely decreased,
 	  so that the caller is no longer considered a
-	  <span class="bold_code"><a href="#users">user</a></span> of the driver. For use
-          scenarios, see the <span class="bold_code"><a href="#scenarios"><span class="code">description</span></a></span>
+	  <span class="bold_code bc-17"><a href="#users">user</a></span> of the driver. For use
+          scenarios, see the <span class="bold_code bc-17"><a href="#scenarios"><span class="code">description</span></a></span>
 	  in the beginning of this module.</p>
         <p>The <span class="code">ErrorDesc</span> returned is an opaque value to be
           passed further on to function
-	  <span class="bold_code"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>.
+	  <span class="bold_code bc-17"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>.
           For more control over the operation, use the
-          <span class="bold_code"><a href="#try_unload-2"><span class="code">try_unload/2</span></a></span>
+          <span class="bold_code bc-17"><a href="#try_unload-2"><span class="code">try_unload/2</span></a></span>
           interface.</p>
         <p>The function throws a <span class="code">badarg</span> exception if the
           parameters are not specified as described here.</p>
       </p></div>
-    <p><a name="unload_driver-1"></a><span class="bold_code">unload_driver(Name) -&gt; ok | {error, ErrorDesc}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-driver">driver()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">ErrorDesc = term()</span></div>
+    <p><a name="unload_driver-1"></a><span class="bold_code bc-1">unload_driver(Name) -&gt; ok | {error, ErrorDesc}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-driver">driver()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">ErrorDesc = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Unloads, or at least dereferences the driver named
           <span class="code">Name</span>. If the caller is the last
-	  <span class="bold_code"><a href="#users">user</a></span> of the driver, all
+	  <span class="bold_code bc-17"><a href="#users">user</a></span> of the driver, all
           remaining open ports using the driver are killed with
           reason <span class="code">driver_unloaded</span> and the driver
           eventually gets unloaded.</p>
-        <p>If there are other <span class="bold_code"><a href="#users">users</a></span>
+        <p>If there are other <span class="bold_code bc-17"><a href="#users">users</a></span>
           of the driver, the reference counts of the driver is merely
           decreased, so that the caller is no longer considered a
-          <span class="bold_code"><a href="#users">user</a></span>. For
+          <span class="bold_code bc-17"><a href="#users">user</a></span>. For
           use scenarios, see the
-	  <span class="bold_code"><a href="#scenarios"><span class="code">description</span></a></span> in the
+	  <span class="bold_code bc-17"><a href="#scenarios"><span class="code">description</span></a></span> in the
 	  beginning of this module.</p>
         <p>The <span class="code">ErrorDesc</span> returned is an opaque value to be
           passed further on to function
-	  <span class="bold_code"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>.
+	  <span class="bold_code bc-17"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>.
           For more control over the operation, use the
-          <span class="bold_code"><a href="#try_unload-2"><span class="code">try_unload/2</span></a></span>
+          <span class="bold_code bc-17"><a href="#try_unload-2"><span class="code">try_unload/2</span></a></span>
           interface.</p>
         <p>The function throws a <span class="code">badarg</span> exception if the
           parameters are not specified as described here.</p>
       </p></div>
-  
-  <h3><a name="idm46525671869264">See Also</a></h3>
-<div class="REFBODY">
+  </div>
+  <h3><a name="idm45317252654176">See Also</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl_driver.html');"><span class="code">erts:erl_driver(4)</span></a></span>,
-       <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','driver_entry.html');"><span class="code">erts:driver_entry(4)</span></a></span></p>
+    <p><span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','erl_driver.html');"><span class="code">erts:erl_driver(4)</span></a></span>,
+       <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','driver_entry.html');"><span class="code">erts:driver_entry(4)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

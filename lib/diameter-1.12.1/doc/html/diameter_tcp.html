@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Diameter</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 1.12.1</p>
@@ -144,19 +144,19 @@
 
 
 <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">diameter_tcp</div>
+<div class="REFBODY module-body">diameter_tcp</div>
 <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Diameter transport over TCP.</div>
+<div class="REFBODY module-summary-body">Diameter transport over TCP.</div>
 
 <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
 
 <p>
-This module implements diameter transport over TCP using <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html');">gen_tcp(3)</a></span>.
+This module implements diameter transport over TCP using <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html');">gen_tcp(3)</a></span>.
 It can be specified as the value of a <span class="code">transport_module</span> option to
-<span class="bold_code"><a href="diameter.html#add_transport-2">diameter:add_transport/2</a></span>
+<span class="bold_code bc-15"><a href="diameter.html#add_transport-2">diameter:add_transport/2</a></span>
 and implements the behaviour documented in
-<span class="bold_code"><a href="diameter_transport.html">diameter_transport(3)</a></span>.
+<span class="bold_code bc-19"><a href="diameter_transport.html">diameter_transport(3)</a></span>.
 TLS security is supported, either as an upgrade following
 capabilities exchange or at connection establishment.</p>
 
@@ -170,55 +170,56 @@ before configuring TLS capability on diameter transports.</p>
 
 
 <h3><a name="exports" href="#exports">Exports</a></h3>
+<div class="exports-body">
 
-<p><a name="start-3"></a><span class="bold_code">start({Type, Ref}, Svc, [Opt])
+<p><a name="start-3"></a><span class="bold_code bc-9">start({Type, Ref}, Svc, [Opt])
          -&gt; {ok, Pid}
           | {ok, Pid, [LAddr]}
           | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES">
-<span class="bold_code">Type = connect | accept</span><br>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Type = connect | accept</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Ref = <span class="bold_code"><a href="diameter.html#transport_ref">diameter:transport_ref()</a></span></span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Ref = <span class="bold_code bc-15"><a href="diameter.html#transport_ref">diameter:transport_ref()</a></span></span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Svc = #diameter_service{}</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Svc = #diameter_service{}</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Opt = OwnOpt | SslOpt | TcpOpt</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Opt = OwnOpt | SslOpt | TcpOpt</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Pid = pid()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Pid = pid()</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">LAddr = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#type-ip_address');">inet:ip_address()</a></span></span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">LAddr = <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#type-ip_address');">inet:ip_address()</a></span></span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">OwnOpt = {raddr, <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#type-ip_address');">inet:ip_address()</a></span>}
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">OwnOpt = {raddr, <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#type-ip_address');">inet:ip_address()</a></span>}
           | {rport, integer()}
           | {accept, Match}
           | {port, integer()}
           | {fragment_timer, infinity | 0..16#FFFFFFFF}</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">SslOpt = {ssl_options, true | list()}</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">SslOpt = {ssl_options, true | list()}</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">TcpOpt = term()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">TcpOpt = term()</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Match = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#type-ip_address');">inet:ip_address()</a></span> | string() | [Match]</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Match = <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#type-ip_address');">inet:ip_address()</a></span> | string() | [Match]</span><br>
 </div>
 </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 
 <p>
-The start function required by <span class="bold_code"><a href="diameter_transport.html">diameter_transport(3)</a></span>.</p>
+The start function required by <span class="bold_code bc-19"><a href="diameter_transport.html">diameter_transport(3)</a></span>.</p>
 
 <p>
 Options <span class="code">raddr</span> and <span class="code">rport</span> specify the remote address
@@ -238,8 +239,8 @@ interpreted as a regular expression.</p>
 Option <span class="code">ssl_options</span> must be specified for a transport
 that should support TLS: a value of <span class="code">true</span> results in a
 TLS handshake immediately upon connection establishment while
-<span class="code">list()</span> specifies options to be passed to <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','ssl','ssl.html#connect-2');">ssl:connect/2</a></span> or
-<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','ssl','ssl.html#ssl_accept-2');">ssl:ssl_accept/2</a></span>
+<span class="code">list()</span> specifies options to be passed to <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','ssl','ssl.html#connect-2');">ssl:connect/2</a></span> or
+<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','ssl','ssl.html#ssl_accept-2');">ssl:ssl_accept/2</a></span>
 after capabilities exchange if TLS is negotiated.</p>
 
 <p>
@@ -252,9 +253,9 @@ two successive timeouts without the reception of additional bytes.
 Defaults to 1000.</p>
 
 <p>
-Remaining options are any accepted by <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','ssl','ssl.html#connect-3');">ssl:connect/3</a></span> or
-<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html#connect-3');">gen_tcp:connect/3</a></span> for
-a connecting transport, or <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','ssl','ssl.html#listen-2');">ssl:listen/2</a></span> or <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html#listen-2');">gen_tcp:listen/2</a></span> for
+Remaining options are any accepted by <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','ssl','ssl.html#connect-3');">ssl:connect/3</a></span> or
+<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html#connect-3');">gen_tcp:connect/3</a></span> for
+a connecting transport, or <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','ssl','ssl.html#listen-2');">ssl:listen/2</a></span> or <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html#listen-2');">gen_tcp:listen/2</a></span> for
 a listening transport, depending on whether or not <span class="code">{ssl_options, true}</span>
 has been specified.
 Options <span class="code">binary</span>,
@@ -268,8 +269,8 @@ Note that the option <span class="code">ip</span> specifies the local address.</
 An <span class="code">ssl_options</span> list must be specified if and only if
 the transport in question has set <span class="code">Inband-Security-Id</span> to
 1 (<span class="code">TLS</span>), as
-specified to either <span class="bold_code"><a href="diameter.html#start_service-2">diameter:start_service/2</a></span> or
-<span class="bold_code"><a href="diameter.html#add_transport-2">diameter:add_transport/2</a></span>,
+specified to either <span class="bold_code bc-15"><a href="diameter.html#start_service-2">diameter:start_service/2</a></span> or
+<span class="bold_code bc-15"><a href="diameter.html#add_transport-2">diameter:add_transport/2</a></span>,
 so that the transport process will receive notification of
 whether or not to commence with a TLS handshake following capabilities
 exchange.
@@ -284,24 +285,24 @@ watchdog to take down the connection.</p>
 If an <span class="code">ip</span> option is not specified then the first element of a
 non-empty <span class="code">Host-IP-Address</span> list in <span class="code">Svc</span> provides the local
 IP address.
-If neither is specified then the default address selected by <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html');">gen_tcp(3)</a></span>
+If neither is specified then the default address selected by <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html');">gen_tcp(3)</a></span>
 is used.
 In all cases, the selected address is either returned from
-<span class="bold_code"><a href="#start-3">start/3</a></span> or passed in a <span class="code">connected</span> message over the transport
+<span class="bold_code bc-17"><a href="#start-3">start/3</a></span> or passed in a <span class="code">connected</span> message over the transport
 interface.</p>
 </p></div>
 
+</div>
 
 
 
 
-
-<h3><a name="idp46355814732640">SEE ALSO</a></h3>
-<div class="REFBODY">
+<h3><a name="idp46985883436368">SEE ALSO</a></h3>
+<div class="REFBODY rb-3">
 
 
 <p>
-<span class="bold_code"><a href="diameter.html">diameter(3)</a></span>, <span class="bold_code"><a href="diameter_transport.html">diameter_transport(3)</a></span>, <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html');">gen_tcp(3)</a></span>, <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html');">inet(3)</a></span>, <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','ssl','ssl.html');">ssl(3)</a></span></p>
+<span class="bold_code bc-19"><a href="diameter.html">diameter(3)</a></span>, <span class="bold_code bc-19"><a href="diameter_transport.html">diameter_transport(3)</a></span>, <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html');">gen_tcp(3)</a></span>, <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html');">inet(3)</a></span>, <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','ssl','ssl.html');">ssl(3)</a></span></p>
 
 </div>
 

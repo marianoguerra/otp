@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Secure Socket Layer </p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 8.0.3</p>
@@ -147,20 +147,20 @@
 <!-- refpage --><center><h1>ssl_session_cache_api</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">ssl_session_cache_api</div>
+<div class="REFBODY module-body">ssl_session_cache_api</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">TLS session cache API</div>
+<div class="REFBODY module-summary-body">TLS session cache API</div>
 
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>
       Defines the API for the TLS session cache so
       that the data storage scheme can be replaced by
       defining a new callback module implementing this API.
     </p>
   </p></div>
-  <h3><a name="idm45385840193328">DATA TYPES</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46397769899744">DATA TYPES</a></h3>
+<div class="REFBODY rb-3">
     
 
     <p>The following data types are used in the functions for
@@ -185,32 +185,33 @@
 
   </div>
   
-  <h3><a name="exports" href="#exports">Exports</a></h3>   
+  <h3><a name="exports" href="#exports">Exports</a></h3>
+<div class="exports-body">   
 
-    <p><a name="delete-2"></a><span class="bold_code">delete(Cache, Key) -&gt; _</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-	<div class="REFTYPES">
-<span class="bold_code">Cache = cache_ref()</span><br>
+    <p><a name="delete-2"></a><span class="bold_code bc-9">delete(Cache, Key) -&gt; _</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Cache = cache_ref()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Key = key()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Key = key()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 	<p>Deletes a cache entry. Is only called from the cache
 	handling process.
 	</p>
       </p></div>
 
-    <p><a name="foldl-3"></a><span class="bold_code">foldl(Fun, Acc0, Cache) -&gt; Acc</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-	<div class="REFTYPES">
-<span class="bold_code"></span><br>
+    <p><a name="foldl-3"></a><span class="bold_code bc-9">foldl(Fun, Acc0, Cache) -&gt; Acc</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11"></span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 	<p>Calls <span class="code">Fun(Elem, AccIn)</span> on successive elements of the
 	cache, starting with <span class="code">AccIn == Acc0</span>. <span class="code">Fun/2</span> must
 	return a new accumulator, which is passed to the next call.
@@ -219,19 +220,19 @@
 	</p>
       </p></div>
 
-    <p><a name="init-1"></a><span class="bold_code">init(Args) -&gt; opaque() </span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-	<div class="REFTYPES">
-<span class="bold_code">Args = proplists:proplist()</span><br>
+    <p><a name="init-1"></a><span class="bold_code bc-9">init(Args) -&gt; opaque() </span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Args = proplists:proplist()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 	<p>Includes property <span class="code">{role, client | server}</span>.
 	Currently this is the only predefined property,
 	there can also be user-defined properties. See also
 	application environment variable
-	<span class="bold_code"><a href="ssl_app.html">session_cb_init_args</a></span>.
+	<span class="bold_code bc-19"><a href="ssl_app.html">session_cb_init_args</a></span>.
 	</p>
 	<p>Performs possible initializations of the cache and returns
 	a reference to it that is used as parameter to the other
@@ -244,77 +245,77 @@
 	</p>
       </p></div>
 
-    <p><a name="lookup-2"></a><span class="bold_code">lookup(Cache, Key) -&gt; Entry</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-	<div class="REFTYPES">
-<span class="bold_code">Cache = cache_ref()</span><br>
+    <p><a name="lookup-2"></a><span class="bold_code bc-9">lookup(Cache, Key) -&gt; Entry</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Cache = cache_ref()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Key = key()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Key = key()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Entry = session() | undefined</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Entry = session() | undefined</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 	<p>Looks up a cache entry. Is to be callable from any
          process.
          </p>
       </p></div>
     
-    <p><a name="select_session-2"></a><span class="bold_code">select_session(Cache, PartialKey) -&gt; [session()]</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-	<div class="REFTYPES">
-<span class="bold_code">Cache = cache_ref()</span><br>
+    <p><a name="select_session-2"></a><span class="bold_code bc-9">select_session(Cache, PartialKey) -&gt; [session()]</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Cache = cache_ref()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">PartialKey = partialkey()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">PartialKey = partialkey()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Session = session()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Session = session()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 	<p>Selects sessions that can be reused. Is to be callable
 	from any process.
 	</p>
       </p></div>
 
-    <p><a name="terminate-1"></a><span class="bold_code">terminate(Cache) -&gt; _</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-	<div class="REFTYPES">
-<span class="bold_code">Cache = term() - as returned by init/0</span><br>
+    <p><a name="terminate-1"></a><span class="bold_code bc-9">terminate(Cache) -&gt; _</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Cache = term() - as returned by init/0</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 	<p>Takes care of possible cleanup that is needed when the
 	cache handling process terminates.
 	</p>
       </p></div>
 
-    <p><a name="update-3"></a><span class="bold_code">update(Cache, Key, Session) -&gt; _</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-	<div class="REFTYPES">
-<span class="bold_code">Cache = cache_ref()</span><br>
+    <p><a name="update-3"></a><span class="bold_code bc-9">update(Cache, Key, Session) -&gt; _</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Cache = cache_ref()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Key = key()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Key = key()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Session = session()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Session = session()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 	<p>Caches a new session or updates an already cached one. Is
 	only called from the cache handling process.
 	</p>
       </p></div>
     
-   
+  </div> 
   
 </div>
 <div class="footer">

@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Simple Network Management Protocol (SNMP)</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 5.2.4</p>
@@ -802,15 +802,15 @@
 <!-- refpage --><center><h1>snmpm_mpd</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">snmpm_mpd</div>
+<div class="REFBODY module-body">snmpm_mpd</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Message Processing and Dispatch module for the SNMP manager</div>
+<div class="REFBODY module-summary-body">Message Processing and Dispatch module for the SNMP manager</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>The module <span class="code">snmpm_mpd</span> implements the version independent
       Message Processing and Dispatch functionality in SNMP for the manager. 
       It is supposed to be used from a Network Interface process 
-      (<span class="bold_code"><a href="snmp_manager_netif.html">Definition of Manager Net if</a></span>).
+      (<span class="bold_code bc-19"><a href="snmp_manager_netif.html">Definition of Manager Net if</a></span>).
       </p>
 
     <p>Legacy API function <span class="code">process_msg/7</span> that has got separate
@@ -819,17 +819,18 @@
   </p></div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="init_mpd-1"></a><span class="bold_code">init_mpd(Vsns) -&gt; mpd_state()</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Vsns = [Vsn]</span><br>
+<div class="exports-body">
+    <p><a name="init_mpd-1"></a><span class="bold_code bc-9">init_mpd(Vsns) -&gt; mpd_state()</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Vsns = [Vsn]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Vsn = v1 | v2 | v3</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Vsn = v1 | v2 | v3</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function can be called from the net_if process at start-up.
           The options list defines which versions to use.
           </p>
@@ -837,41 +838,41 @@
                     <a name="process_msg"></a>
 </p>
       </p></div>
-    <p><a name="process_msg-6"></a><span class="bold_code">process_msg(Msg, Domain, Addr, State, NoteStore, Logger) -&gt; {ok, Vsn, Pdu, PduMS, MsgData} | {discarded, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Msg = binary()</span><br>
+    <p><a name="process_msg-6"></a><span class="bold_code bc-9">process_msg(Msg, Domain, Addr, State, NoteStore, Logger) -&gt; {ok, Vsn, Pdu, PduMS, MsgData} | {discarded, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Msg = binary()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Domain = transportDomainUdpIpv4 | transportDomainUdpIpv6</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Domain = transportDomainUdpIpv4 | transportDomainUdpIpv6</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Addr = {<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#type-ip_address');">inet:ip_address(), inet:port_number()</a></span>} </span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Addr = {<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#type-ip_address');">inet:ip_address(), inet:port_number()</a></span>} </span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">State = mpd_state()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">State = mpd_state()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">NoteStore = pid()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">NoteStore = pid()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Logger = function()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Logger = function()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Vsn = 'version-1' | 'version-2' | 'version-3'</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Vsn = 'version-1' | 'version-2' | 'version-3'</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Pdu = #pdu</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Pdu = #pdu</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">PduMs = integer()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">PduMs = integer()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MsgData = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MsgData = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Processes an incoming message. Performs authentication and 
           decryption as necessary. The return values should be passed the
           manager server.
@@ -883,32 +884,32 @@
           either <span class="code">ok</span> or <span class="code">{error, ReqId, Reason}</span>.
           </p>
       </p></div>
-    <p><a name="generate_msg-5"></a><span class="bold_code">generate_msg(Vsn, NoteStore, Pdu, MsgData, Logger) -&gt; {ok, Packet} | {discarded, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Vsn = 'version-1' | 'version-2' | 'version-3'</span><br>
+    <p><a name="generate_msg-5"></a><span class="bold_code bc-9">generate_msg(Vsn, NoteStore, Pdu, MsgData, Logger) -&gt; {ok, Packet} | {discarded, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Vsn = 'version-1' | 'version-2' | 'version-3'</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">NoteStore = pid()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">NoteStore = pid()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Pdu = #pdu</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Pdu = #pdu</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MsgData = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MsgData = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Logger = function()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Logger = function()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Packet = binary()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Packet = binary()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Generates a possibly encrypted packet to be sent to the network.
           </p>
         <p><span class="code">NoteStore</span> is the <span class="code">pid()</span> of the note-store process.
@@ -920,39 +921,39 @@
         <p><span class="code">Logger</span> is the function used for audit trail logging.
           </p>
       </p></div>
-    <p><a name="generate_response_msg-4"></a><span class="bold_code">generate_response_msg(Vsn, Pdu, MsgData, Logger) -&gt; {ok, Packet} | {discarded, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Vsn = 'version-1' | 'version-2' | 'version-3'</span><br>
+    <p><a name="generate_response_msg-4"></a><span class="bold_code bc-9">generate_response_msg(Vsn, Pdu, MsgData, Logger) -&gt; {ok, Packet} | {discarded, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Vsn = 'version-1' | 'version-2' | 'version-3'</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Pdu = #pdu</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Pdu = #pdu</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MsgData = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MsgData = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Logger = function()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Logger = function()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Packet = binary()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Packet = binary()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Generates a possibly encrypted response packet to be sent to the
           network.
           </p>
         <p><span class="code">MsgData</span> is the message specific data used in the SNMP 
           message. This value is received from the 
-          <span class="bold_code"><a href="snmpm_mpd.html#process_msg">process_msg</a></span> 
+          <span class="bold_code bc-15"><a href="snmpm_mpd.html#process_msg">process_msg</a></span> 
           function.
           </p>
       </p></div>
-  
+  </div>
   
 </div>
 <div class="footer">

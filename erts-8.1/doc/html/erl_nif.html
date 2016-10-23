@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../doc"><img alt="Erlang Logo" src="../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Erlang Run-Time System Application (ERTS)</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 8.1</p>
@@ -952,11 +952,11 @@
 <!-- refpage --><center><h1>erl_nif</h1></center>
   
   <h3><a name="c-library" href="#c-library">C Library</a></h3>
-<div class="REFBODY">erl_nif</div>
+<div class="REFBODY c-library-body">erl_nif</div>
   <h3><a name="library-sumary" href="#library-sumary">Library Summary</a></h3>
-<div class="REFBODY">API functions for an Erlang NIF library.</div>
+<div class="REFBODY library-summary-body">API functions for an Erlang NIF library.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>A NIF library contains native implementation of some functions
       of an Erlang module. The native implemented functions (NIFs) are
       called like any other functions without any difference to the
@@ -989,7 +989,7 @@
             call to the native function.</p>
         </li>
         <li>
-          <p>A native function doing <span class="bold_code"><a href="#lengthy_work">lengthy work</a></span> before returning degrades responsiveness of the VM,
+          <p>A native function doing <span class="bold_code bc-17"><a href="#lengthy_work">lengthy work</a></span> before returning degrades responsiveness of the VM,
             and can cause miscellaneous strange behaviors. Such strange
             behaviors include, but are not limited to, extreme memory usage,
             and bad load balancing between schedulers. Strange behaviors that
@@ -1048,7 +1048,7 @@ ok
 
     <p>A better solution for a real module is to take advantage of the new
       directive <span class="code">on load</span> (see section
-      <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','doc/reference_manual','code_loading.html#on_load');">Running a Function When a Module is Loaded</a></span> in the Erlang Reference
+      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../doc/../','doc/reference_manual','code_loading.html#on_load');">Running a Function When a Module is Loaded</a></span> in the Erlang Reference
       Manual) to load the NIF library automatically when the module is
       loaded.</p>
 
@@ -1070,15 +1070,15 @@ ok
       is shared as well. To avoid unintentionally shared static
       data, each Erlang module code can keep its own private data. This
       private data can be set when the NIF library is loaded and
-      then retrieved by calling <span class="bold_code"><a href="#enif_priv_data"><span class="code">enif_priv_data</span></a></span>.</p>
+      then retrieved by calling <span class="bold_code bc-17"><a href="#enif_priv_data"><span class="code">enif_priv_data</span></a></span>.</p>
 
     <p>A NIF library cannot be loaded explicitly. A library is
       automatically unloaded when the module code that it belongs to is purged
       by the code server.</p>
   </p></div>
 
-  <h3><a name="idm45311096348752">Functionality</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46455776595904">Functionality</a></h3>
+<div class="REFBODY rb-3">
   
     <p>All functions that a NIF library needs to do with Erlang are
       performed through the NIF API functions. Functions exist
@@ -1089,7 +1089,7 @@ ok
       <dd>
         <p>Any Erlang terms can be passed to a NIF as function arguments and
           be returned as function return values. The terms are of C-type
-          <span class="bold_code"><a href="#ERL_NIF_TERM"><span class="code">ERL_NIF_TERM</span></a></span> and can
+          <span class="bold_code bc-17"><a href="#ERL_NIF_TERM"><span class="code">ERL_NIF_TERM</span></a></span> and can
           only be read or written using API functions. Most functions to read
           the content of a term are prefixed <span class="code">enif_get_</span> and usually return
           <span class="code">true</span> (or <span class="code">false</span>) if the term is of the expected type (or
@@ -1099,7 +1099,7 @@ ok
           to query terms, like <span class="code">enif_is_atom</span>, <span class="code">enif_is_identical</span>,
           and <span class="code">enif_compare</span>.</p>
         <p>All terms of type <span class="code">ERL_NIF_TERM</span> belong to an environment of
-          type <span class="bold_code"><a href="#ErlNifEnv"><span class="code">ErlNifEnv</span></a></span>. The
+          type <span class="bold_code bc-17"><a href="#ErlNifEnv"><span class="code">ErlNifEnv</span></a></span>. The
           lifetime of a term is controlled by the lifetime of its environment
           object. All API functions that read or write terms has the
           environment that the term belongs to as the first function
@@ -1108,23 +1108,23 @@ ok
       <dt><strong>Binaries</strong></dt>
       <dd>
         <p>Terms of type binary are accessed with the help of struct type
-          <span class="bold_code"><a href="#ErlNifBinary"><span class="code">ErlNifBinary</span></a></span>,
+          <span class="bold_code bc-17"><a href="#ErlNifBinary"><span class="code">ErlNifBinary</span></a></span>,
           which contains a pointer (<span class="code">data</span>) to the raw binary data and the
           length (<span class="code">size</span>) of the data in bytes. Both <span class="code">data</span> and
           <span class="code">size</span> are read-only and are only to be written using calls to
           API functions. Instances of <span class="code">ErlNifBinary</span> are, however, always
           allocated by the user (usually as local variables).</p>
         <p>The raw data pointed to by <span class="code">data</span> is only mutable after a call
-          to <span class="bold_code"><a href="#enif_alloc_binary"><span class="code">enif_alloc_binary</span></a></span> or
-          <span class="bold_code"><a href="#enif_realloc_binary"><span class="code">enif_realloc_binary</span></a></span>. All other functions that
+          to <span class="bold_code bc-17"><a href="#enif_alloc_binary"><span class="code">enif_alloc_binary</span></a></span> or
+          <span class="bold_code bc-17"><a href="#enif_realloc_binary"><span class="code">enif_realloc_binary</span></a></span>. All other functions that
           operate on a binary leave the data as read-only.
           A mutable binary must in the end either be freed with
-          <span class="bold_code"><a href="#enif_release_binary"><span class="code">enif_release_binary</span></a></span>
+          <span class="bold_code bc-17"><a href="#enif_release_binary"><span class="code">enif_release_binary</span></a></span>
           or made read-only by transferring it to an Erlang term with
-          <span class="bold_code"><a href="#enif_make_binary"><span class="code">enif_make_binary</span></a></span>.
+          <span class="bold_code bc-17"><a href="#enif_make_binary"><span class="code">enif_make_binary</span></a></span>.
           However, it does not have to occur in the same NIF call. Read-only
           binaries do not have to be released.</p>
-        <p><span class="bold_code"><a href="#enif_make_new_binary"><span class="code">enif_make_new_binary</span></a></span> can be used as a shortcut to
+        <p><span class="bold_code bc-17"><a href="#enif_make_new_binary"><span class="code">enif_make_new_binary</span></a></span> can be used as a shortcut to
           allocate and return a binary in the same NIF call.</p>
         <p>Binaries are sequences of whole bytes. Bitstrings with an arbitrary
           bit length have no support yet.</p>
@@ -1134,23 +1134,23 @@ ok
         <p>The use of resource objects is a safe way to return pointers to
           native data structures from a NIF. A resource object is
           only a block of memory allocated with
-          <span class="bold_code"><a href="#enif_alloc_resource"><span class="code">enif_alloc_resource</span></a></span>.
+          <span class="bold_code bc-17"><a href="#enif_alloc_resource"><span class="code">enif_alloc_resource</span></a></span>.
           A handle ("safe pointer") to this memory block can then be returned
           to Erlang by the use of
-          <span class="bold_code"><a href="#enif_make_resource"><span class="code">enif_make_resource</span></a></span>.
+          <span class="bold_code bc-17"><a href="#enif_make_resource"><span class="code">enif_make_resource</span></a></span>.
           The term returned by <span class="code">enif_make_resource</span> is opaque in nature.
           It can be stored and passed between processes on the same node, but
           the only real end usage is to pass it back as an argument to a NIF.
-          The NIF can then call <span class="bold_code"><a href="#enif_get_resource"><span class="code">enif_get_resource</span></a></span> and get back a pointer to the
+          The NIF can then call <span class="bold_code bc-17"><a href="#enif_get_resource"><span class="code">enif_get_resource</span></a></span> and get back a pointer to the
           memory block, which is guaranteed to still be valid. A resource
           object is not deallocated until the last handle term
           is garbage collected by the VM and the resource is released with
-          <span class="bold_code"><a href="#enif_release_resource"><span class="code">enif_release_resource</span></a></span>
+          <span class="bold_code bc-17"><a href="#enif_release_resource"><span class="code">enif_release_resource</span></a></span>
           (not necessarily in that order).</p>
         <p>All resource objects are created as instances of some <strong>resource
           type</strong>. This makes resources from different modules to be
           distinguishable. A resource type is created by calling
-          <span class="bold_code"><a href="#enif_open_resource_type"><span class="code">enif_open_resource_type</span></a></span> when a library is loaded.
+          <span class="bold_code bc-17"><a href="#enif_open_resource_type"><span class="code">enif_open_resource_type</span></a></span> when a library is loaded.
           Objects of that resource type can then later be allocated and
           <span class="code">enif_get_resource</span> verifies that the resource is of the
           expected type. A resource type can have a user-supplied destructor
@@ -1185,7 +1185,7 @@ return term;</pre></div>
           the term.</p> 
         <p>Another use of resource objects is to create binary terms with
           user-defined memory management.
-          <span class="bold_code"><a href="#enif_make_resource_binary"><span class="code">enif_make_resource_binary</span></a></span>
+          <span class="bold_code bc-17"><a href="#enif_make_resource_binary"><span class="code">enif_make_resource_binary</span></a></span>
           creates a binary term that is connected to a resource object. The
           destructor of the resource is called when the binary is garbage
           collected, at which time the binary data can be released. An example
@@ -1207,7 +1207,7 @@ return term;</pre></div>
         <p>A NIF is thread-safe without any explicit synchronization as
           long as it acts as a pure function and only reads the supplied
           arguments. When you write to a shared state either through
-          static variables or <span class="bold_code"><a href="#enif_priv_data"><span class="code">enif_priv_data</span></a></span>, you need to supply your own explicit
+          static variables or <span class="bold_code bc-17"><a href="#enif_priv_data"><span class="code">enif_priv_data</span></a></span>, you need to supply your own explicit
           synchronization. This includes terms in process-independent
           environments that are shared between threads. Resource objects also
           require synchronization if you treat them as mutable.</p>
@@ -1247,16 +1247,16 @@ return term;</pre></div>
       <dd>
         <p>Support for time measurement in NIF libraries:</p>
         <ul>
-          <li><span class="bold_code"><a href="#ErlNifTime"><span class="code">ErlNifTime</span></a></span></li>
-          <li><span class="bold_code"><a href="#ErlNifTimeUnit"><span class="code">ErlNifTimeUnit</span></a></span></li>
-          <li><span class="bold_code"><a href="#enif_monotonic_time"><span class="code">enif_monotonic_time()</span></a></span></li>
-          <li><span class="bold_code"><a href="#enif_time_offset"><span class="code">enif_time_offset()</span></a></span></li>
-          <li><span class="bold_code"><a href="#enif_convert_time_unit"><span class="code">enif_convert_time_unit()</span></a></span></li>
+          <li><span class="bold_code bc-17"><a href="#ErlNifTime"><span class="code">ErlNifTime</span></a></span></li>
+          <li><span class="bold_code bc-17"><a href="#ErlNifTimeUnit"><span class="code">ErlNifTimeUnit</span></a></span></li>
+          <li><span class="bold_code bc-17"><a href="#enif_monotonic_time"><span class="code">enif_monotonic_time()</span></a></span></li>
+          <li><span class="bold_code bc-17"><a href="#enif_time_offset"><span class="code">enif_time_offset()</span></a></span></li>
+          <li><span class="bold_code bc-17"><a href="#enif_convert_time_unit"><span class="code">enif_convert_time_unit()</span></a></span></li>
       </ul>
       </dd>
       <dt><strong><a name="lengthy_work"></a>Long-running NIFs</strong></dt>
       <dd>
-        <p>As mentioned in the <span class="bold_code"><a href="#WARNING">warning</a></span> text
+        <p>As mentioned in the <span class="bold_code bc-17"><a href="#WARNING">warning</a></span> text
           at the beginning of this manual page, it is of <strong>vital
           importance</strong> that a native function returns relatively fast. It is
           difficult to give an exact maximum amount of time that a native
@@ -1267,7 +1267,7 @@ return term;</pre></div>
           divide the work into multiple chunks of work and call the native
           function multiple times. This is, however, not always possible, for
           example when calling third-party libraries.</p>
-        <p>The <span class="bold_code"><a href="#enif_consume_timeslice"><span class="code">enif_consume_timeslice()</span></a></span> function can be used to
+        <p>The <span class="bold_code bc-17"><a href="#enif_consume_timeslice"><span class="code">enif_consume_timeslice()</span></a></span> function can be used to
           inform the runtime system about the length of the NIF call.
           It is typically always to be used unless the NIF executes very
           fast.</p>
@@ -1286,7 +1286,7 @@ return term;</pre></div>
               </li>
               <li>
                 <p>Call a NIF that first performs a chunk of the work, then
-                  invokes the <span class="bold_code"><a href="#enif_schedule_nif"><span class="code">enif_schedule_nif</span></a></span> function to schedule
+                  invokes the <span class="bold_code bc-17"><a href="#enif_schedule_nif"><span class="code">enif_schedule_nif</span></a></span> function to schedule
                   another NIF call to perform the next chunk. The final call
                   scheduled in this manner can then return the overall
                   result.</p>
@@ -1303,7 +1303,7 @@ return term;</pre></div>
             <p>This is accomplished by dispatching the work to another thread
               managed by the NIF library, return from the NIF, and wait for
               the result. The thread can send the result back to the Erlang
-              process using <span class="bold_code"><a href="#enif_send"><span class="code">enif_send</span></a></span>.
+              process using <span class="bold_code bc-17"><a href="#enif_send"><span class="code">enif_send</span></a></span>.
               Information about thread primitives is provided below.</p>
           </dd>
           <dt><strong><a name="dirty_nifs"></a>Dirty NIF</strong></dt>
@@ -1318,7 +1318,7 @@ return term;</pre></div>
                 without SMP support does not support dirty schedulers even when
                 the dirty scheduler support is enabled. To check at runtime for
                 the presence of dirty scheduler threads, code can use the
-                <span class="bold_code"><a href="#enif_system_info"><span class="code">enif_system_info()</span></a></span> API function.</p>
+                <span class="bold_code bc-17"><a href="#enif_system_info"><span class="code">enif_system_info()</span></a></span> API function.</p>
             </p></div>
 </div>
             <p>A NIF that cannot be split and cannot execute in a millisecond
@@ -1346,11 +1346,11 @@ return term;</pre></div>
             <ul>
               <li>
                 <p>Set the appropriate flags value for the dirty NIF in its
-                  <span class="bold_code"><a href="#ErlNifFunc"><span class="code">ErlNifFunc</span></a></span>
+                  <span class="bold_code bc-17"><a href="#ErlNifFunc"><span class="code">ErlNifFunc</span></a></span>
                   entry.</p>
               </li>
               <li>
-                <p>Call <span class="bold_code"><a href="#enif_schedule_nif"><span class="code">enif_schedule_nif</span></a></span>, pass to it a pointer
+                <p>Call <span class="bold_code bc-17"><a href="#enif_schedule_nif"><span class="code">enif_schedule_nif</span></a></span>, pass to it a pointer
                   to the dirty NIF to be executed, and indicate with argument
                   <span class="code">flags</span> whether it expects the operation to be CPU-bound
                   or I/O-bound.</p>
@@ -1361,22 +1361,22 @@ return term;</pre></div>
               that it executes on the correct type of dirty scheduler at all
               times. For more information see the documentation of the
               <span class="code">erl(1)</span> command line arguments
-              <span class="bold_code"><a href="erl.html#+SDcpu"><span class="code">+SDcpu</span></a></span>,
-              and <span class="bold_code"><a href="erl.html#+SDio"><span class="code">+SDio</span></a></span>.</p>
+              <span class="bold_code bc-15"><a href="erl.html#+SDcpu"><span class="code">+SDcpu</span></a></span>,
+              and <span class="bold_code bc-15"><a href="erl.html#+SDio"><span class="code">+SDio</span></a></span>.</p>
             <p>While a process executes a dirty NIF, some operations that
               communicate with it can take a very long time to complete.
               Suspend or garbage collection of a process executing a dirty
               NIF cannot be done until the dirty NIF has returned. Thus, other
               processes waiting for such operations to complete might
               have to wait for a very long time. Blocking multi-scheduling, that
-              is, calling <span class="bold_code"><a href="erlang.html#system_flag_multi_scheduling"><span class="code">erlang:system_flag(multi_scheduling, block)</span></a></span>, can
+              is, calling <span class="bold_code bc-15"><a href="erlang.html#system_flag_multi_scheduling"><span class="code">erlang:system_flag(multi_scheduling, block)</span></a></span>, can
               also take a very long time to complete. This becaue all ongoing
               dirty operations on all dirty schedulers must complete before
               the block operation can complete.</p>
             <p>Many operations communicating with a process executing a
               dirty NIF can, however, complete while it executes the
               dirty NIF. For example, retrieving information about it through
-              <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','erlang','process_info/1.html');"><span class="code">erlang:process_info</span></a></span>, setting its group leader,
+              <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','erlang','process_info/1.html');"><span class="code">erlang:process_info</span></a></span>, setting its group leader,
               register/unregister its name, and so on.</p>
             <p>Termination of a process executing a dirty NIF can only be
               completed up to a certain point while it executes the dirty NIF.
@@ -1386,9 +1386,9 @@ return term;</pre></div>
               can safely continue execution, allocate heap memory, and so on,
               but it is of course better to stop executing as soon as possible.
               The NIF can check whether a current process is alive using
-              <span class="bold_code"><a href="#enif_is_current_process_alive"><span class="code">enif_is_current_process_alive</span></a></span>. Communication
-              using <span class="bold_code"><a href="#enif_send"><span class="code">enif_send</span></a></span> and
-              <span class="bold_code"><a href="#enif_port_command"><span class="code">enif_port_command</span></a></span> is also dropped when the
+              <span class="bold_code bc-17"><a href="#enif_is_current_process_alive"><span class="code">enif_is_current_process_alive</span></a></span>. Communication
+              using <span class="bold_code bc-17"><a href="#enif_send"><span class="code">enif_send</span></a></span> and
+              <span class="bold_code bc-17"><a href="#enif_port_command"><span class="code">enif_port_command</span></a></span> is also dropped when the
               sending process is not alive. Deallocation of certain internal
               resources, such as process heap and process control block, is
               delayed until the dirty NIF has completed.</p>
@@ -1398,8 +1398,8 @@ return term;</pre></div>
     </dl>
   </div>
 
-  <h3><a name="idm45311096250736">Initialization</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46455776497888">Initialization</a></h3>
+<div class="REFBODY rb-3">
     
     <dl>
       <dt><strong><a name="ERL_NIF_INIT"></a><span class="code">ERL_NIF_INIT(MODULE,
@@ -1434,7 +1434,7 @@ return term;</pre></div>
           calls. <span class="code">enif_priv_data</span> returns this pointer.
           <span class="code">*priv_data</span> is initialized to <span class="code">NULL</span> when <span class="code">load</span> is
           called.</p> 
-        <p><span class="code">load_info</span> is the second argument to <span class="bold_code"><a href="erlang.html#load_nif-2"><span class="code">erlang:load_nif/2</span></a></span>.</p>
+        <p><span class="code">load_info</span> is the second argument to <span class="bold_code bc-15"><a href="erlang.html#load_nif-2"><span class="code">erlang:load_nif/2</span></a></span>.</p>
         <p>The library fails to load if <span class="code">load</span> returns
           anything other than <span class="code">0</span>. <span class="code">load</span> can be <span class="code">NULL</span> if
           initialization is not needed.</p> 
@@ -1463,8 +1463,8 @@ return term;</pre></div>
     </dl>
   </div>
 
-  <h3><a name="idm45311096219056">Data Types</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46455776466208">Data Types</a></h3>
+<div class="REFBODY rb-3">
     
     <dl>
       <dt><strong><a name="ERL_NIF_TERM"></a><span class="code">ERL_NIF_TERM</span></strong></dt>
@@ -1473,7 +1473,7 @@ return term;</pre></div>
           This is an opaque type and values of it can only by used either as
           arguments to API functions or as return values from NIFs. All
           <span class="code">ERL_NIF_TERM</span>s belong to an environment
-          (<span class="bold_code"><a href="#ErlNifEnv"><span class="code">ErlNifEnv</span></a></span>).
+          (<span class="bold_code bc-17"><a href="#ErlNifEnv"><span class="code">ErlNifEnv</span></a></span>).
           A term cannot be destructed individually, it is valid until its
           environment is destructed.</p>
       </dd>
@@ -1498,19 +1498,19 @@ return term;</pre></div>
           </dd>
           <dt><strong>Process-independent environment</strong></dt>
           <dd>
-            <p>Created by calling <span class="bold_code"><a href="#enif_alloc_env"><span class="code">enif_alloc_env</span></a></span>. This environment can be
+            <p>Created by calling <span class="bold_code bc-17"><a href="#enif_alloc_env"><span class="code">enif_alloc_env</span></a></span>. This environment can be
               used to store terms between NIF calls and to send terms with
-              <span class="bold_code"><a href="#enif_send"><span class="code">enif_send</span></a></span>. A
+              <span class="bold_code bc-17"><a href="#enif_send"><span class="code">enif_send</span></a></span>. A
               process-independent environment with all its terms is valid until
               you explicitly invalidate it with
-              <span class="bold_code"><a href="#enif_free_env"><span class="code">enif_free_env</span></a></span>
+              <span class="bold_code bc-17"><a href="#enif_free_env"><span class="code">enif_free_env</span></a></span>
               or <span class="code">enif_send</span>.</p>
           </dd>
         </dl>
         <p>All contained terms of a list/tuple/map must belong to the same
           environment as the list/tuple/map itself. Terms can be copied between
           environments with
-          <span class="bold_code"><a href="#enif_make_copy"><span class="code">enif_make_copy</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#enif_make_copy"><span class="code">enif_make_copy</span></a></span>.</p>
       </dd>
       <dt><strong><a name="ErlNifFunc"></a><span class="code">ErlNifFunc</span></strong></dt>
       <dd>
@@ -1544,7 +1544,7 @@ typedef struct {
             <p>Is <span class="code">0</span> for a regular NIF (and so its value can be omitted
               for statically initialized <span class="code">ErlNifFunc</span> instances).</p>
             <p><span class="code">flags</span> can be used to indicate that the NIF is a
-              <span class="bold_code"><a href="#dirty_nifs">dirty NIF</a></span> that is to be
+              <span class="bold_code bc-17"><a href="#dirty_nifs">dirty NIF</a></span> that is to be
               executed on a dirty scheduler thread.</p>
             <p><strong>The dirty NIF functionality described here is
               experimental.</strong> You have to enable support for dirty
@@ -1579,7 +1579,7 @@ typedef struct {
       <dt><strong><a name="ErlNifBinaryToTerm"></a><span class="code">ErlNifBinaryToTerm</span></strong></dt>
       <dd>
         <p>An enumeration of the options that can be specified to
-          <span class="bold_code"><a href="#enif_binary_to_term"><span class="code">enif_binary_to_term</span></a></span>.
+          <span class="bold_code bc-17"><a href="#enif_binary_to_term"><span class="code">enif_binary_to_term</span></a></span>.
           For default behavior, use value <span class="code">0</span>.</p>
         <p>When receiving data from untrusted sources, use option
           <span class="code">ERL_NIF_BIN2TERM_SAFE</span>.</p>
@@ -1588,14 +1588,14 @@ typedef struct {
       <dd>
         <p>A process identifier (pid). In contrast to pid terms (instances of
           <span class="code">ERL_NIF_TERM</span>), <span class="code">ErlNifPid</span>s are self-contained and not
-          bound to any <span class="bold_code"><a href="#ErlNifEnv">environment</a></span>.
+          bound to any <span class="bold_code bc-17"><a href="#ErlNifEnv">environment</a></span>.
           <span class="code">ErlNifPid</span> is an opaque type.</p>
       </dd>
       <dt><strong><a name="ErlNifPort"></a><span class="code">ErlNifPort</span></strong></dt>
       <dd>
         <p>A port identifier. In contrast to port ID terms (instances of
           <span class="code">ERL_NIF_TERM</span>), <span class="code">ErlNifPort</span>s are self-contained and not
-          bound to any <span class="bold_code"><a href="#ErlNifEnv">environment</a></span>.
+          bound to any <span class="bold_code bc-17"><a href="#ErlNifEnv">environment</a></span>.
           <span class="code">ErlNifPort</span> is an opaque type.</p>
       </dd>
       <dt><strong><a name="ErlNifResourceType"></a><span class="code">ErlNifResourceType</span></strong></dt>
@@ -1623,9 +1623,9 @@ typedef enum {
       </dd>
       <dt><strong><a name="ErlNifSysInfo"></a><span class="code">ErlNifSysInfo</span></strong></dt>
       <dd>
-        <p>Used by <span class="bold_code"><a href="#enif_system_info"><span class="code">enif_system_info</span></a></span> to return information about the
+        <p>Used by <span class="bold_code bc-17"><a href="#enif_system_info"><span class="code">enif_system_info</span></a></span> to return information about the
           runtime system. Contains the same content as
-          <span class="bold_code"><a href="erl_driver.html#ErlDrvSysInfo"><span class="code">ErlDrvSysInfo</span></a></span>.</p>
+          <span class="bold_code bc-15"><a href="erl_driver.html#ErlDrvSysInfo"><span class="code">ErlDrvSysInfo</span></a></span>.</p>
       </dd>
       <dt><strong><a name="ErlNifSInt64"></a><span class="code">ErlNifSInt64</span></strong></dt>
       <dd>
@@ -1656,7 +1656,7 @@ typedef enum {
       <dt><strong><a name="ErlNifUniqueInteger"></a><span class="code">ErlNifUniqueInteger</span></strong></dt>
       <dd>
         <p>An enumeration of the properties that can be requested from
-          <span class="bold_code"><a href="#enif_make_unique_integer"><span class="code">enif_unique_integer</span></a></span>.
+          <span class="bold_code bc-17"><a href="#enif_make_unique_integer"><span class="code">enif_unique_integer</span></a></span>.
           For default properties, use value <span class="code">0</span>.</p>
         <dl>
           <dt><strong><span class="code">ERL_NIF_UNIQUE_POSITIVE</span></strong></dt>
@@ -1665,7 +1665,7 @@ typedef enum {
           </dd>
           <dt><strong><span class="code">ERL_NIF_UNIQUE_MONOTONIC</span></strong></dt>
           <dd>
-            <p>Return only <span class="bold_code"><a href="time_correction.html#Strictly_Monotonically_Increasing">strictly monotonically increasing</a></span> integer corresponding
+            <p>Return only <span class="bold_code bc-15"><a href="time_correction.html#Strictly_Monotonically_Increasing">strictly monotonically increasing</a></span> integer corresponding
               to creation time.</p>
           </dd>
         </dl>
@@ -1674,70 +1674,71 @@ typedef enum {
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="enif_alloc"><span class="bold_code">void *enif_alloc(size_t size)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="exports-body">
+    <p><a name="enif_alloc"><span class="bold_code bc-7">void *enif_alloc(size_t size)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Allocates memory of <span class="code">size</span> bytes.</p>
         <p>Returns <span class="code">NULL</span> if the allocation fails.</p>
       </p></div>
 
-    <p><a name="enif_alloc_binary"><span class="bold_code">int enif_alloc_binary(size_t size, ErlNifBinary* bin)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_alloc_binary"><span class="bold_code bc-7">int enif_alloc_binary(size_t size, ErlNifBinary* bin)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Allocates a new binary of size <span class="code">size</span> bytes.
           Initializes the structure pointed to by <span class="code">bin</span> to
           refer to the allocated binary. The binary must either be released by
-          <span class="bold_code"><a href="#enif_release_binary"><span class="code">enif_release_binary</span></a></span> 
+          <span class="bold_code bc-17"><a href="#enif_release_binary"><span class="code">enif_release_binary</span></a></span> 
           or ownership transferred to an Erlang term with
-          <span class="bold_code"><a href="#enif_make_binary"><span class="code">enif_make_binary</span></a></span>.
+          <span class="bold_code bc-17"><a href="#enif_make_binary"><span class="code">enif_make_binary</span></a></span>.
           An allocated (and owned) <span class="code">ErlNifBinary</span> can be kept between NIF
           calls.</p>
         <p>Returns <span class="code">true</span> on success, or <span class="code">false</span> if allocation
           fails.</p>
       </p></div>
 
-    <p><a name="enif_alloc_env"><span class="bold_code">ErlNifEnv *enif_alloc_env()</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_alloc_env"><span class="bold_code bc-7">ErlNifEnv *enif_alloc_env()</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Allocates a new process-independent environment. The environment can
           be used to hold terms that are not bound to any process. Such terms
           can later be copied to a process environment with
-          <span class="bold_code"><a href="#enif_make_copy"><span class="code">enif_make_copy</span></a></span> or
-          be sent to a process as a message with <span class="bold_code"><a href="#enif_send"><span class="code">enif_send</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#enif_make_copy"><span class="code">enif_make_copy</span></a></span> or
+          be sent to a process as a message with <span class="bold_code bc-17"><a href="#enif_send"><span class="code">enif_send</span></a></span>.</p>
         <p>Returns pointer to the new environment.</p>
       </p></div>
 
-    <p><a name="enif_alloc_resource"><span class="bold_code">void *enif_alloc_resource(ErlNifResourceType*
+    <p><a name="enif_alloc_resource"><span class="bold_code bc-7">void *enif_alloc_resource(ErlNifResourceType*
         type, unsigned size)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Allocates a memory-managed resource object of type <span class="code">type</span> and
           size <span class="code">size</span> bytes.</p>
       </p></div>
 
-    <p><a name="enif_binary_to_term"><span class="bold_code">size_t enif_binary_to_term(ErlNifEnv *env,
+    <p><a name="enif_binary_to_term"><span class="bold_code bc-7">size_t enif_binary_to_term(ErlNifEnv *env,
         const unsigned char* data, size_t size, ERL_NIF_TERM *term,
         ErlNifBinaryToTerm opts)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Creates a term that is the result of decoding the binary data at
           <span class="code">data</span>, which must be encoded according to the Erlang external
           term format. No more than <span class="code">size</span> bytes are read from <span class="code">data</span>.
           Argument <span class="code">opts</span> corresponds to the second argument to
-          <span class="bold_code"><a href="erlang.html#binary_to_term-2"><span class="code">erlang:binary_to_term/2</span></a></span> and must be either <span class="code">0</span>
+          <span class="bold_code bc-15"><a href="erlang.html#binary_to_term-2"><span class="code">erlang:binary_to_term/2</span></a></span> and must be either <span class="code">0</span>
           or <span class="code">ERL_NIF_BIN2TERM_SAFE</span>.</p>
         <p>On success, stores the resulting term at <span class="code">*term</span> and returns
           the number of bytes read. Returns <span class="code">0</span> if decoding fails or if
           <span class="code">opts</span> is invalid.</p>
-        <p>See also <span class="bold_code"><a href="#ErlNifBinaryToTerm"><span class="code">ErlNifBinaryToTerm</span></a></span>,
-          <span class="bold_code"><a href="erlang.html#binary_to_term-2"><span class="code">erlang:binary_to_term/2</span></a></span>, and
-          <span class="bold_code"><a href="#enif_term_to_binary"><span class="code">enif_term_to_binary</span></a></span>.</p>
+        <p>See also <span class="bold_code bc-17"><a href="#ErlNifBinaryToTerm"><span class="code">ErlNifBinaryToTerm</span></a></span>,
+          <span class="bold_code bc-15"><a href="erlang.html#binary_to_term-2"><span class="code">erlang:binary_to_term/2</span></a></span>, and
+          <span class="bold_code bc-17"><a href="#enif_term_to_binary"><span class="code">enif_term_to_binary</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_clear_env"><span class="bold_code">void enif_clear_env(ErlNifEnv* env)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_clear_env"><span class="bold_code bc-7">void enif_clear_env(ErlNifEnv* env)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Frees all terms in an environment and clears it for reuse.
           The environment must have been allocated with
-          <span class="bold_code"><a href="#enif_alloc_env"><span class="code">enif_alloc_env</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#enif_alloc_env"><span class="code">enif_alloc_env</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_compare"><span class="bold_code">int enif_compare(ERL_NIF_TERM lhs, ERL_NIF_TERM rhs)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_compare"><span class="bold_code bc-7">int enif_compare(ERL_NIF_TERM lhs, ERL_NIF_TERM rhs)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Returns an integer &lt; <span class="code">0</span> if <span class="code">lhs</span> &lt; <span class="code">rhs</span>,
           <span class="code">0</span> if <span class="code">lhs</span> = <span class="code">rhs</span>, and &gt; <span class="code">0</span> if
           <span class="code">lhs</span> &gt; <span class="code">rhs</span>. Corresponds to the Erlang
@@ -1746,33 +1747,33 @@ typedef enum {
           <span class="code">=/=</span>).</p>
       </p></div>
 
-    <p><a name="enif_cond_broadcast"><span class="bold_code">void enif_cond_broadcast(ErlNifCond *cnd)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_cond_broadcast"><span class="code">erl_drv_cond_broadcast</span></a></span>.</p>
+    <p><a name="enif_cond_broadcast"><span class="bold_code bc-7">void enif_cond_broadcast(ErlNifCond *cnd)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_cond_broadcast"><span class="code">erl_drv_cond_broadcast</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_cond_create"><span class="bold_code">ErlNifCond *enif_cond_create(char *name)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_cond_create"><span class="code">erl_drv_cond_create</span></a></span>.</p>
+    <p><a name="enif_cond_create"><span class="bold_code bc-7">ErlNifCond *enif_cond_create(char *name)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_cond_create"><span class="code">erl_drv_cond_create</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_cond_destroy"><span class="bold_code">void enif_cond_destroy(ErlNifCond *cnd)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_cond_destroy"><span class="code">erl_drv_cond_destroy</span></a></span>.</p>
+    <p><a name="enif_cond_destroy"><span class="bold_code bc-7">void enif_cond_destroy(ErlNifCond *cnd)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_cond_destroy"><span class="code">erl_drv_cond_destroy</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_cond_signal"><span class="bold_code">void enif_cond_signal(ErlNifCond *cnd)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_cond_signal"><span class="code">erl_drv_cond_signal</span></a></span>.</p>
+    <p><a name="enif_cond_signal"><span class="bold_code bc-7">void enif_cond_signal(ErlNifCond *cnd)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_cond_signal"><span class="code">erl_drv_cond_signal</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_cond_wait"><span class="bold_code">void enif_cond_wait(ErlNifCond *cnd, ErlNifMutex *mtx)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_cond_wait"><span class="code">erl_drv_cond_wait</span></a></span>.</p>
+    <p><a name="enif_cond_wait"><span class="bold_code bc-7">void enif_cond_wait(ErlNifCond *cnd, ErlNifMutex *mtx)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_cond_wait"><span class="code">erl_drv_cond_wait</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_consume_timeslice"><span class="bold_code">int enif_consume_timeslice(ErlNifEnv *env, int percent)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_consume_timeslice"><span class="bold_code bc-7">int enif_consume_timeslice(ErlNifEnv *env, int percent)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Gives the runtime system a hint about how much CPU time the current
           NIF call has consumed since the last hint, or since the start of the
           NIF if no previous hint has been specified. The time is specified as a
@@ -1794,15 +1795,15 @@ typedef enum {
         <p>This function is provided to better support co-operative scheduling,
           improve system responsiveness, and make it easier to prevent
           misbehaviors of the VM because of a NIF monopolizing a scheduler
-          thread. It can be used to divide <span class="bold_code"><a href="#lengthy_work">length work</a></span> into a number of repeated NIF calls without the
+          thread. It can be used to divide <span class="bold_code bc-17"><a href="#lengthy_work">length work</a></span> into a number of repeated NIF calls without the
           need to create threads.</p>
-        <p>See also the <span class="bold_code"><a href="#WARNING">warning</a></span> text at
+        <p>See also the <span class="bold_code bc-17"><a href="#WARNING">warning</a></span> text at
           the beginning of this manual page.</p>
       </p></div>
 
-    <p><a name="enif_convert_time_unit"><span class="bold_code">ErlNifTime enif_convert_time_unit(ErlNifTime
+    <p><a name="enif_convert_time_unit"><span class="bold_code bc-7">ErlNifTime enif_convert_time_unit(ErlNifTime
         val, ErlNifTimeUnit from, ErlNifTimeUnit to)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="enif_convert_time_unit"></a>
         <p>Converts the <span class="code">val</span> value of time unit <span class="code">from</span> to
           the corresponding value of time unit <span class="code">to</span>. The result is
@@ -1817,54 +1818,54 @@ typedef enum {
         </dl>
         <p>Returns <span class="code">ERL_NIF_TIME_ERROR</span> if called with an invalid
           time unit argument.</p>
-        <p>See also <span class="bold_code"><a href="#ErlNifTime"><span class="code">ErlNifTime</span></a></span>
+        <p>See also <span class="bold_code bc-17"><a href="#ErlNifTime"><span class="code">ErlNifTime</span></a></span>
           and
-          <span class="bold_code"><a href="#ErlNifTimeUnit"><span class="code">ErlNifTimeUnit</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#ErlNifTimeUnit"><span class="code">ErlNifTimeUnit</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_cpu_time"><span class="bold_code">ERL_NIF_TERM enif_cpu_time(ErlNifEnv *)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_cpu_time"><span class="bold_code bc-7">ERL_NIF_TERM enif_cpu_time(ErlNifEnv *)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the CPU time in the same format as
-          <span class="bold_code"><a href="erlang.html#timestamp-0"><span class="code">erlang:timestamp()</span></a></span>.
+          <span class="bold_code bc-15"><a href="erlang.html#timestamp-0"><span class="code">erlang:timestamp()</span></a></span>.
           The CPU time is the time the current logical CPU has spent executing
           since some arbitrary point in the past. If the OS does not support
           fetching this value, <span class="code">enif_cpu_time</span> invokes
-          <span class="bold_code"><a href="#enif_make_badarg"><span class="code">enif_make_badarg</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#enif_make_badarg"><span class="code">enif_make_badarg</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_equal_tids"><span class="bold_code">int enif_equal_tids(ErlNifTid tid1, ErlNifTid tid2)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_equal_tids"><span class="code">erl_drv_equal_tids</span></a></span>.</p>
+    <p><a name="enif_equal_tids"><span class="bold_code bc-7">int enif_equal_tids(ErlNifTid tid1, ErlNifTid tid2)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_equal_tids"><span class="code">erl_drv_equal_tids</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_free"><span class="bold_code">void enif_free(void* ptr)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_free"><span class="bold_code bc-7">void enif_free(void* ptr)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Frees memory allocated by
-          <span class="bold_code"><a href="#enif_alloc"><span class="code">enif_alloc</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#enif_alloc"><span class="code">enif_alloc</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_free_env"><span class="bold_code">void enif_free_env(ErlNifEnv* env)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_free_env"><span class="bold_code bc-7">void enif_free_env(ErlNifEnv* env)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Frees an environment allocated with
-          <span class="bold_code"><a href="#enif_alloc_env"><span class="code">enif_alloc_env</span></a></span>.
+          <span class="bold_code bc-17"><a href="#enif_alloc_env"><span class="code">enif_alloc_env</span></a></span>.
           All terms created in the environment are freed as well.</p>
       </p></div>
 
-    <p><a name="enif_get_atom"><span class="bold_code">int enif_get_atom(ErlNifEnv* env, ERL_NIF_TERM
+    <p><a name="enif_get_atom"><span class="bold_code bc-7">int enif_get_atom(ErlNifEnv* env, ERL_NIF_TERM
         term, char* buf, unsigned size, ErlNifCharEncoding encode)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Writes a <span class="code">NULL</span>-terminated string in the buffer pointed to by
           <span class="code">buf</span> of size <span class="code">size</span>, consisting of the string
           representation of the atom <span class="code">term</span> with encoding
-          <span class="bold_code"><a href="#ErlNifCharEncoding">encode</a></span>.</p>
+          <span class="bold_code bc-17"><a href="#ErlNifCharEncoding">encode</a></span>.</p>
         <p>Returns the number of bytes written (including terminating
           <span class="code">NULL</span> character) or <span class="code">0</span> if <span class="code">term</span> is not an atom with
            maximum length of <span class="code">size-1</span>.</p>
       </p></div>
 
-    <p><a name="enif_get_atom_length"><span class="bold_code">int enif_get_atom_length(ErlNifEnv* env,
+    <p><a name="enif_get_atom_length"><span class="bold_code bc-7">int enif_get_atom_length(ErlNifEnv* env,
         ERL_NIF_TERM term, unsigned* len, ErlNifCharEncoding encode)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sets <span class="code">*len</span> to the length (number of bytes excluding
           terminating <span class="code">NULL</span> character) of the atom <span class="code">term</span> with
           encoding <span class="code">encode</span>.</p>
@@ -1872,107 +1873,107 @@ typedef enum {
           an atom.</p>
       </p></div>
 
-    <p><a name="enif_get_double"><span class="bold_code">int enif_get_double(ErlNifEnv* env,
+    <p><a name="enif_get_double"><span class="bold_code bc-7">int enif_get_double(ErlNifEnv* env,
         ERL_NIF_TERM term, double* dp)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sets <span class="code">*dp</span> to the floating-point value of <span class="code">term</span>.</p>
         <p>Returns <span class="code">true</span> on success, or <span class="code">false</span> if <span class="code">term</span> is not
           a float.</p>
       </p></div>
 
-    <p><a name="enif_get_int"><span class="bold_code">int enif_get_int(ErlNifEnv* env, ERL_NIF_TERM
+    <p><a name="enif_get_int"><span class="bold_code bc-7">int enif_get_int(ErlNifEnv* env, ERL_NIF_TERM
         term, int* ip)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sets <span class="code">*ip</span> to the integer value of <span class="code">term</span>.</p>
         <p>Returns <span class="code">true</span> on success, or <span class="code">false</span> if <span class="code">term</span> is not
           an integer or is outside the bounds of type <span class="code">int</span>.</p>
       </p></div>
 
-    <p><a name="enif_get_int64"><span class="bold_code">int enif_get_int64(ErlNifEnv* env, ERL_NIF_TERM
+    <p><a name="enif_get_int64"><span class="bold_code bc-7">int enif_get_int64(ErlNifEnv* env, ERL_NIF_TERM
         term, ErlNifSInt64* ip)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sets <span class="code">*ip</span> to the integer value of <span class="code">term</span>.</p>
         <p>Returns <span class="code">true</span> on success, or <span class="code">false</span> if <span class="code">term</span> is not
           an integer or is outside the bounds of a signed 64-bit integer.</p>
       </p></div>
 
-    <p><a name="enif_get_local_pid"><span class="bold_code">int enif_get_local_pid(ErlNifEnv* env,
+    <p><a name="enif_get_local_pid"><span class="bold_code bc-7">int enif_get_local_pid(ErlNifEnv* env,
         ERL_NIF_TERM term, ErlNifPid* pid)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If <span class="code">term</span> is the pid of a node local process, this function
           initializes the pid variable <span class="code">*pid</span> from it and returns
           <span class="code">true</span>. Otherwise returns <span class="code">false</span>. No check is done to see
           if the process is alive.</p>
       </p></div>
 
-    <p><a name="enif_get_local_port"><span class="bold_code">int enif_get_local_port(ErlNifEnv* env,
+    <p><a name="enif_get_local_port"><span class="bold_code bc-7">int enif_get_local_port(ErlNifEnv* env,
         ERL_NIF_TERM term, ErlNifPort* port_id)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If <span class="code">term</span> identifies a node local port, this function
           initializes the port variable <span class="code">*port_id</span> from it and returns
           <span class="code">true</span>. Otherwise returns <span class="code">false</span>. No check is done to see
           if the port is alive.</p>
       </p></div>
 
-    <p><a name="enif_get_list_cell"><span class="bold_code">int enif_get_list_cell(ErlNifEnv* env,
+    <p><a name="enif_get_list_cell"><span class="bold_code bc-7">int enif_get_list_cell(ErlNifEnv* env,
         ERL_NIF_TERM list, ERL_NIF_TERM* head, ERL_NIF_TERM* tail)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sets <span class="code">*head</span> and <span class="code">*tail</span> from list <span class="code">list</span>.</p>
         <p>Returns <span class="code">true</span> on success, or <span class="code">false</span> if it is
           not a list or the list is empty.</p>
       </p></div>
 
-    <p><a name="enif_get_list_length"><span class="bold_code">int enif_get_list_length(ErlNifEnv* env,
+    <p><a name="enif_get_list_length"><span class="bold_code bc-7">int enif_get_list_length(ErlNifEnv* env,
         ERL_NIF_TERM term, unsigned* len)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sets <span class="code">*len</span> to the length of list <span class="code">term</span>.</p>
         <p>Returns <span class="code">true</span> on success, or <span class="code">false</span> if <span class="code">term</span> is
           not a proper list.</p>
       </p></div>
 
-    <p><a name="enif_get_long"><span class="bold_code">int enif_get_long(ErlNifEnv* env, ERL_NIF_TERM
+    <p><a name="enif_get_long"><span class="bold_code bc-7">int enif_get_long(ErlNifEnv* env, ERL_NIF_TERM
         term, long int* ip)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sets <span class="code">*ip</span> to the long integer value of <span class="code">term</span>.</p>
         <p>Returns <span class="code">true</span> on success, or <span class="code">false</span> if <span class="code">term</span> is
           not an integer or is outside the bounds of type <span class="code">long int</span>.</p>
       </p></div>
 
-    <p><a name="enif_get_map_size"><span class="bold_code">int enif_get_map_size(ErlNifEnv* env,
+    <p><a name="enif_get_map_size"><span class="bold_code bc-7">int enif_get_map_size(ErlNifEnv* env,
         ERL_NIF_TERM term, size_t *size)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sets <span class="code">*size</span> to the number of key-value pairs in the map
           <span class="code">term</span>.</p>
         <p>Returns <span class="code">true</span> on success, or <span class="code">false</span> if <span class="code">term</span> is
           not a map.</p>
       </p></div>
 
-    <p><a name="enif_get_map_value"><span class="bold_code">int enif_get_map_value(ErlNifEnv* env,
+    <p><a name="enif_get_map_value"><span class="bold_code bc-7">int enif_get_map_value(ErlNifEnv* env,
         ERL_NIF_TERM map, ERL_NIF_TERM key, ERL_NIF_TERM* value)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sets <span class="code">*value</span> to the value associated with <span class="code">key</span> in the
           map <span class="code">map</span>.</p>
         <p>Returns <span class="code">true</span> on success, or <span class="code">false</span> if <span class="code">map</span> is not
           a map or if <span class="code">map</span> does not contain <span class="code">key</span>.</p>
       </p></div>
 
-    <p><a name="enif_get_resource"><span class="bold_code">int enif_get_resource(ErlNifEnv* env,
+    <p><a name="enif_get_resource"><span class="bold_code bc-7">int enif_get_resource(ErlNifEnv* env,
         ERL_NIF_TERM term, ErlNifResourceType* type, void** objp)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sets <span class="code">*objp</span> to point to the resource object referred to by
           <span class="code">term</span>.</p>
         <p>Returns <span class="code">true</span> on success, or <span class="code">false</span> if <span class="code">term</span> is
           not a handle to a resource object of type <span class="code">type</span>.</p>
       </p></div>
 
-    <p><a name="enif_get_string"><span class="bold_code">int enif_get_string(ErlNifEnv* env,
+    <p><a name="enif_get_string"><span class="bold_code bc-7">int enif_get_string(ErlNifEnv* env,
         ERL_NIF_TERM list, char* buf, unsigned size,
         ErlNifCharEncoding encode)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Writes a <span class="code">NULL</span>-terminated string in the buffer pointed to by
           <span class="code">buf</span> with size <span class="code">size</span>, consisting of the characters
           in the string <span class="code">list</span>. The characters are written using encoding
-          <span class="bold_code"><a href="#ErlNifCharEncoding">encode</a></span>.</p>
+          <span class="bold_code bc-17"><a href="#ErlNifCharEncoding">encode</a></span>.</p>
         <p>Returns one of the following:</p>
         <ul>
           <li>The number of bytes written (including terminating <span class="code">NULL</span>
@@ -1988,9 +1989,9 @@ typedef enum {
           <span class="code">size</span> is &lt; <span class="code">1</span>.</p>
       </p></div>
 
-    <p><a name="enif_get_tuple"><span class="bold_code">int enif_get_tuple(ErlNifEnv* env, ERL_NIF_TERM
+    <p><a name="enif_get_tuple"><span class="bold_code bc-7">int enif_get_tuple(ErlNifEnv* env, ERL_NIF_TERM
         term, int* arity, const ERL_NIF_TERM** array)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If <span class="code">term</span> is a tuple, this function sets <span class="code">*array</span> to point
           to an array containing the elements of the tuple, and sets
           <span class="code">*arity</span> to the number of elements. Notice that the array
@@ -2001,27 +2002,27 @@ typedef enum {
           not a tuple.</p>
       </p></div>
 
-    <p><a name="enif_get_uint"><span class="bold_code">int enif_get_uint(ErlNifEnv* env, ERL_NIF_TERM
+    <p><a name="enif_get_uint"><span class="bold_code bc-7">int enif_get_uint(ErlNifEnv* env, ERL_NIF_TERM
         term, unsigned int* ip)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sets <span class="code">*ip</span> to the unsigned integer value of <span class="code">term</span>.</p>
         <p>Returns <span class="code">true</span> on success, or <span class="code">false</span> if <span class="code">term</span> is
           not an unsigned integer or is outside the bounds of type
           <span class="code">unsigned int</span>.</p>
       </p></div>
 
-    <p><a name="enif_get_uint64"><span class="bold_code">int enif_get_uint64(ErlNifEnv* env,
+    <p><a name="enif_get_uint64"><span class="bold_code bc-7">int enif_get_uint64(ErlNifEnv* env,
         ERL_NIF_TERM term, ErlNifUInt64* ip)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sets <span class="code">*ip</span> to the unsigned integer value of <span class="code">term</span>.</p>
         <p>Returns <span class="code">true</span> on success, or <span class="code">false</span> if <span class="code">term</span> is
           not an unsigned integer or is outside the bounds of an unsigned
           64-bit integer.</p>
       </p></div>
 
-    <p><a name="enif_get_ulong"><span class="bold_code">int enif_get_ulong(ErlNifEnv* env, ERL_NIF_TERM
+    <p><a name="enif_get_ulong"><span class="bold_code bc-7">int enif_get_ulong(ErlNifEnv* env, ERL_NIF_TERM
         term, unsigned long* ip)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sets <span class="code">*ip</span> to the unsigned long integer value of
           <span class="code">term</span>.</p>
         <p>Returns <span class="code">true</span> on success, or <span class="code">false</span> if <span class="code">term</span> is
@@ -2029,40 +2030,40 @@ typedef enum {
           <span class="code">unsigned long</span>.</p>
       </p></div>
 
-    <p><a name="enif_getenv"><span class="bold_code">int enif_getenv(const char* key, char* value,
+    <p><a name="enif_getenv"><span class="bold_code bc-7">int enif_getenv(const char* key, char* value,
         size_t *value_size)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_getenv"><span class="code">erl_drv_getenv</span></a></span>.</p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_getenv"><span class="code">erl_drv_getenv</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_has_pending_exception"><span class="bold_code">int enif_has_pending_exception(ErlNifEnv* env,
+    <p><a name="enif_has_pending_exception"><span class="bold_code bc-7">int enif_has_pending_exception(ErlNifEnv* env,
         ERL_NIF_TERM* reason)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if a pending exception is associated with the
           environment <span class="code">env</span>. If <span class="code">reason</span> is a <span class="code">NULL</span> pointer,
           ignore it. Otherwise, if a pending exception associated with
           <span class="code">env</span> exists, set <span class="code">ERL_NIF_TERM</span> to which <span class="code">reason</span>
           points to the value of the exception's term. For example, if
-          <span class="bold_code"><a href="#enif_make_badarg"><span class="code">enif_make_badarg</span></a></span> is called to set a pending
+          <span class="bold_code bc-17"><a href="#enif_make_badarg"><span class="code">enif_make_badarg</span></a></span> is called to set a pending
           <span class="code">badarg</span> exception, a later call to
           <span class="code">enif_has_pending_exception(env, &amp;reason)</span> sets
           <span class="code">reason</span> to the atom <span class="code">badarg</span>, then return <span class="code">true</span>.</p>
-        <p>See also <span class="bold_code"><a href="#enif_make_badarg"><span class="code">enif_make_badarg</span></a></span> and
-          <span class="bold_code"><a href="#enif_raise_exception"><span class="code">enif_raise_exception</span></a></span>.</p>
+        <p>See also <span class="bold_code bc-17"><a href="#enif_make_badarg"><span class="code">enif_make_badarg</span></a></span> and
+          <span class="bold_code bc-17"><a href="#enif_raise_exception"><span class="code">enif_raise_exception</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_inspect_binary"><span class="bold_code">int enif_inspect_binary(ErlNifEnv* env,
+    <p><a name="enif_inspect_binary"><span class="bold_code bc-7">int enif_inspect_binary(ErlNifEnv* env,
         ERL_NIF_TERM bin_term, ErlNifBinary* bin)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Initializes the structure pointed to by <span class="code">bin</span> with information
           about binary term <span class="code">bin_term</span>.</p>
         <p>Returns <span class="code">true</span> on success, or <span class="code">false</span> if <span class="code">bin_term</span>
           is not a binary.</p>
       </p></div>
 
-    <p><a name="enif_inspect_iolist_as_binary"><span class="bold_code">int enif_inspect_iolist_as_binary(ErlNifEnv*
+    <p><a name="enif_inspect_iolist_as_binary"><span class="bold_code bc-7">int enif_inspect_iolist_as_binary(ErlNifEnv*
         env, ERL_NIF_TERM term, ErlNifBinary* bin)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Initializes the structure pointed to by <span class="code">bin</span> with a
           continuous buffer with the same byte content as <span class="code">iolist</span>. As
           with <span class="code">inspect_binary</span>, the data pointed to by <span class="code">bin</span> is
@@ -2071,134 +2072,134 @@ typedef enum {
           not an iolist.</p>
       </p></div>
 
-    <p><a name="enif_is_atom"><span class="bold_code">int enif_is_atom(ErlNifEnv* env, ERL_NIF_TERM term)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_is_atom"><span class="bold_code bc-7">int enif_is_atom(ErlNifEnv* env, ERL_NIF_TERM term)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">term</span> is an atom.</p>
       </p></div>
 
-    <p><a name="enif_is_binary"><span class="bold_code">int enif_is_binary(ErlNifEnv* env, ERL_NIF_TERM term)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_is_binary"><span class="bold_code bc-7">int enif_is_binary(ErlNifEnv* env, ERL_NIF_TERM term)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">term</span> is a binary.</p>
       </p></div>
 
-    <p><a name="enif_is_current_process_alive"><span class="bold_code">int enif_is_current_process_alive(ErlNifEnv* env)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_is_current_process_alive"><span class="bold_code bc-7">int enif_is_current_process_alive(ErlNifEnv* env)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if the currently executing process is currently
           alive, otherwise <span class="code">false</span>.</p>
         <p>This function can only be used from a NIF-calling thread, and with
           an environment corresponding to currently executing processes.</p>
       </p></div>
 
-    <p><a name="enif_is_empty_list"><span class="bold_code">int enif_is_empty_list(ErlNifEnv* env,
+    <p><a name="enif_is_empty_list"><span class="bold_code bc-7">int enif_is_empty_list(ErlNifEnv* env,
         ERL_NIF_TERM term)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">term</span> is an empty list.</p>
       </p></div>
 
-    <p><a name="enif_is_exception"><span class="bold_code">int enif_is_exception(ErlNifEnv* env,
+    <p><a name="enif_is_exception"><span class="bold_code bc-7">int enif_is_exception(ErlNifEnv* env,
         ERL_NIF_TERM term)</span></a><br></p>
-<div class="REFBODY"><p><a name="enif_is_exception"></a>
+<div class="REFBODY rb-7"><p><a name="enif_is_exception"></a>
       <p>Return true if <span class="code">term</span> is an exception.</p>
       </p></div>
 
-    <p><a name="enif_is_fun"><span class="bold_code">int enif_is_fun(ErlNifEnv* env, ERL_NIF_TERM
+    <p><a name="enif_is_fun"><span class="bold_code bc-7">int enif_is_fun(ErlNifEnv* env, ERL_NIF_TERM
         term)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">term</span> is a fun.</p>
       </p></div>
 
-    <p><a name="enif_is_identical"><span class="bold_code">int enif_is_identical(ERL_NIF_TERM lhs,
+    <p><a name="enif_is_identical"><span class="bold_code bc-7">int enif_is_identical(ERL_NIF_TERM lhs,
         ERL_NIF_TERM rhs)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if the two terms are identical. Corresponds to
           the Erlang operators <span class="code">=:=</span> and <span class="code">=/=</span>.</p>
       </p></div>
 
-    <p><a name="enif_is_list"><span class="bold_code">int enif_is_list(ErlNifEnv* env, ERL_NIF_TERM term)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_is_list"><span class="bold_code bc-7">int enif_is_list(ErlNifEnv* env, ERL_NIF_TERM term)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">term</span> is a list.</p>
       </p></div>
 
-    <p><a name="enif_is_map"><span class="bold_code">int enif_is_map(ErlNifEnv* env, ERL_NIF_TERM
+    <p><a name="enif_is_map"><span class="bold_code bc-7">int enif_is_map(ErlNifEnv* env, ERL_NIF_TERM
         term)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">term</span> is a map, otherwise
           <span class="code">false</span>.</p>
       </p></div>
 
-    <p><a name="enif_is_number"><span class="bold_code">int enif_is_number(ErlNifEnv* env, ERL_NIF_TERM
+    <p><a name="enif_is_number"><span class="bold_code bc-7">int enif_is_number(ErlNifEnv* env, ERL_NIF_TERM
         term)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">term</span> is a number.</p>
       </p></div>
 
-    <p><a name="enif_is_pid"><span class="bold_code">int enif_is_pid(ErlNifEnv* env, ERL_NIF_TERM term)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_is_pid"><span class="bold_code bc-7">int enif_is_pid(ErlNifEnv* env, ERL_NIF_TERM term)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">term</span> is a pid.</p>
       </p></div>
 
-    <p><a name="enif_is_port"><span class="bold_code">int enif_is_port(ErlNifEnv* env, ERL_NIF_TERM term)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_is_port"><span class="bold_code bc-7">int enif_is_port(ErlNifEnv* env, ERL_NIF_TERM term)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">term</span> is a port.</p>
       </p></div>
 
-    <p><a name="enif_is_port_alive"><span class="bold_code">int enif_is_port_alive(ErlNifEnv* env,
+    <p><a name="enif_is_port_alive"><span class="bold_code bc-7">int enif_is_port_alive(ErlNifEnv* env,
         ErlNifPort *port_id)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">port_id</span> is alive.</p>
         <p>This function is only thread-safe when the emulator with SMP support
           is used. It can only be used in a non-SMP emulator from a NIF-calling
           thread.</p>
       </p></div>
 
-    <p><a name="enif_is_process_alive"><span class="bold_code">int enif_is_process_alive(ErlNifEnv* env,
+    <p><a name="enif_is_process_alive"><span class="bold_code bc-7">int enif_is_process_alive(ErlNifEnv* env,
         ErlNifPid *pid)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">pid</span> is alive.</p>
         <p>This function is only thread-safe when the emulator with SMP support
           is used. It can only be used in a non-SMP emulator from a NIF-calling
           thread.</p>
       </p></div>
 
-    <p><a name="enif_is_ref"><span class="bold_code">int enif_is_ref(ErlNifEnv* env, ERL_NIF_TERM term)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_is_ref"><span class="bold_code bc-7">int enif_is_ref(ErlNifEnv* env, ERL_NIF_TERM term)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">term</span> is a reference.</p>
       </p></div>
 
-    <p><a name="enif_is_tuple"><span class="bold_code">int enif_is_tuple(ErlNifEnv* env, ERL_NIF_TERM term)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_is_tuple"><span class="bold_code bc-7">int enif_is_tuple(ErlNifEnv* env, ERL_NIF_TERM term)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">term</span> is a tuple.</p>
       </p></div>
 
-    <p><a name="enif_keep_resource"><span class="bold_code">int enif_keep_resource(void* obj)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_keep_resource"><span class="bold_code bc-7">int enif_keep_resource(void* obj)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Adds a reference to resource object <span class="code">obj</span> obtained from
-          <span class="bold_code"><a href="#enif_alloc_resource"><span class="code">enif_alloc_resource</span></a></span>. Each call to
+          <span class="bold_code bc-17"><a href="#enif_alloc_resource"><span class="code">enif_alloc_resource</span></a></span>. Each call to
           <span class="code">enif_keep_resource</span> for an object must be balanced by a call to
-          <span class="bold_code"><a href="#enif_release_resource"><span class="code">enif_release_resource</span></a></span>
+          <span class="bold_code bc-17"><a href="#enif_release_resource"><span class="code">enif_release_resource</span></a></span>
           before the object is destructed.</p>
       </p></div>
 
-    <p><a name="enif_make_atom"><span class="bold_code">ERL_NIF_TERM enif_make_atom(ErlNifEnv* env, const char* name)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_make_atom"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_atom(ErlNifEnv* env, const char* name)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Creates an atom term from the <span class="code">NULL</span>-terminated C-string
           <span class="code">name</span> with ISO Latin-1 encoding. If the length of <span class="code">name</span>
           exceeds the maximum length allowed for an atom (255 characters),
-          <span class="code">enif_make_atom</span> invokes <span class="bold_code"><a href="#enif_make_badarg"><span class="code">enif_make_badarg</span></a></span>.</p>
+          <span class="code">enif_make_atom</span> invokes <span class="bold_code bc-17"><a href="#enif_make_badarg"><span class="code">enif_make_badarg</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_make_atom_len"><span class="bold_code">ERL_NIF_TERM enif_make_atom_len(ErlNifEnv* env,
+    <p><a name="enif_make_atom_len"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_atom_len(ErlNifEnv* env,
         const char* name, size_t len)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Create an atom term from the string <span class="code">name</span> with length
           <span class="code">len</span>. <span class="code">NULL</span> characters are treated as any other
           characters. If <span class="code">len</span> exceeds the maximum length
           allowed for an atom (255 characters), <span class="code">enif_make_atom</span> invokes
-          <span class="bold_code"><a href="#enif_make_badarg"><span class="code">enif_make_badarg</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#enif_make_badarg"><span class="code">enif_make_badarg</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_make_badarg"><span class="bold_code">ERL_NIF_TERM enif_make_badarg(ErlNifEnv* env)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_make_badarg"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_badarg(ErlNifEnv* env)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Makes a <span class="code">badarg</span> exception to be returned from a NIF, and
           associates it with environment <span class="code">env</span>. Once a NIF or any function
           it calls invokes <span class="code">enif_make_badarg</span>, the runtime ensures that a
@@ -2206,10 +2207,10 @@ typedef enum {
           NIF attempts to return a non-exception term instead.</p>
         <p>The return value from <span class="code">enif_make_badarg</span> can be used only as
           the return value from the NIF that invoked it (directly or indirectly)
-          or be passed to <span class="bold_code"><a href="#enif_is_exception"><span class="code">enif_is_exception</span></a></span>, but not to any other NIF API
+          or be passed to <span class="bold_code bc-17"><a href="#enif_is_exception"><span class="code">enif_is_exception</span></a></span>, but not to any other NIF API
           function.</p>
-        <p>See also <span class="bold_code"><a href="#enif_has_pending_exception"><span class="code">enif_has_pending_exception</span></a></span> and
-          <span class="bold_code"><a href="#enif_raise_exception"><span class="code">enif_raise_exception</span></a></span>.</p>
+        <p>See also <span class="bold_code bc-17"><a href="#enif_has_pending_exception"><span class="code">enif_has_pending_exception</span></a></span> and
+          <span class="bold_code bc-17"><a href="#enif_raise_exception"><span class="code">enif_raise_exception</span></a></span>.</p>
         <div class="note">
 <div class="label">Note</div>
 <div class="content"><p>
@@ -2221,49 +2222,49 @@ typedef enum {
 </div>
       </p></div>
 
-    <p><a name="enif_make_binary"><span class="bold_code">ERL_NIF_TERM enif_make_binary(ErlNifEnv* env, ErlNifBinary* bin)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_make_binary"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_binary(ErlNifEnv* env, ErlNifBinary* bin)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Makes a binary term from <span class="code">bin</span>. Any ownership of
           the binary data is transferred to the created term and
           <span class="code">bin</span> is to be considered read-only for the rest of the NIF
           call and then as released.</p>
       </p></div>
 
-    <p><a name="enif_make_copy"><span class="bold_code">ERL_NIF_TERM enif_make_copy(ErlNifEnv* dst_env,
+    <p><a name="enif_make_copy"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_copy(ErlNifEnv* dst_env,
         ERL_NIF_TERM src_term)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Makes a copy of term <span class="code">src_term</span>. The copy is created in
           environment <span class="code">dst_env</span>. The source term can be located in any
           environment.</p>
       </p></div>
 
-    <p><a name="enif_make_double"><span class="bold_code">ERL_NIF_TERM enif_make_double(ErlNifEnv* env, double d)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_make_double"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_double(ErlNifEnv* env, double d)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Creates a floating-point term from a <span class="code">double</span>. If argument
           <span class="code">double</span> is not finite or is NaN, <span class="code">enif_make_double</span>
-          invokes <span class="bold_code"><a href="#enif_make_badarg"><span class="code">enif_make_badarg</span></a></span>.</p>
+          invokes <span class="bold_code bc-17"><a href="#enif_make_badarg"><span class="code">enif_make_badarg</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_make_existing_atom"><span class="bold_code">int enif_make_existing_atom(ErlNifEnv* env,
+    <p><a name="enif_make_existing_atom"><span class="bold_code bc-7">int enif_make_existing_atom(ErlNifEnv* env,
         const char* name, ERL_NIF_TERM* atom, ErlNifCharEncoding
         encode)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Tries to create the term of an already existing atom from
           the <span class="code">NULL</span>-terminated C-string <span class="code">name</span> with encoding
-          <span class="bold_code"><a href="#ErlNifCharEncoding">encode</a></span>.</p>
+          <span class="bold_code bc-17"><a href="#ErlNifCharEncoding">encode</a></span>.</p>
         <p>If the atom already exists, this function stores the term in
           <span class="code">*atom</span> and returns <span class="code">true</span>, otherwise <span class="code">false</span>.
           Also returns <span class="code">false</span> if the length of <span class="code">name</span> exceeds the
           maximum length allowed for an atom (255 characters).</p>
       </p></div>
 
-    <p><a name="enif_make_existing_atom_len"><span class="bold_code">int enif_make_existing_atom_len(ErlNifEnv* env,
+    <p><a name="enif_make_existing_atom_len"><span class="bold_code bc-7">int enif_make_existing_atom_len(ErlNifEnv* env,
         const char* name, size_t len, ERL_NIF_TERM* atom, ErlNifCharEncoding
         encoding)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Tries to create the term of an already existing atom from the
           string <span class="code">name</span> with length <span class="code">len</span> and encoding
-          <span class="bold_code"><a href="#ErlNifCharEncoding">encode</a></span>. <span class="code">NULL</span>
+          <span class="bold_code bc-17"><a href="#ErlNifCharEncoding">encode</a></span>. <span class="code">NULL</span>
           characters are treated as any other characters.</p>
         <p>If the atom already exists, this function stores the term in
           <span class="code">*atom</span> and returns <span class="code">true</span>, otherwise <span class="code">false</span>.
@@ -2271,63 +2272,63 @@ typedef enum {
           allowed for an atom (255 characters).</p>
       </p></div>
 
-    <p><a name="enif_make_int"><span class="bold_code">ERL_NIF_TERM enif_make_int(ErlNifEnv* env, int i)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_make_int"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_int(ErlNifEnv* env, int i)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Creates an integer term.</p>
       </p></div>
 
-    <p><a name="enif_make_int64"><span class="bold_code">ERL_NIF_TERM enif_make_int64(ErlNifEnv* env, ErlNifSInt64 i)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_make_int64"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_int64(ErlNifEnv* env, ErlNifSInt64 i)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Creates an integer term from a signed 64-bit integer.</p>
       </p></div>
 
-    <p><a name="enif_make_list"><span class="bold_code">ERL_NIF_TERM enif_make_list(ErlNifEnv* env, unsigned cnt, ...)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_make_list"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_list(ErlNifEnv* env, unsigned cnt, ...)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Creates an ordinary list term of length <span class="code">cnt</span>. Expects
           <span class="code">cnt</span> number of arguments (after <span class="code">cnt</span>) of type
           <span class="code">ERL_NIF_TERM</span> as the elements of the list.</p>
         <p>Returns an empty list if <span class="code">cnt</span> is 0.</p>
       </p></div>
 
-    <p><a name="enif_make_list1"><span class="bold_code">ERL_NIF_TERM enif_make_list1(ErlNifEnv* env, ERL_NIF_TERM e1)</span></a><br><a name="enif_make_list2"><span class="bold_code">ERL_NIF_TERM enif_make_list2(ErlNifEnv* env,
-        ERL_NIF_TERM e1, ERL_NIF_TERM e2)</span></a><br><a name="enif_make_list3"><span class="bold_code">ERL_NIF_TERM enif_make_list3(ErlNifEnv* env,
-        ERL_NIF_TERM e1, ERL_NIF_TERM e2, ERL_NIF_TERM e3)</span></a><br><a name="enif_make_list4"><span class="bold_code">ERL_NIF_TERM enif_make_list4(ErlNifEnv* env,
-        ERL_NIF_TERM e1, ..., ERL_NIF_TERM e4)</span></a><br><a name="enif_make_list5"><span class="bold_code">ERL_NIF_TERM enif_make_list5(ErlNifEnv* env,
-        ERL_NIF_TERM e1, ..., ERL_NIF_TERM e5)</span></a><br><a name="enif_make_list6"><span class="bold_code">ERL_NIF_TERM enif_make_list6(ErlNifEnv* env,
-        ERL_NIF_TERM e1, ..., ERL_NIF_TERM e6)</span></a><br><a name="enif_make_list7"><span class="bold_code">ERL_NIF_TERM enif_make_list7(ErlNifEnv* env,
-        ERL_NIF_TERM e1, ..., ERL_NIF_TERM e7)</span></a><br><a name="enif_make_list8"><span class="bold_code">ERL_NIF_TERM enif_make_list8(ErlNifEnv* env,
-        ERL_NIF_TERM e1, ..., ERL_NIF_TERM e8)</span></a><br><a name="enif_make_list9"><span class="bold_code">ERL_NIF_TERM enif_make_list9(ErlNifEnv* env,
+    <p><a name="enif_make_list1"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_list1(ErlNifEnv* env, ERL_NIF_TERM e1)</span></a><br><a name="enif_make_list2"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_list2(ErlNifEnv* env,
+        ERL_NIF_TERM e1, ERL_NIF_TERM e2)</span></a><br><a name="enif_make_list3"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_list3(ErlNifEnv* env,
+        ERL_NIF_TERM e1, ERL_NIF_TERM e2, ERL_NIF_TERM e3)</span></a><br><a name="enif_make_list4"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_list4(ErlNifEnv* env,
+        ERL_NIF_TERM e1, ..., ERL_NIF_TERM e4)</span></a><br><a name="enif_make_list5"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_list5(ErlNifEnv* env,
+        ERL_NIF_TERM e1, ..., ERL_NIF_TERM e5)</span></a><br><a name="enif_make_list6"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_list6(ErlNifEnv* env,
+        ERL_NIF_TERM e1, ..., ERL_NIF_TERM e6)</span></a><br><a name="enif_make_list7"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_list7(ErlNifEnv* env,
+        ERL_NIF_TERM e1, ..., ERL_NIF_TERM e7)</span></a><br><a name="enif_make_list8"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_list8(ErlNifEnv* env,
+        ERL_NIF_TERM e1, ..., ERL_NIF_TERM e8)</span></a><br><a name="enif_make_list9"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_list9(ErlNifEnv* env,
         ERL_NIF_TERM e1, ..., ERL_NIF_TERM e9)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Creates an ordinary list term with length indicated by the
           function name. Prefer these functions (macros) over the variadic
           <span class="code">enif_make_list</span> to get a compile-time error if the number of
           arguments does not match.</p>
       </p></div>
 
-    <p><a name="enif_make_list_cell"><span class="bold_code">ERL_NIF_TERM enif_make_list_cell(ErlNifEnv*
+    <p><a name="enif_make_list_cell"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_list_cell(ErlNifEnv*
         env, ERL_NIF_TERM head, ERL_NIF_TERM tail)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Creates a list cell <span class="code">[head | tail]</span>.</p>
       </p></div>
 
-    <p><a name="enif_make_list_from_array"><span class="bold_code">ERL_NIF_TERM enif_make_list_from_array(ErlNifEnv* env, const ERL_NIF_TERM
+    <p><a name="enif_make_list_from_array"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_list_from_array(ErlNifEnv* env, const ERL_NIF_TERM
           arr[], unsigned cnt)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Creates an ordinary list containing the elements of array <span class="code">arr</span>
           of length <span class="code">cnt</span>.</p>
         <p>Returns an empty list if <span class="code">cnt</span> is 0.</p>
       </p></div>
 
-    <p><a name="enif_make_long"><span class="bold_code">ERL_NIF_TERM enif_make_long(ErlNifEnv* env, long int i)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_make_long"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_long(ErlNifEnv* env, long int i)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Creates an integer term from a <span class="code">long int</span>.</p>
       </p></div>
 
-    <p><a name="enif_make_map_put"><span class="bold_code">int enif_make_map_put(ErlNifEnv* env,
+    <p><a name="enif_make_map_put"><span class="bold_code bc-7">int enif_make_map_put(ErlNifEnv* env,
         ERL_NIF_TERM map_in, ERL_NIF_TERM key, ERL_NIF_TERM value,
         ERL_NIF_TERM* map_out)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Makes a copy of map <span class="code">map_in</span> and inserts <span class="code">key</span> with
           <span class="code">value</span>. If <span class="code">key</span> already exists in <span class="code">map_in</span>, the old
           associated value is replaced by <span class="code">value</span>.</p>
@@ -2337,9 +2338,9 @@ typedef enum {
         <p>The <span class="code">map_in</span> term must belong to environment <span class="code">env</span>.</p>
       </p></div>
 
-    <p><a name="enif_make_map_remove"><span class="bold_code">int enif_make_map_remove(ErlNifEnv* env,
+    <p><a name="enif_make_map_remove"><span class="bold_code bc-7">int enif_make_map_remove(ErlNifEnv* env,
         ERL_NIF_TERM map_in, ERL_NIF_TERM key, ERL_NIF_TERM* map_out)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If map <span class="code">map_in</span> contains <span class="code">key</span>, this function makes a copy
           of <span class="code">map_in</span> in <span class="code">*map_out</span>, and removes <span class="code">key</span> and the
           associated value. If map <span class="code">map_in</span> does not contain <span class="code">key</span>,
@@ -2349,10 +2350,10 @@ typedef enum {
         <p>The <span class="code">map_in</span> term must belong to environment <span class="code">env</span>.</p>
       </p></div>
 
-    <p><a name="enif_make_map_update"><span class="bold_code">int enif_make_map_update(ErlNifEnv* env,
+    <p><a name="enif_make_map_update"><span class="bold_code bc-7">int enif_make_map_update(ErlNifEnv* env,
         ERL_NIF_TERM map_in, ERL_NIF_TERM key, ERL_NIF_TERM new_value,
         ERL_NIF_TERM* map_out)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Makes a copy of map <span class="code">map_in</span> and replace the old associated
           value for <span class="code">key</span> with <span class="code">new_value</span>.</p>
         <p>If successful, this function sets <span class="code">*map_out</span> to the new map and
@@ -2361,44 +2362,44 @@ typedef enum {
         <p>The <span class="code">map_in</span> term must belong to environment <span class="code">env</span>.</p>
       </p></div>
 
-    <p><a name="enif_make_new_binary"><span class="bold_code">unsigned char *enif_make_new_binary(ErlNifEnv*
+    <p><a name="enif_make_new_binary"><span class="bold_code bc-7">unsigned char *enif_make_new_binary(ErlNifEnv*
         env, size_t size, ERL_NIF_TERM* termp)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Allocates a binary of size <span class="code">size</span> bytes and creates an owning
           term. The binary data is mutable until the calling NIF returns.
           This is a quick way to create a new binary without having to use
-          <span class="bold_code"><a href="#ErlNifBinary"><span class="code">ErlNifBinary</span></a></span>.
+          <span class="bold_code bc-17"><a href="#ErlNifBinary"><span class="code">ErlNifBinary</span></a></span>.
           The drawbacks are that the binary cannot be kept between NIF calls
           and it cannot be reallocated.</p>
         <p>Returns a pointer to the raw binary data and sets
           <span class="code">*termp</span> to the binary term.</p>
       </p></div>
 
-    <p><a name="enif_make_new_map"><span class="bold_code">ERL_NIF_TERM enif_make_new_map(ErlNifEnv* env)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_make_new_map"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_new_map(ErlNifEnv* env)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Makes an empty map term.</p>
       </p></div>
 
-    <p><a name="enif_make_pid"><span class="bold_code">ERL_NIF_TERM enif_make_pid(ErlNifEnv* env, const ErlNifPid* pid)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_make_pid"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_pid(ErlNifEnv* env, const ErlNifPid* pid)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Makes a pid term from <span class="code">*pid</span>.</p>
       </p></div>
 
-    <p><a name="enif_make_ref"><span class="bold_code">ERL_NIF_TERM enif_make_ref(ErlNifEnv* env)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Creates a reference like <span class="bold_code"><a href="erlang.html#make_ref-0"><span class="code">erlang:make_ref/0</span></a></span>.</p>
+    <p><a name="enif_make_ref"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_ref(ErlNifEnv* env)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Creates a reference like <span class="bold_code bc-15"><a href="erlang.html#make_ref-0"><span class="code">erlang:make_ref/0</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_make_resource"><span class="bold_code">ERL_NIF_TERM enif_make_resource(ErlNifEnv* env, void* obj)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_make_resource"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_resource(ErlNifEnv* env, void* obj)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Creates an opaque handle to a memory-managed resource object
-          obtained by <span class="bold_code"><a href="#enif_alloc_resource"><span class="code">enif_alloc_resource</span></a></span>. No ownership transfer is done,
+          obtained by <span class="bold_code bc-17"><a href="#enif_alloc_resource"><span class="code">enif_alloc_resource</span></a></span>. No ownership transfer is done,
           as the resource object still needs to be released by
-          <span class="bold_code"><a href="#enif_release_resource"><span class="code">enif_release_resource</span></a></span>. However, notice that the call
+          <span class="bold_code bc-17"><a href="#enif_release_resource"><span class="code">enif_release_resource</span></a></span>. However, notice that the call
           to <span class="code">enif_release_resource</span> can occur immediately after obtaining
           the term from <span class="code">enif_make_resource</span>, in which case the resource
           object is deallocated when the term is garbage collected. For more
-          details, see the <span class="bold_code"><a href="#enif_resource_example">example of creating and returning a resource object</a></span> in the User's
+          details, see the <span class="bold_code bc-17"><a href="#enif_resource_example">example of creating and returning a resource object</a></span> in the User's
           Guide.</p>
         <p>Notice that the only defined behavior of using a resource term in
           an Erlang program is to store it and send it between processes on the
@@ -2406,11 +2407,11 @@ typedef enum {
           <span class="code">term_to_binary</span>, have unpredictable (but harmless) results.</p>
       </p></div>
 
-    <p><a name="enif_make_resource_binary"><span class="bold_code">ERL_NIF_TERM enif_make_resource_binary(ErlNifEnv* env, void* obj, const
+    <p><a name="enif_make_resource_binary"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_resource_binary(ErlNifEnv* env, void* obj, const
         void* data, size_t size)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Creates a binary term that is memory-managed by a resource object
-          <span class="code">obj</span> obtained by <span class="bold_code"><a href="#enif_alloc_resource"><span class="code">enif_alloc_resource</span></a></span>. The returned binary term
+          <span class="code">obj</span> obtained by <span class="bold_code bc-17"><a href="#enif_alloc_resource"><span class="code">enif_alloc_resource</span></a></span>. The returned binary term
           consists of <span class="code">size</span> bytes pointed to by <span class="code">data</span>. This raw
           binary data must be kept readable and unchanged until the destructor
           of the resource is called. The binary data can be stored external to
@@ -2420,14 +2421,14 @@ typedef enum {
           destructor is not called until the last binary is garbage collected.
           This can be useful to return different parts of a larger binary
           buffer.</p>
-        <p>As with <span class="bold_code"><a href="#enif_make_resource"><span class="code">enif_make_resource</span></a></span>, no ownership transfer is done.
+        <p>As with <span class="bold_code bc-17"><a href="#enif_make_resource"><span class="code">enif_make_resource</span></a></span>, no ownership transfer is done.
           The resource still needs to be released with
-          <span class="bold_code"><a href="#enif_release_resource"><span class="code">enif_release_resource</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#enif_release_resource"><span class="code">enif_release_resource</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_make_reverse_list"><span class="bold_code">int enif_make_reverse_list(ErlNifEnv* env, ERL_NIF_TERM list_in,
+    <p><a name="enif_make_reverse_list"><span class="bold_code bc-7">int enif_make_reverse_list(ErlNifEnv* env, ERL_NIF_TERM list_in,
         ERL_NIF_TERM *list_out)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sets <span class="code">*list_out</span> to the reverse list of the list <span class="code">list_in</span>
           and returns <span class="code">true</span>, or returns <span class="code">false</span> if <span class="code">list_in</span> is
           not a list.</p>
@@ -2437,97 +2438,97 @@ typedef enum {
         <p>The <span class="code">list_in</span> term must belong to environment <span class="code">env</span>.</p>
       </p></div>
 
-    <p><a name="enif_make_string"><span class="bold_code">ERL_NIF_TERM enif_make_string(ErlNifEnv* env,
+    <p><a name="enif_make_string"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_string(ErlNifEnv* env,
         const char* string, ErlNifCharEncoding encoding)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Creates a list containing the characters of the
           <span class="code">NULL</span>-terminated string <span class="code">string</span> with encoding
-          <span class="bold_code"><a href="#ErlNifCharEncoding">encoding</a></span>.</p>
+          <span class="bold_code bc-17"><a href="#ErlNifCharEncoding">encoding</a></span>.</p>
       </p></div>
 
-    <p><a name="enif_make_string_len"><span class="bold_code">ERL_NIF_TERM enif_make_string_len(ErlNifEnv*
+    <p><a name="enif_make_string_len"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_string_len(ErlNifEnv*
         env, const char* string, size_t len, ErlNifCharEncoding
         encoding)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Creates a list containing the characters of the string <span class="code">string</span>
           with length <span class="code">len</span> and encoding
-          <span class="bold_code"><a href="#ErlNifCharEncoding">encoding</a></span>.
+          <span class="bold_code bc-17"><a href="#ErlNifCharEncoding">encoding</a></span>.
           <span class="code">NULL</span> characters are treated as any other characters.</p>
       </p></div>
 
-    <p><a name="enif_make_sub_binary"><span class="bold_code">ERL_NIF_TERM enif_make_sub_binary(ErlNifEnv*
+    <p><a name="enif_make_sub_binary"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_sub_binary(ErlNifEnv*
         env, ERL_NIF_TERM bin_term, size_t pos, size_t size)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Makes a subbinary of binary <span class="code">bin_term</span>, starting at
           zero-based position <span class="code">pos</span> with a length of <span class="code">size</span> bytes.
           <span class="code">bin_term</span> must be a binary or bitstring. <span class="code">pos+size</span> must
           be less or equal to the number of whole bytes in <span class="code">bin_term</span>.</p>
       </p></div>
 
-    <p><a name="enif_make_tuple"><span class="bold_code">ERL_NIF_TERM enif_make_tuple(ErlNifEnv* env,
+    <p><a name="enif_make_tuple"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_tuple(ErlNifEnv* env,
         unsigned cnt, ...)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Creates a tuple term of arity <span class="code">cnt</span>. Expects <span class="code">cnt</span> number
           of arguments (after <span class="code">cnt</span>) of type <span class="code">ERL_NIF_TERM</span> as the
           elements of the tuple.</p>
       </p></div>
 
-    <p><a name="enif_make_tuple1"><span class="bold_code">ERL_NIF_TERM enif_make_tuple1(ErlNifEnv* env,
-        ERL_NIF_TERM e1)</span></a><br><a name="enif_make_tuple2"><span class="bold_code">ERL_NIF_TERM enif_make_tuple2(ErlNifEnv* env,
-        ERL_NIF_TERM e1, ERL_NIF_TERM e2)</span></a><br><a name="enif_make_tuple3"><span class="bold_code">ERL_NIF_TERM enif_make_tuple3(ErlNifEnv* env,
-        ERL_NIF_TERM e1, ERL_NIF_TERM e2, ERL_NIF_TERM e3)</span></a><br><a name="enif_make_tuple4"><span class="bold_code">ERL_NIF_TERM enif_make_tuple4(ErlNifEnv* env,
-        ERL_NIF_TERM e1, ..., ERL_NIF_TERM e4)</span></a><br><a name="enif_make_tuple5"><span class="bold_code">ERL_NIF_TERM enif_make_tuple5(ErlNifEnv* env,
-        ERL_NIF_TERM e1, ..., ERL_NIF_TERM e5)</span></a><br><a name="enif_make_tuple6"><span class="bold_code">ERL_NIF_TERM enif_make_tuple6(ErlNifEnv* env,
-        ERL_NIF_TERM e1, ..., ERL_NIF_TERM e6)</span></a><br><a name="enif_make_tuple7"><span class="bold_code">ERL_NIF_TERM enif_make_tuple7(ErlNifEnv* env,
-        ERL_NIF_TERM e1, ..., ERL_NIF_TERM e7)</span></a><br><a name="enif_make_tuple8"><span class="bold_code">ERL_NIF_TERM enif_make_tuple8(ErlNifEnv* env,
-        ERL_NIF_TERM e1, ..., ERL_NIF_TERM e8)</span></a><br><a name="enif_make_tuple9"><span class="bold_code">ERL_NIF_TERM enif_make_tuple9(ErlNifEnv* env,
+    <p><a name="enif_make_tuple1"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_tuple1(ErlNifEnv* env,
+        ERL_NIF_TERM e1)</span></a><br><a name="enif_make_tuple2"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_tuple2(ErlNifEnv* env,
+        ERL_NIF_TERM e1, ERL_NIF_TERM e2)</span></a><br><a name="enif_make_tuple3"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_tuple3(ErlNifEnv* env,
+        ERL_NIF_TERM e1, ERL_NIF_TERM e2, ERL_NIF_TERM e3)</span></a><br><a name="enif_make_tuple4"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_tuple4(ErlNifEnv* env,
+        ERL_NIF_TERM e1, ..., ERL_NIF_TERM e4)</span></a><br><a name="enif_make_tuple5"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_tuple5(ErlNifEnv* env,
+        ERL_NIF_TERM e1, ..., ERL_NIF_TERM e5)</span></a><br><a name="enif_make_tuple6"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_tuple6(ErlNifEnv* env,
+        ERL_NIF_TERM e1, ..., ERL_NIF_TERM e6)</span></a><br><a name="enif_make_tuple7"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_tuple7(ErlNifEnv* env,
+        ERL_NIF_TERM e1, ..., ERL_NIF_TERM e7)</span></a><br><a name="enif_make_tuple8"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_tuple8(ErlNifEnv* env,
+        ERL_NIF_TERM e1, ..., ERL_NIF_TERM e8)</span></a><br><a name="enif_make_tuple9"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_tuple9(ErlNifEnv* env,
         ERL_NIF_TERM e1, ..., ERL_NIF_TERM e9)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Creates a tuple term with length indicated by the
           function name. Prefer these functions (macros) over the variadic
           <span class="code">enif_make_tuple</span> to get a compile-time error if the number of
           arguments does not match.</p>
       </p></div>
 
-    <p><a name="enif_make_tuple_from_array"><span class="bold_code">ERL_NIF_TERM enif_make_tuple_from_array(ErlNifEnv* env, const ERL_NIF_TERM
+    <p><a name="enif_make_tuple_from_array"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_tuple_from_array(ErlNifEnv* env, const ERL_NIF_TERM
         arr[], unsigned cnt)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Creates a tuple containing the elements of array <span class="code">arr</span>
           of length <span class="code">cnt</span>.</p>
       </p></div>
 
-    <p><a name="enif_make_uint"><span class="bold_code">ERL_NIF_TERM enif_make_uint(ErlNifEnv* env, unsigned int i)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_make_uint"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_uint(ErlNifEnv* env, unsigned int i)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Creates an integer term from an <span class="code">unsigned int</span>.</p>
       </p></div>
 
-    <p><a name="enif_make_uint64"><span class="bold_code">ERL_NIF_TERM enif_make_uint64(ErlNifEnv* env, ErlNifUInt64 i)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_make_uint64"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_uint64(ErlNifEnv* env, ErlNifUInt64 i)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Creates an integer term from an unsigned 64-bit integer.</p>
       </p></div>
 
-    <p><a name="enif_make_ulong"><span class="bold_code">ERL_NIF_TERM enif_make_ulong(ErlNifEnv* env, unsigned long i)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_make_ulong"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_ulong(ErlNifEnv* env, unsigned long i)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Creates an integer term from an <span class="code">unsigned long int</span>.</p>
       </p></div>
 
-    <p><a name="enif_make_unique_integer"><span class="bold_code">ERL_NIF_TERM enif_make_unique_integer(ErlNifEnv
+    <p><a name="enif_make_unique_integer"><span class="bold_code bc-7">ERL_NIF_TERM enif_make_unique_integer(ErlNifEnv
         *env, ErlNifUniqueInteger properties)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a unique integer with the same properties as specified by
-          <span class="bold_code"><a href="erlang.html#unique_integer-1"><span class="code">erlang:unique_integer/1</span></a></span>.</p>
+          <span class="bold_code bc-15"><a href="erlang.html#unique_integer-1"><span class="code">erlang:unique_integer/1</span></a></span>.</p>
         <p><span class="code">env</span> is the environment to create the integer in.</p>
         <p><span class="code">ERL_NIF_UNIQUE_POSITIVE</span> and <span class="code">ERL_NIF_UNIQUE_MONOTONIC</span>
           can be passed as the second argument to change the properties of the
           integer returned. They can be combined by OR:ing the two values
           together.</p>
-        <p>See also <span class="bold_code"><a href="#ErlNifUniqueInteger"><span class="code">ErlNifUniqueInteger</span></a></span>.</p>
+        <p>See also <span class="bold_code bc-17"><a href="#ErlNifUniqueInteger"><span class="code">ErlNifUniqueInteger</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_map_iterator_create"><span class="bold_code">int enif_map_iterator_create(ErlNifEnv *env,
+    <p><a name="enif_map_iterator_create"><span class="bold_code bc-7">int enif_map_iterator_create(ErlNifEnv *env,
         ERL_NIF_TERM map, ErlNifMapIterator *iter, ErlNifMapIteratorEntry
         entry)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Creates an iterator for the map <span class="code">map</span> by initializing the
           structure pointed to by <span class="code">iter</span>. Argument <span class="code">entry</span> determines
           the start position of the iterator: <span class="code">ERL_NIF_MAP_ITERATOR_FIRST</span>
@@ -2536,7 +2537,7 @@ typedef enum {
           map.</p>
         <p>A map iterator is only useful during the lifetime of environment
           <span class="code">env</span> that the <span class="code">map</span> belongs to. The iterator must be
-          destroyed by calling <span class="bold_code"><a href="#enif_map_iterator_destroy"><span class="code">enif_map_iterator_destroy</span></a></span>:</p>
+          destroyed by calling <span class="bold_code bc-17"><a href="#enif_map_iterator_destroy"><span class="code">enif_map_iterator_destroy</span></a></span>:</p>
         <div class="example"><pre>
 ERL_NIF_TERM key, value;
 ErlNifMapIterator iter;
@@ -2558,108 +2559,108 @@ enif_map_iterator_destroy(env, &amp;iter);</pre></div>
 </div>
       </p></div>
 
-    <p><a name="enif_map_iterator_destroy"><span class="bold_code">void enif_map_iterator_destroy(ErlNifEnv *env,
+    <p><a name="enif_map_iterator_destroy"><span class="bold_code bc-7">void enif_map_iterator_destroy(ErlNifEnv *env,
         ErlNifMapIterator *iter)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Destroys a map iterator created by
-          <span class="bold_code"><a href="#enif_map_iterator_create"><span class="code">enif_map_iterator_create</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#enif_map_iterator_create"><span class="code">enif_map_iterator_create</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_map_iterator_get_pair"><span class="bold_code">int enif_map_iterator_get_pair(ErlNifEnv *env,
+    <p><a name="enif_map_iterator_get_pair"><span class="bold_code bc-7">int enif_map_iterator_get_pair(ErlNifEnv *env,
         ErlNifMapIterator *iter, ERL_NIF_TERM *key, ERL_NIF_TERM
         *value)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Gets key and value terms at the current map iterator position.</p>
         <p>On success, sets <span class="code">*key</span> and <span class="code">*value</span> and returns
           <span class="code">true</span>. Returns <span class="code">false</span> if the iterator is positioned at
           head (before first entry) or tail (beyond last entry).</p>
       </p></div>
 
-    <p><a name="enif_map_iterator_is_head"><span class="bold_code">int enif_map_iterator_is_head(ErlNifEnv *env,
+    <p><a name="enif_map_iterator_is_head"><span class="bold_code bc-7">int enif_map_iterator_is_head(ErlNifEnv *env,
         ErlNifMapIterator *iter)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if map iterator <span class="code">iter</span> is positioned
           before the first entry.</p>
       </p></div>
 
-    <p><a name="enif_map_iterator_is_tail"><span class="bold_code">int enif_map_iterator_is_tail(ErlNifEnv *env,
+    <p><a name="enif_map_iterator_is_tail"><span class="bold_code bc-7">int enif_map_iterator_is_tail(ErlNifEnv *env,
         ErlNifMapIterator *iter)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if map iterator <span class="code">iter</span> is positioned
           after the last entry.</p>
       </p></div>
 
-    <p><a name="enif_map_iterator_next"><span class="bold_code">int enif_map_iterator_next(ErlNifEnv *env,
+    <p><a name="enif_map_iterator_next"><span class="bold_code bc-7">int enif_map_iterator_next(ErlNifEnv *env,
         ErlNifMapIterator *iter)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Increments map iterator to point to the next key-value entry.</p>
         <p>Returns <span class="code">true</span> if the iterator is now positioned at a valid
           key-value entry, or <span class="code">false</span> if the iterator is positioned at
           the tail (beyond the last entry).</p>
       </p></div>
 
-    <p><a name="enif_map_iterator_prev"><span class="bold_code">int enif_map_iterator_prev(ErlNifEnv *env,
+    <p><a name="enif_map_iterator_prev"><span class="bold_code bc-7">int enif_map_iterator_prev(ErlNifEnv *env,
         ErlNifMapIterator *iter)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Decrements map iterator to point to the previous key-value entry.</p>
         <p>Returns <span class="code">true</span> if the iterator is now positioned at a valid
           key-value entry, or <span class="code">false</span> if the iterator is positioned at
           the head (before the first entry).</p>
       </p></div>
 
-    <p><a name="enif_monotonic_time"><span class="bold_code">ErlNifTime enif_monotonic_time(ErlNifTimeUnit time_unit)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_monotonic_time"><span class="bold_code bc-7">ErlNifTime enif_monotonic_time(ErlNifTimeUnit time_unit)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <a name="enif_monotonic_time"></a>
         <p>Returns the current
-          <span class="bold_code"><a href="time_correction.html#Erlang_Monotonic_Time">Erlang monotonic time</a></span>. Notice that it is not uncommon with
+          <span class="bold_code bc-15"><a href="time_correction.html#Erlang_Monotonic_Time">Erlang monotonic time</a></span>. Notice that it is not uncommon with
           negative values.</p>
         <p><span class="code">time_unit</span> is the time unit of the returned value.</p>
         <p>Returns <span class="code">ERL_NIF_TIME_ERROR</span> if called with an invalid time
           unit argument, or if called from a thread that is not a scheduler
           thread.</p>
-        <p>See also <span class="bold_code"><a href="#ErlNifTime"><span class="code">ErlNifTime</span></a></span>
-          and <span class="bold_code"><a href="#ErlNifTimeUnit"><span class="code">ErlNifTimeUnit</span></a></span>.
+        <p>See also <span class="bold_code bc-17"><a href="#ErlNifTime"><span class="code">ErlNifTime</span></a></span>
+          and <span class="bold_code bc-17"><a href="#ErlNifTimeUnit"><span class="code">ErlNifTimeUnit</span></a></span>.
         </p>
       </p></div>
 
-    <p><a name="enif_mutex_create"><span class="bold_code">ErlNifMutex *enif_mutex_create(char *name)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_mutex_create"><span class="code">erl_drv_mutex_create</span></a></span>.</p>
+    <p><a name="enif_mutex_create"><span class="bold_code bc-7">ErlNifMutex *enif_mutex_create(char *name)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_mutex_create"><span class="code">erl_drv_mutex_create</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_mutex_destroy"><span class="bold_code">void enif_mutex_destroy(ErlNifMutex *mtx)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_mutex_destroy"><span class="code">erl_drv_mutex_destroy</span></a></span>.</p>
+    <p><a name="enif_mutex_destroy"><span class="bold_code bc-7">void enif_mutex_destroy(ErlNifMutex *mtx)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_mutex_destroy"><span class="code">erl_drv_mutex_destroy</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_mutex_lock"><span class="bold_code">void enif_mutex_lock(ErlNifMutex *mtx)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_mutex_lock"><span class="code">erl_drv_mutex_lock</span></a></span>.</p>
+    <p><a name="enif_mutex_lock"><span class="bold_code bc-7">void enif_mutex_lock(ErlNifMutex *mtx)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_mutex_lock"><span class="code">erl_drv_mutex_lock</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_mutex_trylock"><span class="bold_code">int enif_mutex_trylock(ErlNifMutex *mtx)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_mutex_trylock"><span class="code">erl_drv_mutex_trylock</span></a></span>.</p>
+    <p><a name="enif_mutex_trylock"><span class="bold_code bc-7">int enif_mutex_trylock(ErlNifMutex *mtx)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_mutex_trylock"><span class="code">erl_drv_mutex_trylock</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_mutex_unlock"><span class="bold_code">void enif_mutex_unlock(ErlNifMutex *mtx)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_mutex_unlock"><span class="code">erl_drv_mutex_unlock</span></a></span>.</p>
+    <p><a name="enif_mutex_unlock"><span class="bold_code bc-7">void enif_mutex_unlock(ErlNifMutex *mtx)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_mutex_unlock"><span class="code">erl_drv_mutex_unlock</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_now_time"><span class="bold_code">ERL_NIF_TERM enif_now_time(ErlNifEnv *env)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Returns an <span class="bold_code"><a href="erlang.html#now-0"><span class="code">erlang:now()</span></a></span> time stamp.</p>
+    <p><a name="enif_now_time"><span class="bold_code bc-7">ERL_NIF_TERM enif_now_time(ErlNifEnv *env)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Returns an <span class="bold_code bc-15"><a href="erlang.html#now-0"><span class="code">erlang:now()</span></a></span> time stamp.</p>
         <p><strong>This function is deprecated.</strong></p>
       </p></div>
 
-    <p><a name="enif_open_resource_type"><span class="bold_code">ErlNifResourceType *enif_open_resource_type(ErlNifEnv* env, const char*
+    <p><a name="enif_open_resource_type"><span class="bold_code bc-7">ErlNifResourceType *enif_open_resource_type(ErlNifEnv* env, const char*
         module_str, const char* name, ErlNifResourceDtor* dtor,
         ErlNifResourceFlags flags, ErlNifResourceFlags* tried)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Creates or takes over a resource type identified by the string
           <span class="code">name</span> and gives it the destructor function pointed to by
-          <span class="bold_code"><a href="#ErlNifResourceDtor"><span class="code">dtor</span></a></span>.
+          <span class="bold_code bc-17"><a href="#ErlNifResourceDtor"><span class="code">dtor</span></a></span>.
           Argument <span class="code">flags</span> can have the following values:</p>
         <dl>
           <dt><strong><span class="code">ERL_NIF_RT_CREATE</span></strong></dt>
@@ -2681,14 +2682,14 @@ enif_map_iterator_destroy(env, &amp;iter);</pre></div>
           It is allowed to set <span class="code">tried</span> to <span class="code">NULL</span>.</p>
         <p>Notice that <span class="code">enif_open_resource_type</span> is only allowed to be
           called in the two callbacks
-          <span class="bold_code"><a href="#load"><span class="code">load</span></a></span> and
-          <span class="bold_code"><a href="#upgrade"><span class="code">upgrade</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#load"><span class="code">load</span></a></span> and
+          <span class="bold_code bc-17"><a href="#upgrade"><span class="code">upgrade</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_port_command"><span class="bold_code">int enif_port_command(ErlNifEnv* env, const
+    <p><a name="enif_port_command"><span class="bold_code bc-7">int enif_port_command(ErlNifEnv* env, const
        ErlNifPort* to_port, ErlNifEnv *msg_env, ERL_NIF_TERM msg)</span></a><br></p>
-<div class="REFBODY"><p>
-       <p>Works as <span class="bold_code"><a href="erlang.html#port_command-2"><span class="code">erlang:port_command/2</span></a></span>,
+<div class="REFBODY rb-7"><p>
+       <p>Works as <span class="bold_code bc-15"><a href="erlang.html#port_command-2"><span class="code">erlang:port_command/2</span></a></span>,
          except that it is always completely asynchronous.</p>
        <dl>
          <dt><strong><span class="code">env</span></strong></dt>
@@ -2699,10 +2700,10 @@ enif_map_iterator_destroy(env, &amp;iter);</pre></div>
            port on the local node.</dd>
          <dt><strong><span class="code">msg_env</span></strong></dt>
          <dd>The environment of the message term. Can be a process-independent
-           environment allocated with <span class="bold_code"><a href="#enif_alloc_env"><span class="code">enif_alloc_env</span></a></span> or <span class="code">NULL</span>.</dd>
+           environment allocated with <span class="bold_code bc-17"><a href="#enif_alloc_env"><span class="code">enif_alloc_env</span></a></span> or <span class="code">NULL</span>.</dd>
          <dt><strong><span class="code">msg</span></strong></dt>
          <dd>The message term to send. The same limitations apply as on the
-           payload to <span class="bold_code"><a href="erlang.html#port_command-2"><span class="code">erlang:port_command/2</span></a></span>.</dd>
+           payload to <span class="bold_code bc-15"><a href="erlang.html#port_command-2"><span class="code">erlang:port_command/2</span></a></span>.</dd>
        </dl>
        <p>Using a <span class="code">msg_env</span> of <span class="code">NULL</span> is an optimization, which
          groups together calls to <span class="code">enif_alloc_env</span>, <span class="code">enif_make_copy</span>,
@@ -2719,19 +2720,19 @@ enif_map_iterator_destroy(env, &amp;iter);</pre></div>
          <li>
 <span class="code">msg</span> is invalid.</li>
        </ul>
-       <p>See also <span class="bold_code"><a href="#enif_get_local_port"><span class="code">enif_get_local_port</span></a></span>.</p>
+       <p>See also <span class="bold_code bc-17"><a href="#enif_get_local_port"><span class="code">enif_get_local_port</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_priv_data"><span class="bold_code">void *enif_priv_data(ErlNifEnv* env)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_priv_data"><span class="bold_code bc-7">void *enif_priv_data(ErlNifEnv* env)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the pointer to the private data that was set by
-          <span class="bold_code"><a href="#load"><span class="code">load</span></a></span> or
-          <span class="bold_code"><a href="#upgrade"><span class="code">upgrade</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#load"><span class="code">load</span></a></span> or
+          <span class="bold_code bc-17"><a href="#upgrade"><span class="code">upgrade</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_raise_exception"><span class="bold_code">ERL_NIF_TERM enif_raise_exception(ErlNifEnv*
+    <p><a name="enif_raise_exception"><span class="bold_code bc-7">ERL_NIF_TERM enif_raise_exception(ErlNifEnv*
         env, ERL_NIF_TERM reason)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Creates an error exception with the term <span class="code">reason</span> to be
           returned from a NIF, and associates it with environment <span class="code">env</span>.
           Once a NIF or any function it calls invokes
@@ -2740,14 +2741,14 @@ enif_map_iterator_destroy(env, &amp;iter);</pre></div>
           to return a non-exception term instead.</p>
         <p>The return value from <span class="code">enif_raise_exception</span> can only be used
           as the return value from the NIF that invoked it (directly or
-          indirectly) or be passed to <span class="bold_code"><a href="#enif_is_exception"><span class="code">enif_is_exception</span></a></span>, but not to any other NIF API
+          indirectly) or be passed to <span class="bold_code bc-17"><a href="#enif_is_exception"><span class="code">enif_is_exception</span></a></span>, but not to any other NIF API
           function.</p>
-        <p>See also <span class="bold_code"><a href="#enif_has_pending_exception"><span class="code">enif_has_pending_exception</span></a></span> and
-          <span class="bold_code"><a href="#enif_make_badarg"><span class="code">enif_make_badarg</span></a></span>.</p>
+        <p>See also <span class="bold_code bc-17"><a href="#enif_has_pending_exception"><span class="code">enif_has_pending_exception</span></a></span> and
+          <span class="bold_code bc-17"><a href="#enif_make_badarg"><span class="code">enif_make_badarg</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_realloc_binary"><span class="bold_code">int enif_realloc_binary(ErlNifBinary* bin, size_t size)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_realloc_binary"><span class="bold_code bc-7">int enif_realloc_binary(ErlNifBinary* bin, size_t size)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Changes the size of a binary <span class="code">bin</span>. The source binary
           can be read-only, in which case it is left untouched and
           a mutable copy is allocated and assigned to <span class="code">*bin</span>.</p>
@@ -2755,72 +2756,72 @@ enif_map_iterator_destroy(env, &amp;iter);</pre></div>
           failed.</p>
       </p></div>
 
-    <p><a name="enif_release_binary"><span class="bold_code">void enif_release_binary(ErlNifBinary* bin)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_release_binary"><span class="bold_code bc-7">void enif_release_binary(ErlNifBinary* bin)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Releases a binary obtained from
-          <span class="bold_code"><a href="#enif_alloc_binary"><span class="code">enif_alloc_binary</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#enif_alloc_binary"><span class="code">enif_alloc_binary</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_release_resource"><span class="bold_code">void enif_release_resource(void* obj)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_release_resource"><span class="bold_code bc-7">void enif_release_resource(void* obj)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Removes a reference to resource object <span class="code">obj</span>obtained from
-          <span class="bold_code"><a href="#enif_alloc_resource"><span class="code">enif_alloc_resource</span></a></span>.
+          <span class="bold_code bc-17"><a href="#enif_alloc_resource"><span class="code">enif_alloc_resource</span></a></span>.
           The resource object is destructed when the last reference is removed.
           Each call to <span class="code">enif_release_resource</span> must correspond to a
           previous call to <span class="code">enif_alloc_resource</span> or
-          <span class="bold_code"><a href="#enif_keep_resource"><span class="code">enif_keep_resource</span></a></span>.
-          References made by <span class="bold_code"><a href="#enif_make_resource"><span class="code">enif_make_resource</span></a></span>
+          <span class="bold_code bc-17"><a href="#enif_keep_resource"><span class="code">enif_keep_resource</span></a></span>.
+          References made by <span class="bold_code bc-17"><a href="#enif_make_resource"><span class="code">enif_make_resource</span></a></span>
           can only be removed by the garbage collector.</p>
       </p></div>
 
-    <p><a name="enif_rwlock_create"><span class="bold_code">ErlNifRWLock *enif_rwlock_create(char *name)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_rwlock_create"><span class="code">erl_drv_rwlock_create</span></a></span>.</p>
+    <p><a name="enif_rwlock_create"><span class="bold_code bc-7">ErlNifRWLock *enif_rwlock_create(char *name)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_rwlock_create"><span class="code">erl_drv_rwlock_create</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_rwlock_destroy"><span class="bold_code">void enif_rwlock_destroy(ErlNifRWLock *rwlck)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_rwlock_destroy"><span class="code">erl_drv_rwlock_destroy</span></a></span>.</p>
+    <p><a name="enif_rwlock_destroy"><span class="bold_code bc-7">void enif_rwlock_destroy(ErlNifRWLock *rwlck)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_rwlock_destroy"><span class="code">erl_drv_rwlock_destroy</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_rwlock_rlock"><span class="bold_code">void enif_rwlock_rlock(ErlNifRWLock *rwlck)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_rwlock_rlock"><span class="code">erl_drv_rwlock_rlock</span></a></span>.</p>
+    <p><a name="enif_rwlock_rlock"><span class="bold_code bc-7">void enif_rwlock_rlock(ErlNifRWLock *rwlck)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_rwlock_rlock"><span class="code">erl_drv_rwlock_rlock</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_rwlock_runlock"><span class="bold_code">void enif_rwlock_runlock(ErlNifRWLock *rwlck)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_rwlock_runlock"><span class="code">erl_drv_rwlock_runlock</span></a></span>.</p>
+    <p><a name="enif_rwlock_runlock"><span class="bold_code bc-7">void enif_rwlock_runlock(ErlNifRWLock *rwlck)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_rwlock_runlock"><span class="code">erl_drv_rwlock_runlock</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_rwlock_rwlock"><span class="bold_code">void enif_rwlock_rwlock(ErlNifRWLock *rwlck)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_rwlock_rwlock"><span class="code">erl_drv_rwlock_rwlock</span></a></span>.</p>
+    <p><a name="enif_rwlock_rwlock"><span class="bold_code bc-7">void enif_rwlock_rwlock(ErlNifRWLock *rwlck)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_rwlock_rwlock"><span class="code">erl_drv_rwlock_rwlock</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_rwlock_rwunlock"><span class="bold_code">void enif_rwlock_rwunlock(ErlNifRWLock *rwlck)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_rwlock_rwunlock"><span class="code">erl_drv_rwlock_rwunlock</span></a></span>.</p>
+    <p><a name="enif_rwlock_rwunlock"><span class="bold_code bc-7">void enif_rwlock_rwunlock(ErlNifRWLock *rwlck)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_rwlock_rwunlock"><span class="code">erl_drv_rwlock_rwunlock</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_rwlock_tryrlock"><span class="bold_code">int enif_rwlock_tryrlock(ErlNifRWLock *rwlck)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_rwlock_tryrlock"><span class="code">erl_drv_rwlock_tryrlock</span></a></span>.</p>
+    <p><a name="enif_rwlock_tryrlock"><span class="bold_code bc-7">int enif_rwlock_tryrlock(ErlNifRWLock *rwlck)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_rwlock_tryrlock"><span class="code">erl_drv_rwlock_tryrlock</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_rwlock_tryrwlock"><span class="bold_code">int enif_rwlock_tryrwlock(ErlNifRWLock *rwlck)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_rwlock_tryrwlock"><span class="code">erl_drv_rwlock_tryrwlock</span></a></span>.</p>
+    <p><a name="enif_rwlock_tryrwlock"><span class="bold_code bc-7">int enif_rwlock_tryrwlock(ErlNifRWLock *rwlck)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_rwlock_tryrwlock"><span class="code">erl_drv_rwlock_tryrwlock</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_schedule_nif"><span class="bold_code">ERL_NIF_TERM enif_schedule_nif(ErlNifEnv* env,
+    <p><a name="enif_schedule_nif"><span class="bold_code bc-7">ERL_NIF_TERM enif_schedule_nif(ErlNifEnv* env,
         const char* fun_name, int flags, ERL_NIF_TERM (*fp)(ErlNifEnv* env, int
         argc, const ERL_NIF_TERM argv[]), int argc, const ERL_NIF_TERM
         argv[])</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Schedules NIF <span class="code">fp</span> to execute. This function allows an
           application to break up long-running work into multiple regular NIF
-          calls or to schedule a <span class="bold_code"><a href="#dirty_nifs">dirty NIF</a></span> to execute on a dirty scheduler thread.</p>
+          calls or to schedule a <span class="bold_code bc-17"><a href="#dirty_nifs">dirty NIF</a></span> to execute on a dirty scheduler thread.</p>
         <p><strong>The dirty NIF functionality described here is
           experimental.</strong> You have to enable support for dirty
           schedulers when building OTP to try out the functionality.</p>
@@ -2857,16 +2858,16 @@ enif_map_iterator_destroy(env, &amp;iter);</pre></div>
           return value and use it for further operations.</p>
       </p></div>
 
-    <p><a name="enif_self"><span class="bold_code">ErlNifPid *enif_self(ErlNifEnv* caller_env, ErlNifPid* pid)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_self"><span class="bold_code bc-7">ErlNifPid *enif_self(ErlNifEnv* caller_env, ErlNifPid* pid)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Initializes the pid variable <span class="code">*pid</span> to represent the
           calling process.</p>
         <p>Returns <span class="code">pid</span>.</p>
       </p></div>
 
-    <p><a name="enif_send"><span class="bold_code">int enif_send(ErlNifEnv* env, ErlNifPid* to_pid,
+    <p><a name="enif_send"><span class="bold_code bc-7">int enif_send(ErlNifEnv* env, ErlNifPid* to_pid,
         ErlNifEnv* msg_env, ERL_NIF_TERM msg)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sends a message to a process.</p>
         <dl>
           <dt><strong><span class="code">env</span></strong></dt>
@@ -2878,7 +2879,7 @@ enif_map_iterator_destroy(env, &amp;iter);</pre></div>
           <dt><strong><span class="code">msg_env</span></strong></dt>
           <dd>The environment of the message term. Must be a
             process-independent environment allocated with
-            <span class="bold_code"><a href="#enif_alloc_env"><span class="code">enif_alloc_env</span></a></span>
+            <span class="bold_code bc-17"><a href="#enif_alloc_env"><span class="code">enif_alloc_env</span></a></span>
             or NULL.</dd>
           <dt><strong><span class="code">msg</span></strong></dt>
           <dd>The message term to send.</dd>
@@ -2894,8 +2895,8 @@ enif_map_iterator_destroy(env, &amp;iter);</pre></div>
         <p>The message environment <span class="code">msg_env</span> with all its terms (including
           <span class="code">msg</span>) is invalidated by a successful call to <span class="code">enif_send</span>.
           The environment is to either be freed with
-          <span class="bold_code"><a href="#enif_free_env"><span class="code">enif_free_env</span></a></span> of cleared for reuse with
-          <span class="bold_code"><a href="#enif_clear_env"><span class="code">enif_clear_env</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#enif_free_env"><span class="code">enif_free_env</span></a></span> of cleared for reuse with
+          <span class="bold_code bc-17"><a href="#enif_clear_env"><span class="code">enif_clear_env</span></a></span>.</p>
         <p>If <span class="code">msg_env</span> is set to <span class="code">NULL</span>, the <span class="code">msg</span> term is
           copied and the original term and its environemt is still valid after
           the call.</p>
@@ -2911,70 +2912,70 @@ enif_map_iterator_destroy(env, &amp;iter);</pre></div>
 </div>
       </p></div>
 
-    <p><a name="enif_sizeof_resource"><span class="bold_code">unsigned enif_sizeof_resource(void* obj)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_sizeof_resource"><span class="bold_code bc-7">unsigned enif_sizeof_resource(void* obj)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Gets the byte size of resource object <span class="code">obj</span> obtained by
-          <span class="bold_code"><a href="#enif_alloc_resource"><span class="code">enif_alloc_resource</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#enif_alloc_resource"><span class="code">enif_alloc_resource</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_snprintf"><span class="bold_code">int enif_snprintf(char *str, size_t size, const
+    <p><a name="enif_snprintf"><span class="bold_code bc-7">int enif_snprintf(char *str, size_t size, const
         char *format, ...)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Similar to <span class="code">snprintf</span> but this format string also accepts
           <span class="code">"%T"</span>, which formats Erlang terms.</p>
       </p></div>
 
-    <p><a name="enif_system_info"><span class="bold_code">void enif_system_info(ErlNifSysInfo
+    <p><a name="enif_system_info"><span class="bold_code bc-7">void enif_system_info(ErlNifSysInfo
         *sys_info_ptr, size_t size)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#driver_system_info"><span class="code">driver_system_info</span></a></span>.</p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#driver_system_info"><span class="code">driver_system_info</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_term_to_binary"><span class="bold_code">int enif_term_to_binary(ErlNifEnv *env,
+    <p><a name="enif_term_to_binary"><span class="bold_code bc-7">int enif_term_to_binary(ErlNifEnv *env,
         ERL_NIF_TERM term, ErlNifBinary *bin)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Allocates a new binary with <span class="bold_code"><a href="#enif_alloc_binary"><span class="code">enif_alloc_binary</span></a></span> and stores the result of encoding
+<div class="REFBODY rb-7"><p>
+        <p>Allocates a new binary with <span class="bold_code bc-17"><a href="#enif_alloc_binary"><span class="code">enif_alloc_binary</span></a></span> and stores the result of encoding
           <span class="code">term</span> according to the Erlang external term format.</p>
       <p>Returns <span class="code">true</span> on success, or <span class="code">false</span> if the allocation
         fails.</p>
-      <p>See also <span class="bold_code"><a href="erlang.html#term_to_binary-1"><span class="code">erlang:term_to_binary/1</span></a></span> and
-        <span class="bold_code"><a href="#enif_binary_to_term"><span class="code">enif_binary_to_term</span></a></span>.</p>
+      <p>See also <span class="bold_code bc-15"><a href="erlang.html#term_to_binary-1"><span class="code">erlang:term_to_binary/1</span></a></span> and
+        <span class="bold_code bc-17"><a href="#enif_binary_to_term"><span class="code">enif_binary_to_term</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_thread_create"><span class="bold_code">int enif_thread_create(char *name,ErlNifTid
+    <p><a name="enif_thread_create"><span class="bold_code bc-7">int enif_thread_create(char *name,ErlNifTid
         *tid,void * (*func)(void *),void *args,ErlNifThreadOpts
         *opts)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_thread_create"><span class="code">erl_drv_thread_create</span></a></span>.</p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_thread_create"><span class="code">erl_drv_thread_create</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_thread_exit"><span class="bold_code">void enif_thread_exit(void *resp)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_thread_exit"><span class="code">erl_drv_thread_exit</span></a></span>.</p>
+    <p><a name="enif_thread_exit"><span class="bold_code bc-7">void enif_thread_exit(void *resp)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_thread_exit"><span class="code">erl_drv_thread_exit</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_thread_join"><span class="bold_code">int enif_thread_join(ErlNifTid, void **respp)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_thread_join"><span class="code">erl_drv_thread_join</span></a></span>.</p>
+    <p><a name="enif_thread_join"><span class="bold_code bc-7">int enif_thread_join(ErlNifTid, void **respp)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_thread_join"><span class="code">erl_drv_thread_join</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_thread_opts_create"><span class="bold_code">ErlNifThreadOpts *enif_thread_opts_create(char *name)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_thread_opts_create"><span class="code">erl_drv_thread_opts_create</span></a></span>.</p>
+    <p><a name="enif_thread_opts_create"><span class="bold_code bc-7">ErlNifThreadOpts *enif_thread_opts_create(char *name)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_thread_opts_create"><span class="code">erl_drv_thread_opts_create</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_thread_opts_destroy"><span class="bold_code">void enif_thread_opts_destroy(ErlNifThreadOpts *opts)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_thread_opts_destroy"><span class="code">erl_drv_thread_opts_destroy</span></a></span>.</p>
+    <p><a name="enif_thread_opts_destroy"><span class="bold_code bc-7">void enif_thread_opts_destroy(ErlNifThreadOpts *opts)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_thread_opts_destroy"><span class="code">erl_drv_thread_opts_destroy</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_thread_self"><span class="bold_code">ErlNifTid enif_thread_self(void)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_thread_self"><span class="code">erl_drv_thread_self</span></a></span>.</p>
+    <p><a name="enif_thread_self"><span class="bold_code bc-7">ErlNifTid enif_thread_self(void)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_thread_self"><span class="code">erl_drv_thread_self</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_thread_type"><span class="bold_code">int enif_thread_type(void)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_thread_type"><span class="bold_code bc-7">int enif_thread_type(void)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Determine the type of currently executing thread. A positive value
         indicates a scheduler thread while a negative value or zero indicates
         another type of thread. Currently the following specific types exist
@@ -2991,47 +2992,47 @@ enif_map_iterator_destroy(env, &amp;iter);</pre></div>
         </dl>
       </p></div>
 
-    <p><a name="enif_time_offset"><span class="bold_code">ErlNifTime enif_time_offset(ErlNifTimeUnit time_unit)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="enif_time_offset"><span class="bold_code bc-7">ErlNifTime enif_time_offset(ErlNifTimeUnit time_unit)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <a name="enif_time_offset"></a>
         <p>Returns the current time offset between
-          <span class="bold_code"><a href="time_correction.html#Erlang_Monotonic_Time">Erlang monotonic time</a></span> and
-          <span class="bold_code"><a href="time_correction.html#Erlang_System_Time">Erlang system time</a></span>
+          <span class="bold_code bc-15"><a href="time_correction.html#Erlang_Monotonic_Time">Erlang monotonic time</a></span> and
+          <span class="bold_code bc-15"><a href="time_correction.html#Erlang_System_Time">Erlang system time</a></span>
           converted into the <span class="code">time_unit</span> passed as argument.</p>
         <p><span class="code">time_unit</span> is the time unit of the returned value.</p>
         <p>Returns <span class="code">ERL_NIF_TIME_ERROR</span> if called with an invalid
           time unit argument or if called from a thread that is not a
           scheduler thread.</p>
-        <p>See also <span class="bold_code"><a href="#ErlNifTime"><span class="code">ErlNifTime</span></a></span>
+        <p>See also <span class="bold_code bc-17"><a href="#ErlNifTime"><span class="code">ErlNifTime</span></a></span>
           and
-          <span class="bold_code"><a href="#ErlNifTimeUnit"><span class="code">ErlNifTimeUnit</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#ErlNifTimeUnit"><span class="code">ErlNifTimeUnit</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_tsd_get"><span class="bold_code">void *enif_tsd_get(ErlNifTSDKey key)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_tsd_get"><span class="code">erl_drv_tsd_get</span></a></span>.</p>
+    <p><a name="enif_tsd_get"><span class="bold_code bc-7">void *enif_tsd_get(ErlNifTSDKey key)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_tsd_get"><span class="code">erl_drv_tsd_get</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_tsd_key_create"><span class="bold_code">int enif_tsd_key_create(char *name, ErlNifTSDKey *key)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_tsd_key_create"><span class="code">erl_drv_tsd_key_create</span></a></span>.</p>
+    <p><a name="enif_tsd_key_create"><span class="bold_code bc-7">int enif_tsd_key_create(char *name, ErlNifTSDKey *key)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_tsd_key_create"><span class="code">erl_drv_tsd_key_create</span></a></span>.</p>
     </p></div>
 
-    <p><a name="enif_tsd_key_destroy"><span class="bold_code">void enif_tsd_key_destroy(ErlNifTSDKey key)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_tsd_key_destroy"><span class="code">erl_drv_tsd_key_destroy</span></a></span>.</p>
+    <p><a name="enif_tsd_key_destroy"><span class="bold_code bc-7">void enif_tsd_key_destroy(ErlNifTSDKey key)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_tsd_key_destroy"><span class="code">erl_drv_tsd_key_destroy</span></a></span>.</p>
       </p></div>
 
-    <p><a name="enif_tsd_set"><span class="bold_code">void enif_tsd_set(ErlNifTSDKey key, void *data)</span></a><br></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="erl_driver.html#erl_drv_tsd_set"><span class="code">erl_drv_tsd_set</span></a></span>.</p>
+    <p><a name="enif_tsd_set"><span class="bold_code bc-7">void enif_tsd_set(ErlNifTSDKey key, void *data)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-15"><a href="erl_driver.html#erl_drv_tsd_set"><span class="code">erl_drv_tsd_set</span></a></span>.</p>
       </p></div>
-  
+  </div>
 
-  <h3><a name="idm45311095332064">See Also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46455775579216">See Also</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="erlang.html#load_nif-2"><span class="code">erlang:load_nif/2</span></a></span></p>
+    <p><span class="bold_code bc-15"><a href="erlang.html#load_nif-2"><span class="code">erlang:load_nif/2</span></a></span></p>
   </div>
 </div>
 <div class="footer">

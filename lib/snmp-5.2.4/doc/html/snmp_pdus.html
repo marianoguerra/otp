@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Simple Network Management Protocol (SNMP)</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 5.2.4</p>
@@ -802,11 +802,11 @@
 <!-- refpage --><center><h1>snmp_pdus</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">snmp_pdus</div>
+<div class="REFBODY module-body">snmp_pdus</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Encode and Decode Functions for SNMP PDUs</div>
+<div class="REFBODY module-summary-body">Encode and Decode Functions for SNMP PDUs</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>RFC1157, RFC1905 and/or RFC2272 should be studied carefully
       before using this module, <span class="code">snmp_pdus</span>.
       </p>
@@ -826,14 +826,15 @@
       </p>
   </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="dec_message-1"></a><span class="bold_code">dec_message([byte()]) -&gt; Message</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Message = #message</span><br>
+<div class="exports-body">
+    <p><a name="dec_message-1"></a><span class="bold_code bc-9">dec_message([byte()]) -&gt; Message</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Message = #message</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Decodes a list of bytes into an SNMP Message.  Note, if there
           is a v3 message, the <span class="code">msgSecurityParameters</span> are not
           decoded.  They must be explicitly decoded by a call to a
@@ -842,71 +843,71 @@
           the <span class="code">scopedPDU</span> is encrypted, the OCTET STRING encoded
           <span class="code">encryptedPDU</span> will be present in the <span class="code">data</span> field.</p>
       </p></div>
-    <p><a name="dec_message_only-1"></a><span class="bold_code">dec_message_only([byte()]) -&gt; Message</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Message = #message</span><br>
+    <p><a name="dec_message_only-1"></a><span class="bold_code bc-9">dec_message_only([byte()]) -&gt; Message</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Message = #message</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Decodes a list of bytes into an SNMP Message, but does not
           decode the data part of the Message. That means, data is still
           a list of bytes, normally an encoded <span class="code">PDU</span> (v1 and V2) or an
           encoded and possibly encrypted <span class="code">scopedPDU</span> (v3).</p>
       </p></div>
-    <p><a name="dec_pdu-1"></a><span class="bold_code">dec_pdu([byte()]) -&gt; Pdu</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Pdu = #pdu</span><br>
+    <p><a name="dec_pdu-1"></a><span class="bold_code bc-9">dec_pdu([byte()]) -&gt; Pdu</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Pdu = #pdu</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Decodes a list of bytes into an SNMP Pdu.</p>
       </p></div>
-    <p><a name="dec_scoped_pdu-1"></a><span class="bold_code">dec_scoped_pdu([byte()]) -&gt; ScopedPdu</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">ScopedPdu = #scoped_pdu</span><br>
+    <p><a name="dec_scoped_pdu-1"></a><span class="bold_code bc-9">dec_scoped_pdu([byte()]) -&gt; ScopedPdu</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ScopedPdu = #scoped_pdu</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Decodes a list of bytes into an SNMP ScopedPdu.</p>
       </p></div>
-    <p><a name="dec_scoped_pdu_data-1"></a><span class="bold_code">dec_scoped_pdu_data([byte()]) -&gt; ScopedPduData</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">ScopedPduData = #scoped_pdu | EncryptedPDU</span><br>
+    <p><a name="dec_scoped_pdu_data-1"></a><span class="bold_code bc-9">dec_scoped_pdu_data([byte()]) -&gt; ScopedPduData</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ScopedPduData = #scoped_pdu | EncryptedPDU</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">EncryptedPDU = [byte()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EncryptedPDU = [byte()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Decodes a list of bytes into either a scoped pdu record, or
           - if the scoped pdu was encrypted - to a list of bytes.</p>
       </p></div>
-    <p><a name="dec_usm_security_parameters-1"></a><span class="bold_code">dec_usm_security_parameters([byte()]) -&gt; UsmSecParams</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">UsmSecParams = #usmSecurityParameters</span><br>
+    <p><a name="dec_usm_security_parameters-1"></a><span class="bold_code bc-9">dec_usm_security_parameters([byte()]) -&gt; UsmSecParams</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">UsmSecParams = #usmSecurityParameters</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Decodes a list of bytes into an SNMP UsmSecurityParameters</p>
       </p></div>
-    <p><a name="enc_encrypted_scoped_pdu-1"></a><span class="bold_code">enc_encrypted_scoped_pdu(EncryptedScopedPdu) -&gt; [byte()]</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EncryptedScopedPdu = [byte()]</span><br>
+    <p><a name="enc_encrypted_scoped_pdu-1"></a><span class="bold_code bc-9">enc_encrypted_scoped_pdu(EncryptedScopedPdu) -&gt; [byte()]</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EncryptedScopedPdu = [byte()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Encodes an encrypted SNMP ScopedPdu into an OCTET STRING
           that can be used as the <span class="code">data</span> field in a
           <span class="code">message</span> record, that later can be encoded with a call
@@ -915,65 +916,65 @@
         <p>This function should be used whenever the <span class="code">ScopedPDU</span>
           is encrypted.</p>
       </p></div>
-    <p><a name="enc_message-1"></a><span class="bold_code">enc_message(Message) -&gt; [byte()]</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Message = #message</span><br>
+    <p><a name="enc_message-1"></a><span class="bold_code bc-9">enc_message(Message) -&gt; [byte()]</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Message = #message</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Encodes a message record to a list of bytes.</p>
       </p></div>
-    <p><a name="enc_message_only-1"></a><span class="bold_code">enc_message_only(Message) -&gt; [byte()]</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Message = #message</span><br>
+    <p><a name="enc_message_only-1"></a><span class="bold_code bc-9">enc_message_only(Message) -&gt; [byte()]</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Message = #message</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p><span class="code">Message</span> is a record where the <span class="code">data</span> field is
           assumed to be encoded (a list of bytes).  If there is a v1 or v2
           message, the <span class="code">data</span> field is an encoded <span class="code">PDU</span>, and if
           there is a v3 message, <span class="code">data</span> is an encoded and possibly
           encrypted <span class="code">scopedPDU</span>.</p>
       </p></div>
-    <p><a name="enc_pdu-1"></a><span class="bold_code">enc_pdu(Pd) -&gt; [byte()]</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Pdu = #pdu</span><br>
+    <p><a name="enc_pdu-1"></a><span class="bold_code bc-9">enc_pdu(Pd) -&gt; [byte()]</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Pdu = #pdu</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Encodes an SNMP Pdu into a list of bytes.</p>
       </p></div>
-    <p><a name="enc_scoped_pdu-1"></a><span class="bold_code">enc_scoped_pdu(ScopedPdu) -&gt; [byte()]</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">ScopedPdu = #scoped_pdu</span><br>
+    <p><a name="enc_scoped_pdu-1"></a><span class="bold_code bc-9">enc_scoped_pdu(ScopedPdu) -&gt; [byte()]</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ScopedPdu = #scoped_pdu</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Encodes an SNMP ScopedPdu into a list of bytes, which can be
           encrypted, and after encryption, encoded with
           a call to <span class="code">enc_encrypted_scoped_pdu/1</span>; or it can be
           used as the <span class="code">data</span> field in a <span class="code">message</span> record, which
           then can be encoded with <span class="code">enc_message_only/1</span>.</p>
       </p></div>
-    <p><a name="enc_usm_security_parameters-1"></a><span class="bold_code">enc_usm_security_parameters(UsmSecParams) -&gt; [byte()]</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">UsmSecParams = #usmSecurityParameters</span><br>
+    <p><a name="enc_usm_security_parameters-1"></a><span class="bold_code bc-9">enc_usm_security_parameters(UsmSecParams) -&gt; [byte()]</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">UsmSecParams = #usmSecurityParameters</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Encodes SNMP UsmSecurityParameters into a list of bytes.</p>
       </p></div>
-  
+  </div>
   
 </div>
 <div class="footer">

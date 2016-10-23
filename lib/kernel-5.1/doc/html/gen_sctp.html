@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Kernel</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 5.1</p>
@@ -646,18 +646,18 @@
 <!-- refpage --><center><h1>gen_sctp</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">gen_sctp</div>
+<div class="REFBODY module-body">gen_sctp</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Functions for communicating with sockets using the SCTP
+<div class="REFBODY module-summary-body">Functions for communicating with sockets using the SCTP
     protocol.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>This module provides functions for communicating with
       sockets using the SCTP protocol. The implementation assumes that
       the OS kernel supports SCTP
-      <span class="bold_code"><a href="http://www.rfc-archive.org/getrfc.php?rfc=2960">(RFC 2960)</a></span>
+      <span class="bold_code bc-20"><a href="http://www.rfc-archive.org/getrfc.php?rfc=2960">(RFC 2960)</a></span>
       through the user-level
-      <span class="bold_code"><a href="http://tools.ietf.org/html/draft-ietf-tsvwg-sctpsocket-13">Sockets API Extensions</a></span>.</p>
+      <span class="bold_code bc-20"><a href="http://tools.ietf.org/html/draft-ietf-tsvwg-sctpsocket-13">Sockets API Extensions</a></span>.</p>
     <p>During development, this implementation was tested on:</p>
     <ul>
       <li>Linux Fedora Core 5.0 (kernel 2.6.15-2054 or later is needed)</li>
@@ -674,7 +674,7 @@
     </ul>
     <p>This module was written for one-to-many style sockets
       (type <span class="code">seqpacket</span>). With the addition of
-      <span class="bold_code"><a href="#peeloff-2"><span class="code">peeloff/2</span></a></span>,
+      <span class="bold_code bc-17"><a href="#peeloff-2"><span class="code">peeloff/2</span></a></span>,
       one-to-one style sockets (type <span class="code">stream</span>) were introduced.</p>
     <p>Record definitions for this module can be found using:</p>
     <div class="example"><pre>
@@ -685,36 +685,45 @@
   </p></div>
 
   <h3><a name="data-types" href="#data-types">Data Types</a></h3>
-    <p><a name="type-assoc_id"></a><span class="bold_code">assoc_id()</span><br></p>
-<div class="REFBODY"><p>
+<div class="data-types-body">
+    <div class="data-type-name">
+<a name="type-assoc_id"></a><span class="bold_code bc-8">assoc_id()</span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p>
         <p>An opaque term returned in, for example, <span class="code">#sctp_paddr_change{}</span>,
           which identifies an association for an SCTP socket. The term
           is opaque except for the special value <span class="code">0</span>, which has a
           meaning such as "the whole endpoint" or "all future associations".</p>
-      </p></div>
-    <p>
-      <span class="bold_code"><a name="type-option">option()</a> = <br>    {active, true | false | once | -32768..32767} |<br>    {buffer, integer() &gt;= 0} |<br>    {dontroute, boolean()} |<br>    {high_msgq_watermark, integer() &gt;= 1} |<br>    {linger, {boolean(), integer() &gt;= 0}} |<br>    {low_msgq_watermark, integer() &gt;= 1} |<br>    {mode, list | binary} |<br>    list |<br>    binary |<br>    {priority, integer() &gt;= 0} |<br>    {recbuf, integer() &gt;= 0} |<br>    {reuseaddr, boolean()} |<br>    {ipv6_v6only, boolean()} |<br>    {sctp_adaptation_layer, #sctp_setadaptation{}} |<br>    {sctp_associnfo, #sctp_assocparams{}} |<br>    {sctp_autoclose, integer() &gt;= 0} |<br>    {sctp_default_send_param, #sctp_sndrcvinfo{}} |<br>    {sctp_delayed_ack_time, #sctp_assoc_value{}} |<br>    {sctp_disable_fragments, boolean()} |<br>    {sctp_events, #sctp_event_subscribe{}} |<br>    {sctp_get_peer_addr_info, #sctp_paddrinfo{}} |<br>    {sctp_i_want_mapped_v4_addr, boolean()} |<br>    {sctp_initmsg, #sctp_initmsg{}} |<br>    {sctp_maxseg, integer() &gt;= 0} |<br>    {sctp_nodelay, boolean()} |<br>    {sctp_peer_addr_params, #sctp_paddrparams{}} |<br>    {sctp_primary_addr, #sctp_prim{}} |<br>    {sctp_rtoinfo, #sctp_rtoinfo{}} |<br>    {sctp_set_peer_primary_addr, #sctp_setpeerprim{}} |<br>    {sctp_status, #sctp_status{}} |<br>    {sndbuf, integer() &gt;= 0} |<br>    {tos, integer() &gt;= 0}</span><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-option">option()</a> = <br>    {active, true | false | once | -32768..32767} |<br>    {buffer, integer() &gt;= 0} |<br>    {dontroute, boolean()} |<br>    {high_msgq_watermark, integer() &gt;= 1} |<br>    {linger, {boolean(), integer() &gt;= 0}} |<br>    {low_msgq_watermark, integer() &gt;= 1} |<br>    {mode, list | binary} |<br>    list |<br>    binary |<br>    {priority, integer() &gt;= 0} |<br>    {recbuf, integer() &gt;= 0} |<br>    {reuseaddr, boolean()} |<br>    {ipv6_v6only, boolean()} |<br>    {sctp_adaptation_layer, #sctp_setadaptation{}} |<br>    {sctp_associnfo, #sctp_assocparams{}} |<br>    {sctp_autoclose, integer() &gt;= 0} |<br>    {sctp_default_send_param, #sctp_sndrcvinfo{}} |<br>    {sctp_delayed_ack_time, #sctp_assoc_value{}} |<br>    {sctp_disable_fragments, boolean()} |<br>    {sctp_events, #sctp_event_subscribe{}} |<br>    {sctp_get_peer_addr_info, #sctp_paddrinfo{}} |<br>    {sctp_i_want_mapped_v4_addr, boolean()} |<br>    {sctp_initmsg, #sctp_initmsg{}} |<br>    {sctp_maxseg, integer() &gt;= 0} |<br>    {sctp_nodelay, boolean()} |<br>    {sctp_peer_addr_params, #sctp_paddrparams{}} |<br>    {sctp_primary_addr, #sctp_prim{}} |<br>    {sctp_rtoinfo, #sctp_rtoinfo{}} |<br>    {sctp_set_peer_primary_addr, #sctp_setpeerprim{}} |<br>    {sctp_status, #sctp_status{}} |<br>    {sndbuf, integer() &gt;= 0} |<br>    {tos, integer() &gt;= 0}</span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p>
         <p>One of the
-          <span class="bold_code"><a href="#options">SCTP Socket Options</a></span>.</p>
-      </p></div>
-    <p>
-      <span class="bold_code"><a name="type-option_name">option_name()</a> = <br>    active |<br>    buffer |<br>    dontroute |<br>    high_msgq_watermark |<br>    linger |<br>    low_msgq_watermark |<br>    mode |<br>    priority |<br>    recbuf |<br>    reuseaddr |<br>    ipv6_v6only |<br>    sctp_adaptation_layer |<br>    sctp_associnfo |<br>    sctp_autoclose |<br>    sctp_default_send_param |<br>    sctp_delayed_ack_time |<br>    sctp_disable_fragments |<br>    sctp_events |<br>    sctp_get_peer_addr_info |<br>    sctp_i_want_mapped_v4_addr |<br>    sctp_initmsg |<br>    sctp_maxseg |<br>    sctp_nodelay |<br>    sctp_peer_addr_params |<br>    sctp_primary_addr |<br>    sctp_rtoinfo |<br>    sctp_set_peer_primary_addr |<br>    sctp_status |<br>    sndbuf |<br>    tos</span><br></p>
-    <p><a name="type-sctp_socket"></a><span class="bold_code">sctp_socket()</span><br></p>
-<div class="REFBODY"><p>
+          <span class="bold_code bc-17"><a href="#options">SCTP Socket Options</a></span>.</p>
+      </p></div></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-option_name">option_name()</a> = <br>    active |<br>    buffer |<br>    dontroute |<br>    high_msgq_watermark |<br>    linger |<br>    low_msgq_watermark |<br>    mode |<br>    priority |<br>    recbuf |<br>    reuseaddr |<br>    ipv6_v6only |<br>    sctp_adaptation_layer |<br>    sctp_associnfo |<br>    sctp_autoclose |<br>    sctp_default_send_param |<br>    sctp_delayed_ack_time |<br>    sctp_disable_fragments |<br>    sctp_events |<br>    sctp_get_peer_addr_info |<br>    sctp_i_want_mapped_v4_addr |<br>    sctp_initmsg |<br>    sctp_maxseg |<br>    sctp_nodelay |<br>    sctp_peer_addr_params |<br>    sctp_primary_addr |<br>    sctp_rtoinfo |<br>    sctp_set_peer_primary_addr |<br>    sctp_status |<br>    sndbuf |<br>    tos</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+<a name="type-sctp_socket"></a><span class="bold_code bc-8">sctp_socket()</span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p>
         <p>Socket identifier returned from
-          <span class="bold_code"><a href="#open-0"><span class="code">open/*</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#open-0"><span class="code">open/*</span></a></span>.</p>
         <a name="exports"></a>
-      </p></div>
-  
+      </p></div></div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="abort-2"></a><span class="bold_code">abort(Socket, Assoc) -&gt; ok | {error, <span class="bold_code"><a href="inet.html#type-posix">inet:posix()</a></span>}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Assoc = #sctp_assoc_change{}</span></div>
+<div class="exports-body">
+    <p><a name="abort-2"></a><span class="bold_code bc-1">abort(Socket, Assoc) -&gt; ok | {error, <span class="bold_code bc-15"><a href="inet.html#type-posix">inet:posix()</a></span>}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Socket = <span class="bold_code bc-17"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Assoc = #sctp_assoc_change{}</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Abnormally terminates the association specified by
           <span class="code">Assoc</span>, without
           flushing of unsent data. The socket itself remains open. Other
@@ -722,44 +731,44 @@
           can be used in new associations.</p>
       </p></div>
 
-    <p><a name="close-1"></a><span class="bold_code">close(Socket) -&gt; ok | {error, <span class="bold_code"><a href="inet.html#type-posix">inet:posix()</a></span>}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
+    <p><a name="close-1"></a><span class="bold_code bc-1">close(Socket) -&gt; ok | {error, <span class="bold_code bc-15"><a href="inet.html#type-posix">inet:posix()</a></span>}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Socket = <span class="bold_code bc-17"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Closes the socket and all associations on it. The unsent
-          data is flushed as in <span class="bold_code"><a href="#eof-2"><span class="code">eof/2</span></a></span>.
+          data is flushed as in <span class="bold_code bc-17"><a href="#eof-2"><span class="code">eof/2</span></a></span>.
           The <span class="code">close/1</span> call
           is blocking or otherwise depending of the value of
-          the <span class="bold_code"><a href="inet.html#option-linger"><span class="code">linger</span></a></span>
-          socket <span class="bold_code"><a href="#options">option</a></span>.
+          the <span class="bold_code bc-15"><a href="inet.html#option-linger"><span class="code">linger</span></a></span>
+          socket <span class="bold_code bc-17"><a href="#options">option</a></span>.
           If <span class="code">close</span> does not linger or linger time-out expires,
           the call returns and the data is flushed in the background.</p>
       </p></div>
 
-    <p><a name="connect-4"></a><span class="bold_code">connect(Socket, Addr, Port, Opts) -&gt;<br>           {ok, Assoc} | {error, <span class="bold_code"><a href="inet.html#type-posix">inet:posix()</a></span>}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Addr = <span class="bold_code"><a href="inet.html#type-ip_address">inet:ip_address()</a></span> | <span class="bold_code"><a href="inet.html#type-hostname">inet:hostname()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Port = <span class="bold_code"><a href="inet.html#type-port_number">inet:port_number()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Opts = [Opt :: <span class="bold_code"><a href="#type-option">option()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">Assoc = #sctp_assoc_change{}</span></div>
+    <p><a name="connect-4"></a><span class="bold_code bc-1">connect(Socket, Addr, Port, Opts) -&gt;<br>           {ok, Assoc} | {error, <span class="bold_code bc-15"><a href="inet.html#type-posix">inet:posix()</a></span>}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Socket = <span class="bold_code bc-17"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Addr = <span class="bold_code bc-15"><a href="inet.html#type-ip_address">inet:ip_address()</a></span> | <span class="bold_code bc-15"><a href="inet.html#type-hostname">inet:hostname()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Port = <span class="bold_code bc-15"><a href="inet.html#type-port_number">inet:port_number()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Opts = [Opt :: <span class="bold_code bc-17"><a href="#type-option">option()</a></span>]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Assoc = #sctp_assoc_change{}</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Same as <span class="code">connect(Socket, Addr,
           Port, Opts, infinity)</span>.</p>
       </p></div>
 
-    <p><a name="connect-5"></a><span class="bold_code">connect(Socket, Addr, Port, Opts, Timeout) -&gt;<br>           {ok, Assoc} | {error, <span class="bold_code"><a href="inet.html#type-posix">inet:posix()</a></span>}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Addr = <span class="bold_code"><a href="inet.html#type-ip_address">inet:ip_address()</a></span> | <span class="bold_code"><a href="inet.html#type-hostname">inet:hostname()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Port = <span class="bold_code"><a href="inet.html#type-port_number">inet:port_number()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Opts = [Opt :: <span class="bold_code"><a href="#type-option">option()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
-<div class="REFTYPES"><span class="bold_code">Assoc = #sctp_assoc_change{}</span></div>
+    <p><a name="connect-5"></a><span class="bold_code bc-1">connect(Socket, Addr, Port, Opts, Timeout) -&gt;<br>           {ok, Assoc} | {error, <span class="bold_code bc-15"><a href="inet.html#type-posix">inet:posix()</a></span>}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Socket = <span class="bold_code bc-17"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Addr = <span class="bold_code bc-15"><a href="inet.html#type-ip_address">inet:ip_address()</a></span> | <span class="bold_code bc-15"><a href="inet.html#type-hostname">inet:hostname()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Port = <span class="bold_code bc-15"><a href="inet.html#type-port_number">inet:port_number()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Opts = [Opt :: <span class="bold_code bc-17"><a href="#type-option">option()</a></span>]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Timeout = timeout()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Assoc = #sctp_assoc_change{}</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Establishes a new association for socket <span class="code">Socket</span>,
           with the peer (SCTP server socket) specified by
           <span class="code">Addr</span> and <span class="code">Port</span>.
@@ -770,20 +779,20 @@
 <div class="content"><p><p>Using a value of <span class="code">Timeout</span> less than
           the maximum time taken by the OS to establish an association (around
           4.5 minutes if the default values from
-          <span class="bold_code"><a href="https://tools.ietf.org/html/rfc4960">RFC 4960</a></span>
+          <span class="bold_code bc-20"><a href="https://tools.ietf.org/html/rfc4960">RFC 4960</a></span>
           are used), can result
           in inconsistent or incorrect return values. This is especially
           relevant for associations sharing the same <span class="code">Socket</span>
           (that is, source address and port), as the controlling process
           blocks until <span class="code">connect/*</span> returns.
-          <span class="bold_code"><a href="#connect_init-4"><span class="code">connect_init/*</span></a></span>
+          <span class="bold_code bc-17"><a href="#connect_init-4"><span class="code">connect_init/*</span></a></span>
           provides an alternative without this limitation.</p>
         </p></div>
 </div>
         <p><a name="record-sctp_assoc_change"></a>
           The result of <span class="code">connect/*</span> is an <span class="code">#sctp_assoc_change{}</span>
           event that contains, in particular, the new
-          <span class="bold_code"><a href="#type-assoc_id">Association ID</a></span>:</p>
+          <span class="bold_code bc-17"><a href="#type-assoc_id">Association ID</a></span>:</p>
         <div class="example"><pre>
 #sctp_assoc_change{
       state             = atom(),
@@ -819,7 +828,7 @@ connect(Socket, Ip, Port&gt;,
         <p>Other states do not normally occur in the output from
           <span class="code">connect/*</span>. Rather, they can occur in
           <span class="code">#sctp_assoc_change{}</span> events received instead of data in
-          <span class="bold_code"><a href="#recv-1"><span class="code">recv/*</span></a></span> calls.
+          <span class="bold_code bc-17"><a href="#recv-1"><span class="code">recv/*</span></a></span> calls.
           All of them indicate losing the association because of various error
           conditions, and are listed here for the sake of completeness:</p>
         <dl>
@@ -833,27 +842,27 @@ connect(Socket, Ip, Port&gt;,
         <p>Field <span class="code">error</span> can provide more detailed diagnostics.</p>
       </p></div>
 
-    <p><a name="connect_init-4"></a><span class="bold_code">connect_init(Socket, Addr, Port, Opts) -&gt;<br>                ok | {error, <span class="bold_code"><a href="inet.html#type-posix">inet:posix()</a></span>}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Addr = <span class="bold_code"><a href="inet.html#type-ip_address">inet:ip_address()</a></span> | <span class="bold_code"><a href="inet.html#type-hostname">inet:hostname()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Port = <span class="bold_code"><a href="inet.html#type-port_number">inet:port_number()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Opts = [<span class="bold_code"><a href="#type-option">option()</a></span>]</span></div>
+    <p><a name="connect_init-4"></a><span class="bold_code bc-1">connect_init(Socket, Addr, Port, Opts) -&gt;<br>                ok | {error, <span class="bold_code bc-15"><a href="inet.html#type-posix">inet:posix()</a></span>}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Socket = <span class="bold_code bc-17"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Addr = <span class="bold_code bc-15"><a href="inet.html#type-ip_address">inet:ip_address()</a></span> | <span class="bold_code bc-15"><a href="inet.html#type-hostname">inet:hostname()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Port = <span class="bold_code bc-15"><a href="inet.html#type-port_number">inet:port_number()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Opts = [<span class="bold_code bc-17"><a href="#type-option">option()</a></span>]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Same as <span class="code">connect_init(Socket, Addr,
           Port, Opts, infinity)</span>.</p>
       </p></div>
 
-    <p><a name="connect_init-5"></a><span class="bold_code">connect_init(Socket, Addr, Port, Opts, Timeout) -&gt;<br>                ok | {error, <span class="bold_code"><a href="inet.html#type-posix">inet:posix()</a></span>}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Addr = <span class="bold_code"><a href="inet.html#type-ip_address">inet:ip_address()</a></span> | <span class="bold_code"><a href="inet.html#type-hostname">inet:hostname()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Port = <span class="bold_code"><a href="inet.html#type-port_number">inet:port_number()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Opts = [<span class="bold_code"><a href="#type-option">option()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
+    <p><a name="connect_init-5"></a><span class="bold_code bc-1">connect_init(Socket, Addr, Port, Opts, Timeout) -&gt;<br>                ok | {error, <span class="bold_code bc-15"><a href="inet.html#type-posix">inet:posix()</a></span>}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Socket = <span class="bold_code bc-17"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Addr = <span class="bold_code bc-15"><a href="inet.html#type-ip_address">inet:ip_address()</a></span> | <span class="bold_code bc-15"><a href="inet.html#type-hostname">inet:hostname()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Port = <span class="bold_code bc-15"><a href="inet.html#type-port_number">inet:port_number()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Opts = [<span class="bold_code bc-17"><a href="#type-option">option()</a></span>]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Timeout = timeout()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Initiates a new association for socket <span class="code">Socket</span>,
           with the peer (SCTP server socket) specified by
           <span class="code">Addr</span> and <span class="code">Port</span>.</p>
@@ -862,38 +871,38 @@ connect(Socket, Ip, Port&gt;,
           underlying OS <span class="code">connect(2)</span> system call. If <span class="code">ok</span> is returned,
           the result of the association establishment is received
           by the calling process as an
-          <span class="bold_code"><a href="#record-sctp_assoc_change"><span class="code">#sctp_assoc_change{}</span></a></span>
+          <span class="bold_code bc-17"><a href="#record-sctp_assoc_change"><span class="code">#sctp_assoc_change{}</span></a></span>
           event. The calling process must be prepared to receive this, or
           poll for it using
-          <span class="bold_code"><a href="#recv-1"><span class="code">recv/*</span></a></span>,
+          <span class="bold_code bc-17"><a href="#recv-1"><span class="code">recv/*</span></a></span>,
           depending on the value of the active option.</p>
         <p>The parameters are as described in
-          <span class="bold_code"><a href="#connect-5"><span class="code">connect/*</span></a></span>,
+          <span class="bold_code bc-17"><a href="#connect-5"><span class="code">connect/*</span></a></span>,
            except the <span class="code">Timeout</span> value.</p>
         <p>The timer associated with <span class="code">Timeout</span> only supervises
           IP resolution of <span class="code">Addr</span>.</p>
       </p></div>
 
-    <p><a name="controlling_process-2"></a><span class="bold_code">controlling_process(Socket, Pid) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Pid = pid()</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = closed | not_owner | <span class="bold_code"><a href="inet.html#type-posix">inet:posix()</a></span></span></div>
+    <p><a name="controlling_process-2"></a><span class="bold_code bc-1">controlling_process(Socket, Pid) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Socket = <span class="bold_code bc-17"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Pid = pid()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = closed | not_owner | <span class="bold_code bc-15"><a href="inet.html#type-posix">inet:posix()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Assigns a new controlling process <span class="code">Pid</span> to
           <span class="code">Socket</span>. Same implementation as
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','gen_udp','controlling_process/2.html');"><span class="code">gen_udp:controlling_process/2</span></a></span>.
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','gen_udp','controlling_process/2.html');"><span class="code">gen_udp:controlling_process/2</span></a></span>.
         </p>
       </p></div>
 
-    <p><a name="eof-2"></a><span class="bold_code">eof(Socket, Assoc) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Assoc = #sctp_assoc_change{}</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+    <p><a name="eof-2"></a><span class="bold_code bc-1">eof(Socket, Assoc) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Socket = <span class="bold_code bc-17"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Assoc = #sctp_assoc_change{}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Gracefully terminates the association specified by
           <span class="code">Assoc</span>, with
           flushing of all unsent data. The socket itself remains open. Other
@@ -901,24 +910,24 @@ connect(Socket, Ip, Port&gt;,
           be used in new associations.</p>
       </p></div>
 
-    <p><a name="error_string-1"></a><span class="bold_code">error_string(ErrorNumber) -&gt; ok | string() | unknown_error</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">ErrorNumber = integer()</span></div>
+    <p><a name="error_string-1"></a><span class="bold_code bc-1">error_string(ErrorNumber) -&gt; ok | string() | unknown_error</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">ErrorNumber = integer()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Translates an SCTP error number from, for example,
           <span class="code">#sctp_remote_error{}</span> or <span class="code">#sctp_send_failed{}</span> into
           an explanatory string, or one of the atoms <span class="code">ok</span> for no
           error or <span class="code">undefined</span> for an unrecognized error.</p>
       </p></div>
 
-    <p><a name="listen-2"></a><span class="bold_code">listen(Socket, IsServer) -&gt; ok | {error, Reason}</span><br><span class="bold_code">listen(Socket, Backlog) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Backlog = integer()</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+    <p><a name="listen-2"></a><span class="bold_code bc-1">listen(Socket, IsServer) -&gt; ok | {error, Reason}</span><span class="bold_code bc-1">listen(Socket, Backlog) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Socket = <span class="bold_code bc-17"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Backlog = integer()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sets up a socket to listen on the IP address and port number
           it is bound to.</p>
         <p>For type <span class="code">seqpacket</span>, sockets (the default)
@@ -930,16 +939,16 @@ connect(Socket, Ip, Port&gt;,
           the backlog queue length just like in TCP.</p>
       </p></div>
 
-    <p><a name="open-0"></a><span class="bold_code">open() -&gt; {ok, Socket} | {error, <span class="bold_code"><a href="inet.html#type-posix">inet:posix()</a></span>}</span><br><a name="open-1"></a><span class="bold_code">open(Port) -&gt; {ok, Socket} | {error, <span class="bold_code"><a href="inet.html#type-posix">inet:posix()</a></span>}</span><br><span class="bold_code">open(Opts) -&gt; {ok, Socket} | {error, <span class="bold_code"><a href="inet.html#type-posix">inet:posix()</a></span>}</span><br><a name="open-2"></a><span class="bold_code">open(Port, Opts) -&gt; {ok, Socket} | {error, <span class="bold_code"><a href="inet.html#type-posix">inet:posix()</a></span>}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Opts = [Opt]</span></div>
-<div class="REFTYPES"><span class="bold_code">Opt = <br>    {ip, IP} |<br>    {ifaddr, IP} |<br>    <span class="bold_code"><a href="inet.html#type-address_family">inet:address_family()</a></span> |<br>    {port, Port} |<br>    {type, SockType} |<br>    <span class="bold_code"><a href="#type-option">option()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">IP = <span class="bold_code"><a href="inet.html#type-ip_address">inet:ip_address()</a></span> | any | loopback</span></div>
-<div class="REFTYPES"><span class="bold_code">Port = <span class="bold_code"><a href="inet.html#type-port_number">inet:port_number()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">SockType = seqpacket | stream</span></div>
-<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
+    <p><a name="open-0"></a><span class="bold_code bc-1">open() -&gt; {ok, Socket} | {error, <span class="bold_code bc-15"><a href="inet.html#type-posix">inet:posix()</a></span>}</span><a name="open-1"></a><span class="bold_code bc-1">open(Port) -&gt; {ok, Socket} | {error, <span class="bold_code bc-15"><a href="inet.html#type-posix">inet:posix()</a></span>}</span><span class="bold_code bc-1">open(Opts) -&gt; {ok, Socket} | {error, <span class="bold_code bc-15"><a href="inet.html#type-posix">inet:posix()</a></span>}</span><a name="open-2"></a><span class="bold_code bc-1">open(Port, Opts) -&gt; {ok, Socket} | {error, <span class="bold_code bc-15"><a href="inet.html#type-posix">inet:posix()</a></span>}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Opts = [Opt]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Opt = <br>    {ip, IP} |<br>    {ifaddr, IP} |<br>    <span class="bold_code bc-15"><a href="inet.html#type-address_family">inet:address_family()</a></span> |<br>    {port, Port} |<br>    {type, SockType} |<br>    <span class="bold_code bc-17"><a href="#type-option">option()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">IP = <span class="bold_code bc-15"><a href="inet.html#type-ip_address">inet:ip_address()</a></span> | any | loopback</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Port = <span class="bold_code bc-15"><a href="inet.html#type-port_number">inet:port_number()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">SockType = seqpacket | stream</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Socket = <span class="bold_code bc-17"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Creates an SCTP socket and binds it to the local addresses
           specified by all <span class="code">{ip,IP}</span> (or synonymously
           <span class="code">{ifaddr,IP}</span>)
@@ -958,23 +967,23 @@ connect(Socket, Ip, Port&gt;,
             <p>Sets up the socket for IPv4. This is the default.</p>
           </dd>
         </dl>
-        <p>A default set of socket <span class="bold_code"><a href="#options">options</a></span>
+        <p>A default set of socket <span class="bold_code bc-17"><a href="#options">options</a></span>
           is used. In particular, the socket is opened in
-          <span class="bold_code"><a href="#option-binary">binary</a></span> and
-          <span class="bold_code"><a href="#option-active">passive</a></span> mode,
+          <span class="bold_code bc-17"><a href="#option-binary">binary</a></span> and
+          <span class="bold_code bc-17"><a href="#option-active">passive</a></span> mode,
 	  with SockType <span class="code">seqpacket</span>, and with reasonably large
-          <span class="bold_code"><a href="inet.html#option-sndbuf">kernel</a></span> and driver
-          <span class="bold_code"><a href="inet.html#option-buffer">buffers</a></span>.</p>
+          <span class="bold_code bc-15"><a href="inet.html#option-sndbuf">kernel</a></span> and driver
+          <span class="bold_code bc-15"><a href="inet.html#option-buffer">buffers</a></span>.</p>
       </p></div>
 
-    <p><a name="peeloff-2"></a><span class="bold_code">peeloff(Socket, Assoc) -&gt; {ok, NewSocket} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Assoc = #sctp_assoc_change{} | <span class="bold_code"><a href="#type-assoc_id">assoc_id()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">NewSocket = <span class="bold_code"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+    <p><a name="peeloff-2"></a><span class="bold_code bc-1">peeloff(Socket, Assoc) -&gt; {ok, NewSocket} | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Socket = <span class="bold_code bc-17"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Assoc = #sctp_assoc_change{} | <span class="bold_code bc-17"><a href="#type-assoc_id">assoc_id()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">NewSocket = <span class="bold_code bc-17"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Branches off an existing association <span class="code">Assoc</span>
           in a socket <span class="code">Socket</span> of type <span class="code">seqpacket</span>
           (one-to-many style) into
@@ -982,25 +991,25 @@ connect(Socket, Ip, Port&gt;,
           (one-to-one style).</p>
         <p>The existing association argument <span class="code">Assoc</span>
           can be either a
-          <span class="bold_code"><a href="#record-sctp_assoc_change"><span class="code">#sctp_assoc_change{}</span></a></span>
+          <span class="bold_code bc-17"><a href="#record-sctp_assoc_change"><span class="code">#sctp_assoc_change{}</span></a></span>
           record as returned from, for example,
-          <span class="bold_code"><a href="#recv-2"><span class="code">recv/*</span></a></span>,
-          <span class="bold_code"><a href="#connect-5"><span class="code">connect/*</span></a></span>, or
+          <span class="bold_code bc-17"><a href="#recv-2"><span class="code">recv/*</span></a></span>,
+          <span class="bold_code bc-17"><a href="#connect-5"><span class="code">connect/*</span></a></span>, or
 	  from a listening socket in active mode. It can also be just
 	  the field <span class="code">assoc_id</span> integer from such a record.</p>
       </p></div>
 
-    <p><a name="recv-1"></a><span class="bold_code">recv(Socket) -&gt;<br>        {ok, {FromIP, FromPort, AncData, Data}} | {error, Reason}</span><br><a name="recv-2"></a><span class="bold_code">recv(Socket, Timeout) -&gt;<br>        {ok, {FromIP, FromPort, AncData, Data}} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
-<div class="REFTYPES"><span class="bold_code">FromIP = <span class="bold_code"><a href="inet.html#type-ip_address">inet:ip_address()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">FromPort = <span class="bold_code"><a href="inet.html#type-port_number">inet:port_number()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">AncData = [#sctp_sndrcvinfo{}]</span></div>
-<div class="REFTYPES"><span class="bold_code">Data = <br>    binary() |<br>    string() |<br>    #sctp_sndrcvinfo{} |<br>    #sctp_assoc_change{} |<br>    #sctp_paddr_change{} |<br>    #sctp_adaptation_event{}</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <br>    <span class="bold_code"><a href="inet.html#type-posix">inet:posix()</a></span> |<br>    #sctp_send_failed{} |<br>    #sctp_paddr_change{} |<br>    #sctp_pdapi_event{} |<br>    #sctp_remote_error{} |<br>    #sctp_shutdown_event{}</span></div>
+    <p><a name="recv-1"></a><span class="bold_code bc-1">recv(Socket) -&gt;<br>        {ok, {FromIP, FromPort, AncData, Data}} | {error, Reason}</span><a name="recv-2"></a><span class="bold_code bc-1">recv(Socket, Timeout) -&gt;<br>        {ok, {FromIP, FromPort, AncData, Data}} | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Socket = <span class="bold_code bc-17"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Timeout = timeout()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">FromIP = <span class="bold_code bc-15"><a href="inet.html#type-ip_address">inet:ip_address()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">FromPort = <span class="bold_code bc-15"><a href="inet.html#type-port_number">inet:port_number()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">AncData = [#sctp_sndrcvinfo{}]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Data = <br>    binary() |<br>    string() |<br>    #sctp_sndrcvinfo{} |<br>    #sctp_assoc_change{} |<br>    #sctp_paddr_change{} |<br>    #sctp_adaptation_event{}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <br>    <span class="bold_code bc-15"><a href="inet.html#type-posix">inet:posix()</a></span> |<br>    #sctp_send_failed{} |<br>    #sctp_paddr_change{} |<br>    #sctp_pdapi_event{} |<br>    #sctp_remote_error{} |<br>    #sctp_shutdown_event{}</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Receives the <span class="code">Data</span> message from any association
           of the socket.
           If the receive times out, <span class="code">{error,timeout}</span> is returned.
@@ -1010,16 +1019,16 @@ connect(Socket, Ip, Port&gt;,
         <p><span class="code">AncData</span> is a list of ancillary data items that
           can be received along with the main <span class="code">Data</span>.
           This list can be empty, or contain a single
-          <span class="bold_code"><a href="#record-sctp_sndrcvinfo"><span class="code">#sctp_sndrcvinfo{}</span></a></span>
+          <span class="bold_code bc-17"><a href="#record-sctp_sndrcvinfo"><span class="code">#sctp_sndrcvinfo{}</span></a></span>
           record if receiving of such ancillary data is enabled (see option
-          <span class="bold_code"><a href="#option-sctp_events"><span class="code">sctp_events</span></a></span>).
+          <span class="bold_code bc-17"><a href="#option-sctp_events"><span class="code">sctp_events</span></a></span>).
           It is enabled by default, as such ancillary data
           provides an easy way of determining the association and stream
           over which the message is received.
           (An alternative way is to get the association ID from
           <span class="code">FromIP</span> and <span class="code">FromPort</span> using
           socket option
-          <span class="bold_code"><a href="#option-sctp_get_peer_addr_info"><span class="code">sctp_get_peer_addr_info</span></a></span>,
+          <span class="bold_code bc-17"><a href="#option-sctp_get_peer_addr_info"><span class="code">sctp_get_peer_addr_info</span></a></span>,
           but this does still not produce the stream number).</p>
         <p>The <span class="code">Data</span> received can be a <span class="code">binary()</span>
           or a <span class="code">list()</span> of bytes (integers in the range 0 through 255)
@@ -1028,10 +1037,10 @@ connect(Socket, Ip, Port&gt;,
         <p>Possible SCTP events:</p>
         <ul>
           <li>
-            <span class="bold_code"><a href="#record-sctp_sndrcvinfo"><span class="code">#sctp_sndrcvinfo{}</span></a></span>
+            <span class="bold_code bc-17"><a href="#record-sctp_sndrcvinfo"><span class="code">#sctp_sndrcvinfo{}</span></a></span>
           </li>
           <li>
-            <span class="bold_code"><a href="#record-sctp_assoc_change"><span class="code">#sctp_assoc_change{}</span></a></span>
+            <span class="bold_code bc-17"><a href="#record-sctp_assoc_change"><span class="code">#sctp_assoc_change{}</span></a></span>
           </li>
           <li>
             <div class="example"><pre>
@@ -1063,9 +1072,9 @@ connect(Socket, Ip, Port&gt;,
               field <span class="code">error</span> provides more diagnostics. In such cases,
               event <span class="code">#sctp_paddr_change{}</span> is automatically
               converted into an <span class="code">error</span> term returned by
-              <span class="bold_code"><a href="#recv-1"><span class="code">recv</span></a></span>.
+              <span class="bold_code bc-17"><a href="#recv-1"><span class="code">recv</span></a></span>.
               The <span class="code">error</span> field value can be converted into a string using
-              <span class="bold_code"><a href="#error_string-1"><span class="code">error_string/1</span></a></span>.
+              <span class="bold_code bc-17"><a href="#error_string-1"><span class="code">error_string/1</span></a></span>.
             </p>
           </li>
           <li>
@@ -1085,14 +1094,14 @@ connect(Socket, Ip, Port&gt;,
               <dt><strong><span class="code">error</span></strong></dt>
               <dd>
 <p>Provides extended diagnostics, use
-                <span class="bold_code"><a href="#error_string-1"><span class="code">error_string/1</span>.</a></span></p>
+                <span class="bold_code bc-17"><a href="#error_string-1"><span class="code">error_string/1</span>.</a></span></p>
               </dd>
               <dt><strong><span class="code">info</span></strong></dt>
               <dd>
 <p>The original
-                <span class="bold_code"><a href="#record-sctp_sndrcvinfo"><span class="code">#sctp_sndrcvinfo{}</span></a></span>
+                <span class="bold_code bc-17"><a href="#record-sctp_sndrcvinfo"><span class="code">#sctp_sndrcvinfo{}</span></a></span>
                 record used in the failed
-                <span class="bold_code"><a href="#send-3"><span class="code">send/*</span>.</a></span></p>
+                <span class="bold_code bc-17"><a href="#send-3"><span class="code">send/*</span>.</a></span></p>
               </dd>
               <dt><strong><span class="code">data</span></strong></dt>
               <dd>
@@ -1102,7 +1111,7 @@ connect(Socket, Ip, Port&gt;,
             <p>In the current implementation of the Erlang/SCTP binding,
               this event is internally converted into an <span class="code">error</span> term
               returned by
-              <span class="bold_code"><a href="#recv-1"><span class="code">recv/*</span></a></span>.</p>
+              <span class="bold_code bc-17"><a href="#recv-1"><span class="code">recv/*</span></a></span>.</p>
           </li>
           <li>
           <div class="example"><pre>
@@ -1112,7 +1121,7 @@ connect(Socket, Ip, Port&gt;,
 }</pre></div>
             <p>Delivered when a peer sends an adaptation layer indication
               parameter (configured through option
-              <span class="bold_code"><a href="#option-sctp_adaptation_layer"><span class="code">sctp_adaptation_layer</span></a></span>).
+              <span class="bold_code bc-17"><a href="#option-sctp_adaptation_layer"><span class="code">sctp_adaptation_layer</span></a></span>).
               Notice that with the current implementation of
               the Erlang/SCTP binding, this event is disabled by default.</p>
           </li>
@@ -1125,22 +1134,22 @@ connect(Socket, Ip, Port&gt;,
             <p>A partial delivery failure. In the current implementation of
               the Erlang/SCTP binding, this event is internally converted
               into an <span class="code">error</span> term returned by
-              <span class="bold_code"><a href="#recv-1"><span class="code">recv/*</span></a></span>.</p>
+              <span class="bold_code bc-17"><a href="#recv-1"><span class="code">recv/*</span></a></span>.</p>
           </li>
         </ul>
       </p></div>
 
-    <p><a name="send-3"></a><span class="bold_code">send(Socket, SndRcvInfo, Data) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">SndRcvInfo = #sctp_sndrcvinfo{}</span></div>
-<div class="REFTYPES"><span class="bold_code">Data = binary() | iolist()</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+    <p><a name="send-3"></a><span class="bold_code bc-1">send(Socket, SndRcvInfo, Data) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Socket = <span class="bold_code bc-17"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">SndRcvInfo = #sctp_sndrcvinfo{}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Data = binary() | iolist()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sends the <span class="code">Data</span> message with all sending
           parameters from a
-          <span class="bold_code"><a href="#record-sctp_sndrcvinfo"><span class="code">#sctp_sndrcvinfo{}</span></a></span>
+          <span class="bold_code bc-17"><a href="#record-sctp_sndrcvinfo"><span class="code">#sctp_sndrcvinfo{}</span></a></span>
           record. This way, the user can specify the PPID (passed to the remote
           end) and context (passed to the local SCTP layer), which can be used,
           for example, for error identification.
@@ -1148,43 +1157,43 @@ connect(Socket, Ip, Port&gt;,
           The function <span class="code">send/4</span> is sufficient for most applications.</p>
       </p></div>
 
-    <p><a name="send-4"></a><span class="bold_code">send(Socket, Assoc, Stream, Data) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Assoc = #sctp_assoc_change{} | <span class="bold_code"><a href="#type-assoc_id">assoc_id()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Stream = integer()</span></div>
-<div class="REFTYPES"><span class="bold_code">Data = binary() | iolist()</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+    <p><a name="send-4"></a><span class="bold_code bc-1">send(Socket, Assoc, Stream, Data) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Socket = <span class="bold_code bc-17"><a href="#type-sctp_socket">sctp_socket()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Assoc = #sctp_assoc_change{} | <span class="bold_code bc-17"><a href="#type-assoc_id">assoc_id()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Stream = integer()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Data = binary() | iolist()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sends a <span class="code">Data</span> message over an existing association
           and specified stream.</p>
       </p></div>
-  
+  </div>
 
   <h3>
-<a name="options"></a><a name="idm46525670534752">SCTP Socket Options</a>
+<a name="options"></a><a name="idm45317251319664">SCTP Socket Options</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
     <p>The set of admissible SCTP socket options is by construction
       orthogonal to the sets of TCP, UDP, and generic <span class="code">inet</span> options.
       Only options listed here are allowed
       for SCTP sockets. Options can be set on the socket using
-      <span class="bold_code"><a href="#open-1"><span class="code">open/1,2</span></a></span> or
-      <span class="bold_code"><a href="inet.html#setopts-2"><span class="code">inet:setopts/2</span></a></span>,
+      <span class="bold_code bc-17"><a href="#open-1"><span class="code">open/1,2</span></a></span> or
+      <span class="bold_code bc-15"><a href="inet.html#setopts-2"><span class="code">inet:setopts/2</span></a></span>,
       retrieved using
-      <span class="bold_code"><a href="inet.html#getopts-2"><span class="code">inet:getopts/2</span></a></span>.
+      <span class="bold_code bc-15"><a href="inet.html#getopts-2"><span class="code">inet:getopts/2</span></a></span>.
       Options can be changed when calling
-      <span class="bold_code"><a href="#connect-4"><span class="code">connect/4,5</span></a></span>.</p>
+      <span class="bold_code bc-17"><a href="#connect-4"><span class="code">connect/4,5</span></a></span>.</p>
     <a name="option-binary"></a>
     <a name="option-list"></a>
     <dl>
       <dt><strong><span class="code">{mode, list|binary}</span> or just <span class="code">list</span> or <span class="code">binary</span></strong></dt>
       <dd>
         <p>Determines the type of data returned from
-          <span class="bold_code"><a href="#recv-1"><span class="code">recv/1,2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#recv-1"><span class="code">recv/1,2</span></a></span>.</p>
         <a name="option-active"></a>
       </dd>
       <dt><strong><span class="code">{active, true|false|once|N}</span></strong></dt>
@@ -1193,7 +1202,7 @@ connect(Socket, Ip, Port&gt;,
           <li>
             <p>If <span class="code">false</span> (passive mode, the default),
               the caller must do an explicit
-              <span class="bold_code"><a href="#recv-1"><span class="code">recv</span></a></span> call
+              <span class="bold_code bc-17"><a href="#recv-1"><span class="code">recv</span></a></span> call
               to retrieve the available data from the socket.</p>
           </li>
           <li>
@@ -1218,13 +1227,13 @@ connect(Socket, Ip, Port&gt;,
               addition is negative, the count is set to <span class="code">0</span>. Once the
               count reaches <span class="code">0</span>, either through the delivery of messages
               or by being explicitly set with
-              <span class="bold_code"><a href="inet.html#setopts-2"><span class="code">inet:setopts/2</span></a></span>,
+              <span class="bold_code bc-15"><a href="inet.html#setopts-2"><span class="code">inet:setopts/2</span></a></span>,
               the socket mode is automatically reset to passive (<span class="code">{active,
               false}</span>). When a socket in this active mode transitions to
               passive mode, the message <span class="code">{sctp_passive, Socket}</span> is sent
               to the controlling process to notify it that if it wants to
               receive more data messages from the socket, it must call
-              <span class="bold_code"><a href="inet.html#setopts-2"><span class="code">inet:setopts/2</span></a></span>
+              <span class="bold_code bc-15"><a href="inet.html#setopts-2"><span class="code">inet:setopts/2</span></a></span>
               to set the socket back into an active mode.</p>
           </li>
         </ul>
@@ -1285,9 +1294,9 @@ connect(Socket, Ip, Port&gt;,
         <p>Determines retransmission time-out parameters, in milliseconds,
           for the association(s) specified by <span class="code">assoc_id</span>.</p>
         <p><span class="code">assoc_id = 0</span> (default) indicates the whole endpoint. See
-          <span class="bold_code"><a href="http://www.rfc-archive.org/getrfc.php?rfc=2960">RFC
+          <span class="bold_code bc-20"><a href="http://www.rfc-archive.org/getrfc.php?rfc=2960">RFC
           2960</a></span> and
-          <span class="bold_code"><a href="http://tools.ietf.org/html/draft-ietf-tsvwg-sctpsocket-13">Sockets
+          <span class="bold_code bc-20"><a href="http://tools.ietf.org/html/draft-ietf-tsvwg-sctpsocket-13">Sockets
           API Extensions for SCTP</a></span>
           for the exact semantics of the field values.</p>
       </dd>
@@ -1305,7 +1314,7 @@ connect(Socket, Ip, Port&gt;,
         <p>Determines association parameters for the association(s) specified by
           <span class="code">assoc_id</span>.</p>
         <p><span class="code">assoc_id = 0</span> (default) indicates the whole endpoint. See
-          <span class="bold_code"><a href="http://tools.ietf.org/html/draft-ietf-tsvwg-sctpsocket-13">Sockets API Extensions for SCTP</a></span>
+          <span class="bold_code bc-20"><a href="http://tools.ietf.org/html/draft-ietf-tsvwg-sctpsocket-13">Sockets API Extensions for SCTP</a></span>
           for the discussion of their semantics. Rarely used.</p>
       </dd>
       <dt><strong><span class="code">{sctp_initmsg, #sctp_initmsg{}}</span></strong></dt>
@@ -1320,12 +1329,12 @@ connect(Socket, Ip, Port&gt;,
         <p>Determines the default parameters that this socket tries
           to negotiate with its peer while establishing an association with it.
           Is to be set after
-          <span class="bold_code"><a href="#open-1"><span class="code">open/*</span></a></span>
+          <span class="bold_code bc-17"><a href="#open-1"><span class="code">open/*</span></a></span>
           but before the first
-          <span class="bold_code"><a href="#connect-4"><span class="code">connect/*</span></a></span>.
+          <span class="bold_code bc-17"><a href="#connect-4"><span class="code">connect/*</span></a></span>.
           <span class="code">#sctp_initmsg{}</span> can also be used
           as ancillary data with the first call of
-          <span class="bold_code"><a href="#send-3"><span class="code">send/*</span></a></span> to
+          <span class="bold_code bc-17"><a href="#send-3"><span class="code">send/*</span></a></span> to
           a new peer (when a new association is created).</p>
         <dl>
           <dt><strong><span class="code">num_ostreams</span></strong></dt>
@@ -1407,9 +1416,9 @@ connect(Socket, Ip, Port&gt;,
         <p>When set, requests that the local endpoint uses the value specified
           by <span class="code">adaptation_ind</span> as the Adaptation Indication parameter for
           establishing new associations. For details, see
-          <span class="bold_code"><a href="http://www.rfc-archive.org/getrfc.php?rfc=2960">RFC 2960</a></span>
+          <span class="bold_code bc-20"><a href="http://www.rfc-archive.org/getrfc.php?rfc=2960">RFC 2960</a></span>
           and
-          <span class="bold_code"><a href="http://tools.ietf.org/html/draft-ietf-tsvwg-sctpsocket-13">Sockets
+          <span class="bold_code bc-20"><a href="http://tools.ietf.org/html/draft-ietf-tsvwg-sctpsocket-13">Sockets
           API Extenstions for SCTP</a></span>.</p>
       </dd>
       <dt><strong><span class="code">{sctp_peer_addr_params, #sctp_paddrparams{}}</span></strong></dt>
@@ -1484,7 +1493,7 @@ Port = port_number()</pre></div>
         <p><span class="code">#sctp_sndrcvinfo{}</span> is used both in this socket option, and as
           ancillary data while sending or receiving SCTP messages. When
           set as an option, it provides default values for subsequent
-          <span class="bold_code"><a href="#send-3"><span class="code">send</span></a></span>
+          <span class="bold_code bc-17"><a href="#send-3"><span class="code">send</span></a></span>
           calls on the association specified by
           <span class="code">assoc_id</span>.</p>
         <p><span class="code">assoc_id = 0</span> (default) indicates
@@ -1502,7 +1511,7 @@ Port = port_number()</pre></div>
               <dd>The message is to be sent unordered</dd>
               <dt><strong><span class="code">addr_over</span></strong></dt>
               <dd>The address specified in
-                <span class="bold_code"><a href="#send-3"><span class="code">send</span></a></span>
+                <span class="bold_code bc-17"><a href="#send-3"><span class="code">send</span></a></span>
                 overwrites the primary peer address</dd>
               <dt><strong><span class="code">abort</span></strong></dt>
               <dd>Aborts the current association without flushing any unsent
@@ -1512,9 +1521,9 @@ Port = port_number()</pre></div>
                 flushing of unsent data</dd>
             </dl>
               <p>Other fields are rarely used. For complete information, see
-                <span class="bold_code"><a href="http://www.rfc-archive.org/getrfc.php?rfc=2960">RFC 2960</a></span>
+                <span class="bold_code bc-20"><a href="http://www.rfc-archive.org/getrfc.php?rfc=2960">RFC 2960</a></span>
                 and
-                <span class="bold_code"><a href="http://tools.ietf.org/html/draft-ietf-tsvwg-sctpsocket-13">Sockets
+                <span class="bold_code bc-20"><a href="http://tools.ietf.org/html/draft-ietf-tsvwg-sctpsocket-13">Sockets
                 API Extensions for SCTP</a></span>.</p>
 </dd>
         </dl>
@@ -1535,12 +1544,12 @@ Port = port_number()</pre></div>
         adaptation_layer_event = true | false
 }</pre></div>
         <p>This option determines which
-          <span class="bold_code"><a href="#sctp_events">SCTP Events</a></span> are to be
+          <span class="bold_code bc-17"><a href="#sctp_events">SCTP Events</a></span> are to be
           received (through
-          <span class="bold_code"><a href="#recv-1"><span class="code">recv/*</span></a></span>)
+          <span class="bold_code bc-17"><a href="#recv-1"><span class="code">recv/*</span></a></span>)
           along with the data. The only exception is <span class="code">data_io_event</span>,
           which enables or disables receiving of
-          <span class="bold_code"><a href="#record-sctp_sndrcvinfo"><span class="code">#sctp_sndrcvinfo{}</span></a></span>
+          <span class="bold_code bc-17"><a href="#record-sctp_sndrcvinfo"><span class="code">#sctp_sndrcvinfo{}</span></a></span>
           ancillary data, not events.
           By default, all flags except <span class="code">adaptation_layer_event</span> are
           enabled, although <span class="code">sctp_data_io_event</span> and
@@ -1641,18 +1650,18 @@ Port = port_number()</pre></div>
           is automatically translated into the corresponding
           association ID. This option is rarely used.
           For the semantics of all fields, see
-          <span class="bold_code"><a href="http://www.rfc-archive.org/getrfc.php?rfc=2960">RFC 2960</a></span>
+          <span class="bold_code bc-20"><a href="http://www.rfc-archive.org/getrfc.php?rfc=2960">RFC 2960</a></span>
           and
-          <span class="bold_code"><a href="http://tools.ietf.org/html/draft-ietf-tsvwg-sctpsocket-13">Sockets
+          <span class="bold_code bc-20"><a href="http://tools.ietf.org/html/draft-ietf-tsvwg-sctpsocket-13">Sockets
           API Extensions for SCTP</a></span>.</p>
       </dd>
     </dl>
   </div>
 
   <h3>
-<a name="examples"></a><a name="idm46525670377792">SCTP Examples</a>
+<a name="examples"></a><a name="idm45317251162704">SCTP Examples</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
       <p>Example of an Erlang SCTP server that receives SCTP messages and
@@ -1785,17 +1794,17 @@ client_loop(S, Peer1, Port1, AssocId1, Peer2, Port2, AssocId2) -&gt;
   </div>
 
   <h3>
-<a name="seealso"></a><a name="idm46525670367488">See Also</a>
+<a name="seealso"></a><a name="idm45317251152400">See Also</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
-    <p><span class="bold_code"><a href="gen_tcp.html"><span class="code">gen_tcp(3)</span></a></span>,
-      <span class="bold_code"><a href="gen_udp.html"><span class="code">gen_udp(3)</span></a></span>,
-      <span class="bold_code"><a href="inet.html"><span class="code">inet(3)</span></a></span>,
-      <span class="bold_code"><a href="http://www.rfc-archive.org/getrfc.php?rfc=2960">RFC 2960</a></span>
+    <p><span class="bold_code bc-19"><a href="gen_tcp.html"><span class="code">gen_tcp(3)</span></a></span>,
+      <span class="bold_code bc-19"><a href="gen_udp.html"><span class="code">gen_udp(3)</span></a></span>,
+      <span class="bold_code bc-19"><a href="inet.html"><span class="code">inet(3)</span></a></span>,
+      <span class="bold_code bc-20"><a href="http://www.rfc-archive.org/getrfc.php?rfc=2960">RFC 2960</a></span>
       (Stream Control Transmission Protocol),
-      <span class="bold_code"><a href="http://tools.ietf.org/html/draft-ietf-tsvwg-sctpsocket-13">Sockets
+      <span class="bold_code bc-20"><a href="http://tools.ietf.org/html/draft-ietf-tsvwg-sctpsocket-13">Sockets
       API Extensions for SCTP</a></span></p>
   </div>
 </div>

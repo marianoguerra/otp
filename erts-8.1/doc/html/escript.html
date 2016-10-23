@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../doc"><img alt="Erlang Logo" src="../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Erlang Run-Time System Application (ERTS)</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 8.1</p>
@@ -952,24 +952,25 @@
 <!-- refpage --><center><h1>escript</h1></center>
   
   <h3><a name="command" href="#command">Command</a></h3>
-<div class="REFBODY">escript</div>
+<div class="REFBODY command-body">escript</div>
   <h3><a name="command-summary" href="#command-summary">Command Summary</a></h3>
-<div class="REFBODY">Erlang scripting support</div>
+<div class="REFBODY command-summary-body">Erlang scripting support</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p><span class="code">escript</span> provides support for running short Erlang programs
       without having to compile them first, and an easy way to retrieve the
       command-line arguments.</p>
   </p></div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><span class="bold_code">script-name script-arg1 script-arg2...</span><span class="bold_code">escript escript-flags script-name script-arg1 script-arg2...</span></p>
-<div class="REFBODY"><p>
+<div class="exports-body">
+    <p><span class="bold_code bc-10">script-name script-arg1 script-arg2...</span><span class="bold_code bc-10">escript escript-flags script-name script-arg1 script-arg2...</span></p>
+<div class="REFBODY rb-7"><p>
         <p><span class="code">escript</span> runs a script written in Erlang.</p>
         <p>Example:</p>
         <div class="example"><pre>
-$ <span class="bold_code">chmod u+x factorial</span>
-$ <span class="bold_code">cat factorial</span>
+$ <span class="bold_code bc-12">chmod u+x factorial</span>
+$ <span class="bold_code bc-12">cat factorial</span>
 #!/usr/bin/env escript
 %% -*- erlang -*-
 %%! -smp enable -sname factorial -mnesia debug verbose
@@ -991,11 +992,11 @@ usage() -&gt;
 
 fac(0) -&gt; 1;
 fac(N) -&gt; N * fac(N-1).
-$ <span class="bold_code">./factorial 5</span>
+$ <span class="bold_code bc-12">./factorial 5</span>
 factorial 5 = 120
-$ <span class="bold_code">./factorial</span>
+$ <span class="bold_code bc-12">./factorial</span>
 usage: factorial integer
-$ <span class="bold_code">./factorial five</span>
+$ <span class="bold_code bc-12">./factorial five</span>
 usage: factorial integer</pre></div>
         <p>The header of the Erlang script in the example differs from
           a normal Erlang module. The first line is intended to be the
@@ -1004,13 +1005,13 @@ usage: factorial integer</pre></div>
           the contents of the first line does not matter, but it
           cannot contain Erlang code as it will be ignored:</p>
         <div class="example"><pre>
-$ <span class="bold_code">escript factorial 5</span></pre></div>
+$ <span class="bold_code bc-12">escript factorial 5</span></pre></div>
         <p>The second line in the example contains an optional
           directive to the <span class="code">Emacs</span> editor, which causes it to
           enter the major mode for editing Erlang source files. If the
           directive is present, it must be located on the second
           line.</p>
-        <p>If a comment selecting the <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','stdlib','epp.html#encoding');">encoding</a></span> exists, it can be
+        <p>If a comment selecting the <span class="bold_code bc-13"><a href="javascript:erlhref('../../../doc/../','stdlib','epp.html#encoding');">encoding</a></span> exists, it can be
           located on the second line.</p>
         <div class="note">
 <div class="label">Note</div>
@@ -1023,7 +1024,7 @@ io:setopts([{encoding, unicode}])</pre></div>
           <p>The default encoding of the I/O-server for <span class="code">standard_io</span>
             is <span class="code">latin1</span>, as the script runs in a non-interactive terminal
             (see section
-            <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','stdlib','unicode_usage.html#unicode_options_summary');">Summary of Options</a></span>) in the STDLIB User's Guide.</p>
+            <span class="bold_code bc-13"><a href="javascript:erlhref('../../../doc/../','stdlib','unicode_usage.html#unicode_options_summary');">Summary of Options</a></span>) in the STDLIB User's Guide.</p>
         </p></div>
 </div>
         <p>On the third line (or second line depending on the presence
@@ -1057,18 +1058,18 @@ io:setopts([{encoding, unicode}])</pre></div>
         <div class="example"><pre>
 halt(1).</pre></div>
         <p>To retrieve the pathname of the script, call
-          <span class="bold_code"><a href="#script_name_0"><span class="code">escript:script_name()</span></a></span> from your script
+          <span class="bold_code bc-17"><a href="#script_name_0"><span class="code">escript:script_name()</span></a></span> from your script
 	  (the pathname is usually, but not always, absolute).</p>
         <p>If the file contains source code (as in the example above),
           it is processed by the
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','stdlib','epp.html');"><span class="code">epp</span></a></span> preprocessor.
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','stdlib','epp.html');"><span class="code">epp</span></a></span> preprocessor.
           This means that you, for example, can use predefined macros
           (such as <span class="code">?MODULE</span>) and include directives like
           the <span class="code">-include_lib</span> directive. For example, use</p>
         <div class="example"><pre>
 -include_lib("kernel/include/file.hrl").</pre></div>
         <p>to include the record definitions for the records used by function
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','file.html#read_link_info-1');"><span class="code">file:read_link_info/1</span></a></span>. You can also select
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../doc/../','kernel','file.html#read_link_info-1');"><span class="code">file:read_link_info/1</span></a></span>. You can also select
           encoding by including an encoding comment here, but if
           a valid encoding comment exists on the second line, it takes
           precedence.</p>
@@ -1114,7 +1115,7 @@ halt(1).</pre></div>
           as one of the emulator flags. <span class="code">Module</span> must be the
           name of a module that has an exported <span class="code">main/1</span>
           function. For more information about archives and code loading, see
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','code.html');"><span class="code">code(3)</span></a></span>.</p>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','code.html');"><span class="code">code(3)</span></a></span>.</p>
         <p>It is often very convenient to have a header in
           the escript, especially on Unix platforms. However, the header
           is optional, so you directly can "execute"
@@ -1122,62 +1123,62 @@ halt(1).</pre></div>
           any header to them. But then you have to invoke the script
           as follows:</p>
         <div class="example"><pre>
-$ <span class="bold_code">escript factorial.erl 5</span>
+$ <span class="bold_code bc-12">escript factorial.erl 5</span>
 factorial 5 = 120
-$ <span class="bold_code">escript factorial.beam 5</span>
+$ <span class="bold_code bc-12">escript factorial.beam 5</span>
 factorial 5 = 120
-$ <span class="bold_code">escript factorial.zip 5</span>
+$ <span class="bold_code bc-12">escript factorial.zip 5</span>
 factorial 5 = 120</pre></div>
       </p></div>
 
-    <p><span class="bold_code">escript:create(FileOrBin, Sections) -&gt; ok | {ok, binary()} |
+    <p><span class="bold_code bc-10">escript:create(FileOrBin, Sections) -&gt; ok | {ok, binary()} |
         {error, term()}</span></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">FileOrBin = filename() | 'binary'</span><br>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">FileOrBin = filename() | 'binary'</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Sections = [Header] Body | Body</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Sections = [Header] Body | Body</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Header = shebang | {shebang, Shebang}
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Header = shebang | {shebang, Shebang}
            | comment | {comment, Comment}
            | {emu_args, EmuArgs}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Shebang = string() | 'default' | 'undefined'</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Shebang = string() | 'default' | 'undefined'</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Comment = string() | 'default' | 'undefined'</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Comment = string() | 'default' | 'undefined'</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">EmuArgs = string() | 'undefined'</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EmuArgs = string() | 'undefined'</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Body = {source, SourceCode} | {beam, BeamCode}
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Body = {source, SourceCode} | {beam, BeamCode}
            | {archive, ZipArchive}
            | {archive, ZipFiles, ZipOptions}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">SourceCode = BeamCode = file:filename() | binary()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">SourceCode = BeamCode = file:filename() | binary()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ZipArchive = <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','stdlib','zip.html#type-filename');">zip:filename()</a></span> | binary()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ZipArchive = <span class="bold_code bc-13"><a href="javascript:erlhref('../../../doc/../','stdlib','zip.html#type-filename');">zip:filename()</a></span> | binary()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ZipFiles = [ZipFile]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ZipFiles = [ZipFile]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ZipFile = file:filename()
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ZipFile = file:filename()
            | {file:filename(), binary()}
            | {file:filename(), binary(), file:file_info()}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ZipOptions = [<span class="bold_code"><a href="javascript:erlhref('../../../doc/../','stdlib','zip.html#type-create_option');">zip:create_option()</a></span>]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ZipOptions = [<span class="bold_code bc-13"><a href="javascript:erlhref('../../../doc/../','stdlib','zip.html#type-create_option');">zip:create_option()</a></span>]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p><a name="create_2"></a>
           Creates an escript from a list of sections. The
           sections can be specified in any order. An escript begins with an
@@ -1193,61 +1194,61 @@ factorial 5 = 120</pre></div>
           flag. In this case, it happens to disable the <span class="code">smp_support</span>. We
           also extract the different sections from the newly created script:</p>
         <div class="example"><pre>
-&gt; <span class="bold_code">Source = "%% Demo\nmain(_Args) -&gt;\n    io:format(erlang:system_info(smp_support)).\n".</span>
+&gt; <span class="bold_code bc-12">Source = "%% Demo\nmain(_Args) -&gt;\n    io:format(erlang:system_info(smp_support)).\n".</span>
 "%% Demo\nmain(_Args) -&gt;\n    io:format(erlang:system_info(smp_support)).\n"
-&gt; <span class="bold_code">io:format("~s\n", [Source]).</span>
+&gt; <span class="bold_code bc-12">io:format("~s\n", [Source]).</span>
 %% Demo
 main(_Args) -&gt;
     io:format(erlang:system_info(smp_support)).
 
 ok
-&gt; <span class="bold_code">{ok, Bin} = escript:create(binary, [shebang, comment, {emu_args, "-smp disable"},
+&gt; <span class="bold_code bc-12">{ok, Bin} = escript:create(binary, [shebang, comment, {emu_args, "-smp disable"},
                                       {source, list_to_binary(Source)}]).</span>
 {ok,&lt;&lt;"#!/usr/bin/env escript\n%% This is an -*- erlang -*- file\n%%!-smp disabl"...&gt;&gt;}
-&gt; <span class="bold_code">file:write_file("demo.escript", Bin).</span>
+&gt; <span class="bold_code bc-12">file:write_file("demo.escript", Bin).</span>
 ok
-&gt; <span class="bold_code">os:cmd("escript demo.escript").</span>
+&gt; <span class="bold_code bc-12">os:cmd("escript demo.escript").</span>
 "false"
-&gt; <span class="bold_code">escript:extract("demo.escript", []).</span>
+&gt; <span class="bold_code bc-12">escript:extract("demo.escript", []).</span>
 {ok,[{shebang,default}, {comment,default}, {emu_args,"-smp disable"},
      {source,&lt;&lt;"%% Demo\nmain(_Args) -&gt;\n    io:format(erlang:system_info(smp_su"...&gt;&gt;}]}</pre></div>
         <p>An escript without header can be created as follows:</p>
         <div class="example"><pre>
-&gt; <span class="bold_code">file:write_file("demo.erl",
+&gt; <span class="bold_code bc-12">file:write_file("demo.erl",
                   ["%% demo.erl\n-module(demo).\n-export([main/1]).\n\n", Source]).</span>
 ok
-&gt; <span class="bold_code">{ok, _, BeamCode} = compile:file("demo.erl", [binary, debug_info]).</span>
+&gt; <span class="bold_code bc-12">{ok, _, BeamCode} = compile:file("demo.erl", [binary, debug_info]).</span>
 {ok,demo,
     &lt;&lt;70,79,82,49,0,0,2,208,66,69,65,77,65,116,111,109,0,0,0,
       79,0,0,0,9,4,100,...&gt;&gt;}
-&gt; <span class="bold_code">escript:create("demo.beam", [{beam, BeamCode}]).</span>
+&gt; <span class="bold_code bc-12">escript:create("demo.beam", [{beam, BeamCode}]).</span>
 ok
-&gt; <span class="bold_code">escript:extract("demo.beam", []).</span>
+&gt; <span class="bold_code bc-12">escript:extract("demo.beam", []).</span>
 {ok,[{shebang,undefined}, {comment,undefined}, {emu_args,undefined},
      {beam,&lt;&lt;70,79,82,49,0,0,3,68,66,69,65,77,65,116,
              111,109,0,0,0,83,0,0,0,9,...&gt;&gt;}]}
-&gt; <span class="bold_code">os:cmd("escript demo.beam").</span>
+&gt; <span class="bold_code bc-12">os:cmd("escript demo.beam").</span>
 "true"</pre></div>
         <p>Here we create an archive script containing both Erlang
           code and Beam code, then we iterate over all files in
           the archive and collect their contents and some information about
           them:</p>
         <div class="example"><pre>
-&gt; <span class="bold_code">{ok, SourceCode} = file:read_file("demo.erl").</span>
+&gt; <span class="bold_code bc-12">{ok, SourceCode} = file:read_file("demo.erl").</span>
 {ok,&lt;&lt;"%% demo.erl\n-module(demo).\n-export([main/1]).\n\n%% Demo\nmain(_Arg"...&gt;&gt;}
-&gt; <span class="bold_code">escript:create("demo.escript",
+&gt; <span class="bold_code bc-12">escript:create("demo.escript",
                  [shebang,
                   {archive, [{"demo.erl", SourceCode},
                              {"demo.beam", BeamCode}], []}]).</span>
 ok
-&gt; <span class="bold_code">{ok, [{shebang,default}, {comment,undefined}, {emu_args,undefined},
+&gt; <span class="bold_code bc-12">{ok, [{shebang,default}, {comment,undefined}, {emu_args,undefined},
      {archive, ArchiveBin}]} = escript:extract("demo.escript", []).</span>
 {ok,[{shebang,default}, {comment,undefined}, {emu_args,undefined},
      {{archive,&lt;&lt;80,75,3,4,20,0,0,0,8,0,118,7,98,60,105,
                 152,61,93,107,0,0,0,118,0,...&gt;&gt;}]}
-&gt; <span class="bold_code">file:write_file("demo.zip", ArchiveBin).</span>
+&gt; <span class="bold_code bc-12">file:write_file("demo.zip", ArchiveBin).</span>
 ok
-&gt; <span class="bold_code">zip:foldl(fun(N, I, B, A) -&gt; [{N, I(), B()} | A] end, [], "demo.zip").</span>
+&gt; <span class="bold_code bc-12">zip:foldl(fun(N, I, B, A) -&gt; [{N, I(), B()} | A] end, [], "demo.zip").</span>
 {ok,[{"demo.beam",
       {file_info,748,regular,read_write,
                  {{2010,3,2},{0,59,22}},
@@ -1265,47 +1266,47 @@ ok
       &lt;&lt;"%% demo.erl\n-module(demo).\n-export([main/1]).\n\n%% Demo\nmain(_Arg"...&gt;&gt;}]}</pre></div>
       </p></div>
 
-    <p><span class="bold_code">escript:extract(File, Options) -&gt; {ok, Sections} |
+    <p><span class="bold_code bc-10">escript:extract(File, Options) -&gt; {ok, Sections} |
         {error, term()}</span></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">File = filename()</span><br>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">File = filename()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Options = [] | [compile_source]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Options = [] | [compile_source]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Sections = Headers Body</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Sections = Headers Body</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Headers =  {shebang, Shebang}
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Headers =  {shebang, Shebang}
           {comment, Comment}
           {emu_args, EmuArgs}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Shebang = string() | 'default' | 'undefined'</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Shebang = string() | 'default' | 'undefined'</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Comment = string() | 'default' | 'undefined'</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Comment = string() | 'default' | 'undefined'</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">EmuArgs = string() | 'undefined'</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EmuArgs = string() | 'undefined'</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Body = {source, SourceCode}
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Body = {source, SourceCode}
            | {source, BeamCode}
            | {beam, BeamCode}
            | {archive, ZipArchive}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">SourceCode = BeamCode = ZipArchive = binary()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">SourceCode = BeamCode = ZipArchive = binary()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p><a name="extract_2"></a>
           Parses an escript and extracts its sections. This is the reverse
-          of <span class="bold_code"><a href="#create_2"><span class="code">create/2</span></a></span>.</p>
+          of <span class="bold_code bc-17"><a href="#create_2"><span class="code">create/2</span></a></span>.</p>
         <p>All sections are returned even if they do not exist in the
           escript. If a particular section happens to have the same
           value as the default value, the extracted value is set to the
@@ -1318,11 +1319,11 @@ ok
           SourceCode}</span>.</p>
         <p>Example:</p>
         <div class="example"><pre>
-&gt; <span class="bold_code">escript:create("demo.escript",
+&gt; <span class="bold_code bc-12">escript:create("demo.escript",
                  [shebang, {archive, [{"demo.erl", SourceCode},
                                       {"demo.beam", BeamCode}], []}]).</span>
 ok
-&gt; <span class="bold_code">{ok, [{shebang,default}, {comment,undefined}, {emu_args,undefined},
+&gt; <span class="bold_code bc-12">{ok, [{shebang,default}, {comment,undefined}, {emu_args,undefined},
      {archive, ArchiveBin}]} =
               escript:extract("demo.escript", []).</span>
 {ok,[{{archive,&lt;&lt;80,75,3,4,20,0,0,0,8,0,118,7,98,60,105,
@@ -1330,23 +1331,23 @@ ok
      {emu_args,undefined}]}</pre></div>
       </p></div>
 
-    <p><span class="bold_code">escript:script_name() -&gt; File</span></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">File = filename()</span><br>
+    <p><span class="bold_code bc-10">escript:script_name() -&gt; File</span></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">File = filename()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p><a name="script_name_0"></a>
           Returns the name of the escript that is executed.
           If the function is invoked outside the context
           of an escript, the behavior is undefined.</p>
       </p></div>
-  
+  </div>
 
-  <h3><a name="idm45311098332672">Options Accepted By escript</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46455778579824">Options Accepted By escript</a></h3>
+<div class="REFBODY rb-3">
     
     <dl>
       <dt><strong><span class="code">-c</span></strong></dt>

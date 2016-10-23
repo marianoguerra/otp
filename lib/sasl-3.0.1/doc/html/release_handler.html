@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">System Architecture Support Libraries (SASL)</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 3.0.1</p>
@@ -147,23 +147,23 @@
 <!-- refpage --><center><h1>release_handler</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">release_handler</div>
+<div class="REFBODY module-body">release_handler</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Unpacking and Installation of Release Packages</div>
+<div class="REFBODY module-summary-body">Unpacking and Installation of Release Packages</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>The <strong>release handler</strong> process belongs to the SASL
       application, which is responsible for <strong>release handling</strong>,
       that is, unpacking, installation, and removal of release packages.</p>
     <p>An introduction to release handling and an example is provided in
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','release_handling.html');">OTP Design Principles</a></span> in <strong>System Documentation</strong>.</p>
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','release_handling.html');">OTP Design Principles</a></span> in <strong>System Documentation</strong>.</p>
     <p>A <strong>release package</strong> is a compressed tar file containing
       code for a certain version of a release, created by calling
-      <span class="bold_code"><a href="systools.html#make_tar-1"><span class="code">systools:make_tar/1,2</span></a></span>.
+      <span class="bold_code bc-15"><a href="systools.html#make_tar-1"><span class="code">systools:make_tar/1,2</span></a></span>.
       The release package is to be located in the <span class="code">$ROOT/releases</span>
       directory of the previous version of the release, where
       <span class="code">$ROOT</span> is the installation root directory,
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','code.html#root_dir-0');"><span class="code">code:root_dir()</span></a></span>.
+      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','code.html#root_dir-0');"><span class="code">code:root_dir()</span></a></span>.
       Another <span class="code">releases</span> directory can be specified using the SASL
       configuration parameter <span class="code">releases_dir</span> or the OS environment
       variable <span class="code">RELDIR</span>. The release handler must have write access
@@ -235,7 +235,7 @@
       system configuration file are to be used if the system is
       restarted. This is taken care of automatically if Erlang is
       started as an embedded system. Read about this in
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/embedded','users_guide.html');">Embedded System</a></span> in
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/embedded','users_guide.html');">Embedded System</a></span> in
       <strong>System Documentation</strong>. In this case, the system
       configuration file <span class="code">sys.config</span> is mandatory.</p>
     <p>The installation of a new release can restart the system. Which
@@ -257,7 +257,7 @@
     <p>The release handler at a node running on a diskless machine,
       or with a read-only file system, must be configured accordingly
       using the following SASL configuration parameters (for
-      details, see <span class="bold_code"><a href="sasl_app.html">sasl(6)</a></span>):</p>
+      details, see <span class="bold_code bc-19"><a href="sasl_app.html">sasl(6)</a></span>):</p>
     <dl>
       <dt><strong><span class="code">masters</span></strong></dt>
       <dd>
@@ -290,26 +290,27 @@
   </p></div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="check_install_release-1"></a><span class="bold_code">check_install_release(Vsn) -&gt; {ok, OtherVsn, Descr} | {error, Reason}</span><br><a name="check_install_release-2"></a><span class="bold_code">check_install_release(Vsn,Opts) -&gt; {ok, OtherVsn, Descr} | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Vsn = OtherVsn = string()</span><br>
+<div class="exports-body">
+    <p><a name="check_install_release-1"></a><span class="bold_code bc-9">check_install_release(Vsn) -&gt; {ok, OtherVsn, Descr} | {error, Reason}</span><br><a name="check_install_release-2"></a><span class="bold_code bc-9">check_install_release(Vsn,Opts) -&gt; {ok, OtherVsn, Descr} | {error, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Vsn = OtherVsn = string()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Opts = [Opt]</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Opts = [Opt]</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Opt = purge</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Opt = purge</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Descr = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Descr = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Checks if the specified version <span class="code">Vsn</span> of the release
           can be installed. The release must not have status
           <span class="code">current</span>. Issues warnings if <span class="code">relup</span> file or
@@ -322,34 +323,34 @@
           the <span class="code">point_of_no_return</span> instruction in the release
           upgrade script.</p>
         <p>Returns the same as 
-	<span class="bold_code"><a href="#install_release-1"><span class="code">install_release/1</span></a></span>.
+	<span class="bold_code bc-17"><a href="#install_release-1"><span class="code">install_release/1</span></a></span>.
 	<span class="code">Descr</span> defaults to "" if no <span class="code">relup</span> file is found.</p>
         <p>If option <span class="code">purge</span> is specified, all old code that can
           be soft-purged is purged after all other checks are
           successfully completed. This can be useful to
-          reduce the time needed by <span class="bold_code"><a href="#install_release-1"><span class="code">install_release/1</span></a></span>.</p>
+          reduce the time needed by <span class="bold_code bc-17"><a href="#install_release-1"><span class="code">install_release/1</span></a></span>.</p>
       </p></div>
 
-    <p><a name="create_RELEASES-4"></a><span class="bold_code">create_RELEASES(Root, RelDir, RelFile, AppDirs) -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Root = RelDir = RelFile = string()</span><br>
+    <p><a name="create_RELEASES-4"></a><span class="bold_code bc-9">create_RELEASES(Root, RelDir, RelFile, AppDirs) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Root = RelDir = RelFile = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">AppDirs = [{App, Vsn, Dir}]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">AppDirs = [{App, Vsn, Dir}]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> App = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> App = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Vsn = Dir = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Vsn = Dir = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Creates an initial <span class="code">RELEASES</span> file to be used by the
           release handler. This file must exist to install new
           releases.</p>
@@ -369,59 +370,59 @@
           <span class="code">$ROOT/lib</span>.</p>
       </p></div>
 
-    <p><a name="install_file-2"></a><span class="bold_code">install_file(Vsn, File) -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Vsn = File = string()</span><br>
+    <p><a name="install_file-2"></a><span class="bold_code bc-9">install_file(Vsn, File) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Vsn = File = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Installs a release-dependent file in the release structure.
           The release-dependent file must be in
           the release structure when a new release is installed:
           <span class="code">start.boot</span>, <span class="code">relup</span>, and <span class="code">sys.config</span>.</p>
         <p>The function can be called, for example, when these files
           are generated at the target. The function is to be called after
-          <span class="bold_code"><a href="#set_unpacked-2"><span class="code">set_unpacked/2</span></a></span> 
+          <span class="bold_code bc-17"><a href="#set_unpacked-2"><span class="code">set_unpacked/2</span></a></span> 
 	has been called.</p>
       </p></div>
 
-    <p><a name="install_release-1"></a><span class="bold_code">install_release(Vsn) -&gt; {ok, OtherVsn, Descr} | {error, Reason}</span><br><a name="install_release-2"></a><span class="bold_code">install_release(Vsn, [Opt]) -&gt; {ok, OtherVsn, Descr} | {continue_after_restart, OtherVsn, Descr} | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Vsn = OtherVsn = string()</span><br>
+    <p><a name="install_release-1"></a><span class="bold_code bc-9">install_release(Vsn) -&gt; {ok, OtherVsn, Descr} | {error, Reason}</span><br><a name="install_release-2"></a><span class="bold_code bc-9">install_release(Vsn, [Opt]) -&gt; {ok, OtherVsn, Descr} | {continue_after_restart, OtherVsn, Descr} | {error, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Vsn = OtherVsn = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Opt = {error_action, Action} | {code_change_timeout, Timeout}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Opt = {error_action, Action} | {code_change_timeout, Timeout}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">   | {suspend_timeout, Timeout} | {update_paths, Bool}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">   | {suspend_timeout, Timeout} | {update_paths, Bool}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Action = restart | reboot</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Action = restart | reboot</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Timeout = default | infinity | pos_integer()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Timeout = default | infinity | pos_integer()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Bool = boolean()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Bool = boolean()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Descr = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Descr = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = {illegal_option, Opt} | {already_installed, Vsn} | {change_appl_data, term()} | {missing_base_app, OtherVsn, App} | {could_not_create_hybrid_boot, term()} | term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = {illegal_option, Opt} | {already_installed, Vsn} | {change_appl_data, term()} | {missing_base_app, OtherVsn, App} | {could_not_create_hybrid_boot, term()} | term()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">App = atom()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">App = atom()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Installs the specified version <span class="code">Vsn</span> of the release.
           Looks first for a <span class="code">relup</span> file for <span class="code">Vsn</span> and a
           script <span class="code">{UpFromVsn,Descr1,Instructions1}</span> in this file
@@ -458,21 +459,21 @@
           <dt><strong><span class="code">error_action</span></strong></dt>
             <dd><p>Defines if the node is to be
             restarted 
-	    (<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','init.html#restart-0');"><span class="code">init:restart()</span></a></span>) 
+	    (<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','init.html#restart-0');"><span class="code">init:restart()</span></a></span>) 
 	    or rebooted
-            (<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','init.html#reboot-0');"><span class="code">init:reboot()</span></a></span>) 
+            (<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','init.html#reboot-0');"><span class="code">init:reboot()</span></a></span>) 
 	    if there is an error during
             the installation. Default is <span class="code">restart</span>.</p></dd>
           <dt><strong><span class="code">code_change_timeout</span></strong></dt>
             <dd><p>Defines the time-out
             for all calls to 
-	    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','sys.html#change_code-4');"><span class="code">sys:change_code</span></a></span>.
+	    <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','sys.html#change_code-4');"><span class="code">sys:change_code</span></a></span>.
 	    If no value is specified or <span class="code">default</span> is specified, the 
 	    default value defined in <span class="code">sys</span> is used.</p></dd>
           <dt><strong><span class="code">suspend_timeout</span></strong></dt>
             <dd><p>Defines the time-out for 
             all calls to 
-	    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','sys.html#suspend-1');"><span class="code">sys:suspend</span></a></span>.
+	    <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','sys.html#suspend-1');"><span class="code">sys:suspend</span></a></span>.
 	    If no value is specified, the values defined by the <span class="code">Timeout</span> 
 	    parameter of the <span class="code">upgrade</span> or <span class="code">suspend</span> instructions are used.
             If <span class="code">default</span> is specified, the default value defined in
@@ -486,8 +487,8 @@
             effect for other application directories than the default
             <span class="code">$ROOT/lib/App-Vsn</span>, that is, application directories
             specified in argument <span class="code">AppDirs</span> in a call to
-            <span class="bold_code"><a href="#create_RELEASES-4"><span class="code">create_RELEASES/4</span></a></span> or 
-	    <span class="bold_code"><a href="#set_unpacked-2"><span class="code">set_unpacked/2</span></a></span>.</p>
+            <span class="bold_code bc-17"><a href="#create_RELEASES-4"><span class="code">create_RELEASES/4</span></a></span> or 
+	    <span class="bold_code bc-17"><a href="#set_unpacked-2"><span class="code">set_unpacked/2</span></a></span>.</p>
             <p><strong>Example:</strong></p>
             <p>In the current version <span class="code">CurVsn</span> of a release, the
               application directory of <span class="code">myapp</span> is
@@ -499,7 +500,7 @@ release_handler:set_unpacked(RelFile, [{myapp,"1.0","/home/user"},...]).
 =&gt; {ok,NewVsn}</pre></div>
             <p>If <span class="code">NewVsn</span> is installed with option
               <span class="code">{update_paths,true}</span>, then
-              <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','code.html#lib_dir-1');"><span class="code">code:lib_dir(myapp)</span></a></span>
+              <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','code.html#lib_dir-1');"><span class="code">code:lib_dir(myapp)</span></a></span>
 	      returns <span class="code">/home/user/myapp-1.0</span>.</p>
 </dd>
         </dl>
@@ -512,13 +513,13 @@ release_handler:set_unpacked(RelFile, [{myapp,"1.0","/home/user"},...]).
 	  before a module can be purged. This check can lead to
 	  garbage collections and copying of data.</p>
 	  <p>To speed up the execution of
-	  <span class="bold_code"><a href="#install_release-1"><span class="code">install_release</span></a></span>, 
-	  first call <span class="bold_code"><a href="#check_install_release-1"><span class="code">check_install_release</span></a></span>,
+	  <span class="bold_code bc-17"><a href="#install_release-1"><span class="code">install_release</span></a></span>, 
+	  first call <span class="bold_code bc-17"><a href="#check_install_release-1"><span class="code">check_install_release</span></a></span>,
 	  using option <span class="code">purge</span>. This does the same
 	  check for old code. Then purges all modules that can be
 	  soft-purged. The purged modules do then no longer have any
 	  old code, and 
-	  <span class="bold_code"><a href="#install_release-1"><span class="code">install_release</span></a></span>
+	  <span class="bold_code bc-17"><a href="#install_release-1"><span class="code">install_release</span></a></span>
 	  does not need to do the
 	  checks.</p>
 	  <p>This does not reduce the overall time for the
@@ -537,95 +538,95 @@ release_handler:set_unpacked(RelFile, [{myapp,"1.0","/home/user"},...]).
 	  overcome this problem, the new application code is to be
 	  compiled with the old emulator. For more information about
           emulator upgrade from pre OTP R15 versions, see
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','appup_cookbook.html');">Design Principles</a></span> in <strong>System Documentation</strong>.</p>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','appup_cookbook.html');">Design Principles</a></span> in <strong>System Documentation</strong>.</p>
 	</p></div>
 </div>
       </p></div>
 
-    <p><a name="make_permanent-1"></a><span class="bold_code">make_permanent(Vsn) -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Vsn = string()</span><br>
+    <p><a name="make_permanent-1"></a><span class="bold_code bc-9">make_permanent(Vsn) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Vsn = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = {bad_status, Status} | term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = {bad_status, Status} | term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Makes the specified release version <span class="code">Vsn</span>
           permanent.</p>
       </p></div>
 
-    <p><a name="remove_release-1"></a><span class="bold_code">remove_release(Vsn) -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Vsn = string()</span><br>
+    <p><a name="remove_release-1"></a><span class="bold_code bc-9">remove_release(Vsn) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Vsn = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = {permanent, Vsn} | client_node | term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = {permanent, Vsn} | client_node | term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Removes a release and its files from the system.
           The release must not be the permanent release. Removes only
           the files and directories not in use by another release.</p>
       </p></div>
-    <p><a name="reboot_old_release-1"></a><span class="bold_code">reboot_old_release(Vsn) -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Vsn = string()</span><br>
+    <p><a name="reboot_old_release-1"></a><span class="bold_code bc-9">reboot_old_release(Vsn) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Vsn = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = {bad_status, Status} | term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = {bad_status, Status} | term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Reboots the system by making the old release permanent, and
           calls 
-	  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','init.html#reboot-0');"><span class="code">init:reboot()</span></a></span> 
+	  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','init.html#reboot-0');"><span class="code">init:reboot()</span></a></span> 
 	  directly. The release must have status <span class="code">old</span>.</p>
       </p></div>
 
-    <p><a name="set_removed-1"></a><span class="bold_code">set_removed(Vsn) -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Vsn = string()</span><br>
+    <p><a name="set_removed-1"></a><span class="bold_code bc-9">set_removed(Vsn) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Vsn = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = {permanent, Vsn} | term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = {permanent, Vsn} | term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Makes it possible to handle removal of releases outside
           the release handler. Tells the release handler that
           the release is removed from the system. This function does
           not delete any files.</p>
       </p></div>
 
-    <p><a name="set_unpacked-2"></a><span class="bold_code">set_unpacked(RelFile, AppDirs) -&gt; {ok, Vsn} | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">RelFile = string()</span><br>
+    <p><a name="set_unpacked-2"></a><span class="bold_code bc-9">set_unpacked(RelFile, AppDirs) -&gt; {ok, Vsn} | {error, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">RelFile = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">AppDirs = [{App, Vsn, Dir}]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">AppDirs = [{App, Vsn, Dir}]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> App = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> App = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Vsn = Dir = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Vsn = Dir = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Makes it possible to handle unpacking of releases outside
           the release handler. Tells the release handler that
           the release is unpacked. <span class="code">Vsn</span> is extracted from
@@ -640,17 +641,17 @@ release_handler:set_unpacked(RelFile, [{myapp,"1.0","/home/user"},...]).
           <span class="code">$ROOT/lib</span>.</p>
       </p></div>
 
-    <p><a name="unpack_release-1"></a><span class="bold_code">unpack_release(Name) -&gt; {ok, Vsn} | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Name = Vsn = string()</span><br>
+    <p><a name="unpack_release-1"></a><span class="bold_code bc-9">unpack_release(Name) -&gt; {ok, Vsn} | {error, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Name = Vsn = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = client_node | term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = client_node | term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Unpacks a release package <span class="code">Name.tar.gz</span> located in
           the <span class="code">releases</span> directory.</p>
         <p>Performs some checks on the package, for example, checks
@@ -658,44 +659,44 @@ release_handler:set_unpacked(RelFile, [{myapp,"1.0","/home/user"},...]).
           contents.</p>
       </p></div>
 
-    <p><a name="which_releases-0"></a><span class="bold_code">which_releases() -&gt; [{Name, Vsn, Apps, Status}]</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Name = Vsn = string()</span><br>
+    <p><a name="which_releases-0"></a><span class="bold_code bc-9">which_releases() -&gt; [{Name, Vsn, Apps, Status}]</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Name = Vsn = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Apps = ["App-Vsn"]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Apps = ["App-Vsn"]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Status = unpacked | current | permanent | old</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Status = unpacked | current | permanent | old</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns all releases known to the release handler.</p>
       </p></div>
 
-    <p><a name="which_releases-1"></a><span class="bold_code">which_releases(Status) -&gt; [{Name, Vsn, Apps, Status}]</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Name = Vsn = string()</span><br>
+    <p><a name="which_releases-1"></a><span class="bold_code bc-9">which_releases(Status) -&gt; [{Name, Vsn, Apps, Status}]</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Name = Vsn = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Apps = ["App-Vsn"]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Apps = ["App-Vsn"]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Status = unpacked | current | permanent | old</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Status = unpacked | current | permanent | old</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns all releases, known to the release handler, of a
           specific status.</p>
       </p></div>
-  
+  </div>
 
-  <h3><a name="idm45555976815600">Application Upgrade/Downgrade</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45820697837344">Application Upgrade/Downgrade</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The following functions can be used to test upgrade and downgrade
       of single applications (instead of upgrading/downgrading an entire
@@ -711,7 +712,7 @@ release_handler:set_unpacked(RelFile, [{myapp,"1.0","/home/user"},...]).
         of <span class="code">.appup</span> files. They are not run within the context of
         the <span class="code">release_handler</span> process. They must therefore
         <strong>not</strong> be used together with calls to
-        <span class="bold_code"><a href="#install_release-1"><span class="code">install_release/1,2</span></a></span>, 
+        <span class="bold_code bc-17"><a href="#install_release-1"><span class="code">install_release/1,2</span></a></span>, 
 	as this causes the
         <span class="code">release_handler</span> to end up in an inconsistent state.</p>
       <p>No persistent information is updated, so these functions can
@@ -725,26 +726,27 @@ release_handler:set_unpacked(RelFile, [{myapp,"1.0","/home/user"},...]).
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="upgrade_app-2"></a><span class="bold_code">upgrade_app(App, Dir) -&gt; {ok, Unpurged} | restart_emulator | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">App = atom()</span><br>
+<div class="exports-body">
+    <p><a name="upgrade_app-2"></a><span class="bold_code bc-9">upgrade_app(App, Dir) -&gt; {ok, Unpurged} | restart_emulator | {error, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">App = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Dir = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Dir = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Unpurged = [Module]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Unpurged = [Module]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Module = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Module = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Upgrades an application <span class="code">App</span> from the current
           version to a new version located in <span class="code">Dir</span> according to
           the <span class="code">.appup</span> file.</p>
@@ -756,11 +758,11 @@ release_handler:set_unpacked(RelFile, [{myapp,"1.0","/home/user"},...]).
         <p>The function looks in the <span class="code">.appup</span> file and tries to
           find an upgrade script from the current version of
           the application using
-          <span class="bold_code"><a href="#upgrade_script-2"><span class="code">upgrade_script/2</span></a></span>.
+          <span class="bold_code bc-17"><a href="#upgrade_script-2"><span class="code">upgrade_script/2</span></a></span>.
           This script is evaluated using
-          <span class="bold_code"><a href="#eval_appup_script-4"><span class="code">eval_appup_script/4</span></a></span>,
+          <span class="bold_code bc-17"><a href="#eval_appup_script-4"><span class="code">eval_appup_script/4</span></a></span>,
           exactly in the same way as
-          <span class="bold_code"><a href="#install_release-1"><span class="code">install_release/1,2</span></a></span>
+          <span class="bold_code bc-17"><a href="#install_release-1"><span class="code">install_release/1,2</span></a></span>
           does.</p>
         <p>Returns one of the following:</p>
         <ul>
@@ -777,34 +779,34 @@ release_handler:set_unpacked(RelFile, [{myapp,"1.0","/home/user"},...]).
         </ul>
 	<p>If the <span class="code">restart_new_emulator</span> instruction is found in
           the script, 
-	  <span class="bold_code"><a href="#upgrade_app-2"><span class="code">upgrade_app/2</span></a></span> 
+	  <span class="bold_code bc-17"><a href="#upgrade_app-2"><span class="code">upgrade_app/2</span></a></span> 
 	  returns <span class="code">{error,restart_new_emulator}</span>. This because
           <span class="code">restart_new_emulator</span> requires a new version of the
           emulator to be started before the rest of the upgrade
           instructions can be executed, and this can only be done by
-          <span class="bold_code"><a href="#install_release-1"><span class="code">install_release/1,2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#install_release-1"><span class="code">install_release/1,2</span></a></span>.</p>
       </p></div>
 
-    <p><a name="downgrade_app-2"></a><span class="bold_code">downgrade_app(App, Dir) -&gt;</span><br><a name="downgrade_app-3"></a><span class="bold_code">downgrade_app(App, OldVsn, Dir) -&gt; {ok, Unpurged} | restart_emulator | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">App = atom()</span><br>
+    <p><a name="downgrade_app-2"></a><span class="bold_code bc-9">downgrade_app(App, Dir) -&gt;</span><br><a name="downgrade_app-3"></a><span class="bold_code bc-9">downgrade_app(App, OldVsn, Dir) -&gt; {ok, Unpurged} | restart_emulator | {error, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">App = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Dir = OldVsn = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Dir = OldVsn = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Unpurged = [Module]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Unpurged = [Module]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Module = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Module = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Downgrades an application <span class="code">App</span> from the current
           version to a previous version <span class="code">OldVsn</span> located in
           <span class="code">Dir</span> according to the <span class="code">.appup</span> file.</p>
@@ -817,15 +819,15 @@ release_handler:set_unpacked(RelFile, [{myapp,"1.0","/home/user"},...]).
           are to be located under <span class="code">Dir/ebin</span>. The <span class="code">.appup</span>
           file is to be located in the <span class="code">ebin</span> directory of
           the <strong>current</strong> library directory of the application
-          (<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','code.html#lib_dir-1');"><span class="code">code:lib_dir(App)</span></a></span>).</p>
+          (<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','code.html#lib_dir-1');"><span class="code">code:lib_dir(App)</span></a></span>).</p>
         <p>The function looks in the <span class="code">.appup</span> file and tries to
           find a downgrade script to the previous version of
           the application using
-          <span class="bold_code"><a href="#downgrade_script-3"><span class="code">downgrade_script/3</span></a></span>.
+          <span class="bold_code bc-17"><a href="#downgrade_script-3"><span class="code">downgrade_script/3</span></a></span>.
           This script is evaluated using
-          <span class="bold_code"><a href="#eval_appup_script-4"><span class="code">eval_appup_script/4</span></a></span>,
+          <span class="bold_code bc-17"><a href="#eval_appup_script-4"><span class="code">eval_appup_script/4</span></a></span>,
           exactly in the same way as
-          <span class="bold_code"><a href="#install_release-1"><span class="code">install_release/1,2</span></a></span>
+          <span class="bold_code bc-17"><a href="#install_release-1"><span class="code">install_release/1,2</span></a></span>
           does.</p>
         <p>Returns one of the following:</p>
         <ul>
@@ -842,30 +844,30 @@ release_handler:set_unpacked(RelFile, [{myapp,"1.0","/home/user"},...]).
         </ul>
       </p></div>
 
-    <p><a name="upgrade_script-2"></a><span class="bold_code">upgrade_script(App, Dir) -&gt; {ok, NewVsn, Script}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">App = atom()</span><br>
+    <p><a name="upgrade_script-2"></a><span class="bold_code bc-9">upgrade_script(App, Dir) -&gt; {ok, NewVsn, Script}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">App = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Dir = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Dir = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">NewVsn = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">NewVsn = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Script = Instructions</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Script = Instructions</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Tries to find an application upgrade script for <span class="code">App</span>
           from the current version to a new version located in
           <span class="code">Dir</span>.</p>
         <p>The upgrade script can then be evaluated using
-          <span class="bold_code"><a href="#eval_appup_script-4"><span class="code">eval_appup_script/4</span></a></span>.
+          <span class="bold_code bc-17"><a href="#eval_appup_script-4"><span class="code">eval_appup_script/4</span></a></span>.
           It is recommended to use
-          <span class="bold_code"><a href="#upgrade_app-2"><span class="code">upgrade_app/2</span></a></span>
+          <span class="bold_code bc-17"><a href="#upgrade_app-2"><span class="code">upgrade_app/2</span></a></span>
           instead, but this function (<span class="code">upgrade_script</span>) is useful
           to inspect the contents of the script.</p>
         <p><span class="code">App</span> is the name of the application, which must be
@@ -881,32 +883,32 @@ release_handler:set_unpacked(RelFile, [{myapp,"1.0","/home/user"},...]).
         <p>Returns <span class="code">{ok, NewVsn, Script}</span> if successful, where
           <span class="code">NewVsn</span> is the new application version.
 	For details about <span class="code">Script</span>, see 
-	<span class="bold_code"><a href="appup.html"><span class="code">appup(4)</span></a></span>.</p>
+	<span class="bold_code bc-19"><a href="appup.html"><span class="code">appup(4)</span></a></span>.</p>
         <p>Failure: If a script cannot be found, the function fails
           with an appropriate error reason.</p>
       </p></div>
 
-    <p><a name="downgrade_script-3"></a><span class="bold_code">downgrade_script(App, OldVsn, Dir) -&gt; {ok, Script}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">App = atom()</span><br>
+    <p><a name="downgrade_script-3"></a><span class="bold_code bc-9">downgrade_script(App, OldVsn, Dir) -&gt; {ok, Script}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">App = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">OldVsn = Dir = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">OldVsn = Dir = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Script = Instructions</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Script = Instructions</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Tries to find an application downgrade script for <span class="code">App</span>
           from the current version to a previous version <span class="code">OldVsn</span>
           located in <span class="code">Dir</span>.</p>
         <p>The downgrade script can then be evaluated using
-          <span class="bold_code"><a href="#eval_appup_script-4"><span class="code">eval_appup_script/4</span></a></span>.
+          <span class="bold_code bc-17"><a href="#eval_appup_script-4"><span class="code">eval_appup_script/4</span></a></span>.
           It is recommended to use
-          <span class="bold_code"><a href="#downgrade_app-2"><span class="code">downgrade_app/2,3</span></a></span>
+          <span class="bold_code bc-17"><a href="#downgrade_app-2"><span class="code">downgrade_app/2,3</span></a></span>
           instead, but this function (<span class="code">downgrade_script</span>) is useful
           to inspect the contents of the script.</p>
         <p><span class="code">App</span> is the name of the application, which must be
@@ -916,7 +918,7 @@ release_handler:set_unpacked(RelFile, [{myapp,"1.0","/home/user"},...]).
           <span class="code">Dir/ebin</span>. The <span class="code">.appup</span> file is to be located in
           the <span class="code">ebin</span> directory of the <strong>current</strong> library
           directory of the application 
-	(<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','code.html#lib_dir-1');"><span class="code">code:lib_dir(App)</span>)</a></span>.</p>
+	(<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','code.html#lib_dir-1');"><span class="code">code:lib_dir(App)</span>)</a></span>.</p>
         <p>The function looks in the <span class="code">.appup</span> file and tries to
           find a downgrade script from the current application version.
           High-level instructions are translated to
@@ -924,42 +926,42 @@ release_handler:set_unpacked(RelFile, [{myapp,"1.0","/home/user"},...]).
           the same manner as when generating a <span class="code">relup</span> file.</p>
         <p>Returns <span class="code">{ok, Script}</span> if successful. 
 	For details about <span class="code">Script</span>, see 
-	<span class="bold_code"><a href="appup.html"><span class="code">appup(4)</span></a></span>.</p>
+	<span class="bold_code bc-19"><a href="appup.html"><span class="code">appup(4)</span></a></span>.</p>
         <p>Failure: If a script cannot be found, the function fails
           with an appropriate error reason.</p>
       </p></div>
 
-    <p><a name="eval_appup_script-4"></a><span class="bold_code">eval_appup_script(App, ToVsn, ToDir, Script) -&gt; {ok, Unpurged} | restart_emulator | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">App = atom()</span><br>
+    <p><a name="eval_appup_script-4"></a><span class="bold_code bc-9">eval_appup_script(App, ToVsn, ToDir, Script) -&gt; {ok, Unpurged} | restart_emulator | {error, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">App = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ToVsn = ToDir = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ToVsn = ToDir = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Script</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Script</span><br>
 </div>
-	<div class="REFBODY">See <span class="bold_code"><a href="#upgrade_script-2"><span class="code">upgrade_script/2</span></a></span>, <span class="bold_code"><a href="#downgrade_script-3"><span class="code">downgrade_script/3</span></a></span>
+	<div class="REFBODY rb-6">See <span class="bold_code bc-17"><a href="#upgrade_script-2"><span class="code">upgrade_script/2</span></a></span>, <span class="bold_code bc-17"><a href="#downgrade_script-3"><span class="code">downgrade_script/3</span></a></span>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Unpurged = [Module]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Unpurged = [Module]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Module = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Module = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Evaluates an application upgrade or downgrade script
           <span class="code">Script</span>, the result from calling
-          <span class="bold_code"><a href="#upgrade_script-2"><span class="code">upgrade_script/2</span></a></span> or
-          <span class="bold_code"><a href="#downgrade_script-3"><span class="code">downgrade_script/3</span></a></span>,
+          <span class="bold_code bc-17"><a href="#upgrade_script-2"><span class="code">upgrade_script/2</span></a></span> or
+          <span class="bold_code bc-17"><a href="#downgrade_script-3"><span class="code">downgrade_script/3</span></a></span>,
           exactly in the same way as
-          <span class="bold_code"><a href="#install_release-1"><span class="code">install_release/1,2</span></a></span>
+          <span class="bold_code bc-17"><a href="#install_release-1"><span class="code">install_release/1,2</span></a></span>
           does.</p>
         <p><span class="code">App</span> is the name of the application, which must be
           started. <span class="code">ToVsn</span> is the version to be upgraded/downgraded
@@ -981,17 +983,17 @@ release_handler:set_unpacked(RelFile, [{myapp,"1.0","/home/user"},...]).
         </ul>
         <p>If the <span class="code">restart_new_emulator</span> instruction is found in
           the script, 
-	  <span class="bold_code"><a href="#eval_appup_script-4"><span class="code">eval_appup_script/4</span></a></span>
+	  <span class="bold_code bc-17"><a href="#eval_appup_script-4"><span class="code">eval_appup_script/4</span></a></span>
 	  returns <span class="code">{error,restart_new_emulator}</span>. This because
           <span class="code">restart_new_emulator</span> requires a new version of the
           emulator to be started before the rest of the upgrade
           instructions can be executed, and this can only be done by
-          <span class="bold_code"><a href="#install_release-1"><span class="code">install_release/1,2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#install_release-1"><span class="code">install_release/1,2</span></a></span>.</p>
       </p></div>
-  
+  </div>
 
-  <h3><a name="idm45555976709648">Typical Error Reasons</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45820697731392">Typical Error Reasons</a></h3>
+<div class="REFBODY rb-3">
     
     <dl>
       <dt><strong><span class="code">{bad_masters, Masters}</span></strong></dt>
@@ -1007,7 +1009,7 @@ release_handler:set_unpacked(RelFile, [{myapp,"1.0","/home/user"},...]).
           data.</p></dd>
       <dt><strong><span class="code">{cannot_extract_file, Name, Reason}</span></strong></dt>
         <dd><p>Problems when extracting from a tar file,
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','erl_tar.html#extract-2');"><span class="code">erl_tar:extract/2</span></a></span>
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','erl_tar.html#extract-2');"><span class="code">erl_tar:extract/2</span></a></span>
 	  returned <span class="code">{error, {Name, Reason}}</span>.</p></dd>
       <dt><strong><span class="code">{existing_release, Vsn}</span></strong></dt>
         <dd><p>Specified release version <span class="code">Vsn</span> is already
@@ -1036,7 +1038,7 @@ release_handler:set_unpacked(RelFile, [{myapp,"1.0","/home/user"},...]).
         <dd><p>Some file operation failed for <span class="code">File</span>. <span class="code">Posix</span>
           is an atom named from the Posix error codes, such as
           <span class="code">enoent</span>, <span class="code">eacces</span>, or <span class="code">eisdir</span>. See
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html');"><span class="code">file(3)</span></a></span>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html');"><span class="code">file(3)</span></a></span>
           in Kernel.</p></dd>
       <dt><strong><span class="code">Posix</span></strong></dt>
         <dd><p>Some file operation failed, as for the previous item in
@@ -1044,16 +1046,16 @@ release_handler:set_unpacked(RelFile, [{myapp,"1.0","/home/user"},...]).
     </dl>
   </div>
 
-  <h3><a name="idm45555976677632">See Also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45820697699376">See Also</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','users_guide.html');">OTP Design Principles</a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','config.html');"><span class="code">config(4)</span></a></span>,
-      <span class="bold_code"><a href="rel.html"><span class="code">rel(4)</span></a></span>,
-      <span class="bold_code"><a href="relup.html"><span class="code">relup(4)</span></a></span>,
-      <span class="bold_code"><a href="script.html"><span class="code">script(4)</span></a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','sys.html');"><span class="code">sys(3)</span></a></span>,
-      <span class="bold_code"><a href="systools.html"><span class="code">systools(3)</span></a></span></p>
+    <p><span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','users_guide.html');">OTP Design Principles</a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','config.html');"><span class="code">config(4)</span></a></span>,
+      <span class="bold_code bc-19"><a href="rel.html"><span class="code">rel(4)</span></a></span>,
+      <span class="bold_code bc-19"><a href="relup.html"><span class="code">relup(4)</span></a></span>,
+      <span class="bold_code bc-19"><a href="script.html"><span class="code">script(4)</span></a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','sys.html');"><span class="code">sys(3)</span></a></span>,
+      <span class="bold_code bc-19"><a href="systools.html"><span class="code">systools(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Diameter</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 1.12.1</p>
@@ -147,12 +147,12 @@
 
 
 <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">diameter</div>
+<div class="REFBODY module-body">diameter</div>
 <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Main API of the diameter application.</div>
+<div class="REFBODY module-summary-body">Main API of the diameter application.</div>
 
 <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
 <p>
 This module provides the interface with which a user can
 implement a Diameter node that sends and receives messages using the
@@ -161,11 +161,11 @@ Diameter protocol as defined in RFC 6733.</p>
 <p>
 Basic usage consists of creating a representation of a
 locally implemented Diameter node and its capabilities with
-<span class="bold_code"><a href="#start_service-2">start_service/2</a></span>, adding transport capability using
-<span class="bold_code"><a href="#add_transport-2">add_transport/2</a></span> and sending Diameter
-requests and receiving Diameter answers with <span class="bold_code"><a href="#call-4">call/4</a></span>.
+<span class="bold_code bc-17"><a href="#start_service-2">start_service/2</a></span>, adding transport capability using
+<span class="bold_code bc-17"><a href="#add_transport-2">add_transport/2</a></span> and sending Diameter
+requests and receiving Diameter answers with <span class="bold_code bc-17"><a href="#call-4">call/4</a></span>.
 Incoming Diameter requests are communicated as callbacks to a
-<span class="bold_code"><a href="diameter_app.html">diameter_app(3)</a></span> callback modules as
+<span class="bold_code bc-19"><a href="diameter_app.html">diameter_app(3)</a></span> callback modules as
 specified in the service configuration.</p>
 
 <p>
@@ -183,8 +183,8 @@ in this module.</p>
 
 
 
-<h3><a name="idp46355812003248">DATA TYPES</a></h3>
-<div class="REFBODY">
+<h3><a name="idp46985880967104">DATA TYPES</a></h3>
+<div class="REFBODY rb-3">
 
 
 <dl>
@@ -205,7 +205,7 @@ in this module.</p>
 <dd>
 <p>
 Types corresponding to RFC 6733 AVP Data Formats.
-Defined in <span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">diameter_dict(4)</a></span>.</p>
+Defined in <span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">diameter_dict(4)</a></span>.</p>
 
 <a name="application_alias"></a>
 </dd>
@@ -215,7 +215,7 @@ Defined in <span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">diame
 <p>
 Name identifying a Diameter application in
 service configuration.
-Passed to <span class="bold_code"><a href="#call-4">call/4</a></span> when sending requests
+Passed to <span class="bold_code bc-17"><a href="#call-4">call/4</a></span> when sending requests
 defined by the application.</p>
 
 <a name="application_module"></a>
@@ -231,16 +231,16 @@ ExtraArgs = list()
 </pre></div>
 
 <p>
-Module implementing the callback interface defined in <span class="bold_code"><a href="diameter_app.html">diameter_app(3)</a></span>,
+Module implementing the callback interface defined in <span class="bold_code bc-19"><a href="diameter_app.html">diameter_app(3)</a></span>,
 along with any
 extra arguments to be appended to those documented.
 Note that extra arguments specific to an outgoing request can be
-specified to <span class="bold_code"><a href="#call-4">call/4</a></span>, in which case
+specified to <span class="bold_code bc-17"><a href="#call-4">call/4</a></span>, in which case
 those are are appended to any module-specific extra arguments.</p>
 
 <p>
 Specifying a <span class="code">#diameter_callback{}</span> record allows individual
-functions to be configured in place of the usual <span class="bold_code"><a href="diameter_app.html">diameter_app(3)</a></span> callbacks.
+functions to be configured in place of the usual <span class="bold_code bc-19"><a href="diameter_app.html">diameter_app(3)</a></span> callbacks.
 See <span class="code">diameter_callback.erl</span> for details.</p>
 
 <a name="application_opt"></a>
@@ -255,7 +255,7 @@ Has one the following types.</p>
 
 <dl>
 
-<dt><strong><span class="code">{alias, <span class="bold_code"><a href="#application_alias">application_alias()</a></span>}</span></strong></dt>
+<dt><strong><span class="code">{alias, <span class="bold_code bc-17"><a href="#application_alias">application_alias()</a></span>}</span></strong></dt>
 <dd>
 <p>
 Unique identifier for the application in the scope of the
@@ -269,15 +269,15 @@ Defaults to the value of the <span class="code">dictionary</span> option.</p>
 Name of an encode/decode module for the Diameter
 messages defined by the application.
 These modules are generated from files whose format is documented in
-<span class="bold_code"><a href="diameter_dict.html">diameter_dict(4)</a></span>.</p>
+<span class="bold_code bc-19"><a href="diameter_dict.html">diameter_dict(4)</a></span>.</p>
 </dd>
 
-<dt><strong><span class="code">{module, <span class="bold_code"><a href="#application_module">application_module()</a></span>}</span></strong></dt>
+<dt><strong><span class="code">{module, <span class="bold_code bc-17"><a href="#application_module">application_module()</a></span>}</span></strong></dt>
 <dd>
 <p>
 Callback module in which messages of the Diameter application are
 handled.
-See <span class="bold_code"><a href="diameter_app.html">diameter_app(3)</a></span> for the required interface and semantics.</p>
+See <span class="bold_code bc-19"><a href="diameter_app.html">diameter_app(3)</a></span> for the required interface and semantics.</p>
 </dd>
 
 <dt><strong><span class="code">{state, term()}</span></strong></dt>
@@ -285,7 +285,7 @@ See <span class="bold_code"><a href="diameter_app.html">diameter_app(3)</a></spa
 <p>
 Initial callback state.
 The prevailing state is passed to some
-<span class="bold_code"><a href="diameter_app.html">diameter_app(3)</a></span>
+<span class="bold_code bc-19"><a href="diameter_app.html">diameter_app(3)</a></span>
 callbacks, which can then return a new state.
 Defaults to the value of the <span class="code">alias</span> option.</p>
 </dd>
@@ -293,7 +293,7 @@ Defaults to the value of the <span class="code">alias</span> option.</p>
 <dt><strong><span class="code">{call_mutates_state, true|false}</span></strong></dt>
 <dd>
 <p>
-Whether or not the <span class="bold_code"><a href="diameter_app.html#Mod:pick_peer-4">pick_peer/4</a></span>
+Whether or not the <span class="bold_code bc-15"><a href="diameter_app.html#Mod:pick_peer-4">pick_peer/4</a></span>
 application callback can modify the application state.
 Defaults to <span class="code">false</span>.</p>
 
@@ -301,7 +301,7 @@ Defaults to <span class="code">false</span>.</p>
 <div class="label">Warning</div>
 <div class="content"><p>
 <p>
-<span class="bold_code"><a href="diameter_app.html#Mod:pick_peer-4">pick_peer/4</a></span> callbacks are serialized when this option is <span class="code">true</span>,
+<span class="bold_code bc-15"><a href="diameter_app.html#Mod:pick_peer-4">pick_peer/4</a></span> callbacks are serialized when this option is <span class="code">true</span>,
 which is a potential performance bottleneck.
 A simple Diameter client may suffer no ill effects from using mutable
 state but a server or agent that responds to incoming request should
@@ -317,8 +317,8 @@ Manner in which incoming answer messages containing
 decode errors are handled.</p>
 
 <p>
-If <span class="code">callback</span> then errors result in a <span class="bold_code"><a href="diameter_app.html#Mod:handle_answer-4">handle_answer/4</a></span>
-callback in the same fashion as for <span class="bold_code"><a href="diameter_app.html#Mod:handle_request-3">handle_request/3</a></span>, with
+If <span class="code">callback</span> then errors result in a <span class="bold_code bc-15"><a href="diameter_app.html#Mod:handle_answer-4">handle_answer/4</a></span>
+callback in the same fashion as for <span class="bold_code bc-15"><a href="diameter_app.html#Mod:handle_request-3">handle_request/3</a></span>, with
 errors communicated in the <span class="code">errors</span> field of the
 <span class="code">#diameter_packet{}</span> passed to the callback.
 If <span class="code">report</span> then an answer containing errors is discarded
@@ -326,7 +326,7 @@ without a callback and a warning report is written to the log.
 If <span class="code">discard</span> then an answer containing errors is silently
 discarded without a callback.
 In both the <span class="code">report</span> and <span class="code">discard</span> cases the return value
-for the <span class="bold_code"><a href="#call-4">call/4</a></span> invocation in
+for the <span class="bold_code bc-17"><a href="#call-4">call/4</a></span> invocation in
 question is as if a callback had taken place and returned
 <span class="code">{error, failure}</span>.</p>
 
@@ -343,11 +343,11 @@ be associated with an application callback module), is detected.</p>
 
 <p>
 If <span class="code">answer_3xxx</span> then requests are answered without a
-<span class="bold_code"><a href="diameter_app.html#Mod:handle_request-3">handle_request/3</a></span> callback taking place.
+<span class="bold_code bc-15"><a href="diameter_app.html#Mod:handle_request-3">handle_request/3</a></span> callback taking place.
 If <span class="code">answer</span> then even 5xxx errors are answered without a
 callback unless the connection in question has configured the RFC 3588
 common dictionary as noted below.
-If <span class="code">callback</span> then a <span class="bold_code"><a href="diameter_app.html#Mod:handle_request-3">handle_request/3</a></span> callback always takes
+If <span class="code">callback</span> then a <span class="bold_code bc-15"><a href="diameter_app.html#Mod:handle_request-3">handle_request/3</a></span> callback always takes
 place and its return value determines the answer sent to the peer, if
 any.</p>
 
@@ -381,7 +381,7 @@ distinguish between <span class="code">answer_3xxx</span> and <span class="code"
 <dd>
 
 <p>
-Options available to <span class="bold_code"><a href="#call-4">call/4</a></span> when
+Options available to <span class="bold_code bc-17"><a href="#call-4">call/4</a></span> when
 sending an outgoing Diameter request.
 Has one of the following types.</p>
 
@@ -397,17 +397,17 @@ itself.
 Multiple options append to the argument list.</p>
 </dd>
 
-<dt><strong><span class="code">{filter, <span class="bold_code"><a href="#peer_filter">peer_filter()</a></span>}</span></strong></dt>
+<dt><strong><span class="code">{filter, <span class="bold_code bc-17"><a href="#peer_filter">peer_filter()</a></span>}</span></strong></dt>
 <dd>
 <p>
 Filter to apply to the list of available peers before passing it to
-the <span class="bold_code"><a href="diameter_app.html#Mod:pick_peer-4">pick_peer/4</a></span> callback for the application in question.
+the <span class="bold_code bc-15"><a href="diameter_app.html#Mod:pick_peer-4">pick_peer/4</a></span> callback for the application in question.
 Multiple options are equivalent a single <span class="code">all</span> filter on the
 corresponding list of filters.
 Defaults to <span class="code">none</span>.</p>
 </dd>
 
-<dt><strong><span class="code">{timeout, <span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>}</span></strong></dt>
+<dt><strong><span class="code">{timeout, <span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>}</span></strong></dt>
 <dd>
 <p>
 Number of milliseconds after which the request should
@@ -418,17 +418,17 @@ Defaults to 5000.</p>
 <dt><strong><span class="code">detach</span></strong></dt>
 <dd>
 <p>
-Cause <span class="bold_code"><a href="#call-4">call/4</a></span> to return <span class="code">ok</span> as
+Cause <span class="bold_code bc-17"><a href="#call-4">call/4</a></span> to return <span class="code">ok</span> as
 soon as the request in
 question has been encoded, instead of waiting for and returning
-the result from a subsequent <span class="bold_code"><a href="diameter_app.html#Mod:handle_answer-4">handle_answer/4</a></span> or
-<span class="bold_code"><a href="diameter_app.html#Mod:handle_error-4">handle_error/4</a></span> callback.</p>
+the result from a subsequent <span class="bold_code bc-15"><a href="diameter_app.html#Mod:handle_answer-4">handle_answer/4</a></span> or
+<span class="bold_code bc-15"><a href="diameter_app.html#Mod:handle_error-4">handle_error/4</a></span> callback.</p>
 </dd>
 
 </dl>
 
 <p>
-An invalid option will cause <span class="bold_code"><a href="#call-4">call/4</a></span> to fail.</p>
+An invalid option will cause <span class="bold_code bc-17"><a href="#call-4">call/4</a></span> to fail.</p>
 
 <a name="capability"></a>
 </dd>
@@ -445,42 +445,42 @@ Has one of the following types.</p>
 
 <dl>
 
-<dt><strong><span class="code">{'Origin-Host', <span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">DiameterIdentity()</a></span>}</span></strong></dt>
+<dt><strong><span class="code">{'Origin-Host', <span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">DiameterIdentity()</a></span>}</span></strong></dt>
 <dd></dd>
-<dt><strong><span class="code">{'Origin-Realm', <span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">DiameterIdentity()</a></span>}</span></strong></dt>
+<dt><strong><span class="code">{'Origin-Realm', <span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">DiameterIdentity()</a></span>}</span></strong></dt>
 <dd></dd>
-<dt><strong><span class="code">{'Host-IP-Address', [<span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">Address()</a></span>]}</span></strong></dt>
+<dt><strong><span class="code">{'Host-IP-Address', [<span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">Address()</a></span>]}</span></strong></dt>
 <dd>
 <p>
 An address list is available to the start function of a
-<span class="bold_code"><a href="diameter_transport.html">transport module</a></span>, which
+<span class="bold_code bc-19"><a href="diameter_transport.html">transport module</a></span>, which
 can return a new list for use in the subsequent CER or CEA.
 Host-IP-Address need not be specified if the transport module in
 question communicates an address list as described in
-<span class="bold_code"><a href="diameter_transport.html">diameter_transport(3)</a></span></p>
+<span class="bold_code bc-19"><a href="diameter_transport.html">diameter_transport(3)</a></span></p>
 </dd>
 
-<dt><strong><span class="code">{'Vendor-Id', <span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>}</span></strong></dt>
+<dt><strong><span class="code">{'Vendor-Id', <span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>}</span></strong></dt>
 <dd></dd>
-<dt><strong><span class="code">{'Product-Name', <span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">UTF8String()</a></span>}</span></strong></dt>
+<dt><strong><span class="code">{'Product-Name', <span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">UTF8String()</a></span>}</span></strong></dt>
 <dd></dd>
-<dt><strong><span class="code">{'Origin-State-Id', <span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>}</span></strong></dt>
+<dt><strong><span class="code">{'Origin-State-Id', <span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>}</span></strong></dt>
 <dd>
 <p>
 Origin-State-Id is optional but, if configured, will be included in
 outgoing CER/CEA and DWR/DWA messages.
 Setting a value of <span class="code">0</span> (zero) is equivalent to not setting a
 value, as documented in RFC 6733.
-The function <span class="bold_code"><a href="#origin_state_id-0">origin_state_id/0</a></span>
+The function <span class="bold_code bc-17"><a href="#origin_state_id-0">origin_state_id/0</a></span>
 can be used as to retrieve a value that is computed when the diameter
 application is started.</p>
 </dd>
 
-<dt><strong><span class="code">{'Supported-Vendor-Id', [<span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>]}</span></strong></dt>
+<dt><strong><span class="code">{'Supported-Vendor-Id', [<span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>]}</span></strong></dt>
 <dd></dd>
-<dt><strong><span class="code">{'Auth-Application-Id', [<span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>]}</span></strong></dt>
+<dt><strong><span class="code">{'Auth-Application-Id', [<span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>]}</span></strong></dt>
 <dd></dd>
-<dt><strong><span class="code">{'Inband-Security-Id', [<span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>]}</span></strong></dt>
+<dt><strong><span class="code">{'Inband-Security-Id', [<span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>]}</span></strong></dt>
 <dd>
 <p>
 Inband-Security-Id defaults to the empty list, which is equivalent to a
@@ -489,11 +489,11 @@ If 1 (TLS) is specified then TLS is selected if the CER/CEA received
 from the peer offers it.</p>
 </dd>
 
-<dt><strong><span class="code">{'Acct-Application-Id', [<span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>]}</span></strong></dt>
+<dt><strong><span class="code">{'Acct-Application-Id', [<span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>]}</span></strong></dt>
 <dd></dd>
-<dt><strong><span class="code">{'Vendor-Specific-Application-Id', [<span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">Grouped()</a></span>]}</span></strong></dt>
+<dt><strong><span class="code">{'Vendor-Specific-Application-Id', [<span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">Grouped()</a></span>]}</span></strong></dt>
 <dd></dd>
-<dt><strong><span class="code">{'Firmware-Revision', <span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>}</span></strong></dt>
+<dt><strong><span class="code">{'Firmware-Revision', <span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>}</span></strong></dt>
 <dd></dd>
 
 </dl>
@@ -523,7 +523,7 @@ eval(F) -&gt;
 </pre></div>
 
 <p>
-Applying an <span class="code"><span class="bold_code"><a href="#evaluable">evaluable()</a></span></span>
+Applying an <span class="code"><span class="bold_code bc-17"><a href="#evaluable">evaluable()</a></span></span>
 <span class="code">E</span> to an argument list <span class="code">A</span>
 is meant in the sense of <span class="code">eval([E|A])</span>.</p>
 
@@ -536,7 +536,7 @@ situations in which the fun is not short-lived
 and code is to be upgraded at runtime since any processes retaining
 such a fun will have a reference to old code.
 In particular, such a value is typically inappropriate in
-configuration passed to <span class="bold_code"><a href="#start_service-2">start_service/2</a></span> or <span class="bold_code"><a href="#add_transport-2">add_transport/2</a></span>.</p>
+configuration passed to <span class="bold_code bc-17"><a href="#start_service-2">start_service/2</a></span> or <span class="bold_code bc-17"><a href="#add_transport-2">add_transport/2</a></span>.</p>
 </p></div>
 </div>
 
@@ -546,8 +546,8 @@ configuration passed to <span class="bold_code"><a href="#start_service-2">start
 <dt><strong><span class="code">peer_filter() = term()</span></strong></dt>
 <dd>
 <p>
-Filter passed to <span class="bold_code"><a href="#call-4">call/4</a></span> in order to select candidate peers for a
-<span class="bold_code"><a href="diameter_app.html#Mod:pick_peer-4">pick_peer/4</a></span> callback.
+Filter passed to <span class="bold_code bc-17"><a href="#call-4">call/4</a></span> in order to select candidate peers for a
+<span class="bold_code bc-15"><a href="diameter_app.html#Mod:pick_peer-4">pick_peer/4</a></span> callback.
 Has one of the following types.</p>
 
 <dl>
@@ -578,43 +578,43 @@ or any peer if the request does not contain
 a Destination-Realm AVP.</p>
 </dd>
 
-<dt><strong><span class="code">{host, any|<span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">DiameterIdentity()</a></span>}</span></strong></dt>
+<dt><strong><span class="code">{host, any|<span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">DiameterIdentity()</a></span>}</span></strong></dt>
 <dd>
 <p>
 Matches only those peers whose Origin-Host has the
 specified value, or all peers if the atom <span class="code">any</span>.</p>
 </dd>
 
-<dt><strong><span class="code">{realm, any|<span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">DiameterIdentity()</a></span>}</span></strong></dt>
+<dt><strong><span class="code">{realm, any|<span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">DiameterIdentity()</a></span>}</span></strong></dt>
 <dd>
 <p>
 Matches only those peers whose Origin-Realm has the
 specified value, or all peers if the atom <span class="code">any</span>.</p>
 </dd>
 
-<dt><strong><span class="code">{eval, <span class="bold_code"><a href="#evaluable">evaluable()</a></span>}</span></strong></dt>
+<dt><strong><span class="code">{eval, <span class="bold_code bc-17"><a href="#evaluable">evaluable()</a></span>}</span></strong></dt>
 <dd>
 <p>
 Matches only those peers for which the specified
-<span class="code"><span class="bold_code"><a href="#evaluable">evaluable()</a></span></span> returns
+<span class="code"><span class="bold_code bc-17"><a href="#evaluable">evaluable()</a></span></span> returns
 <span class="code">true</span> when applied to the connection's <span class="code">diameter_caps</span>
 record.
 Any other return value or exception is equivalent to <span class="code">false</span>.</p>
 </dd>
 
-<dt><strong><span class="code">{neg, <span class="bold_code"><a href="#peer_filter">peer_filter()</a></span>}</span></strong></dt>
+<dt><strong><span class="code">{neg, <span class="bold_code bc-17"><a href="#peer_filter">peer_filter()</a></span>}</span></strong></dt>
 <dd>
 <p>
 Matches only those peers not matched by the specified filter.</p>
 </dd>
 
-<dt><strong><span class="code">{all, [<span class="bold_code"><a href="#peer_filter">peer_filter()</a></span>]}</span></strong></dt>
+<dt><strong><span class="code">{all, [<span class="bold_code bc-17"><a href="#peer_filter">peer_filter()</a></span>]}</span></strong></dt>
 <dd>
 <p>
 Matches only those peers matched by each filter in the specified list.</p>
 </dd>
 
-<dt><strong><span class="code">{any, [<span class="bold_code"><a href="#peer_filter">peer_filter()</a></span>]}</span></strong></dt>
+<dt><strong><span class="code">{any, [<span class="bold_code bc-17"><a href="#peer_filter">peer_filter()</a></span>]}</span></strong></dt>
 <dd>
 <p>
 Matches only those peers matched by at least one filter in the
@@ -624,7 +624,7 @@ first filter of the list sorting before those matched by the second,
 and so on.</p>
 </dd>
 
-<dt><strong><span class="code">{first, [<span class="bold_code"><a href="#peer_filter">peer_filter()</a></span>]}</span></strong></dt>
+<dt><strong><span class="code">{first, [<span class="bold_code bc-17"><a href="#peer_filter">peer_filter()</a></span>]}</span></strong></dt>
 <dd>
 <p>
 Like <span class="code">any</span>, but stops at the first filter for which there are
@@ -650,10 +650,10 @@ that matches no peer.</p>
 The <span class="code">host</span> and <span class="code">realm</span> filters cause the Destination-Host
 and Destination-Realm AVPs to be extracted from the
 outgoing request, assuming it to be a record- or list-valued
-<span class="code"><span class="bold_code"><a href="diameter_codec.html#message">diameter_codec:message()</a></span></span>, and assuming at most one of each AVP.
-If this is not the case then the <span class="code">{host|realm, <span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">DiameterIdentity()</a></span>}</span>
+<span class="code"><span class="bold_code bc-15"><a href="diameter_codec.html#message">diameter_codec:message()</a></span></span>, and assuming at most one of each AVP.
+If this is not the case then the <span class="code">{host|realm, <span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">DiameterIdentity()</a></span>}</span>
 filters must be used to achieve the desired result.
-An empty <span class="code"><span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">DiameterIdentity()</a></span></span>
+An empty <span class="code"><span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">DiameterIdentity()</a></span></span>
 (which should not be typical)
 matches all hosts/realms for the purposes of filtering.</p>
 </p></div>
@@ -671,12 +671,12 @@ candidates list.</p>
 
 <a name="service_event"></a>
 </dd>
-<dt><strong><span class="code">service_event() = #diameter_event{service = <span class="bold_code"><a href="#service_name">service_name()</a></span>,
-                                          info = <span class="bold_code"><a href="#service_event_info">service_event_info()</a></span>}</span></strong></dt>
+<dt><strong><span class="code">service_event() = #diameter_event{service = <span class="bold_code bc-17"><a href="#service_name">service_name()</a></span>,
+                                          info = <span class="bold_code bc-17"><a href="#service_event_info">service_event_info()</a></span>}</span></strong></dt>
 <dd>
 <p>
 An event message sent to processes that have subscribed to these using
-<span class="bold_code"><a href="#subscribe-1">subscribe/1</a></span>.</p>
+<span class="bold_code bc-17"><a href="#subscribe-1">subscribe/1</a></span>.</p>
 
 <a name="service_event_info"></a>
 </dd>
@@ -686,7 +686,7 @@ An event message sent to processes that have subscribed to these using
 <dd>
 
 <p>
-The <span class="code">info</span> field of a <span class="bold_code"><a href="#service_event">service_event()</a></span> record.
+The <span class="code">info</span> field of a <span class="bold_code bc-17"><a href="#service_event">service_event()</a></span> record.
 Can have one of the following types.</p>
 
 <dl>
@@ -709,9 +709,9 @@ implies the termination of all transport processes.</p>
 <dt><strong><span class="code">{down, Ref, Peer, Config}</span></strong></dt>
 <dd>
 <div class="example"><pre>
-Ref    = <span class="bold_code"><a href="#transport_ref">transport_ref()</a></span>
-Peer   = <span class="bold_code"><a href="diameter_app.html#peer">diameter_app:peer()</a></span>
-Config = {connect|listen, [<span class="bold_code"><a href="#transport_opt">transport_opt()</a></span>]}
+Ref    = <span class="bold_code bc-17"><a href="#transport_ref">transport_ref()</a></span>
+Peer   = <span class="bold_code bc-15"><a href="diameter_app.html#peer">diameter_app:peer()</a></span>
+Config = {connect|listen, [<span class="bold_code bc-17"><a href="#transport_opt">transport_opt()</a></span>]}
 Pkt    = #diameter_packet{}
 </pre></div>
 
@@ -726,7 +726,7 @@ CEA.</p>
 
 <p>
 Note that a single <span class="code">up</span> or <span class="code">down</span> event for a given peer
-corresponds to multiple <span class="bold_code"><a href="diameter_app.html#Mod:peer_up-3">peer_up/3</a></span> or <span class="bold_code"><a href="diameter_app.html#Mod:peer_down-3">peer_up/3</a></span>
+corresponds to multiple <span class="bold_code bc-15"><a href="diameter_app.html#Mod:peer_up-3">peer_up/3</a></span> or <span class="bold_code bc-15"><a href="diameter_app.html#Mod:peer_down-3">peer_up/3</a></span>
 callbacks, one for each of the Diameter applications negotiated during
 capabilities exchange.
 That is, the event communicates connectivity with the
@@ -737,21 +737,21 @@ respect to individual Diameter applications.</p>
 <dt><strong><span class="code">{reconnect, Ref, Opts}</span></strong></dt>
 <dd>
 <div class="example"><pre>
-Ref  = <span class="bold_code"><a href="#transport_ref">transport_ref()</a></span>
-Opts = [<span class="bold_code"><a href="#transport_opt">transport_opt()</a></span>]
+Ref  = <span class="bold_code bc-17"><a href="#transport_ref">transport_ref()</a></span>
+Opts = [<span class="bold_code bc-17"><a href="#transport_opt">transport_opt()</a></span>]
 </pre></div>
 
 <p>
 A connecting transport is attempting to establish/reestablish a
-transport connection with a peer following <span class="bold_code"><a href="#connect_timer">connect_timer</a></span> or
-<span class="bold_code"><a href="#watchdog_timer">watchdog_timer</a></span> expiry.</p>
+transport connection with a peer following <span class="bold_code bc-17"><a href="#connect_timer">connect_timer</a></span> or
+<span class="bold_code bc-17"><a href="#watchdog_timer">watchdog_timer</a></span> expiry.</p>
 </dd>
 
 <dt><strong><span class="code">{closed, Ref, Reason, Config}</span></strong></dt>
 <dd>
 <div class="example"><pre>
-Ref = <span class="bold_code"><a href="#transport_ref">transport_ref()</a></span>
-Config = {connect|listen, [<span class="bold_code"><a href="#transport_opt">transport_opt()</a></span>]}
+Ref = <span class="bold_code bc-17"><a href="#transport_ref">transport_ref()</a></span>
+Config = {connect|listen, [<span class="bold_code bc-17"><a href="#transport_opt">transport_opt()</a></span>]}
 </pre></div>
 
 <p>
@@ -767,7 +767,7 @@ Result = ResultCode | {capabilities_cb, CB, ResultCode|discard}
 Caps = #diameter_caps{}
 Pkt  = #diameter_packet{}
 ResultCode = integer()
-CB = <span class="bold_code"><a href="#evaluable">evaluable()</a></span>
+CB = <span class="bold_code bc-17"><a href="#evaluable">evaluable()</a></span>
 </pre></div>
 
 <p>
@@ -798,7 +798,7 @@ indicated result code.
 <dt><strong><span class="code">{'CER', timeout}</span></strong></dt>
 <dd>
 <p>
-An expected CER was not received within <span class="bold_code"><a href="#capx_timeout">capx_timeout</a></span> of
+An expected CER was not received within <span class="bold_code bc-17"><a href="#capx_timeout">capx_timeout</a></span> of
 connection establishment.</p>
 </dd>
 
@@ -838,7 +838,7 @@ An incoming CEA contained errors and has been rejected.
 <dt><strong><span class="code">{'CEA', timeout}</span></strong></dt>
 <dd>
 <p>
-An expected CEA was not received within <span class="bold_code"><a href="#capx_timeout">capx_timeout</a></span>
+An expected CEA was not received within <span class="bold_code bc-17"><a href="#capx_timeout">capx_timeout</a></span>
 of connection establishment.</p>
 </dd>
 
@@ -848,8 +848,8 @@ of connection establishment.</p>
 <dt><strong><span class="code">{watchdog, Ref, PeerRef, {From, To}, Config}</span></strong></dt>
 <dd>
 <div class="example"><pre>
-Ref = <span class="bold_code"><a href="#transport_ref">transport_ref()</a></span>
-PeerRef = <span class="bold_code"><a href="diameter_app.html#peer_ref">diameter_app:peer_ref()</a></span>
+Ref = <span class="bold_code bc-17"><a href="#transport_ref">transport_ref()</a></span>
+PeerRef = <span class="bold_code bc-15"><a href="diameter_app.html#peer_ref">diameter_app:peer_ref()</a></span>
 From, To = initial | okay | suspect | down | reopen
 Config = {connect|listen, [transport_opt()]}
 </pre></div>
@@ -873,10 +873,10 @@ info fields of forms other than the above.</p>
 <dt><strong><span class="code">service_name() = term()</span></strong></dt>
 <dd>
 <p>
-Name of a service as passed to <span class="bold_code"><a href="#start_service-2">start_service/2</a></span> and with which the
+Name of a service as passed to <span class="bold_code bc-17"><a href="#start_service-2">start_service/2</a></span> and with which the
 service is identified.
 There can be at most one service with a given name on a given node.
-Note that <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#make_ref-0');">erlang:make_ref/0</a></span>
+Note that <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#make_ref-0');">erlang:make_ref/0</a></span>
 can be used to generate a service name that is somewhat unique.</p>
 
 <a name="service_opt"></a>
@@ -885,12 +885,12 @@ can be used to generate a service name that is somewhat unique.</p>
 <dt><strong><span class="code">service_opt()</span></strong></dt>
 <dd>
 <p>
-Option passed to <span class="bold_code"><a href="#start_service-2">start_service/2</a></span>.
-Can be any <span class="code"><span class="bold_code"><a href="#capability">capability()</a></span></span> as well as the following.</p>
+Option passed to <span class="bold_code bc-17"><a href="#start_service-2">start_service/2</a></span>.
+Can be any <span class="code"><span class="bold_code bc-17"><a href="#capability">capability()</a></span></span> as well as the following.</p>
 
 <dl>
 
-<dt><strong><span class="code">{application, [<span class="bold_code"><a href="#application_opt">application_opt()</a></span>]}</span></strong></dt>
+<dt><strong><span class="code">{application, [<span class="bold_code bc-17"><a href="#application_opt">application_opt()</a></span>]}</span></strong></dt>
 <dd>
 <p>
 A Diameter application supported by the service.</p>
@@ -898,11 +898,11 @@ A Diameter application supported by the service.</p>
 <p>
 A service must configure one tuple for each Diameter
 application it intends to support.
-For an outgoing request, the relevant <span class="code"><span class="bold_code"><a href="#application_alias">application_alias()</a></span></span> is
-passed to <span class="bold_code"><a href="#call-4">call/4</a></span>, while for an
+For an outgoing request, the relevant <span class="code"><span class="bold_code bc-17"><a href="#application_alias">application_alias()</a></span></span> is
+passed to <span class="bold_code bc-17"><a href="#call-4">call/4</a></span>, while for an
 incoming request the application identifier in the message
 header determines the application, the identifier being specified in
-the application's <span class="bold_code"><a href="diameter_dict.html">dictionary</a></span> file.</p>
+the application's <span class="bold_code bc-19"><a href="diameter_dict.html">dictionary</a></span> file.</p>
 
 <div class="warning">
 <div class="label">Warning</div>
@@ -910,7 +910,7 @@ the application's <span class="bold_code"><a href="diameter_dict.html">dictionar
 <p>
 The capabilities advertised by a node must match its configured
 applications. In particular, <span class="code">application</span> configuration must
-be matched by corresponding <span class="bold_code"><a href="#capability">capability()</a></span> configuration, of
+be matched by corresponding <span class="bold_code bc-17"><a href="#capability">capability()</a></span> configuration, of
 *-Application-Id AVPs in particular.</p>
 </p></div>
 </div>
@@ -945,7 +945,7 @@ at capabilities exchange.</p>
 If <span class="code">[node()]</span> then a connection is rejected if another already
 exists on any of the specified nodes.
 Types <span class="code">false</span>, <span class="code">node</span>, <span class="code">nodes</span> and
-<span class="bold_code"><a href="#evaluable">evaluable()</a></span> are equivalent to
+<span class="bold_code bc-17"><a href="#evaluable">evaluable()</a></span> are equivalent to
 <span class="code">[]</span>, <span class="code">[node()]</span>, <span class="code">[node()|nodes()]</span> and the
 evaluated value respectively, evaluation of each expression taking
 place whenever a new connection is to be established.
@@ -960,13 +960,13 @@ by their own peer and watchdog state machines.</p>
 Defaults to <span class="code">nodes</span>.</p>
 </dd>
 
-<dt><strong><span class="code">{sequence, {H,N} | <span class="bold_code"><a href="#evaluable">evaluable()</a></span>}</span></strong></dt>
+<dt><strong><span class="code">{sequence, {H,N} | <span class="bold_code bc-17"><a href="#evaluable">evaluable()</a></span>}</span></strong></dt>
 <dd>
 <p>
 A constant value <span class="code">H</span> for the topmost <span class="code">32-N</span> bits of
 of 32-bit End-to-End and Hop-by-Hop Identifiers generated
 by the service, either explicitly or as a return value of a function
-to be evaluated at <span class="bold_code"><a href="#start_service-2">start_service/2</a></span>.
+to be evaluated at <span class="bold_code bc-17"><a href="#start_service-2">start_service/2</a></span>.
 In particular, an identifier <span class="code">Id</span> is mapped to a new identifier
 as follows.</p>
 <div class="example"><pre>
@@ -1004,7 +1004,7 @@ outgoing requests.</p>
 Nodes to which peer connections established on the local
 Erlang node are communicated.
 Shared peers become available in the remote candidates list passed to
-<span class="bold_code"><a href="diameter_app.html#Mod:pick_peer-4">pick_peer/4</a></span> callbacks on remote nodes whose services are
+<span class="bold_code bc-15"><a href="diameter_app.html#Mod:pick_peer-4">pick_peer/4</a></span> callbacks on remote nodes whose services are
 configured to use them: see <span class="code">use_shared_peers</span> below.</p>
 
 <p>
@@ -1015,7 +1015,7 @@ If <span class="code">evaluable()</span> then peers are shared with the nodes re
 by the specified function, evaluated whenever a peer connection
 becomes available or a remote service requests information about local
 connections.
-The value <span class="code">true</span> is equivalent to <span class="code">fun <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#nodes-0');">erlang:nodes/0</a></span></span>.
+The value <span class="code">true</span> is equivalent to <span class="code">fun <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#nodes-0');">erlang:nodes/0</a></span></span>.
 The value <span class="code">node()</span> in a list is ignored, so a collection of
 services can all be configured to share with the same list of
 nodes.</p>
@@ -1029,11 +1029,11 @@ Defaults to <span class="code">false</span>.</p>
 <p>
 Peers are only shared with services of the same name for the purpose
 of sending outgoing requests.
-Since the value of the <span class="bold_code"><a href="#application_opt">application_opt()</a></span> <span class="code">alias</span>, passed to
-<span class="bold_code"><a href="#call-4">call/4</a></span>, is the handle for identifying a peer as a suitable
+Since the value of the <span class="bold_code bc-17"><a href="#application_opt">application_opt()</a></span> <span class="code">alias</span>, passed to
+<span class="bold_code bc-17"><a href="#call-4">call/4</a></span>, is the handle for identifying a peer as a suitable
 candidate, services that share peers must use the same aliases to
 identify their supported applications.
-They should typically also configure identical <span class="bold_code"><a href="#capabilities">capabilities()</a></span>, since
+They should typically also configure identical <span class="bold_code bc-17"><a href="#capabilities">capabilities()</a></span>, since
 by sharing peer connections they are distributing the implementation
 of a single Diameter node across multiple Erlang nodes.</p>
 </p></div>
@@ -1043,7 +1043,7 @@ of a single Diameter node across multiple Erlang nodes.</p>
 <dt><strong><span class="code">{spawn_opt, [term()]}</span></strong></dt>
 <dd>
 <p>
-Options list passed to <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#spawn_opt-2');">erlang:spawn_opt/2</a></span> when spawning a process for an
+Options list passed to <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#spawn_opt-2');">erlang:spawn_opt/2</a></span> when spawning a process for an
 incoming Diameter request, unless the transport in question
 specifies another value.
 Options <span class="code">monitor</span> and <span class="code">link</span> are ignored.</p>
@@ -1102,9 +1102,9 @@ occur in the message in question.</p>
 <a name="string_decode"></a><span class="code">{string_decode, boolean()}</span></strong></dt>
 <dd>
 <p>
-Whether or not to decode AVPs of type <span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">OctetString()</a></span> and its
-derived types <span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">DiameterIdentity()</a></span>, <span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">DiameterURI()</a></span>,
-<span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">IPFilterRule()</a></span>, <span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">QoSFilterRule()</a></span>, and <span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">UTF8String()</a></span>.
+Whether or not to decode AVPs of type <span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">OctetString()</a></span> and its
+derived types <span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">DiameterIdentity()</a></span>, <span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">DiameterURI()</a></span>,
+<span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">IPFilterRule()</a></span>, <span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">QoSFilterRule()</a></span>, and <span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">UTF8String()</a></span>.
 If <span class="code">true</span> then AVPs of these types are decoded to string().
 If <span class="code">false</span> then values are retained as binary().</p>
 
@@ -1129,7 +1129,7 @@ The default value is for backwards compatibility.</p>
 <dd>
 <p>
 Nodes from which communicated peers are made available in
-the remote candidates list of <span class="bold_code"><a href="diameter_app.html#Mod:pick_peer-4">pick_peer/4</a></span> callbacks.</p>
+the remote candidates list of <span class="bold_code bc-15"><a href="diameter_app.html#Mod:pick_peer-4">pick_peer/4</a></span> callbacks.</p>
 
 <p>
 If <span class="code">false</span> then remote peers are not used.
@@ -1138,7 +1138,7 @@ are used.
 If <span class="code">evaluable()</span> then only peers returned by the specified
 function are used, evaluated whenever a remote service communicates
 information about an available peer connection.
-The value <span class="code">true</span> is equivalent to <span class="code">fun <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#nodes-0');">erlang:nodes/0</a></span></span>.
+The value <span class="code">true</span> is equivalent to <span class="code">fun <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#nodes-0');">erlang:nodes/0</a></span></span>.
 The value <span class="code">node()</span> in a list is ignored.</p>
 
 <p>
@@ -1149,7 +1149,7 @@ Defaults to <span class="code">false</span>.</p>
 <div class="content"><p>
 <p>
 A service that does not use shared peers will always pass the empty
-list as the second argument of <span class="bold_code"><a href="diameter_app.html#Mod:pick_peer-4">pick_peer/4</a></span> callbacks.</p>
+list as the second argument of <span class="bold_code bc-15"><a href="diameter_app.html#Mod:pick_peer-4">pick_peer/4</a></span> callbacks.</p>
 </p></div>
 </div>
 
@@ -1159,7 +1159,7 @@ list as the second argument of <span class="bold_code"><a href="diameter_app.htm
 <p>
 Sending a request over a peer connection on a remote node is less
 efficient than sending it over a local connection.
-It may be preferable to make use of the <span class="bold_code"><a href="#service_opt">service_opt()</a></span>
+It may be preferable to make use of the <span class="bold_code bc-17"><a href="#service_opt">service_opt()</a></span>
 <span class="code">restrict_connections</span> and maintain a dedicated connection on
 each node from which requests are sent.</p>
 </p></div>
@@ -1174,13 +1174,13 @@ each node from which requests are sent.</p>
 <dt><strong><span class="code">transport_opt()</span></strong></dt>
 <dd>
 <p>
-Option passed to <span class="bold_code"><a href="#add_transport-2">add_transport/2</a></span>.
+Option passed to <span class="bold_code bc-17"><a href="#add_transport-2">add_transport/2</a></span>.
 Has one of the following types.</p>
 
 <dl>
 
 <dt><strong>
-<a name="applications"></a><span class="code">{applications, [<span class="bold_code"><a href="#application_alias">application_alias()</a></span>]}</span></strong></dt>
+<a name="applications"></a><span class="code">{applications, [<span class="bold_code bc-17"><a href="#application_alias">application_alias()</a></span>]}</span></strong></dt>
 <dd>
 <p>
 Diameter applications to which the transport should be restricted.
@@ -1195,14 +1195,14 @@ The capabilities advertised by a node must match its configured
 applications.
 In particular, setting <span class="code">applications</span> on a transport typically
 implies having to set matching *-Application-Id AVPs in a
-<span class="bold_code"><a href="#capabilities">capabilities()</a></span> tuple.</p>
+<span class="bold_code bc-17"><a href="#capabilities">capabilities()</a></span> tuple.</p>
 </p></div>
 </div>
 
 </dd>
 
 <dt><strong>
-<a name="capabilities"></a><span class="code">{capabilities, [<span class="bold_code"><a href="#capability">capability()</a></span>]}</span></strong></dt>
+<a name="capabilities"></a><span class="code">{capabilities, [<span class="bold_code bc-17"><a href="#capability">capability()</a></span>]}</span></strong></dt>
 <dd>
 <p>
 AVPs used to construct outgoing CER/CEA messages.
@@ -1212,17 +1212,17 @@ question.</p>
 <p>
 Specifying a capability as a transport option
 may be particularly appropriate for Inband-Security-Id, in case
-TLS is desired over TCP as implemented by <span class="bold_code"><a href="diameter_tcp.html">diameter_tcp(3)</a></span>.</p>
+TLS is desired over TCP as implemented by <span class="bold_code bc-19"><a href="diameter_tcp.html">diameter_tcp(3)</a></span>.</p>
 </dd>
 
 <dt><strong>
-<a name="capabilities_cb"></a><span class="code">{capabilities_cb, <span class="bold_code"><a href="#evaluable">evaluable()</a></span>}</span></strong></dt>
+<a name="capabilities_cb"></a><span class="code">{capabilities_cb, <span class="bold_code bc-17"><a href="#evaluable">evaluable()</a></span>}</span></strong></dt>
 <dd>
 <p>
 Callback invoked upon reception of CER/CEA during capabilities
 exchange in order to ask whether or not the connection should
 be accepted.
-Applied to the <span class="code"><span class="bold_code"><a href="#transport_ref">transport_ref()</a></span></span> and
+Applied to the <span class="code"><span class="bold_code bc-17"><a href="#transport_ref">transport_ref()</a></span></span> and
 <span class="code">#diameter_caps{}</span> record of the connection.</p>
 
 <p>
@@ -1257,21 +1257,21 @@ Equivalent to returning <span class="code">3010</span>, DIAMETER_UNKNOWN_PEER.</
 <p>
 Returning anything but <span class="code">ok</span> or a 2xxx series result
 code causes the transport connection to be broken.
-Multiple <span class="bold_code"><a href="#capabilities_cb">capabilities_cb</a></span>
+Multiple <span class="bold_code bc-17"><a href="#capabilities_cb">capabilities_cb</a></span>
 options can be specified, in which
 case the corresponding callbacks are applied until either all return
 <span class="code">ok</span> or one does not.</p>
 </dd>
 
 <dt><strong>
-<a name="capx_timeout"></a><span class="code">{capx_timeout, <span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>}</span></strong></dt>
+<a name="capx_timeout"></a><span class="code">{capx_timeout, <span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>}</span></strong></dt>
 <dd>
 <p>
 Number of milliseconds after which a transport process having an
 established transport connection will be terminated if the expected
 capabilities exchange message (CER or CEA) is not received from the peer.
 For a connecting transport, the timing of connection attempts is
-governed by <span class="bold_code"><a href="#connect_timer">connect_timer</a></span> or <span class="bold_code"><a href="#watchdog_timer">watchdog_timer</a></span> expiry.
+governed by <span class="bold_code bc-17"><a href="#connect_timer">connect_timer</a></span> or <span class="bold_code bc-17"><a href="#watchdog_timer">watchdog_timer</a></span> expiry.
 For a listening transport, the peer determines the timing.</p>
 
 <p>
@@ -1282,7 +1282,7 @@ Defaults to 10000.</p>
 <a name="connect_timer"></a><span class="code">{connect_timer, Tc}</span></strong></dt>
 <dd>
 <div class="example"><pre>
-Tc = <span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>
+Tc = <span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>
 </pre></div>
 
 <p>
@@ -1291,7 +1291,7 @@ This timer determines the frequency with which a transport
 attempts to establish an initial connection with its peer
 following transport configuration.
 Once an initial connection has been
-established, <span class="bold_code"><a href="#watchdog_timer">watchdog_timer</a></span> determines the frequency of
+established, <span class="bold_code bc-17"><a href="#watchdog_timer">watchdog_timer</a></span> determines the frequency of
 reconnection attempts, as required by RFC 3539.</p>
 
 <p>
@@ -1301,7 +1301,7 @@ regarded as an initial connection rather than reestablishment,
 causing the RFC 3539 state machine to pass to state OKAY rather than
 REOPEN.
 Note that these semantics are not governed by the RFC and
-that a listening transport's <span class="bold_code"><a href="#connect_timer">connect_timer</a></span> should be greater
+that a listening transport's <span class="bold_code bc-17"><a href="#connect_timer">connect_timer</a></span> should be greater
 than its peer's Tw plus jitter.</p>
 
 <p>
@@ -1310,17 +1310,17 @@ transport.</p>
 </dd>
 
 <dt><strong>
-<a name="disconnect_cb"></a><span class="code">{disconnect_cb, <span class="bold_code"><a href="#evaluable">evaluable()</a></span>}</span></strong></dt>
+<a name="disconnect_cb"></a><span class="code">{disconnect_cb, <span class="bold_code bc-17"><a href="#evaluable">evaluable()</a></span>}</span></strong></dt>
 <dd>
 <p>
 Callback invoked prior to terminating the transport process of a
 transport connection having watchdog state <span class="code">OKAY</span>.
 Applied to <span class="code">application|service|transport</span> and the
-<span class="code"><span class="bold_code"><a href="#transport_ref">transport_ref()</a></span></span> and <span class="code"><span class="bold_code"><a href="diameter_app.html#peer">diameter_app:peer()</a></span></span> in question:
+<span class="code"><span class="bold_code bc-17"><a href="#transport_ref">transport_ref()</a></span></span> and <span class="code"><span class="bold_code bc-15"><a href="diameter_app.html#peer">diameter_app:peer()</a></span></span> in question:
 <span class="code">application</span> indicates that the diameter application is
 being stopped, <span class="code">service</span> that the service in question is being
-stopped by <span class="bold_code"><a href="#stop_service-1">stop_service/1</a></span>, and <span class="code">transport</span> that the transport in
-question is being removed by <span class="bold_code"><a href="#remove_transport-2">remove_transport/2</a></span>.</p>
+stopped by <span class="bold_code bc-17"><a href="#stop_service-1">stop_service/1</a></span>, and <span class="code">transport</span> that the transport in
+question is being removed by <span class="bold_code bc-17"><a href="#remove_transport-2">remove_transport/2</a></span>.</p>
 
 <p>
 The return value can have one of the following types.</p>
@@ -1344,12 +1344,12 @@ Defaults to <span class="code">rebooting</span> for <span class="code">Reason=se
 <span class="code">goaway</span> for <span class="code">Reason=transport</span>.</p>
 </dd>
 
-<dt><strong><span class="code">{timeout, <span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>}</span></strong></dt>
+<dt><strong><span class="code">{timeout, <span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>}</span></strong></dt>
 <dd>
 <p>
 Number of milliseconds after which the transport process is
 terminated if DPA has not been received.
-Defaults to the value of <span class="bold_code"><a href="#dpa_timeout">dpa_timeout</a></span>.</p>
+Defaults to the value of <span class="bold_code bc-17"><a href="#dpa_timeout">dpa_timeout</a></span>.</p>
 </dd>
 </dl>
 </dd>
@@ -1375,7 +1375,7 @@ Equivalent to not having configured the callback.</p>
 </dl>
 
 <p>
-Multiple <span class="bold_code"><a href="#disconnect_cb">disconnect_cb</a></span>
+Multiple <span class="bold_code bc-17"><a href="#disconnect_cb">disconnect_cb</a></span>
 options can be specified, in which
 case the corresponding callbacks are applied until one of them returns
 a value other than <span class="code">ignore</span>.
@@ -1387,7 +1387,7 @@ Defaults to a single callback returning <span class="code">dpr</span>.</p>
 </dd>
 
 <dt><strong>
-<a name="dpa_timeout"></a><span class="code">{dpa_timeout, <span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>}</span></strong></dt>
+<a name="dpa_timeout"></a><span class="code">{dpa_timeout, <span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>}</span></strong></dt>
 <dd>
 <p>
 Number of milliseconds after which a transport connection is
@@ -1398,7 +1398,7 @@ Defaults to 1000.</p>
 </dd>
 
 <dt><strong>
-<a name="dpr_timeout"></a><span class="code">{dpr_timeout, <span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>}</span></strong></dt>
+<a name="dpr_timeout"></a><span class="code">{dpr_timeout, <span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>}</span></strong></dt>
 <dd>
 <p>
 Number of milliseconds after which a transport connection is
@@ -1418,12 +1418,12 @@ Diameter Header in an incoming message.
 An error in this context is that the length is not at least 20 bytes
 (the length of a Header), is not a multiple of 4 (a valid length) or
 is not the length of the message in question, as received over the
-transport interface documented in <span class="bold_code"><a href="diameter_transport.html">diameter_transport(3)</a></span>.</p>
+transport interface documented in <span class="bold_code bc-19"><a href="diameter_transport.html">diameter_transport(3)</a></span>.</p>
 
 <p>
 If <span class="code">exit</span> then the transport process in question exits.
 If <span class="code">handle</span> then the message is processed as usual, a resulting
-<span class="bold_code"><a href="diameter_app.html#Mod:handle_request-3">handle_request/3</a></span> or <span class="bold_code"><a href="diameter_app.html#Mod:handle_answer-4">handle_answer/4</a></span> callback (if one takes
+<span class="bold_code bc-15"><a href="diameter_app.html#Mod:handle_request-3">handle_request/3</a></span> or <span class="bold_code bc-15"><a href="diameter_app.html#Mod:handle_answer-4">handle_answer/4</a></span> callback (if one takes
 place) indicating the <span class="code">5015</span> error (DIAMETER_INVALID_MESSAGE_LENGTH).
 If <span class="code">discard</span> then the message in question is silently discarded.</p>
 
@@ -1441,7 +1441,7 @@ Length header to divide the incoming byte stream into individual
 Diameter messages.
 An invalid length leaves it with no reliable way to rediscover message
 boundaries, which may result in the failure of subsequent messages.
-See <span class="bold_code"><a href="diameter_tcp.html">diameter_tcp(3)</a></span> for the behaviour of that module.</p>
+See <span class="bold_code bc-19"><a href="diameter_tcp.html">diameter_tcp(3)</a></span> for the behaviour of that module.</p>
 </p></div>
 </div>
 </dd>
@@ -1455,7 +1455,7 @@ accepting transport processes, a larger number being desirable for
 processing multiple concurrent peer connection attempts.
 For a connecting transport, determines the number of connections to
 the peer in question that will be attempted to be establshed:
-the <span class="bold_code"><a href="#service_opt">service_opt()</a></span>: <span class="code">restrict_connections</span> should also be
+the <span class="bold_code bc-17"><a href="#service_opt">service_opt()</a></span>: <span class="code">restrict_connections</span> should also be
 configured on the service in question to allow multiple connections to
 the same peer.</p>
 
@@ -1465,7 +1465,7 @@ the same peer.</p>
 <a name="spawn_opt"></a><span class="code">{spawn_opt, [term()]}</span></strong></dt>
 <dd>
 <p>
-Options passed to <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#spawn_opt-2');">erlang:spawn_opt/2</a></span> when spawning a process for an
+Options passed to <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#spawn_opt-2');">erlang:spawn_opt/2</a></span> when spawning a process for an
 incoming Diameter request.
 Options <span class="code">monitor</span> and <span class="code">link</span> are ignored.</p>
 
@@ -1476,11 +1476,11 @@ Defaults to the list configured on the service if not specified.</p>
 <dt><strong>
 <a name="transport_config"></a><span class="code">{transport_config, term()}</span></strong></dt>
 <dd></dd>
-<dt><strong><span class="code">{transport_config, term(), <span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span> | infinity}</span></strong></dt>
+<dt><strong><span class="code">{transport_config, term(), <span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span> | infinity}</span></strong></dt>
 <dd>
 <p>
-Term passed as the third argument to the <span class="bold_code"><a href="diameter_transport.html#Mod:start-3">start/3</a></span> function of
-the relevant <span class="bold_code"><a href="diameter_transport.html">transport module</a></span> in order to
+Term passed as the third argument to the <span class="bold_code bc-15"><a href="diameter_transport.html#Mod:start-3">start/3</a></span> function of
+the relevant <span class="bold_code bc-19"><a href="diameter_transport.html">transport module</a></span> in order to
 start a transport process.
 Defaults to the empty list.</p>
 
@@ -1507,15 +1507,15 @@ To listen on both SCTP and TCP, define one transport for each.</p>
 <a name="transport_module"></a><span class="code">{transport_module, atom()}</span></strong></dt>
 <dd>
 <p>
-Module implementing a transport process as defined in <span class="bold_code"><a href="diameter_transport.html">diameter_transport(3)</a></span>.
+Module implementing a transport process as defined in <span class="bold_code bc-19"><a href="diameter_transport.html">diameter_transport(3)</a></span>.
 Defaults to <span class="code">diameter_tcp</span>.</p>
 
 <p>
-Multiple <span class="code">transport_module</span> and <span class="bold_code"><a href="#transport_config">transport_config</a></span>
+Multiple <span class="code">transport_module</span> and <span class="bold_code bc-17"><a href="#transport_config">transport_config</a></span>
 options are allowed.
 The order of these is significant in this case (and only in this case),
 a <span class="code">transport_module</span> being paired with the first
-<span class="bold_code"><a href="#transport_config">transport_config</a></span>
+<span class="bold_code bc-17"><a href="#transport_config">transport_config</a></span>
 following it in the options list, or the default value for trailing
 modules.
 Transport starts will be attempted with each of the
@@ -1555,7 +1555,7 @@ misbehaving nodes during test.</p>
 <a name="watchdog_timer"></a><span class="code">{watchdog_timer, TwInit}</span></strong></dt>
 <dd>
 <div class="example"><pre>
-TwInit = <span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>
+TwInit = <span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span>
        | {M,F,A}
 </pre></div>
 
@@ -1577,8 +1577,8 @@ Defaults to 30000.</p>
 
 <p>
 Unrecognized options are silently ignored but are returned unmodified
-by <span class="bold_code"><a href="#service_info-2">service_info/2</a></span> and can be referred to
-in predicate functions passed to <span class="bold_code"><a href="#remove_transport-2">remove_transport/2</a></span>.</p>
+by <span class="bold_code bc-17"><a href="#service_info-2">service_info/2</a></span> and can be referred to
+in predicate functions passed to <span class="bold_code bc-17"><a href="#remove_transport-2">remove_transport/2</a></span>.</p>
 
 </dd>
 
@@ -1586,7 +1586,7 @@ in predicate functions passed to <span class="bold_code"><a href="#remove_transp
 <a name="transport_ref"></a><span class="code">transport_ref() = reference()</span></strong></dt>
 <dd>
 <p>
-Reference returned by <span class="bold_code"><a href="#add_transport-2">add_transport/2</a></span> that
+Reference returned by <span class="bold_code bc-17"><a href="#add_transport-2">add_transport/2</a></span> that
 identifies the configuration.</p>
 </dd>
 
@@ -1595,27 +1595,28 @@ identifies the configuration.</p>
 </div>
 
 <h3><a name="exports" href="#exports">Exports</a></h3>
+<div class="exports-body">
 
 
 
-<p><a name="add_transport-2"></a><span class="bold_code">add_transport(SvcName, {connect|listen, [Opt]})
+<p><a name="add_transport-2"></a><span class="bold_code bc-9">add_transport(SvcName, {connect|listen, [Opt]})
         -&gt; {ok, Ref} | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES">
-<span class="bold_code">SvcName = <span class="bold_code"><a href="#service_name">service_name()</a></span></span><br>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">SvcName = <span class="bold_code bc-17"><a href="#service_name">service_name()</a></span></span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Opt = <span class="bold_code"><a href="#transport_opt">transport_opt()</a></span></span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Opt = <span class="bold_code bc-17"><a href="#transport_opt">transport_opt()</a></span></span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Ref = <span class="bold_code"><a href="#transport_ref">transport_ref()</a></span></span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Ref = <span class="bold_code bc-17"><a href="#transport_ref">transport_ref()</a></span></span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
 </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 <p>
 Add transport capability to a service.</p>
 
@@ -1631,7 +1632,7 @@ one peer, an listening transport potentially with many.</p>
 The diameter application takes responsibility for exchanging
 CER/CEA with the peer.
 Upon successful completion of capabilities exchange the service
-calls each relevant application module's <span class="bold_code"><a href="diameter_app.html#Mod:peer_up-3">peer_up/3</a></span> callback
+calls each relevant application module's <span class="bold_code bc-15"><a href="diameter_app.html#Mod:peer_up-3">peer_up/3</a></span> callback
 after which the caller can exchange Diameter messages with the peer over
 the transport.
 In addition to CER/CEA, the service takes responsibility for the
@@ -1657,55 +1658,55 @@ its transports.</p>
 
 
 
-<p><a name="call-4"></a><span class="bold_code">call(SvcName, App, Request, [Opt]) -&gt; Answer | ok | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES">
-<span class="bold_code">SvcName = <span class="bold_code"><a href="#service_name">service_name()</a></span></span><br>
+<p><a name="call-4"></a><span class="bold_code bc-9">call(SvcName, App, Request, [Opt]) -&gt; Answer | ok | {error, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">SvcName = <span class="bold_code bc-17"><a href="#service_name">service_name()</a></span></span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">App = <span class="bold_code"><a href="#application_alias">application_alias()</a></span></span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">App = <span class="bold_code bc-17"><a href="#application_alias">application_alias()</a></span></span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Request = <span class="bold_code"><a href="diameter_codec.html#message">diameter_codec:message()</a></span></span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Request = <span class="bold_code bc-15"><a href="diameter_codec.html#message">diameter_codec:message()</a></span></span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Answer = term()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Answer = term()</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Opt = <span class="bold_code"><a href="#call_opt">call_opt()</a></span></span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Opt = <span class="bold_code bc-17"><a href="#call_opt">call_opt()</a></span></span><br>
 </div>
 </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 <p>
 Send a Diameter request message.</p>
 
 <p>
 <span class="code">App</span> specifies the Diameter application in which the request is
 defined and callbacks to the corresponding callback module
-will follow as described below and in <span class="bold_code"><a href="diameter_app.html">diameter_app(3)</a></span>.
+will follow as described below and in <span class="bold_code bc-19"><a href="diameter_app.html">diameter_app(3)</a></span>.
 Unless the <span class="code">detach</span> option is specified, the call returns either
 when an answer message is received from the peer or an error occurs.
 In the answer case, the return value is as returned by a
-<span class="bold_code"><a href="diameter_app.html#Mod:handle_answer-4">handle_answer/4</a></span> callback.
+<span class="bold_code bc-15"><a href="diameter_app.html#Mod:handle_answer-4">handle_answer/4</a></span> callback.
 In the error case, whether or not the error is returned directly
-by diameter or from a <span class="bold_code"><a href="diameter_app.html#Mod:handle_error-4">handle_error/4</a></span>
+by diameter or from a <span class="bold_code bc-15"><a href="diameter_app.html#Mod:handle_error-4">handle_error/4</a></span>
 callback depends on whether or not the outgoing request is
 successfully encoded for transmission to the peer, the cases being
 documented below.</p>
 
 <p>
 If there are no suitable peers, or if
-<span class="bold_code"><a href="diameter_app.html#Mod:pick_peer-4">pick_peer/4</a></span>
+<span class="bold_code bc-15"><a href="diameter_app.html#Mod:pick_peer-4">pick_peer/4</a></span>
 rejects them by returning <span class="code">false</span>, then <span class="code">{error,no_connection}</span>
 is returned.
-Otherwise <span class="bold_code"><a href="diameter_app.html#Mod:pick_peer-4">pick_peer/4</a></span> is followed by a
-<span class="bold_code"><a href="diameter_app.html#Mod:prepare_request-3">prepare_request/3</a></span> callback, the message is encoded and then sent.</p>
+Otherwise <span class="bold_code bc-15"><a href="diameter_app.html#Mod:pick_peer-4">pick_peer/4</a></span> is followed by a
+<span class="bold_code bc-15"><a href="diameter_app.html#Mod:prepare_request-3">prepare_request/3</a></span> callback, the message is encoded and then sent.</p>
 
 <p>
 There are several error cases which may prevent an
 answer from being received and passed to a
-<span class="bold_code"><a href="diameter_app.html#Mod:handle_answer-4">handle_answer/4</a></span> callback:</p>
+<span class="bold_code bc-15"><a href="diameter_app.html#Mod:handle_answer-4">handle_answer/4</a></span> callback:</p>
 
 <ul>
 
@@ -1720,14 +1721,14 @@ is returned.</p>
 <p>
 If the request is successfully encoded and sent but
 the answer times out then a
-<span class="bold_code"><a href="diameter_app.html#Mod:handle_error-4">handle_error/4</a></span> callback takes place with <span class="code">Reason = timeout</span>.</p>
+<span class="bold_code bc-15"><a href="diameter_app.html#Mod:handle_error-4">handle_error/4</a></span> callback takes place with <span class="code">Reason = timeout</span>.</p>
 </li>
 
 <li>
 <p>
 If the request is successfully encoded and sent but the service in
 question is stopped before an answer is received then a
-<span class="bold_code"><a href="diameter_app.html#Mod:handle_error-4">handle_error/4</a></span> callback takes place with <span class="code">Reason = cancel</span>.</p>
+<span class="bold_code bc-15"><a href="diameter_app.html#Mod:handle_error-4">handle_error/4</a></span> callback takes place with <span class="code">Reason = cancel</span>.</p>
 </li>
 
 <li>
@@ -1736,11 +1737,11 @@ If the transport connection with the peer goes down after the request
 has been sent but before an answer has been received then an attempt
 is made to resend the request to an alternate peer.
 If no such peer is available, or if the subsequent
-<span class="bold_code"><a href="diameter_app.html#Mod:pick_peer-4">pick_peer/4</a></span> callback rejects the candidates, then a
-<span class="bold_code"><a href="diameter_app.html#Mod:handle_error-4">handle_error/4</a></span> callback takes place with <span class="code">Reason = failover</span>.
-If a peer is selected then a <span class="bold_code"><a href="diameter_app.html#Mod:prepare_retransmit-3">prepare_retransmit/3</a></span>
+<span class="bold_code bc-15"><a href="diameter_app.html#Mod:pick_peer-4">pick_peer/4</a></span> callback rejects the candidates, then a
+<span class="bold_code bc-15"><a href="diameter_app.html#Mod:handle_error-4">handle_error/4</a></span> callback takes place with <span class="code">Reason = failover</span>.
+If a peer is selected then a <span class="bold_code bc-15"><a href="diameter_app.html#Mod:prepare_retransmit-3">prepare_retransmit/3</a></span>
 callback takes place, after which the semantics are the same as
-following an initial <span class="bold_code"><a href="diameter_app.html#Mod:prepare_request-3">prepare_request/3</a></span> callback.</p>
+following an initial <span class="bold_code bc-15"><a href="diameter_app.html#Mod:prepare_request-3">prepare_request/3</a></span> callback.</p>
 </li>
 
 <li>
@@ -1771,50 +1772,50 @@ transport connection.</p>
 
 
 
-<p><a name="origin_state_id-0"></a><span class="bold_code">origin_state_id() -&gt; <span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span></span><br></p>
-<div class="REFBODY"><p>
+<p><a name="origin_state_id-0"></a><span class="bold_code bc-9">origin_state_id() -&gt; <span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">Unsigned32()</a></span></span><br></p>
+<div class="REFBODY rb-7"><p>
 <p>
 Return a reasonable value for use as Origin-State-Id in
 outgoing messages.</p>
 
 <p>
 The value returned is the number of seconds since 19680120T031408Z,
-the first value that can be encoded as a Diameter <span class="code"><span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">Time()</a></span></span>,
+the first value that can be encoded as a Diameter <span class="code"><span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">Time()</a></span></span>,
 at the time the diameter application was started.</p>
 
 </p></div>
 
 
 
-<p><a name="remove_transport-2"></a><span class="bold_code">remove_transport(SvcName, Pred) -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES">
-<span class="bold_code">SvcName = <span class="bold_code"><a href="#service_name">service_name()</a></span></span><br>
+<p><a name="remove_transport-2"></a><span class="bold_code bc-9">remove_transport(SvcName, Pred) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">SvcName = <span class="bold_code bc-17"><a href="#service_name">service_name()</a></span></span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Pred = Fun | MFA | <span class="bold_code"><a href="#transport_ref">transport_ref()</a></span> | list() | true | false</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Pred = Fun | MFA | <span class="bold_code bc-17"><a href="#transport_ref">transport_ref()</a></span> | list() | true | false</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code"></span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11"></span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Fun = fun((<span class="bold_code"><a href="#transport_ref">transport_ref()</a></span>, connect|listen, list()) -&gt; boolean())</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Fun = fun((<span class="bold_code bc-17"><a href="#transport_ref">transport_ref()</a></span>, connect|listen, list()) -&gt; boolean())</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">    | fun((<span class="bold_code"><a href="#transport_ref">transport_ref()</a></span>, list()) -&gt; boolean())</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">    | fun((<span class="bold_code bc-17"><a href="#transport_ref">transport_ref()</a></span>, list()) -&gt; boolean())</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">    | fun((list()) -&gt; boolean())</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">    | fun((list()) -&gt; boolean())</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">MFA = {atom(), atom(), list()}</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MFA = {atom(), atom(), list()}</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
 </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 <p>
 Remove previously added transports.</p>
 
@@ -1822,7 +1823,7 @@ Remove previously added transports.</p>
 <span class="code">Pred</span> determines which transports to remove.
 An arity-3-valued <span class="code">Pred</span> removes all transports for which
 <span class="code">Pred(Ref, Type, Opts)</span> returns <span class="code">true</span>, where <span class="code">Type</span> and
-<span class="code">Opts</span> are as passed to <span class="bold_code"><a href="#add_transport-2">add_transport/2</a></span> and <span class="code">Ref</span> is
+<span class="code">Opts</span> are as passed to <span class="bold_code bc-17"><a href="#add_transport-2">add_transport/2</a></span> and <span class="code">Ref</span> is
 as returned by it.
 The remaining forms are equivalent to an arity-3 fun as follows.</p>
 
@@ -1840,27 +1841,27 @@ Pred = {M,F,A}:  fun(Ref, Type, Opts) -&gt; apply(M, F, [Ref, Type, Opts | A]) e
 Removing a transport causes the corresponding transport processes to
 be terminated.
 Whether or not a DPR message is sent to a peer is
-controlled by value of <span class="bold_code"><a href="#disconnect_cb">disconnect_cb</a></span>
+controlled by value of <span class="bold_code bc-17"><a href="#disconnect_cb">disconnect_cb</a></span>
 configured on the transport.</p>
 
 </p></div>
 
 
 
-<p><a name="service_info-2"></a><span class="bold_code">service_info(SvcName, Info) -&gt; term()</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES">
-<span class="bold_code">SvcName = <span class="bold_code"><a href="#service_name">service_name()</a></span></span><br>
+<p><a name="service_info-2"></a><span class="bold_code bc-9">service_info(SvcName, Info) -&gt; term()</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">SvcName = <span class="bold_code bc-17"><a href="#service_name">service_name()</a></span></span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Info = Item | [Info]</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Info = Item | [Info]</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Item = atom()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Item = atom()</span><br>
 </div>
 </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 <p>
 Return information about a started service.
 Requesting info for an unknown service causes <span class="code">undefined</span> to be
@@ -1898,13 +1899,13 @@ returned.</p>
 <dt><strong><span class="code">'Firmware-Revision'</span></strong></dt>
 <dd>
 <p>
-Return a capability value as configured with <span class="bold_code"><a href="#start_service-2">start_service/2</a></span>.</p>
+Return a capability value as configured with <span class="bold_code bc-17"><a href="#start_service-2">start_service/2</a></span>.</p>
 </dd>
 
 <dt><strong><span class="code">applications</span></strong></dt>
 <dd>
 <p>
-Return the list of applications as configured with <span class="bold_code"><a href="#start_service-2">start_service/2</a></span>.
+Return the list of applications as configured with <span class="bold_code bc-17"><a href="#start_service-2">start_service/2</a></span>.
 </p>
 </dd>
 
@@ -1912,14 +1913,14 @@ Return the list of applications as configured with <span class="bold_code"><a hr
 <dd>
 <p>
 Return a tagged list of all capabilities values as configured with
-<span class="bold_code"><a href="#start_service-2">start_service/2</a></span>.</p>
+<span class="bold_code bc-17"><a href="#start_service-2">start_service/2</a></span>.</p>
 </dd>
 
 <dt><strong><span class="code">transport</span></strong></dt>
 <dd>
 <p>
 Return a list containing one entry for each of the service's transport
-as configured with <span class="bold_code"><a href="#add_transport-2">add_transport/2</a></span>.
+as configured with <span class="bold_code bc-17"><a href="#add_transport-2">add_transport/2</a></span>.
 Each entry is a tagged list containing both configuration and
 information about established peer connections.
 An example return value with for a client service with Origin-Host
@@ -1976,15 +1977,15 @@ An example return value with for a client service with Origin-Host
 </pre></div>
 
 <p>
-Here <span class="code">ref</span> is a <span class="code"><span class="bold_code"><a href="#transport_ref">transport_ref()</a></span></span> and <span class="code">options</span>
-the corresponding <span class="code"><span class="bold_code"><a href="#transport_opt">transport_opt()</a></span></span> list passed to
-<span class="bold_code"><a href="#add_transport-2">add_transport/2</a></span>.
+Here <span class="code">ref</span> is a <span class="code"><span class="bold_code bc-17"><a href="#transport_ref">transport_ref()</a></span></span> and <span class="code">options</span>
+the corresponding <span class="code"><span class="bold_code bc-17"><a href="#transport_opt">transport_opt()</a></span></span> list passed to
+<span class="bold_code bc-17"><a href="#add_transport-2">add_transport/2</a></span>.
 The <span class="code">watchdog</span> entry shows the state of a connection's RFC 3539 watchdog
 state machine.
-The <span class="code">peer</span> entry identifies the <span class="code"><span class="bold_code"><a href="diameter_app.html#peer_ref">diameter_app:peer_ref()</a></span></span> for
-which there will have been <span class="bold_code"><a href="diameter_app.html#Mod:peer_up-3">peer_up/3</a></span> callbacks for the
+The <span class="code">peer</span> entry identifies the <span class="code"><span class="bold_code bc-15"><a href="diameter_app.html#peer_ref">diameter_app:peer_ref()</a></span></span> for
+which there will have been <span class="bold_code bc-15"><a href="diameter_app.html#Mod:peer_up-3">peer_up/3</a></span> callbacks for the
 Diameter applications identified by the <span class="code">apps</span> entry,
-<span class="code">common</span> being the <span class="code"><span class="bold_code"><a href="#application_alias">application_alias()</a></span></span>.
+<span class="code">common</span> being the <span class="code"><span class="bold_code bc-17"><a href="#application_alias">application_alias()</a></span></span>.
 The <span class="code">caps</span> entry identifies the capabilities sent by the local
 node and received from the peer during capabilities exchange.
 The <span class="code">port</span> entry displays socket-level information about the
@@ -2004,7 +2005,7 @@ during the lifetime of the transport configuration.</p>
 <p>
 A listening transport presents its information slightly differently
 since there may be multiple accepted connections for the same
-<span class="code"><span class="bold_code"><a href="#transport_ref">transport_ref()</a></span></span>.
+<span class="code"><span class="bold_code bc-17"><a href="#transport_ref">transport_ref()</a></span></span>.
 The <span class="code">transport</span> info returned by a server with a single client
 connection might look as follows.</p>
 
@@ -2065,11 +2066,11 @@ The information presented here is as in the <span class="code">connect</span> ca
 that the client connections are grouped under an <span class="code">accept</span> tuple.</p>
 
 <p>
-Whether or not the <span class="bold_code"><a href="#transport_opt">transport_opt()</a></span> <span class="code">pool_size</span> has been
+Whether or not the <span class="bold_code bc-17"><a href="#transport_opt">transport_opt()</a></span> <span class="code">pool_size</span> has been
 configured affects the format
 of the listing in the case of a connecting transport, since a value
 greater than 1 implies multiple transport processes for the same
-<span class="code"><span class="bold_code"><a href="#transport_ref">transport_ref()</a></span></span>, as in the listening case.
+<span class="code"><span class="bold_code bc-17"><a href="#transport_ref">transport_ref()</a></span></span>, as in the listening case.
 The format in this case is similar to the listening case, with a
 <span class="code">pool</span> tuple in place of an <span class="code">accept</span> tuple.</p>
 
@@ -2146,20 +2147,20 @@ contrast to <span class="code">transport</span> info.</p>
 <dd>
 <p>
 Return a <span class="code">{{Counter, Ref}, non_neg_integer()}</span> list of counter values.
-<span class="code">Ref</span> can be either a <span class="code"><span class="bold_code"><a href="#transport_ref">transport_ref()</a></span></span>
-or a <span class="code"><span class="bold_code"><a href="diameter_app.html#peer_ref">diameter_app:peer_ref()</a></span></span>.
+<span class="code">Ref</span> can be either a <span class="code"><span class="bold_code bc-17"><a href="#transport_ref">transport_ref()</a></span></span>
+or a <span class="code"><span class="bold_code bc-15"><a href="diameter_app.html#peer_ref">diameter_app:peer_ref()</a></span></span>.
 Entries for the latter are folded into corresponding entries for the
 former as peer connections go down.
-Entries for both are removed at <span class="bold_code"><a href="#remove_transport-2">remove_transport/2</a></span>.
+Entries for both are removed at <span class="bold_code bc-17"><a href="#remove_transport-2">remove_transport/2</a></span>.
 The Diameter-level statistics returned by <span class="code">transport</span> and
 <span class="code">connections</span> info are based upon these entries.</p>
 </dd>
 
-<dt><strong><span class="code"><span class="bold_code"><a href="diameter_app.html#peer_ref">diameter_app:peer_ref()</a></span></span></strong></dt>
+<dt><strong><span class="code"><span class="bold_code bc-15"><a href="diameter_app.html#peer_ref">diameter_app:peer_ref()</a></span></span></strong></dt>
 <dd>
 <p>
 Return transport configuration associated with a single peer, as
-passed to <span class="bold_code"><a href="#add_transport-2">add_transport/2</a></span>.
+passed to <span class="bold_code bc-17"><a href="#add_transport-2">add_transport/2</a></span>.
 The returned list is empty if the peer is unknown.
 Otherwise it contains the <span class="code">ref</span>, <span class="code">type</span> and <span class="code">options</span>
 tuples as in <span class="code">transport</span> and <span class="code">connections</span> info above.
@@ -2181,14 +2182,14 @@ For example:</p>
 
 
 
-<p><a name="services-0"></a><span class="bold_code">services() -&gt; [SvcName]</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES">
-<span class="bold_code">SvcName = <span class="bold_code"><a href="#service_name">service_name()</a></span></span><br>
+<p><a name="services-0"></a><span class="bold_code bc-9">services() -&gt; [SvcName]</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">SvcName = <span class="bold_code bc-17"><a href="#service_name">service_name()</a></span></span><br>
 </div>
 </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 <p>
 Return the list of started services.</p>
 
@@ -2196,14 +2197,14 @@ Return the list of started services.</p>
 
 
 
-<p><a name="session_id-1"></a><span class="bold_code">session_id(Ident) -&gt; <span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">OctetString()</a></span></span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES">
-<span class="bold_code">Ident = <span class="bold_code"><a href="diameter_dict.html#DATA_TYPES">DiameterIdentity()</a></span></span><br>
+<p><a name="session_id-1"></a><span class="bold_code bc-9">session_id(Ident) -&gt; <span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">OctetString()</a></span></span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Ident = <span class="bold_code bc-15"><a href="diameter_dict.html#DATA_TYPES">DiameterIdentity()</a></span></span><br>
 </div>
 </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 <p>
 Return a value for a Session-Id AVP.</p>
 
@@ -2215,8 +2216,8 @@ the message containing the returned value will be sent.</p>
 </p></div>
 
 
-<p><a name="start-0"></a><span class="bold_code">start() -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY"><p>
+<p><a name="start-0"></a><span class="bold_code bc-9">start() -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY rb-7"><p>
 <p>
 Start the diameter application.</p>
 
@@ -2228,27 +2229,27 @@ file, not by calling <span class="code">start/0</span> explicitly.</p>
 </p></div>
 
 
-<p><a name="start_service-2"></a><span class="bold_code">start_service(SvcName, Options) -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES">
-<span class="bold_code">SvcName = <span class="bold_code"><a href="#service_name">service_name()</a></span></span><br>
+<p><a name="start_service-2"></a><span class="bold_code bc-9">start_service(SvcName, Options) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">SvcName = <span class="bold_code bc-17"><a href="#service_name">service_name()</a></span></span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Options = [<span class="bold_code"><a href="#service_opt">service_opt()</a></span>]</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Options = [<span class="bold_code bc-17"><a href="#service_opt">service_opt()</a></span>]</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Reason  = term()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason  = term()</span><br>
 </div>
 </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 <p>
 Start a diameter service.</p>
 
 <p>
 A service defines a locally-implemented Diameter node, specifying the
 capabilities to be advertised during capabilities exchange.
-Transports are added to a service using <span class="bold_code"><a href="#add_transport-2">add_transport/2</a></span>.
+Transports are added to a service using <span class="bold_code bc-17"><a href="#add_transport-2">add_transport/2</a></span>.
 </p>
 
 <div class="note">
@@ -2265,8 +2266,8 @@ necessarily the case.</p>
 </p></div>
 
 
-<p><a name="stop-0"></a><span class="bold_code">stop() -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY"><p>
+<p><a name="stop-0"></a><span class="bold_code bc-9">stop() -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY rb-7"><p>
 <p>
 Stop the diameter application.</p>
 
@@ -2276,31 +2277,31 @@ Stop the diameter application.</p>
 </p></div>
 
 
-<p><a name="stop_service-1"></a><span class="bold_code">stop_service(SvcName) -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES">
-<span class="bold_code">SvcName = <span class="bold_code"><a href="#service_name">service_name()</a></span></span><br>
+<p><a name="stop_service-1"></a><span class="bold_code bc-9">stop_service(SvcName) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">SvcName = <span class="bold_code bc-17"><a href="#service_name">service_name()</a></span></span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
 </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 <p>
 Stop a diameter service.</p>
 
 <p>
 Stopping a service causes all associated transport connections to be
 broken.
-A DPR message with be sent as in the case of <span class="bold_code"><a href="#remove_transport-2">remove_transport/2</a></span>.</p>
+A DPR message with be sent as in the case of <span class="bold_code bc-17"><a href="#remove_transport-2">remove_transport/2</a></span>.</p>
 
 <div class="note">
 <div class="label">Note</div>
 <div class="content"><p>
 <p>
 Stopping a service does not remove any associated transports:
-<span class="bold_code"><a href="#remove_transport-2">remove_transport/2</a></span> must
+<span class="bold_code bc-17"><a href="#remove_transport-2">remove_transport/2</a></span> must
 be called to remove transport configuration.</p>
 </p></div>
 </div>
@@ -2309,16 +2310,16 @@ be called to remove transport configuration.</p>
 
 
 
-<p><a name="subscribe-1"></a><span class="bold_code">subscribe(SvcName) -&gt; true</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES">
-<span class="bold_code">SvcName = <span class="bold_code"><a href="#service_name">service_name()</a></span></span><br>
+<p><a name="subscribe-1"></a><span class="bold_code bc-9">subscribe(SvcName) -&gt; true</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">SvcName = <span class="bold_code bc-17"><a href="#service_name">service_name()</a></span></span><br>
 </div>
 </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 <p>
-Subscribe to <span class="code"><span class="bold_code"><a href="#service_event">service_event()</a></span></span> messages from
+Subscribe to <span class="code"><span class="bold_code bc-17"><a href="#service_event">service_event()</a></span></span> messages from
 a service.</p>
 
 <p>
@@ -2331,29 +2332,29 @@ reception of all transport-related events.</p>
 
 
 
-<p><a name="unsubscribe-1"></a><span class="bold_code">unsubscribe(SvcName) -&gt; true</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES">
-<span class="bold_code">SvcName = <span class="bold_code"><a href="#service_name">service_name()</a></span></span><br>
+<p><a name="unsubscribe-1"></a><span class="bold_code bc-9">unsubscribe(SvcName) -&gt; true</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">SvcName = <span class="bold_code bc-17"><a href="#service_name">service_name()</a></span></span><br>
 </div>
 </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 <p>
 Unsubscribe to event messages from a service.</p>
 
 </p></div>
 
+</div>
 
 
 
-
-<h3><a name="idp46355814053392">SEE ALSO</a></h3>
-<div class="REFBODY">
+<h3><a name="idp46985882757120">SEE ALSO</a></h3>
+<div class="REFBODY rb-3">
 
 
 <p>
-<span class="bold_code"><a href="diameter_app.html">diameter_app(3)</a></span>, <span class="bold_code"><a href="diameter_transport.html">diameter_transport(3)</a></span>, <span class="bold_code"><a href="diameter_dict.html">diameter_dict(4)</a></span></p>
+<span class="bold_code bc-19"><a href="diameter_app.html">diameter_app(3)</a></span>, <span class="bold_code bc-19"><a href="diameter_transport.html">diameter_transport(3)</a></span>, <span class="bold_code bc-19"><a href="diameter_dict.html">diameter_dict(4)</a></span></p>
 
 </div>
 

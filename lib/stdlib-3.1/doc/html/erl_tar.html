@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">STDLIB</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 3.1</p>
@@ -1717,12 +1717,12 @@
 <!-- refpage --><center><h1>erl_tar</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">erl_tar</div>
+<div class="REFBODY module-body">erl_tar</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Unix 'tar' utility for reading and writing tar archives.
+<div class="REFBODY module-summary-body">Unix 'tar' utility for reading and writing tar archives.
   </div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>This module archives and extract files to and from
       a tar file. This module supports the <span class="code">ustar</span> format
       (IEEE Std 1003.1 and ISO/IEC 9945-1). All modern <span class="code">tar</span>
@@ -1734,60 +1734,60 @@
       To abide to the convention, add "<span class="code">.tar</span>" to the name.</p>
 
     <p>Tar files can be created in one operation using function
-      <span class="bold_code"><a href="#create-2"><span class="code">create/2</span></a></span> or
-      <span class="bold_code"><a href="#create-3"><span class="code">create/3</span></a></span>.</p>
+      <span class="bold_code bc-17"><a href="#create-2"><span class="code">create/2</span></a></span> or
+      <span class="bold_code bc-17"><a href="#create-3"><span class="code">create/3</span></a></span>.</p>
 
     <p>Alternatively, for more control, use functions
-      <span class="bold_code"><a href="#open-2"><span class="code">open/2</span></a></span>,
-      <span class="bold_code"><a href="#add-3"><span class="code">add/3,4</span></a></span>, and
-      <span class="bold_code"><a href="#close-1"><span class="code">close/1</span></a></span>.</p>
+      <span class="bold_code bc-17"><a href="#open-2"><span class="code">open/2</span></a></span>,
+      <span class="bold_code bc-17"><a href="#add-3"><span class="code">add/3,4</span></a></span>, and
+      <span class="bold_code bc-17"><a href="#close-1"><span class="code">close/1</span></a></span>.</p>
 
     <p>To extract all files from a tar file, use function
-      <span class="bold_code"><a href="#extract-1"><span class="code">extract/1</span></a></span>.
+      <span class="bold_code bc-17"><a href="#extract-1"><span class="code">extract/1</span></a></span>.
       To extract only some files or to be able to specify some more options,
-      use function <span class="bold_code"><a href="#extract-2"><span class="code">extract/2</span></a></span>.</p>
+      use function <span class="bold_code bc-17"><a href="#extract-2"><span class="code">extract/2</span></a></span>.</p>
 
     <p>To return a list of the files in a tar file,
-      use function <span class="bold_code"><a href="#table-1"><span class="code">table/1</span></a></span> or
-      <span class="bold_code"><a href="#table-2"><span class="code">table/2</span></a></span>.
+      use function <span class="bold_code bc-17"><a href="#table-1"><span class="code">table/1</span></a></span> or
+      <span class="bold_code bc-17"><a href="#table-2"><span class="code">table/2</span></a></span>.
       To print a list of files to the Erlang shell,
-      use function <span class="bold_code"><a href="#t-1"><span class="code">t/1</span></a></span> or
-      <span class="bold_code"><a href="#tt-1"><span class="code">tt/1</span></a></span>.</p>
+      use function <span class="bold_code bc-17"><a href="#t-1"><span class="code">t/1</span></a></span> or
+      <span class="bold_code bc-17"><a href="#tt-1"><span class="code">tt/1</span></a></span>.</p>
 
     <p>To convert an error term returned from one of the functions
       above to a readable message, use function
-      <span class="bold_code"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>.</p>
+      <span class="bold_code bc-17"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>.</p>
   </p></div>
 
-  <h3><a name="idm46007676061600">Unicode Support</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46279767176336">Unicode Support</a></h3>
+<div class="REFBODY rb-3">
     
-    <p>If <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#native_name_encoding-0');"><span class="code">file:native_name_encoding/0</span></a></span>
+    <p>If <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#native_name_encoding-0');"><span class="code">file:native_name_encoding/0</span></a></span>
       returns <span class="code">utf8</span>, path names are encoded in UTF-8 when
       creating tar files, and path names are assumed to be encoded in
       UTF-8 when extracting tar files.</p>
 
-    <p>If <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#native_name_encoding-0');"><span class="code">file:native_name_encoding/0</span></a></span>
+    <p>If <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#native_name_encoding-0');"><span class="code">file:native_name_encoding/0</span></a></span>
       returns <span class="code">latin1</span>, no translation of path names is done.</p>
   </div>
 
-  <h3><a name="idm46007676056688">Other Storage Media</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46279767171424">Other Storage Media</a></h3>
+<div class="REFBODY rb-3">
     
-    <p>The <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','inets','ftp.html');"><span class="code">ftp</span></a></span>
+    <p>The <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','inets','ftp.html');"><span class="code">ftp</span></a></span>
       module (Inets) normally accesses the tar file on disk using
-      the <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html');"><span class="code">file</span></a></span> module.
+      the <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html');"><span class="code">file</span></a></span> module.
       When other needs arise, you can define your own low-level Erlang
       functions to perform the writing and reading on the storage media;
-      use function <span class="bold_code"><a href="#init-3"><span class="code">init/3</span></a></span>.</p>
+      use function <span class="bold_code bc-17"><a href="#init-3"><span class="code">init/3</span></a></span>.</p>
 
     <p>An example of this is the SFTP support in
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','ssh','ssh_sftp.html#open_tar-3');"><span class="code">ssh_sftp:open_tar/3</span></a></span>. This function opens a tar file
+      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','ssh','ssh_sftp.html#open_tar-3');"><span class="code">ssh_sftp:open_tar/3</span></a></span>. This function opens a tar file
       on a remote machine using an SFTP channel.</p>
   </div>
 
-  <h3><a name="idm46007676051024">Limitations</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46279767165760">Limitations</a></h3>
+<div class="REFBODY rb-3">
     
     <ul>
       <li>
@@ -1811,34 +1811,35 @@
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="add-3"></a><span class="bold_code">add(TarDescriptor, Filename, Options) -&gt; RetValue</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">TarDescriptor = term()</span><br>
+<div class="exports-body">
+    <p><a name="add-3"></a><span class="bold_code bc-9">add(TarDescriptor, Filename, Options) -&gt; RetValue</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">TarDescriptor = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Filename = filename()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Filename = filename()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Options = [Option]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Options = [Option]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Option = dereference|verbose|{chunks,ChunkSize}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Option = dereference|verbose|{chunks,ChunkSize}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ChunkSize = positive_integer()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ChunkSize = positive_integer()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">RetValue = ok|{error,{Filename,Reason}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">RetValue = ok|{error,{Filename,Reason}}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Adds a file to a tar file that has been opened for writing by
-          <span class="bold_code"><a href="#open-2"><span class="code">open/1</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#open-2"><span class="code">open/1</span></a></span>.</p>
         <p>Options:</p>
         <dl>
           <dt><strong><span class="code">dereference</span></strong></dt>
@@ -1857,121 +1858,121 @@
             <p>Reads data in parts from the file. This is intended for
               memory-limited machines that, for example, builds a tar file
               on a remote machine over SFTP, see
-              <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','ssh','ssh_sftp.html#open_tar-3');"><span class="code">ssh_sftp:open_tar/3</span></a></span>.</p>
+              <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','ssh','ssh_sftp.html#open_tar-3');"><span class="code">ssh_sftp:open_tar/3</span></a></span>.</p>
           </dd>
         </dl>
       </p></div>
 
-    <p><a name="add-4"></a><span class="bold_code">add(TarDescriptor, FilenameOrBin, NameInArchive, Options) -&gt;
+    <p><a name="add-4"></a><span class="bold_code bc-9">add(TarDescriptor, FilenameOrBin, NameInArchive, Options) -&gt;
         RetValue </span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">TarDescriptor = term()</span><br>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">TarDescriptor = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">FilenameOrBin = filename()|binary()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">FilenameOrBin = filename()|binary()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Filename = filename()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Filename = filename()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">NameInArchive = filename()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">NameInArchive = filename()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Options = [Option]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Options = [Option]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Option = dereference|verbose</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Option = dereference|verbose</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">RetValue = ok|{error,{Filename,Reason}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">RetValue = ok|{error,{Filename,Reason}}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Adds a file to a tar file that has been opened for writing by
-          <span class="bold_code"><a href="#open-2"><span class="code">open/2</span></a></span>. This function
+          <span class="bold_code bc-17"><a href="#open-2"><span class="code">open/2</span></a></span>. This function
           accepts the same options as
-          <span class="bold_code"><a href="#add-3"><span class="code">add/3</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#add-3"><span class="code">add/3</span></a></span>.</p>
         <p><span class="code">NameInArchive</span> is the name under which the file becomes
           stored in the tar file. The file gets this name when it is
           extracted from the tar file.</p>
       </p></div>
 
-    <p><a name="close-1"></a><span class="bold_code">close(TarDescriptor)</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">TarDescriptor = term()</span><br>
+    <p><a name="close-1"></a><span class="bold_code bc-9">close(TarDescriptor)</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">TarDescriptor = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Closes a tar file
-          opened by <span class="bold_code"><a href="#open-2"><span class="code">open/2</span></a></span>.</p>
+          opened by <span class="bold_code bc-17"><a href="#open-2"><span class="code">open/2</span></a></span>.</p>
       </p></div>
 
-    <p><a name="create-2"></a><span class="bold_code">create(Name, FileList) -&gt;RetValue </span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Name = filename()</span><br>
+    <p><a name="create-2"></a><span class="bold_code bc-9">create(Name, FileList) -&gt;RetValue </span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Name = filename()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">FileList = [Filename|{NameInArchive, binary()},{NameInArchive,
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">FileList = [Filename|{NameInArchive, binary()},{NameInArchive,
           Filename}]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Filename = filename()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Filename = filename()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">NameInArchive = filename()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">NameInArchive = filename()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">RetValue = ok|{error,{Name,Reason}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">RetValue = ok|{error,{Name,Reason}}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Creates a tar file and archives the files whose names are specified
           in <span class="code">FileList</span> into it. The files can either be read from disk
           or be specified as binaries.</p>
       </p></div>
 
-    <p><a name="create-3"></a><span class="bold_code">create(Name, FileList, OptionList)</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Name = filename()</span><br>
+    <p><a name="create-3"></a><span class="bold_code bc-9">create(Name, FileList, OptionList)</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Name = filename()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">FileList = [Filename|{NameInArchive, binary()},{NameInArchive,
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">FileList = [Filename|{NameInArchive, binary()},{NameInArchive,
           Filename}]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Filename = filename()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Filename = filename()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">NameInArchive = filename()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">NameInArchive = filename()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">OptionList = [Option]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">OptionList = [Option]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Option = compressed|cooked|dereference|verbose</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Option = compressed|cooked|dereference|verbose</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">RetValue = ok|{error,{Name,Reason}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">RetValue = ok|{error,{Name,Reason}}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Creates a tar file and archives the files whose names are specified
           in <span class="code">FileList</span> into it. The files can either be read from disk
           or be specified as binaries.</p>
@@ -2007,20 +2008,20 @@
         </dl>
       </p></div>
 
-    <p><a name="extract-1"></a><span class="bold_code">extract(Name) -&gt; RetValue</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Name = filename()</span><br>
+    <p><a name="extract-1"></a><span class="bold_code bc-9">extract(Name) -&gt; RetValue</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Name = filename()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">RetValue = ok|{error,{Name,Reason}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">RetValue = ok|{error,{Name,Reason}}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Extracts all files from a tar archive.</p>
         <p>If argument <span class="code">Name</span> is specified as <span class="code">{binary,Binary}</span>,
           the contents of the binary is assumed to be a tar archive.</p>
@@ -2030,44 +2031,44 @@
         <p>Otherwise, <span class="code">Name</span> is to be a filename.</p>
       </p></div>
 
-    <p><a name="extract-2"></a><span class="bold_code">extract(Name, OptionList)</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Name = filename() | {binary,Binary} | {file,Fd}</span><br>
+    <p><a name="extract-2"></a><span class="bold_code bc-9">extract(Name, OptionList)</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Name = filename() | {binary,Binary} | {file,Fd}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Binary = binary()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Binary = binary()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Fd = file_descriptor()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Fd = file_descriptor()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">OptionList = [Option]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">OptionList = [Option]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Option = {cwd,Cwd}|{files,FileList}|keep_old_files|verbose|memory</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Option = {cwd,Cwd}|{files,FileList}|keep_old_files|verbose|memory</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Cwd = [dirname()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Cwd = [dirname()]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">FileList = [filename()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">FileList = [filename()]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">RetValue = ok|MemoryRetValue|{error,{Name,Reason}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">RetValue = ok|MemoryRetValue|{error,{Name,Reason}}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MemoryRetValue = {ok, [{NameInArchive,binary()}]}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MemoryRetValue = {ok, [{NameInArchive,binary()}]}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">NameInArchive = filename()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">NameInArchive = filename()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Extracts files from a tar archive.</p>
         <p>If argument <span class="code">Name</span> is specified as <span class="code">{binary,Binary}</span>,
           the contents of the binary is assumed to be a tar archive.</p>
@@ -2123,48 +2124,48 @@
         </dl>
       </p></div>
 
-    <p><a name="format_error-1"></a><span class="bold_code">format_error(Reason) -&gt; string()</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+    <p><a name="format_error-1"></a><span class="bold_code bc-9">format_error(Reason) -&gt; string()</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Cconverts an error reason term to a human-readable error message
           string.</p>
       </p></div>
 
-    <p><a name="init-3"></a><span class="bold_code">init(UserPrivate, AccessMode, Fun) -&gt;
+    <p><a name="init-3"></a><span class="bold_code bc-9">init(UserPrivate, AccessMode, Fun) -&gt;
         {ok,TarDescriptor} | {error,Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">UserPrivate = term()</span><br>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">UserPrivate = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">AccessMode = [write] | [read]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">AccessMode = [write] | [read]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Fun when AccessMode is [write] =
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Fun when AccessMode is [write] =
           fun(write, {UserPrivate,DataToWrite})-&gt;...;
           (position,{UserPrivate,Position})-&gt;...;
           (close, UserPrivate)-&gt;... end</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Fun when AccessMode is [read] =
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Fun when AccessMode is [read] =
           fun(read2, {UserPrivate,Size})-&gt;...;
           (position,{UserPrivate,Position})-&gt;...;
           (close,   UserPrivate)-&gt;... end</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">TarDescriptor = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">TarDescriptor = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>The <span class="code">Fun</span> is the definition of what to do when the different
           storage operations functions are to be called from the higher tar
           handling functions (such as <span class="code">add/3</span>, <span class="code">add/4</span>, and
@@ -2198,13 +2199,13 @@
           <dt><strong><span class="code">(position,{UserPrivate,Position})</span></strong></dt>
           <dd>
             <p>Sets the position of <span class="code">UserPrivate</span> as defined for files in
-              <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#position-2');"><span class="code">file:position/2</span></a></span></p>
+              <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#position-2');"><span class="code">file:position/2</span></a></span></p>
           </dd>
         </dl>
         <p><strong>Example:</strong></p>
         <p>The following is a complete <span class="code">Fun</span> parameter for reading and
           writing on files using the
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html');"><span class="code">file</span></a></span> module:</p>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html');"><span class="code">file</span></a></span> module:</p>
         <div class="example"><pre>
 ExampleFun = 
    fun(write, {Fd,Data}) -&gt;  file:write(Fd, Data);
@@ -2229,7 +2230,7 @@ erl_tar:close(TarDesc)</pre></div>
 <div class="content"><p>
           <p>This example with the <span class="code">file</span> module operations is
             not necessary to use directly, as that is what function
-            <span class="bold_code"><a href="#open-2"><span class="code">open/2</span></a></span> in principle
+            <span class="bold_code bc-17"><a href="#open-2"><span class="code">open/2</span></a></span> in principle
             does.</p>
         </p></div>
 </div>
@@ -2244,29 +2245,29 @@ erl_tar:close(TarDesc)</pre></div>
 </div>
       </p></div>
 
-    <p><a name="open-2"></a><span class="bold_code">open(Name, OpenModeList) -&gt; RetValue</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Name = filename()</span><br>
+    <p><a name="open-2"></a><span class="bold_code bc-9">open(Name, OpenModeList) -&gt; RetValue</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Name = filename()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">OpenModeList = [OpenMode]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">OpenModeList = [OpenMode]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Mode = write|compressed|cooked</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Mode = write|compressed|cooked</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">RetValue = {ok,TarDescriptor}|{error,{Name,Reason}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">RetValue = {ok,TarDescriptor}|{error,{Name,Reason}}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">TarDescriptor = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">TarDescriptor = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Creates a tar file for writing (any existing file with the same
           name is truncated).</p>
         <p>By convention, the name of a tar file is to end in "<span class="code">.tar</span>".
@@ -2290,8 +2291,8 @@ erl_tar:close(TarDesc)</pre></div>
           </dd>
         </dl>
         <p>To add one file at the time into an opened tar file, use function
-          <span class="bold_code"><a href="#add-3"><span class="code">add/3,4</span></a></span>. When you are
-          finished adding files, use function <span class="bold_code"><a href="#close-1"><span class="code">close/1</span></a></span> to close the tar file.</p>
+          <span class="bold_code bc-17"><a href="#add-3"><span class="code">add/3,4</span></a></span>. When you are
+          finished adding files, use function <span class="bold_code bc-17"><a href="#close-1"><span class="code">close/1</span></a></span> to close the tar file.</p>
         <div class="warning">
 <div class="label">Warning</div>
 <div class="content"><p>
@@ -2303,58 +2304,58 @@ erl_tar:close(TarDesc)</pre></div>
 </div>
       </p></div>
 
-    <p><a name="table-1"></a><span class="bold_code">table(Name) -&gt; RetValue</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Name = filename()</span><br>
+    <p><a name="table-1"></a><span class="bold_code bc-9">table(Name) -&gt; RetValue</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Name = filename()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">RetValue = {ok,[string()]}|{error,{Name,Reason}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">RetValue = {ok,[string()]}|{error,{Name,Reason}}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Retrieves the names of all files in the tar file <span class="code">Name</span>.</p>
       </p></div>
 
-    <p><a name="table-2"></a><span class="bold_code">table(Name, Options)</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Name = filename()</span><br>
+    <p><a name="table-2"></a><span class="bold_code bc-9">table(Name, Options)</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Name = filename()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Retrieves the names of all files in the tar file <span class="code">Name</span>.</p>
       </p></div>
 
-    <p><a name="t-1"></a><span class="bold_code">t(Name)</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Name = filename()</span><br>
+    <p><a name="t-1"></a><span class="bold_code bc-9">t(Name)</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Name = filename()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Prints the names of all files in the tar file <span class="code">Name</span> to the
           Erlang shell (similar to "<span class="code">tar t</span>").</p>
       </p></div>
 
-    <p><a name="tt-1"></a><span class="bold_code">tt(Name)</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Name = filename()</span><br>
+    <p><a name="tt-1"></a><span class="bold_code bc-9">tt(Name)</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Name = filename()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Prints names and information about all files in the tar file
           <span class="code">Name</span> to the Erlang shell (similar to "<span class="code">tar tv</span>").</p>
       </p></div>
-  
+  </div>
 </div>
 <div class="footer">
 <hr>

@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">STDLIB</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 3.1</p>
@@ -1717,16 +1717,16 @@
 <!-- refpage --><center><h1>sets</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">sets</div>
+<div class="REFBODY module-body">sets</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Functions for set manipulation.</div>
+<div class="REFBODY module-summary-body">Functions for set manipulation.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>Sets are collections of elements with no duplicate elements.
       The representation of a set is undefined.</p>
 
     <p>This module provides the same interface as the
-      <span class="bold_code"><a href="ordsets.html"><span class="code">ordsets(3)</span></a></span> module
+      <span class="bold_code bc-19"><a href="ordsets.html"><span class="code">ordsets(3)</span></a></span> module
       but with a defined representation. One difference is
       that while this module considers two elements as different if they
       do not match (<span class="code">=:=</span>), <span class="code">ordsets</span> considers two elements as
@@ -1734,189 +1734,194 @@
   </p></div>
 
   <h3><a name="data-types" href="#data-types">Data Types</a></h3>
-    <p>
-      <span class="bold_code"><a name="type-set">set(Element)</a></span><br></p>
-<div class="REFBODY"><p><p>As returned by
-        <span class="bold_code"><a href="#new-0"><span class="code">new/0</span></a></span>.</p></p></div>
-    <p>
-      <span class="bold_code"><a name="type-set">set()</a> = <span class="bold_code"><a href="#type-set">set</a></span>(term())</span><br></p>
-  
+<div class="data-types-body">
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-set">set(Element)</a></span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p><p>As returned by
+        <span class="bold_code bc-17"><a href="#new-0"><span class="code">new/0</span></a></span>.</p></p></div></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-set">set()</a> = <span class="bold_code bc-17"><a href="#type-set">set</a></span>(term())</span><br>
+</div>
+<div class="data-type-desc"></div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="add_element-2"></a><span class="bold_code">add_element(Element, Set1) -&gt; Set2</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Set1 = Set2 = <span class="bold_code"><a href="#type-set">set</a></span>(Element)</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="exports-body">
+    <p><a name="add_element-2"></a><span class="bold_code bc-1">add_element(Element, Set1) -&gt; Set2</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Set1 = Set2 = <span class="bold_code bc-17"><a href="#type-set">set</a></span>(Element)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a new set formed from <span class="code">Set1</span> with
           <span class="code">Element</span> inserted.</p>
       </p></div>
 
-    <p><a name="del_element-2"></a><span class="bold_code">del_element(Element, Set1) -&gt; Set2</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Set1 = Set2 = <span class="bold_code"><a href="#type-set">set</a></span>(Element)</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="del_element-2"></a><span class="bold_code bc-1">del_element(Element, Set1) -&gt; Set2</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Set1 = Set2 = <span class="bold_code bc-17"><a href="#type-set">set</a></span>(Element)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">Set1</span>, but with
           <span class="code">Element</span> removed.</p>
       </p></div>
 
-    <p><a name="filter-2"></a><span class="bold_code">filter(Pred, Set1) -&gt; Set2</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Pred = fun((Element) -&gt; boolean())</span></div>
-<div class="REFTYPES"><span class="bold_code">Set1 = Set2 = <span class="bold_code"><a href="#type-set">set</a></span>(Element)</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="filter-2"></a><span class="bold_code bc-1">filter(Pred, Set1) -&gt; Set2</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Pred = fun((Element) -&gt; boolean())</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Set1 = Set2 = <span class="bold_code bc-17"><a href="#type-set">set</a></span>(Element)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Filters elements in <span class="code">Set1</span> with boolean function
           <span class="code">Pred</span>.</p>
       </p></div>
 
-    <p><a name="fold-3"></a><span class="bold_code">fold(Function, Acc0, Set) -&gt; Acc1</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Function = fun((Element, AccIn) -&gt; AccOut)</span></div>
-<div class="REFTYPES"><span class="bold_code">Set = <span class="bold_code"><a href="#type-set">set</a></span>(Element)</span></div>
-<div class="REFTYPES"><span class="bold_code">Acc0 = Acc1 = AccIn = AccOut = Acc</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="fold-3"></a><span class="bold_code bc-1">fold(Function, Acc0, Set) -&gt; Acc1</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Function = fun((Element, AccIn) -&gt; AccOut)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Set = <span class="bold_code bc-17"><a href="#type-set">set</a></span>(Element)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Acc0 = Acc1 = AccIn = AccOut = Acc</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Folds <span class="code">Function</span> over every element in
           <span class="code">Set</span> and returns the final value of the
           accumulator. The evaluation order is undefined.</p>
       </p></div>
 
-    <p><a name="from_list-1"></a><span class="bold_code">from_list(List) -&gt; Set</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">List = [Element]</span></div>
-<div class="REFTYPES"><span class="bold_code">Set = <span class="bold_code"><a href="#type-set">set</a></span>(Element)</span></div>
+    <p><a name="from_list-1"></a><span class="bold_code bc-1">from_list(List) -&gt; Set</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">List = [Element]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Set = <span class="bold_code bc-17"><a href="#type-set">set</a></span>(Element)</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a set of the elements in <span class="code">List</span>.</p>
       </p></div>
 
-    <p><a name="intersection-1"></a><span class="bold_code">intersection(SetList) -&gt; Set</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">SetList = [<span class="bold_code"><a href="#type-set">set</a></span>(Element), ...]</span></div>
-<div class="REFTYPES"><span class="bold_code">Set = <span class="bold_code"><a href="#type-set">set</a></span>(Element)</span></div>
+    <p><a name="intersection-1"></a><span class="bold_code bc-1">intersection(SetList) -&gt; Set</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">SetList = [<span class="bold_code bc-17"><a href="#type-set">set</a></span>(Element), ...]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Set = <span class="bold_code bc-17"><a href="#type-set">set</a></span>(Element)</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the intersection of the non-empty list of sets.</p>
       </p></div>
 
-    <p><a name="intersection-2"></a><span class="bold_code">intersection(Set1, Set2) -&gt; Set3</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Set1 = Set2 = Set3 = <span class="bold_code"><a href="#type-set">set</a></span>(Element)</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="intersection-2"></a><span class="bold_code bc-1">intersection(Set1, Set2) -&gt; Set3</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Set1 = Set2 = Set3 = <span class="bold_code bc-17"><a href="#type-set">set</a></span>(Element)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the intersection of <span class="code">Set1</span> and
           <span class="code">Set2</span>.</p>
       </p></div>
 
-    <p><a name="is_disjoint-2"></a><span class="bold_code">is_disjoint(Set1, Set2) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Set1 = Set2 = <span class="bold_code"><a href="#type-set">set</a></span>(Element)</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="is_disjoint-2"></a><span class="bold_code bc-1">is_disjoint(Set1, Set2) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Set1 = Set2 = <span class="bold_code bc-17"><a href="#type-set">set</a></span>(Element)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">Set1</span> and
           <span class="code">Set2</span> are disjoint (have no elements in common),
 	  otherwise <span class="code">false</span>.</p>
       </p></div>
 
-    <p><a name="is_element-2"></a><span class="bold_code">is_element(Element, Set) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Set = <span class="bold_code"><a href="#type-set">set</a></span>(Element)</span></div>
+    <p><a name="is_element-2"></a><span class="bold_code bc-1">is_element(Element, Set) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Set = <span class="bold_code bc-17"><a href="#type-set">set</a></span>(Element)</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">Element</span> is an element of
           <span class="code">Set</span>, otherwise <span class="code">false</span>.</p>
       </p></div>
 
-    <p><a name="is_set-1"></a><span class="bold_code">is_set(Set) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Set = term()</span></div>
+    <p><a name="is_set-1"></a><span class="bold_code bc-1">is_set(Set) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Set = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">Set</span> is a set of
           elements, otherwise <span class="code">false</span>.</p>
       </p></div>
 
-    <p><a name="is_subset-2"></a><span class="bold_code">is_subset(Set1, Set2) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Set1 = Set2 = <span class="bold_code"><a href="#type-set">set</a></span>(Element)</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="is_subset-2"></a><span class="bold_code bc-1">is_subset(Set1, Set2) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Set1 = Set2 = <span class="bold_code bc-17"><a href="#type-set">set</a></span>(Element)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> when every element of <span class="code">Set1</span> is
           also a member of <span class="code">Set2</span>, otherwise <span class="code">false</span>.</p>
       </p></div>
 
-    <p><a name="new-0"></a><span class="bold_code">new() -&gt; <span class="bold_code"><a href="#type-set">set()</a></span></span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="new-0"></a><span class="bold_code bc-1">new() -&gt; <span class="bold_code bc-17"><a href="#type-set">set()</a></span></span></p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a new empty set.</p>
       </p></div>
 
-    <p><a name="size-1"></a><span class="bold_code">size(Set) -&gt; integer() &gt;= 0</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Set = <span class="bold_code"><a href="#type-set">set()</a></span></span></div>
+    <p><a name="size-1"></a><span class="bold_code bc-1">size(Set) -&gt; integer() &gt;= 0</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Set = <span class="bold_code bc-17"><a href="#type-set">set()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the number of elements in <span class="code">Set</span>.</p>
       </p></div>
 
-    <p><a name="subtract-2"></a><span class="bold_code">subtract(Set1, Set2) -&gt; Set3</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Set1 = Set2 = Set3 = <span class="bold_code"><a href="#type-set">set</a></span>(Element)</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="subtract-2"></a><span class="bold_code bc-1">subtract(Set1, Set2) -&gt; Set3</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Set1 = Set2 = Set3 = <span class="bold_code bc-17"><a href="#type-set">set</a></span>(Element)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns only the elements of <span class="code">Set1</span> that are not
           also elements of <span class="code">Set2</span>.</p>
       </p></div>
 
-    <p><a name="to_list-1"></a><span class="bold_code">to_list(Set) -&gt; List</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Set = <span class="bold_code"><a href="#type-set">set</a></span>(Element)</span></div>
-<div class="REFTYPES"><span class="bold_code">List = [Element]</span></div>
+    <p><a name="to_list-1"></a><span class="bold_code bc-1">to_list(Set) -&gt; List</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Set = <span class="bold_code bc-17"><a href="#type-set">set</a></span>(Element)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">List = [Element]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the elements of <span class="code">Set</span> as a list.
           The order of the returned elements is undefined.</p>
       </p></div>
 
-    <p><a name="union-1"></a><span class="bold_code">union(SetList) -&gt; Set</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">SetList = [<span class="bold_code"><a href="#type-set">set</a></span>(Element)]</span></div>
-<div class="REFTYPES"><span class="bold_code">Set = <span class="bold_code"><a href="#type-set">set</a></span>(Element)</span></div>
+    <p><a name="union-1"></a><span class="bold_code bc-1">union(SetList) -&gt; Set</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">SetList = [<span class="bold_code bc-17"><a href="#type-set">set</a></span>(Element)]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Set = <span class="bold_code bc-17"><a href="#type-set">set</a></span>(Element)</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the merged (union) set of the list of sets.</p>
       </p></div>
 
-    <p><a name="union-2"></a><span class="bold_code">union(Set1, Set2) -&gt; Set3</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Set1 = Set2 = Set3 = <span class="bold_code"><a href="#type-set">set</a></span>(Element)</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="union-2"></a><span class="bold_code bc-1">union(Set1, Set2) -&gt; Set3</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Set1 = Set2 = Set3 = <span class="bold_code bc-17"><a href="#type-set">set</a></span>(Element)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the merged (union) set of <span class="code">Set1</span> and
           <span class="code">Set2</span>.</p>
       </p></div>
-  
+  </div>
 
-  <h3><a name="idm46007668496960">See Also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46279759611696">See Also</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="gb_sets.html"><span class="code">gb_sets(3)</span></a></span>,
-      <span class="bold_code"><a href="ordsets.html"><span class="code">ordsets(3)</span></a></span></p>
+    <p><span class="bold_code bc-19"><a href="gb_sets.html"><span class="code">gb_sets(3)</span></a></span>,
+      <span class="bold_code bc-19"><a href="ordsets.html"><span class="code">ordsets(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">crypto</p>
 <p class="section-subtitle">User's Guide</p>
 <p class="section-version">Version 3.7.1</p>
@@ -66,18 +66,18 @@
 <li><a href="licenses.html">
               Top of chapter
             </a></li>
-<li title="OpenSSL License"><a href="licenses.html#idm45861396174448">OpenSSL License</a></li>
-<li title="SSLeay License"><a href="licenses.html#idm45861396363104">SSLeay License</a></li>
+<li title="OpenSSL License"><a href="licenses.html#idm45664973399408">OpenSSL License</a></li>
+<li title="SSLeay License"><a href="licenses.html#idm45664973885808">SSLeay License</a></li>
 </ul>
 </li>
 <li id="loadscrollpos" title="FIPS mode" expanded="true">FIPS mode<ul>
 <li><a href="fips.html">
               Top of chapter
             </a></li>
-<li title="Background"><a href="fips.html#idm45861396123216">Background</a></li>
-<li title="Enabling FIPS mode"><a href="fips.html#idm45861396302960">Enabling FIPS mode</a></li>
-<li title="Incompatibilities with regular builds"><a href="fips.html#idm45861396367152">Incompatibilities with regular builds</a></li>
-<li title="Common caveats"><a href="fips.html#idm45861396298176">Common caveats</a></li>
+<li title="Background"><a href="fips.html#idm45664973441344">Background</a></li>
+<li title="Enabling FIPS mode"><a href="fips.html#idm45664973382304">Enabling FIPS mode</a></li>
+<li title="Incompatibilities with regular builds"><a href="fips.html#idm45664973893568">Incompatibilities with regular builds</a></li>
+<li title="Common caveats"><a href="fips.html#idm45664973448288">Common caveats</a></li>
 </ul>
 </li>
 </ul>
@@ -91,7 +91,7 @@
     This chapter describes FIPS mode support in the crypto application.
   </p>
 
-  <h3><a name="idm45861396123216">2.1 
+  <h3><a name="idm45664973441344">2.1 
         Background</a></h3>
     
     <p>OpenSSL can be built to provide FIPS 140-2 validated
@@ -107,7 +107,7 @@
     are disabled.</p>
   
 
-  <h3><a name="idm45861396302960">2.2 
+  <h3><a name="idm45664973382304">2.2 
         Enabling FIPS mode</a></h3>
     
     <ul>
@@ -115,8 +115,8 @@
         <p>Build or install the FIPS Object Module and a FIPS enabled
         OpenSSL library.</p>
         <p>You should read and precisely follow the instructions of
-        the <span class="bold_code"><a href="http://csrc.nist.gov/groups/STM/cmvp/documents/140-1/140sp/140sp1747.pdf">Security
-        Policy</a></span> and <span class="bold_code"><a href="https://www.openssl.org/docs/fips/UserGuide-2.0.pdf">User
+        the <span class="bold_code bc-20"><a href="http://csrc.nist.gov/groups/STM/cmvp/documents/140-1/140sp/140sp1747.pdf">Security
+        Policy</a></span> and <span class="bold_code bc-20"><a href="https://www.openssl.org/docs/fips/UserGuide-2.0.pdf">User
         Guide</a></span>.</p>
         <div class="warning">
 <div class="label">Warning</div>
@@ -130,12 +130,12 @@
       <li>
         <p>Configure and build Erlang/OTP with FIPS support:</p>
         <div class="example"><pre>
-$ <span class="bold_code">cd $ERL_TOP</span>
-$ <span class="bold_code">./otp_build configure --enable-fips</span>
+$ <span class="bold_code bc-12">cd $ERL_TOP</span>
+$ <span class="bold_code bc-12">./otp_build configure --enable-fips</span>
 ...
 checking for FIPS_mode_set... yes
 ...
-$ <span class="bold_code">make</span>
+$ <span class="bold_code bc-12">make</span>
         </pre></div>
         <p>If <span class="code">FIPS_mode_set</span> returns <span class="code">no</span> the OpenSSL
         library is not FIPS enabled and crypto won't support FIPS mode
@@ -167,7 +167,7 @@ $ <span class="bold_code">make</span>
     be too much effort put into this not too important feature.</p>
   
 
-  <h3><a name="idm45861396367152">2.3 
+  <h3><a name="idm45664973893568">2.3 
         Incompatibilities with regular builds</a></h3>
     
     <p>The Erlang API of the crypto application is identical
@@ -181,7 +181,7 @@ $ <span class="bold_code">make</span>
     support.</p>
   
 
-  <h3><a name="idm45861396298176">2.4 
+  <h3><a name="idm45664973448288">2.4 
         Common caveats</a></h3>
     
     <p>In FIPS mode non-validated algorithms are disabled. This may

@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">OS_Mon</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 2.4.1</p>
@@ -137,15 +137,15 @@
 <!-- refpage --><center><h1>os_sup</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">os_sup</div>
+<div class="REFBODY module-body">os_sup</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Interface to OS System Messages</div>
+<div class="REFBODY module-summary-body">Interface to OS System Messages</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p><span class="code">os_sup</span> is a process providing a message passing service
       from the operating system to the error logger in the Erlang
       runtime system. It is part of the OS_Mon application, see
-      <span class="bold_code"><a href="os_mon_app.html">os_mon(6)</a></span>. Available for
+      <span class="bold_code bc-19"><a href="os_mon_app.html">os_mon(6)</a></span>. Available for
       Solaris and Windows.</p>
     <p>Messages received from the operating system results in an
       user defined callback function being called. This function can do
@@ -153,8 +153,8 @@
       type of logging suitable for the user's application.</p>
   </p></div>
 
-  <h3><a name="idm45129936037152">Solaris Operation</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46582074425360">Solaris Operation</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The Solaris (SunOS 5.x) messages are retrieved from
       the syslog-daemon, <span class="code">syslogd</span>.</p>
@@ -165,7 +165,7 @@
       terminated, the service must be disabled, meaning the original
       configuration must be restored. Enabling/disabling can be done
       either outside or inside <span class="code">os_sup</span>, see
-      <span class="bold_code"><a href="#config">Configuration</a></span> below.</p>
+      <span class="bold_code bc-17"><a href="#config">Configuration</a></span> below.</p>
     <div class="warning">
 <div class="label">Warning</div>
 <div class="content"><p>
@@ -178,12 +178,12 @@
     <p>The format of received events is not defined.</p>
   </div>
 
-  <h3><a name="idm45129936030416">Windows Operation</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46582074418624">Windows Operation</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The Windows messages are retrieved from the eventlog file.</p>
     <p>The <span class="code">nteventlog</span> module is used to implement <span class="code">os_sup</span>.
-      See <span class="bold_code"><a href="nteventlog.html">nteventlog(3)</a></span>. Note
+      See <span class="bold_code bc-19"><a href="nteventlog.html">nteventlog(3)</a></span>. Note
       that the start functions of <span class="code">nteventlog</span> does not need to be
       used, in this case the process is started automatically as part of
       the OS_Mon supervision tree.</p>
@@ -228,9 +228,9 @@
   </div>
 
   <h3>
-<a name="config"></a><a name="idm45129936011776">Configuration</a>
+<a name="config"></a><a name="idm46582074399984">Configuration</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
     <dl>
@@ -242,7 +242,7 @@
           called as <span class="code">apply(Module, Function, [Msg | Args])</span>.</p>
         <p>Default is <span class="code">{os_sup, error_report, [Tag]}</span> which will
           send the event to the error logger using
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','error_logger.html#error_report-2');">error_logger:error_report(Tag, Msg)</a></span>. <span class="code">Tag</span> is the value of
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','error_logger.html#error_report-2');">error_logger:error_report(Tag, Msg)</a></span>. <span class="code">Tag</span> is the value of
           <span class="code">os_sup_errortag</span>, see below.</p>
       </dd>
       <dt><strong><span class="code">os_sup_errortag = atom()</span></strong></dt>
@@ -277,14 +277,15 @@
     </dl>
   </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="enable-0"></a><span class="bold_code">enable() -&gt; ok | {error, Res}</span><br><a name="enable-2"></a><span class="bold_code">enable(Dir, Conf) -&gt; ok | {error, Error}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Dir = Conf = Res = string()</span><br>
+<div class="exports-body">
+    <p><a name="enable-0"></a><span class="bold_code bc-9">enable() -&gt; ok | {error, Res}</span><br><a name="enable-2"></a><span class="bold_code bc-9">enable(Dir, Conf) -&gt; ok | {error, Error}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Dir = Conf = Res = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Enables the <span class="code">os_sup</span> service. Needed on Solaris only.</p>
         <p>If the configuration parameter <span class="code">os_sup_enable</span> is
           <span class="code">false</span>, this function is called automatically by
@@ -314,14 +315,14 @@
         </p></div>
 </div>
       </p></div>
-    <p><a name="disable-0"></a><span class="bold_code">disable() -&gt; ok | {error, Res}</span><br><a name="disable-2"></a><span class="bold_code">disable(Dir, Conf) -&gt; ok | {error, Error}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Dir = Conf = Res = string()</span><br>
+    <p><a name="disable-0"></a><span class="bold_code bc-9">disable() -&gt; ok | {error, Res}</span><br><a name="disable-2"></a><span class="bold_code bc-9">disable(Dir, Conf) -&gt; ok | {error, Error}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Dir = Conf = Res = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Disables the <span class="code">os_sup</span> service. Needed on Solaris only.</p>
         <p>If the configuration parameter <span class="code">os_sup_enable</span> is
           <span class="code">false</span>, this function is called automatically by
@@ -351,13 +352,13 @@
         </p></div>
 </div>
       </p></div>
-  
+  </div>
 
-  <h3><a name="idm45129935955392">See also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46582074343600">See also</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','error_logger.html');">error_logger(3)</a></span>,
-      <span class="bold_code"><a href="os_mon_app.html">os_mon(3)</a></span></p>
+    <p><span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','error_logger.html');">error_logger(3)</a></span>,
+      <span class="bold_code bc-19"><a href="os_mon_app.html">os_mon(3)</a></span></p>
     <p><span class="code">syslogd(1M)</span>, <span class="code">syslog.conf(4)</span> in the Solaris
       documentation.</p>
     <p></p>

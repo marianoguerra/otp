@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Dialyzer</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 3.0.2</p>
@@ -78,12 +78,12 @@
 <!-- refpage --><center><h1>dialyzer</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">dialyzer</div>
+<div class="REFBODY module-body">dialyzer</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Dialyzer, a DIscrepancy AnaLYZer for ERlang programs.
+<div class="REFBODY module-summary-body">Dialyzer, a DIscrepancy AnaLYZer for ERlang programs.
   </div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>Dialyzer is a static analysis tool that identifies software
       discrepancies, such as definite type errors, code that has become dead
       or unreachable because of programming error, and unnecessary tests,
@@ -98,9 +98,9 @@
   </p></div>
 
   <h3>
-<a name="command_line"></a><a name="idm46127571842768">Using Dialyzer from the Command Line</a>
+<a name="command_line"></a><a name="idm44835568105760">Using Dialyzer from the Command Line</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
     <p>Dialyzer has a command-line version for automated use. This
@@ -111,7 +111,7 @@
 dialyzer --help</pre></div>
 
     <p>For more details about the operation of Dialyzer, see section
-      <span class="bold_code"><a href="dialyzer_chapter.html#dialyzer_gui">Using Dialyzer from the GUI</a></span> in the User's Guide.</p>
+      <span class="bold_code bc-15"><a href="dialyzer_chapter.html#dialyzer_gui">Using Dialyzer from the GUI</a></span> in the User's Guide.</p>
 
     <p><strong>Exit status of the command-line version:</strong></p>
 
@@ -352,7 +352,7 @@ dialyzer --plts plt_1 ... plt_n -- files_to_analyze</pre></div>
           (For help on the names of warnings, use
           <span class="code">dialyzer -Whelp</span>.)
           Notice that the options can also be specified in the file with a
-          <span class="code">-dialyzer()</span> attribute. For details, see section <span class="bold_code"><a href="#suppression">Requesting or Suppressing Warnings in Source Files</a></span>.</p>
+          <span class="code">-dialyzer()</span> attribute. For details, see section <span class="bold_code bc-17"><a href="#suppression">Requesting or Suppressing Warnings in Source Files</a></span>.</p>
       </dd>
     </dl>
 
@@ -362,7 +362,7 @@ dialyzer --plts plt_1 ... plt_n -- files_to_analyze</pre></div>
       <p>** options <span class="code">-D</span> and <span class="code">-I</span> work both
         from the command line and in the Dialyzer GUI; the syntax of
         defines and includes is the same as that used by
-        <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlc.html');">erlc(1)</a></span>.</p>
+        <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','erlc.html');">erlc(1)</a></span>.</p>
     </p></div>
 </div>
 
@@ -473,19 +473,19 @@ dialyzer --plts plt_1 ... plt_n -- files_to_analyze</pre></div>
 </div>
   </div>
 
-  <h3><a name="idm46127572413392">Using Dialyzer from Erlang</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm44835568521328">Using Dialyzer from Erlang</a></h3>
+<div class="REFBODY rb-3">
     
     <p>Dialyzer can be used directly from Erlang. Both the GUI and the
       command-line versions are also available. The options are similar to the
       ones given from the command line, see section
-      <span class="bold_code"><a href="#command_line">Using Dialyzer from the Command Line</a></span>.</p>
+      <span class="bold_code bc-17"><a href="#command_line">Using Dialyzer from the Command Line</a></span>.</p>
   </div>
 
   <h3>
-<a name="suppression"></a><a name="idm46127572112256">Requesting or Suppressing Warnings in Source Files</a>
+<a name="suppression"></a><a name="idm44835568524112">Requesting or Suppressing Warnings in Source Files</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
     <p>Attribute <span class="code">-dialyzer()</span> can be used for turning off
@@ -517,7 +517,7 @@ dialyzer --plts plt_1 ... plt_n -- files_to_analyze</pre></div>
 -dialyzer({[no_return, no_match], [g/0, h/0]}).</pre></div>
 
     <p>For help on the warning options, use <span class="code">dialyzer -Whelp</span>. The
-      options are also enumerated, see function <span class="bold_code"><a href="#gui-1"><span class="code">gui/1</span></a></span> below (<span class="code">WarnOpts</span>).</p>
+      options are also enumerated, see function <span class="bold_code bc-17"><a href="#gui-1"><span class="code">gui/1</span></a></span> below (<span class="code">WarnOpts</span>).</p>
 
     <div class="note">
 <div class="label">Note</div>
@@ -545,28 +545,29 @@ dialyzer --plts plt_1 ... plt_n -- files_to_analyze</pre></div>
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="format_warning-1"></a><span class="bold_code">format_warning(Msg) -&gt; string()</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Msg = {Tag, Id, msg()}</span><br>
+<div class="exports-body">
+    <p><a name="format_warning-1"></a><span class="bold_code bc-9">format_warning(Msg) -&gt; string()</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Msg = {Tag, Id, msg()}</span><br>
 </div>
-        <div class="REFBODY">See <span class="code">run/1</span>.</div>
+        <div class="REFBODY rb-6">See <span class="code">run/1</span>.</div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Get a string from warnings as returned by
-          <span class="bold_code"><a href="#run-1"><span class="code">run/1</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#run-1"><span class="code">run/1</span></a></span>.</p>
       </p></div>
 
-    <p><a name="gui-0"></a><span class="bold_code">gui() -&gt; ok | {error, Msg}</span><br><a name="gui-1"></a><span class="bold_code">gui(OptList) -&gt; ok | {error, Msg}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">OptList</span><br>
+    <p><a name="gui-0"></a><span class="bold_code bc-9">gui() -&gt; ok | {error, Msg}</span><br><a name="gui-1"></a><span class="bold_code bc-9">gui(OptList) -&gt; ok | {error, Msg}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">OptList</span><br>
 </div>
-        <div class="REFBODY">See below.</div>
+        <div class="REFBODY rb-6">See below.</div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Dialyzer GUI version.</p>
         <div class="example"><pre>
 OptList  :: [Option]
@@ -611,24 +612,24 @@ WarnOpts :: error_handling
           | specdiffs</pre></div>
       </p></div>
 
-    <p><a name="plt_info-1"></a><span class="bold_code">plt_info(string()) -&gt; {'ok', [{atom(), any()}]} | {'error', atom()}</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="plt_info-1"></a><span class="bold_code bc-9">plt_info(string()) -&gt; {'ok', [{atom(), any()}]} | {'error', atom()}</span><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Returns information about the specified PLT.</p>
       </p></div>
 
-    <p><a name="run-1"></a><span class="bold_code">run(OptList) -&gt; Warnings</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">OptList</span><br>
+    <p><a name="run-1"></a><span class="bold_code bc-9">run(OptList) -&gt; Warnings</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">OptList</span><br>
 </div>
-        <div class="REFBODY">See <span class="code">gui/0,1</span>.</div>
-        <div class="REFTYPES">
-<span class="bold_code">Warnings</span><br>
+        <div class="REFBODY rb-6">See <span class="code">gui/0,1</span>.</div>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Warnings</span><br>
 </div>
-        <div class="REFBODY">See below.</div>
+        <div class="REFBODY rb-6">See below.</div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Dialyzer command-line version.</p>
         <div class="example"><pre>
 Warnings :: [{Tag, Id, Msg}]
@@ -656,7 +657,7 @@ Tag      :: 'warn_behaviour'
 Id  = {File :: string(), Line :: integer()}
 Msg = msg() -- Undefined</pre></div>
       </p></div>
-  
+  </div>
 </div>
 <div class="footer">
 <hr>

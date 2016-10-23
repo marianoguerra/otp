@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Erlang Interface</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 3.9.1</p>
@@ -592,24 +592,25 @@
 <!-- refpage --><center><h1>erl_marshal</h1></center>
   
   <h3><a name="c-library" href="#c-library">C Library</a></h3>
-<div class="REFBODY">erl_marshal</div>
+<div class="REFBODY c-library-body">erl_marshal</div>
   <h3><a name="library-sumary" href="#library-sumary">Library Summary</a></h3>
-<div class="REFBODY">Encoding and Decoding of Erlang terms</div>
+<div class="REFBODY library-summary-body">Encoding and Decoding of Erlang terms</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>This module contains functions for encoding Erlang terms into
       a sequence of bytes, and for decoding Erlang terms from a
       sequence of bytes.</p>
   </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="erl_compare_ext"><span class="bold_code">int erl_compare_ext(bufp1, bufp2)</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">unsigned char *bufp1,*bufp2;</span><br>
+<div class="exports-body">
+    <p><a name="erl_compare_ext"><span class="bold_code bc-7">int erl_compare_ext(bufp1, bufp2)</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">unsigned char *bufp1,*bufp2;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function compares two encoded terms.
           </p>
         <p><span class="code">bufp1</span> is a buffer containing an encoded Erlang
@@ -622,17 +623,17 @@
           is less than term2, or 1 if term2 is less than term1. 
           </p>
       </p></div>
-    <p><a name="erl_decode"><span class="bold_code">ETERM *erl_decode(bufp)</span></a><br><a name="erl_decode_buf"><span class="bold_code">ETERM *erl_decode_buf(bufpp)</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">unsigned char *bufp;</span><br>
+    <p><a name="erl_decode"><span class="bold_code bc-7">ETERM *erl_decode(bufp)</span></a><br><a name="erl_decode_buf"><span class="bold_code bc-7">ETERM *erl_decode_buf(bufpp)</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">unsigned char *bufp;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">unsigned char **bufpp;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">unsigned char **bufpp;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p><span class="code">erl_decode()</span> and <span class="code">erl_decode_buf()</span> decode
           the contents of a buffer and return the corresponding
           Erlang term.  <span class="code">erl_decode_buf()</span> provides a simple
@@ -656,20 +657,20 @@
           returns NULL.
           </p>
       </p></div>
-    <p><a name="erl_encode"><span class="bold_code">int erl_encode(term, bufp)</span></a><br><a name="erl_encode_buf"><span class="bold_code">int erl_encode_buf(term, bufpp)</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">ETERM *term;</span><br>
+    <p><a name="erl_encode"><span class="bold_code bc-7">int erl_encode(term, bufp)</span></a><br><a name="erl_encode_buf"><span class="bold_code bc-7">int erl_encode_buf(term, bufpp)</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ETERM *term;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">unsigned char *bufp;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">unsigned char *bufp;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">unsigned char **bufpp;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">unsigned char **bufpp;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p><span class="code">erl_encode()</span> and  <span class="code">erl_encode_buf()</span> encode 
           Erlang terms into external format for storage or transmission.
           <span class="code">erl_encode_buf()</span> provides a simple mechanism for
@@ -736,25 +737,25 @@
           version identifier.
           </p>
       </p></div>
-    <p><a name="erl_ext_size"><span class="bold_code">int erl_ext_size(bufp)</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">unsigned char *bufp;</span><br>
+    <p><a name="erl_ext_size"><span class="bold_code bc-7">int erl_ext_size(bufp)</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">unsigned char *bufp;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function returns the number of elements in an
           encoded term.</p>
       </p></div>
-    <p><a name="erl_ext_type"><span class="bold_code">unsigned char erl_ext_type(bufp)</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">unsigned char *bufp;</span><br>
+    <p><a name="erl_ext_type"><span class="bold_code bc-7">unsigned char erl_ext_type(bufp)</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">unsigned char *bufp;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function identifies and returns the type of Erlang term encoded
           in a buffer. It will skip a trailing <strong>magic</strong> identifier.
           Returns <span class="code">0</span> if the type can't be determined or one of</p>
@@ -794,17 +795,17 @@
           </li>
         </ul>
       </p></div>
-    <p><a name="erl_peek_ext"><span class="bold_code">unsigned char *erl_peek_ext(bufp, pos)</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">unsigned char *bufp;</span><br>
+    <p><a name="erl_peek_ext"><span class="bold_code bc-7">unsigned char *erl_peek_ext(bufp, pos)</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">unsigned char *bufp;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">int pos;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">int pos;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function is used for stepping over one or more
           encoded terms in a buffer, in order to directly access a
           later term.
@@ -821,14 +822,14 @@
           would exceed the size of the terms in the buffer, NULL is returned.
           </p>
       </p></div>
-    <p><a name="erl_term_len"><span class="bold_code">int erl_term_len(t)</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">ETERM *t;</span><br>
+    <p><a name="erl_term_len"><span class="bold_code bc-7">int erl_term_len(t)</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ETERM *t;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function determines the buffer space that would be
           needed by <span class="code">t</span> if it were encoded into Erlang external
           format by <span class="code">erl_encode()</span>.
@@ -836,7 +837,7 @@
         <p>The size in bytes is returned.
           </p>
       </p></div>
-  
+  </div>
 </div>
 <div class="footer">
 <hr>

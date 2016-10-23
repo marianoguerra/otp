@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Event Tracer (ET)</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 1.6</p>
@@ -130,29 +130,30 @@
 <!-- refpage --><center><h1>et_selector</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">et_selector</div>
+<div class="REFBODY module-body">et_selector</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Define event transforms and trace patterns</div>
+<div class="REFBODY module-summary-body">Define event transforms and trace patterns</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p></p>
   </p></div>
   
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="make_pattern-1"></a><span class="bold_code">make_pattern(RawPattern) -&gt; TracePattern</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">RawPattern = detail_level()</span><br>
+<div class="exports-body">
+    <p><a name="make_pattern-1"></a><span class="bold_code bc-9">make_pattern(RawPattern) -&gt; TracePattern</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">RawPattern = detail_level()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">TracePattern = erlang_trace_pattern_match_spec()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">TracePattern = erlang_trace_pattern_match_spec()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">detail_level() = min | max | integer(X) when X &gt;= 0, X =&lt; 100</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">detail_level() = min | max | integer(X) when X &gt;= 0, X =&lt; 100</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Makes a trace pattern suitable to feed change_pattern/1</p>
         <p>Min detail level deactivates tracing of calls to <span class="code">et:trace_me/4,5</span></p>
         <p>Max detail level activates tracing of all calls to <span class="code">et:trace_me/4,5</span></p>
@@ -162,20 +163,20 @@
         <p>See also <span class="code">erlang:trace_pattern/2</span> for more info about its <span class="code">match_spec()</span></p>
       </p></div>
 
-    <p><a name="change_pattern-1"></a><span class="bold_code">change_pattern(Pattern) -&gt; ok</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Pattern = detail_level() | empty_match_spec() | erlang_trace_pattern_match_spec()</span><br>
+    <p><a name="change_pattern-1"></a><span class="bold_code bc-9">change_pattern(Pattern) -&gt; ok</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Pattern = detail_level() | empty_match_spec() | erlang_trace_pattern_match_spec()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">detail_level() = min | max | integer(X) when  X &gt;= 0, X =&lt; 100</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">detail_level() = min | max | integer(X) when  X &gt;= 0, X =&lt; 100</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">empty_match_spec() = [] </span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">empty_match_spec() = [] </span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Activates/deactivates tracing by changing the current trace pattern.</p>
         <p><span class="code">min</span> detail level deactivates tracing of calls to <span class="code">et:trace_me/4,5</span></p>
         <p><span class="code">max</span> detail level activates tracing of all calls to <span class="code">et:trace_me/4,5</span></p>
@@ -187,17 +188,17 @@
         <span class="code">et:trace_me/4,5</span> accordingly with
         <span class="code">erlang:trace_pattern/2</span>.</p>
       </p></div>
-    <p><a name="parse_event-2"></a><span class="bold_code">parse_event(Mod, ValidTraceData) -&gt; false | true | {true, Event}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Mod = module_name() | undefined &lt;v&gt;module_name() = atom() &lt;v&gt;ValidTraceData = erlang_trace_data() | record(event)</span><br>
+    <p><a name="parse_event-2"></a><span class="bold_code bc-9">parse_event(Mod, ValidTraceData) -&gt; false | true | {true, Event}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Mod = module_name() | undefined &lt;v&gt;module_name() = atom() &lt;v&gt;ValidTraceData = erlang_trace_data() | record(event)</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">erlang_trace_data() = {trace, Pid, Label, Info} |  {trace, Pid, Label, Info, Extra} |  {trace_ts, Pid, Label, Info, ReportedTS} |  {trace_ts, Pid, Label, Info, Extra, ReportedTS} |  {seq_trace, Label, Info} |  {seq_trace, Label, Info, ReportedTS} |  {drop, NumberOfDroppedItems}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">erlang_trace_data() = {trace, Pid, Label, Info} |  {trace, Pid, Label, Info, Extra} |  {trace_ts, Pid, Label, Info, ReportedTS} |  {trace_ts, Pid, Label, Info, Extra, ReportedTS} |  {seq_trace, Label, Info} |  {seq_trace, Label, Info, ReportedTS} |  {drop, NumberOfDroppedItems}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Transforms trace data and makes an event record out of it.</p>
 
         <p>See <span class="code">erlang:trace/3</span> for more info about the semantics of the
@@ -247,7 +248,7 @@
 	  should be dropped</p></dd>
 	</dl>
       </p></div>
-  
+  </div>
   
 </div>
 <div class="footer">

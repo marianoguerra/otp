@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Event Tracer (ET)</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 1.6</p>
@@ -130,37 +130,38 @@
 <!-- refpage --><center><h1>et</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">et</div>
+<div class="REFBODY module-body">et</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Main API of the Event Trace (ET) application</div>
+<div class="REFBODY module-summary-body">Main API of the Event Trace (ET) application</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>Interface module for the Event Trace (ET) application</p>
   </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="trace_me-5"></a><span class="bold_code">trace_me(DetailLevel, From, To, Label, Contents) -&gt; hopefully_traced</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">DetailLevel = integer(X) when X =&lt; 0, X &gt;= 100</span><br>
+<div class="exports-body">
+    <p><a name="trace_me-5"></a><span class="bold_code bc-9">trace_me(DetailLevel, From, To, Label, Contents) -&gt; hopefully_traced</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">DetailLevel = integer(X) when X =&lt; 0, X &gt;= 100</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">From        = actor()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">From        = actor()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">To          = actor()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">To          = actor()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Label       = atom() | string() | term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Label       = atom() | string() | term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Contents    = [{Key, Value}] | term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Contents    = [{Key, Value}] | term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">actor()     = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">actor()     = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>A function that is intended to be traced.</p>
         <p>This function is intended to be invoked at strategic places
         in user applications in order to enable simplified
@@ -179,26 +180,26 @@
           Other events (termed actions) may be undirected and only have one actor.</p>
       </p></div>
 
-    <p><a name="trace_me-4"></a><span class="bold_code">trace_me(DetailLevel, FromTo, Label, Contents) -&gt; hopefully_traced</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="trace_me-4"></a><span class="bold_code bc-9">trace_me(DetailLevel, FromTo, Label, Contents) -&gt; hopefully_traced</span><br></p>
+<div class="REFBODY rb-7"><p>
        <p>Invokes <span class="code">et:trace_me/5</span> with both <span class="code">From</span> and <span class="code">To</span>
        set to <span class="code">FromTo</span>.</p>
      </p></div>
 
-    <p><a name="phone_home-4"></a><span class="bold_code">phone_home(DetailLevel, FromTo, Label, Contents) -&gt; hopefully_traced</span><br><a name="phone_home-5"></a><span class="bold_code">phone_home(DetailLevel, From, To, Label, Contents) -&gt; hopefully_traced</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="phone_home-4"></a><span class="bold_code bc-9">phone_home(DetailLevel, FromTo, Label, Contents) -&gt; hopefully_traced</span><br><a name="phone_home-5"></a><span class="bold_code bc-9">phone_home(DetailLevel, From, To, Label, Contents) -&gt; hopefully_traced</span><br></p>
+<div class="REFBODY rb-7"><p>
         <p>These functions sends a signal to the outer space and the
         caller hopes that someone is listening. In other words, they
         invoke <span class="code">et:trace_me/4</span> and <span class="code">et:trace_me/5</span>
         respectively.</p>
       </p></div>
-    <p><a name="report_event-4"></a><span class="bold_code">report_event(DetailLevel, FromTo, Label, Contents) -&gt; hopefully_traced</span><br><a name="report_event-5"></a><span class="bold_code">report_event(DetailLevel, From, To, Label, Contents) -&gt; hopefully_traced</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="report_event-4"></a><span class="bold_code bc-9">report_event(DetailLevel, FromTo, Label, Contents) -&gt; hopefully_traced</span><br><a name="report_event-5"></a><span class="bold_code bc-9">report_event(DetailLevel, From, To, Label, Contents) -&gt; hopefully_traced</span><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Deprecated functions which for the time being are kept for
         backwards compatibility. Invokes <span class="code">et:trace_me/4</span> and
         <span class="code">et:trace_me/5</span> respectively.</p>
       </p></div>
-  
+  </div>
   
 </div>
 <div class="footer">

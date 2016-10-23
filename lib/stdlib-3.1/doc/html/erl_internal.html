@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">STDLIB</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 3.1</p>
@@ -1717,122 +1717,123 @@
 <!-- refpage --><center><h1>erl_internal</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">erl_internal</div>
+<div class="REFBODY module-body">erl_internal</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Internal Erlang definitions.</div>
+<div class="REFBODY module-summary-body">Internal Erlang definitions.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>This module defines Erlang BIFs, guard tests, and operators.
       This module is only of interest to programmers who
       manipulate Erlang code.</p>
   </p></div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="add_predefined_functions-1"></a><span class="bold_code">add_predefined_functions(Forms) -&gt; UpdatedForms</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Forms = [<span class="bold_code"><a href="erl_parse.html#type-abstract_form">erl_parse:abstract_form()</a></span> | <span class="bold_code"><a href="erl_parse.html#type-form_info">erl_parse:form_info()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">UpdatedForms = <br>    [<span class="bold_code"><a href="erl_parse.html#type-abstract_form">erl_parse:abstract_form()</a></span> | <span class="bold_code"><a href="erl_parse.html#type-form_info">erl_parse:form_info()</a></span>]</span></div>
+<div class="exports-body">
+    <p><a name="add_predefined_functions-1"></a><span class="bold_code bc-1">add_predefined_functions(Forms) -&gt; UpdatedForms</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Forms = [<span class="bold_code bc-15"><a href="erl_parse.html#type-abstract_form">erl_parse:abstract_form()</a></span> | <span class="bold_code bc-15"><a href="erl_parse.html#type-form_info">erl_parse:form_info()</a></span>]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">UpdatedForms = <br>    [<span class="bold_code bc-15"><a href="erl_parse.html#type-abstract_form">erl_parse:abstract_form()</a></span> | <span class="bold_code bc-15"><a href="erl_parse.html#type-form_info">erl_parse:form_info()</a></span>]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Adds to <span class="code">Forms</span> the code for the standard
         pre-defined functions (such as <span class="code">module_info/0</span>) that are
         to be included in every module.</p>
       </p></div>
 
-    <p><a name="arith_op-2"></a><span class="bold_code">arith_op(OpName, Arity) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">OpName = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Arity = arity()</span></div>
+    <p><a name="arith_op-2"></a><span class="bold_code bc-1">arith_op(OpName, Arity) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">OpName = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Arity = arity()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">OpName/Arity</span>
           is an arithmetic operator, otherwise <span class="code">false</span>.</p>
       </p></div>
 
-    <p><a name="bif-2"></a><span class="bold_code">bif(Name, Arity) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Arity = arity()</span></div>
+    <p><a name="bif-2"></a><span class="bold_code bc-1">bif(Name, Arity) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Arity = arity()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">Name/Arity</span>
           is an Erlang BIF that is automatically recognized by the compiler,
           otherwise <span class="code">false</span>.</p>
       </p></div>
 
-    <p><a name="bool_op-2"></a><span class="bold_code">bool_op(OpName, Arity) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">OpName = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Arity = arity()</span></div>
+    <p><a name="bool_op-2"></a><span class="bold_code bc-1">bool_op(OpName, Arity) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">OpName = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Arity = arity()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">OpName/Arity</span>
           is a Boolean operator, otherwise <span class="code">false</span>.</p>
       </p></div>
 
-    <p><a name="comp_op-2"></a><span class="bold_code">comp_op(OpName, Arity) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">OpName = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Arity = arity()</span></div>
+    <p><a name="comp_op-2"></a><span class="bold_code bc-1">comp_op(OpName, Arity) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">OpName = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Arity = arity()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">OpName/Arity</span>
           is a comparison operator, otherwise <span class="code">false</span>.</p>
       </p></div>
 
-    <p><a name="guard_bif-2"></a><span class="bold_code">guard_bif(Name, Arity) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Arity = arity()</span></div>
+    <p><a name="guard_bif-2"></a><span class="bold_code bc-1">guard_bif(Name, Arity) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Arity = arity()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">Name/Arity</span> is
           an Erlang BIF that is allowed in guards, otherwise <span class="code">false</span>.</p>
       </p></div>
 
-    <p><a name="list_op-2"></a><span class="bold_code">list_op(OpName, Arity) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">OpName = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Arity = arity()</span></div>
+    <p><a name="list_op-2"></a><span class="bold_code bc-1">list_op(OpName, Arity) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">OpName = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Arity = arity()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">OpName/Arity</span>
           is a list operator, otherwise <span class="code">false</span>.</p>
       </p></div>
 
-    <p><a name="op_type-2"></a><span class="bold_code">op_type(OpName, Arity) -&gt; Type</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">OpName = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Arity = arity()</span></div>
-<div class="REFTYPES"><span class="bold_code">Type = arith | bool | comp | list | send</span></div>
+    <p><a name="op_type-2"></a><span class="bold_code bc-1">op_type(OpName, Arity) -&gt; Type</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">OpName = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Arity = arity()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Type = arith | bool | comp | list | send</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the <span class="code">Type</span> of operator that
           <span class="code">OpName/Arity</span> belongs to,
           or generates a <span class="code">function_clause</span> error if it is not an
           operator.</p>
       </p></div>
 
-    <p><a name="send_op-2"></a><span class="bold_code">send_op(OpName, Arity) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">OpName = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Arity = arity()</span></div>
+    <p><a name="send_op-2"></a><span class="bold_code bc-1">send_op(OpName, Arity) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">OpName = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Arity = arity()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">OpName/Arity</span>
           is a send operator, otherwise <span class="code">false</span>.</p>
       </p></div>
 
-    <p><a name="type_test-2"></a><span class="bold_code">type_test(Name, Arity) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Arity = arity()</span></div>
+    <p><a name="type_test-2"></a><span class="bold_code bc-1">type_test(Name, Arity) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Arity = arity()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">Name/Arity</span> is
           a valid Erlang type test, otherwise <span class="code">false</span>.</p>
       </p></div>
-  
+  </div>
 </div>
 <div class="footer">
 <hr>

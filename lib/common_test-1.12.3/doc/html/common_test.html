@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Common Test</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 1.12.3</p>
@@ -443,12 +443,12 @@
 <!-- refpage --><center><h1>common_test</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">common_test</div> 
+<div class="REFBODY module-body">common_test</div> 
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">A framework for automated testing of any target nodes.</div>
+<div class="REFBODY module-summary-body">A framework for automated testing of any target nodes.</div>
 
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
 
     <p>The <span class="code">Common Test</span> framework is an environment for
       implementing and performing automatic and semi-automatic execution of
@@ -468,54 +468,55 @@
     <p>The following section describes the mandatory and optional test suite
       functions that <span class="code">Common Test</span> calls during test execution.
       For more details, see section
-      <span class="bold_code"><a href="write_test_chapter.html">Writing Test Suites</a></span>
+      <span class="bold_code bc-19"><a href="write_test_chapter.html">Writing Test Suites</a></span>
       in the User's Guide.</p>
 
   </p></div>
 
-  <h3><a name="idm45523893688832">Test Case Callback Functions</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45500274357776">Test Case Callback Functions</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The following functions define the callback interface
       for a test suite.</p>
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="Module:all-0"></a><span class="bold_code">Module:all() -&gt; Tests | {skip,Reason} </span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-	<div class="REFTYPES">
-<span class="bold_code">Tests = [TestCase | {group,GroupName} | {group,GroupName,Properties} | {group,GroupName,Properties,SubGroups}]</span><br>
+<div class="exports-body">
+    <p><a name="Module:all-0"></a><span class="bold_code bc-9">Module:all() -&gt; Tests | {skip,Reason} </span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Tests = [TestCase | {group,GroupName} | {group,GroupName,Properties} | {group,GroupName,Properties,SubGroups}]</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">TestCase = atom()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">TestCase = atom()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">GroupName = atom()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">GroupName = atom()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Properties = [parallel | sequence | Shuffle | {RepeatType,N}] | default</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Properties = [parallel | sequence | Shuffle | {RepeatType,N}] | default</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">SubGroups = [{GroupName,Properties} | {GroupName,Properties,SubGroups}]</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">SubGroups = [{GroupName,Properties} | {GroupName,Properties,SubGroups}]</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Shuffle = shuffle | {shuffle,Seed}</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Shuffle = shuffle | {shuffle,Seed}</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Seed = {integer(),integer(),integer()}</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Seed = {integer(),integer(),integer()}</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">RepeatType = repeat | repeat_until_all_ok | repeat_until_all_fail | repeat_until_any_ok | repeat_until_any_fail</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">RepeatType = repeat | repeat_until_all_ok | repeat_until_all_fail | repeat_until_any_ok | repeat_until_any_fail</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">N = integer() | forever</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">N = integer() | forever</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>	
+<div class="REFBODY rb-7"><p>	
 	<p>MANDATORY</p>
 
 	<p>Returns the list of all test cases and test case groups in the
@@ -525,12 +526,12 @@
 	  the name of the test case function. A test case group is
 	  represented by a <span class="code">group</span> tuple, where <span class="code">GroupName</span>,
 	  an atom, is the name of the group (defined in
-	  <span class="bold_code"><a href="#Module:groups-0"><span class="code">groups/0</span></a></span>).
+	  <span class="bold_code bc-17"><a href="#Module:groups-0"><span class="code">groups/0</span></a></span>).
 	  Execution properties for groups can also be specified, both
 	  for a top-level group and for any of its subgroups.
 	  Group execution properties specified here override
 	  properties in the group definition (see
-	  <span class="bold_code"><a href="#Module:groups-0"><span class="code">groups/0</span></a></span>).
+	  <span class="bold_code bc-17"><a href="#Module:groups-0"><span class="code">groups/0</span></a></span>).
 	  (With value <span class="code">default</span>, the group definition properties
 	  are used).</p>
 
@@ -539,122 +540,122 @@
           is printed on the HTML result page.</p>
 
 	<p>For details on groups, see section
-	  <span class="bold_code"><a href="write_test_chapter.html#test_case_groups">Test Case Groups</a></span> in the User's Guide.</p>
+	  <span class="bold_code bc-15"><a href="write_test_chapter.html#test_case_groups">Test Case Groups</a></span> in the User's Guide.</p>
 
     </p></div>
 
-    <p><a name="Module:groups-0"></a><span class="bold_code">Module:groups() -&gt; GroupDefs</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">GroupDefs = [Group]</span><br>
+    <p><a name="Module:groups-0"></a><span class="bold_code bc-9">Module:groups() -&gt; GroupDefs</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">GroupDefs = [Group]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Group = {GroupName,Properties,GroupsAndTestCases}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Group = {GroupName,Properties,GroupsAndTestCases}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">GroupName = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">GroupName = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Properties = [parallel | sequence | Shuffle | {RepeatType,N}]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Properties = [parallel | sequence | Shuffle | {RepeatType,N}]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">GroupsAndTestCases = [Group | {group,GroupName} | TestCase]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">GroupsAndTestCases = [Group | {group,GroupName} | TestCase]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">TestCase = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">TestCase = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Shuffle = shuffle | {shuffle,Seed}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Shuffle = shuffle | {shuffle,Seed}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Seed = {integer(),integer(),integer()}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Seed = {integer(),integer(),integer()}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">RepeatType = repeat | repeat_until_all_ok | repeat_until_all_fail | repeat_until_any_ok | repeat_until_any_fail</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">RepeatType = repeat | repeat_until_all_ok | repeat_until_all_fail | repeat_until_any_ok | repeat_until_any_fail</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">N = integer() | forever</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">N = integer() | forever</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>	
+<div class="REFBODY rb-7"><p>	
 	<p>OPTIONAL</p>
 
 	<p>Defines test case groups. For details, see section
-	  <span class="bold_code"><a href="write_test_chapter.html#test_case_groups">Test Case Groups</a></span> in the User's Guide.</p>      
+	  <span class="bold_code bc-15"><a href="write_test_chapter.html#test_case_groups">Test Case Groups</a></span> in the User's Guide.</p>      
       </p></div>
 
-      <p><a name="Module:suite-0"></a><span class="bold_code">Module:suite() -&gt; [Info] </span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-	  <div class="REFTYPES">
-<span class="bold_code">Info = {timetrap,Time} | {require,Required} | {require,Name,Required} | {userdata,UserData} | {silent_connections,Conns} | {stylesheet,CSSFile} | {ct_hooks, CTHs}</span><br>
+      <p><a name="Module:suite-0"></a><span class="bold_code bc-9">Module:suite() -&gt; [Info] </span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Info = {timetrap,Time} | {require,Required} | {require,Name,Required} | {userdata,UserData} | {silent_connections,Conns} | {stylesheet,CSSFile} | {ct_hooks, CTHs}</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">Time = TimeVal | TimeFunc</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Time = TimeVal | TimeFunc</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">TimeVal = MilliSec | {seconds,integer()} | {minutes,integer()} | {hours,integer()}</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">TimeVal = MilliSec | {seconds,integer()} | {minutes,integer()} | {hours,integer()}</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">TimeFunc = {Mod,Func,Args} | Fun</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">TimeFunc = {Mod,Func,Args} | Fun</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">MilliSec = integer()</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MilliSec = integer()</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">Mod = atom()</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Mod = atom()</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">Func = atom()</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Func = atom()</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">Args = list()</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Args = list()</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">Fun = fun()</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Fun = fun()</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">Required = Key | {Key,SubKeys} | {Key,SubKey} | {Key,SubKey,SubKeys}</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Required = Key | {Key,SubKeys} | {Key,SubKey} | {Key,SubKey,SubKeys}</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">Key = atom()</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Key = atom()</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">SubKeys = SubKey | [SubKey]</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">SubKeys = SubKey | [SubKey]</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">SubKey = atom()</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">SubKey = atom()</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">Name = atom()</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Name = atom()</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">UserData = term()</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">UserData = term()</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">Conns = [atom()]</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Conns = [atom()]</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">CSSFile = string()</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">CSSFile = string()</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">CTHs = [CTHModule |</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">CTHs = [CTHModule |</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">        {CTHModule, CTHInitArgs} |</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">        {CTHModule, CTHInitArgs} |</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">        {CTHModule, CTHInitArgs, CTHPriority}]</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">        {CTHModule, CTHInitArgs, CTHPriority}]</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">CTHModule = atom()</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">CTHModule = atom()</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">CTHInitArgs = term()</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">CTHInitArgs = term()</span><br>
 </div>
 	</div>
-<div class="REFBODY"><p>	
+<div class="REFBODY rb-7"><p>	
 
         <p>OPTIONAL</p>
 
@@ -664,15 +665,15 @@
 
 	<p>Tag <span class="code">timetrap</span> sets the maximum time that each
 	  test case is allowed to execute (including
-	  <span class="bold_code"><a href="#Module:init_per_testcase-2"><span class="code">init_per_testcase/2</span></a></span>
+	  <span class="bold_code bc-17"><a href="#Module:init_per_testcase-2"><span class="code">init_per_testcase/2</span></a></span>
 	  and
-	  <span class="bold_code"><a href="#Module:end_per_testcase-2"><span class="code">end_per_testcase/2</span></a></span>).
+	  <span class="bold_code bc-17"><a href="#Module:end_per_testcase-2"><span class="code">end_per_testcase/2</span></a></span>).
 	  If the timetrap time is exceeded, the test case fails with reason
 	  <span class="code">timetrap_timeout</span>. A <span class="code">TimeFunc</span> function can be used to
 	  set a new timetrap by returning a <span class="code">TimeVal</span>. It can also be
 	  used to trigger a timetrap time-out by, at some point, returning a
 	  value other than a <span class="code">TimeVal</span>. For details, see section
-	  <span class="bold_code"><a href="write_test_chapter.html#timetraps">Timetrap Time-Outs</a></span>
+	  <span class="bold_code bc-15"><a href="write_test_chapter.html#timetraps">Timetrap Time-Outs</a></span>
 	  in the User's Guide.</p>
 
 	<p>Tag <span class="code">require</span> specifies configuration variables
@@ -680,41 +681,41 @@
 	  in the suite. If the required configuration variables are not found
 	  in any of the configuration files, all test cases are skipped.
 	  For details about the <span class="code">require</span> functionality, see funtion
-	  <span class="bold_code"><a href="ct.html#require-1"><span class="code">ct:require/1,2</span></a></span>.</p>
+	  <span class="bold_code bc-15"><a href="ct.html#require-1"><span class="code">ct:require/1,2</span></a></span>.</p>
 
 	<p>With <span class="code">userdata</span>, the user can
 	  specify any test suite-related information, which can be
 	  read by calling
-	  <span class="bold_code"><a href="ct.html#userdata-2"><span class="code">ct:userdata/2</span></a></span>.</p>
+	  <span class="bold_code bc-15"><a href="ct.html#userdata-2"><span class="code">ct:userdata/2</span></a></span>.</p>
 
 	<p>Tag <span class="code">ct_hooks</span> specifies the
-	  <span class="bold_code"><a href="ct_hooks_chapter.html">Common Test Hooks</a></span>
+	  <span class="bold_code bc-19"><a href="ct_hooks_chapter.html">Common Test Hooks</a></span>
 	  to be run with this suite.</p>
 
 	<p>Other tuples than the ones defined are ignored.</p>
 
 	<p>For details about the test suite information function, see section
-	  <span class="bold_code"><a href="write_test_chapter.html#suite">Test Suite Information Function</a></span> in the User's Guide.</p>
+	  <span class="bold_code bc-15"><a href="write_test_chapter.html#suite">Test Suite Information Function</a></span> in the User's Guide.</p>
     </p></div>
 
-      <p><a name="Module:init_per_suite-1"></a><span class="bold_code">Module:init_per_suite(Config) -&gt; NewConfig | {skip,Reason} |
+      <p><a name="Module:init_per_suite-1"></a><span class="bold_code bc-9">Module:init_per_suite(Config) -&gt; NewConfig | {skip,Reason} |
 	  {skip_and_save,Reason,SaveConfig}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-	  <div class="REFTYPES">
-<span class="bold_code">Config = NewConfig = SaveConfig = [{Key,Value}]</span><br>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Config = NewConfig = SaveConfig = [{Key,Value}]</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">Key = atom()</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Key = atom()</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">Value = term()</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Value = term()</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
 	</div>
-<div class="REFBODY"><p>	
+<div class="REFBODY rb-7"><p>	
 
 	  <p>OPTIONAL</p>
 
@@ -732,104 +733,104 @@
 
 	  <p>For information on <span class="code">save_config</span> and <span class="code">skip_and_save</span>,
 	  see section
-	  <span class="bold_code"><a href="dependencies_chapter.html#save_config">Saving Configuration Data</a></span> in the User's Guide.</p>
+	  <span class="bold_code bc-15"><a href="dependencies_chapter.html#save_config">Saving Configuration Data</a></span> in the User's Guide.</p>
     </p></div>
 
-    <p><a name="Module:end_per_suite-1"></a><span class="bold_code">Module:end_per_suite(Config) -&gt; term() | 
+    <p><a name="Module:end_per_suite-1"></a><span class="bold_code bc-9">Module:end_per_suite(Config) -&gt; term() | 
 	{save_config,SaveConfig}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-	<div class="REFTYPES">
-<span class="bold_code">Config = SaveConfig = [{Key,Value}]</span><br>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Config = SaveConfig = [{Key,Value}]</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Key = atom()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Key = atom()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Value = term()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Value = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>	
+<div class="REFBODY rb-7"><p>	
 	<p>OPTIONAL</p>
 	
 	<p>This function is called as the last test case in the
 	  suite. It is meant to be used for cleaning up after
-	  <span class="bold_code"><a href="#Module:init_per_suite-1"><span class="code">init_per_suite/1</span></a></span>.</p>
+	  <span class="bold_code bc-17"><a href="#Module:init_per_suite-1"><span class="code">init_per_suite/1</span></a></span>.</p>
 	<p>For information on <span class="code">save_config</span>, see section
-	  <span class="bold_code"><a href="dependencies_chapter.html#save_config">Saving Configuration Data</a></span> in the User's Guide.</p>
+	  <span class="bold_code bc-15"><a href="dependencies_chapter.html#save_config">Saving Configuration Data</a></span> in the User's Guide.</p>
       </p></div>
 
-    <p><a name="Module:group-1"></a><span class="bold_code">Module:group(GroupName) -&gt; [Info] </span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-	<div class="REFTYPES">
-<span class="bold_code">Info = {timetrap,Time} | {require,Required} | {require,Name,Required} | {userdata,UserData} | {silent_connections,Conns} | {stylesheet,CSSFile} | {ct_hooks, CTHs}</span><br>
+    <p><a name="Module:group-1"></a><span class="bold_code bc-9">Module:group(GroupName) -&gt; [Info] </span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Info = {timetrap,Time} | {require,Required} | {require,Name,Required} | {userdata,UserData} | {silent_connections,Conns} | {stylesheet,CSSFile} | {ct_hooks, CTHs}</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Time = TimeVal | TimeFunc</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Time = TimeVal | TimeFunc</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">TimeVal = MilliSec | {seconds,integer()} | {minutes,integer()} | {hours,integer()}</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">TimeVal = MilliSec | {seconds,integer()} | {minutes,integer()} | {hours,integer()}</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">TimeFunc = {Mod,Func,Args} | Fun</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">TimeFunc = {Mod,Func,Args} | Fun</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">MilliSec = integer()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MilliSec = integer()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Mod = atom()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Mod = atom()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Func = atom()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Func = atom()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Args = list()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Args = list()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Fun = fun()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Fun = fun()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Required = Key | {Key,SubKeys} | {Key,Subkey} | {Key,Subkey,SubKeys}</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Required = Key | {Key,SubKeys} | {Key,Subkey} | {Key,Subkey,SubKeys}</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Key = atom()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Key = atom()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">SubKeys = SubKey | [SubKey]</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">SubKeys = SubKey | [SubKey]</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">SubKey = atom()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">SubKey = atom()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Name = atom()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Name = atom()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">UserData = term()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">UserData = term()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Conns = [atom()]</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Conns = [atom()]</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">CSSFile = string()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">CSSFile = string()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">CTHs = [CTHModule |</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">CTHs = [CTHModule |</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">        {CTHModule, CTHInitArgs} |</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">        {CTHModule, CTHInitArgs} |</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">        {CTHModule, CTHInitArgs, CTHPriority}]</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">        {CTHModule, CTHInitArgs, CTHPriority}]</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">CTHModule = atom()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">CTHModule = atom()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">CTHInitArgs = term()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">CTHInitArgs = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>	
+<div class="REFBODY rb-7"><p>	
 
 	<p>OPTIONAL</p>
 
@@ -837,22 +838,22 @@
 	  return a list of tagged tuples that specify various properties
 	  related to the execution of a test case group (that is, its test
 	  cases and subgroups). Properties set by
-	  <span class="bold_code"><a href="#Module:group-1"><span class="code">group/1</span></a></span> override
+	  <span class="bold_code bc-17"><a href="#Module:group-1"><span class="code">group/1</span></a></span> override
 	  properties with the same key that have been set previously by
-	  <span class="bold_code"><a href="#Module:suite-0"><span class="code">suite/0</span></a></span>.</p>
+	  <span class="bold_code bc-17"><a href="#Module:suite-0"><span class="code">suite/0</span></a></span>.</p>
 	  
 	<p>Tag <span class="code">timetrap</span> sets the maximum time that each
 	  test case is allowed to execute (including
-	  <span class="bold_code"><a href="#Module:init_per_testcase-2"><span class="code">init_per_testcase/2</span></a></span>
+	  <span class="bold_code bc-17"><a href="#Module:init_per_testcase-2"><span class="code">init_per_testcase/2</span></a></span>
 	  and
-	  <span class="bold_code"><a href="#Module:end_per_testcase-2"><span class="code">end_per_testcase/2</span></a></span>).
+	  <span class="bold_code bc-17"><a href="#Module:end_per_testcase-2"><span class="code">end_per_testcase/2</span></a></span>).
 	  If the timetrap time is
 	  exceeded, the test case fails with reason
 	  <span class="code">timetrap_timeout</span>. A <span class="code">TimeFunc</span> function can be used to
 	  set a new timetrap by returning a <span class="code">TimeVal</span>. It can also be
 	  used to trigger a timetrap time-out by, at some point, returning a
 	  value other than a <span class="code">TimeVal</span>. For details, see section
-	  <span class="bold_code"><a href="write_test_chapter.html#timetraps">Timetrap Time-Outs</a></span> in the User's Guide.</p>
+	  <span class="bold_code bc-15"><a href="write_test_chapter.html#timetraps">Timetrap Time-Outs</a></span> in the User's Guide.</p>
 	
 	<p>Tag <span class="code">require</span> specifies configuration variables
 	  required by test cases (or configuration functions)
@@ -860,44 +861,44 @@
 	  in any of the configuration files, all test cases in this group are
 	  skipped. For details about the <span class="code">require</span> functionality, see
 	  function
-	  <span class="bold_code"><a href="ct.html#require-1"><span class="code">ct:require/1,2</span></a></span>.</p>
+	  <span class="bold_code bc-15"><a href="ct.html#require-1"><span class="code">ct:require/1,2</span></a></span>.</p>
 
 	<p>With <span class="code">userdata</span>, the user can
 	  specify any test case group related information that can be 
 	  read by calling
-	  <span class="bold_code"><a href="ct.html#userdata-2"><span class="code">ct:userdata/2</span></a></span>.</p>
+	  <span class="bold_code bc-15"><a href="ct.html#userdata-2"><span class="code">ct:userdata/2</span></a></span>.</p>
 
 	<p>Tag <span class="code">ct_hooks</span> specifies the
-	  <span class="bold_code"><a href="ct_hooks_chapter.html">Common Test Hooks</a></span>
+	  <span class="bold_code bc-19"><a href="ct_hooks_chapter.html">Common Test Hooks</a></span>
 	  to be run with this suite.</p>
 
 	<p>Other tuples than the ones defined are ignored.</p>
 
 	<p>For details about the test case group information function,
-	  see section <span class="bold_code"><a href="write_test_chapter.html#group_info">Group Information Function</a></span> in the User's Guide.</p>
+	  see section <span class="bold_code bc-15"><a href="write_test_chapter.html#group_info">Group Information Function</a></span> in the User's Guide.</p>
     </p></div>
 
-      <p><a name="Module:init_per_group-2"></a><span class="bold_code">Module:init_per_group(GroupName, Config) -&gt; NewConfig |
+      <p><a name="Module:init_per_group-2"></a><span class="bold_code bc-9">Module:init_per_group(GroupName, Config) -&gt; NewConfig |
 	  {skip,Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-	  <div class="REFTYPES">
-<span class="bold_code">GroupName = atom()</span><br>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">GroupName = atom()</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">Config = NewConfig = [{Key,Value}]</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Config = NewConfig = [{Key,Value}]</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">Key = atom()</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Key = atom()</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">Value = term()</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Value = term()</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
 	</div>
-<div class="REFBODY"><p>	
+<div class="REFBODY rb-7"><p>	
 
 	  <p>OPTIONAL</p>
 
@@ -906,7 +907,7 @@
 	    common for all test cases and subgroups in the group, and that
 	    must only be performed once. <span class="code">GroupName</span> is the name of the
 	    group, as specified in the group definition (see
-	    <span class="bold_code"><a href="#Module:groups-0"><span class="code">groups/0</span></a></span>).
+	    <span class="bold_code bc-17"><a href="#Module:groups-0"><span class="code">groups/0</span></a></span>).
 	    Parameter <span class="code">Config</span> is the configuration data that can be
 	    modified.
 	    The return value of this function is given as <span class="code">Config</span>
@@ -917,67 +918,67 @@
 	    <span class="code">Reason</span> is printed in the overview log for the group.</p>
 
 	  <p>For information about test case groups, see section 
-	    <span class="bold_code"><a href="write_test_chapter.html#test_case_groups">Test Case Groups</a></span> in the User's Guide.</p> 
+	    <span class="bold_code bc-15"><a href="write_test_chapter.html#test_case_groups">Test Case Groups</a></span> in the User's Guide.</p> 
     </p></div>
 
-      <p><a name="Module:end_per_group-2"></a><span class="bold_code">Module:end_per_group(GroupName, Config) -&gt; term() |
+      <p><a name="Module:end_per_group-2"></a><span class="bold_code bc-9">Module:end_per_group(GroupName, Config) -&gt; term() |
 	  {return_group_result,Status}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-	  <div class="REFTYPES">
-<span class="bold_code">GroupName = atom()</span><br>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">GroupName = atom()</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">Config = [{Key,Value}]</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Config = [{Key,Value}]</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">Key = atom()</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Key = atom()</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">Value = term()</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Value = term()</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">Status = ok | skipped | failed</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Status = ok | skipped | failed</span><br>
 </div>
 	</div>
-<div class="REFBODY"><p>	
+<div class="REFBODY rb-7"><p>	
 	  <p>OPTIONAL</p>
 
 	  <p>This function is called after the execution of a test case group
 	    is finished. It is meant to be used for cleaning up after
-	    <span class="bold_code"><a href="#Module:init_per_group-2"><span class="code">init_per_group/2</span></a></span>.
+	    <span class="bold_code bc-17"><a href="#Module:init_per_group-2"><span class="code">init_per_group/2</span></a></span>.
 	    A status value for a nested subgroup can be returned with
 	    <span class="code">{return_group_result,Status}</span>. The status can be retrieved in
-	    <span class="bold_code"><a href="#Module:end_per_group-2"><span class="code">end_per_group/2</span></a></span>
+	    <span class="bold_code bc-17"><a href="#Module:end_per_group-2"><span class="code">end_per_group/2</span></a></span>
 	    for the group on the level above. The status is also used by
 	    <span class="code">Common Test</span> for deciding if execution of a group is to
 	    proceed if property <span class="code">sequence</span> or <span class="code">repeat_until_*</span>
 	    is set.</p>
 
 	  <p>For details about test case groups, see section 
-	    <span class="bold_code"><a href="write_test_chapter.html#test_case_groups">Test Case Groups</a></span> in the User's Guide.</p> 
+	    <span class="bold_code bc-15"><a href="write_test_chapter.html#test_case_groups">Test Case Groups</a></span> in the User's Guide.</p> 
        </p></div>
 
-      <p><a name="Module:init_per_testcase-2"></a><span class="bold_code">Module:init_per_testcase(TestCase, Config) -&gt; NewConfig | {fail,Reason} | {skip,Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-	  <div class="REFTYPES">
-<span class="bold_code"> TestCase = atom()</span><br>
+      <p><a name="Module:init_per_testcase-2"></a><span class="bold_code bc-9">Module:init_per_testcase(TestCase, Config) -&gt; NewConfig | {fail,Reason} | {skip,Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> TestCase = atom()</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code"> Config = NewConfig = [{Key,Value}]</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Config = NewConfig = [{Key,Value}]</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code"> Key = atom()</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Key = atom()</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code"> Value = term()</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Value = term()</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code"> Reason = term()</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Reason = term()</span><br>
 </div>
 	</div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 
 	  <p>OPTIONAL</p>
 
@@ -993,32 +994,32 @@
 	    and <span class="code">Reason</span> is printed in the overview log for the suite.</p>
     </p></div>
 
-      <p><a name="Module:end_per_testcase-2"></a><span class="bold_code">Module:end_per_testcase(TestCase, Config) -&gt; term() | {fail,Reason} | {save_config,SaveConfig}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-	  <div class="REFTYPES">
-<span class="bold_code">TestCase = atom()</span><br>
+      <p><a name="Module:end_per_testcase-2"></a><span class="bold_code bc-9">Module:end_per_testcase(TestCase, Config) -&gt; term() | {fail,Reason} | {save_config,SaveConfig}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">TestCase = atom()</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">Config = SaveConfig = [{Key,Value}]</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Config = SaveConfig = [{Key,Value}]</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">Key = atom()</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Key = atom()</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">Value = term()</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Value = term()</span><br>
 </div>
-	  <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+	  <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
 	</div>
-<div class="REFBODY"><p>	
+<div class="REFBODY rb-7"><p>	
 
 	  <p>OPTIONAL</p>
 
 	  <p>This function is called after each test case, and can be used
 	    to clean up after
-	    <span class="bold_code"><a href="#Module:init_per_testcase-2"><span class="code">init_per_testcase/2</span></a></span>
+	    <span class="bold_code bc-17"><a href="#Module:init_per_testcase-2"><span class="code">init_per_testcase/2</span></a></span>
 	    and the test case. Any return value (besides <span class="code">{fail,Reason}</span>
 	    and <span class="code">{save_config,SaveConfig}</span>) is ignored. By returning
 	    <span class="code">{fail,Reason}</span>, <span class="code">TestCase</span> is marked as faulty (even
@@ -1026,62 +1027,62 @@
 	    a value instead of terminating).</p>
 
 	<p>For information on <span class="code">save_config</span>, see section
-	  <span class="bold_code"><a href="dependencies_chapter.html#save_config">Saving Configuration Data</a></span> in the User's Guide.</p>
+	  <span class="bold_code bc-15"><a href="dependencies_chapter.html#save_config">Saving Configuration Data</a></span> in the User's Guide.</p>
 	</p></div>
 
-    <p><a name="Module:Testcase-0"></a><span class="bold_code">Module:Testcase() -&gt; [Info] </span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-	<div class="REFTYPES">
-<span class="bold_code">Info = {timetrap,Time} | {require,Required} | {require,Name,Required} | {userdata,UserData} | {silent_connections,Conns}</span><br>
+    <p><a name="Module:Testcase-0"></a><span class="bold_code bc-9">Module:Testcase() -&gt; [Info] </span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Info = {timetrap,Time} | {require,Required} | {require,Name,Required} | {userdata,UserData} | {silent_connections,Conns}</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Time = TimeVal | TimeFunc</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Time = TimeVal | TimeFunc</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">TimeVal = MilliSec | {seconds,integer()} | {minutes,integer()} | {hours,integer()}</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">TimeVal = MilliSec | {seconds,integer()} | {minutes,integer()} | {hours,integer()}</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">TimeFunc = {Mod,Func,Args} | Fun</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">TimeFunc = {Mod,Func,Args} | Fun</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">MilliSec = integer()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MilliSec = integer()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Mod = atom()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Mod = atom()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Func = atom()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Func = atom()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Args = list()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Args = list()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Fun = fun()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Fun = fun()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Required = Key | {Key,SubKeys} | {Key,Subkey} | {Key,Subkey,SubKeys}</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Required = Key | {Key,SubKeys} | {Key,Subkey} | {Key,Subkey,SubKeys}</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Key = atom()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Key = atom()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">SubKeys = SubKey | [SubKey]</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">SubKeys = SubKey | [SubKey]</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">SubKey = atom()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">SubKey = atom()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Name = atom()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Name = atom()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">UserData = term()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">UserData = term()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Conns = [atom()]</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Conns = [atom()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 	
 	<p>OPTIONAL</p>
 
@@ -1089,23 +1090,23 @@
 	  return a list of tagged tuples that specify various properties
 	  related to the execution of this particular test case.
 	  Properties set by
-	  <span class="bold_code"><a href="#Module:Testcase-0"><span class="code">Testcase/0</span></a></span>
+	  <span class="bold_code bc-17"><a href="#Module:Testcase-0"><span class="code">Testcase/0</span></a></span>
 	  override properties set previously for the test case by
-	  <span class="bold_code"><a href="#Module:group-1"><span class="code">group/1</span></a></span> or
-	  <span class="bold_code"><a href="#Module:suite-0"><span class="code">suite/0</span></a></span>.</p>
+	  <span class="bold_code bc-17"><a href="#Module:group-1"><span class="code">group/1</span></a></span> or
+	  <span class="bold_code bc-17"><a href="#Module:suite-0"><span class="code">suite/0</span></a></span>.</p>
 
 	<p>Tag <span class="code">timetrap</span> sets the maximum time that the
 	  test case is allowed to execute. If the timetrap time is
 	  exceeded, the test case fails with reason <span class="code">timetrap_timeout</span>.
-	  <span class="bold_code"><a href="#Module:init_per_testcase-2"><span class="code">init_per_testcase/2</span></a></span>
+	  <span class="bold_code bc-17"><a href="#Module:init_per_testcase-2"><span class="code">init_per_testcase/2</span></a></span>
 	  and
-	  <span class="bold_code"><a href="#Module:end_per_testcase-2"><span class="code">end_per_testcase/2</span></a></span>
+	  <span class="bold_code bc-17"><a href="#Module:end_per_testcase-2"><span class="code">end_per_testcase/2</span></a></span>
 	  are included in the timetrap time.
 	  A <span class="code">TimeFunc</span> function can be used to
 	  set a new timetrap by returning a <span class="code">TimeVal</span>. It can also be
 	  used to trigger a timetrap time-out by, at some point, returning a
 	  value other than a <span class="code">TimeVal</span>. For details, see section
-	  <span class="bold_code"><a href="write_test_chapter.html#timetraps">Timetrap Time-Outs</a></span> in the User's Guide.</p>
+	  <span class="bold_code bc-15"><a href="write_test_chapter.html#timetraps">Timetrap Time-Outs</a></span> in the User's Guide.</p>
 	
 	<p>Tag <span class="code">require</span> specifies configuration variables
 	  that are required by the test case (or <span class="code">init_per_testcase/2</span>
@@ -1113,49 +1114,49 @@
 	  If the required configuration variables are not found in any of the
 	  configuration files, the test case is skipped. For details about
 	  the <span class="code">require</span> functionality, see function
-	  <span class="bold_code"><a href="ct.html#require-1"><span class="code">ct:require/1,2</span></a></span>.</p>
+	  <span class="bold_code bc-15"><a href="ct.html#require-1"><span class="code">ct:require/1,2</span></a></span>.</p>
 
 	<p>If <span class="code">timetrap</span> or <span class="code">require</span> is not set, the
 	  default values specified by
-	  <span class="bold_code"><a href="#Module:suite-0"><span class="code">suite/0</span></a></span> (or
-	  <span class="bold_code"><a href="#Module:group-1"><span class="code">group/1</span></a></span>) are used.</p>
+	  <span class="bold_code bc-17"><a href="#Module:suite-0"><span class="code">suite/0</span></a></span> (or
+	  <span class="bold_code bc-17"><a href="#Module:group-1"><span class="code">group/1</span></a></span>) are used.</p>
 
 	<p>With <span class="code">userdata</span>, the user can specify any test case-related
 	  information that can be read by calling
-	  <span class="bold_code"><a href="ct.html#userdata-3"><span class="code">ct:userdata/3</span></a></span>.</p>
+	  <span class="bold_code bc-15"><a href="ct.html#userdata-3"><span class="code">ct:userdata/3</span></a></span>.</p>
 
 	<p>Other tuples than the ones defined are ignored.</p>
 
 	<p>For details about the test case information function, see section
-	  <span class="bold_code"><a href="write_test_chapter.html#info_function">Test Case Information Function</a></span> in the User's Guide.</p>
+	  <span class="bold_code bc-15"><a href="write_test_chapter.html#info_function">Test Case Information Function</a></span> in the User's Guide.</p>
       </p></div>
 
-    <p><a name="Module:Testcase-1"></a><span class="bold_code">Module:Testcase(Config) -&gt;  term() | {skip,Reason} | {comment,Comment} | {save_config,SaveConfig} | {skip_and_save,Reason,SaveConfig} | exit() </span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-	<div class="REFTYPES">
-<span class="bold_code">Config = SaveConfig = [{Key,Value}]</span><br>
+    <p><a name="Module:Testcase-1"></a><span class="bold_code bc-9">Module:Testcase(Config) -&gt;  term() | {skip,Reason} | {comment,Comment} | {save_config,SaveConfig} | {skip_and_save,Reason,SaveConfig} | exit() </span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Config = SaveConfig = [{Key,Value}]</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Key = atom()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Key = atom()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Value = term()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Value = term()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Comment = string()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Comment = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>	  
+<div class="REFBODY rb-7"><p>	  
 	<p>MANDATORY</p>
 
 	<p>The implementation of a test case. Call the functions to test and
 	  check the result. If something fails, ensure the
 	  function causes a runtime error or call
-	  <span class="bold_code"><a href="ct.html#fail-1"><span class="code">ct:fail/1,2</span></a></span>
+	  <span class="bold_code bc-15"><a href="ct.html#fail-1"><span class="code">ct:fail/1,2</span></a></span>
 	  (which also causes the test case process to terminate).</p>
 
 	<p>Elements from the <span class="code">Config</span> list can, for example, be read
@@ -1174,15 +1175,15 @@
 	  in the test case log file.</p>
 
 	<p>For details about test case implementation, see section
-	  <span class="bold_code"><a href="write_test_chapter.html#test_cases">Test Cases</a></span>
+	  <span class="bold_code bc-15"><a href="write_test_chapter.html#test_cases">Test Cases</a></span>
 	  in the User's Guide.</p>
 
 	<p>For information on <span class="code">save_config</span> and <span class="code">skip_and_save</span>,
 	  see section
-	  <span class="bold_code"><a href="dependencies_chapter.html#save_config">Saving Configuration Data</a></span> in the User's Guide.</p>
+	  <span class="bold_code bc-15"><a href="dependencies_chapter.html#save_config">Saving Configuration Data</a></span> in the User's Guide.</p>
       </p></div>
 
-  
+  </div>
 
 </div>
 <div class="footer">

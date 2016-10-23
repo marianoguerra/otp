@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">cosNotification</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 1.2.2</p>
@@ -419,11 +419,11 @@
 <!-- refpage --><center><h1>CosNotifyFilter_MappingFilter</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">CosNotifyFilter_MappingFilter</div>
+<div class="REFBODY module-body">CosNotifyFilter_MappingFilter</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">This module implements the OMG CosNotifyFilter::MappingFilter interface.</div>
+<div class="REFBODY module-summary-body">This module implements the OMG CosNotifyFilter::MappingFilter interface.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>The main purpose of this module is to match events against associated
       constraints and return the value for the first constraint that returns
       true for the given event. If all constraints return false the default value
@@ -432,305 +432,306 @@
 <span class="code">-include_lib("cosNotification/include/*.hrl").</span></p>
   </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="_get_constraint_grammar-1"></a><span class="bold_code">_get_constraint_grammar(MappingFilter) -&gt; Grammar</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">MappingFilter = #objref</span><br>
+<div class="exports-body">
+    <p><a name="_get_constraint_grammar-1"></a><span class="bold_code bc-9">_get_constraint_grammar(MappingFilter) -&gt; Grammar</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MappingFilter = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Grammar = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Grammar = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This operation returns which type of Grammar the MappingFilter uses. 
           Currently, only <span class="code">"EXTENDED_TCL"</span> is supported.</p>
       </p></div>
-    <p><a name="_get_value_type-1"></a><span class="bold_code">_get_value_type(MappingFilter) -&gt; CORBA::TypeCode</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">MappingFilter = #objref</span><br>
+    <p><a name="_get_value_type-1"></a><span class="bold_code bc-9">_get_value_type(MappingFilter) -&gt; CORBA::TypeCode</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MappingFilter = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This readonly attribute maintains the <span class="code">CORBA::TypeCode</span> of the default value
           associated with the target object.</p>
       </p></div>
-    <p><a name="_get_default_value-1"></a><span class="bold_code">_get_default_value(MappingFilter) -&gt; #any</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">MappingFilter = #objref</span><br>
+    <p><a name="_get_default_value-1"></a><span class="bold_code bc-9">_get_default_value(MappingFilter) -&gt; #any</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MappingFilter = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This readonly attribute maintains the <span class="code">#any{}</span> default value associated with 
           the target object.</p>
       </p></div>
-    <p><a name="add_mapping_constraints-2"></a><span class="bold_code">add_mapping_constraints(MappingFilter, MappingConstraintPairSeq) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">MappingFilter = #objref</span><br>
+    <p><a name="add_mapping_constraints-2"></a><span class="bold_code bc-9">add_mapping_constraints(MappingFilter, MappingConstraintPairSeq) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MappingFilter = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MappingConstraintPairSeq = [MappingConstraintPair]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MappingConstraintPairSeq = [MappingConstraintPair]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MappingConstraintPair = #'CosNotifyFilter_MappingConstraintPair'{constraint_expression, result_to_set}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MappingConstraintPair = #'CosNotifyFilter_MappingConstraintPair'{constraint_expression, result_to_set}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">constraint_expression = #'CosNotifyFilter_ConstraintExp'{event_types, constraint_expr}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">constraint_expression = #'CosNotifyFilter_ConstraintExp'{event_types, constraint_expr}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">event_types = #'CosNotification_EventTypeSeq'{}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">event_types = #'CosNotification_EventTypeSeq'{}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">constraint_expr = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">constraint_expr = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">result_to_set = #any</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">result_to_set = #any</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply = MappingConstraintInfoSeq | {'EXCEPTION', #'CosNotifyFilter_InvalidConstraint'{constr}} | {'EXCEPTION', #'CosNotifyFilter_InvalidValue'{constr, value}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply = MappingConstraintInfoSeq | {'EXCEPTION', #'CosNotifyFilter_InvalidConstraint'{constr}} | {'EXCEPTION', #'CosNotifyFilter_InvalidValue'{constr, value}}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">constr = ConstraintExp</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">constr = ConstraintExp</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ConstraintExp = #'CosNotifyFilter_ConstraintExp'{event_types, constraint_expr}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ConstraintExp = #'CosNotifyFilter_ConstraintExp'{event_types, constraint_expr}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">event_types = #'CosNotification_EventTypeSeq'{}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">event_types = #'CosNotification_EventTypeSeq'{}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">constraint_expr = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">constraint_expr = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MappingConstraintInfoSeq = [MappingConstraintInfo]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MappingConstraintInfoSeq = [MappingConstraintInfo]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MappingConstraintInfo = #'CosNotifyFilter_MappingConstraintInfo'{constraint_expression, constraint_id, value}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MappingConstraintInfo = #'CosNotifyFilter_MappingConstraintInfo'{constraint_expression, constraint_id, value}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">constraint_expression = ConstraintExp</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">constraint_expression = ConstraintExp</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">constraint_id = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">constraint_id = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">value = #any</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">value = #any</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This operation add new mapping constraints, which will be used when trying to override
           Quality of Service settings defined in the given event. If a constraint return true the
           associated value will be returned, otherwise the default value.</p>
       </p></div>
-    <p><a name="modify_constraints-3"></a><span class="bold_code">modify_constraints(MappingFilter, ConstraintIDSeq, MappingConstraintInfoSeq) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">MappingFilter = #objref</span><br>
+    <p><a name="modify_constraints-3"></a><span class="bold_code bc-9">modify_constraints(MappingFilter, ConstraintIDSeq, MappingConstraintInfoSeq) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MappingFilter = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ConstraintIDSeq = [ConstraintID]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ConstraintIDSeq = [ConstraintID]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ConstraintID = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ConstraintID = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MappingConstraintInfoSeq = [MappingConstraintInfo]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MappingConstraintInfoSeq = [MappingConstraintInfo]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MappingConstraintInfo = #'CosNotifyFilter_MappingConstraintInfo'{constraint_expression, constraint_id, value}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MappingConstraintInfo = #'CosNotifyFilter_MappingConstraintInfo'{constraint_expression, constraint_id, value}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">constraint_expression = ConstraintExp</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">constraint_expression = ConstraintExp</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">constraint_id = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">constraint_id = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">value = #any</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">value = #any</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ConstraintInfoSeq = [ConstraintInfo]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ConstraintInfoSeq = [ConstraintInfo]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ConstraintInfo = #'CosNotifyFilter_ConstraintInfo'{constraint_expression, constraint_id}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ConstraintInfo = #'CosNotifyFilter_ConstraintInfo'{constraint_expression, constraint_id}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">constraint_expression = ConstraintExp</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">constraint_expression = ConstraintExp</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">constraint_id = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">constraint_id = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply = ok | {'EXCEPTION', #'CosNotifyFilter_InvalidConstraint'{constr}} | {'EXCEPTION', #'CosNotifyFilter_ConstraintNotFound'{id}} | {'EXCEPTION', #'CosNotifyFilter_InvalidValue'{constr, value}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply = ok | {'EXCEPTION', #'CosNotifyFilter_InvalidConstraint'{constr}} | {'EXCEPTION', #'CosNotifyFilter_ConstraintNotFound'{id}} | {'EXCEPTION', #'CosNotifyFilter_InvalidValue'{constr, value}}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">constr = ConstraintExp</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">constr = ConstraintExp</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">id = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">id = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">value = #any</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">value = #any</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ConstraintExp = #'CosNotifyFilter_ConstraintExp'{event_types, constraint_expr}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ConstraintExp = #'CosNotifyFilter_ConstraintExp'{event_types, constraint_expr}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">event_types = #'CosNotification_EventTypeSeq'{}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">event_types = #'CosNotification_EventTypeSeq'{}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">constraint_expr = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">constraint_expr = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>The <span class="code">ConstraintIDSeq</span> supplied should relate to constraints the caller wishes to
           remove. If any of the supplied Id's are not found an exception will be raised. This 
           operation also accepts a sequence of <span class="code">MappingConstraintInfo</span> which will be added.
           If the target object cannot modify the constraints as requested an exception is raised
           describing which constraint, and why, could not be updated.</p>
       </p></div>
-    <p><a name="get_mapping_constraints-2"></a><span class="bold_code">get_mapping_constraints(MappingFilter, ConstraintIDSeq) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">MappingFilter = #objref</span><br>
+    <p><a name="get_mapping_constraints-2"></a><span class="bold_code bc-9">get_mapping_constraints(MappingFilter, ConstraintIDSeq) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MappingFilter = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ConstraintIDSeq = [ConstraintID]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ConstraintIDSeq = [ConstraintID]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ConstraintID = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ConstraintID = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply = MappingConstraintInfoSeq | {'EXCEPTION', #'CosNotifyFilter_ConstraintNotFound'{id}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply = MappingConstraintInfoSeq | {'EXCEPTION', #'CosNotifyFilter_ConstraintNotFound'{id}}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MappingConstraintInfoSeq = [MappingConstraintInfo]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MappingConstraintInfoSeq = [MappingConstraintInfo]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MappingConstraintInfo = #'CosNotifyFilter_MappingConstraintInfo'{constraint_expression, constraint_id, value}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MappingConstraintInfo = #'CosNotifyFilter_MappingConstraintInfo'{constraint_expression, constraint_id, value}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">constraint_expression = ConstraintExp</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">constraint_expression = ConstraintExp</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ConstraintExp = #'CosNotifyFilter_ConstraintExp'{event_types, constraint_expr}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ConstraintExp = #'CosNotifyFilter_ConstraintExp'{event_types, constraint_expr}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">event_types = #'CosNotification_EventTypeSeq'{}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">event_types = #'CosNotification_EventTypeSeq'{}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">constraint_expr = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">constraint_expr = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">constraint_id = id = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">constraint_id = id = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">value = #any</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">value = #any</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>When adding a new constraint a unique Id is returned, which is accepted as input for this
           operation. The associated constraint is returned, but if no such Id exists an exception is raised.          </p>
       </p></div>
-    <p><a name="get_all_mapping_constraints-1"></a><span class="bold_code">get_all_mapping_constraints(MappingFilter) -&gt; MappingConstraintInfoSeq</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">MappingFilter = #objref</span><br>
+    <p><a name="get_all_mapping_constraints-1"></a><span class="bold_code bc-9">get_all_mapping_constraints(MappingFilter) -&gt; MappingConstraintInfoSeq</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MappingFilter = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MappingConstraintInfoSeq = [MappingConstraintInfo]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MappingConstraintInfoSeq = [MappingConstraintInfo]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MappingConstraintInfo = #'CosNotifyFilter_MappingConstraintInfo'{constraint_expression, constraint_id, value}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MappingConstraintInfo = #'CosNotifyFilter_MappingConstraintInfo'{constraint_expression, constraint_id, value}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">constraint_expression = ConstraintExp</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">constraint_expression = ConstraintExp</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ConstraintExp = #'CosNotifyFilter_ConstraintExp'{event_types, constraint_expr}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ConstraintExp = #'CosNotifyFilter_ConstraintExp'{event_types, constraint_expr}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">event_types = #'CosNotification_EventTypeSeq'{}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">event_types = #'CosNotification_EventTypeSeq'{}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">constraint_expr = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">constraint_expr = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">constraint_id = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">constraint_id = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">value = #any</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">value = #any</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This operation returns a sequence of all unique Id's associated with the target object.
           If no constraint have been added the sequence will be empty.</p>
       </p></div>
-    <p><a name="remove_all_mapping_constraints-1"></a><span class="bold_code">remove_all_mapping_constraints(MappingFilter) -&gt; ok</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">MappingFilter = #objref</span><br>
+    <p><a name="remove_all_mapping_constraints-1"></a><span class="bold_code bc-9">remove_all_mapping_constraints(MappingFilter) -&gt; ok</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MappingFilter = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This operation removes all constraints associated with the target object.</p>
       </p></div>
-    <p><a name="destroy-1"></a><span class="bold_code">destroy(MappingFilter) -&gt; ok</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">MappingFilter = #objref</span><br>
+    <p><a name="destroy-1"></a><span class="bold_code bc-9">destroy(MappingFilter) -&gt; ok</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MappingFilter = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This operation terminates the target object. Remember to remove
           this Filter from the objects it have been associated with.</p>
       </p></div>
-    <p><a name="match-2"></a><span class="bold_code">match(MappingFilter, Event) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">MappingFilter = #objref</span><br>
+    <p><a name="match-2"></a><span class="bold_code bc-9">match(MappingFilter, Event) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MappingFilter = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Event = #any</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Event = #any</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply = {boolean(), #any} | {'EXCEPTION', #'CosNotifyFilter_UnsupportedFilterableData'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply = {boolean(), #any} | {'EXCEPTION', #'CosNotifyFilter_UnsupportedFilterableData'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This operation evaluates <span class="code">Any</span> events with the Filter's constraints, 
           and returns the value to use. The value is the default value if all constraints
           returns false and the value associated with the first constraint returning true.</p>
       </p></div>
-    <p><a name="match_structured-2"></a><span class="bold_code">match_structured(MappingFilter, Event) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">MappingFilter = #objref</span><br>
+    <p><a name="match_structured-2"></a><span class="bold_code bc-9">match_structured(MappingFilter, Event) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MappingFilter = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Event = #'CosNotification_StructuredEvent'{}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Event = #'CosNotification_StructuredEvent'{}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply = {boolean(), #any} | {'EXCEPTION', #'CosNotifyFilter_UnsupportedFilterableData'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply = {boolean(), #any} | {'EXCEPTION', #'CosNotifyFilter_UnsupportedFilterableData'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Similar to <span class="code">match/2</span> but accepts a structured event as input.</p>
       </p></div>
-  
+  </div>
   
 </div>
 <div class="footer">

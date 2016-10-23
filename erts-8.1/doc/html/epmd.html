@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../doc"><img alt="Erlang Logo" src="../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Erlang Run-Time System Application (ERTS)</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 8.1</p>
@@ -953,12 +953,12 @@
   
 
   <h3><a name="command" href="#command">Command</a></h3>
-<div class="REFBODY">epmd</div>
+<div class="REFBODY command-body">epmd</div>
   <h3><a name="command-summary" href="#command-summary">Command Summary</a></h3>
-<div class="REFBODY">Erlang Port Mapper Daemon</div>
+<div class="REFBODY command-summary-body">Erlang Port Mapper Daemon</div>
 
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
 
     <dl>
       <dt><strong><span class="code">epmd [-d|-debug] [DbgExtra...] [-address Addresses]
@@ -998,39 +998,39 @@
       <dt><strong>Starting the port mapper daemon</strong></dt>
       <dd>
         <p>The daemon is started automatically by command
-          <span class="bold_code"><a href="erl.html"><span class="code">erl(1)</span></a></span>
+          <span class="bold_code bc-19"><a href="erl.html"><span class="code">erl(1)</span></a></span>
           if the node is to be distributed and no running
           instance is present. If automatically launched
           environment variables must be used to change the behavior
           of the daemon; see section
-          <span class="bold_code"><a href="#environment_variables">Environment Variables</a></span>.</p>
+          <span class="bold_code bc-17"><a href="#environment_variables">Environment Variables</a></span>.</p>
         <p>If argument <span class="code">-daemon</span> is not specified,
           <span class="code">epmd</span> runs as a normal program with the
           controlling terminal of the shell in which it is
           started. Normally, it is to be run as a daemon.</p>
         <p>Regular startup options are described in section
-          <span class="bold_code"><a href="#daemon_flags">Regular Options</a></span>.</p>
+          <span class="bold_code bc-17"><a href="#daemon_flags">Regular Options</a></span>.</p>
         <p>The <span class="code">DbgExtra</span> options are described in section
-          <span class="bold_code"><a href="#debug_flags">DbgExtra Options</a></span>.</p>
+          <span class="bold_code bc-17"><a href="#debug_flags">DbgExtra Options</a></span>.</p>
       </dd>
       <dt><strong>Communicating with a running port mapper daemon</strong></dt>
       <dd>
         <p>Communicating with the running <span class="code">epmd</span> daemon by the
           <span class="code">epmd</span> program is done primarily for debugging purposes.</p>
-        <p>The different queries are described in section <span class="bold_code"><a href="#interactive_flags">Interactive options</a></span>.</p>
+        <p>The different queries are described in section <span class="bold_code bc-17"><a href="#interactive_flags">Interactive options</a></span>.</p>
       </dd>
     </dl>
   </p></div>
 
   <h3>
-<a name="daemon_flags"></a><a name="idm45311099267728">Regular Options</a>
+<a name="daemon_flags"></a><a name="idm46455779514880">Regular Options</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
     <p>These options are available when starting the name server. The name
       server is normally started automatically by command
-      <span class="bold_code"><a href="erl.html"><span class="code">erl(1)</span></a></span> (if not already available),
+      <span class="bold_code bc-19"><a href="erl.html"><span class="code">erl(1)</span></a></span> (if not already available),
       but it can also be started at system startup.</p>
 
     <dl>
@@ -1040,13 +1040,13 @@
 	  comma-separated list of IP addresses and on the loopback address
 	  (which is implicitly added to the list if it has not been
 	  specified). This can also be set using environment variable
-	  <span class="code">ERL_EPMD_ADDRESS</span>; see section <span class="bold_code"><a href="#environment_variables">Environment Variables</a></span>.</p>
+	  <span class="code">ERL_EPMD_ADDRESS</span>; see section <span class="bold_code bc-17"><a href="#environment_variables">Environment Variables</a></span>.</p>
       </dd>
       <dt><strong><span class="code">-port No</span></strong></dt>
       <dd>
 	<p>Lets this instance of <span class="code">epmd</span> listen to another TCP port than
 	  default 4369. This can also be set using environment variable
-	  <span class="code">ERL_EPMD_PORT</span>; see section <span class="bold_code"><a href="#environment_variables">Environment Variables</a></span>.</p>
+	  <span class="code">ERL_EPMD_PORT</span>; see section <span class="bold_code bc-17"><a href="#environment_variables">Environment Variables</a></span>.</p>
       </dd>
       <dt><strong><span class="code">-d | -debug</span></strong></dt>
       <dd>
@@ -1076,7 +1076,7 @@
 	  </li>
 	  <li>
 	    <p>Command <span class="code">epmd -stop</span> (and the corresponding messages to
-	      <span class="code">epmd</span>, as can be specified using <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','erl_interface','ei.html');"><span class="code">erl_interface:ei(3)</span></a></span>) is
+	      <span class="code">epmd</span>, as can be specified using <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','erl_interface','ei.html');"><span class="code">erl_interface:ei(3)</span></a></span>) is
 	      normally always ignored. This because it can cause a strange
 	      situation where two nodes of the same name can be alive at the
 	      same time. A node unregisters itself by only closing the
@@ -1096,9 +1096,9 @@
   </div>
 
   <h3>
-<a name="debug_flags"></a><a name="idm45311099240480">DbgExtra Options</a>
+<a name="debug_flags"></a><a name="idm46455779487632">DbgExtra Options</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
     <div class="note">
@@ -1131,9 +1131,9 @@
   </div>
 
   <h3>
-<a name="interactive_flags"></a><a name="idm45311099231552">Interactive Options</a>
+<a name="interactive_flags"></a><a name="idm46455779478704">Interactive Options</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
     <p>These options make <span class="code">epmd</span> run as an interactive command,
@@ -1147,7 +1147,7 @@
       <dd>
 	<p>Contacts the <span class="code">epmd</span> listening on the specified TCP port
 	  number (default 4369). This can also be set using environment
-	  variable <span class="code">ERL_EPMD_PORT</span>; see section <span class="bold_code"><a href="#environment_variables">Environment Variables</a></span>.</p>
+	  variable <span class="code">ERL_EPMD_PORT</span>; see section <span class="bold_code bc-17"><a href="#environment_variables">Environment Variables</a></span>.</p>
       </dd>
       <dt><strong><span class="code">-names</span></strong></dt>
       <dd>
@@ -1181,9 +1181,9 @@
   </div>
 
   <h3>
-<a name="environment_variables"></a><a name="idm45311099210528">Environment Variables</a>
+<a name="environment_variables"></a><a name="idm46455779457680">Environment Variables</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
     <dl>
@@ -1216,8 +1216,8 @@
     </dl>
   </div>
 
-  <h3><a name="idm45311099200032">Logging</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46455779447184">Logging</a></h3>
+<div class="REFBODY rb-3">
     
     <p>On some operating systems <strong>syslog</strong> will be used for
       error reporting when <span class="code">epmd</span> runs as a daemon. To enable
@@ -1234,8 +1234,8 @@
       Spaces are silently ignored.</p>
   </div>
 
-  <h3><a name="idm45311099194976">Access Restrictions</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46455779442128">Access Restrictions</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The <span class="code">epmd</span> daemon accepts messages from both the local host and
       remote hosts. However, only the query commands are answered (and

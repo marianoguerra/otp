@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../doc"><img alt="Erlang Logo" src="../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Erlang Run-Time System Application (ERTS)</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 8.1</p>
@@ -952,11 +952,11 @@
 <!-- refpage --><center><h1>erl_driver</h1></center>
   
   <h3><a name="c-library" href="#c-library">C Library</a></h3>
-<div class="REFBODY">erl_driver</div>
+<div class="REFBODY c-library-body">erl_driver</div>
   <h3><a name="library-sumary" href="#library-sumary">Library Summary</a></h3>
-<div class="REFBODY">API functions for an Erlang driver.</div>
+<div class="REFBODY library-summary-body">API functions for an Erlang driver.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>An Erlang driver is a library containing a set of native driver
       callback functions that the Erlang Virtual Machine calls when certain
       events occur. There can be multiple instances of a driver, each
@@ -985,7 +985,7 @@
         </li>
         <li>
           <p>A driver callback doing
-            <span class="bold_code"><a href="#lengthy_work">lengthy work</a></span> before
+            <span class="bold_code bc-17"><a href="#lengthy_work">lengthy work</a></span> before
             returning degrades responsiveness of the VM and can cause
             miscellaneous strange behaviors. Such strange behaviors
             include, but are not limited to, extreme memory usage and bad
@@ -998,10 +998,10 @@
 </div>
 
     <p>As from ERTS 5.5.3 the driver interface has been extended
-      (see <span class="bold_code"><a href="driver_entry.html#extended_marker"><span class="code">extended marker</span></a></span>). The extended interface introduces
-      <span class="bold_code"><a href="#version_management">version management</a></span>,
+      (see <span class="bold_code bc-15"><a href="driver_entry.html#extended_marker"><span class="code">extended marker</span></a></span>). The extended interface introduces
+      <span class="bold_code bc-17"><a href="#version_management">version management</a></span>,
       the possibility to pass capability flags (see
-      <span class="bold_code"><a href="driver_entry.html#driver_flags"><span class="code">driver_flags</span></a></span>) to the runtime system at driver
+      <span class="bold_code bc-15"><a href="driver_entry.html#driver_flags"><span class="code">driver_flags</span></a></span>) to the runtime system at driver
       initialization, and some new driver API functions.</p>
 
     <div class="note">
@@ -1009,7 +1009,7 @@
 <div class="content"><p>
       <p>As from ERTS 5.9 old drivers must be recompiled
         and use the extended interface. They must also be adjusted to the
-        <span class="bold_code"><a href="#rewrites_for_64_bits">64-bit capable driver interface</a></span>.</p>
+        <span class="bold_code bc-17"><a href="#rewrites_for_64_bits">64-bit capable driver interface</a></span>.</p>
     </p></div>
 </div>
 
@@ -1023,7 +1023,7 @@
       the <span class="code">port</span> handle as an argument. This identifies the driver
       instance. Notice that this port handle must be stored by the driver,
       it is not given when the driver is called from the emulator (see
-      <span class="bold_code"><a href="driver_entry.html#emulator"><span class="code">driver_entry</span></a></span>).</p>
+      <span class="bold_code bc-15"><a href="driver_entry.html#emulator"><span class="code">driver_entry</span></a></span>).</p>
 
     <p>Some of the functions take a parameter of type
       <span class="code">ErlDrvBinary</span>, a driver binary. It is to be both
@@ -1046,8 +1046,8 @@
       at the same time. Only one thread at a time will call
       driver callbacks corresponding to the same port, though.
       To enable port level locking, set the <span class="code">ERL_DRV_FLAG_USE_PORT_LOCKING</span>
-      <span class="bold_code"><a href="driver_entry.html#driver_flags">driver flag</a></span> in
-      the <span class="bold_code"><a href="driver_entry.html"><span class="code">driver_entry</span></a></span>
+      <span class="bold_code bc-15"><a href="driver_entry.html#driver_flags">driver flag</a></span> in
+      the <span class="bold_code bc-19"><a href="driver_entry.html"><span class="code">driver_entry</span></a></span>
       used by the driver. When port level locking is used,
       the driver writer is responsible for synchronizing all accesses
       to data shared by the ports (driver instances).</p>
@@ -1114,7 +1114,7 @@
 </div>
 
     <p><a name="lengthy_work"></a>
-      As mentioned in the <span class="bold_code"><a href="#WARNING">warning</a></span> text at
+      As mentioned in the <span class="bold_code bc-17"><a href="#WARNING">warning</a></span> text at
       the beginning of this section, it is of vital importance that a driver
       callback returns relatively fast. It is difficult to give an exact
       maximum amount of time that a driver callback is allowed to work, but
@@ -1123,8 +1123,8 @@
       If you have full control over the code to execute in the driver
       callback, the best approach is to divide the work into multiple chunks of
       work, and trigger multiple calls to the
-      <span class="bold_code"><a href="driver_entry.html#timeout">time-out callback</a></span> using
-      zero time-outs. Function <span class="bold_code"><a href="#erl_drv_consume_timeslice"><span class="code">erl_drv_consume_timeslice</span></a></span> can be useful to
+      <span class="bold_code bc-15"><a href="driver_entry.html#timeout">time-out callback</a></span> using
+      zero time-outs. Function <span class="bold_code bc-17"><a href="#erl_drv_consume_timeslice"><span class="code">erl_drv_consume_timeslice</span></a></span> can be useful to
       determine when to trigger such time-out callback calls. However, sometimes
       it cannot be implemented this way, for example when calling
       third-party libraries. In this case, you typically want to dispatch the
@@ -1132,8 +1132,8 @@
       below.</p>
   </p></div>
 
-  <h3><a name="idm45311097994080">Functionality</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46455778241232">Functionality</a></h3>
+<div class="REFBODY rb-3">
     
     <p>All functions that a driver needs to do with Erlang are
       performed through driver API functions. Functions exist
@@ -1143,7 +1143,7 @@
       <dt><strong>Timer functions</strong></dt>
       <dd>
         <p>Control the timer that a driver can use. The timer has the
-          emulator call the <span class="bold_code"><a href="driver_entry.html#timeout"><span class="code">timeout</span></a></span> entry function after a specified time.
+          emulator call the <span class="bold_code bc-15"><a href="driver_entry.html#timeout"><span class="code">timeout</span></a></span> entry function after a specified time.
           Only one timer is available for each driver instance.</p>
       </dd>
       <dt><strong>Queue handling</strong></dt>
@@ -1157,13 +1157,13 @@
           closing.</p>
         <p>The queue can be manipulated from any threads if
           a port data lock is used. For more information, see
-          <span class="bold_code"><a href="#ErlDrvPDL"><span class="code">ErlDrvPDL</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#ErlDrvPDL"><span class="code">ErlDrvPDL</span></a></span>.</p>
       </dd>
       <dt><strong>Output functions</strong></dt>
       <dd>
         <p>With these functions, the driver sends data back to the emulator.
           The data is received as messages by the port owner process, see
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','erlang','open_port/2.html');"><span class="code">erlang:open_port/2</span></a></span>. The vector function and the
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','erlang','open_port/2.html');"><span class="code">erlang:open_port/2</span></a></span>. The vector function and the
           function taking a driver binary are faster, as they avoid
           copying the data buffer. There is also a fast way of sending
           terms from the driver, without going through the binary term
@@ -1190,11 +1190,11 @@
           more or less the basic functionality needed for multi-threaded
           programming:</p>
         <ul>
-          <li><span class="bold_code"><a href="#ErlDrvTid">Threads</a></span></li>
-          <li><span class="bold_code"><a href="#ErlDrvMutex">Mutexes</a></span></li>
-          <li><span class="bold_code"><a href="#ErlDrvCond">Condition variables</a></span></li>
-          <li><span class="bold_code"><a href="#ErlDrvRWLock">Read/write locks</a></span></li>
-          <li><span class="bold_code"><a href="#ErlDrvTSDKey">Thread-specific data</a></span></li>
+          <li><span class="bold_code bc-17"><a href="#ErlDrvTid">Threads</a></span></li>
+          <li><span class="bold_code bc-17"><a href="#ErlDrvMutex">Mutexes</a></span></li>
+          <li><span class="bold_code bc-17"><a href="#ErlDrvCond">Condition variables</a></span></li>
+          <li><span class="bold_code bc-17"><a href="#ErlDrvRWLock">Read/write locks</a></span></li>
+          <li><span class="bold_code bc-17"><a href="#ErlDrvTSDKey">Thread-specific data</a></span></li>
         </ul>
         <p>The Erlang driver thread API can be used in conjunction with
           the POSIX thread API on UN-ices and with the Windows native thread
@@ -1220,11 +1220,11 @@
         <p>In order for the Erlang driver thread API to function, thread
           support must be enabled in the runtime system. An Erlang driver
           can check if thread support is enabled by use of
-          <span class="bold_code"><a href="#driver_system_info"><span class="code">driver_system_info</span></a></span>.
+          <span class="bold_code bc-17"><a href="#driver_system_info"><span class="code">driver_system_info</span></a></span>.
           Notice that some functions in the Erlang driver API are thread-safe
           only when the runtime system has SMP support, also this
           information can be retrieved through
-          <span class="bold_code"><a href="#driver_system_info"><span class="code">driver_system_info</span></a></span>.
+          <span class="bold_code bc-17"><a href="#driver_system_info"><span class="code">driver_system_info</span></a></span>.
           Also notice that many functions in the Erlang driver API are
           <strong>not</strong> thread-safe, regardless of whether SMP support is
           enabled or not. If a function is not documented as thread-safe, it
@@ -1262,8 +1262,8 @@
       <dt><strong><a name="version_management"></a>Version management</strong></dt>
       <dd>
         <p>Version management is enabled for drivers that have set the
-          <span class="bold_code"><a href="driver_entry.html#extended_marker"><span class="code">extended_marker</span></a></span> field of their
-          <span class="bold_code"><a href="driver_entry.html"><span class="code">driver_entry</span></a></span>
+          <span class="bold_code bc-15"><a href="driver_entry.html#extended_marker"><span class="code">extended_marker</span></a></span> field of their
+          <span class="bold_code bc-19"><a href="driver_entry.html"><span class="code">driver_entry</span></a></span>
           to <span class="code">ERL_DRV_EXTENDED_MARKER</span>. <span class="code">erl_driver.h</span> defines:</p>
         <ul>
           <li>
@@ -1294,9 +1294,9 @@
         <p>The emulator refuses to load a driver that does not use
           the extended driver interface, to allow for 64-bit capable drivers,
           as incompatible type changes for the callbacks
-          <span class="bold_code"><a href="driver_entry.html#output"><span class="code">output</span></a></span>,
-          <span class="bold_code"><a href="driver_entry.html#control"><span class="code">control</span></a></span>, and
-          <span class="bold_code"><a href="driver_entry.html#call"><span class="code">call</span></a></span>
+          <span class="bold_code bc-15"><a href="driver_entry.html#output"><span class="code">output</span></a></span>,
+          <span class="bold_code bc-15"><a href="driver_entry.html#control"><span class="code">control</span></a></span>, and
+          <span class="bold_code bc-15"><a href="driver_entry.html#call"><span class="code">call</span></a></span>
           were introduced in Erlang/OTP R15B. A driver written
           with the old types would compile with warnings and when
           called return garbage sizes to the emulator, causing it
@@ -1318,25 +1318,25 @@
       <dd>
         <p>Support for time measurement in drivers:</p>
         <ul>
-          <li><span class="bold_code"><a href="#ErlDrvTime"><span class="code">ErlDrvTime</span></a></span></li>
-          <li><span class="bold_code"><a href="#ErlDrvTimeUnit"><span class="code">ErlDrvTimeUnit</span></a></span></li>
-          <li><span class="bold_code"><a href="#erl_drv_monotonic_time"><span class="code">erl_drv_monotonic_time</span></a></span></li>
-          <li><span class="bold_code"><a href="#erl_drv_time_offset"><span class="code">erl_drv_time_offset</span></a></span></li>
-          <li><span class="bold_code"><a href="#erl_drv_convert_time_unit"><span class="code">erl_drv_convert_time_unit</span></a></span></li>
+          <li><span class="bold_code bc-17"><a href="#ErlDrvTime"><span class="code">ErlDrvTime</span></a></span></li>
+          <li><span class="bold_code bc-17"><a href="#ErlDrvTimeUnit"><span class="code">ErlDrvTimeUnit</span></a></span></li>
+          <li><span class="bold_code bc-17"><a href="#erl_drv_monotonic_time"><span class="code">erl_drv_monotonic_time</span></a></span></li>
+          <li><span class="bold_code bc-17"><a href="#erl_drv_time_offset"><span class="code">erl_drv_time_offset</span></a></span></li>
+          <li><span class="bold_code bc-17"><a href="#erl_drv_convert_time_unit"><span class="code">erl_drv_convert_time_unit</span></a></span></li>
         </ul>
       </dd>
     </dl>
   </div>
 
   <h3>
-<a name="rewrites_for_64_bits"></a><a name="idm45311097932016">Rewrites for 64-Bit Driver Interface</a>
+<a name="rewrites_for_64_bits"></a><a name="idm46455778179168">Rewrites for 64-Bit Driver Interface</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
     <p>ERTS 5.9 introduced two new integer types,
-      <span class="bold_code"><a href="#ErlDrvSizeT"><span class="code">ErlDrvSizeT</span></a></span> and
-      <span class="bold_code"><a href="#ErlDrvSSizeT"><span class="code">ErlDrvSSizeT</span></a></span>,
+      <span class="bold_code bc-17"><a href="#ErlDrvSizeT"><span class="code">ErlDrvSizeT</span></a></span> and
+      <span class="bold_code bc-17"><a href="#ErlDrvSSizeT"><span class="code">ErlDrvSSizeT</span></a></span>,
       which can hold 64-bit sizes if necessary.</p>
 
     <p>To not update a driver and only recompile, it probably works
@@ -1358,10 +1358,10 @@
       <dt><strong>Return types for driver callbacks</strong></dt>
       <dd>
 	<p>Rrewrite driver callback
-	  <span class="bold_code"><a href="driver_entry.html#control"><span class="code">control</span></a></span>
+	  <span class="bold_code bc-15"><a href="driver_entry.html#control"><span class="code">control</span></a></span>
 	  to use return type <span class="code">ErlDrvSSizeT</span> instead of <span class="code">int</span>.</p>
 	<p>Rewrite driver callback
-	  <span class="bold_code"><a href="driver_entry.html#call"><span class="code">call</span></a></span>
+	  <span class="bold_code bc-15"><a href="driver_entry.html#call"><span class="code">call</span></a></span>
 	  to use return type <span class="code">ErlDrvSSizeT</span> instead of <span class="code">int</span>.</p>
 	<div class="note">
 <div class="label">Note</div>
@@ -1378,15 +1378,15 @@
       <dt><strong>Arguments to driver callbacks</strong></dt>
       <dd>
 	<p>Driver callback
-	  <span class="bold_code"><a href="driver_entry.html#output"><span class="code">output</span></a></span>
+	  <span class="bold_code bc-15"><a href="driver_entry.html#output"><span class="code">output</span></a></span>
 	  now gets <span class="code">ErlDrvSizeT</span> as 3rd argument instead
 	  of previously <span class="code">int</span>.</p>
 	<p>Driver callback
-	  <span class="bold_code"><a href="driver_entry.html#control"><span class="code">control</span></a></span>
+	  <span class="bold_code bc-15"><a href="driver_entry.html#control"><span class="code">control</span></a></span>
 	  now gets <span class="code">ErlDrvSizeT</span> as 4th and 6th arguments instead
 	  of previously <span class="code">int</span>.</p>
 	<p>Driver callback
-	  <span class="bold_code"><a href="driver_entry.html#call"><span class="code">call</span></a></span>
+	  <span class="bold_code bc-15"><a href="driver_entry.html#call"><span class="code">call</span></a></span>
 	  now gets <span class="code">ErlDrvSizeT</span> as 4th and 6th arguments instead
 	  of previously <span class="code">int</span>.</p>
 	<p>Sane compiler's calling conventions probably make these changes
@@ -1408,7 +1408,7 @@
       <dt><strong>Larger <span class="code">size</span> field in <span class="code">ErlIOVec</span></strong></dt>
       <dd>
 	<p>The <span class="code">size</span> field in
-	  <span class="bold_code"><a href="#ErlIOVec"><span class="code">ErlIOVec</span></a></span>
+	  <span class="bold_code bc-17"><a href="#ErlIOVec"><span class="code">ErlIOVec</span></a></span>
 	  has been changed to <span class="code">ErlDrvSizeT</span> from <span class="code">int</span>.
 	  Check all code that use that field.</p>
 	<p>Automatic type-casting probably makes these changes necessary only
@@ -1430,41 +1430,41 @@
 	  Automatic type-casting probably makes these changes necessary only
 	  for a driver that encounters sizes &gt; 32 bits.</p>
 	<dl>
-	  <dt><strong><span class="bold_code"><a href="#driver_output"><span class="code">driver_output</span></a></span></strong></dt>
+	  <dt><strong><span class="bold_code bc-17"><a href="#driver_output"><span class="code">driver_output</span></a></span></strong></dt>
 	  <dd>3rd argument</dd>
-	  <dt><strong><span class="bold_code"><a href="#driver_output2"><span class="code">driver_output2</span></a></span></strong></dt>
+	  <dt><strong><span class="bold_code bc-17"><a href="#driver_output2"><span class="code">driver_output2</span></a></span></strong></dt>
 	  <dd>3rd and 5th arguments</dd>
-	  <dt><strong><span class="bold_code"><a href="#driver_output_binary"><span class="code">driver_output_binary</span></a></span></strong></dt>
+	  <dt><strong><span class="bold_code bc-17"><a href="#driver_output_binary"><span class="code">driver_output_binary</span></a></span></strong></dt>
 	  <dd>3rd, 5th, and 6th arguments</dd>
-	  <dt><strong><span class="bold_code"><a href="#driver_outputv"><span class="code">driver_outputv</span></a></span></strong></dt>
+	  <dt><strong><span class="bold_code bc-17"><a href="#driver_outputv"><span class="code">driver_outputv</span></a></span></strong></dt>
 	  <dd>3rd and 5th arguments</dd>
-	  <dt><strong><span class="bold_code"><a href="#driver_vec_to_buf"><span class="code">driver_vec_to_buf</span></a></span></strong></dt>
+	  <dt><strong><span class="bold_code bc-17"><a href="#driver_vec_to_buf"><span class="code">driver_vec_to_buf</span></a></span></strong></dt>
 	  <dd>3rd argument and return value</dd>
-	  <dt><strong><span class="bold_code"><a href="#driver_alloc"><span class="code">driver_alloc</span></a></span></strong></dt>
+	  <dt><strong><span class="bold_code bc-17"><a href="#driver_alloc"><span class="code">driver_alloc</span></a></span></strong></dt>
 	  <dd>1st argument</dd>
-	  <dt><strong><span class="bold_code"><a href="#driver_realloc"><span class="code">driver_realloc</span></a></span></strong></dt>
+	  <dt><strong><span class="bold_code bc-17"><a href="#driver_realloc"><span class="code">driver_realloc</span></a></span></strong></dt>
 	  <dd>2nd argument</dd>
-	  <dt><strong><span class="bold_code"><a href="#driver_alloc_binary"><span class="code">driver_alloc_binary</span></a></span></strong></dt>
+	  <dt><strong><span class="bold_code bc-17"><a href="#driver_alloc_binary"><span class="code">driver_alloc_binary</span></a></span></strong></dt>
 	  <dd>1st argument</dd>
-	  <dt><strong><span class="bold_code"><a href="#driver_realloc_binary"><span class="code">driver_realloc_binary</span></a></span></strong></dt>
+	  <dt><strong><span class="bold_code bc-17"><a href="#driver_realloc_binary"><span class="code">driver_realloc_binary</span></a></span></strong></dt>
 	  <dd>2nd argument</dd>
-	  <dt><strong><span class="bold_code"><a href="#driver_enq"><span class="code">driver_enq</span></a></span></strong></dt>
+	  <dt><strong><span class="bold_code bc-17"><a href="#driver_enq"><span class="code">driver_enq</span></a></span></strong></dt>
 	  <dd>3rd argument</dd>
-	  <dt><strong><span class="bold_code"><a href="#driver_pushq"><span class="code">driver_pushq</span></a></span></strong></dt>
+	  <dt><strong><span class="bold_code bc-17"><a href="#driver_pushq"><span class="code">driver_pushq</span></a></span></strong></dt>
 	  <dd>3rd argument</dd>
-	  <dt><strong><span class="bold_code"><a href="#driver_deq"><span class="code">driver_deq</span></a></span></strong></dt>
+	  <dt><strong><span class="bold_code bc-17"><a href="#driver_deq"><span class="code">driver_deq</span></a></span></strong></dt>
 	  <dd>2nd argument and return value</dd>
-	  <dt><strong><span class="bold_code"><a href="#driver_sizeq"><span class="code">driver_sizeq</span></a></span></strong></dt>
+	  <dt><strong><span class="bold_code bc-17"><a href="#driver_sizeq"><span class="code">driver_sizeq</span></a></span></strong></dt>
 	  <dd>Return value</dd>
-	  <dt><strong><span class="bold_code"><a href="#driver_enq_bin"><span class="code">driver_enq_bin</span></a></span></strong></dt>
+	  <dt><strong><span class="bold_code bc-17"><a href="#driver_enq_bin"><span class="code">driver_enq_bin</span></a></span></strong></dt>
 	  <dd>3rd and 4th arguments</dd>
-	  <dt><strong><span class="bold_code"><a href="#driver_pushq_bin"><span class="code">driver_pushq_bin</span></a></span></strong></dt>
+	  <dt><strong><span class="bold_code bc-17"><a href="#driver_pushq_bin"><span class="code">driver_pushq_bin</span></a></span></strong></dt>
 	  <dd>3rd and 4th arguments</dd>
-	  <dt><strong><span class="bold_code"><a href="#driver_enqv"><span class="code">driver_enqv</span></a></span></strong></dt>
+	  <dt><strong><span class="bold_code bc-17"><a href="#driver_enqv"><span class="code">driver_enqv</span></a></span></strong></dt>
 	  <dd>3rd argument</dd>
-	  <dt><strong><span class="bold_code"><a href="#driver_pushqv"><span class="code">driver_pushqv</span></a></span></strong></dt>
+	  <dt><strong><span class="bold_code bc-17"><a href="#driver_pushqv"><span class="code">driver_pushqv</span></a></span></strong></dt>
 	  <dd>3rd argument</dd>
-	  <dt><strong><span class="bold_code"><a href="#driver_peekqv"><span class="code">driver_peekqv</span></a></span></strong></dt>
+	  <dt><strong><span class="bold_code bc-17"><a href="#driver_peekqv"><span class="code">driver_peekqv</span></a></span></strong></dt>
 	  <dd>Return value</dd>
 	</dl>
 	<div class="note">
@@ -1479,8 +1479,8 @@
     </dl>
   </div>
 
-  <h3><a name="idm45311097869408">Data Types</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46455778116560">Data Types</a></h3>
+<div class="REFBODY rb-3">
     
     <dl>
       <dt><strong><a name="ErlDrvSizeT"></a><span class="code">ErlDrvSizeT</span></strong></dt>
@@ -1509,37 +1509,37 @@ typedef struct ErlDrvSysInfo {
 } ErlDrvSysInfo;</pre></div>
         <p>The <span class="code">ErlDrvSysInfo</span> structure is used for storage of
           information about the Erlang runtime system.
-          <span class="bold_code"><a href="#driver_system_info"><span class="code">driver_system_info</span></a></span>
+          <span class="bold_code bc-17"><a href="#driver_system_info"><span class="code">driver_system_info</span></a></span>
           writes the system information when passed a reference to
           a <span class="code">ErlDrvSysInfo</span> structure. The fields in the structure
           are as follows:</p>
         <dl>
           <dt><strong><span class="code">driver_major_version</span></strong></dt>
           <dd>
-            <p>The value of <span class="bold_code"><a href="#version_management"><span class="code">ERL_DRV_EXTENDED_MAJOR_VERSION</span></a></span>
+            <p>The value of <span class="bold_code bc-17"><a href="#version_management"><span class="code">ERL_DRV_EXTENDED_MAJOR_VERSION</span></a></span>
               when the runtime system was compiled. This value is the same
-              as the value of <span class="bold_code"><a href="#version_management"><span class="code">ERL_DRV_EXTENDED_MAJOR_VERSION</span></a></span>
+              as the value of <span class="bold_code bc-17"><a href="#version_management"><span class="code">ERL_DRV_EXTENDED_MAJOR_VERSION</span></a></span>
               used when compiling the driver; otherwise the runtime system
               would have refused to load the driver.</p>
           </dd>
           <dt><strong><span class="code">driver_minor_version</span></strong></dt>
           <dd>
-            <p>The value of <span class="bold_code"><a href="#version_management"><span class="code">ERL_DRV_EXTENDED_MINOR_VERSION</span></a></span>
+            <p>The value of <span class="bold_code bc-17"><a href="#version_management"><span class="code">ERL_DRV_EXTENDED_MINOR_VERSION</span></a></span>
               when the runtime system was compiled. This value can differ
-              from the value of <span class="bold_code"><a href="#version_management"><span class="code">ERL_DRV_EXTENDED_MINOR_VERSION</span></a></span>
+              from the value of <span class="bold_code bc-17"><a href="#version_management"><span class="code">ERL_DRV_EXTENDED_MINOR_VERSION</span></a></span>
               used when compiling the driver.</p>
           </dd>
           <dt><strong><span class="code">erts_version</span></strong></dt>
           <dd>
             <p>A string containing the version number of the runtime system
               (the same as returned by
-              <span class="bold_code"><a href="erlang.html#system_info_version"><span class="code">erlang:system_info(version)</span></a></span>).</p>
+              <span class="bold_code bc-15"><a href="erlang.html#system_info_version"><span class="code">erlang:system_info(version)</span></a></span>).</p>
           </dd>
           <dt><strong><span class="code">otp_release</span></strong></dt>
           <dd>
             <p>A string containing the OTP release number
               (the same as returned by
-              <span class="bold_code"><a href="erlang.html#system_info_otp_release"><span class="code">erlang:system_info(otp_release)</span></a></span>).</p>
+              <span class="bold_code bc-15"><a href="erlang.html#system_info_otp_release"><span class="code">erlang:system_info(otp_release)</span></a></span>).</p>
           </dd>
           <dt><strong><span class="code">thread_support</span></strong></dt>
           <dd>
@@ -1554,15 +1554,15 @@ typedef struct ErlDrvSysInfo {
           <dt><strong><span class="code">async_threads</span></strong></dt>
           <dd>
             <p>The number of async threads in the async thread pool used by
-              <span class="bold_code"><a href="#driver_async"><span class="code">driver_async</span></a></span>
+              <span class="bold_code bc-17"><a href="#driver_async"><span class="code">driver_async</span></a></span>
               (the same as returned by
-              <span class="bold_code"><a href="erlang.html#system_info_thread_pool_size"><span class="code">erlang:system_info(thread_pool_size)</span></a></span>).</p>
+              <span class="bold_code bc-15"><a href="erlang.html#system_info_thread_pool_size"><span class="code">erlang:system_info(thread_pool_size)</span></a></span>).</p>
           </dd>
           <dt><strong><span class="code">scheduler_threads</span></strong></dt>
           <dd>
             <p>The number of scheduler threads used by the runtime system
               (the same as returned by
-              <span class="bold_code"><a href="erlang.html#system_info_schedulers"><span class="code">erlang:system_info(schedulers)</span></a></span>).</p>
+              <span class="bold_code bc-15"><a href="erlang.html#system_info_schedulers"><span class="code">erlang:system_info(schedulers)</span></a></span>).</p>
           </dd>
           <dt><strong><span class="code">nif_major_version</span></strong></dt>
           <dd>
@@ -1602,9 +1602,9 @@ typedef struct ErlDrvBinary {
           <p>The <span class="code">refc</span> field has been removed. The reference count of
             an <span class="code">ErlDrvBinary</span> is now stored elsewhere. The
             reference count of an <span class="code">ErlDrvBinary</span> can be accessed through
-            <span class="bold_code"><a href="#driver_binary_get_refc"><span class="code">driver_binary_get_refc</span></a></span>,
-            <span class="bold_code"><a href="#driver_binary_inc_refc"><span class="code">driver_binary_inc_refc</span></a></span>, and
-            <span class="bold_code"><a href="#driver_binary_dec_refc"><span class="code">driver_binary_dec_refc</span></a></span>.</p>
+            <span class="bold_code bc-17"><a href="#driver_binary_get_refc"><span class="code">driver_binary_get_refc</span></a></span>,
+            <span class="bold_code bc-17"><a href="#driver_binary_inc_refc"><span class="code">driver_binary_inc_refc</span></a></span>, and
+            <span class="bold_code bc-17"><a href="#driver_binary_dec_refc"><span class="code">driver_binary_dec_refc</span></a></span>.</p>
         </p></div>
 </div>
         <p>Some driver calls, such as <span class="code">driver_enq_binary</span>,
@@ -1621,11 +1621,11 @@ typedef struct ErlDrvBinary {
           in the emulator, the ref-count will not go to zero.)</p>
         <p>Driver binaries are used in the <span class="code">driver_output2</span> and
           <span class="code">driver_outputv</span> calls, and in the queue. Also the
-          driver callback <span class="bold_code"><a href="driver_entry.html#outputv"><span class="code">outputv</span></a></span> uses driver binaries.</p>
+          driver callback <span class="bold_code bc-15"><a href="driver_entry.html#outputv"><span class="code">outputv</span></a></span> uses driver binaries.</p>
         <p>If the driver for some reason wants to keep a
           driver binary around, for example in a static variable, the
           reference count is to be incremented, and the binary can later
-          be freed in the <span class="bold_code"><a href="driver_entry.html#stop"><span class="code">stop</span></a></span> callback, with <span class="code">driver_free_binary</span>.</p>
+          be freed in the <span class="bold_code bc-15"><a href="driver_entry.html#stop"><span class="code">stop</span></a></span> callback, with <span class="code">driver_free_binary</span>.</p>
         <p>Notice that as a driver binary is shared by the driver and
           the emulator. A binary received from the emulator or sent to
           the emulator must not be changed by the driver.</p>
@@ -1657,7 +1657,7 @@ typedef struct ErlIOVec {
         <p>The I/O vector used by the emulator and drivers is a list
           of binaries, with a <span class="code">SysIOVec</span> pointing to the buffers
           of the binaries. It is used in <span class="code">driver_outputv</span> and the
-          <span class="bold_code"><a href="driver_entry.html#outputv"><span class="code">outputv</span></a></span>
+          <span class="bold_code bc-15"><a href="driver_entry.html#outputv"><span class="code">outputv</span></a></span>
           driver callback. Also, the driver queue is an
           <span class="code">ErlIOVec</span>.</p>
       </dd>
@@ -1669,7 +1669,7 @@ typedef struct ErlIOVec {
           using the supplied compare function (that is, it behaves like
           a struct).</p>
         <p>The driver writer is to provide the memory for storing the
-          monitor when calling <span class="bold_code"><a href="#driver_monitor_process"><span class="code">driver_monitor_process</span></a></span>. The
+          monitor when calling <span class="bold_code bc-17"><a href="#driver_monitor_process"><span class="code">driver_monitor_process</span></a></span>. The
           address of the data is not stored outside of the driver, so
           <span class="code">ErlDrvMonitor</span> can be used as any other data, it
           can be copied, moved in memory, forgotten, and so on.</p>
@@ -1701,7 +1701,7 @@ typedef struct ErlIOVec {
         <p>Normally a driver instance has no port data lock. If
           the driver instance wants to use a port data lock, it must
           create the port data lock by calling
-          <span class="bold_code"><a href="#driver_pdl_create"><span class="code">driver_pdl_create</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#driver_pdl_create"><span class="code">driver_pdl_create</span></a></span>.</p>
         <div class="note">
 <div class="label">Note</div>
 <div class="content"><p>
@@ -1709,8 +1709,8 @@ typedef struct ErlIOVec {
             access to data associated with the port data lock must be done
             while the port data lock is locked. The port data lock is
             locked and unlocked by
-            <span class="bold_code"><a href="#driver_pdl_lock"><span class="code">driver_pdl_lock</span></a></span>, and
-            <span class="bold_code"><a href="#driver_pdl_unlock"><span class="code">driver_pdl_unlock</span></a></span>, respectively.</p>
+            <span class="bold_code bc-17"><a href="#driver_pdl_lock"><span class="code">driver_pdl_lock</span></a></span>, and
+            <span class="bold_code bc-17"><a href="#driver_pdl_unlock"><span class="code">driver_pdl_unlock</span></a></span>, respectively.</p>
         </p></div>
 </div>
         <p>A port data lock is reference counted, and when the reference
@@ -1724,25 +1724,25 @@ typedef struct ErlIOVec {
           the reference count does not reach zero before the last use
           of the lock by the driver has been made. The reference count
           can be read, incremented, and decremented by
-          <span class="bold_code"><a href="#driver_pdl_get_refc"><span class="code">driver_pdl_get_refc</span></a></span>,
-          <span class="bold_code"><a href="#driver_pdl_inc_refc"><span class="code">driver_pdl_inc_refc</span></a></span>, and
-          <span class="bold_code"><a href="#driver_pdl_dec_refc"><span class="code">driver_pdl_dec_refc</span></a></span>, respectively.</p>
+          <span class="bold_code bc-17"><a href="#driver_pdl_get_refc"><span class="code">driver_pdl_get_refc</span></a></span>,
+          <span class="bold_code bc-17"><a href="#driver_pdl_inc_refc"><span class="code">driver_pdl_inc_refc</span></a></span>, and
+          <span class="bold_code bc-17"><a href="#driver_pdl_dec_refc"><span class="code">driver_pdl_dec_refc</span></a></span>, respectively.</p>
       </dd>
       <dt><strong><a name="ErlDrvTid"></a><span class="code">ErlDrvTid</span></strong></dt>
       <dd>
         <p>Thread identifier.</p>
-	<p>See also <span class="bold_code"><a href="#erl_drv_thread_create"><span class="code">erl_drv_thread_create</span></a></span>,
-	   <span class="bold_code"><a href="#erl_drv_thread_exit"><span class="code">erl_drv_thread_exit</span></a></span>,
-	   <span class="bold_code"><a href="#erl_drv_thread_join"><span class="code">erl_drv_thread_join</span></a></span>,
-	   <span class="bold_code"><a href="#erl_drv_thread_self"><span class="code">erl_drv_thread_self</span></a></span>, and
-	   <span class="bold_code"><a href="#erl_drv_equal_tids"><span class="code">erl_drv_equal_tids</span></a></span>.</p>
+	<p>See also <span class="bold_code bc-17"><a href="#erl_drv_thread_create"><span class="code">erl_drv_thread_create</span></a></span>,
+	   <span class="bold_code bc-17"><a href="#erl_drv_thread_exit"><span class="code">erl_drv_thread_exit</span></a></span>,
+	   <span class="bold_code bc-17"><a href="#erl_drv_thread_join"><span class="code">erl_drv_thread_join</span></a></span>,
+	   <span class="bold_code bc-17"><a href="#erl_drv_thread_self"><span class="code">erl_drv_thread_self</span></a></span>, and
+	   <span class="bold_code bc-17"><a href="#erl_drv_equal_tids"><span class="code">erl_drv_equal_tids</span></a></span>.</p>
       </dd>
       <dt><strong><a name="ErlDrvThreadOpts"></a><span class="code">ErlDrvThreadOpts</span></strong></dt>
       <dd>
         <div class="example"><pre>
 int suggested_stack_size;</pre></div>
         <p>Thread options structure passed to
-	  <span class="bold_code"><a href="#erl_drv_thread_create"><span class="code">erl_drv_thread_create</span></a></span>.
+	  <span class="bold_code bc-17"><a href="#erl_drv_thread_create"><span class="code">erl_drv_thread_create</span></a></span>.
 	    The following fields exists:</p>
         <dl>
           <dt><strong><span class="code">suggested_stack_size</span></strong></dt>
@@ -1750,30 +1750,30 @@ int suggested_stack_size;</pre></div>
             A value &lt; 0 means default size.
 	  </dd>
         </dl>
-	<p>See also <span class="bold_code"><a href="#erl_drv_thread_opts_create"><span class="code">erl_drv_thread_opts_create</span></a></span>,
-	  <span class="bold_code"><a href="#erl_drv_thread_opts_destroy"><span class="code">erl_drv_thread_opts_destroy</span></a></span>, and
-	  <span class="bold_code"><a href="#erl_drv_thread_create"><span class="code">erl_drv_thread_create</span></a></span>.</p>
+	<p>See also <span class="bold_code bc-17"><a href="#erl_drv_thread_opts_create"><span class="code">erl_drv_thread_opts_create</span></a></span>,
+	  <span class="bold_code bc-17"><a href="#erl_drv_thread_opts_destroy"><span class="code">erl_drv_thread_opts_destroy</span></a></span>, and
+	  <span class="bold_code bc-17"><a href="#erl_drv_thread_create"><span class="code">erl_drv_thread_create</span></a></span>.</p>
       </dd>
       <dt><strong><a name="ErlDrvMutex"></a><span class="code">ErlDrvMutex</span></strong></dt>
       <dd>
         <p>Mutual exclusion lock. Used for synchronizing access to shared data.
 	   Only one thread at a time can lock a mutex.</p>
-	<p>See also <span class="bold_code"><a href="#erl_drv_mutex_create"><span class="code">erl_drv_mutex_create</span></a></span>,
-	  <span class="bold_code"><a href="#erl_drv_mutex_destroy"><span class="code">erl_drv_mutex_destroy</span></a></span>,
-	  <span class="bold_code"><a href="#erl_drv_mutex_lock"><span class="code">erl_drv_mutex_lock</span></a></span>,
-	  <span class="bold_code"><a href="#erl_drv_mutex_trylock"><span class="code">erl_drv_mutex_trylock</span></a></span>, and
-	  <span class="bold_code"><a href="#erl_drv_mutex_unlock"><span class="code">erl_drv_mutex_unlock</span></a></span>.</p>
+	<p>See also <span class="bold_code bc-17"><a href="#erl_drv_mutex_create"><span class="code">erl_drv_mutex_create</span></a></span>,
+	  <span class="bold_code bc-17"><a href="#erl_drv_mutex_destroy"><span class="code">erl_drv_mutex_destroy</span></a></span>,
+	  <span class="bold_code bc-17"><a href="#erl_drv_mutex_lock"><span class="code">erl_drv_mutex_lock</span></a></span>,
+	  <span class="bold_code bc-17"><a href="#erl_drv_mutex_trylock"><span class="code">erl_drv_mutex_trylock</span></a></span>, and
+	  <span class="bold_code bc-17"><a href="#erl_drv_mutex_unlock"><span class="code">erl_drv_mutex_unlock</span></a></span>.</p>
       </dd>
       <dt><strong><a name="ErlDrvCond"></a><span class="code">ErlDrvCond</span></strong></dt>
       <dd>
         <p>Condition variable. Used when threads must wait for a specific
 	  condition to appear before continuing execution. Condition variables
 	  must be used with associated mutexes.</p>
-	<p>See also <span class="bold_code"><a href="#erl_drv_cond_create"><span class="code">erl_drv_cond_create</span></a></span>,
-	  <span class="bold_code"><a href="#erl_drv_cond_destroy"><span class="code">erl_drv_cond_destroy</span></a></span>,
-	  <span class="bold_code"><a href="#erl_drv_cond_signal"><span class="code">erl_drv_cond_signal</span></a></span>,
-	  <span class="bold_code"><a href="#erl_drv_cond_broadcast"><span class="code">erl_drv_cond_broadcast</span></a></span>, and
-	  <span class="bold_code"><a href="#erl_drv_cond_wait"><span class="code">erl_drv_cond_wait</span></a></span>.</p>
+	<p>See also <span class="bold_code bc-17"><a href="#erl_drv_cond_create"><span class="code">erl_drv_cond_create</span></a></span>,
+	  <span class="bold_code bc-17"><a href="#erl_drv_cond_destroy"><span class="code">erl_drv_cond_destroy</span></a></span>,
+	  <span class="bold_code bc-17"><a href="#erl_drv_cond_signal"><span class="code">erl_drv_cond_signal</span></a></span>,
+	  <span class="bold_code bc-17"><a href="#erl_drv_cond_broadcast"><span class="code">erl_drv_cond_broadcast</span></a></span>, and
+	  <span class="bold_code bc-17"><a href="#erl_drv_cond_wait"><span class="code">erl_drv_cond_wait</span></a></span>.</p>
       </dd>
       <dt><strong><a name="ErlDrvRWLock"></a><span class="code">ErlDrvRWLock</span></strong></dt>
       <dd>
@@ -1781,22 +1781,22 @@ int suggested_stack_size;</pre></div>
 	  while only allowing one thread to write the same data. Multiple
 	  threads can read lock an rwlock at the same time, while only
 	  one thread can read/write lock an rwlock at a time.</p>
-	<p>See also <span class="bold_code"><a href="#erl_drv_rwlock_create"><span class="code">erl_drv_rwlock_create</span></a></span>,
-	  <span class="bold_code"><a href="#erl_drv_rwlock_destroy"><span class="code">erl_drv_rwlock_destroy</span></a></span>,
-	  <span class="bold_code"><a href="#erl_drv_rwlock_rlock"><span class="code">erl_drv_rwlock_rlock</span></a></span>,
-	  <span class="bold_code"><a href="#erl_drv_rwlock_tryrlock"><span class="code">erl_drv_rwlock_tryrlock</span></a></span>,
-	  <span class="bold_code"><a href="#erl_drv_rwlock_runlock"><span class="code">erl_drv_rwlock_runlock</span></a></span>,
-	  <span class="bold_code"><a href="#erl_drv_rwlock_rwlock"><span class="code">erl_drv_rwlock_rwlock</span></a></span>,
-	  <span class="bold_code"><a href="#erl_drv_rwlock_tryrwlock"><span class="code">erl_drv_rwlock_tryrwlock</span></a></span>, and
-	  <span class="bold_code"><a href="#erl_drv_rwlock_rwunlock"><span class="code">erl_drv_rwlock_rwunlock</span></a></span>.</p>
+	<p>See also <span class="bold_code bc-17"><a href="#erl_drv_rwlock_create"><span class="code">erl_drv_rwlock_create</span></a></span>,
+	  <span class="bold_code bc-17"><a href="#erl_drv_rwlock_destroy"><span class="code">erl_drv_rwlock_destroy</span></a></span>,
+	  <span class="bold_code bc-17"><a href="#erl_drv_rwlock_rlock"><span class="code">erl_drv_rwlock_rlock</span></a></span>,
+	  <span class="bold_code bc-17"><a href="#erl_drv_rwlock_tryrlock"><span class="code">erl_drv_rwlock_tryrlock</span></a></span>,
+	  <span class="bold_code bc-17"><a href="#erl_drv_rwlock_runlock"><span class="code">erl_drv_rwlock_runlock</span></a></span>,
+	  <span class="bold_code bc-17"><a href="#erl_drv_rwlock_rwlock"><span class="code">erl_drv_rwlock_rwlock</span></a></span>,
+	  <span class="bold_code bc-17"><a href="#erl_drv_rwlock_tryrwlock"><span class="code">erl_drv_rwlock_tryrwlock</span></a></span>, and
+	  <span class="bold_code bc-17"><a href="#erl_drv_rwlock_rwunlock"><span class="code">erl_drv_rwlock_rwunlock</span></a></span>.</p>
       </dd>
       <dt><strong><a name="ErlDrvTSDKey"></a><span class="code">ErlDrvTSDKey</span></strong></dt>
       <dd>
         <p>Key that thread-specific data can be associated with.</p>
-	<p>See also <span class="bold_code"><a href="#erl_drv_tsd_key_create"><span class="code">erl_drv_tsd_key_create</span></a></span>,
-	  <span class="bold_code"><a href="#erl_drv_tsd_key_destroy"><span class="code">erl_drv_tsd_key_destroy</span></a></span>,
-	  <span class="bold_code"><a href="#erl_drv_tsd_set"><span class="code">erl_drv_tsd_set</span></a></span>, and
-	  <span class="bold_code"><a href="#erl_drv_tsd_get"><span class="code">erl_drv_tsd_get</span></a></span>.</p>
+	<p>See also <span class="bold_code bc-17"><a href="#erl_drv_tsd_key_create"><span class="code">erl_drv_tsd_key_create</span></a></span>,
+	  <span class="bold_code bc-17"><a href="#erl_drv_tsd_key_destroy"><span class="code">erl_drv_tsd_key_destroy</span></a></span>,
+	  <span class="bold_code bc-17"><a href="#erl_drv_tsd_set"><span class="code">erl_drv_tsd_set</span></a></span>, and
+	  <span class="bold_code bc-17"><a href="#erl_drv_tsd_get"><span class="code">erl_drv_tsd_get</span></a></span>.</p>
       </dd>
       <dt><strong><a name="ErlDrvTime"></a><span class="code">ErlDrvTime</span></strong></dt>
       <dd>
@@ -1820,12 +1820,13 @@ int suggested_stack_size;</pre></div>
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="add_driver_entry"><span class="bold_code">void add_driver_entry(ErlDrvEntry
+<div class="exports-body">
+    <p><a name="add_driver_entry"><span class="bold_code bc-7">void add_driver_entry(ErlDrvEntry
         *de)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="add_driver_entry"></a>
         <p>Adds a driver entry to the list of drivers known by Erlang.
-          The <span class="bold_code"><a href="driver_entry.html#init"><span class="code">init</span></a></span>
+          The <span class="bold_code bc-15"><a href="driver_entry.html#init"><span class="code">init</span></a></span>
           function of parameter <span class="code">de</span> is called.</p>
         <div class="note">
 <div class="label">Note</div>
@@ -1836,35 +1837,35 @@ int suggested_stack_size;</pre></div>
             loaded module (that is, <span class="code">.so</span> file) as a normal
             dynamically loaded driver (loaded with the <span class="code">erl_ddll</span>
             interface), the caller is to call
-            <span class="bold_code"><a href="#driver_lock_driver"><span class="code">driver_lock_driver</span></a></span> before
+            <span class="bold_code bc-17"><a href="#driver_lock_driver"><span class="code">driver_lock_driver</span></a></span> before
             adding driver entries.</p>
           <p><strong>Use of this function is generally deprecated.</strong></p>
         </p></div>
 </div>
       </p></div>
 
-    <p><a name="driver_alloc"><span class="bold_code">void *driver_alloc(ErlDrvSizeT size)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="driver_alloc"><span class="bold_code bc-7">void *driver_alloc(ErlDrvSizeT size)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_alloc"></a>
         <p>Allocates a memory block of the size specified
           in <span class="code">size</span>, and returns it. This fails only on out of
           memory, in which case <span class="code">NULL</span> is returned. (This is most
           often a wrapper for <span class="code">malloc</span>).</p>
         <p>Memory allocated must be explicitly freed with a corresponding
-          call to <span class="bold_code"><a href="#driver_free"><span class="code">driver_free</span></a></span>
+          call to <span class="bold_code bc-17"><a href="#driver_free"><span class="code">driver_free</span></a></span>
           (unless otherwise stated).</p>
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="driver_alloc_binary"><span class="bold_code">ErlDrvBinary *driver_alloc_binary(ErlDrvSizeT size)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="driver_alloc_binary"><span class="bold_code bc-7">ErlDrvBinary *driver_alloc_binary(ErlDrvSizeT size)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_alloc_binary"></a>
         <p>Allocates a driver binary with a memory block
           of at least <span class="code">size</span> bytes, and returns a pointer to it,
           or <span class="code">NULL</span> on failure (out of memory). When a driver binary has
           been sent to the emulator, it must not be changed. Every
           allocated binary is to be freed by a corresponding call to
-          <span class="bold_code"><a href="#driver_free_binary"><span class="code">driver_free_binary</span></a></span> (unless otherwise stated).</p>
+          <span class="bold_code bc-17"><a href="#driver_free_binary"><span class="code">driver_free_binary</span></a></span> (unless otherwise stated).</p>
         <p>Notice that a driver binary has an internal reference counter.
           This means that calling <span class="code">driver_free_binary</span>, it may not
           actually dispose of it. If it is sent to the emulator, it can
@@ -1874,10 +1875,10 @@ int suggested_stack_size;</pre></div>
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="driver_async"><span class="bold_code">long driver_async(ErlDrvPort port, unsigned
+    <p><a name="driver_async"><span class="bold_code bc-7">long driver_async(ErlDrvPort port, unsigned
         int* key, void (*async_invoke)(void*), void* async_data, void
         (*async_free)(void*))</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_async"></a>
         <p>Performs an asynchronous call. The function
           <span class="code">async_invoke</span> is invoked in a thread separate from the
@@ -1885,12 +1886,12 @@ int suggested_stack_size;</pre></div>
           time-consuming, blocking operations without blocking the
           emulator.</p>
         <p>The async thread pool size can be set with command-line argument
-          <span class="bold_code"><a href="erl.html#async_thread_pool_size"><span class="code">+A</span></a></span>
-          in <span class="bold_code"><a href="erl.html"><span class="code">erl(1)</span></a></span>.
+          <span class="bold_code bc-15"><a href="erl.html#async_thread_pool_size"><span class="code">+A</span></a></span>
+          in <span class="bold_code bc-19"><a href="erl.html"><span class="code">erl(1)</span></a></span>.
           If an async thread pool is unavailable, the call is made
           synchronously in the thread calling <span class="code">driver_async</span>. The
           current number of async threads in the async thread pool can be
-          retrieved through <span class="bold_code"><a href="#driver_system_info"><span class="code">driver_system_info</span></a></span>.</p>
+          retrieved through <span class="bold_code bc-17"><a href="#driver_system_info"><span class="code">driver_system_info</span></a></span>.</p>
         <p>If a thread pool is available, a thread is used.
           If argument <span class="code">key</span> is <span class="code">NULL</span>, the threads from the
           pool are used in a round-robin way, each call to
@@ -1914,7 +1915,7 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
           can be used to signal that the async operation completed.
           The data is to be freed in <span class="code">async_free</span>.</p>
         <p>When the async operation is done,
-          <span class="bold_code"><a href="driver_entry.html#ready_async"><span class="code">ready_async</span></a></span> driver
+          <span class="bold_code bc-15"><a href="driver_entry.html#ready_async"><span class="code">ready_async</span></a></span> driver
           entry function is called. If <span class="code">ready_async</span> is <span class="code">NULL</span> in
           the driver entry, the <span class="code">async_free</span> function is called
           instead.</p>
@@ -1934,17 +1935,17 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
             <span class="code">driver_async</span> functionality. A suggested stack size
             for threads in the async-thread pool can be configured
             through command-line argument
-            <span class="bold_code"><a href="erl.html#async_thread_stack_size"><span class="code">+a</span></a></span>
-            in <span class="bold_code"><a href="erl.html"><span class="code">erl(1)</span></a></span>.</p>
+            <span class="bold_code bc-15"><a href="erl.html#async_thread_stack_size"><span class="code">+a</span></a></span>
+            in <span class="bold_code bc-19"><a href="erl.html"><span class="code">erl(1)</span></a></span>.</p>
         </p></div>
 </div>
       </p></div>
 
-    <p><a name="driver_async_port_key"><span class="bold_code">unsigned int driver_async_port_key(ErlDrvPort
+    <p><a name="driver_async_port_key"><span class="bold_code bc-7">unsigned int driver_async_port_key(ErlDrvPort
         port)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_async_port_key"></a>
-        <p>Calculates a key for later use in <span class="bold_code"><a href="#driver_async"><span class="code">driver_async</span></a></span>. The keys are
+        <p>Calculates a key for later use in <span class="bold_code bc-17"><a href="#driver_async"><span class="code">driver_async</span></a></span>. The keys are
           evenly distributed so that a fair mapping between port IDs
           and async thread IDs is achieved.</p>
         <div class="note">
@@ -1959,8 +1960,8 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
 </div>
       </p></div>
 
-    <p><a name="driver_binary_dec_refc"><span class="bold_code">long driver_binary_dec_refc(ErlDrvBinary *bin)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="driver_binary_dec_refc"><span class="bold_code bc-7">long driver_binary_dec_refc(ErlDrvBinary *bin)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_binary_dec_refc"></a>
         <p>Decrements the reference count on <span class="code">bin</span> and returns
           the reference count reached after the decrement.</p>
@@ -1970,7 +1971,7 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
 <div class="label">Note</div>
 <div class="content"><p>
           <p>The reference count of driver binary is normally to be decremented
-            by calling <span class="bold_code"><a href="#driver_free_binary"><span class="code">driver_free_binary</span></a></span>.</p>
+            by calling <span class="bold_code bc-17"><a href="#driver_free_binary"><span class="code">driver_free_binary</span></a></span>.</p>
           <p><span class="code">driver_binary_dec_refc</span> does <strong>not</strong> free
             the binary if the reference count reaches zero. <strong>Only</strong>
             use <span class="code">driver_binary_dec_refc</span> when you are sure
@@ -1979,16 +1980,16 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
 </div>
       </p></div>
 
-    <p><a name="driver_binary_get_refc"><span class="bold_code">long driver_binary_get_refc(ErlDrvBinary *bin)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="driver_binary_get_refc"><span class="bold_code bc-7">long driver_binary_get_refc(ErlDrvBinary *bin)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_binary_get_refc"></a>
         <p>Returns the current reference count on <span class="code">bin</span>.</p>
         <p>This function is only thread-safe when the emulator with SMP
           support is used.</p>
       </p></div>
 
-    <p><a name="driver_binary_inc_refc"><span class="bold_code">long driver_binary_inc_refc(ErlDrvBinary *bin)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="driver_binary_inc_refc"><span class="bold_code bc-7">long driver_binary_inc_refc(ErlDrvBinary *bin)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_binary_inc_refc"></a>
         <p>Increments the reference count on <span class="code">bin</span> and returns
           the reference count reached after the increment.</p>
@@ -1996,45 +1997,45 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
           support is used.</p>
       </p></div>
 
-    <p><a name="driver_caller"><span class="bold_code">ErlDrvTermData driver_caller(ErlDrvPort
+    <p><a name="driver_caller"><span class="bold_code bc-7">ErlDrvTermData driver_caller(ErlDrvPort
         port)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_caller"></a>
         <p>Returns the process ID of the process that
           made the current call to the driver. The process ID can be used with
-          <span class="bold_code"><a href="#driver_send_term"><span class="code">driver_send_term</span></a></span>
+          <span class="bold_code bc-17"><a href="#driver_send_term"><span class="code">driver_send_term</span></a></span>
           to send back data to the caller.
           <span class="code">driver_caller</span> only returns valid data
           when currently executing in one of the following driver callbacks:</p>
         <dl>
-          <dt><strong><span class="bold_code"><a href="driver_entry.html#start"><span class="code">start</span></a></span></strong></dt>
-          <dd>Called from <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','erlang','open_port/2.html');"><span class="code">erlang:open_port/2</span></a></span>.</dd>
-          <dt><strong><span class="bold_code"><a href="driver_entry.html#output"><span class="code">output</span></a></span></strong></dt>
-          <dd>Called from <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','erlang','send/2.html');"><span class="code">erlang:send/2</span></a></span> and
-            <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','erlang','port_command/2.html');"><span class="code">erlang:port_command/2</span></a></span>.</dd>
-          <dt><strong><span class="bold_code"><a href="driver_entry.html#outputv"><span class="code">outputv</span></a></span></strong></dt>
-          <dd>Called from <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','erlang','send/2.html');"><span class="code">erlang:send/2</span></a></span> and
-            <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','erlang','port_command/2.html');"><span class="code">erlang:port_command/2</span></a></span>.</dd>
-          <dt><strong><span class="bold_code"><a href="driver_entry.html#control"><span class="code">control</span></a></span></strong></dt>
-          <dd>Called from <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','erlang','port_control/3.html');"><span class="code">erlang:port_control/3</span></a></span>.</dd>
-          <dt><strong><span class="bold_code"><a href="driver_entry.html#call"><span class="code">call</span></a></span></strong></dt>
-          <dd>Called from <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','erlang','port_call/3.html');"><span class="code">erlang:port_call/3</span></a></span>.</dd>
+          <dt><strong><span class="bold_code bc-15"><a href="driver_entry.html#start"><span class="code">start</span></a></span></strong></dt>
+          <dd>Called from <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','erlang','open_port/2.html');"><span class="code">erlang:open_port/2</span></a></span>.</dd>
+          <dt><strong><span class="bold_code bc-15"><a href="driver_entry.html#output"><span class="code">output</span></a></span></strong></dt>
+          <dd>Called from <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','erlang','send/2.html');"><span class="code">erlang:send/2</span></a></span> and
+            <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','erlang','port_command/2.html');"><span class="code">erlang:port_command/2</span></a></span>.</dd>
+          <dt><strong><span class="bold_code bc-15"><a href="driver_entry.html#outputv"><span class="code">outputv</span></a></span></strong></dt>
+          <dd>Called from <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','erlang','send/2.html');"><span class="code">erlang:send/2</span></a></span> and
+            <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','erlang','port_command/2.html');"><span class="code">erlang:port_command/2</span></a></span>.</dd>
+          <dt><strong><span class="bold_code bc-15"><a href="driver_entry.html#control"><span class="code">control</span></a></span></strong></dt>
+          <dd>Called from <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','erlang','port_control/3.html');"><span class="code">erlang:port_control/3</span></a></span>.</dd>
+          <dt><strong><span class="bold_code bc-15"><a href="driver_entry.html#call"><span class="code">call</span></a></span></strong></dt>
+          <dd>Called from <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','erlang','port_call/3.html');"><span class="code">erlang:port_call/3</span></a></span>.</dd>
         </dl>
         <p>Notice that this function is <strong>not</strong> thread-safe, not
           even when the emulator with SMP support is used.</p>
       </p></div>
 
-    <p><a name="driver_cancel_timer"><span class="bold_code">int driver_cancel_timer(ErlDrvPort port)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="driver_cancel_timer"><span class="bold_code bc-7">int driver_cancel_timer(ErlDrvPort port)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_cancel_timer"></a>
         <p>Cancels a timer set with
-          <span class="bold_code"><a href="#driver_set_timer"><span class="code">driver_set_timer</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#driver_set_timer"><span class="code">driver_set_timer</span></a></span>.</p>
         <p>The return value is <span class="code">0</span>.</p>
       </p></div>
 
-    <p><a name="driver_compare_monitors"><span class="bold_code">int driver_compare_monitors(const ErlDrvMonitor
+    <p><a name="driver_compare_monitors"><span class="bold_code bc-7">int driver_compare_monitors(const ErlDrvMonitor
         *monitor1, const ErlDrvMonitor *monitor2)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_compare_monitors"></a>
         <p>Compares two <span class="code">ErlDrvMonitor</span>s.
           Can also be used to imply some artificial order on monitors,
@@ -2044,19 +2045,19 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
           &gt; <span class="code">0</span> if <span class="code">monitor1</span> &gt; <span class="code">monitor2</span>.</p>
       </p></div>
 
-    <p><a name="driver_connected"><span class="bold_code">ErlDrvTermData driver_connected(ErlDrvPort
+    <p><a name="driver_connected"><span class="bold_code bc-7">ErlDrvTermData driver_connected(ErlDrvPort
         port)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_connected"></a>
         <p>Returns the port owner process.</p>
         <p>Notice that this function is <strong>not</strong> thread-safe, not
           even when the emulator with SMP support is used.</p>
       </p></div>
 
-    <p><a name="driver_create_port"><span class="bold_code">ErlDrvPort driver_create_port(ErlDrvPort port,
+    <p><a name="driver_create_port"><span class="bold_code bc-7">ErlDrvPort driver_create_port(ErlDrvPort port,
         ErlDrvTermData owner_pid, char* name,
         ErlDrvData drv_data)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Creates a new port executing the same driver
           code as the port creating the new port.</p>
         <dl>
@@ -2071,40 +2072,40 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
           <dt><strong><span class="code">name</span></strong></dt>
           <dd>The port name of the new port. You usually want to
             use the same port name as the driver name
-            (<span class="bold_code"><a href="driver_entry.html#driver_name"><span class="code">driver_name</span></a></span> field of the
-            <span class="bold_code"><a href="driver_entry.html"><span class="code">driver_entry</span></a></span>).
+            (<span class="bold_code bc-15"><a href="driver_entry.html#driver_name"><span class="code">driver_name</span></a></span> field of the
+            <span class="bold_code bc-19"><a href="driver_entry.html"><span class="code">driver_entry</span></a></span>).
           </dd>
           <dt><strong><span class="code">drv_data</span></strong></dt>
           <dd>The driver-defined handle that is passed in later
             calls to driver callbacks. Notice that the
-            <span class="bold_code"><a href="driver_entry.html#start">driver start callback</a></span> is not called for this new driver instance.
+            <span class="bold_code bc-15"><a href="driver_entry.html#start">driver start callback</a></span> is not called for this new driver instance.
             The driver-defined handle is normally created in the
-            <span class="bold_code"><a href="driver_entry.html#start">driver start callback</a></span>
+            <span class="bold_code bc-15"><a href="driver_entry.html#start">driver start callback</a></span>
             when a port is created through
-            <span class="bold_code"><a href="erlang.html#open_port-2"><span class="code">erlang:open_port/2</span></a></span>.
+            <span class="bold_code bc-15"><a href="erlang.html#open_port-2"><span class="code">erlang:open_port/2</span></a></span>.
           </dd>
         </dl>
         <p>The caller of <span class="code">driver_create_port</span> is allowed to
           manipulate the newly created port when <span class="code">driver_create_port</span>
           has returned. When
-          <span class="bold_code"><a href="#smp_support">port level locking</a></span>
+          <span class="bold_code bc-17"><a href="#smp_support">port level locking</a></span>
           is used, the creating port is only allowed to
           manipulate the newly created port until the current driver
           callback, which was called by the emulator, returns.</p>
       </p></div>
 
-    <p><a name="driver_demonitor_process"><span class="bold_code">int driver_demonitor_process(ErlDrvPort port,
+    <p><a name="driver_demonitor_process"><span class="bold_code bc-7">int driver_demonitor_process(ErlDrvPort port,
         const ErlDrvMonitor *monitor)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_demonitor_process"></a>
         <p>Cancels a monitor created earlier.</p>
         <p>Returns <span class="code">0</span> if a monitor was removed and &gt; 0 if the monitor
           no longer exists.</p>
       </p></div>
 
-    <p><a name="driver_deq"><span class="bold_code">ErlDrvSizeT driver_deq(ErlDrvPort port,
+    <p><a name="driver_deq"><span class="bold_code bc-7">ErlDrvSizeT driver_deq(ErlDrvPort port,
         ErlDrvSizeT size)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_deq"></a>
         <p>Dequeues data by moving the head pointer
           forward in the driver queue by <span class="code">size</span> bytes. The data
@@ -2112,14 +2113,14 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
         <p>Returns the number of bytes remaining in the queue on success,
           otherwise <span class="code">-1</span>.</p>
         <p>This function can be called from any thread if a
-          <span class="bold_code"><a href="#ErlDrvPDL">port data lock</a></span>
+          <span class="bold_code bc-17"><a href="#ErlDrvPDL">port data lock</a></span>
           associated with the <span class="code">port</span> is locked by the calling
           thread during the call.</p>
       </p></div>
 
-    <p><a name="driver_enq"><span class="bold_code">int driver_enq(ErlDrvPort port, char* buf,
+    <p><a name="driver_enq"><span class="bold_code bc-7">int driver_enq(ErlDrvPort port, char* buf,
         ErlDrvSizeT len)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_enq"></a>
         <p>Enqueues data in the driver queue. The data in
           <span class="code">buf</span> is copied (<span class="code">len</span> bytes) and placed at the
@@ -2135,49 +2136,49 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
           the queue is empty.</p>
         <p>The return value is <span class="code">0</span>.</p>
         <p>This function can be called from any thread if a
-          <span class="bold_code"><a href="#ErlDrvPDL">port data lock</a></span>
+          <span class="bold_code bc-17"><a href="#ErlDrvPDL">port data lock</a></span>
           associated with the <span class="code">port</span> is locked by the calling
           thread during the call.</p>
       </p></div>
 
-    <p><a name="driver_enq_bin"><span class="bold_code">int driver_enq_bin(ErlDrvPort port,
+    <p><a name="driver_enq_bin"><span class="bold_code bc-7">int driver_enq_bin(ErlDrvPort port,
         ErlDrvBinary *bin, ErlDrvSizeT offset, ErlDrvSizeT len)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_enq_bin"></a>
         <p>Enqueues a driver binary in the driver
           queue. The data in <span class="code">bin</span> at <span class="code">offset</span> with length
           <span class="code">len</span> is placed at the end of the queue. This function
           is most often faster than
-          <span class="bold_code"><a href="#driver_enq"><span class="code">driver_enq</span></a></span>,
+          <span class="bold_code bc-17"><a href="#driver_enq"><span class="code">driver_enq</span></a></span>,
           because no data must be copied.</p>
         <p>This function can be called from any thread if a
-          <span class="bold_code"><a href="#ErlDrvPDL">port data lock</a></span>
+          <span class="bold_code bc-17"><a href="#ErlDrvPDL">port data lock</a></span>
           associated with the <span class="code">port</span> is locked by the calling
           thread during the call.</p>
         <p>The return value is <span class="code">0</span>.</p>
       </p></div>
 
-    <p><a name="driver_enqv"><span class="bold_code">int driver_enqv(ErlDrvPort port, ErlIOVec *ev,
+    <p><a name="driver_enqv"><span class="bold_code bc-7">int driver_enqv(ErlDrvPort port, ErlIOVec *ev,
         ErlDrvSizeT skip)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_enqv"></a>
         <p>Enqueues the data in <span class="code">ev</span>, skipping the
           first <span class="code">skip</span> bytes of it, at the end of the driver
           queue. It is faster than
-          <span class="bold_code"><a href="#driver_enq"><span class="code">driver_enq</span></a></span>,
+          <span class="bold_code bc-17"><a href="#driver_enq"><span class="code">driver_enq</span></a></span>,
           because no data must be copied.</p>
         <p>The return value is <span class="code">0</span>.</p>
         <p>This function can be called from any thread if a
-          <span class="bold_code"><a href="#ErlDrvPDL">port data lock</a></span>
+          <span class="bold_code bc-17"><a href="#ErlDrvPDL">port data lock</a></span>
           associated with the <span class="code">port</span> is locked by the calling
           thread during the call.</p>
       </p></div>
 
-    <p><a name="driver_failure"><span class="bold_code">int driver_failure(ErlDrvPort port, int
-        error)</span></a><br><a name="driver_failure_atom"><span class="bold_code">int driver_failure_atom(ErlDrvPort port, char
-        *string)</span></a><br><a name="driver_failure_posix"><span class="bold_code">int driver_failure_posix(ErlDrvPort port, int
+    <p><a name="driver_failure"><span class="bold_code bc-7">int driver_failure(ErlDrvPort port, int
+        error)</span></a><br><a name="driver_failure_atom"><span class="bold_code bc-7">int driver_failure_atom(ErlDrvPort port, char
+        *string)</span></a><br><a name="driver_failure_posix"><span class="bold_code bc-7">int driver_failure_posix(ErlDrvPort port, int
         error)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_failure_atom"></a>
         <a name="driver_failure_posix"></a>
         <a name="driver_failure"></a>
@@ -2192,13 +2193,13 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
           when the driver cannot possibly keep open, for example,
           buffer allocation gets out of memory. For normal errors
           it is more appropriate to send error codes with
-          <span class="bold_code"><a href="#driver_output"><span class="code">driver_output</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#driver_output"><span class="code">driver_output</span></a></span>.</p>
         <p>The return value is <span class="code">0</span>.</p>
       </p></div>
 
-    <p><a name="driver_failure_eof"><span class="bold_code">int driver_failure_eof(ErlDrvPort
+    <p><a name="driver_failure_eof"><span class="bold_code bc-7">int driver_failure_eof(ErlDrvPort
         port)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_failure_eof"></a>
         <p>Signals to Erlang that the driver has
           encountered an EOF and is to be closed, unless the port was
@@ -2208,8 +2209,8 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
         <p>The return value is <span class="code">0</span>.</p>
       </p></div>
 
-    <p><a name="driver_free"><span class="bold_code">void driver_free(void *ptr)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="driver_free"><span class="bold_code bc-7">void driver_free(void *ptr)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_free"></a>
         <p>Frees the memory pointed to by <span class="code">ptr</span>. The
           memory is to have been allocated with
@@ -2219,48 +2220,48 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="driver_free_binary"><span class="bold_code">void driver_free_binary(ErlDrvBinary *bin)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="driver_free_binary"><span class="bold_code bc-7">void driver_free_binary(ErlDrvBinary *bin)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_free_binary"></a>
         <p>Frees a driver binary <span class="code">bin</span>, allocated previously with
-        <span class="bold_code"><a href="#driver_alloc_binary"><span class="code">driver_alloc_binary</span></a></span>. As binaries
+        <span class="bold_code bc-17"><a href="#driver_alloc_binary"><span class="code">driver_alloc_binary</span></a></span>. As binaries
           in Erlang are reference counted, the binary can still be around.</p>
         <p>This function is only thread-safe when the emulator with SMP
           support is used.</p>
       </p></div>
 
-    <p><a name="driver_get_monitored_process"><span class="bold_code">ErlDrvTermData driver_get_monitored_process(ErlDrvPort port, const
+    <p><a name="driver_get_monitored_process"><span class="bold_code bc-7">ErlDrvTermData driver_get_monitored_process(ErlDrvPort port, const
         ErlDrvMonitor *monitor)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_get_monitored_process"></a>
         <p>Returns the process ID associated with a living
           monitor. It can be used in the
-          <span class="bold_code"><a href="driver_entry.html#process_exit"><span class="code">process_exit</span></a></span> callback to
+          <span class="bold_code bc-15"><a href="driver_entry.html#process_exit"><span class="code">process_exit</span></a></span> callback to
           get the process identification for the exiting process.</p>
         <p>Returns <span class="code">driver_term_nil</span> if the monitor no longer exists.</p>
       </p></div>
 
-    <p><a name="driver_get_now"><span class="bold_code">int driver_get_now(ErlDrvNowData *now)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="driver_get_now"><span class="bold_code bc-7">int driver_get_now(ErlDrvNowData *now)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_get_now"></a>
 	<div class="warning">
 <div class="label">Warning</div>
 <div class="content"><p>
           <p><strong>This function is deprecated. Do not use it.</strong> Use
-            <span class="bold_code"><a href="#erl_drv_monotonic_time"><span class="code">erl_drv_monotonic_time</span></a></span> (perhaps in combination with
-            <span class="bold_code"><a href="#erl_drv_time_offset"><span class="code">erl_drv_time_offset</span></a></span>) instead.</p>
+            <span class="bold_code bc-17"><a href="#erl_drv_monotonic_time"><span class="code">erl_drv_monotonic_time</span></a></span> (perhaps in combination with
+            <span class="bold_code bc-17"><a href="#erl_drv_time_offset"><span class="code">erl_drv_time_offset</span></a></span>) instead.</p>
         </p></div>
 </div>
         <p>Reads a time stamp into the memory pointed to by
           parameter <span class="code">now</span>. For information about specific fields, see
-          <span class="bold_code"><a href="#ErlDrvNowData"><span class="code">ErlDrvNowData</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#ErlDrvNowData"><span class="code">ErlDrvNowData</span></a></span>.</p>
         <p>The return value is <span class="code">0</span>, unless the <span class="code">now</span> pointer is
           invalid, in which case it is &lt; <span class="code">0</span>.</p>
       </p></div>
 
-    <p><a name="driver_lock_driver"><span class="bold_code">int driver_lock_driver(ErlDrvPort
+    <p><a name="driver_lock_driver"><span class="bold_code bc-7">int driver_lock_driver(ErlDrvPort
         port)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_lock_driver"></a>
         <p>Locks the driver used by the port <span class="code">port</span>
           in memory for the rest of the emulator process'
@@ -2268,9 +2269,9 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
           statically linked-in drivers.</p>
       </p></div>
 
-    <p><a name="driver_mk_atom"><span class="bold_code">ErlDrvTermData driver_mk_atom(char*
+    <p><a name="driver_mk_atom"><span class="bold_code bc-7">ErlDrvTermData driver_mk_atom(char*
         string)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_mk_atom"></a>
         <p>Returns an atom given a name
           <span class="code">string</span>. The atom is created and does not change, so the
@@ -2280,38 +2281,38 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
           even when the emulator with SMP support is used.</p>
       </p></div>
 
-    <p><a name="driver_mk_port"><span class="bold_code">ErlDrvTermData driver_mk_port(ErlDrvPort
+    <p><a name="driver_mk_port"><span class="bold_code bc-7">ErlDrvTermData driver_mk_port(ErlDrvPort
         port)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_mk_port"></a>
         <p>Converts a port handle to the Erlang term format, usable in
-          <span class="bold_code"><a href="#erl_drv_output_term"><span class="code">erl_drv_output_term</span></a></span> and 
-          <span class="bold_code"><a href="#erl_drv_send_term"><span class="code">erl_drv_send_term</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#erl_drv_output_term"><span class="code">erl_drv_output_term</span></a></span> and 
+          <span class="bold_code bc-17"><a href="#erl_drv_send_term"><span class="code">erl_drv_send_term</span></a></span>.</p>
         <p>Notice that this function is <strong>not</strong> thread-safe, not
           even when the emulator with SMP support is used.</p>
       </p></div>
 
-    <p><a name="driver_monitor_process"><span class="bold_code">int driver_monitor_process(ErlDrvPort port,
+    <p><a name="driver_monitor_process"><span class="bold_code bc-7">int driver_monitor_process(ErlDrvPort port,
         ErlDrvTermData process, ErlDrvMonitor *monitor)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_monitor_process"></a>
         <p>Starts monitoring a process from a driver. When a process is
           monitored, a process exit results in a call to the provided
-          <span class="bold_code"><a href="driver_entry.html#process_exit"><span class="code">process_exit</span></a></span> callback
-          in the <span class="bold_code"><a href="driver_entry.html"><span class="code">ErlDrvEntry</span></a></span>
+          <span class="bold_code bc-15"><a href="driver_entry.html#process_exit"><span class="code">process_exit</span></a></span> callback
+          in the <span class="bold_code bc-19"><a href="driver_entry.html"><span class="code">ErlDrvEntry</span></a></span>
           structure. The <span class="code">ErlDrvMonitor</span> structure is filled in, for later
           removal or compare.</p>
         <p>Parameter <span class="code">process</span> is to be the return value of an
-          earlier call to <span class="bold_code"><a href="#driver_caller"><span class="code">driver_caller</span></a></span> or
-          <span class="bold_code"><a href="#driver_connected"><span class="code">driver_connected</span></a></span>
+          earlier call to <span class="bold_code bc-17"><a href="#driver_caller"><span class="code">driver_caller</span></a></span> or
+          <span class="bold_code bc-17"><a href="#driver_connected"><span class="code">driver_connected</span></a></span>
           call.</p>
         <p>Returns <span class="code">0</span> on success, &lt; 0 if no callback is
           provided, and &gt; 0 if the process is no longer alive.</p>
       </p></div>
 
-    <p><a name="driver_output"><span class="bold_code">int driver_output(ErlDrvPort port, char *buf,
+    <p><a name="driver_output"><span class="bold_code bc-7">int driver_output(ErlDrvPort port, char *buf,
         ErlDrvSizeT len)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_output"></a>
         <p>Sends data from the driver up to the emulator. The data is received
           as terms or binary data, depending on how the driver port was
@@ -2326,20 +2327,20 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
           <span class="code">-1</span>.</p>
       </p></div>
 
-    <p><a name="driver_output_binary"><span class="bold_code">int driver_output_binary(ErlDrvPort port, char
+    <p><a name="driver_output_binary"><span class="bold_code bc-7">int driver_output_binary(ErlDrvPort port, char
         *hbuf, ErlDrvSizeT hlen, ErlDrvBinary* bin, ErlDrvSizeT offset,
         ErlDrvSizeT len)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_output_binary"></a>
         <p>Sends data to a port owner process from a
           driver binary. It has a header buffer (<span class="code">hbuf</span>
           and <span class="code">hlen</span>) just like
-          <span class="bold_code"><a href="#driver_output2"><span class="code">driver_output2</span></a></span>.
+          <span class="bold_code bc-17"><a href="#driver_output2"><span class="code">driver_output2</span></a></span>.
           Parameter <span class="code">hbuf</span> can be <span class="code">NULL</span>.</p>
         <p>Parameter <span class="code">offset</span> is an offset into the binary and
           <span class="code">len</span> is the number of bytes to send.</p>
         <p>Driver binaries are created with
-          <span class="bold_code"><a href="#driver_alloc_binary"><span class="code">driver_alloc_binary</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#driver_alloc_binary"><span class="code">driver_alloc_binary</span></a></span>.</p>
         <p>The data in the header is sent as a list and the binary as
           an Erlang binary in the tail of the list.</p>
         <p>For example, if <span class="code">hlen</span> is <span class="code">2</span>, the port owner process
@@ -2351,26 +2352,26 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
           to <span class="code">0</span>.</p>
       </p></div>
 
-    <p><a name="driver_output_term"><span class="bold_code">int driver_output_term(ErlDrvPort port,
+    <p><a name="driver_output_term"><span class="bold_code bc-7">int driver_output_term(ErlDrvPort port,
         ErlDrvTermData* term, int n)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_output_term"></a>
         <div class="warning">
 <div class="label">Warning</div>
 <div class="content"><p>
           <p><strong>This function is deprecated.</strong>
-            Use <span class="bold_code"><a href="#erl_drv_send_term"><span class="code">erl_drv_output_term</span></a></span>instead.</p>
+            Use <span class="bold_code bc-17"><a href="#erl_drv_send_term"><span class="code">erl_drv_output_term</span></a></span>instead.</p>
         </p></div>
 </div>
         <p>Parameters <span class="code">term</span> and <span class="code">n</span> work as in
-          <span class="bold_code"><a href="#erl_drv_output_term"><span class="code">erl_drv_output_term</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#erl_drv_output_term"><span class="code">erl_drv_output_term</span></a></span>.</p>
         <p>Notice that this function is <strong>not</strong> thread-safe, not
           even when the emulator with SMP support is used.</p>
       </p></div>
 
-    <p><a name="driver_output2"><span class="bold_code">int driver_output2(ErlDrvPort port, char *hbuf,
+    <p><a name="driver_output2"><span class="bold_code bc-7">int driver_output2(ErlDrvPort port, char *hbuf,
         ErlDrvSizeT hlen, char *buf, ErlDrvSizeT len)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_output2"></a>
         <p>First sends <span class="code">hbuf</span>
           (length in <span class="code">hlen</span>) data as a list, regardless of port
@@ -2382,23 +2383,23 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
         <p>The return value is <span class="code">0</span> for normal use.</p>
       </p></div>
 
-    <p><a name="driver_outputv"><span class="bold_code">int driver_outputv(ErlDrvPort port, char* hbuf,
+    <p><a name="driver_outputv"><span class="bold_code bc-7">int driver_outputv(ErlDrvPort port, char* hbuf,
         ErlDrvSizeT hlen, ErlIOVec *ev, ErlDrvSizeT skip)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_outputv"></a>
         <p>Sends data from an I/O vector, <span class="code">ev</span>, to
           the port owner process. It has a header buffer (<span class="code">hbuf</span>
-          and <span class="code">hlen</span>), just like <span class="bold_code"><a href="#driver_output2"><span class="code">driver_output2</span></a></span>.</p>
+          and <span class="code">hlen</span>), just like <span class="bold_code bc-17"><a href="#driver_output2"><span class="code">driver_output2</span></a></span>.</p>
         <p>Parameter <span class="code">skip</span> is a number of bytes to skip of
           the <span class="code">ev</span> vector from the head.</p>
         <p>You get vectors of <span class="code">ErlIOVec</span> type from the driver
           queue (see below), and the
-          <span class="bold_code"><a href="driver_entry.html#outputv"><span class="code">outputv</span></a></span>
+          <span class="bold_code bc-15"><a href="driver_entry.html#outputv"><span class="code">outputv</span></a></span>
           driver entry function. You can also make them yourself, if you want to
           send several <span class="code">ErlDrvBinary</span> buffers at once. Often
           it is faster to use
-          <span class="bold_code"><a href="#driver_output"><span class="code">driver_output</span></a></span> or
-          <span class="bold_code"><a href="#driver_output_binary"></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#driver_output"><span class="code">driver_output</span></a></span> or
+          <span class="bold_code bc-17"><a href="#driver_output_binary"></a></span>.</p>
         <p>For example, if <span class="code">hlen</span> is <span class="code">2</span> and <span class="code">ev</span> points to an
           array of three binaries, the port owner process receives
           <span class="code">[H1, H2, &lt;&lt;B1&gt;&gt;, &lt;&lt;B2&gt;&gt; | &lt;&lt;B3&gt;&gt;]</span>.</p>
@@ -2407,8 +2408,8 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
           <span class="code">driver_outputv</span>.</p>
       </p></div>
 
-    <p><a name="driver_pdl_create"><span class="bold_code">ErlDrvPDL driver_pdl_create(ErlDrvPort port)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="driver_pdl_create"><span class="bold_code bc-7">ErlDrvPDL driver_pdl_create(ErlDrvPort port)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_pdl_create"></a>
         <p>Creates a port data lock associated with the <span class="code">port</span>.</p>
         <div class="note">
@@ -2424,9 +2425,9 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
           been associated with the <span class="code">port</span>.</p>
       </p></div>
 
-    <p><a name="driver_pdl_dec_refc"><span class="bold_code">long driver_pdl_dec_refc(ErlDrvPDL
+    <p><a name="driver_pdl_dec_refc"><span class="bold_code bc-7">long driver_pdl_dec_refc(ErlDrvPDL
         pdl)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_pdl_dec_refc"></a>
         <p>Decrements the reference count of
           the port data lock passed as argument (<span class="code">pdl</span>).</p>
@@ -2435,16 +2436,16 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="driver_pdl_get_refc"><span class="bold_code">long driver_pdl_get_refc(ErlDrvPDL pdl)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="driver_pdl_get_refc"><span class="bold_code bc-7">long driver_pdl_get_refc(ErlDrvPDL pdl)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_pdl_get_refc"></a>
         <p>Returns the current reference count of
           the port data lock passed as argument (<span class="code">pdl</span>).</p>
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="driver_pdl_inc_refc"><span class="bold_code">long driver_pdl_inc_refc(ErlDrvPDL pdl)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="driver_pdl_inc_refc"><span class="bold_code bc-7">long driver_pdl_inc_refc(ErlDrvPDL pdl)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_pdl_inc_refc"></a>
         <p>Increments the reference count of
           the port data lock passed as argument (<span class="code">pdl</span>).</p>
@@ -2453,41 +2454,41 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="driver_pdl_lock"><span class="bold_code">void driver_pdl_lock(ErlDrvPDL pdl)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="driver_pdl_lock"><span class="bold_code bc-7">void driver_pdl_lock(ErlDrvPDL pdl)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_pdl_lock"></a>
         <p>Locks the port data lock passed as argument (<span class="code">pdl</span>).</p>
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="driver_pdl_unlock"><span class="bold_code">void driver_pdl_unlock(ErlDrvPDL pdl)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="driver_pdl_unlock"><span class="bold_code bc-7">void driver_pdl_unlock(ErlDrvPDL pdl)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_pdl_unlock"></a>
         <p>Unlocks the port data lock passed as argument (<span class="code">pdl</span>).</p>
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="driver_peekq"><span class="bold_code">SysIOVec *driver_peekq(ErlDrvPort port, int
+    <p><a name="driver_peekq"><span class="bold_code bc-7">SysIOVec *driver_peekq(ErlDrvPort port, int
         *vlen)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_peekq"></a>
         <p>Retrieves the driver queue as a pointer to an
           array of <span class="code">SysIOVec</span>s. It also returns the number of
           elements in <span class="code">vlen</span>. This is one of two ways to get data
           out of the queue.</p>
         <p>Nothing is removed from the queue by this function, that must be done
-          with <span class="bold_code"><a href="#driver_deq"><span class="code">driver_deq</span></a></span>.</p>
+          with <span class="bold_code bc-17"><a href="#driver_deq"><span class="code">driver_deq</span></a></span>.</p>
         <p>The returned array is suitable to use with the Unix system
           call <span class="code">writev</span>.</p>
         <p>This function can be called from any thread if a
-          <span class="bold_code"><a href="#ErlDrvPDL">port data lock</a></span>
+          <span class="bold_code bc-17"><a href="#ErlDrvPDL">port data lock</a></span>
           associated with the <span class="code">port</span> is locked by the calling
           thread during the call.</p>
       </p></div>
 
-    <p><a name="driver_peekqv"><span class="bold_code">ErlDrvSizeT driver_peekqv(ErlDrvPort port,
+    <p><a name="driver_peekqv"><span class="bold_code bc-7">ErlDrvSizeT driver_peekqv(ErlDrvPort port,
         ErlIOVec *ev)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_peekqv"></a>
         <p>Retrieves the driver queue into a supplied
 	  <span class="code">ErlIOVec</span> <span class="code">ev</span>. It also returns the queue size.
@@ -2495,62 +2496,62 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
 	<p>If <span class="code">ev</span> is <span class="code">NULL</span>, all ones that is <span class="code">-1</span> type cast to
 	  <span class="code">ErlDrvSizeT</span> are returned.</p>
         <p>Nothing is removed from the queue by this function, that must be done
-          with <span class="bold_code"><a href="#driver_deq"><span class="code">driver_deq</span></a></span>.</p>
+          with <span class="bold_code bc-17"><a href="#driver_deq"><span class="code">driver_deq</span></a></span>.</p>
         <p>This function can be called from any thread if a
-          <span class="bold_code"><a href="#ErlDrvPDL">port data lock</a></span>
+          <span class="bold_code bc-17"><a href="#ErlDrvPDL">port data lock</a></span>
           associated with the <span class="code">port</span> is locked by the calling
           thread during the call.</p>
       </p></div>
 
-    <p><a name="driver_pushq"><span class="bold_code">int driver_pushq(ErlDrvPort port, char* buf,
+    <p><a name="driver_pushq"><span class="bold_code bc-7">int driver_pushq(ErlDrvPort port, char* buf,
         ErlDrvSizeT len)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_pushq"></a>
         <p>Puts data at the head of the driver queue. The
           data in <span class="code">buf</span> is copied (<span class="code">len</span> bytes) and placed
           at the beginning of the queue.</p>
         <p>The return value is <span class="code">0</span>.</p>
         <p>This function can be called from any thread if a
-          <span class="bold_code"><a href="#ErlDrvPDL">port data lock</a></span>
+          <span class="bold_code bc-17"><a href="#ErlDrvPDL">port data lock</a></span>
           associated with the <span class="code">port</span> is locked by the calling
           thread during the call.</p>
       </p></div>
 
-    <p><a name="driver_pushq_bin"><span class="bold_code">int driver_pushq_bin(ErlDrvPort port,
+    <p><a name="driver_pushq_bin"><span class="bold_code bc-7">int driver_pushq_bin(ErlDrvPort port,
         ErlDrvBinary *bin, ErlDrvSizeT offset, ErlDrvSizeT len)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_pushq_bin"></a>
         <p>Puts data in the binary <span class="code">bin</span>, at
           <span class="code">offset</span> with length <span class="code">len</span> at the head of the
           driver queue. It is most often faster than
-          <span class="bold_code"><a href="#driver_pushq"><span class="code">driver_pushq</span></a></span>,
+          <span class="bold_code bc-17"><a href="#driver_pushq"><span class="code">driver_pushq</span></a></span>,
           because no data must be copied.</p>
         <p>This function can be called from any thread if a
-          <span class="bold_code"><a href="#ErlDrvPDL">port data lock</a></span>
+          <span class="bold_code bc-17"><a href="#ErlDrvPDL">port data lock</a></span>
           associated with the <span class="code">port</span> is locked by the calling
           thread during the call.</p>
         <p>The return value is <span class="code">0</span>.</p>
       </p></div>
 
-    <p><a name="driver_pushqv"><span class="bold_code">int driver_pushqv(ErlDrvPort port, ErlIOVec
+    <p><a name="driver_pushqv"><span class="bold_code bc-7">int driver_pushqv(ErlDrvPort port, ErlIOVec
         *ev, ErlDrvSizeT skip)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_pushqv"></a>
         <p>Puts the data in <span class="code">ev</span>, skipping the first
           <span class="code">skip</span> bytes of it, at the head of the driver queue.
           It is faster than
-          <span class="bold_code"><a href="#driver_pushq"><span class="code">driver_pushq</span></a></span>,
+          <span class="bold_code bc-17"><a href="#driver_pushq"><span class="code">driver_pushq</span></a></span>,
           because no data must be copied.</p>
         <p>The return value is <span class="code">0</span>.</p>
         <p>This function can be called from any thread if a
-          <span class="bold_code"><a href="#ErlDrvPDL">port data lock</a></span>
+          <span class="bold_code bc-17"><a href="#ErlDrvPDL">port data lock</a></span>
           associated with the <span class="code">port</span> is locked by the calling
           thread during the call.</p>
       </p></div>
 
-    <p><a name="driver_read_timer"><span class="bold_code">int driver_read_timer(ErlDrvPort port, unsigned
+    <p><a name="driver_read_timer"><span class="bold_code bc-7">int driver_read_timer(ErlDrvPort port, unsigned
         long *time_left)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_read_timer"></a>
         <p>Reads the current time of a timer, and places
           the result in <span class="code">time_left</span>. This is the time in
@@ -2558,8 +2559,8 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
         <p>The return value is <span class="code">0</span>.</p>
       </p></div>
 
-    <p><a name="driver_realloc"><span class="bold_code">void *driver_realloc(void *ptr, ErlDrvSizeT size)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="driver_realloc"><span class="bold_code bc-7">void *driver_realloc(void *ptr, ErlDrvSizeT size)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_realloc"></a>
         <p>Resizes a memory block, either in place, or by
           allocating a new block, copying the data, and freeing the old
@@ -2569,9 +2570,9 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="driver_realloc_binary"><span class="bold_code">ErlDrvBinary *driver_realloc_binary(ErlDrvBinary *bin, ErlDrvSizeT size)
+    <p><a name="driver_realloc_binary"><span class="bold_code bc-7">ErlDrvBinary *driver_realloc_binary(ErlDrvBinary *bin, ErlDrvSizeT size)
         </span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_realloc_binary"></a>
         <p>Resizes a driver binary, while keeping the data.</p>
         <p>Returns the resized driver binary on success. Returns <span class="code">NULL</span>
@@ -2580,9 +2581,9 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
           support is used.</p>
       </p></div>
 
-    <p><a name="driver_select"><span class="bold_code">int driver_select(ErlDrvPort port, ErlDrvEvent
+    <p><a name="driver_select"><span class="bold_code bc-7">int driver_select(ErlDrvPort port, ErlDrvEvent
         event, int mode, int on)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_select"></a>
         <p>This function is used by drivers to provide the emulator with
           events to check for. This enables the emulator to call the driver
@@ -2600,8 +2601,8 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
           <span class="code">ERL_DRV_READ</span>, <span class="code">ERL_DRV_WRITE</span>, and <span class="code">ERL_DRV_USE</span>.
           The first two specify whether to wait for read events and/or write
           events. A fired read event calls
-          <span class="bold_code"><a href="driver_entry.html#ready_input"><span class="code">ready_input</span></a></span> and a fired write event calls
-          <span class="bold_code"><a href="driver_entry.html#ready_output"><span class="code">ready_output</span></a></span>.</p>
+          <span class="bold_code bc-15"><a href="driver_entry.html#ready_input"><span class="code">ready_input</span></a></span> and a fired write event calls
+          <span class="bold_code bc-15"><a href="driver_entry.html#ready_output"><span class="code">ready_output</span></a></span>.</p>
         <div class="note">
 <div class="label">Note</div>
 <div class="content"><p>
@@ -2618,7 +2619,7 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
           internally. To safely close an event object, call
           <span class="code">driver_select</span> with <span class="code">ERL_DRV_USE</span> and <span class="code">on==0</span>, which
           clears all events. Then call
-          <span class="bold_code"><a href="driver_entry.html#stop_select"><span class="code">stop_select</span></a></span> when it is safe to close the event
+          <span class="bold_code bc-15"><a href="driver_entry.html#stop_select"><span class="code">stop_select</span></a></span> when it is safe to close the event
           object. <span class="code">ERL_DRV_USE</span> is to be set together with the first event
           for an event object. It is harmless to set <span class="code">ERL_DRV_USE</span>
           even if it already has been done. Clearing all events but keeping
@@ -2638,15 +2639,15 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
           it is <span class="code">-1</span>.</p>
       </p></div>
 
-    <p><a name="driver_send_term"><span class="bold_code">int driver_send_term(ErlDrvPort port,
+    <p><a name="driver_send_term"><span class="bold_code bc-7">int driver_send_term(ErlDrvPort port,
         ErlDrvTermData receiver, ErlDrvTermData* term, int n)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_send_term"></a>
         <div class="warning">
 <div class="label">Warning</div>
 <div class="content"><p>
           <p><strong>This function is deprecated.</strong>
-            Use <span class="bold_code"><a href="#erl_drv_send_term"><span class="code">erl_drv_send_term</span></a></span> instead.</p>
+            Use <span class="bold_code bc-17"><a href="#erl_drv_send_term"><span class="code">erl_drv_send_term</span></a></span> instead.</p>
         </p></div>
 </div>
         <div class="note">
@@ -2659,60 +2660,60 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
         </p></div>
 </div>
         <p>Parameters <span class="code">term</span> and <span class="code">n</span> work as in
-          <span class="bold_code"><a href="#erl_drv_output_term"><span class="code">erl_drv_output_term</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#erl_drv_output_term"><span class="code">erl_drv_output_term</span></a></span>.</p>
         <p>This function is only thread-safe when the emulator with SMP
           support is used.</p>
       </p></div>
 
-    <p><a name="driver_set_timer"><span class="bold_code">int driver_set_timer(ErlDrvPort port, unsigned
+    <p><a name="driver_set_timer"><span class="bold_code bc-7">int driver_set_timer(ErlDrvPort port, unsigned
         long time)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_set_timer"></a>
         <p>Sets a timer on the driver, which will count
           down and call the driver when it is timed out. Parameter
           <span class="code">time</span> is the time in milliseconds before the timer expires.</p>
         <p>When the timer reaches <span class="code">0</span> and expires, the driver entry
-          function <span class="bold_code"><a href="driver_entry.html#timeout"><span class="code">timeout</span></a></span> is called.</p>
+          function <span class="bold_code bc-15"><a href="driver_entry.html#timeout"><span class="code">timeout</span></a></span> is called.</p>
         <p>Notice that only one timer exists on each driver instance;
           setting a new timer replaces an older one.</p>
         <p>Return value is <span class="code">0</span>, unless the <span class="code">timeout</span>
           driver function is <span class="code">NULL</span>, in which case it is <span class="code">-1</span>.</p>
       </p></div>
 
-    <p><a name="driver_sizeq"><span class="bold_code">ErlDrvSizeT driver_sizeq(ErlDrvPort port)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="driver_sizeq"><span class="bold_code bc-7">ErlDrvSizeT driver_sizeq(ErlDrvPort port)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_sizeq"></a>
         <p>Returns the number of bytes currently in the driver queue.</p>
         <p>This function can be called from any thread if a
-          <span class="bold_code"><a href="#ErlDrvPDL">port data lock</a></span>
+          <span class="bold_code bc-17"><a href="#ErlDrvPDL">port data lock</a></span>
           associated with the <span class="code">port</span> is locked by the calling
           thread during the call.</p>
       </p></div>
 
-    <p><a name="driver_system_info"><span class="bold_code">void driver_system_info(ErlDrvSysInfo
+    <p><a name="driver_system_info"><span class="bold_code bc-7">void driver_system_info(ErlDrvSysInfo
         *sys_info_ptr, size_t size)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_system_info"></a>
         <p>Writes information about the Erlang runtime system into the
-          <span class="bold_code"><a href="#ErlDrvSysInfo"><span class="code">ErlDrvSysInfo</span></a></span>
+          <span class="bold_code bc-17"><a href="#ErlDrvSysInfo"><span class="code">ErlDrvSysInfo</span></a></span>
           structure referred to by the first argument. The second
           argument is to be the size of the
-          <span class="bold_code"><a href="#ErlDrvSysInfo"><span class="code">ErlDrvSysInfo</span></a></span>
+          <span class="bold_code bc-17"><a href="#ErlDrvSysInfo"><span class="code">ErlDrvSysInfo</span></a></span>
           structure, that is, <span class="code">sizeof(ErlDrvSysInfo)</span>.</p>
         <p>For information about specific fields, see
-          <span class="bold_code"><a href="#ErlDrvSysInfo"><span class="code">ErlDrvSysInfo</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#ErlDrvSysInfo"><span class="code">ErlDrvSysInfo</span></a></span>.</p>
       </p></div>
 
-    <p><a name="driver_vec_to_buf"><span class="bold_code">ErlDrvSizeT driver_vec_to_buf(ErlIOVec *ev,
+    <p><a name="driver_vec_to_buf"><span class="bold_code bc-7">ErlDrvSizeT driver_vec_to_buf(ErlIOVec *ev,
         char *buf, ErlDrvSizeT len)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="driver_vec_to_buf"></a>
         <p>Collects several segments of data, referenced
           by <span class="code">ev</span>, by copying them in order to the buffer
           <span class="code">buf</span>, of the size <span class="code">len</span>.</p>
         <p>If the data is to be sent from the driver to the port owner
           process, it is faster to use
-          <span class="bold_code"><a href="#driver_outputv"><span class="code">driver_outputv</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#driver_outputv"><span class="code">driver_outputv</span></a></span>.</p>
         <p>The return value is the space left in the buffer, that is, if
           <span class="code">ev</span> contains less than <span class="code">len</span> bytes it is the
           difference, and if <span class="code">ev</span> contains <span class="code">len</span> bytes or more,
@@ -2721,9 +2722,9 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
           the binary.</p>
       </p></div>
 
-    <p><a name="erl_drv_busy_msgq_limits"><span class="bold_code">void erl_drv_busy_msgq_limits(ErlDrvPort port,
+    <p><a name="erl_drv_busy_msgq_limits"><span class="bold_code bc-7">void erl_drv_busy_msgq_limits(ErlDrvPort port,
         ErlDrvSizeT *low, ErlDrvSizeT *high)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_busy_msgq_limits"></a>
         <p>Sets and gets limits that will be used for controling the
           busy state of the port message queue.</p>
@@ -2737,7 +2738,7 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
           <span class="code">Port ! {Owner, {command, Data}}</span> or
           <span class="code">port_command/[2,3]</span>. Notice that these limits
           only concerns command data that have not yet reached the
-          port. The <span class="bold_code"><a href="#set_busy_port">busy port</a></span>
+          port. The <span class="bold_code bc-17"><a href="#set_busy_port">busy port</a></span>
           feature can be used for data that has reached the port.</p>
         <p>Valid limits are values in the range
           <span class="code">[ERL_DRV_BUSY_MSGQ_LIM_MIN, ERL_DRV_BUSY_MSGQ_LIM_MAX]</span>.
@@ -2756,8 +2757,8 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
           read. Values are in bytes.</p>
         <p>The busy message queue feature can be disabled either
           by setting the <span class="code">ERL_DRV_FLAG_NO_BUSY_MSGQ</span>
-          <span class="bold_code"><a href="driver_entry.html#driver_flags">driver flag</a></span>
-          in the <span class="bold_code"><a href="driver_entry.html"><span class="code">driver_entry</span></a></span>
+          <span class="bold_code bc-15"><a href="driver_entry.html#driver_flags">driver flag</a></span>
+          in the <span class="bold_code bc-19"><a href="driver_entry.html"><span class="code">driver_entry</span></a></span>
           used by the driver, or by calling this function with
           <span class="code">ERL_DRV_BUSY_MSGQ_DISABLED</span> as a limit (either low or
           high). When this feature has been disabled, it cannot be
@@ -2769,12 +2770,12 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
           busy. Suspended processes are resumed when neither the
           port or the port message queue is busy.</p>
         <p>For information about busy port functionality, see
-          <span class="bold_code"><a href="#set_busy_port"><span class="code">set_busy_port</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#set_busy_port"><span class="code">set_busy_port</span></a></span>.</p>
       </p></div>
 
-    <p><a name="erl_drv_cond_broadcast"><span class="bold_code">void erl_drv_cond_broadcast(ErlDrvCond
+    <p><a name="erl_drv_cond_broadcast"><span class="bold_code bc-7">void erl_drv_cond_broadcast(ErlDrvCond
         *cnd)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_cond_broadcast"></a>
         <p>Broadcasts on a condition variable. That is, if
           other threads are waiting on the condition variable being
@@ -2783,9 +2784,9 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_cond_create"><span class="bold_code">ErlDrvCond *erl_drv_cond_create(char
+    <p><a name="erl_drv_cond_create"><span class="bold_code bc-7">ErlDrvCond *erl_drv_cond_create(char
         *name)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_cond_create"></a>
         <p>Creates a condition variable and returns a pointer to it.</p> 
         <p><span class="code">name</span> is a string identifying the created condition variable.
@@ -2797,19 +2798,19 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_cond_destroy"><span class="bold_code">void erl_drv_cond_destroy(ErlDrvCond
+    <p><a name="erl_drv_cond_destroy"><span class="bold_code bc-7">void erl_drv_cond_destroy(ErlDrvCond
         *cnd)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_cond_destroy"></a>
         <p>Destroys a condition variable previously created by
-          <span class="bold_code"><a href="#erl_drv_cond_create"><span class="code">erl_drv_cond_create</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#erl_drv_cond_create"><span class="code">erl_drv_cond_create</span></a></span>.</p>
         <p><span class="code">cnd</span> is a pointer to a condition variable to destroy.</p>
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_cond_name"><span class="bold_code">char *erl_drv_cond_name(ErlDrvCond
+    <p><a name="erl_drv_cond_name"><span class="bold_code bc-7">char *erl_drv_cond_name(ErlDrvCond
         *cnd)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_cnd_name"></a>
         <p>Returns a pointer to the name of the condition.</p>
         <p><span class="code">cnd</span> is a  pointer to an initialized condition.</p>
@@ -2821,9 +2822,9 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
 </div>
       </p></div>
 
-    <p><a name="erl_drv_cond_signal"><span class="bold_code">void erl_drv_cond_signal(ErlDrvCond
+    <p><a name="erl_drv_cond_signal"><span class="bold_code bc-7">void erl_drv_cond_signal(ErlDrvCond
         *cnd)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_cond_signal"></a>
         <p>Signals on a condition variable. That is, if
           other threads are waiting on the condition variable being
@@ -2832,9 +2833,9 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_cond_wait"><span class="bold_code">void erl_drv_cond_wait(ErlDrvCond *cnd,
+    <p><a name="erl_drv_cond_wait"><span class="bold_code bc-7">void erl_drv_cond_wait(ErlDrvCond *cnd,
         ErlDrvMutex *mtx)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_cond_wait"></a>
         <p>Waits on a condition variable. The calling
           thread is blocked until another thread wakes it by signaling
@@ -2861,9 +2862,9 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_consume_timeslice"><span class="bold_code">int erl_drv_consume_timeslice(ErlDrvPort port,
+    <p><a name="erl_drv_consume_timeslice"><span class="bold_code bc-7">int erl_drv_consume_timeslice(ErlDrvPort port,
         int percent)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_consume_timeslice"></a>
         <p>Gives the runtime system a hint about how much CPU time the current
           driver callback call has consumed since the last hint, or since the
@@ -2896,13 +2897,13 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
           misbehaviors of the VM because of a port monopolizing a scheduler
           thread. It can be used when dividing lengthy work into some repeated
           driver callback calls, without the need to use threads.</p>
-        <p>See also the important <span class="bold_code"><a href="#WARNING">warning</a></span>
+        <p>See also the important <span class="bold_code bc-17"><a href="#WARNING">warning</a></span>
           text at the beginning of this manual page.</p>
       </p></div>
 
-    <p><a name="erl_drv_convert_time_unit"><span class="bold_code">ErlDrvTime erl_drv_convert_time_unit(ErlDrvTime
+    <p><a name="erl_drv_convert_time_unit"><span class="bold_code bc-7">ErlDrvTime erl_drv_convert_time_unit(ErlDrvTime
         val, ErlDrvTimeUnit from, ErlDrvTimeUnit to)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_convert_time_unit"></a>
         <p>Converts the <span class="code">val</span> value of time unit <span class="code">from</span> to
           the corresponding value of time unit <span class="code">to</span>. The result is
@@ -2917,13 +2918,13 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
         </dl>
         <p>Returns <span class="code">ERL_DRV_TIME_ERROR</span> if called with an invalid
           time unit argument.</p>
-        <p>See also <span class="bold_code"><a href="#ErlDrvTime"><span class="code">ErlDrvTime</span></a></span> and
-          <span class="bold_code"><a href="#ErlDrvTimeUnit"><span class="code">ErlDrvTimeUnit</span></a></span>.</p>
+        <p>See also <span class="bold_code bc-17"><a href="#ErlDrvTime"><span class="code">ErlDrvTime</span></a></span> and
+          <span class="bold_code bc-17"><a href="#ErlDrvTimeUnit"><span class="code">ErlDrvTimeUnit</span></a></span>.</p>
       </p></div>
 
-    <p><a name="erl_drv_equal_tids"><span class="bold_code">int erl_drv_equal_tids(ErlDrvTid tid1,
+    <p><a name="erl_drv_equal_tids"><span class="bold_code bc-7">int erl_drv_equal_tids(ErlDrvTid tid1,
         ErlDrvTid tid2)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_equal_tids"></a>
         <p>Compares two thread identifiers, <span class="code">tid1</span> and <span class="code">tid2</span>,
           for equality.</p>
@@ -2943,9 +2944,9 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_getenv"><span class="bold_code">int erl_drv_getenv(const char *key, char
+    <p><a name="erl_drv_getenv"><span class="bold_code bc-7">int erl_drv_getenv(const char *key, char
         *value, size_t *value_size)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_getenv"></a>
         <p>Retrieves the value of an environment variable.</p>
         <dl>
@@ -2979,9 +2980,9 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_init_ack"><span class="bold_code">void erl_drv_init_ack(ErlDrvPort port,
+    <p><a name="erl_drv_init_ack"><span class="bold_code bc-7">void erl_drv_init_ack(ErlDrvPort port,
         ErlDrvData res)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_init_ack"></a>
         <p>Acknowledges the start of the port.</p>
         <dl>
@@ -2991,32 +2992,32 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
 	  </dd>
           <dt><strong><span class="code">res</span></strong></dt>
           <dd>The result of the port initialization. Can be the same
-            values as the return value of <span class="bold_code"><a href="driver_entry.html#start"><span class="code">start</span></a></span>, that is, any of the error codes or the
+            values as the return value of <span class="bold_code bc-15"><a href="driver_entry.html#start"><span class="code">start</span></a></span>, that is, any of the error codes or the
             <span class="code">ErlDrvData</span> that is to be used for this port.
           </dd>
         </dl>
         <p>When this function is called the initiating <span class="code">erlang:open_port</span>
-          call is returned as if the <span class="bold_code"><a href="driver_entry.html#start"><span class="code">start</span></a></span> function had just been called. It can only be
-          used when flag <span class="bold_code"><a href="driver_entry.html#driver_flags"><span class="code">ERL_DRV_FLAG_USE_INIT_ACK</span></a></span>
+          call is returned as if the <span class="bold_code bc-15"><a href="driver_entry.html#start"><span class="code">start</span></a></span> function had just been called. It can only be
+          used when flag <span class="bold_code bc-15"><a href="driver_entry.html#driver_flags"><span class="code">ERL_DRV_FLAG_USE_INIT_ACK</span></a></span>
           has been set on the linked-in driver.</p>
       </p></div>
 
-    <p><a name="erl_drv_monotonic_time"><span class="bold_code">ErlDrvTime erl_drv_monotonic_time(ErlDrvTimeUnit time_unit)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="erl_drv_monotonic_time"><span class="bold_code bc-7">ErlDrvTime erl_drv_monotonic_time(ErlDrvTimeUnit time_unit)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_monotonic_time"></a>
-        <p>Returns <span class="bold_code"><a href="time_correction.html#Erlang_Monotonic_Time">Erlang monotonic time</a></span>. Notice that negative values are
+        <p>Returns <span class="bold_code bc-15"><a href="time_correction.html#Erlang_Monotonic_Time">Erlang monotonic time</a></span>. Notice that negative values are
           not uncommon.</p>
         <p><span class="code">time_unit</span> is time unit of returned value.</p>
         <p>Returns <span class="code">ERL_DRV_TIME_ERROR</span> if called with an invalid
           time unit argument, or if called from a thread that is not a
           scheduler thread.</p>
-        <p>See also <span class="bold_code"><a href="#ErlDrvTime"><span class="code">ErlDrvTime</span></a></span>
-          and <span class="bold_code"><a href="#ErlDrvTimeUnit"><span class="code">ErlDrvTimeUnit</span></a></span>.</p>
+        <p>See also <span class="bold_code bc-17"><a href="#ErlDrvTime"><span class="code">ErlDrvTime</span></a></span>
+          and <span class="bold_code bc-17"><a href="#ErlDrvTimeUnit"><span class="code">ErlDrvTimeUnit</span></a></span>.</p>
       </p></div>
 
-    <p><a name="erl_drv_mutex_create"><span class="bold_code">ErlDrvMutex *erl_drv_mutex_create(char
+    <p><a name="erl_drv_mutex_create"><span class="bold_code bc-7">ErlDrvMutex *erl_drv_mutex_create(char
         *name)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_mutex_create"></a>
         <p>Creates a mutex and returns a pointer to it.</p>
         <p><span class="code">name</span> is a string identifying the created mutex. It is used
@@ -3026,20 +3027,20 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_mutex_destroy"><span class="bold_code">void erl_drv_mutex_destroy(ErlDrvMutex
+    <p><a name="erl_drv_mutex_destroy"><span class="bold_code bc-7">void erl_drv_mutex_destroy(ErlDrvMutex
         *mtx)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_mutex_destroy"></a>
         <p>Destroys a mutex previously created by
-          <span class="bold_code"><a href="#erl_drv_mutex_create"><span class="code">erl_drv_mutex_create</span></a></span>.
+          <span class="bold_code bc-17"><a href="#erl_drv_mutex_create"><span class="code">erl_drv_mutex_create</span></a></span>.
           The mutex must be in an unlocked state before it is destroyed.</p>
         <p><span class="code">mtx</span> is a pointer to a mutex to destroy.</p>
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_mutex_lock"><span class="bold_code">void erl_drv_mutex_lock(ErlDrvMutex
+    <p><a name="erl_drv_mutex_lock"><span class="bold_code bc-7">void erl_drv_mutex_lock(ErlDrvMutex
         *mtx)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_mutex_lock"></a>
         <p>Locks a mutex. The calling thread is blocked until the mutex has
           been locked. A thread that has currently locked the mutex
@@ -3056,9 +3057,9 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_mutex_name"><span class="bold_code">char *erl_drv_mutex_name(ErlDrvMutex
+    <p><a name="erl_drv_mutex_name"><span class="bold_code bc-7">char *erl_drv_mutex_name(ErlDrvMutex
         *mtx)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_mutex_name"></a>
         <p>Returns a pointer to the mutex name.</p>
         <p><span class="code">mtx</span> is a pointer to an initialized mutex.</p>
@@ -3070,9 +3071,9 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
 </div>
       </p></div>
 
-    <p><a name="erl_drv_mutex_trylock"><span class="bold_code">int erl_drv_mutex_trylock(ErlDrvMutex
+    <p><a name="erl_drv_mutex_trylock"><span class="bold_code bc-7">int erl_drv_mutex_trylock(ErlDrvMutex
         *mtx)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_mutex_trylock"></a>
         <p>Tries to lock a mutex. A thread that has currently locked the mutex
           <strong>cannot</strong> try to lock the same mutex again.</p>
@@ -3089,9 +3090,9 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_mutex_unlock"><span class="bold_code">void erl_drv_mutex_unlock(ErlDrvMutex
+    <p><a name="erl_drv_mutex_unlock"><span class="bold_code bc-7">void erl_drv_mutex_unlock(ErlDrvMutex
         *mtx)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_mutex_unlock"></a>
         <p>Unlocks a mutex. The mutex currently must be
           locked by the calling thread.</p>
@@ -3099,15 +3100,15 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_output_term"><span class="bold_code">int erl_drv_output_term(ErlDrvTermData port,
+    <p><a name="erl_drv_output_term"><span class="bold_code bc-7">int erl_drv_output_term(ErlDrvTermData port,
         ErlDrvTermData* term, int n)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_output_term"></a>
         <p>Sends data in the special driver term
           format to the port owner process. This is a fast way to
           deliver term data from a driver. It needs no binary
           conversion, so the port owner process receives data as
-          normal Erlang terms. The <span class="bold_code"><a href="#erl_drv_send_term"><span class="code">erl_drv_send_term</span></a></span>
+          normal Erlang terms. The <span class="bold_code bc-17"><a href="#erl_drv_send_term"><span class="code">erl_drv_send_term</span></a></span>
           functions can be used for sending to any process
           on the local node.</p>
         <div class="note">
@@ -3115,7 +3116,7 @@ r = driver_async(myPort, &amp;myKey, myData, myFunc);    </pre></div>
 <div class="content"><p>
           <p>Parameter <span class="code">port</span> is <strong>not</strong>
             an ordinary port handle, but a port handle converted using
-            <span class="bold_code"><a href="#driver_mk_port"><span class="code">driver_mk_port</span></a></span>.</p>
+            <span class="bold_code bc-17"><a href="#driver_mk_port"><span class="code">driver_mk_port</span></a></span>.</p>
         </p></div>
 </div>
         <p>Parameter <span class="code">term</span> points to an array of
@@ -3225,14 +3226,14 @@ ErlDrvTermData spec[] = {
 erl_drv_output_term(driver_mk_port(drvport), spec, sizeof(spec) / sizeof(spec[0]));    </pre></div>
 	<p>The <span class="code">ERL_DRV_EXT2TERM</span> term type is used for passing a
 	  term encoded with the
-	  <span class="bold_code"><a href="erl_ext_dist.html">external format</a></span>,
+	  <span class="bold_code bc-19"><a href="erl_ext_dist.html">external format</a></span>,
 	  that is, a term that has been encoded by
-	  <span class="bold_code"><a href="erlang.html#term_to_binary-2"><span class="code">erlang:term_to_binary</span></a></span>,
-	  <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','erl_interface','ei.html');"><span class="code">erl_interface:ei(3)</span></a></span>,
+	  <span class="bold_code bc-15"><a href="erlang.html#term_to_binary-2"><span class="code">erlang:term_to_binary</span></a></span>,
+	  <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','erl_interface','ei.html');"><span class="code">erl_interface:ei(3)</span></a></span>,
 	  and so on.
 	  For example, if <span class="code">binp</span> is a pointer to an <span class="code">ErlDrvBinary</span>
 	  that contains term <span class="code">{17, 4711}</span> encoded with the
-	  <span class="bold_code"><a href="erl_ext_dist.html">external format</a></span>,
+	  <span class="bold_code bc-19"><a href="erl_ext_dist.html">external format</a></span>,
 	  and you want to wrap it in a two-tuple with the tag <span class="code">my_tag</span>,
 	  that is, <span class="code">{my_tag, {17, 4711}}</span>, you can do as follows:</p>
 	<div class="example"><pre>
@@ -3259,7 +3260,7 @@ erl_drv_output_term(driver_mk_port(drvport), spec, sizeof(spec) / sizeof(spec[0]
         <p>If you want to pass a binary and do not already have the content
           of the binary in an <span class="code">ErlDrvBinary</span>, you can benefit from using
           <span class="code">ERL_DRV_BUF2BINARY</span> instead of creating an <span class="code">ErlDrvBinary</span>
-          through <span class="bold_code"><a href="#driver_alloc_binary"><span class="code">driver_alloc_binary</span></a></span> and then pass the binary through
+          through <span class="bold_code bc-17"><a href="#driver_alloc_binary"><span class="code">driver_alloc_binary</span></a></span> and then pass the binary through
           <span class="code">ERL_DRV_BINARY</span>. The runtime system often allocates
           binaries smarter if <span class="code">ERL_DRV_BUF2BINARY</span> is used.
           However, if the content of the binary to pass already resides in
@@ -3272,9 +3273,9 @@ erl_drv_output_term(driver_mk_port(drvport), spec, sizeof(spec) / sizeof(spec[0]
           support is used.</p>
       </p></div>
 
-    <p><a name="erl_drv_putenv"><span class="bold_code">int erl_drv_putenv(const char *key, char
+    <p><a name="erl_drv_putenv"><span class="bold_code bc-7">int erl_drv_putenv(const char *key, char
         *value)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_putenv"></a>
         <p>Sets the value of an environment variable.</p>
         <p><span class="code">key</span> is a <span class="code">NULL</span>-terminated string containing the
@@ -3301,9 +3302,9 @@ erl_drv_output_term(driver_mk_port(drvport), spec, sizeof(spec) / sizeof(spec[0]
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_rwlock_create"><span class="bold_code">ErlDrvRWLock *erl_drv_rwlock_create(char
+    <p><a name="erl_drv_rwlock_create"><span class="bold_code bc-7">ErlDrvRWLock *erl_drv_rwlock_create(char
         *name)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_rwlock_create"></a>
         <p>Creates an rwlock and returns a pointer to it.</p>
         <p><span class="code">name</span> is a string identifying the created rwlock.
@@ -3314,20 +3315,20 @@ erl_drv_output_term(driver_mk_port(drvport), spec, sizeof(spec) / sizeof(spec[0]
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_rwlock_destroy"><span class="bold_code">void erl_drv_rwlock_destroy(ErlDrvRWLock
+    <p><a name="erl_drv_rwlock_destroy"><span class="bold_code bc-7">void erl_drv_rwlock_destroy(ErlDrvRWLock
         *rwlck)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_rwlock_destroy"></a>
         <p>Destroys an rwlock previously created by
-          <span class="bold_code"><a href="#erl_drv_rwlock_create"><span class="code">erl_drv_rwlock_create</span></a></span>.
+          <span class="bold_code bc-17"><a href="#erl_drv_rwlock_create"><span class="code">erl_drv_rwlock_create</span></a></span>.
           The rwlock must be in an unlocked state before it is destroyed.</p>
         <p><span class="code">rwlck</span> is a pointer to an rwlock to destroy.</p>
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_rwlock_name"><span class="bold_code">char *erl_drv_rwlock_name(ErlDrvRWLock
+    <p><a name="erl_drv_rwlock_name"><span class="bold_code bc-7">char *erl_drv_rwlock_name(ErlDrvRWLock
         *rwlck)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_rwlock_name"></a>
         <p>Returns a pointer to the name of the rwlock.</p>
         <p><span class="code">rwlck</span> is a pointer to an initialized rwlock.</p>
@@ -3339,9 +3340,9 @@ erl_drv_output_term(driver_mk_port(drvport), spec, sizeof(spec) / sizeof(spec[0]
 </div>
       </p></div>
 
-    <p><a name="erl_drv_rwlock_rlock"><span class="bold_code">void erl_drv_rwlock_rlock(ErlDrvRWLock
+    <p><a name="erl_drv_rwlock_rlock"><span class="bold_code bc-7">void erl_drv_rwlock_rlock(ErlDrvRWLock
         *rwlck)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_rwlock_rlock"></a>
         <p>Read locks an rwlock. The calling thread is
           blocked until the rwlock has been read locked. A thread
@@ -3359,9 +3360,9 @@ erl_drv_output_term(driver_mk_port(drvport), spec, sizeof(spec) / sizeof(spec[0]
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_rwlock_runlock"><span class="bold_code">void erl_drv_rwlock_runlock(ErlDrvRWLock
+    <p><a name="erl_drv_rwlock_runlock"><span class="bold_code bc-7">void erl_drv_rwlock_runlock(ErlDrvRWLock
         *rwlck)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_rwlock_runlock"></a>
         <p>Read unlocks an rwlock. The rwlock currently must
           be read locked by the calling thread.</p>
@@ -3369,9 +3370,9 @@ erl_drv_output_term(driver_mk_port(drvport), spec, sizeof(spec) / sizeof(spec[0]
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_rwlock_rwlock"><span class="bold_code">void erl_drv_rwlock_rwlock(ErlDrvRWLock
+    <p><a name="erl_drv_rwlock_rwlock"><span class="bold_code bc-7">void erl_drv_rwlock_rwlock(ErlDrvRWLock
         *rwlck)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_rwlock_rwlock"></a>
         <p>Read/write locks an rwlock. The calling thread
           is blocked until the rwlock has been read/write locked.
@@ -3389,9 +3390,9 @@ erl_drv_output_term(driver_mk_port(drvport), spec, sizeof(spec) / sizeof(spec[0]
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_rwlock_rwunlock"><span class="bold_code">void erl_drv_rwlock_rwunlock(ErlDrvRWLock
+    <p><a name="erl_drv_rwlock_rwunlock"><span class="bold_code bc-7">void erl_drv_rwlock_rwunlock(ErlDrvRWLock
         *rwlck)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_rwlock_rwunlock"></a>
         <p>Read/write unlocks an rwlock. The rwlock currently must be
           read/write locked by the calling thread.</p>
@@ -3399,9 +3400,9 @@ erl_drv_output_term(driver_mk_port(drvport), spec, sizeof(spec) / sizeof(spec[0]
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_rwlock_tryrlock"><span class="bold_code">int erl_drv_rwlock_tryrlock(ErlDrvRWLock
+    <p><a name="erl_drv_rwlock_tryrlock"><span class="bold_code bc-7">int erl_drv_rwlock_tryrlock(ErlDrvRWLock
         *rwlck)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_rwlock_tryrlock"></a>
         <p>Tries to read lock an rwlock.</p>
         <p><span class="code">rwlck</span> is a pointer to an rwlock to try to read lock.</p>
@@ -3419,9 +3420,9 @@ erl_drv_output_term(driver_mk_port(drvport), spec, sizeof(spec) / sizeof(spec[0]
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_rwlock_tryrwlock"><span class="bold_code">int erl_drv_rwlock_tryrwlock(ErlDrvRWLock
+    <p><a name="erl_drv_rwlock_tryrwlock"><span class="bold_code bc-7">int erl_drv_rwlock_tryrwlock(ErlDrvRWLock
         *rwlck)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_rwlock_tryrwlock"></a>
         <p>Tries to read/write lock an rwlock.
           A thread that currently has read or read/write locked the
@@ -3439,9 +3440,9 @@ erl_drv_output_term(driver_mk_port(drvport), spec, sizeof(spec) / sizeof(spec[0]
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_send_term"><span class="bold_code">int erl_drv_send_term(ErlDrvTermData port,
+    <p><a name="erl_drv_send_term"><span class="bold_code bc-7">int erl_drv_send_term(ErlDrvTermData port,
         ErlDrvTermData receiver, ErlDrvTermData* term, int n)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_send_term"></a>
         <p>This function is the only way for a driver to send data to
           <strong>other</strong> processes than the port owner process. Parameter
@@ -3451,29 +3452,29 @@ erl_drv_output_term(driver_mk_port(drvport), spec, sizeof(spec) / sizeof(spec[0]
 <div class="content"><p>
           <p>Parameter <span class="code">port</span> is <strong>not</strong> an ordinary port handle, but
             a port handle converted using
-            <span class="bold_code"><a href="#driver_mk_port"><span class="code">driver_mk_port</span></a></span>.</p>
+            <span class="bold_code bc-17"><a href="#driver_mk_port"><span class="code">driver_mk_port</span></a></span>.</p>
         </p></div>
 </div>
         <p>Parameters <span class="code">port</span>, <span class="code">term</span>, and <span class="code">n</span> work as in
-          <span class="bold_code"><a href="#erl_drv_output_term"><span class="code">erl_drv_output_term</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#erl_drv_output_term"><span class="code">erl_drv_output_term</span></a></span>.</p>
         <p>This function is only thread-safe when the emulator with SMP
           support is used.</p>
       </p></div>
 
-    <p><a name="erl_drv_set_os_pid"><span class="bold_code">void erl_drv_set_os_pid(ErlDrvPort port,
+    <p><a name="erl_drv_set_os_pid"><span class="bold_code bc-7">void erl_drv_set_os_pid(ErlDrvPort port,
         ErlDrvSInt pid)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_set_os_pid"></a>
         <p>Sets the <span class="code">os_pid</span> seen when doing
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','erlang','port_info/2.html');"><span class="code">erlang:port_info/2</span></a></span> on this port.</p>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','erlang','port_info/2.html');"><span class="code">erlang:port_info/2</span></a></span> on this port.</p>
         <p><span class="code">port</span> is the port handle of the port (driver instance) to set
           the pid on. <span class="code">pid</span>is the pid to set.</p>
       </p></div>
 
-    <p><a name="erl_drv_thread_create"><span class="bold_code">int erl_drv_thread_create(char *name, ErlDrvTid
+    <p><a name="erl_drv_thread_create"><span class="bold_code bc-7">int erl_drv_thread_create(char *name, ErlDrvTid
         *tid, void * (*func)(void *), void *arg, ErlDrvThreadOpts
         *opts)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_thread_create"></a>
         <p>Creates a new thread.</p>
         <dl>
@@ -3498,25 +3499,25 @@ erl_drv_output_term(driver_mk_port(drvport), spec, sizeof(spec) / sizeof(spec[0]
           identifier of the newly created thread is available in
           <span class="code">*tid</span>. <span class="code">opts</span> can be either a <span class="code">NULL</span> pointer, or a
           pointer to an
-          <span class="bold_code"><a href="#ErlDrvThreadOpts"><span class="code">ErlDrvThreadOpts</span></a></span>
+          <span class="bold_code bc-17"><a href="#ErlDrvThreadOpts"><span class="code">ErlDrvThreadOpts</span></a></span>
           structure. If <span class="code">opts</span> is a <span class="code">NULL</span> pointer, default options
           are used, otherwise the passed options are used.</p>
         <div class="warning">
 <div class="label">Warning</div>
 <div class="content"><p>
           <p>You are not allowed to allocate the
-            <span class="bold_code"><a href="#ErlDrvThreadOpts"><span class="code">ErlDrvThreadOpts</span></a></span> structure by yourself.
+            <span class="bold_code bc-17"><a href="#ErlDrvThreadOpts"><span class="code">ErlDrvThreadOpts</span></a></span> structure by yourself.
             It must be allocated and initialized by
-            <span class="bold_code"><a href="#erl_drv_thread_opts_create"><span class="code">erl_drv_thread_opts_create</span></a></span>.</p>
+            <span class="bold_code bc-17"><a href="#erl_drv_thread_opts_create"><span class="code">erl_drv_thread_opts_create</span></a></span>.</p>
         </p></div>
 </div>
         <p>The created thread terminates either when <span class="code">func</span> returns or if
-          <span class="bold_code"><a href="#erl_drv_thread_exit"><span class="code">erl_drv_thread_exit</span></a></span>
+          <span class="bold_code bc-17"><a href="#erl_drv_thread_exit"><span class="code">erl_drv_thread_exit</span></a></span>
           is called by the thread. The exit value of the thread is either
           returned from <span class="code">func</span> or passed as argument to
-          <span class="bold_code"><a href="#erl_drv_thread_exit"><span class="code">erl_drv_thread_exit</span></a></span>.
+          <span class="bold_code bc-17"><a href="#erl_drv_thread_exit"><span class="code">erl_drv_thread_exit</span></a></span>.
           The driver creating the thread is responsible for joining the
-          thread, through <span class="bold_code"><a href="#erl_drv_thread_join"><span class="code">erl_drv_thread_join</span></a></span>,
+          thread, through <span class="bold_code bc-17"><a href="#erl_drv_thread_join"><span class="code">erl_drv_thread_join</span></a></span>,
           before the driver is unloaded. "Detached" threads cannot be created,
           that is, threads that do not need to be joined.</p>
         <div class="warning">
@@ -3531,23 +3532,23 @@ erl_drv_output_term(driver_mk_port(drvport), spec, sizeof(spec) / sizeof(spec[0]
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_thread_exit"><span class="bold_code">void erl_drv_thread_exit(void
+    <p><a name="erl_drv_thread_exit"><span class="bold_code bc-7">void erl_drv_thread_exit(void
         *exit_value)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_thread_exit"></a>
         <p>Terminates the calling thread with the exit value passed as
           argument. <span class="code">exit_value</span> is a pointer to an exit value or
           <span class="code">NULL</span>.</p>
         <p>You are only allowed to terminate threads created with
-          <span class="bold_code"><a href="#erl_drv_thread_create"><span class="code">erl_drv_thread_create</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#erl_drv_thread_create"><span class="code">erl_drv_thread_create</span></a></span>.</p>
         <p>The exit value can later be retrieved by another thread through
-          <span class="bold_code"><a href="#erl_drv_thread_join"><span class="code">erl_drv_thread_join</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#erl_drv_thread_join"><span class="code">erl_drv_thread_join</span></a></span>.</p>
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_thread_join"><span class="bold_code">int erl_drv_thread_join(ErlDrvTid tid, void
+    <p><a name="erl_drv_thread_join"><span class="bold_code bc-7">int erl_drv_thread_join(ErlDrvTid tid, void
         **exit_value)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_thread_join"></a>
         <p>Joins the calling thread with another thread, that is,
           the calling thread is blocked until the thread identified by
@@ -3565,9 +3566,9 @@ erl_drv_output_term(driver_mk_port(drvport), spec, sizeof(spec) / sizeof(spec[0]
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_thread_name"><span class="bold_code">char *erl_drv_thread_name(ErlDrvTid
+    <p><a name="erl_drv_thread_name"><span class="bold_code bc-7">char *erl_drv_thread_name(ErlDrvTid
         tid)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_rwlock_name"></a>
         <p>Returns a pointer to the name of the thread.</p>
         <p><span class="code">tid</span> is a thread identifier.</p>
@@ -3579,8 +3580,8 @@ erl_drv_output_term(driver_mk_port(drvport), spec, sizeof(spec) / sizeof(spec[0]
 </div>
       </p></div>
 
-    <p><a name="erl_drv_thread_opts_create"><span class="bold_code">ErlDrvThreadOpts *erl_drv_thread_opts_create(char *name)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="erl_drv_thread_opts_create"><span class="bold_code bc-7">ErlDrvThreadOpts *erl_drv_thread_opts_create(char *name)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_thread_opts_create"></a>
         <p>Allocates and initializes a thread option structure.</p>
         <p><span class="code">name</span> is a string identifying the created thread options.
@@ -3588,15 +3589,15 @@ erl_drv_output_term(driver_mk_port(drvport), spec, sizeof(spec) / sizeof(spec[0]
           functionality.</p>
         <p>Returns <span class="code">NULL</span> on failure. A thread option
           structure is used for passing options to
-          <span class="bold_code"><a href="#erl_drv_thread_create"><span class="code">erl_drv_thread_create</span></a></span>.
+          <span class="bold_code bc-17"><a href="#erl_drv_thread_create"><span class="code">erl_drv_thread_create</span></a></span>.
           If the structure is not modified before it is passed to
-          <span class="bold_code"><a href="#erl_drv_thread_create"><span class="code">erl_drv_thread_create</span></a></span>,
+          <span class="bold_code bc-17"><a href="#erl_drv_thread_create"><span class="code">erl_drv_thread_create</span></a></span>,
           the default values are used.</p>
         <div class="warning">
 <div class="label">Warning</div>
 <div class="content"><p>
           <p>You are not allowed to allocate the
-            <span class="bold_code"><a href="#ErlDrvThreadOpts"><span class="code">ErlDrvThreadOpts</span></a></span>
+            <span class="bold_code bc-17"><a href="#ErlDrvThreadOpts"><span class="code">ErlDrvThreadOpts</span></a></span>
             structure by yourself. It must be allocated and initialized by
             <span class="code">erl_drv_thread_opts_create</span>.</p>
           </p></div>
@@ -3604,41 +3605,41 @@ erl_drv_output_term(driver_mk_port(drvport), spec, sizeof(spec) / sizeof(spec[0]
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_thread_opts_destroy"><span class="bold_code">void erl_drv_thread_opts_destroy(ErlDrvThreadOpts *opts)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="erl_drv_thread_opts_destroy"><span class="bold_code bc-7">void erl_drv_thread_opts_destroy(ErlDrvThreadOpts *opts)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_thread_opts_destroy"></a>
         <p>Destroys thread options previously created by
-          <span class="bold_code"><a href="#erl_drv_thread_opts_create"><span class="code">erl_drv_thread_opts_create</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#erl_drv_thread_opts_create"><span class="code">erl_drv_thread_opts_create</span></a></span>.</p>
         <p><span class="code">opts</span> is a pointer to thread options to destroy.</p>
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_thread_self"><span class="bold_code">ErlDrvTid erl_drv_thread_self(void)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="erl_drv_thread_self"><span class="bold_code bc-7">ErlDrvTid erl_drv_thread_self(void)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_thread_self"></a>
         <p>Returns the thread identifier of the calling thread.</p>
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_time_offset"><span class="bold_code">ErlDrvTime erl_drv_time_offset(ErlDrvTimeUnit
+    <p><a name="erl_drv_time_offset"><span class="bold_code bc-7">ErlDrvTime erl_drv_time_offset(ErlDrvTimeUnit
         time_unit)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_time_offset"></a>
         <p>Returns the current time offset between
-          <span class="bold_code"><a href="time_correction.html#Erlang_Monotonic_Time">Erlang monotonic time</a></span> and
-          <span class="bold_code"><a href="time_correction.html#Erlang_System_Time">Erlang system time</a></span>
+          <span class="bold_code bc-15"><a href="time_correction.html#Erlang_Monotonic_Time">Erlang monotonic time</a></span> and
+          <span class="bold_code bc-15"><a href="time_correction.html#Erlang_System_Time">Erlang system time</a></span>
           converted into the <span class="code">time_unit</span> passed as argument.</p>
         <p><span class="code">time_unit</span> is time unit of returned value.</p>
         <p>Returns <span class="code">ERL_DRV_TIME_ERROR</span> if called with an invalid
           time unit argument, or if called from a thread that is not a
           scheduler thread.</p>
-        <p>See also <span class="bold_code"><a href="#ErlDrvTime"><span class="code">ErlDrvTime</span></a></span> and
-          <span class="bold_code"><a href="#ErlDrvTimeUnit"><span class="code">ErlDrvTimeUnit</span></a></span>.</p>
+        <p>See also <span class="bold_code bc-17"><a href="#ErlDrvTime"><span class="code">ErlDrvTime</span></a></span> and
+          <span class="bold_code bc-17"><a href="#ErlDrvTimeUnit"><span class="code">ErlDrvTimeUnit</span></a></span>.</p>
       </p></div>
 
-    <p><a name="erl_drv_tsd_get"><span class="bold_code">void *erl_drv_tsd_get(ErlDrvTSDKey
+    <p><a name="erl_drv_tsd_get"><span class="bold_code bc-7">void *erl_drv_tsd_get(ErlDrvTSDKey
         key)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_tsd_get"></a>
         <p>Returns the thread-specific data
           associated with <span class="code">key</span> for the calling thread.</p>
@@ -3648,9 +3649,9 @@ erl_drv_output_term(driver_mk_port(drvport), spec, sizeof(spec) / sizeof(spec[0]
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_tsd_key_create"><span class="bold_code">int erl_drv_tsd_key_create(char *name,
+    <p><a name="erl_drv_tsd_key_create"><span class="bold_code bc-7">int erl_drv_tsd_key_create(char *name,
         ErlDrvTSDKey *key)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_tsd_key_create"></a>
         <p>Creates a thread-specific data key.</p>
         <p><span class="code">name</span> is a string identifying the created key. It is used
@@ -3662,14 +3663,14 @@ erl_drv_output_term(driver_mk_port(drvport), spec, sizeof(spec) / sizeof(spec[0]
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_tsd_key_destroy"><span class="bold_code">void erl_drv_tsd_key_destroy(ErlDrvTSDKey
+    <p><a name="erl_drv_tsd_key_destroy"><span class="bold_code bc-7">void erl_drv_tsd_key_destroy(ErlDrvTSDKey
         key)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_tsd_key_destroy"></a>
         <p>Destroys a thread-specific data key previously created by
-          <span class="bold_code"><a href="#erl_drv_tsd_key_create"><span class="code">erl_drv_tsd_key_create</span></a></span>.
+          <span class="bold_code bc-17"><a href="#erl_drv_tsd_key_create"><span class="code">erl_drv_tsd_key_create</span></a></span>.
           All thread-specific data using this key in all threads
-          must be cleared (see <span class="bold_code"><a href="#erl_drv_tsd_set"><span class="code">erl_drv_tsd_set</span></a></span>)
+          must be cleared (see <span class="bold_code bc-17"><a href="#erl_drv_tsd_set"><span class="code">erl_drv_tsd_set</span></a></span>)
 	  before the call to <span class="code">erl_drv_tsd_key_destroy</span>.</p>
         <p><span class="code">key</span> is a thread-specific data key to destroy.</p>
         <div class="warning">
@@ -3685,9 +3686,9 @@ erl_drv_output_term(driver_mk_port(drvport), spec, sizeof(spec) / sizeof(spec[0]
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_drv_tsd_set"><span class="bold_code">void erl_drv_tsd_set(ErlDrvTSDKey key, void
+    <p><a name="erl_drv_tsd_set"><span class="bold_code bc-7">void erl_drv_tsd_set(ErlDrvTSDKey key, void
         *data)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_drv_tsd_set"></a>
         <p>Sets thread-specific data associated with
           <span class="code">key</span> for the calling thread. You are only allowed to set
@@ -3712,8 +3713,8 @@ erl_drv_output_term(driver_mk_port(drvport), spec, sizeof(spec) / sizeof(spec[0]
         <p>This function is thread-safe.</p>
       </p></div>
 
-    <p><a name="erl_errno_id"><span class="bold_code">char *erl_errno_id(int error)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="erl_errno_id"><span class="bold_code bc-7">char *erl_errno_id(int error)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <a name="erl_errno_id"></a>
         <p>Returns the atom name of the Erlang error,
           given the error number in <span class="code">error</span>. The error atoms are
@@ -3721,24 +3722,24 @@ erl_drv_output_term(driver_mk_port(drvport), spec, sizeof(spec) / sizeof(spec[0]
           error terms from the driver.</p>
       </p></div>
 
-    <p><a name="remove_driver_entry"><span class="bold_code">int remove_driver_entry(ErlDrvEntry
+    <p><a name="remove_driver_entry"><span class="bold_code bc-7">int remove_driver_entry(ErlDrvEntry
         *de)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="remove_driver_entry"></a>
         <p>Removes a driver entry <span class="code">de</span> previously added with
-          <span class="bold_code"><a href="#add_driver_entry"><span class="code">add_driver_entry</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#add_driver_entry"><span class="code">add_driver_entry</span></a></span>.</p>
         <p>Driver entries added by the <span class="code">erl_ddll</span> Erlang interface
           cannot be removed by using this interface.</p>
       </p></div>
 
-    <p><a name="set_busy_port"><span class="bold_code">void set_busy_port(ErlDrvPort port, int
+    <p><a name="set_busy_port"><span class="bold_code bc-7">void set_busy_port(ErlDrvPort port, int
         on)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="set_busy_port"></a>
         <p>Sets and unsets the busy state of the port. If
           <span class="code">on</span> is non-zero, the port is set to busy. If it is zero,
           the port is set to not busy. You typically want to combine
-          this feature with the <span class="bold_code"><a href="#erl_drv_busy_msgq_limits">busy port message queue</a></span> functionality.</p>
+          this feature with the <span class="bold_code bc-17"><a href="#erl_drv_busy_msgq_limits">busy port message queue</a></span> functionality.</p>
         <p>Processes sending command data to the port are suspended
           if either the port or the port message queue
           is busy. Suspended processes are resumed when neither the
@@ -3746,37 +3747,37 @@ erl_drv_output_term(driver_mk_port(drvport), spec, sizeof(spec) / sizeof(spec[0]
           is in this context data passed to the port using either
           <span class="code">Port ! {Owner, {command, Data}}</span> or
           <span class="code">port_command/[2,3]</span>.</p>
-        <p>If the <span class="bold_code"><a href="driver_entry.html#driver_flags">ERL_DRV_FLAG_SOFT_BUSY</a></span> has been set in the
-          <span class="bold_code"><a href="driver_entry.html"><span class="code">driver_entry</span></a></span>,
+        <p>If the <span class="bold_code bc-15"><a href="driver_entry.html#driver_flags">ERL_DRV_FLAG_SOFT_BUSY</a></span> has been set in the
+          <span class="bold_code bc-19"><a href="driver_entry.html"><span class="code">driver_entry</span></a></span>,
           data can be forced into the driver through
-          <span class="bold_code"><a href="erlang.html#port_command-3"><span class="code">erlang:port_command(Port, Data, [force])</span></a></span>
+          <span class="bold_code bc-15"><a href="erlang.html#port_command-3"><span class="code">erlang:port_command(Port, Data, [force])</span></a></span>
           even if the driver has signaled that it is busy.</p>
         <p>For information about busy port message queue functionality, see
-          <span class="bold_code"><a href="#erl_drv_busy_msgq_limits"><span class="code">erl_drv_busy_msgq_limits</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#erl_drv_busy_msgq_limits"><span class="code">erl_drv_busy_msgq_limits</span></a></span>.</p>
       </p></div>
 
-    <p><a name="set_port_control_flags"><span class="bold_code">void set_port_control_flags(ErlDrvPort port,
+    <p><a name="set_port_control_flags"><span class="bold_code bc-7">void set_port_control_flags(ErlDrvPort port,
         int flags)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="set_port_control_flags"></a>
-        <p>Sets flags for how the <span class="bold_code"><a href="driver_entry.html#control"><span class="code">control</span></a></span> driver entry
+        <p>Sets flags for how the <span class="bold_code bc-15"><a href="driver_entry.html#control"><span class="code">control</span></a></span> driver entry
           function will return data to the port owner process.
           (The <span class="code">control</span> function is called from
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','erlang','port_control/3.html');"><span class="code">erlang:port_control/3</span></a></span>.)</p>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','erlang','port_control/3.html');"><span class="code">erlang:port_control/3</span></a></span>.)</p>
         <p>Currently there are only two meaningful values for
           <span class="code">flags</span>: <span class="code">0</span> means that data is returned in a list,
           and <span class="code">PORT_CONTROL_FLAG_BINARY</span> means data is returned as
           a binary from <span class="code">control</span>.</p>
       </p></div>
-  
+  </div>
 
-  <h3><a name="idm45311096869104">See Also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46455777116256">See Also</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="driver_entry.html"><span class="code">driver_entry(3)</span></a></span>,
-      <span class="bold_code"><a href="erlang.html"><span class="code">erlang(3)</span></a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','erl_ddll.html');"><span class="code">erl_ddll(3)</span></a></span>,
-      section <span class="bold_code"><a href="alt_dist.html">How to Implement an Alternative Carrier for the Erlang Distribution&gt;</a></span> in the User's Guide</p>
+    <p><span class="bold_code bc-19"><a href="driver_entry.html"><span class="code">driver_entry(3)</span></a></span>,
+      <span class="bold_code bc-19"><a href="erlang.html"><span class="code">erlang(3)</span></a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','erl_ddll.html');"><span class="code">erl_ddll(3)</span></a></span>,
+      section <span class="bold_code bc-19"><a href="alt_dist.html">How to Implement an Alternative Carrier for the Erlang Distribution&gt;</a></span> in the User's Guide</p>
   </div>
 </div>
 <div class="footer">

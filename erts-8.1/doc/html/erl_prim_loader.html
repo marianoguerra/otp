@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../doc"><img alt="Erlang Logo" src="../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Erlang Run-Time System Application (ERTS)</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 8.1</p>
@@ -952,11 +952,11 @@
 <!-- refpage --><center><h1>erl_prim_loader</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">erl_prim_loader</div>
+<div class="REFBODY module-body">erl_prim_loader</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Low-level Erlang loader.</div>
+<div class="REFBODY module-summary-body">Low-level Erlang loader.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>This module is used to load all Erlang modules into
       the system. The start script is also fetched with this low-level
       loader.</p>
@@ -971,13 +971,14 @@
   </p></div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="get_file-1"></a><span class="bold_code">get_file(Filename) -&gt; {ok, Bin, FullName} | error</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = atom() | string()</span></div>
-<div class="REFTYPES"><span class="bold_code">Bin = binary()</span></div>
-<div class="REFTYPES"><span class="bold_code">FullName = string()</span></div>
+<div class="exports-body">
+    <p><a name="get_file-1"></a><span class="bold_code bc-1">get_file(Filename) -&gt; {ok, Bin, FullName} | error</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = atom() | string()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Bin = binary()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">FullName = string()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Fetches a file using the low-level loader.
           <span class="code">Filename</span> is either an absolute filename or only
           the name of the file, for example, <span class="code">"lists.beam"</span>. If an internal
@@ -988,25 +989,25 @@
           for example,
           <span class="code">$OTPROOT/lib/</span><span class="code">mnesia-4.4.7.ez/mnesia-4.4.7/ebin/</span><span class="code">mnesia.beam</span>.
           For information about archive files, see
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','code.html');"><span class="code">code(3)</span></a></span>.</p>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','code.html');"><span class="code">code(3)</span></a></span>.</p>
       </p></div>
 
-    <p><a name="get_path-0"></a><span class="bold_code">get_path() -&gt; {ok, Path}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Path = [Dir :: string()]</span></div>
+    <p><a name="get_path-0"></a><span class="bold_code bc-1">get_path() -&gt; {ok, Path}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Path = [Dir :: string()]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Gets the path set in the loader. The path is
-          set by the <span class="bold_code"><a href="init.html"><span class="code">init(3)</span></a></span>
+          set by the <span class="bold_code bc-19"><a href="init.html"><span class="code">init(3)</span></a></span>
           process according to information found in the start script.</p>
       </p></div>
 
-    <p><a name="list_dir-1"></a><span class="bold_code">list_dir(Dir) -&gt; {ok, Filenames} | error</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dir = string()</span></div>
-<div class="REFTYPES"><span class="bold_code">Filenames = [Filename :: string()]</span></div>
+    <p><a name="list_dir-1"></a><span class="bold_code bc-1">list_dir(Dir) -&gt; {ok, Filenames} | error</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dir = string()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filenames = [Filename :: string()]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Lists all the files in a directory. Returns
           <span class="code">{ok, Filenames}</span> if successful, otherwise
           <span class="code">error</span>. <span class="code">Filenames</span> is a list of
@@ -1016,15 +1017,15 @@
           for example,
           <span class="code">$OTPROOT/lib/</span><span class="code">mnesia-4.4.7.ez/mnesia-4.4.7/ebin</span>.
           For information about archive files, see
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','code.html');"><span class="code">code(3)</span></a></span>.</p>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','code.html');"><span class="code">code(3)</span></a></span>.</p>
       </p></div>
 
-    <p><a name="read_file_info-1"></a><span class="bold_code">read_file_info(Filename) -&gt; {ok, FileInfo} | error</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = string()</span></div>
-<div class="REFTYPES"><span class="bold_code">FileInfo = <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','file.html#type-file_info');">file:file_info()</a></span></span></div>
+    <p><a name="read_file_info-1"></a><span class="bold_code bc-1">read_file_info(Filename) -&gt; {ok, FileInfo} | error</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = string()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">FileInfo = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../doc/../','kernel','file.html#type-file_info');">file:file_info()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Retrieves information about a file. Returns
           <span class="code">{ok, FileInfo}</span> if successful, otherwise
           <span class="code">error</span>. <span class="code">FileInfo</span> is a record
@@ -1034,22 +1035,22 @@
         <div class="example"><pre>
 -include_lib("kernel/include/file.hrl").</pre></div>
         <p>For more information about the record <span class="code">file_info</span>, see
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','file.html');"><span class="code">file(3)</span></a></span>.</p>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','file.html');"><span class="code">file(3)</span></a></span>.</p>
         <p><span class="code">Filename</span> can also be a file in an archive,
           for example,
           <span class="code">$OTPROOT/lib/</span><span class="code">mnesia-4.4.7.ez/mnesia-4.4.7/ebin/</span><span class="code">mnesia</span>.
           For information about archive files, see
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','code.html');"><span class="code">code(3)</span></a></span>.</p>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','code.html');"><span class="code">code(3)</span></a></span>.</p>
       </p></div>
 
-    <p><a name="read_link_info-1"></a><span class="bold_code">read_link_info(Filename) -&gt; {ok, FileInfo} | error</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = string()</span></div>
-<div class="REFTYPES"><span class="bold_code">FileInfo = <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','file.html#type-file_info');">file:file_info()</a></span></span></div>
+    <p><a name="read_link_info-1"></a><span class="bold_code bc-1">read_link_info(Filename) -&gt; {ok, FileInfo} | error</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = string()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">FileInfo = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../doc/../','kernel','file.html#type-file_info');">file:file_info()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Works like
-          <span class="bold_code"><a href="#read_file_info-1"><span class="code">read_file_info/1</span></a></span>
+          <span class="bold_code bc-17"><a href="#read_file_info-1"><span class="code">read_file_info/1</span></a></span>
           except that if <span class="code">Filename</span> is a symbolic link,
           information about the link is returned in the <span class="code">file_info</span>
           record and the <span class="code">type</span> field of the record is set to
@@ -1060,19 +1061,19 @@
           is always equivalent to <span class="code">read_file_info/1</span>.</p>
       </p></div>
 
-    <p><a name="set_path-1"></a><span class="bold_code">set_path(Path) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Path = [Dir :: string()]</span></div>
+    <p><a name="set_path-1"></a><span class="bold_code bc-1">set_path(Path) -&gt; ok</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Path = [Dir :: string()]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sets the path of the loader if
-          <span class="bold_code"><a href="init.html"><span class="code">init(3)</span></a></span>
+          <span class="bold_code bc-19"><a href="init.html"><span class="code">init(3)</span></a></span>
           interprets a <span class="code">path</span> command in the start script.</p>
       </p></div>
-  
+  </div>
 
-  <h3><a name="idm45311109757632">Command-Line Flags</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46455793206752">Command-Line Flags</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The <span class="code">erl_prim_loader</span> module interprets the following
       command-line flags:</p>
@@ -1097,7 +1098,7 @@
         <p>Specifies which other Erlang nodes the <span class="code">inet</span> loader
           can use. This flag is mandatory if flag <span class="code">-loader inet</span>
           is present. On each host, there must be on Erlang node
-          with the <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','erl_boot_server.html');"><span class="code">erl_boot_server(3)</span></a></span>,
+          with the <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','erl_boot_server.html');"><span class="code">erl_boot_server(3)</span></a></span>,
           which handles the load requests.
           <span class="code">Hosts</span> is a list of IP addresses (hostnames
           are not acceptable).</p>
@@ -1110,11 +1111,11 @@
     </dl>
   </div>
 
-  <h3><a name="idm45311109774672">See Also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46455784310800">See Also</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="init.html"><span class="code">init(3)</span></a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','erl_boot_server.html');"><span class="code">erl_boot_server(3)</span></a></span></p>
+    <p><span class="bold_code bc-19"><a href="init.html"><span class="code">init(3)</span></a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','erl_boot_server.html');"><span class="code">erl_boot_server(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

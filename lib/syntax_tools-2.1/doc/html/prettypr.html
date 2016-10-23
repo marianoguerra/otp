@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Syntax_Tools</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 2.1</p>
@@ -547,26 +547,26 @@
 <!-- refpage --><center><h1>prettypr</h1></center>
 
 <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">prettypr</div>
+<div class="REFBODY module-body">prettypr</div>
 <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">A generic pretty printer library.</div>
+<div class="REFBODY module-summary-body">A generic pretty printer library.</div>
 <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
 <p>A generic pretty printer library. This module uses a  
 strict-style context passing implementation of John Hughes algorithm,  
 described in "The design of a Pretty-printing Library". The  
 paragraph-style formatting, empty documents, floating documents, and  
 null strings are my own additions to the algorithm.</p>
  
-  <p>To get started, you should read about the <span class="bold_code"><a href="#type-document">document()</a></span> data
-  type; the main constructor functions: <span class="bold_code"><a href="#text-1">text/1</a></span>, <span class="bold_code"><a href="#above-2">above/2</a></span>, <span class="bold_code"><a href="#beside-2">beside/2</a></span>, <span class="bold_code"><a href="#nest-2">nest/2</a></span>, <span class="bold_code"><a href="#sep-1">sep/1</a></span>, and <span class="bold_code"><a href="#par-2">par/2</a></span>; and the main layout function <span class="bold_code"><a href="#format-3">format/3</a></span>.</p>
+  <p>To get started, you should read about the <span class="bold_code bc-17"><a href="#type-document">document()</a></span> data
+  type; the main constructor functions: <span class="bold_code bc-17"><a href="#text-1">text/1</a></span>, <span class="bold_code bc-17"><a href="#above-2">above/2</a></span>, <span class="bold_code bc-17"><a href="#beside-2">beside/2</a></span>, <span class="bold_code bc-17"><a href="#nest-2">nest/2</a></span>, <span class="bold_code bc-17"><a href="#sep-1">sep/1</a></span>, and <span class="bold_code bc-17"><a href="#par-2">par/2</a></span>; and the main layout function <span class="bold_code bc-17"><a href="#format-3">format/3</a></span>.</p>
  
   <p>If you simply want to format a paragraph of plain text, you probably
-  want to use the <span class="bold_code"><a href="#text_par-2">text_par/2</a></span> function, as in the following
+  want to use the <span class="bold_code bc-17"><a href="#text_par-2">text_par/2</a></span> function, as in the following
   example:
   </p><div class="example"><pre>  prettypr:format(prettypr:text_par("Lorem ipsum dolor sit amet"), 20)</pre></div></p></div>
-<h3><a name="idm45201777219536">DATA TYPES</a></h3>
-<div class="REFBODY">
+<h3><a name="idm45991964971952">DATA TYPES</a></h3>
+<div class="REFBODY rb-3">
 <a name="types"></a>
 
 <dl>
@@ -606,8 +606,9 @@ specified line width (which by default is 65).</p>
 </dl>
 </div>
 <h3><a name="exports" href="#exports">Exports</a></h3>
-<p><a name="above-2"></a><span class="bold_code">above(D1::<span class="bold_code"><a href="#type-document">document()</a></span>, D2::<span class="bold_code"><a href="#type-document">document()</a></span>) -&gt; <span class="bold_code"><a href="#type-document">document()</a></span></span><br></p>
-<div class="REFBODY"><p><a name="above-2"></a>
+<div class="exports-body">
+<p><a name="above-2"></a><span class="bold_code bc-9">above(D1::<span class="bold_code bc-17"><a href="#type-document">document()</a></span>, D2::<span class="bold_code bc-17"><a href="#type-document">document()</a></span>) -&gt; <span class="bold_code bc-17"><a href="#type-document">document()</a></span></span><br></p>
+<div class="REFBODY rb-7"><p><a name="above-2"></a>
 
 <p>Concatenates documents vertically. Returns a document
   representing the concatenation of the documents <span class="code">D1</span> and <span class="code">D2</span> such
@@ -624,8 +625,8 @@ specified line width (which by default is 65).</p>
       de    ij      fgh
                      ij</pre></div>
 </p></div>
-<p><a name="beside-2"></a><span class="bold_code">beside(D1::<span class="bold_code"><a href="#type-document">document()</a></span>, D2::<span class="bold_code"><a href="#type-document">document()</a></span>) -&gt; <span class="bold_code"><a href="#type-document">document()</a></span></span><br></p>
-<div class="REFBODY"><p><a name="beside-2"></a>
+<p><a name="beside-2"></a><span class="bold_code bc-9">beside(D1::<span class="bold_code bc-17"><a href="#type-document">document()</a></span>, D2::<span class="bold_code bc-17"><a href="#type-document">document()</a></span>) -&gt; <span class="bold_code bc-17"><a href="#type-document">document()</a></span></span><br></p>
+<div class="REFBODY rb-7"><p><a name="beside-2"></a>
 
 <p>Concatenates documents horizontally. Returns a document
   representing the concatenation of the documents <span class="code">D1</span> and <span class="code">D2</span> such
@@ -640,13 +641,13 @@ specified line width (which by default is 65).</p>
      cd  gh  =&gt;  cdef
                    gh</pre></div>
 </p></div>
-<p><a name="best-3"></a><span class="bold_code">best(D::<span class="bold_code"><a href="#type-document">document()</a></span>, PaperWidth::integer(), LineWidth::integer()) -&gt; empty | <span class="bold_code"><a href="#type-document">document()</a></span></span><br></p>
-<div class="REFBODY"><p><a name="best-3"></a>
+<p><a name="best-3"></a><span class="bold_code bc-9">best(D::<span class="bold_code bc-17"><a href="#type-document">document()</a></span>, PaperWidth::integer(), LineWidth::integer()) -&gt; empty | <span class="bold_code bc-17"><a href="#type-document">document()</a></span></span><br></p>
+<div class="REFBODY rb-7"><p><a name="best-3"></a>
 
 <p>Selects a "best" layout for a document, creating a corresponding
   fixed-layout document. If no layout could be produced, the atom
   <span class="code">empty</span> is returned instead. For details about <span class="code">PaperWidth</span> and
-  <span class="code">LineWidth</span>, see <span class="bold_code"><a href="#format-3">format/3</a></span>. The function is idempotent.</p>
+  <span class="code">LineWidth</span>, see <span class="bold_code bc-17"><a href="#format-3">format/3</a></span>. The function is idempotent.</p>
  
   <p>One possible use of this function is to compute a fixed layout for a
   document, which can then be included as part of a larger document.
@@ -657,36 +658,36 @@ specified line width (which by default is 65).</p>
   surrounding document, and whose maximum individual line length is
   shorter by 6 than the line length <span class="code">L</span> of the surrounding document.</p>
  
- <p>This function is used by the <span class="bold_code"><a href="#format-3">format/3</a></span> function to prepare a
+ <p>This function is used by the <span class="bold_code bc-17"><a href="#format-3">format/3</a></span> function to prepare a
   document before being laid out as text.</p>
 </p></div>
-<p><a name="break-1"></a><span class="bold_code">break(D::<span class="bold_code"><a href="#type-document">document()</a></span>) -&gt; <span class="bold_code"><a href="#type-document">document()</a></span></span><br></p>
-<div class="REFBODY"><p><a name="break-1"></a>
+<p><a name="break-1"></a><span class="bold_code bc-9">break(D::<span class="bold_code bc-17"><a href="#type-document">document()</a></span>) -&gt; <span class="bold_code bc-17"><a href="#type-document">document()</a></span></span><br></p>
+<div class="REFBODY rb-7"><p><a name="break-1"></a>
 
 <p>Forces a line break at the end of the given document. This is a
-  utility function; see <span class="bold_code"><a href="#empty-0">empty/0</a></span> for details.</p>
+  utility function; see <span class="bold_code bc-17"><a href="#empty-0">empty/0</a></span> for details.</p>
 </p></div>
-<p><a name="empty-0"></a><span class="bold_code">empty() -&gt; <span class="bold_code"><a href="#type-document">document()</a></span></span><br></p>
-<div class="REFBODY"><p><a name="empty-0"></a>
+<p><a name="empty-0"></a><span class="bold_code bc-9">empty() -&gt; <span class="bold_code bc-17"><a href="#type-document">document()</a></span></span><br></p>
+<div class="REFBODY rb-7"><p><a name="empty-0"></a>
 
 <p>Yields the empty document, which has neither height nor width.
-  (<span class="code">empty</span> is thus different from an empty <span class="bold_code"><a href="#text-1">text</a></span>  
+  (<span class="code">empty</span> is thus different from an empty <span class="bold_code bc-17"><a href="#text-1">text</a></span>  
 string, which has zero width but height 1.)</p>
  
   <p>Empty documents are occasionally useful; in particular, they have the
   property that <span class="code">above(X, empty())</span> will force a new line after <span class="code">X</span>
   without leaving an empty line below it; since this is a common idiom,
-  the utility function <span class="bold_code"><a href="#break-1">break/1</a></span> will place a given document in
+  the utility function <span class="bold_code bc-17"><a href="#break-1">break/1</a></span> will place a given document in
   such a context.
  </p>
-<p><strong>See also:</strong> <span class="bold_code"><a href="#text-1">text/1</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code bc-17"><a href="#text-1">text/1</a></span>.</p>
 </p></div>
-<p><a name="floating-1"></a><span class="bold_code">floating(D::<span class="bold_code"><a href="#type-document">document()</a></span>) -&gt; <span class="bold_code"><a href="#type-document">document()</a></span></span><br></p>
-<div class="REFBODY"><p><a name="floating-1"></a>
-<p>Equivalent to <span class="bold_code"><a href="#floating-3">floating(D, 0, 0)</a></span>.</p>
+<p><a name="floating-1"></a><span class="bold_code bc-9">floating(D::<span class="bold_code bc-17"><a href="#type-document">document()</a></span>) -&gt; <span class="bold_code bc-17"><a href="#type-document">document()</a></span></span><br></p>
+<div class="REFBODY rb-7"><p><a name="floating-1"></a>
+<p>Equivalent to <span class="bold_code bc-17"><a href="#floating-3">floating(D, 0, 0)</a></span>.</p>
 </p></div>
-<p><a name="floating-3"></a><span class="bold_code">floating(D::<span class="bold_code"><a href="#type-document">document()</a></span>, Hp::integer(), Vp::integer()) -&gt; <span class="bold_code"><a href="#type-document">document()</a></span></span><br></p>
-<div class="REFBODY"><p><a name="floating-3"></a>
+<p><a name="floating-3"></a><span class="bold_code bc-9">floating(D::<span class="bold_code bc-17"><a href="#type-document">document()</a></span>, Hp::integer(), Vp::integer()) -&gt; <span class="bold_code bc-17"><a href="#type-document">document()</a></span></span><br></p>
+<div class="REFBODY rb-7"><p><a name="floating-3"></a>
 
 <p>Creates a "floating" document. The result represents the same
   set of layouts as <span class="code">D</span>; however, a floating document may be moved
@@ -703,12 +704,12 @@ both default to zero.</p>
   documents amounts to a "bubblesort", so don't expect it to be able to
   sort large sequences of floating documents quickly.</p>
 </p></div>
-<p><a name="follow-2"></a><span class="bold_code">follow(D1::<span class="bold_code"><a href="#type-document">document()</a></span>, D2::<span class="bold_code"><a href="#type-document">document()</a></span>) -&gt; <span class="bold_code"><a href="#type-document">document()</a></span></span><br></p>
-<div class="REFBODY"><p><a name="follow-2"></a>
-<p>Equivalent to <span class="bold_code"><a href="#follow-3">follow(D1, D2, 0)</a></span>.</p>
+<p><a name="follow-2"></a><span class="bold_code bc-9">follow(D1::<span class="bold_code bc-17"><a href="#type-document">document()</a></span>, D2::<span class="bold_code bc-17"><a href="#type-document">document()</a></span>) -&gt; <span class="bold_code bc-17"><a href="#type-document">document()</a></span></span><br></p>
+<div class="REFBODY rb-7"><p><a name="follow-2"></a>
+<p>Equivalent to <span class="bold_code bc-17"><a href="#follow-3">follow(D1, D2, 0)</a></span>.</p>
 </p></div>
-<p><a name="follow-3"></a><span class="bold_code">follow(D1::<span class="bold_code"><a href="#type-document">document()</a></span>, D2::<span class="bold_code"><a href="#type-document">document()</a></span>, Offset::integer()) -&gt; <span class="bold_code"><a href="#type-document">document()</a></span></span><br></p>
-<div class="REFBODY"><p><a name="follow-3"></a>
+<p><a name="follow-3"></a><span class="bold_code bc-9">follow(D1::<span class="bold_code bc-17"><a href="#type-document">document()</a></span>, D2::<span class="bold_code bc-17"><a href="#type-document">document()</a></span>, Offset::integer()) -&gt; <span class="bold_code bc-17"><a href="#type-document">document()</a></span></span><br></p>
+<div class="REFBODY rb-7"><p><a name="follow-3"></a>
 
 <p>Separates two documents by either a single space, or a line
   break and intentation. In other words, one of the layouts
@@ -719,23 +720,23 @@ both default to zero.</p>
 will be generated, using the optional offset in the latter case. This  
 is often useful for typesetting programming language constructs.</p>
  
-  <p>This is a utility function; see <span class="bold_code"><a href="#par-2">par/2</a></span> for further details.
+  <p>This is a utility function; see <span class="bold_code bc-17"><a href="#par-2">par/2</a></span> for further details.
  </p>
-<p><strong>See also:</strong> <span class="bold_code"><a href="#follow-2">follow/2</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code bc-17"><a href="#follow-2">follow/2</a></span>.</p>
 </p></div>
-<p><a name="format-1"></a><span class="bold_code">format(D::<span class="bold_code"><a href="#type-document">document()</a></span>) -&gt; string()</span><br></p>
-<div class="REFBODY"><p><a name="format-1"></a>
-<p>Equivalent to <span class="bold_code"><a href="#format-2">format(D, 80)</a></span>.</p>
+<p><a name="format-1"></a><span class="bold_code bc-9">format(D::<span class="bold_code bc-17"><a href="#type-document">document()</a></span>) -&gt; string()</span><br></p>
+<div class="REFBODY rb-7"><p><a name="format-1"></a>
+<p>Equivalent to <span class="bold_code bc-17"><a href="#format-2">format(D, 80)</a></span>.</p>
 </p></div>
-<p><a name="format-2"></a><span class="bold_code">format(D::<span class="bold_code"><a href="#type-document">document()</a></span>, PaperWidth::integer()) -&gt; string()</span><br></p>
-<div class="REFBODY"><p><a name="format-2"></a>
-<p>Equivalent to <span class="bold_code"><a href="#format-3">format(D, PaperWidth, 65)</a></span>.</p>
+<p><a name="format-2"></a><span class="bold_code bc-9">format(D::<span class="bold_code bc-17"><a href="#type-document">document()</a></span>, PaperWidth::integer()) -&gt; string()</span><br></p>
+<div class="REFBODY rb-7"><p><a name="format-2"></a>
+<p>Equivalent to <span class="bold_code bc-17"><a href="#format-3">format(D, PaperWidth, 65)</a></span>.</p>
 </p></div>
-<p><a name="format-3"></a><span class="bold_code">format(D::<span class="bold_code"><a href="#type-document">document()</a></span>, PaperWidth::integer(), LineWidth::integer()) -&gt; string()</span><br></p>
-<div class="REFBODY"><p><a name="format-3"></a>
+<p><a name="format-3"></a><span class="bold_code bc-9">format(D::<span class="bold_code bc-17"><a href="#type-document">document()</a></span>, PaperWidth::integer(), LineWidth::integer()) -&gt; string()</span><br></p>
+<div class="REFBODY rb-7"><p><a name="format-3"></a>
 
 <p>Computes a layout for a document and returns the corresponding
-  text. See <span class="bold_code"><a href="#type-document">document()</a></span> for further information. Throws
+  text. See <span class="bold_code bc-17"><a href="#type-document">document()</a></span> for further information. Throws
   <span class="code">no_layout</span> if no layout could be selected.</p>
  
   <p><span class="code">PaperWidth</span> specifies the total width (in character positions) of
@@ -746,19 +747,19 @@ is often useful for typesetting programming language constructs.</p>
   produce good layouts. By default, <span class="code">PaperWidth</span> is 80 and <span class="code">LineWidth</span>
   is 65.
  </p>
-<p><strong>See also:</strong> <span class="bold_code"><a href="#best-3">best/3</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code bc-17"><a href="#best-3">best/3</a></span>.</p>
 </p></div>
-<p><a name="nest-2"></a><span class="bold_code">nest(N::integer(), D::<span class="bold_code"><a href="#type-document">document()</a></span>) -&gt; <span class="bold_code"><a href="#type-document">document()</a></span></span><br></p>
-<div class="REFBODY"><p><a name="nest-2"></a>
+<p><a name="nest-2"></a><span class="bold_code bc-9">nest(N::integer(), D::<span class="bold_code bc-17"><a href="#type-document">document()</a></span>) -&gt; <span class="bold_code bc-17"><a href="#type-document">document()</a></span></span><br></p>
+<div class="REFBODY rb-7"><p><a name="nest-2"></a>
 
 <p>Indents a document a number of character positions to the right.
   Note that <span class="code">N</span> may be negative, shifting the text to the left, or
   zero, in which case <span class="code">D</span> is returned unchanged.</p>
 </p></div>
-<p><a name="null_text-1"></a><span class="bold_code">null_text(Characters::string()) -&gt; <span class="bold_code"><a href="#type-document">document()</a></span></span><br></p>
-<div class="REFBODY"><p><a name="null_text-1"></a>
+<p><a name="null_text-1"></a><span class="bold_code bc-9">null_text(Characters::string()) -&gt; <span class="bold_code bc-17"><a href="#type-document">document()</a></span></span><br></p>
+<div class="REFBODY rb-7"><p><a name="null_text-1"></a>
 
-<p>Similar to <span class="bold_code"><a href="#text-1">text/1</a></span>, but the result is treated as having  
+<p>Similar to <span class="bold_code bc-17"><a href="#text-1">text/1</a></span>, but the result is treated as having  
 zero width. This is regardless of the actual length of the string.  
 Null text is typically used for markup, which is supposed to have no  
 effect on the actual layout.</p>
@@ -770,14 +771,14 @@ effect on the actual layout.</p>
   so the layout engine should simply pretend that the markup has zero
   width.
  </p>
-<p><strong>See also:</strong> <span class="bold_code"><a href="#empty-0">empty/0</a></span>, <span class="bold_code"><a href="#text-1">text/1</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code bc-17"><a href="#empty-0">empty/0</a></span>, <span class="bold_code bc-17"><a href="#text-1">text/1</a></span>.</p>
 </p></div>
-<p><a name="par-1"></a><span class="bold_code">par(Docs::[<span class="bold_code"><a href="#type-document">document()</a></span>]) -&gt; <span class="bold_code"><a href="#type-document">document()</a></span></span><br></p>
-<div class="REFBODY"><p><a name="par-1"></a>
-<p>Equivalent to <span class="bold_code"><a href="#par-2">par(Ds, 0)</a></span>.</p>
+<p><a name="par-1"></a><span class="bold_code bc-9">par(Docs::[<span class="bold_code bc-17"><a href="#type-document">document()</a></span>]) -&gt; <span class="bold_code bc-17"><a href="#type-document">document()</a></span></span><br></p>
+<div class="REFBODY rb-7"><p><a name="par-1"></a>
+<p>Equivalent to <span class="bold_code bc-17"><a href="#par-2">par(Ds, 0)</a></span>.</p>
 </p></div>
-<p><a name="par-2"></a><span class="bold_code">par(Docs::[<span class="bold_code"><a href="#type-document">document()</a></span>], Offset::integer()) -&gt; <span class="bold_code"><a href="#type-document">document()</a></span></span><br></p>
-<div class="REFBODY"><p><a name="par-2"></a>
+<p><a name="par-2"></a><span class="bold_code bc-9">par(Docs::[<span class="bold_code bc-17"><a href="#type-document">document()</a></span>], Offset::integer()) -&gt; <span class="bold_code bc-17"><a href="#type-document">document()</a></span></span><br></p>
+<div class="REFBODY rb-7"><p><a name="par-2"></a>
 
 <p>Arranges documents in a paragraph-like layout. Returns a
   document representing all possible left-aligned paragraph-like
@@ -799,7 +800,7 @@ representing the numbers 0 to 15:</p>
        7 8 9 10 11
        12 13 14 15</pre></div>
  
-  <p>The utility function <span class="bold_code"><a href="#text_par-2">text_par/2</a></span> can be used to easily
+  <p>The utility function <span class="bold_code bc-17"><a href="#text_par-2">text_par/2</a></span> can be used to easily
   transform a string of text into a <span class="code">par</span> representation by splitting  
 it into words.</p>
  
@@ -815,13 +816,13 @@ it into words.</p>
   D2)</span> for two documents <span class="code">D1</span> and <span class="code">D2</span>. This will break the line
   between <span class="code">D1</span> and <span class="code">D2</span> if <span class="code">D1</span> contains a line break (or if otherwise
   necessary), and optionally further indent <span class="code">D2</span> by <span class="code">N</span> character
-  positions. The utility function <span class="bold_code"><a href="#follow-3">follow/3</a></span> creates this context
+  positions. The utility function <span class="bold_code bc-17"><a href="#follow-3">follow/3</a></span> creates this context
   for two documents <span class="code">D1</span> and <span class="code">D2</span>, and an optional integer <span class="code">N</span>.
  </p>
-<p><strong>See also:</strong> <span class="bold_code"><a href="#par-1">par/1</a></span>, <span class="bold_code"><a href="#text_par-2">text_par/2</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code bc-17"><a href="#par-1">par/1</a></span>, <span class="bold_code bc-17"><a href="#text_par-2">text_par/2</a></span>.</p>
 </p></div>
-<p><a name="sep-1"></a><span class="bold_code">sep(Docs::[<span class="bold_code"><a href="#type-document">document()</a></span>]) -&gt; <span class="bold_code"><a href="#type-document">document()</a></span></span><br></p>
-<div class="REFBODY"><p><a name="sep-1"></a>
+<p><a name="sep-1"></a><span class="bold_code bc-9">sep(Docs::[<span class="bold_code bc-17"><a href="#type-document">document()</a></span>]) -&gt; <span class="bold_code bc-17"><a href="#type-document">document()</a></span></span><br></p>
+<div class="REFBODY rb-7"><p><a name="sep-1"></a>
 
 <p>Arranges documents horizontally or vertically, separated by
   whitespace. Returns a document representing two alternative layouts
@@ -842,10 +843,10 @@ layout will always be selected.</p>
      cd  ef  =&gt;   cd
                   ef</pre></div><p>
  </p>
-<p><strong>See also:</strong> <span class="bold_code"><a href="#par-2">par/2</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code bc-17"><a href="#par-2">par/2</a></span>.</p>
 </p></div>
-<p><a name="text-1"></a><span class="bold_code">text(Characters::string()) -&gt; <span class="bold_code"><a href="#type-document">document()</a></span></span><br></p>
-<div class="REFBODY"><p><a name="text-1"></a>
+<p><a name="text-1"></a><span class="bold_code bc-9">text(Characters::string()) -&gt; <span class="bold_code bc-17"><a href="#type-document">document()</a></span></span><br></p>
+<div class="REFBODY rb-7"><p><a name="text-1"></a>
 
 <p>Yields a document representing a fixed, unbreakable sequence of
   characters. The string should contain only <strong>printable</strong>
@@ -854,14 +855,14 @@ layout will always be selected.</p>
   interpreted as padding of 1-8 space characters to the next column of
   8 characters <strong>within the string</strong>.
  </p>
-<p><strong>See also:</strong> <span class="bold_code"><a href="#empty-0">empty/0</a></span>, <span class="bold_code"><a href="#null_text-1">null_text/1</a></span>, <span class="bold_code"><a href="#text_par-2">text_par/2</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code bc-17"><a href="#empty-0">empty/0</a></span>, <span class="bold_code bc-17"><a href="#null_text-1">null_text/1</a></span>, <span class="bold_code bc-17"><a href="#text_par-2">text_par/2</a></span>.</p>
 </p></div>
-<p><a name="text_par-1"></a><span class="bold_code">text_par(Text::string()) -&gt; <span class="bold_code"><a href="#type-document">document()</a></span></span><br></p>
-<div class="REFBODY"><p><a name="text_par-1"></a>
-<p>Equivalent to <span class="bold_code"><a href="#text_par-2">text_par(Text, 0)</a></span>.</p>
+<p><a name="text_par-1"></a><span class="bold_code bc-9">text_par(Text::string()) -&gt; <span class="bold_code bc-17"><a href="#type-document">document()</a></span></span><br></p>
+<div class="REFBODY rb-7"><p><a name="text_par-1"></a>
+<p>Equivalent to <span class="bold_code bc-17"><a href="#text_par-2">text_par(Text, 0)</a></span>.</p>
 </p></div>
-<p><a name="text_par-2"></a><span class="bold_code">text_par(Text::string(), Indentation::integer()) -&gt; <span class="bold_code"><a href="#type-document">document()</a></span></span><br></p>
-<div class="REFBODY"><p><a name="text_par-2"></a>
+<p><a name="text_par-2"></a><span class="bold_code bc-9">text_par(Text::string(), Indentation::integer()) -&gt; <span class="bold_code bc-17"><a href="#type-document">document()</a></span></span><br></p>
+<div class="REFBODY rb-7"><p><a name="text_par-2"></a>
 
 <p>Yields a document representing paragraph-formatted plain text.
   The optional <span class="code">Indentation</span> parameter specifies the extra indentation
@@ -877,16 +878,17 @@ layout will always be selected.</p>
        sit amet</pre></div><p>
   if <span class="code">N</span> = -2.</p>
  
-  <p>(The sign of the indentation is thus reversed compared to the <span class="bold_code"><a href="#par-2">par/2</a></span> function, and the behaviour varies slightly depending on the  
+  <p>(The sign of the indentation is thus reversed compared to the <span class="bold_code bc-17"><a href="#par-2">par/2</a></span> function, and the behaviour varies slightly depending on the  
 sign in order to match the expected layout of a paragraph of text.)</p>
  
   <p>Note that this is just a utility function, which does all the work of
   splitting the given string into words separated by whitespace and
-  setting up a <span class="bold_code"><a href="#par-2">par</a></span> with the proper indentation,
-  containing a list of <span class="bold_code"><a href="#text-1">text</a></span> elements.
+  setting up a <span class="bold_code bc-17"><a href="#par-2">par</a></span> with the proper indentation,
+  containing a list of <span class="bold_code bc-17"><a href="#text-1">text</a></span> elements.
  </p>
-<p><strong>See also:</strong> <span class="bold_code"><a href="#par-2">par/2</a></span>, <span class="bold_code"><a href="#text-1">text/1</a></span>, <span class="bold_code"><a href="#text_par-1">text_par/1</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code bc-17"><a href="#par-2">par/2</a></span>, <span class="bold_code bc-17"><a href="#text-1">text/1</a></span>, <span class="bold_code bc-17"><a href="#text_par-1">text_par/1</a></span>.</p>
 </p></div>
+</div>
 
 
 

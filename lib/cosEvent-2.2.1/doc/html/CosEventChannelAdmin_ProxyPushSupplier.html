@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">cosEvent</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 2.2.1</p>
@@ -145,11 +145,11 @@
 <!-- refpage --><center><h1>CosEventChannelAdmin_ProxyPushSupplier</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">CosEventChannelAdmin_ProxyPushSupplier</div>
+<div class="REFBODY module-body">CosEventChannelAdmin_ProxyPushSupplier</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">This module implements a ProxyPushSupplier interface which acts as a middleman between push consumer and the event channel.</div>
+<div class="REFBODY module-summary-body">This module implements a ProxyPushSupplier interface which acts as a middleman between push consumer and the event channel.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>The ProxyPushSupplier interface defines the second step for connecting push
       consumers to the event channel. A proxy supplier is similar to a normal supplier,
       but includes an additional method for connecting a consumer to the proxy
@@ -160,23 +160,24 @@
       interface can perform the following operations:</p>
   </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="connect_push_consumer-2"></a><span class="bold_code">connect_push_consumer(Object, PushConsumer) -&gt; Return</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Object       = #objref</span><br>
+<div class="exports-body">
+    <p><a name="connect_push_consumer-2"></a><span class="bold_code bc-9">connect_push_consumer(Object, PushConsumer) -&gt; Return</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Object       = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">PushConsumer = #objref of PushConsumer type</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">PushConsumer = #objref of PushConsumer type</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Return       = ok | {'EXCEPTION', E}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Return       = ok | {'EXCEPTION', E}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">E = #'CosEventChannelAdmin_AlreadyConnected'{} | #'CosEventChannelAdmin_TypeError'{}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">E = #'CosEventChannelAdmin_AlreadyConnected'{} | #'CosEventChannelAdmin_TypeError'{}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This operation connects PushConsumer object to the ProxyPushSupplier object.
           If a nil object reference is passed CORBA standard <span class="code">BAD_PARAM</span> exception 
           is raised. If the ProxyPushSupplier is already connected to a PushConsumer,
@@ -185,22 +186,22 @@
           functionality; if these requirements are not met the 
           <span class="code">CosEventChannelAdmin_TypeError</span> exception will be raised.</p>
       </p></div>
-    <p><a name="disconnect_push_supplier-1"></a><span class="bold_code">disconnect_push_supplier(Object) -&gt; Return</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Object = #objref</span><br>
+    <p><a name="disconnect_push_supplier-1"></a><span class="bold_code bc-9">disconnect_push_supplier(Object) -&gt; Return</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Object = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Return = ok</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Return = ok</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This operation disconnects proxy push supplier from the event channel and
           sends a notification about the loss of the connection to the push consumer
           attached to it.</p>
       </p></div>
-  
+  </div>
   
 </div>
 <div class="footer">

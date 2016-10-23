@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Kernel</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 5.1</p>
@@ -646,86 +646,87 @@
 <!-- refpage --><center><h1>net_adm</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">net_adm</div>
+<div class="REFBODY module-body">net_adm</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Various Erlang net administration routines.</div>
+<div class="REFBODY module-summary-body">Various Erlang net administration routines.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>This module contains various network utility functions.</p>
   </p></div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="dns_hostname-1"></a><span class="bold_code">dns_hostname(Host) -&gt; {ok, Name} | {error, Host}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Host = atom() | string()</span></div>
-<div class="REFTYPES"><span class="bold_code">Name = string()</span></div>
+<div class="exports-body">
+    <p><a name="dns_hostname-1"></a><span class="bold_code bc-1">dns_hostname(Host) -&gt; {ok, Name} | {error, Host}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Host = atom() | string()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = string()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the official name of <span class="code">Host</span>, or
           <span class="code">{error, Host}</span> if no such name is found. See also
-          <span class="bold_code"><a href="inet.html"><span class="code">inet(3)</span></a></span>.</p>
+          <span class="bold_code bc-19"><a href="inet.html"><span class="code">inet(3)</span></a></span>.</p>
       </p></div>
 
-    <p><a name="host_file-0"></a><span class="bold_code">host_file() -&gt; Hosts | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Hosts = [Host :: atom()]</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <br>    <span class="bold_code"><a href="file.html#type-posix">file:posix()</a></span> |<br>    badarg |<br>    terminated |<br>    system_limit |<br>    {Line :: integer(), Mod :: module(), Term :: term()}</span></div>
+    <p><a name="host_file-0"></a><span class="bold_code bc-1">host_file() -&gt; Hosts | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Hosts = [Host :: atom()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <br>    <span class="bold_code bc-15"><a href="file.html#type-posix">file:posix()</a></span> |<br>    badarg |<br>    terminated |<br>    system_limit |<br>    {Line :: integer(), Mod :: module(), Term :: term()}</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Reads file <span class="code">.hosts.erlang</span>, see section
-          <span class="bold_code"><a href="#files">Files</a></span>. Returns the hosts in this
+          <span class="bold_code bc-17"><a href="#files">Files</a></span>. Returns the hosts in this
           file as a list. Returns <span class="code">{error, Reason}</span> if the
           file cannot be read or the Erlang terms on the file cannot be
           interpreted.</p>
       </p></div>
 
-    <p><a name="localhost-0"></a><span class="bold_code">localhost() -&gt; Name</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = string()</span></div>
+    <p><a name="localhost-0"></a><span class="bold_code bc-1">localhost() -&gt; Name</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = string()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the name of the local host. If Erlang was started
           with command-line flag <span class="code">-name</span>, <span class="code">Name</span> is
           the fully qualified name.</p>
       </p></div>
 
-    <p><a name="names-0"></a><span class="bold_code">names() -&gt; {ok, [{Name, Port}]} | {error, Reason}</span><br><a name="names-1"></a><span class="bold_code">names(Host) -&gt; {ok, [{Name, Port}]} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Host = atom() | string() | <span class="bold_code"><a href="inet.html#type-ip_address">inet:ip_address()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Name = string()</span></div>
-<div class="REFTYPES"><span class="bold_code">Port = integer() &gt;= 0</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = address | <span class="bold_code"><a href="file.html#type-posix">file:posix()</a></span></span></div>
+    <p><a name="names-0"></a><span class="bold_code bc-1">names() -&gt; {ok, [{Name, Port}]} | {error, Reason}</span><a name="names-1"></a><span class="bold_code bc-1">names(Host) -&gt; {ok, [{Name, Port}]} | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Host = atom() | string() | <span class="bold_code bc-15"><a href="inet.html#type-ip_address">inet:ip_address()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = string()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Port = integer() &gt;= 0</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = address | <span class="bold_code bc-15"><a href="file.html#type-posix">file:posix()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Similar to <span class="code">epmd -names</span>, see
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','epmd.html');"><span class="code">erts:epmd(1)</span></a></span>.
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','epmd.html');"><span class="code">erts:epmd(1)</span></a></span>.
           <span class="code">Host</span> defaults to the local host. Returns the
           names and associated port numbers of the Erlang nodes that
           <span class="code">epmd</span> registered at the specified host. Returns
           <span class="code">{error, address}</span> if <span class="code">epmd</span> is not operational.</p>
         <p><strong>Example:</strong></p>
         <div class="example"><pre>
-(arne@dunn)1&gt; <span class="bold_code">net_adm:names().</span>
+(arne@dunn)1&gt; <span class="bold_code bc-12">net_adm:names().</span>
 {ok,[{"arne",40262}]}</pre></div>
       </p></div>
 
-    <p><a name="ping-1"></a><span class="bold_code">ping(Node) -&gt; pong | pang</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Node = atom()</span></div>
+    <p><a name="ping-1"></a><span class="bold_code bc-1">ping(Node) -&gt; pong | pang</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Node = atom()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sets up a connection to <span class="code">Node</span>. Returns
           <span class="code">pong</span> if it is successful, otherwise <span class="code">pang</span>.</p>
       </p></div>
 
-    <p><a name="world-0"></a><span class="bold_code">world() -&gt; [node()]</span><br><a name="world-1"></a><span class="bold_code">world(Arg) -&gt; [node()]</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Arg = verbosity()</span></div>
-<div class="REFTYPES">
-      <span class="bold_code">verbosity() = silent | verbose</span><br>
+    <p><a name="world-0"></a><span class="bold_code bc-1">world() -&gt; [node()]</span><a name="world-1"></a><span class="bold_code bc-1">world(Arg) -&gt; [node()]</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Arg = verbosity()</span></div>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">verbosity() = silent | verbose</span><br>
 </div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Calls <span class="code">names(Host)</span> for all hosts that
           are specified in the Erlang host file <span class="code">.hosts.erlang</span>,
           collects the replies, and then evaluates <span class="code">ping(Node)</span> on
@@ -740,23 +741,23 @@
           returns <span class="code">{error, Reason}</span>.</p>
       </p></div>
 
-    <p><a name="world_list-1"></a><span class="bold_code">world_list(Hosts) -&gt; [node()]</span><br><a name="world_list-2"></a><span class="bold_code">world_list(Hosts, Arg) -&gt; [node()]</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Hosts = [atom()]</span></div>
-<div class="REFTYPES"><span class="bold_code">Arg = verbosity()</span></div>
-<div class="REFTYPES">
-      <span class="bold_code">verbosity() = silent | verbose</span><br>
+    <p><a name="world_list-1"></a><span class="bold_code bc-1">world_list(Hosts) -&gt; [node()]</span><a name="world_list-2"></a><span class="bold_code bc-1">world_list(Hosts, Arg) -&gt; [node()]</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Hosts = [atom()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Arg = verbosity()</span></div>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">verbosity() = silent | verbose</span><br>
 </div>
 </div></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="#world-1"><span class="code">world/0,1</span></a></span>,
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-17"><a href="#world-1"><span class="code">world/0,1</span></a></span>,
           but the hosts are specified as argument
           instead of being read from <span class="code">.hosts.erlang</span>.</p>
       </p></div>
-  
+  </div>
 
-  <h3><a name="idm46525669124640">Files</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45317249909552">Files</a></h3>
+<div class="REFBODY rb-3">
     
     <a name="files"></a>
     <p>File <span class="code">.hosts.erlang</span> consists of a number of host names

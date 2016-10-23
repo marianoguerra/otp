@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">STDLIB</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 3.1</p>
@@ -1717,27 +1717,27 @@
 <!-- refpage --><center><h1>ms_transform</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">ms_transform</div>
+<div class="REFBODY module-body">ms_transform</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">A parse transformation that translates fun syntax into match
+<div class="REFBODY module-summary-body">A parse transformation that translates fun syntax into match
     specifications.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <a name="top"></a>
     <p>This module provides the parse transformation that makes calls to
-      <span class="bold_code"><a href="ets.html"><span class="code">ets</span></a></span> and
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','runtime_tools','dbg.html#fun2ms-1');"><span class="code">dbg:fun2ms/1</span></a></span>
+      <span class="bold_code bc-19"><a href="ets.html"><span class="code">ets</span></a></span> and
+      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','runtime_tools','dbg.html#fun2ms-1');"><span class="code">dbg:fun2ms/1</span></a></span>
       translate into literal match specifications. It also provides the back end
       for the same functions when called from the Erlang shell.</p>
 
     <p>The translation from funs to match specifications
       is accessed through the two "pseudo functions"
-      <span class="bold_code"><a href="ets.html#fun2ms-1"><span class="code">ets:fun2ms/1</span></a></span> and
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','runtime_tools','dbg.html#fun2ms-1');"><span class="code">dbg:fun2ms/1</span></a></span>.</p>
+      <span class="bold_code bc-15"><a href="ets.html#fun2ms-1"><span class="code">ets:fun2ms/1</span></a></span> and
+      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','runtime_tools','dbg.html#fun2ms-1');"><span class="code">dbg:fun2ms/1</span></a></span>.</p>
 
     <p>As everyone trying to use
-      <span class="bold_code"><a href="ets.html#select-1"><span class="code">ets:select/2</span></a></span> or
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','runtime_tools','dbg.html');"><span class="code">dbg</span></a></span> seems to end up
+      <span class="bold_code bc-15"><a href="ets.html#select-1"><span class="code">ets:select/2</span></a></span> or
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','runtime_tools','dbg.html');"><span class="code">dbg</span></a></span> seems to end up
       reading this manual page, this description is an introduction to the
       concept of match specifications.</p>
 
@@ -1746,7 +1746,7 @@
 
     <p>Match specifications are used more or less as filters. They resemble
       usual Erlang matching in a list comprehension or in a fun used with
-      <span class="bold_code"><a href="lists.html#foldl-3"><span class="code">lists:foldl/3</span></a></span>, and so on.
+      <span class="bold_code bc-15"><a href="lists.html#foldl-3"><span class="code">lists:foldl/3</span></a></span>, and so on.
       However, the syntax of pure match specifications is awkward, as
       they are made up purely by Erlang terms, and the language has no
       syntax to make the match specifications more readable.</p>
@@ -1762,14 +1762,14 @@
       terms.</p>
   </p></div>
 
-  <h3><a name="idm46007671275808">Example 1</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46279762390544">Example 1</a></h3>
+<div class="REFBODY rb-3">
     
-    <p>Using <span class="bold_code"><a href="ets.html#select-2"><span class="code">ets:select/2</span></a></span>
+    <p>Using <span class="bold_code bc-15"><a href="ets.html#select-2"><span class="code">ets:select/2</span></a></span>
     and a match specification, one can filter out rows of
     a table and construct a list of tuples containing relevant parts
     of the data in these rows.
-    One can use <span class="bold_code"><a href="ets.html#foldl-3"><span class="code">ets:foldl/3</span></a></span>
+    One can use <span class="bold_code bc-15"><a href="ets.html#foldl-3"><span class="code">ets:foldl/3</span></a></span>
     instead, but the <span class="code">ets:select/2</span> call is far more efficient.
     Without the translation provided by <span class="code">ms_transform</span>,
     one must struggle with writing match specifications terms
@@ -1808,15 +1808,15 @@ ets:new(emp_tab, [{keypos,#emp.empno},named_table,ordered_set]).</pre></div>
       <p><span class="code">ets:match/2</span> can be used:</p>
 
     <div class="example"><pre>
-1&gt; <span class="bold_code">ets:match(emp_tab, {'_', '$1', '_', '_', sales, '_'}).</span>
+1&gt; <span class="bold_code bc-12">ets:match(emp_tab, {'_', '$1', '_', '_', sales, '_'}).</span>
 [["011103"],["076324"]]</pre></div>
 
     <p><span class="code">ets:match/2</span> uses a simpler type of match specification,
     but it is still unreadable, and one has little control over the
     returned result. It is always a list of lists.</p>
 
-    <p><span class="bold_code"><a href="ets.html#foldl-3"><span class="code">ets:foldl/3</span></a></span> or
-      <span class="bold_code"><a href="ets.html#foldr-3"><span class="code">ets:foldr/3</span></a></span> can be used to avoid the nested lists:</p>
+    <p><span class="bold_code bc-15"><a href="ets.html#foldl-3"><span class="code">ets:foldl/3</span></a></span> or
+      <span class="bold_code bc-15"><a href="ets.html#foldr-3"><span class="code">ets:foldr/3</span></a></span> can be used to avoid the nested lists:</p>
 
     <div class="example"><pre>
 ets:foldr(fun(#emp{empno = E, dept = sales},Acc) -&gt; [E | Acc];
@@ -1886,8 +1886,8 @@ ets:select(emp_tab, ets:fun2ms(
     efficient in runtime as writing match specifications by hand.</p>
   </div>
 
-  <h3><a name="idm46007671246896">Example 2</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46279762361632">Example 2</a></h3>
+<div class="REFBODY rb-3">
     
     <p>Assume that we want to get all the employee numbers of employees
       hired before year 2000. Using <span class="code">ets:match/2</span> is not
@@ -1927,8 +1927,8 @@ ets:select(emp_tab, ets:fun2ms(
                       end)).    </pre></div>
   </div>
 
-  <h3><a name="idm46007671237520">Example 3</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46279762352256">Example 3</a></h3>
+<div class="REFBODY rb-3">
     
     <p>Assume that we want the whole object matching instead of only one
       element. One alternative is to assign a variable to every part
@@ -1952,11 +1952,11 @@ ets:select(emp_tab, ets:fun2ms(
       mention that variable A is simply translated into '$_'.
       Alternatively, pseudo function <span class="code">object/0</span>
       also returns the whole matched object, see section
-      <span class="bold_code"><a href="#warnings_and_restrictions">Warnings and Restrictions</a></span>.</p>
+      <span class="bold_code bc-17"><a href="#warnings_and_restrictions">Warnings and Restrictions</a></span>.</p>
   </div>
 
-  <h3><a name="idm46007671232000">Example 4</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46279762346736">Example 4</a></h3>
+<div class="REFBODY rb-3">
     
     <p>This example concerns the body of the fun. Assume that all employee
       numbers beginning with zero (<span class="code">0</span>) must be changed to begin with
@@ -1975,8 +1975,8 @@ ets:select(emp_tab, ets:fun2ms(
       beginning with <span class="code">0</span> is looked into.</p>
   </div>
 
-  <h3><a name="idm46007671226768">Example 5</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46279762341504">Example 5</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The fun can have many clauses. Assume that we want to do
       the following:</p>
@@ -2027,16 +2027,16 @@ ets:select(emp_tab, ets:fun2ms(
  {rookie,"989891"}]</pre></div>
   </div>
 
-  <h3><a name="idm46007671215904">Useful BIFs</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46279762330640">Useful BIFs</a></h3>
+<div class="REFBODY rb-3">
     
     <p>What more can you do? A simple answer is: see the documentation of
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','match_spec.html');">match specifications</a></span>
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','match_spec.html');">match specifications</a></span>
       in ERTS User's Guide.
       However, the following is a brief overview of the most useful "built-in
       functions" that you can use when the fun is to be translated into a match
       specification by
-      <span class="bold_code"><a href="ets.html#fun2ms-1"><span class="code">ets:fun2ms/1</span></a></span>. It is not
+      <span class="bold_code bc-15"><a href="ets.html#fun2ms-1"><span class="code">ets:fun2ms/1</span></a></span>. It is not
       possible to call other functions than those allowed in match
       specifications. No "usual" Erlang code can be executed by the fun that
       is translated by <span class="code">ets:fun2ms/1</span>. The fun is limited
@@ -2112,11 +2112,11 @@ ets:select(emp_tab, ets:fun2ms(
       only thing left, more or less, is term construction.</p>
   </div>
 
-  <h3><a name="idm46007671178096">Example with dbg</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46279762292832">Example with dbg</a></h3>
+<div class="REFBODY rb-3">
     
     <p>This section describes the slightly different match specifications
-      translated by <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','runtime_tools','dbg.html#fun2ms-1');"><span class="code">dbg:fun2ms/1</span></a></span>.</p>
+      translated by <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','runtime_tools','dbg.html#fun2ms-1');"><span class="code">dbg:fun2ms/1</span></a></span>.</p>
 
     <p>The same reasons for using the parse transformation apply to
       <span class="code">dbg</span>, maybe even more, as filtering using Erlang code is
@@ -2151,7 +2151,7 @@ retrieve(Key) -&gt;
     on the node:</p>
 
     <div class="example"><pre>
-1&gt; <span class="bold_code">dbg:tracer().</span>
+1&gt; <span class="bold_code bc-12">dbg:tracer().</span>
 {ok,&lt;0.88.0&gt;}</pre></div>
 
     <p>We turn on call tracing for all processes, we want to
@@ -2159,14 +2159,14 @@ retrieve(Key) -&gt;
       trace only a few processes (usually it is not):</p>
 
     <div class="example"><pre>
-2&gt; <span class="bold_code">dbg:p(all,call).</span>
+2&gt; <span class="bold_code bc-12">dbg:p(all,call).</span>
 {ok,[{matched,nonode@nohost,25}]}</pre></div>
 
     <p>We specify the filter, we want to view calls that resemble
       <span class="code">ets:new(toy_table, &lt;something&gt;)</span>:</p>
 
     <div class="example"><pre>
-3&gt; <span class="bold_code">dbg:tp(ets,new,dbg:fun2ms(fun([toy_table,_]) -&gt; true end)).</span>
+3&gt; <span class="bold_code bc-12">dbg:tp(ets,new,dbg:fun2ms(fun([toy_table,_]) -&gt; true end)).</span>
 {ok,[{matched,nonode@nohost,1},{saved,1}]}</pre></div>
 
     <p>As can be seen, the fun used with
@@ -2187,7 +2187,7 @@ retrieve(Key) -&gt;
       <span class="code">ets:new/2</span> returns. We use a slightly different trace pattern:</p>
 
     <div class="example"><pre>
-4&gt; <span class="bold_code">dbg:tp(ets,new,dbg:fun2ms(fun([toy_table,_]) -&gt; return_trace() end)).</span></pre></div>
+4&gt; <span class="bold_code bc-12">dbg:tp(ets,new,dbg:fun2ms(fun([toy_table,_]) -&gt; return_trace() end)).</span></pre></div>
 
     <p>The following trace output is received during test:</p>
 
@@ -2227,11 +2227,11 @@ start(Args) -&gt;
       see calls to the module with an atom as the key:</p>
 
     <div class="example"><pre>
-1&gt; <span class="bold_code">dbg:tracer().</span>
+1&gt; <span class="bold_code bc-12">dbg:tracer().</span>
 {ok,&lt;0.88.0&gt;}
-2&gt; <span class="bold_code">dbg:p(all,call).</span>
+2&gt; <span class="bold_code bc-12">dbg:p(all,call).</span>
 {ok,[{matched,nonode@nohost,25}]}
-3&gt; <span class="bold_code">dbg:tpl(toy,store,dbg:fun2ms(fun([A,_]) when is_atom(A) -&gt; true end)).</span>
+3&gt; <span class="bold_code bc-12">dbg:tpl(toy,store,dbg:fun2ms(fun([A,_]) when is_atom(A) -&gt; true end)).</span>
 {ok,[{matched,nonode@nohost,1},{saved,1}]}</pre></div>
 
     <p>We use <span class="code">dbg:tpl/3</span> to ensure to catch local calls
@@ -2249,9 +2249,9 @@ start(Args) -&gt;
       call looks like this (looking for calls to <span class="code">ets:insert/2</span>):</p>
 
     <div class="example"><pre>
-4&gt; <span class="bold_code">dbg:tpl(ets,insert,dbg:fun2ms(fun([toy_table,{A,_}]) when is_atom(A) -&gt; </span>
-<span class="bold_code">                                    message(caller()) </span>
-<span class="bold_code">                                  end)). </span>
+4&gt; <span class="bold_code bc-12">dbg:tpl(ets,insert,dbg:fun2ms(fun([toy_table,{A,_}]) when is_atom(A) -&gt; </span>
+<span class="bold_code bc-12">                                    message(caller()) </span>
+<span class="bold_code bc-12">                                  end)). </span>
 {ok,[{matched,nonode@nohost,1},{saved,2}]}</pre></div>
 
     <p>The caller is now displayed in the "additional message" part of the
@@ -2266,13 +2266,13 @@ start(Args) -&gt;
 
     <p>This example illustrates the most used calls in match specifications for
       <span class="code">dbg</span>. The other, more esoteric, calls are listed and explained in
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','match_spec.html');">Match specifications in Erlang</a></span>
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','match_spec.html');">Match specifications in Erlang</a></span>
     in ERTS User's Guide, as they are beyond
     the scope of this description.</p>
   </div>
 
-  <h3><a name="idm46007671138848">Warnings and Restrictions</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46279762253584">Warnings and Restrictions</a></h3>
+<div class="REFBODY rb-3">
     
     <a name="warnings_and_restrictions"></a>
     <p>The following warnings and restrictions apply to the funs used in
@@ -2336,9 +2336,9 @@ start(Args) -&gt;
           from the environment and made into match specification
           <span class="code">const</span> expressions. Example from the shell:</p>
         <div class="example"><pre>
-1&gt; <span class="bold_code">X = 25.</span>
+1&gt; <span class="bold_code bc-12">X = 25.</span>
 25
-2&gt; <span class="bold_code">ets:fun2ms(fun({A,B}) when A &gt; X -&gt; B end).</span>
+2&gt; <span class="bold_code bc-12">ets:fun2ms(fun({A,B}) when A &gt; X -&gt; B end).</span>
 [{{'$1','$2'},[{'&gt;','$1',{const,25}}],['$2']}]</pre></div>
       </li>
       <li>
@@ -2346,13 +2346,13 @@ start(Args) -&gt;
           be used on the top-level in the head of the fun.
           Example from the shell again:</p>
         <div class="example"><pre>
-1&gt; <span class="bold_code">ets:fun2ms(fun({A,[B|C]} = D) when A &gt; B -&gt; D end).</span>
+1&gt; <span class="bold_code bc-12">ets:fun2ms(fun({A,[B|C]} = D) when A &gt; B -&gt; D end).</span>
 [{{'$1',['$2'|'$3']},[{'&gt;','$1','$2'}],['$_']}]
-2&gt; <span class="bold_code">ets:fun2ms(fun({A,[B|C]=D}) when A &gt; B -&gt; D end).</span>
+2&gt; <span class="bold_code bc-12">ets:fun2ms(fun({A,[B|C]=D}) when A &gt; B -&gt; D end).</span>
 Error: fun with head matching ('=' in head) cannot be translated into 
 match_spec 
 {error,transform_error}
-3&gt; <span class="bold_code">ets:fun2ms(fun({A,[B|C]}) when A &gt; B -&gt; D = [B|C], D end).</span>
+3&gt; <span class="bold_code bc-12">ets:fun2ms(fun({A,[B|C]}) when A &gt; B -&gt; D = [B|C], D end).</span>
 Error: fun with body matching ('=' in body) is illegal as match_spec
 {error,transform_error}</pre></div>
         <p>All variables are bound in the head of a match specification, so
@@ -2424,51 +2424,52 @@ ets:select(Table, [{{'$1',test,'$2'},[],['$_']}]).</pre></div>
       time, so runtime performance is not affected by using these pseudo
       functions.</p>
     <p>For more information about match specifications, see the
-    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','match_spec.html');">Match specifications in Erlang</a></span>
+    <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','match_spec.html');">Match specifications in Erlang</a></span>
     in ERTS User's Guide.</p>
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="format_error-1"></a><span class="bold_code">format_error(Error) -&gt; Chars</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Error = {error, module(), term()}</span></div>
-<div class="REFTYPES"><span class="bold_code">Chars = <span class="bold_code"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span></div>
+<div class="exports-body">
+    <p><a name="format_error-1"></a><span class="bold_code bc-1">format_error(Error) -&gt; Chars</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Error = {error, module(), term()}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Chars = <span class="bold_code bc-15"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Takes an error code returned by one of the other functions
           in the module and creates a textual description of the
           error.</p>
       </p></div>
 
-    <p><a name="parse_transform-2"></a><span class="bold_code">parse_transform(Forms, Options) -&gt; Forms2</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Forms = Forms2 = [<span class="bold_code"><a href="erl_parse.html#type-abstract_form">erl_parse:abstract_form()</a></span> | <span class="bold_code"><a href="erl_parse.html#type-form_info">erl_parse:form_info()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Options = term()</span></div>
-<div class="REFBODY">Option list, required but not used.
+    <p><a name="parse_transform-2"></a><span class="bold_code bc-1">parse_transform(Forms, Options) -&gt; Forms2</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Forms = Forms2 = [<span class="bold_code bc-15"><a href="erl_parse.html#type-abstract_form">erl_parse:abstract_form()</a></span> | <span class="bold_code bc-15"><a href="erl_parse.html#type-form_info">erl_parse:form_info()</a></span>]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Options = term()</span></div>
+<div class="REFBODY rb-1">Option list, required but not used.
       </div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Implements the transformation at compile time. This
           function is called by the compiler to do the source code
           transformation if and when header file <span class="code">ms_transform.hrl</span>
           is included in the source code.</p>
        <p>For information about how to use this parse transformation, see
-         <span class="bold_code"><a href="ets.html"><span class="code">ets</span></a></span> and
-         <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','runtime_tools','dbg.html#fun2ms-1');"><span class="code">dbg:fun2ms/1</span></a></span>.</p>
+         <span class="bold_code bc-19"><a href="ets.html"><span class="code">ets</span></a></span> and
+         <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','runtime_tools','dbg.html#fun2ms-1');"><span class="code">dbg:fun2ms/1</span></a></span>.</p>
        <p>For a description of match specifications, see section
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','match_spec.html');">Match Specification in Erlang</a></span> in ERTS User's Guide.</p>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','match_spec.html');">Match Specification in Erlang</a></span> in ERTS User's Guide.</p>
       </p></div>
 
-    <p><a name="transform_from_shell-3"></a><span class="bold_code">transform_from_shell(Dialect, Clauses, BoundEnvironment) -&gt; term()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dialect = ets | dbg</span></div>
-<div class="REFTYPES"><span class="bold_code">Clauses = [<span class="bold_code"><a href="erl_parse.html#type-abstract_clause">erl_parse:abstract_clause()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">BoundEnvironment = <span class="bold_code"><a href="erl_eval.html#type-binding_struct">erl_eval:binding_struct()</a></span></span></div>
-<div class="REFBODY">List of variable bindings in the
+    <p><a name="transform_from_shell-3"></a><span class="bold_code bc-1">transform_from_shell(Dialect, Clauses, BoundEnvironment) -&gt; term()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dialect = ets | dbg</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Clauses = [<span class="bold_code bc-15"><a href="erl_parse.html#type-abstract_clause">erl_parse:abstract_clause()</a></span>]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">BoundEnvironment = <span class="bold_code bc-15"><a href="erl_eval.html#type-binding_struct">erl_eval:binding_struct()</a></span></span></div>
+<div class="REFBODY rb-1">List of variable bindings in the
         shell environment.</div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Implements the transformation when the <span class="code">fun2ms/1</span>
           functions are called from the shell. In this case, the abstract
           form is for one single fun (parsed by the Erlang shell).
@@ -2476,7 +2477,7 @@ ets:select(Table, [{{'$1',test,'$2'},[],['$_']}]).</pre></div>
           as <span class="code">BoundEnvironment</span>. The result is a term,
           normalized, that is, not in abstract format.</p>
       </p></div>
-  
+  </div>
 </div>
 <div class="footer">
 <hr>

@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Mnesia</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 4.14.1</p>
@@ -211,11 +211,11 @@
 <!-- refpage --><center><h1>mnesia_frag_hash</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">mnesia_frag_hash</div>
+<div class="REFBODY module-body">mnesia_frag_hash</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Defines mnesia_frag_hash callback behavior</div>
+<div class="REFBODY module-summary-body">Defines mnesia_frag_hash callback behavior</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>This module defines a callback behavior for user-defined hash
       functions of fragmented tables.</p>
     <p>Which module that is selected to implement the <span class="code">mnesia_frag_hash</span>
@@ -228,23 +228,24 @@
   </p></div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="init_state-2"></a><span class="bold_code">init_state(Tab, State) -&gt; NewState | abort(Reason)</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Tab = atom()</span><br>
+<div class="exports-body">
+    <p><a name="init_state-2"></a><span class="bold_code bc-9">init_state(Tab, State) -&gt; NewState | abort(Reason)</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Tab = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">State = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">State = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">NewState = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">NewState = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Starts when a fragmented table is
           created with the function <span class="code">mnesia:create_table/2</span> or
           when a normal (unfragmented) table is converted to be a
@@ -256,26 +257,26 @@
           <span class="code">frag_property</span>. <span class="code">NewState</span> is stored as
           <span class="code">hash_state</span> among the other <span class="code">frag_properties</span>.</p>
       </p></div>
-    <p><a name="add_frag-1"></a><span class="bold_code">add_frag(State) -&gt; {NewState, IterFrags, AdditionalLockFrags} | abort(Reason)</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">State = term()</span><br>
+    <p><a name="add_frag-1"></a><span class="bold_code bc-9">add_frag(State) -&gt; {NewState, IterFrags, AdditionalLockFrags} | abort(Reason)</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">State = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">NewState = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">NewState = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">IterFrags = [integer()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">IterFrags = [integer()]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">AdditionalLockFrags = [integer()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">AdditionalLockFrags = [integer()]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>To scale well, it is a good idea to ensure that the
           records are evenly distributed over all fragments, including
           the new one.</p>
@@ -292,26 +293,26 @@
           to <span class="code">IterFrags</span> and those corresponding to
           <span class="code">AdditionalLockFrags</span>.</p>
       </p></div>
-    <p><a name="del_frag-1"></a><span class="bold_code">del_frag(State) -&gt;  {NewState, IterFrags, AdditionalLockFrags} | abort(Reason)</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">State = term()</span><br>
+    <p><a name="del_frag-1"></a><span class="bold_code bc-9">del_frag(State) -&gt;  {NewState, IterFrags, AdditionalLockFrags} | abort(Reason)</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">State = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">NewState = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">NewState = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">IterFrags = [integer()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">IterFrags = [integer()]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">AdditionalLockFrags = [integer()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">AdditionalLockFrags = [integer()]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p><span class="code">NewState</span> is stored as <span class="code">hash_state</span> among the
           other <span class="code">frag_properties</span>.</p>
         <p>As a part of the <span class="code">del_frag</span> procedure, Mnesia iterates
@@ -327,49 +328,49 @@
           to <span class="code">IterFrags</span> and those corresponding to
           <span class="code">AdditionalLockFrags</span>.</p>
       </p></div>
-    <p><a name="key_to_frag_number-2"></a><span class="bold_code">key_to_frag_number(State, Key) -&gt; FragNum | abort(Reason)</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">FragNum = integer()()</span><br>
+    <p><a name="key_to_frag_number-2"></a><span class="bold_code bc-9">key_to_frag_number(State, Key) -&gt; FragNum | abort(Reason)</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">FragNum = integer()()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Starts whenever Mnesia needs to determine
           which fragment a certain record belongs to. It is typically
           started at <span class="code">read</span>, <span class="code">write</span>, and <span class="code">delete</span>.</p>
       </p></div>
-    <p><a name="match_spec_to_frag_numbers-2"></a><span class="bold_code">match_spec_to_frag_numbers(State, MatchSpec) -&gt; FragNums | abort(Reason)</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">MatcSpec = ets_select_match_spec()</span><br>
+    <p><a name="match_spec_to_frag_numbers-2"></a><span class="bold_code bc-9">match_spec_to_frag_numbers(State, MatchSpec) -&gt; FragNums | abort(Reason)</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MatcSpec = ets_select_match_spec()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">FragNums = [FragNum]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">FragNums = [FragNum]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">FragNum = integer()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">FragNum = integer()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function is called whenever Mnesia needs to determine
           which fragments that need to be searched for a <span class="code">MatchSpec</span>.
           It is typically called by <span class="code">select</span> and
           <span class="code">match_object</span>.</p>
       </p></div>
-  
+  </div>
 
-  <h3><a name="idm44961806166560">See Also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46141347106400">See Also</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','mnesia','mnesia.html');">mnesia(3)</a></span></p>
+    <p><span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','mnesia','mnesia.html');">mnesia(3)</a></span></p>
   </div>
   
 </div>

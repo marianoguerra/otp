@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Kernel</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 5.1</p>
@@ -646,40 +646,41 @@
 <!-- refpage --><center><h1>error_handler</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">error_handler</div>
+<div class="REFBODY module-body">error_handler</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Default system error handler.</div>
+<div class="REFBODY module-summary-body">Default system error handler.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>This module defines what happens when certain types
       of errors occur.</p>
   </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="raise_undef_exception-3"></a><span class="bold_code">raise_undef_exception(Module, Function, Args) -&gt; no_return()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Module = Function = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Args = list()</span></div>
-<div class="REFBODY">
+<div class="exports-body">
+    <p><a name="raise_undef_exception-3"></a><span class="bold_code bc-1">raise_undef_exception(Module, Function, Args) -&gt; no_return()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = Function = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Args = list()</span></div>
+<div class="REFBODY rb-1">
         A (possibly empty) list of arguments <span class="code">Arg1,..,ArgN</span>
       </div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 	<p>Raises an <span class="code">undef</span> exception with a stacktrace, indicating
 	that <span class="code">Module:Function/N</span> is
 	undefined.
 	</p>
       </p></div>
-    <p><a name="undefined_function-3"></a><span class="bold_code">undefined_function(Module, Function, Args) -&gt; any()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Module = Function = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Args = list()</span></div>
-<div class="REFBODY">
+    <p><a name="undefined_function-3"></a><span class="bold_code bc-1">undefined_function(Module, Function, Args) -&gt; any()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = Function = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Args = list()</span></div>
+<div class="REFBODY rb-1">
         A (possibly empty) list of arguments <span class="code">Arg1,..,ArgN</span>
       </div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function is called by the runtime system if a call is made to
           <span class="code">Module:Function(Arg1,.., ArgN)</span> and
           <span class="code">Module:Function/N</span> is undefined.
@@ -717,16 +718,16 @@
 </div>
 	<p>Otherwise an <span class="code">undef</span> exception is raised.</p>
       </p></div>
-    <p><a name="undefined_lambda-3"></a><span class="bold_code">undefined_lambda(Module, Fun, Args) -&gt; term()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Module = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Fun = function()</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = list()</span></div>
-<div class="REFBODY">
+    <p><a name="undefined_lambda-3"></a><span class="bold_code bc-1">undefined_lambda(Module, Fun, Args) -&gt; term()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Fun = function()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Args = list()</span></div>
+<div class="REFBODY rb-1">
         A (possibly empty) list of arguments <span class="code">Arg1,..,ArgN</span>
       </div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function is evaluated if a call is made to
           <span class="code">Fun(Arg1,.., ArgN)</span> when the module defining
 	  the fun is not loaded. The function is evaluated inside the process
@@ -739,10 +740,10 @@
 	  is made to autoload <span class="code">Module</span>. If this is not possible,
 	  the call fails with exit reason <span class="code">undef</span>.</p>
       </p></div>
-  
+  </div>
 
-  <h3><a name="idm46525671810944">Notes</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45317252595856">Notes</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The code in <span class="code">error_handler</span> is complex. Do not
       change it without fully understanding the interaction between

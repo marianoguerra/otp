@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">STDLIB</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 3.1</p>
@@ -1717,25 +1717,25 @@
 <!-- refpage --><center><h1>supervisor</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">supervisor</div>
+<div class="REFBODY module-body">supervisor</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Generic supervisor behavior.</div>
+<div class="REFBODY module-summary-body">Generic supervisor behavior.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>This behavior module provides a supervisor, a process that
       supervises other processes called child processes. A child
       process can either be another supervisor or a worker process.
       Worker processes are normally implemented using one of the
-      <span class="bold_code"><a href="gen_event.html"><span class="code">gen_event</span></a></span>,
-      <span class="bold_code"><a href="gen_fsm.html"><span class="code">gen_fsm</span></a></span>,
-      <span class="bold_code"><a href="gen_server.html"><span class="code">gen_server</span></a></span>, or
-      <span class="bold_code"><a href="gen_statem.html"><span class="code">gen_statem</span></a></span>
+      <span class="bold_code bc-19"><a href="gen_event.html"><span class="code">gen_event</span></a></span>,
+      <span class="bold_code bc-19"><a href="gen_fsm.html"><span class="code">gen_fsm</span></a></span>,
+      <span class="bold_code bc-19"><a href="gen_server.html"><span class="code">gen_server</span></a></span>, or
+      <span class="bold_code bc-19"><a href="gen_statem.html"><span class="code">gen_statem</span></a></span>
       behaviors. A supervisor implemented using this module has
       a standard set of interface functions and include functionality
       for tracing and error reporting. Supervisors are used to build a
       hierarchical process structure called a supervision tree, a
       nice way to structure a fault-tolerant application. For more
-      information, see <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','sup_princ.html');">Supervisor Behaviour</a></span> in OTP Design Principles.</p>
+      information, see <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','sup_princ.html');">Supervisor Behaviour</a></span> in OTP Design Principles.</p>
 
     <p>A supervisor expects the definition of which child processes to
       supervise to be specified in a callback module exporting a
@@ -1747,9 +1747,9 @@
   </p></div>
 
   <h3>
-<a name="supervision_princ"></a><a name="idm46007667231232">Supervision Principles</a>
+<a name="supervision_princ"></a><a name="idm46279758345968">Supervision Principles</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
     <p>The supervisor is responsible for starting, stopping, and
@@ -1799,12 +1799,12 @@ sup_flags() = #{strategy =&gt; strategy(),         % optional
           instances of the same process type, that is, running the same
           code.</p>
         <p>Functions
-          <span class="bold_code"><a href="#delete_child-2"><span class="code">delete_child/2</span></a></span> and
-          <span class="bold_code"><a href="#restart_child-2"><span class="code">restart_child/2</span></a></span>
+          <span class="bold_code bc-17"><a href="#delete_child-2"><span class="code">delete_child/2</span></a></span> and
+          <span class="bold_code bc-17"><a href="#restart_child-2"><span class="code">restart_child/2</span></a></span>
           are invalid for <span class="code">simple_one_for_one</span> supervisors and return
           <span class="code">{error,simple_one_for_one}</span> if the specified supervisor
           uses this restart strategy.</p>
-        <p>Function <span class="bold_code"><a href="#terminate_child-2"><span class="code">terminate_child/2</span></a></span> can be used for
+        <p>Function <span class="bold_code bc-17"><a href="#terminate_child-2"><span class="code">terminate_child/2</span></a></span> can be used for
           children under <span class="code">simple_one_for_one</span> supervisors by
           specifying the child's <span class="code">pid()</span> as the second argument. If
           instead the child specification identifier is used,
@@ -1840,7 +1840,7 @@ child_spec() = #{id =&gt; child_id(),       % mandatory
                  modules =&gt; modules()}   % optional</pre></div>
 
     <p>The old tuple format is kept for backwards compatibility,
-      see <span class="bold_code"><a href="#type-child_spec">child_spec()</a></span>,
+      see <span class="bold_code bc-17"><a href="#type-child_spec">child_spec()</a></span>,
       but the map is preferred.</p>
 
     <ul>
@@ -1937,7 +1937,7 @@ child_spec() = #{id =&gt; child_id(),       % mandatory
           process is an event manager (<span class="code">gen_event</span>) with a
           dynamic set of callback modules, value <span class="code">dynamic</span>
           must be used. For more information about release handling, see
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','release_handling.html');">Release Handling</a></span>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','release_handling.html');">Release Handling</a></span>
 	  in OTP Design Principles.</p>
         <p>The <span class="code">modules</span> key is optional. If it is not specified, it
           defaults to <span class="code">[M]</span>, where <span class="code">M</span> comes from the
@@ -1952,64 +1952,84 @@ child_spec() = #{id =&gt; child_id(),       % mandatory
   </div>
 
   <h3><a name="data-types" href="#data-types">Data Types</a></h3>
-    <p>
-      <span class="bold_code"><a name="type-child">child()</a> = undefined | pid()</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-child_id">child_id()</a> = term()</span><br></p>
-<div class="REFBODY"><p><p>Not a <span class="code">pid()</span>.</p></p></div>
-    <p>
-      <span class="bold_code"><a name="type-child_spec">child_spec()</a> = <br>    #{id := <span class="bold_code"><a href="#type-child_id">child_id()</a></span>,<br>      start := <span class="bold_code"><a href="#type-mfargs">mfargs()</a></span>,<br>      restart =&gt; <span class="bold_code"><a href="#type-restart">restart()</a></span>,<br>      shutdown =&gt; <span class="bold_code"><a href="#type-shutdown">shutdown()</a></span>,<br>      type =&gt; <span class="bold_code"><a href="#type-worker">worker()</a></span>,<br>      modules =&gt; <span class="bold_code"><a href="#type-modules">modules()</a></span>} |<br>    {Id :: <span class="bold_code"><a href="#type-child_id">child_id()</a></span>,<br>     StartFunc :: <span class="bold_code"><a href="#type-mfargs">mfargs()</a></span>,<br>     Restart :: <span class="bold_code"><a href="#type-restart">restart()</a></span>,<br>     Shutdown :: <span class="bold_code"><a href="#type-shutdown">shutdown()</a></span>,<br>     Type :: <span class="bold_code"><a href="#type-worker">worker()</a></span>,<br>     Modules :: <span class="bold_code"><a href="#type-modules">modules()</a></span>}</span><br></p>
-<div class="REFBODY"><p><p>The tuple format is kept for backward compatibility
+<div class="data-types-body">
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-child">child()</a> = undefined | pid()</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-child_id">child_id()</a> = term()</span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p><p>Not a <span class="code">pid()</span>.</p></p></div></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-child_spec">child_spec()</a> = <br>    #{id := <span class="bold_code bc-17"><a href="#type-child_id">child_id()</a></span>,<br>      start := <span class="bold_code bc-17"><a href="#type-mfargs">mfargs()</a></span>,<br>      restart =&gt; <span class="bold_code bc-17"><a href="#type-restart">restart()</a></span>,<br>      shutdown =&gt; <span class="bold_code bc-17"><a href="#type-shutdown">shutdown()</a></span>,<br>      type =&gt; <span class="bold_code bc-17"><a href="#type-worker">worker()</a></span>,<br>      modules =&gt; <span class="bold_code bc-17"><a href="#type-modules">modules()</a></span>} |<br>    {Id :: <span class="bold_code bc-17"><a href="#type-child_id">child_id()</a></span>,<br>     StartFunc :: <span class="bold_code bc-17"><a href="#type-mfargs">mfargs()</a></span>,<br>     Restart :: <span class="bold_code bc-17"><a href="#type-restart">restart()</a></span>,<br>     Shutdown :: <span class="bold_code bc-17"><a href="#type-shutdown">shutdown()</a></span>,<br>     Type :: <span class="bold_code bc-17"><a href="#type-worker">worker()</a></span>,<br>     Modules :: <span class="bold_code bc-17"><a href="#type-modules">modules()</a></span>}</span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p><p>The tuple format is kept for backward compatibility
         only. A map is preferred; see more details
-        <span class="bold_code"><a href="#child_spec">above</a></span>.</p></p></div>
-    <p>
-      <span class="bold_code"><a name="type-mfargs">mfargs()</a> = <br>    {M :: module(), F :: atom(), A :: [term()] | undefined}</span><br></p>
-<div class="REFBODY"><p><p>Value <span class="code">undefined</span> for <span class="code">A</span> (the
+        <span class="bold_code bc-17"><a href="#child_spec">above</a></span>.</p></p></div></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-mfargs">mfargs()</a> = <br>    {M :: module(), F :: atom(), A :: [term()] | undefined}</span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p><p>Value <span class="code">undefined</span> for <span class="code">A</span> (the
         argument list) is only to be used internally
         in <span class="code">supervisor</span>. If the restart type of the child
         is <span class="code">temporary</span>, the process is never to be
         restarted and therefore there is no need to store the real
         argument list. Value <span class="code">undefined</span> is then stored instead.</p>
-      </p></div>
-    <p>
-      <span class="bold_code"><a name="type-modules">modules()</a> = [module()] | dynamic</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-restart">restart()</a> = permanent | transient | temporary</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-shutdown">shutdown()</a> = brutal_kill | timeout()</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-strategy">strategy()</a> = <br>    one_for_all | one_for_one | rest_for_one | simple_one_for_one</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-sup_flags">sup_flags()</a> = <br>    #{strategy =&gt; <span class="bold_code"><a href="#type-strategy">strategy()</a></span>,<br>      intensity =&gt; integer() &gt;= 0,<br>      period =&gt; integer() &gt;= 1} |<br>    {RestartStrategy :: <span class="bold_code"><a href="#type-strategy">strategy()</a></span>,<br>     Intensity :: integer() &gt;= 0,<br>     Period :: integer() &gt;= 1}</span><br></p>
-<div class="REFBODY"><p><p>The tuple format is kept for backward compatibility
+      </p></div></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-modules">modules()</a> = [module()] | dynamic</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-restart">restart()</a> = permanent | transient | temporary</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-shutdown">shutdown()</a> = brutal_kill | timeout()</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-strategy">strategy()</a> = <br>    one_for_all | one_for_one | rest_for_one | simple_one_for_one</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-sup_flags">sup_flags()</a> = <br>    #{strategy =&gt; <span class="bold_code bc-17"><a href="#type-strategy">strategy()</a></span>,<br>      intensity =&gt; integer() &gt;= 0,<br>      period =&gt; integer() &gt;= 1} |<br>    {RestartStrategy :: <span class="bold_code bc-17"><a href="#type-strategy">strategy()</a></span>,<br>     Intensity :: integer() &gt;= 0,<br>     Period :: integer() &gt;= 1}</span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p><p>The tuple format is kept for backward compatibility
         only. A map is preferred; see more details
-        <span class="bold_code"><a href="#sup_flags">above</a></span>.</p></p></div>
-    <p>
-      <span class="bold_code"><a name="type-sup_ref">sup_ref()</a> = <br>    (Name :: atom()) |<br>    {Name :: atom(), Node :: node()} |<br>    {global, Name :: atom()} |<br>    {via, Module :: module(), Name :: any()} |<br>    pid()</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-worker">worker()</a> = worker | supervisor</span><br></p>
-  
+        <span class="bold_code bc-17"><a href="#sup_flags">above</a></span>.</p></p></div></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-sup_ref">sup_ref()</a> = <br>    (Name :: atom()) |<br>    {Name :: atom(), Node :: node()} |<br>    {global, Name :: atom()} |<br>    {via, Module :: module(), Name :: any()} |<br>    pid()</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-worker">worker()</a> = worker | supervisor</span><br>
+</div>
+<div class="data-type-desc"></div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="check_childspecs-1"></a><span class="bold_code">check_childspecs(ChildSpecs) -&gt; Result</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">ChildSpecs = [<span class="bold_code"><a href="#type-child_spec">child_spec()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">Result = ok | {error, Error :: term()}</span></div>
+<div class="exports-body">
+    <p><a name="check_childspecs-1"></a><span class="bold_code bc-1">check_childspecs(ChildSpecs) -&gt; Result</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">ChildSpecs = [<span class="bold_code bc-17"><a href="#type-child_spec">child_spec()</a></span>]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Result = ok | {error, Error :: term()}</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Takes a list of child specification as argument
           and returns <span class="code">ok</span> if all of them are syntactically
           correct, otherwise <span class="code">{error,Error}</span>.</p>
       </p></div>
 
-    <p><a name="count_children-1"></a><span class="bold_code">count_children(SupRef) -&gt; PropListOfCounts</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">SupRef = <span class="bold_code"><a href="#type-sup_ref">sup_ref()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">PropListOfCounts = [Count]</span></div>
-<div class="REFTYPES"><span class="bold_code">Count = <br>    {specs, ChildSpecCount :: integer() &gt;= 0} |<br>    {active, ActiveProcessCount :: integer() &gt;= 0} |<br>    {supervisors, ChildSupervisorCount :: integer() &gt;= 0} |<br>    {workers, ChildWorkerCount :: integer() &gt;= 0}</span></div>
+    <p><a name="count_children-1"></a><span class="bold_code bc-1">count_children(SupRef) -&gt; PropListOfCounts</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">SupRef = <span class="bold_code bc-17"><a href="#type-sup_ref">sup_ref()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">PropListOfCounts = [Count]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Count = <br>    {specs, ChildSpecCount :: integer() &gt;= 0} |<br>    {active, ActiveProcessCount :: integer() &gt;= 0} |<br>    {supervisors, ChildSupervisorCount :: integer() &gt;= 0} |<br>    {workers, ChildWorkerCount :: integer() &gt;= 0}</span></div>
 </div></p>
-<div class="REFBODY"><p>
-        <p>Returns a property list (see <span class="bold_code"><a href="proplists.html"><span class="code">proplists</span></a></span>) containing the
+<div class="REFBODY rb-7"><p>
+        <p>Returns a property list (see <span class="bold_code bc-19"><a href="proplists.html"><span class="code">proplists</span></a></span>) containing the
           counts for each of the following elements of the supervisor's
           child specifications and managed processes:</p>
         <ul>
@@ -2036,23 +2056,23 @@ child_spec() = #{id =&gt; child_id(),       % mandatory
           </li>
         </ul>
         <p>For a description of <span class="code">SupRef</span>, see
-          <span class="bold_code"><a href="#SupRef"><span class="code">start_child/2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#SupRef"><span class="code">start_child/2</span></a></span>.</p>
       </p></div>
 
-    <p><a name="delete_child-2"></a><span class="bold_code">delete_child(SupRef, Id) -&gt; Result</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">SupRef = <span class="bold_code"><a href="#type-sup_ref">sup_ref()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Id = <span class="bold_code"><a href="#type-child_id">child_id()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Result = ok | {error, Error}</span></div>
-<div class="REFTYPES"><span class="bold_code">Error = running | restarting | not_found | simple_one_for_one</span></div>
+    <p><a name="delete_child-2"></a><span class="bold_code bc-1">delete_child(SupRef, Id) -&gt; Result</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">SupRef = <span class="bold_code bc-17"><a href="#type-sup_ref">sup_ref()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Id = <span class="bold_code bc-17"><a href="#type-child_id">child_id()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Result = ok | {error, Error}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Error = running | restarting | not_found | simple_one_for_one</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Tells supervisor <span class="code">SupRef</span> to delete the child
           specification identified by <span class="code">Id</span>. The corresponding
           child process must not be running. Use
-          <span class="bold_code"><a href="#terminate_child-2"><span class="code">terminate_child/2</span></a></span> to terminate it.</p>
+          <span class="bold_code bc-17"><a href="#terminate_child-2"><span class="code">terminate_child/2</span></a></span> to terminate it.</p>
         <p>For a description of <span class="code">SupRef</span>, see
-          <span class="bold_code"><a href="#SupRef"><span class="code">start_child/2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#SupRef"><span class="code">start_child/2</span></a></span>.</p>
         <p>If successful, the function returns <span class="code">ok</span>. If the child
           specification identified by <span class="code">Id</span> exists but the
           corresponding child process is running or is about to be restarted,
@@ -2062,29 +2082,29 @@ child_spec() = #{id =&gt; child_id(),       % mandatory
           returns <span class="code">{error,not_found}</span>.</p>
       </p></div>
 
-    <p><a name="get_childspec-2"></a><span class="bold_code">get_childspec(SupRef, Id) -&gt; Result</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">SupRef = <span class="bold_code"><a href="#type-sup_ref">sup_ref()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Id = pid() | <span class="bold_code"><a href="#type-child_id">child_id()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Result = {ok, <span class="bold_code"><a href="#type-child_spec">child_spec()</a></span>} | {error, Error}</span></div>
-<div class="REFTYPES"><span class="bold_code">Error = not_found</span></div>
+    <p><a name="get_childspec-2"></a><span class="bold_code bc-1">get_childspec(SupRef, Id) -&gt; Result</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">SupRef = <span class="bold_code bc-17"><a href="#type-sup_ref">sup_ref()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Id = pid() | <span class="bold_code bc-17"><a href="#type-child_id">child_id()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Result = {ok, <span class="bold_code bc-17"><a href="#type-child_spec">child_spec()</a></span>} | {error, Error}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Error = not_found</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the child specification map for the child identified
           by <span class="code">Id</span> under supervisor <span class="code">SupRef</span>. The returned
           map contains all keys, both mandatory and optional.</p>
         <p>For a description of <span class="code">SupRef</span>, see
-          <span class="bold_code"><a href="#SupRef"><span class="code">start_child/2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#SupRef"><span class="code">start_child/2</span></a></span>.</p>
       </p></div>
 
-    <p><a name="restart_child-2"></a><span class="bold_code">restart_child(SupRef, Id) -&gt; Result</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">SupRef = <span class="bold_code"><a href="#type-sup_ref">sup_ref()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Id = <span class="bold_code"><a href="#type-child_id">child_id()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Result = <br>    {ok, Child :: <span class="bold_code"><a href="#type-child">child()</a></span>} |<br>    {ok, Child :: <span class="bold_code"><a href="#type-child">child()</a></span>, Info :: term()} |<br>    {error, Error}</span></div>
-<div class="REFTYPES"><span class="bold_code">Error = <br>    running | restarting | not_found | simple_one_for_one | term()</span></div>
+    <p><a name="restart_child-2"></a><span class="bold_code bc-1">restart_child(SupRef, Id) -&gt; Result</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">SupRef = <span class="bold_code bc-17"><a href="#type-sup_ref">sup_ref()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Id = <span class="bold_code bc-17"><a href="#type-child_id">child_id()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Result = <br>    {ok, Child :: <span class="bold_code bc-17"><a href="#type-child">child()</a></span>} |<br>    {ok, Child :: <span class="bold_code bc-17"><a href="#type-child">child()</a></span>, Info :: term()} |<br>    {error, Error}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Error = <br>    running | restarting | not_found | simple_one_for_one | term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Tells supervisor <span class="code">SupRef</span> to restart
           a child process corresponding to the child specification
           identified by <span class="code">Id</span>. The child
@@ -2094,7 +2114,7 @@ child_spec() = #{id =&gt; child_id(),       % mandatory
           is automatically deleted when the child terminates; thus,
           it is not possible to restart such children.</p>
         <p>For a description of <span class="code">SupRef</span>, see
-          <span class="bold_code"><a href="#SupRef"><span class="code">start_child/2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#SupRef"><span class="code">start_child/2</span></a></span>.</p>
         <p>If the child specification identified
           by <span class="code">Id</span> does not exist, the function
           returns <span class="code">{error,not_found}</span>. If the child specification
@@ -2115,18 +2135,18 @@ child_spec() = #{id =&gt; child_id(),       % mandatory
           information about the error.</p>
       </p></div>
 
-    <p><a name="start_child-2"></a><span class="bold_code">start_child(SupRef, ChildSpec) -&gt; startchild_ret()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">SupRef = <span class="bold_code"><a href="#type-sup_ref">sup_ref()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">ChildSpec = <span class="bold_code"><a href="#type-child_spec">child_spec()</a></span> | (List :: [term()])</span></div>
-<div class="REFTYPES">
-      <span class="bold_code">startchild_ret() = <br>    {ok, Child :: <span class="bold_code"><a href="#type-child">child()</a></span>} |<br>    {ok, Child :: <span class="bold_code"><a href="#type-child">child()</a></span>, Info :: term()} |<br>    {error, startchild_err()}</span><br>
+    <p><a name="start_child-2"></a><span class="bold_code bc-1">start_child(SupRef, ChildSpec) -&gt; startchild_ret()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">SupRef = <span class="bold_code bc-17"><a href="#type-sup_ref">sup_ref()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">ChildSpec = <span class="bold_code bc-17"><a href="#type-child_spec">child_spec()</a></span> | (List :: [term()])</span></div>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">startchild_ret() = <br>    {ok, Child :: <span class="bold_code bc-17"><a href="#type-child">child()</a></span>} |<br>    {ok, Child :: <span class="bold_code bc-17"><a href="#type-child">child()</a></span>, Info :: term()} |<br>    {error, startchild_err()}</span><br>
 </div>
-<div class="REFTYPES">
-      <span class="bold_code">startchild_err() = <br>    already_present | {already_started, Child :: <span class="bold_code"><a href="#type-child">child()</a></span>} | term()</span><br>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">startchild_err() = <br>    already_present | {already_started, Child :: <span class="bold_code bc-17"><a href="#type-child">child()</a></span>} | term()</span><br>
 </div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Dynamically adds a child specification to supervisor
           <span class="code">SupRef</span>, which starts the corresponding child
           process.</p>
@@ -2191,22 +2211,22 @@ child_spec() = #{id =&gt; child_id(),       % mandatory
           and child specification.</p>
       </p></div>
 
-    <p><a name="start_link-2"></a><span class="bold_code">start_link(Module, Args) -&gt; startlink_ret()</span><br><a name="start_link-3"></a><span class="bold_code">start_link(SupName, Module, Args) -&gt; startlink_ret()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">SupName = sup_name()</span></div>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = term()</span></div>
-<div class="REFTYPES">
-      <span class="bold_code">startlink_ret() = <br>    {ok, pid()} | ignore | {error, startlink_err()}</span><br>
+    <p><a name="start_link-2"></a><span class="bold_code bc-1">start_link(Module, Args) -&gt; startlink_ret()</span><a name="start_link-3"></a><span class="bold_code bc-1">start_link(SupName, Module, Args) -&gt; startlink_ret()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">SupName = sup_name()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Args = term()</span></div>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">startlink_ret() = <br>    {ok, pid()} | ignore | {error, startlink_err()}</span><br>
 </div>
-<div class="REFTYPES">
-      <span class="bold_code">startlink_err() = <br>    {already_started, pid()} | {shutdown, term()} | term()</span><br>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">startlink_err() = <br>    {already_started, pid()} | {shutdown, term()} | term()</span><br>
 </div>
-<div class="REFTYPES">
-      <span class="bold_code">sup_name() = <br>    {local, Name :: atom()} |<br>    {global, Name :: atom()} |<br>    {via, Module :: module(), Name :: any()}</span><br>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">sup_name() = <br>    {local, Name :: atom()} |<br>    {global, Name :: atom()} |<br>    {via, Module :: module(), Name :: any()}</span><br>
 </div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Creates a supervisor process as part of a supervision tree.
           For example, the function ensures that the supervisor is linked to
           the calling process (its supervisor).</p>
@@ -2225,7 +2245,7 @@ child_spec() = #{id =&gt; child_id(),       % mandatory
           <li>
             <p>If <span class="code">SupName={global,Name}</span>, the supervisor is
               registered globally as <span class="code">Name</span> using
-              <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','global.html#register_name-2');"><span class="code">global:register_name/2</span></a></span>.</p>
+              <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','global.html#register_name-2');"><span class="code">global:register_name/2</span></a></span>.</p>
           </li>
           <li>
             <p>If
@@ -2235,7 +2255,7 @@ child_spec() = #{id =&gt; child_id(),       % mandatory
               export the functions <span class="code">register_name/2</span>,
               <span class="code">unregister_name/1</span>, and <span class="code">send/2</span>, which must behave
               like the corresponding functions in
-              <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','global.html');"><span class="code">global</span></a></span>. Thus,
+              <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','global.html');"><span class="code">global</span></a></span>. Thus,
               <span class="code">{via,global,Name}</span> is a valid reference.</p>
           </li>
         </ul>
@@ -2278,14 +2298,14 @@ child_spec() = #{id =&gt; child_id(),       % mandatory
         </ul>
       </p></div>
 
-    <p><a name="terminate_child-2"></a><span class="bold_code">terminate_child(SupRef, Id) -&gt; Result</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">SupRef = <span class="bold_code"><a href="#type-sup_ref">sup_ref()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Id = pid() | <span class="bold_code"><a href="#type-child_id">child_id()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Result = ok | {error, Error}</span></div>
-<div class="REFTYPES"><span class="bold_code">Error = not_found | simple_one_for_one</span></div>
+    <p><a name="terminate_child-2"></a><span class="bold_code bc-1">terminate_child(SupRef, Id) -&gt; Result</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">SupRef = <span class="bold_code bc-17"><a href="#type-sup_ref">sup_ref()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Id = pid() | <span class="bold_code bc-17"><a href="#type-child_id">child_id()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Result = ok | {error, Error}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Error = not_found | simple_one_for_one</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Tells supervisor <span class="code">SupRef</span> to terminate the
           specified child.</p>
         <p>If the supervisor is not <span class="code">simple_one_for_one</span>,
@@ -2295,9 +2315,9 @@ child_spec() = #{id =&gt; child_id(),       % mandatory
           kept by the supervisor. The child process can later be
           restarted by the supervisor. The child process can also be
           restarted explicitly by calling
-          <span class="bold_code"><a href="#restart_child-2"><span class="code">restart_child/2</span></a></span>.
+          <span class="bold_code bc-17"><a href="#restart_child-2"><span class="code">restart_child/2</span></a></span>.
           Use
-          <span class="bold_code"><a href="#delete_child-2"><span class="code">delete_child/2</span></a></span>
+          <span class="bold_code bc-17"><a href="#delete_child-2"><span class="code">delete_child/2</span></a></span>
           to remove the child specification.</p>
         <p>If the child is temporary, the child specification is deleted as
           soon as the process terminates. This means
@@ -2315,18 +2335,18 @@ child_spec() = #{id =&gt; child_id(),       % mandatory
           no child specification with the specified <span class="code">Id</span>, the
           function returns <span class="code">{error,not_found}</span>.</p>
         <p>For a description of <span class="code">SupRef</span>, see
-          <span class="bold_code"><a href="#SupRef"><span class="code">start_child/2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#SupRef"><span class="code">start_child/2</span></a></span>.</p>
       </p></div>
 
-    <p><a name="which_children-1"></a><span class="bold_code">which_children(SupRef) -&gt; [{Id, Child, Type, Modules}]</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">SupRef = <span class="bold_code"><a href="#type-sup_ref">sup_ref()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Id = <span class="bold_code"><a href="#type-child_id">child_id()</a></span> | undefined</span></div>
-<div class="REFTYPES"><span class="bold_code">Child = <span class="bold_code"><a href="#type-child">child()</a></span> | restarting</span></div>
-<div class="REFTYPES"><span class="bold_code">Type = <span class="bold_code"><a href="#type-worker">worker()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Modules = <span class="bold_code"><a href="#type-modules">modules()</a></span></span></div>
+    <p><a name="which_children-1"></a><span class="bold_code bc-1">which_children(SupRef) -&gt; [{Id, Child, Type, Modules}]</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">SupRef = <span class="bold_code bc-17"><a href="#type-sup_ref">sup_ref()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Id = <span class="bold_code bc-17"><a href="#type-child_id">child_id()</a></span> | undefined</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Child = <span class="bold_code bc-17"><a href="#type-child">child()</a></span> | restarting</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Type = <span class="bold_code bc-17"><a href="#type-worker">worker()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Modules = <span class="bold_code bc-17"><a href="#type-modules">modules()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a newly created list with information about all child
           specifications and child processes belonging to
           supervisor <span class="code">SupRef</span>.</p>
@@ -2334,7 +2354,7 @@ child_spec() = #{id =&gt; child_id(),       % mandatory
           childrens under low memory conditions can cause an
           out of memory exception.</p>
         <p>For a description of <span class="code">SupRef</span>, see
-          <span class="bold_code"><a href="#SupRef"><span class="code">start_child/2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#SupRef"><span class="code">start_child/2</span></a></span>.</p>
         <p>The following information is given for each child
           specification/process:</p>
         <ul>
@@ -2357,37 +2377,38 @@ child_spec() = #{id =&gt; child_id(),       % mandatory
           </li>
         </ul>
       </p></div>
-  
+  </div>
 
-  <h3><a name="idm46007666992816">Callback Functions</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46279758107552">Callback Functions</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The following function must be exported from a
       <span class="code">supervisor</span> callback module.</p>
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="Module:init-1"></a><span class="bold_code">Module:init(Args) -&gt; Result</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Args = term()</span><br>
+<div class="exports-body">
+    <p><a name="Module:init-1"></a><span class="bold_code bc-9">Module:init(Args) -&gt; Result</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Args = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Result = {ok,{SupFlags,[ChildSpec]}} | ignore</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Result = {ok,{SupFlags,[ChildSpec]}} | ignore</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> SupFlags =
-          <span class="bold_code"><a href="#type-sup_flags"><span class="code">sup_flags()</span></a></span></span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> SupFlags =
+          <span class="bold_code bc-17"><a href="#type-sup_flags"><span class="code">sup_flags()</span></a></span></span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> ChildSpec =
-          <span class="bold_code"><a href="#type-child_spec"><span class="code">child_spec()</span></a></span></span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> ChildSpec =
+          <span class="bold_code bc-17"><a href="#type-child_spec"><span class="code">child_spec()</span></a></span></span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Whenever a supervisor is started using
-          <span class="bold_code"><a href="#start_link-2"><span class="code">start_link/2,3</span></a></span>,
+          <span class="bold_code bc-17"><a href="#start_link-2"><span class="code">start_link/2,3</span></a></span>,
           this function is called by
           the new process to find out about restart strategy, maximum
           restart intensity, and child specifications.</p>
@@ -2398,7 +2419,7 @@ child_spec() = #{id =&gt; child_id(),       % mandatory
           supervisor. <span class="code">[ChildSpec]</span> is a list of valid child
           specifications defining which child processes the supervisor
           must start and monitor. See the discussion in section
-          <span class="bold_code"><a href="#supervision_princ"><span class="code">Supervision Principles</span></a></span> earlier.</p>
+          <span class="bold_code bc-17"><a href="#supervision_princ"><span class="code">Supervision Principles</span></a></span> earlier.</p>
         <p>Notice that when the restart strategy is
           <span class="code">simple_one_for_one</span>, the list of child specifications
           must be a list with one child specification only.
@@ -2406,24 +2427,24 @@ child_spec() = #{id =&gt; child_id(),       % mandatory
           No child process is then started
           during the initialization phase, but all children are assumed
           to be started dynamically using
-          <span class="bold_code"><a href="#start_child-2"><span class="code">start_child/2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#start_child-2"><span class="code">start_child/2</span></a></span>.</p>
         <p>The function can also return <span class="code">ignore</span>.</p>
         <p>Notice that this function can also be called as a part of a code
           upgrade procedure. Therefore, the function is not to have any side
           effects. For more information about code upgrade of supervisors, see
           section
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','appup_cookbook.html#sup');">Changing a Supervisor</a></span> in OTP Design Principles.</p>
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','appup_cookbook.html#sup');">Changing a Supervisor</a></span> in OTP Design Principles.</p>
       </p></div>
-  
+  </div>
 
-  <h3><a name="idm46007666975440">See Also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46279758090176">See Also</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="gen_event.html"><span class="code">gen_event(3)</span></a></span>, 
-      <span class="bold_code"><a href="gen_fsm.html"><span class="code">gen_fsm(3)</span></a></span>, 
-      <span class="bold_code"><a href="gen_statem.html"><span class="code">gen_statem(3)</span></a></span>,
-      <span class="bold_code"><a href="gen_server.html"><span class="code">gen_server(3)</span></a></span>, 
-      <span class="bold_code"><a href="sys.html"><span class="code">sys(3)</span></a></span></p>
+    <p><span class="bold_code bc-19"><a href="gen_event.html"><span class="code">gen_event(3)</span></a></span>, 
+      <span class="bold_code bc-19"><a href="gen_fsm.html"><span class="code">gen_fsm(3)</span></a></span>, 
+      <span class="bold_code bc-19"><a href="gen_statem.html"><span class="code">gen_statem(3)</span></a></span>,
+      <span class="bold_code bc-19"><a href="gen_server.html"><span class="code">gen_server(3)</span></a></span>, 
+      <span class="bold_code bc-19"><a href="sys.html"><span class="code">sys(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

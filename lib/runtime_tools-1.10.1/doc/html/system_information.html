@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Runtime_Tools</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 1.10.1</p>
@@ -191,25 +191,26 @@
 <!-- refpage --><center><h1>system_information</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">system_information</div>
+<div class="REFBODY module-body">system_information</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">System Information</div>
+<div class="REFBODY module-summary-body">System Information</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p></p>
   </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="sanity_check-0"></a><span class="bold_code">sanity_check() -&gt; ok | {failed, Failures}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Application = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">ApplicationVersion = string()</span></div>
-<div class="REFTYPES"><span class="bold_code">MissingRuntimeDependencies = <br>    {missing_runtime_dependencies,<br>     ApplicationVersion,<br>     [ApplicationVersion]}</span></div>
-<div class="REFTYPES"><span class="bold_code">InvalidApplicationVersion = <br>    {invalid_application_version, ApplicationVersion}</span></div>
-<div class="REFTYPES"><span class="bold_code">InvalidAppFile = {invalid_app_file, Application}</span></div>
-<div class="REFTYPES"><span class="bold_code">Failure = <br>    MissingRuntimeDependencies |<br>    InvalidApplicationVersion |<br>    InvalidAppFile</span></div>
-<div class="REFTYPES"><span class="bold_code">Failures = [Failure]</span></div>
+<div class="exports-body">
+    <p><a name="sanity_check-0"></a><span class="bold_code bc-1">sanity_check() -&gt; ok | {failed, Failures}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Application = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">ApplicationVersion = string()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">MissingRuntimeDependencies = <br>    {missing_runtime_dependencies,<br>     ApplicationVersion,<br>     [ApplicationVersion]}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">InvalidApplicationVersion = <br>    {invalid_application_version, ApplicationVersion}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">InvalidAppFile = {invalid_app_file, Application}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Failure = <br>    MissingRuntimeDependencies |<br>    InvalidApplicationVersion |<br>    InvalidAppFile</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Failures = [Failure]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Performs a sanity check on the system. If no issues
 	were found, <span class="code">ok</span> is returned. If issues were
 	found, <span class="code">{failed, Failures}</span> is
@@ -229,7 +230,7 @@
 	  <dt><strong><span class="code">MissingRuntimeDependencies</span></strong></dt>
 	  <dd>
 <p>An application is missing
-	  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','app.html#runtime_dependencies');">runtime dependencies</a></span>. The second element identifies the
+	  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','app.html#runtime_dependencies');">runtime dependencies</a></span>. The second element identifies the
 	  application (with version) that has missing dependencies.
 	  The third element contains the missing dependencies.</p>
 	  <p>Note that this check use application versions that
@@ -238,9 +239,9 @@
 	  installed in the system, but if those are not loaded this
 	  check will fail. The system will of course also fail when
 	  used like this. This may happen when you have multiple 
-	  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/system_principles','versions.html');">branched versions</a></span> of the same application installed in the
+	  <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/system_principles','versions.html');">branched versions</a></span> of the same application installed in the
 	  system, but you do not use a
-	  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/system_principles','system_principles.html#BOOTSCRIPT');">boot script</a></span> identifing the correct application version.</p>
+	  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','doc/system_principles','system_principles.html#BOOTSCRIPT');">boot script</a></span> identifing the correct application version.</p>
 	  </dd>
 	</dl>
 	<p>Currently the sanity check is limited to verifying
@@ -255,15 +256,15 @@
 	that no issues exist.</p></p></div>
 </div>
       </p></div>
-    <p><a name="to_file-1"></a><span class="bold_code">to_file(FileName) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">FileName = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-posix');">file:posix()</a></span> | badarg | terminated | system_limit</span></div>
+    <p><a name="to_file-1"></a><span class="bold_code bc-1">to_file(FileName) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">FileName = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-posix');">file:posix()</a></span> | badarg | terminated | system_limit</span></div>
 </div></p>
-<div class="REFBODY"><p><p>Writes  miscellaneous system information to file. This
+<div class="REFBODY rb-7"><p><p>Writes  miscellaneous system information to file. This
       information will typically be requested by the Erlang/OTP team
       at Ericsson AB when reporting an issue.</p></p></div>
-  
+  </div>
  </div>
 <div class="footer">
 <hr>

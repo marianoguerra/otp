@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Kernel</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 5.1</p>
@@ -646,22 +646,22 @@
 <!-- refpage --><center><h1>file</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">file</div>
+<div class="REFBODY module-body">file</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">File interface module.</div>
+<div class="REFBODY module-summary-body">File interface module.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>This module provides an interface to the file system.</p>
 
     <p>On operating systems with thread support,
       file operations can be performed in threads of their own, allowing
       other Erlang processes to continue executing in parallel with
       the file operations. See command-line flag
-      <span class="code">+A</span> in <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html');"><span class="code">erl(1)</span></a></span>.</p>
+      <span class="code">+A</span> in <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html');"><span class="code">erl(1)</span></a></span>.</p>
 
     <p>Regarding filename encoding, the Erlang VM can operate in
     two modes. The current mode can be queried using function
-    <span class="bold_code"><a href="#native_name_encoding"><span class="code">native_name_encoding/0</span></a></span>.
+    <span class="bold_code bc-17"><a href="#native_name_encoding"><span class="code">native_name_encoding/0</span></a></span>.
     It returns <span class="code">latin1</span> or <span class="code">utf8</span>.</p>
 
     <p>In <span class="code">latin1</span> mode, the Erlang VM does not change the
@@ -679,7 +679,7 @@
     terminal supports UTF-8, otherwise <span class="code">latin1</span>. The default can
     be overridden using <span class="code">+fnl</span> (to force <span class="code">latin1</span> mode)
     or <span class="code">+fnu</span> (to force <span class="code">utf8</span> mode) when starting
-    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html');"><span class="code">erts:erl</span></a></span>.</p>
+    <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html');"><span class="code">erts:erl</span></a></span>.</p>
 
     <p>On operating systems with transparent naming, files can be
     inconsistently named, for example, some files are encoded in UTF-8 while
@@ -692,46 +692,58 @@
     systems with transparent naming.</p>
 
     <p>When running in <span class="code">utf8</span> mode, functions
-    <span class="bold_code"><a href="#list_dir-1"><span class="code">list_dir/1</span></a></span> and
-    <span class="bold_code"><a href="#read_link-1"><span class="code">read_link/1</span></a></span>
+    <span class="bold_code bc-17"><a href="#list_dir-1"><span class="code">list_dir/1</span></a></span> and
+    <span class="bold_code bc-17"><a href="#read_link-1"><span class="code">read_link/1</span></a></span>
     never return raw filenames. To return all filenames including raw filenames,
     use functions
-    <span class="bold_code"><a href="#list_dir_all"><span class="code">list_dir_all/1</span></a></span> and
-    <span class="bold_code"><a href="#read_link_all"><span class="code">read_link_all/1</span></a></span>.</p>
+    <span class="bold_code bc-17"><a href="#list_dir_all"><span class="code">list_dir_all/1</span></a></span> and
+    <span class="bold_code bc-17"><a href="#read_link_all"><span class="code">read_link_all/1</span></a></span>.</p>
 
-    <p>See also section <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','unicode_usage.html#notes-about-raw-filenames');">Notes About Raw Filenames</a></span> in the STDLIB User's Guide.</p>
+    <p>See also section <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','unicode_usage.html#notes-about-raw-filenames');">Notes About Raw Filenames</a></span> in the STDLIB User's Guide.</p>
 
   </p></div>
 
   <h3><a name="data-types" href="#data-types">Data Types</a></h3>
-    <p>
-      <span class="bold_code"><a name="type-deep_list">deep_list()</a> = [char() | atom() | <span class="bold_code"><a href="#type-deep_list">deep_list()</a></span>]</span><br></p>
-    <p><a name="type-fd"></a><span class="bold_code">fd()</span><br></p>
-<div class="REFBODY"><p>
+<div class="data-types-body">
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-deep_list">deep_list()</a> = [char() | atom() | <span class="bold_code bc-17"><a href="#type-deep_list">deep_list()</a></span>]</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+<a name="type-fd"></a><span class="bold_code bc-8">fd()</span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p>
         <p>A file descriptor representing a file opened in
-	  <span class="bold_code"><a href="#raw"><span class="code">raw</span></a></span> mode.</p>
-      </p></div>
-    <p>
-      <span class="bold_code"><a name="type-filename">filename()</a> = string()</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-filename_all">filename_all()</a> = string() | binary()</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-io_device">io_device()</a> = pid() | <span class="bold_code"><a href="#type-fd">fd()</a></span></span><br></p>
-<div class="REFBODY"><p>
+	  <span class="bold_code bc-17"><a href="#raw"><span class="code">raw</span></a></span> mode.</p>
+      </p></div></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-filename">filename()</a> = string()</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-filename_all">filename_all()</a> = string() | binary()</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-io_device">io_device()</a> = pid() | <span class="bold_code bc-17"><a href="#type-fd">fd()</a></span></span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p>
         <p>As returned by
-          <span class="bold_code"><a href="#open-2"><span class="code">open/2</span></a></span>;
+          <span class="bold_code bc-17"><a href="#open-2"><span class="code">open/2</span></a></span>;
           <span class="code">pid()</span> is a process handling I/O-protocols.</p>
-      </p></div>
-    <p>
-      <span class="bold_code"><a name="type-name">name()</a> = string() | atom() | <span class="bold_code"><a href="#type-deep_list">deep_list()</a></span></span><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-name">name()</a> = string() | atom() | <span class="bold_code bc-17"><a href="#type-deep_list">deep_list()</a></span></span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p>
         <p>If VM is in Unicode filename mode, <span class="code">string()</span> and <span class="code">char()</span>
           are allowed to be &gt; 255.
         </p>
-      </p></div>
-    <p>
-      <span class="bold_code"><a name="type-name_all">name_all()</a> = <br>    string() | atom() | <span class="bold_code"><a href="#type-deep_list">deep_list()</a></span> | (RawFilename :: binary())</span><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-name_all">name_all()</a> = <br>    string() | atom() | <span class="bold_code bc-17"><a href="#type-deep_list">deep_list()</a></span> | (RawFilename :: binary())</span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p>
         <p>If VM is in Unicode filename mode, <span class="code">string()</span> and <span class="code">char()</span>
           are allowed to be &gt; 255.
           <span class="code">RawFilename</span> is a filename not subject to
@@ -741,53 +753,64 @@
           (that is, non-UTF-8 characters although the VM is started
           in Unicode filename mode).
         </p>
-      </p></div>
-    <p>
-      <span class="bold_code"><a name="type-posix">posix()</a> = <br>    eacces |<br>    eagain |<br>    ebadf |<br>    ebusy |<br>    edquot |<br>    eexist |<br>    efault |<br>    efbig |<br>    eintr |<br>    einval |<br>    eio |<br>    eisdir |<br>    eloop |<br>    emfile |<br>    emlink |<br>    enametoolong |<br>    enfile |<br>    enodev |<br>    enoent |<br>    enomem |<br>    enospc |<br>    enotblk |<br>    enotdir |<br>    enotsup |<br>    enxio |<br>    eperm |<br>    epipe |<br>    erofs |<br>    espipe |<br>    esrch |<br>    estale |<br>    exdev</span><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-posix">posix()</a> = <br>    eacces |<br>    eagain |<br>    ebadf |<br>    ebusy |<br>    edquot |<br>    eexist |<br>    efault |<br>    efbig |<br>    eintr |<br>    einval |<br>    eio |<br>    eisdir |<br>    eloop |<br>    emfile |<br>    emlink |<br>    enametoolong |<br>    enfile |<br>    enodev |<br>    enoent |<br>    enomem |<br>    enospc |<br>    enotblk |<br>    enotdir |<br>    enotsup |<br>    enxio |<br>    eperm |<br>    epipe |<br>    erofs |<br>    espipe |<br>    esrch |<br>    estale |<br>    exdev</span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p>
         <p>An atom that is named from the POSIX error codes used in
           Unix, and in the runtime libraries of most C compilers.</p>
-      </p></div>
-    <p>
-      <span class="bold_code"><a name="type-date_time">date_time()</a> = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','calendar.html#type-datetime');">calendar:datetime()</a></span></span><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-date_time">date_time()</a> = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','stdlib','calendar.html#type-datetime');">calendar:datetime()</a></span></span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p>
         <p>Must denote a valid date and time.</p>
-      </p></div>
-    <p>
-      <span class="bold_code"><a name="type-file_info">file_info()</a> = <br>    #file_info{size = integer() &gt;= 0 | undefined,<br>               type =<br>                   device |<br>                   directory |<br>                   other |<br>                   regular |<br>                   symlink |<br>                   undefined,<br>               access =<br>                   read | write | read_write | none | undefined,<br>               atime =<br>                   <span class="bold_code"><a href="file.html#type-date_time">file:date_time()</a></span> |<br>                   integer() &gt;= 0 |<br>                   undefined,<br>               mtime =<br>                   <span class="bold_code"><a href="file.html#type-date_time">file:date_time()</a></span> |<br>                   integer() &gt;= 0 |<br>                   undefined,<br>               ctime =<br>                   <span class="bold_code"><a href="file.html#type-date_time">file:date_time()</a></span> |<br>                   integer() &gt;= 0 |<br>                   undefined,<br>               mode = integer() &gt;= 0 | undefined,<br>               links = integer() &gt;= 0 | undefined,<br>               major_device = integer() &gt;= 0 | undefined,<br>               minor_device = integer() &gt;= 0 | undefined,<br>               inode = integer() &gt;= 0 | undefined,<br>               uid = integer() &gt;= 0 | undefined,<br>               gid = integer() &gt;= 0 | undefined}</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-location">location()</a> = <br>    integer() |<br>    {bof, Offset :: integer()} |<br>    {cur, Offset :: integer()} |<br>    {eof, Offset :: integer()} |<br>    bof |<br>    cur |<br>    eof</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-mode">mode()</a> = <br>    read |<br>    write |<br>    append |<br>    exclusive |<br>    raw |<br>    binary |<br>    {delayed_write,<br>     Size :: integer() &gt;= 0,<br>     Delay :: integer() &gt;= 0} |<br>    delayed_write |<br>    {read_ahead, Size :: integer() &gt;= 1} |<br>    read_ahead |<br>    compressed |<br>    {encoding, <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','unicode.html#type-encoding');">unicode:encoding()</a></span>} |<br>    sync</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-file_info_option">file_info_option()</a> = <br>    {time, local} | {time, universal} | {time, posix} | raw</span><br></p>
-   
+      </p></div></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-file_info">file_info()</a> = <br>    #file_info{size = integer() &gt;= 0 | undefined,<br>               type =<br>                   device |<br>                   directory |<br>                   other |<br>                   regular |<br>                   symlink |<br>                   undefined,<br>               access =<br>                   read | write | read_write | none | undefined,<br>               atime =<br>                   <span class="bold_code bc-15"><a href="file.html#type-date_time">file:date_time()</a></span> |<br>                   integer() &gt;= 0 |<br>                   undefined,<br>               mtime =<br>                   <span class="bold_code bc-15"><a href="file.html#type-date_time">file:date_time()</a></span> |<br>                   integer() &gt;= 0 |<br>                   undefined,<br>               ctime =<br>                   <span class="bold_code bc-15"><a href="file.html#type-date_time">file:date_time()</a></span> |<br>                   integer() &gt;= 0 |<br>                   undefined,<br>               mode = integer() &gt;= 0 | undefined,<br>               links = integer() &gt;= 0 | undefined,<br>               major_device = integer() &gt;= 0 | undefined,<br>               minor_device = integer() &gt;= 0 | undefined,<br>               inode = integer() &gt;= 0 | undefined,<br>               uid = integer() &gt;= 0 | undefined,<br>               gid = integer() &gt;= 0 | undefined}</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-location">location()</a> = <br>    integer() |<br>    {bof, Offset :: integer()} |<br>    {cur, Offset :: integer()} |<br>    {eof, Offset :: integer()} |<br>    bof |<br>    cur |<br>    eof</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-mode">mode()</a> = <br>    read |<br>    write |<br>    append |<br>    exclusive |<br>    raw |<br>    binary |<br>    {delayed_write,<br>     Size :: integer() &gt;= 0,<br>     Delay :: integer() &gt;= 0} |<br>    delayed_write |<br>    {read_ahead, Size :: integer() &gt;= 1} |<br>    read_ahead |<br>    compressed |<br>    {encoding, <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','stdlib','unicode.html#type-encoding');">unicode:encoding()</a></span>} |<br>    sync</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-file_info_option">file_info_option()</a> = <br>    {time, local} | {time, universal} | {time, posix} | raw</span><br>
+</div>
+<div class="data-type-desc"></div>
+   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="advise-4"></a><span class="bold_code">advise(IoDevice, Offset, Length, Advise) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-io_device">io_device()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Offset = Length = integer()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Advise = posix_file_advise()</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg</span></div>
-<div class="REFTYPES">
-      <span class="bold_code">posix_file_advise() = <br>    normal |<br>    sequential |<br>    random |<br>    no_reuse |<br>    will_need |<br>    dont_need</span><br>
+<div class="exports-body">
+    <p><a name="advise-4"></a><span class="bold_code bc-1">advise(IoDevice, Offset, Length, Advise) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">IoDevice = <span class="bold_code bc-17"><a href="#type-io_device">io_device()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Offset = Length = integer()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Advise = posix_file_advise()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg</span></div>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">posix_file_advise() = <br>    normal |<br>    sequential |<br>    random |<br>    no_reuse |<br>    will_need |<br>    dont_need</span><br>
 </div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p><span class="code">advise/4</span> can be used to announce an intention to access file
           data in a specific pattern in the future, thus allowing the
           operating system to perform appropriate optimizations.</p>
         <p>On some platforms, this function might have no effect.</p>
       </p></div>
-    <p><a name="allocate-3"></a><span class="bold_code">allocate(File, Offset, Length) -&gt; ok | {error, <span class="bold_code"><a href="#type-posix">posix()</a></span>}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">File = <span class="bold_code"><a href="#type-io_device">io_device()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Offset = Length = integer() &gt;= 0</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="allocate-3"></a><span class="bold_code bc-1">allocate(File, Offset, Length) -&gt; ok | {error, <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span>}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">File = <span class="bold_code bc-17"><a href="#type-io_device">io_device()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Offset = Length = integer() &gt;= 0</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p><span class="code">allocate/3</span> can be used to preallocate space for a file.</p>
         <p>This function only succeeds in platforms that provide this
           feature. When it succeeds, space is preallocated for the file but
@@ -795,89 +818,89 @@
           preallocation implementation. To guarantee that the file size is updated,
           truncate the file to the new size.</p>
       </p></div>
-    <p><a name="change_group-2"></a><span class="bold_code">change_group(Filename, Gid) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Gid = integer()</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg</span></div>
+    <p><a name="change_group-2"></a><span class="bold_code bc-1">change_group(Filename, Gid) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Gid = integer()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Changes group of a file. See
-          <span class="bold_code"><a href="#write_file_info-2"><span class="code">write_file_info/2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#write_file_info-2"><span class="code">write_file_info/2</span></a></span>.</p>
       </p></div>
-    <p><a name="change_mode-2"></a><span class="bold_code">change_mode(Filename, Mode) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Mode = integer()</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg</span></div>
+    <p><a name="change_mode-2"></a><span class="bold_code bc-1">change_mode(Filename, Mode) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Mode = integer()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Changes permissions of a file. See
-          <span class="bold_code"><a href="#write_file_info-2"><span class="code">write_file_info/2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#write_file_info-2"><span class="code">write_file_info/2</span></a></span>.</p>
       </p></div>
-    <p><a name="change_owner-2"></a><span class="bold_code">change_owner(Filename, Uid) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Uid = integer()</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg</span></div>
+    <p><a name="change_owner-2"></a><span class="bold_code bc-1">change_owner(Filename, Uid) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Uid = integer()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Changes owner of a file. See
-          <span class="bold_code"><a href="#write_file_info-2"><span class="code">write_file_info/2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#write_file_info-2"><span class="code">write_file_info/2</span></a></span>.</p>
       </p></div>
-    <p><a name="change_owner-3"></a><span class="bold_code">change_owner(Filename, Uid, Gid) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Uid = Gid = integer()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg</span></div>
+    <p><a name="change_owner-3"></a><span class="bold_code bc-1">change_owner(Filename, Uid, Gid) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Uid = Gid = integer()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Changes owner and group of a file. See
-          <span class="bold_code"><a href="#write_file_info-2"><span class="code">write_file_info/2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#write_file_info-2"><span class="code">write_file_info/2</span></a></span>.</p>
       </p></div>
-    <p><a name="change_time-2"></a><span class="bold_code">change_time(Filename, Mtime) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Mtime = <span class="bold_code"><a href="#type-date_time">date_time()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg</span></div>
+    <p><a name="change_time-2"></a><span class="bold_code bc-1">change_time(Filename, Mtime) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Mtime = <span class="bold_code bc-17"><a href="#type-date_time">date_time()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Changes the modification and access times of a file. See
-          <span class="bold_code"><a href="#write_file_info-2"><span class="code">write_file_info/2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#write_file_info-2"><span class="code">write_file_info/2</span></a></span>.</p>
       </p></div>
-    <p><a name="change_time-3"></a><span class="bold_code">change_time(Filename, Atime, Mtime) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Atime = Mtime = <span class="bold_code"><a href="#type-date_time">date_time()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg</span></div>
+    <p><a name="change_time-3"></a><span class="bold_code bc-1">change_time(Filename, Atime, Mtime) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Atime = Mtime = <span class="bold_code bc-17"><a href="#type-date_time">date_time()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Changes the modification and last access times of a file. See
-          <span class="bold_code"><a href="#write_file_info-2"><span class="code">write_file_info/2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#write_file_info-2"><span class="code">write_file_info/2</span></a></span>.</p>
       </p></div>
-    <p><a name="close-1"></a><span class="bold_code">close(IoDevice) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-io_device">io_device()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg | terminated</span></div>
+    <p><a name="close-1"></a><span class="bold_code bc-1">close(IoDevice) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">IoDevice = <span class="bold_code bc-17"><a href="#type-io_device">io_device()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg | terminated</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Closes the file referenced by <span class="code">IoDevice</span>. It mostly
           returns <span class="code">ok</span>, except for some severe errors such as out
           of memory.</p>
         <p>Notice that if option <span class="code">delayed_write</span> was
           used when opening the file, <span class="code">close/1</span> can return an
           old write error and not even try to close the file. See
-          <span class="bold_code"><a href="#open-2"><span class="code">open/2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#open-2"><span class="code">open/2</span></a></span>.</p>
       </p></div>
-    <p><a name="consult-1"></a><span class="bold_code">consult(Filename) -&gt; {ok, Terms} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Terms = [term()]</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <br>    <span class="bold_code"><a href="#type-posix">posix()</a></span> |<br>    badarg |<br>    terminated |<br>    system_limit |<br>    {Line :: integer(), Mod :: module(), Term :: term()}</span></div>
+    <p><a name="consult-1"></a><span class="bold_code bc-1">consult(Filename) -&gt; {ok, Terms} | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Terms = [term()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <br>    <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> |<br>    badarg |<br>    terminated |<br>    system_limit |<br>    {Line :: integer(), Mod :: module(), Term :: term()}</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Reads Erlang terms, separated by '.', from
            <span class="code">Filename</span>. Returns one of the following:</p>
         <dl>
@@ -889,7 +912,7 @@
           <dd>
             <p>An error occurred when opening the file or reading it.
               For a list of typical error codes, see
-	      <span class="bold_code"><a href="#open-2"><span class="code">open/2</span></a></span>.</p>
+	      <span class="bold_code bc-17"><a href="#open-2"><span class="code">open/2</span></a></span>.</p>
           </dd>
           <dt><strong><span class="code">{error, {Line, Mod,
                            Term}}</span></strong></dt>
@@ -897,7 +920,7 @@
             <p>An error occurred when interpreting the Erlang terms in
               the file. To convert the three-element tuple to an English
 	      description of the error, use
-	    <span class="bold_code"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>.</p>
+	    <span class="bold_code bc-17"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>.</p>
           </dd>
         </dl>
         <p><strong>Example:</strong></p>
@@ -905,23 +928,23 @@
 f.txt:  {person, "kalle", 25}.
         {person, "pelle", 30}.</pre></div>
 <div class="example"><pre>
-1&gt; <span class="bold_code">file:consult("f.txt").</span>
+1&gt; <span class="bold_code bc-12">file:consult("f.txt").</span>
 {ok,[{person,"kalle",25},{person,"pelle",30}]}</pre></div>
         <p>The encoding of <span class="code">Filename</span> can be set
           by a comment, as described in
-	  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','epp.html#encoding');"><span class="code">epp(3)</span></a></span>.</p>
+	  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','epp.html#encoding');"><span class="code">epp(3)</span></a></span>.</p>
       </p></div>
-    <p><a name="copy-2"></a><span class="bold_code">copy(Source, Destination) -&gt; {ok, BytesCopied} | {error, Reason}</span><br><a name="copy-3"></a><span class="bold_code">copy(Source, Destination, ByteCount) -&gt;<br>        {ok, BytesCopied} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Source = Destination = <span class="bold_code"><a href="#type-io_device">io_device()</a></span> | Filename | {Filename, Modes}</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Modes = [<span class="bold_code"><a href="#type-mode">mode()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">ByteCount = integer() &gt;= 0 | infinity</span></div>
-<div class="REFTYPES"><span class="bold_code">BytesCopied = integer() &gt;= 0</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg | terminated</span></div>
+    <p><a name="copy-2"></a><span class="bold_code bc-1">copy(Source, Destination) -&gt; {ok, BytesCopied} | {error, Reason}</span><a name="copy-3"></a><span class="bold_code bc-1">copy(Source, Destination, ByteCount) -&gt;<br>        {ok, BytesCopied} | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Source = Destination = <span class="bold_code bc-17"><a href="#type-io_device">io_device()</a></span> | Filename | {Filename, Modes}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Modes = [<span class="bold_code bc-17"><a href="#type-mode">mode()</a></span>]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">ByteCount = integer() &gt;= 0 | infinity</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">BytesCopied = integer() &gt;= 0</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg | terminated</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Copies <span class="code">ByteCount</span> bytes from
           <span class="code">Source</span> to <span class="code">Destination</span>.
           <span class="code">Source</span> and <span class="code">Destination</span> refer
@@ -929,7 +952,7 @@ f.txt:  {person, "kalle", 25}.
           <span class="code">ByteCount</span> defaults to <span class="code">infinity</span>, denoting an
           infinite number of bytes.</p>
         <p>Argument <span class="code">Modes</span> is a list of possible modes,
-          see <span class="bold_code"><a href="#open-2"><span class="code">open/2</span></a></span>, and defaults to
+          see <span class="bold_code bc-17"><a href="#open-2"><span class="code">open/2</span></a></span>, and defaults to
           <span class="code">[]</span>.</p>
         <p>If both <span class="code">Source</span> and
           <span class="code">Destination</span> refer to
@@ -949,17 +972,17 @@ f.txt:  {person, "kalle", 25}.
           encountered on the source. If the operation fails,
           <span class="code">{error, Reason}</span> is returned.</p>
         <p>Typical error reasons: as for
-	<span class="bold_code"><a href="#open-2"><span class="code">open/2</span></a></span> if a file
+	<span class="bold_code bc-17"><a href="#open-2"><span class="code">open/2</span></a></span> if a file
 	had to be opened, and as for
-	<span class="bold_code"><a href="#read-2"><span class="code">read/2</span></a></span> and
-	<span class="bold_code"><a href="#write-2"><span class="code">write/2</span></a></span>.</p>
+	<span class="bold_code bc-17"><a href="#read-2"><span class="code">read/2</span></a></span> and
+	<span class="bold_code bc-17"><a href="#write-2"><span class="code">write/2</span></a></span>.</p>
       </p></div>
-    <p><a name="datasync-1"></a><span class="bold_code">datasync(IoDevice) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-io_device">io_device()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg | terminated</span></div>
+    <p><a name="datasync-1"></a><span class="bold_code bc-1">datasync(IoDevice) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">IoDevice = <span class="bold_code bc-17"><a href="#type-io_device">io_device()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg | terminated</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Ensures that any buffers kept by the operating system
           (not by the Erlang runtime system) are written to disk. In
           many ways it resembles <span class="code">fsync</span> but it does not update
@@ -978,12 +1001,12 @@ f.txt:  {person, "kalle", 25}.
           call to <span class="code">fsync()</span>, or has no effect in systems not providing
           the <span class="code">fdatasync()</span> syscall.</p>
       </p></div>
-    <p><a name="del_dir-1"></a><span class="bold_code">del_dir(Dir) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dir = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg</span></div>
+    <p><a name="del_dir-1"></a><span class="bold_code bc-1">del_dir(Dir) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dir = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Tries to delete directory <span class="code">Dir</span>.
           The directory must
           be empty before it can be deleted. Returns <span class="code">ok</span> if
@@ -1015,12 +1038,12 @@ f.txt:  {person, "kalle", 25}.
           </dd>
         </dl>
       </p></div>
-    <p><a name="delete-1"></a><span class="bold_code">delete(Filename) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg</span></div>
+    <p><a name="delete-1"></a><span class="bold_code bc-1">delete(Filename) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Tries to delete file <span class="code">Filename</span>.
           Returns <span class="code">ok</span> if successful.</p>
         <p>Typical error reasons:</p>
@@ -1056,12 +1079,12 @@ f.txt:  {person, "kalle", 25}.
         </p></div>
 </div>
       </p></div>
-    <p><a name="eval-1"></a><span class="bold_code">eval(Filename) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <br>    <span class="bold_code"><a href="#type-posix">posix()</a></span> |<br>    badarg |<br>    terminated |<br>    system_limit |<br>    {Line :: integer(), Mod :: module(), Term :: term()}</span></div>
+    <p><a name="eval-1"></a><span class="bold_code bc-1">eval(Filename) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <br>    <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> |<br>    badarg |<br>    terminated |<br>    system_limit |<br>    {Line :: integer(), Mod :: module(), Term :: term()}</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Reads and evaluates Erlang expressions, separated by '.' (or
           ',', a sequence of expressions is also an expression) from
           <span class="code">Filename</span>. The result of the evaluation
@@ -1076,7 +1099,7 @@ f.txt:  {person, "kalle", 25}.
           <dd>
             <p>An error occurred when opening the file or reading it.
             For a list of typical error codes, see
-	    <span class="bold_code"><a href="#open-2"><span class="code">open/2</span></a></span>.</p>
+	    <span class="bold_code bc-17"><a href="#open-2"><span class="code">open/2</span></a></span>.</p>
           </dd>
           <dt><strong><span class="code">{error, {Line, Mod,
                            Term}}</span></strong></dt>
@@ -1084,40 +1107,40 @@ f.txt:  {person, "kalle", 25}.
             <p>An error occurred when interpreting the Erlang
               expressions in the file. To convert the three-element tuple
 	      to an English description of the error, use
-	      <span class="bold_code"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>.</p>
+	      <span class="bold_code bc-17"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>.</p>
           </dd>
         </dl>
         <p>The encoding of <span class="code">Filename</span> can be set
           by a comment, as described in
-	  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','epp.html#encoding');"><span class="code">epp(3)</span></a></span>.</p>
+	  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','epp.html#encoding');"><span class="code">epp(3)</span></a></span>.</p>
       </p></div>
-    <p><a name="eval-2"></a><span class="bold_code">eval(Filename, Bindings) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Bindings = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','erl_eval.html#type-binding_struct');">erl_eval:binding_struct()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <br>    <span class="bold_code"><a href="#type-posix">posix()</a></span> |<br>    badarg |<br>    terminated |<br>    system_limit |<br>    {Line :: integer(), Mod :: module(), Term :: term()}</span></div>
+    <p><a name="eval-2"></a><span class="bold_code bc-1">eval(Filename, Bindings) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Bindings = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','stdlib','erl_eval.html#type-binding_struct');">erl_eval:binding_struct()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <br>    <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> |<br>    badarg |<br>    terminated |<br>    system_limit |<br>    {Line :: integer(), Mod :: module(), Term :: term()}</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>The same as <span class="code">eval/1</span>, but the variable bindings
           <span class="code">Bindings</span> are used in the evaluation. For information
 	  about the variable bindings, see
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','erl_eval.html');"><span class="code">erl_eval(3)</span></a></span>.</p>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','erl_eval.html');"><span class="code">erl_eval(3)</span></a></span>.</p>
       </p></div>
-    <p><a name="format_error-1"></a><span class="bold_code">format_error(Reason) -&gt; Chars</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Reason = <br>    <span class="bold_code"><a href="#type-posix">posix()</a></span> |<br>    badarg |<br>    terminated |<br>    system_limit |<br>    {Line :: integer(), Mod :: module(), Term :: term()}</span></div>
-<div class="REFTYPES"><span class="bold_code">Chars = string()</span></div>
+    <p><a name="format_error-1"></a><span class="bold_code bc-1">format_error(Reason) -&gt; Chars</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <br>    <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> |<br>    badarg |<br>    terminated |<br>    system_limit |<br>    {Line :: integer(), Mod :: module(), Term :: term()}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Chars = string()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Given the error reason returned by any function in this
           module, returns a descriptive string of the error in English.</p>
       </p></div>
-    <p><a name="get_cwd-0"></a><span class="bold_code">get_cwd() -&gt; {ok, Dir} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dir = <span class="bold_code"><a href="#type-filename">filename()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span></span></div>
+    <p><a name="get_cwd-0"></a><span class="bold_code bc-1">get_cwd() -&gt; {ok, Dir} | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dir = <span class="bold_code bc-17"><a href="#type-filename">filename()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">{ok, Dir}</span>, where <span class="code">Dir</span>
           is the current
           working directory of the file server.</p>
@@ -1138,13 +1161,13 @@ f.txt:  {person, "kalle", 25}.
           </dd>
         </dl>
       </p></div>
-    <p><a name="get_cwd-1"></a><span class="bold_code">get_cwd(Drive) -&gt; {ok, Dir} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Drive = string()</span></div>
-<div class="REFTYPES"><span class="bold_code">Dir = <span class="bold_code"><a href="#type-filename">filename()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg</span></div>
+    <p><a name="get_cwd-1"></a><span class="bold_code bc-1">get_cwd(Drive) -&gt; {ok, Dir} | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Drive = string()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dir = <span class="bold_code bc-17"><a href="#type-filename">filename()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 	<p>Returns <span class="code">{ok, Dir}</span> or
           <span class="code">{error, Reason}</span>, where <span class="code">Dir</span>
           is the current working directory of the specified drive.</p>
@@ -1171,13 +1194,13 @@ f.txt:  {person, "kalle", 25}.
           </dd>
         </dl>
       </p></div>
-    <p><a name="list_dir-1"></a><span class="bold_code">list_dir(Dir) -&gt; {ok, Filenames} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dir = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Filenames = [<span class="bold_code"><a href="#type-filename">filename()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <br>    <span class="bold_code"><a href="#type-posix">posix()</a></span> |<br>    badarg |<br>    {no_translation, Filename :: <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','unicode.html#type-latin1_binary');">unicode:latin1_binary()</a></span>}</span></div>
+    <p><a name="list_dir-1"></a><span class="bold_code bc-1">list_dir(Dir) -&gt; {ok, Filenames} | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dir = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filenames = [<span class="bold_code bc-17"><a href="#type-filename">filename()</a></span>]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <br>    <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> |<br>    badarg |<br>    {no_translation, Filename :: <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','stdlib','unicode.html#type-latin1_binary');">unicode:latin1_binary()</a></span>}</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Lists all files in a directory, <strong>except</strong> files
 	with raw filenames. Returns
           <span class="code">{ok, Filenames}</span> if successful,
@@ -1204,13 +1227,13 @@ f.txt:  {person, "kalle", 25}.
           </dd>
         </dl>
       </p></div>
-    <p><a name="list_dir_all-1"></a><span class="bold_code">list_dir_all(Dir) -&gt; {ok, Filenames} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dir = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Filenames = [<span class="bold_code"><a href="#type-filename_all">filename_all()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg</span></div>
+    <p><a name="list_dir_all-1"></a><span class="bold_code bc-1">list_dir_all(Dir) -&gt; {ok, Filenames} | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dir = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filenames = [<span class="bold_code bc-17"><a href="#type-filename_all">filename_all()</a></span>]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p><a name="list_dir_all"></a>Lists all the files in a directory,
 	including files with raw filenames.
 	Returns <span class="code">{ok, Filenames}</span> if successful,
@@ -1231,12 +1254,12 @@ f.txt:  {person, "kalle", 25}.
           </dd>
         </dl>
       </p></div>
-    <p><a name="make_dir-1"></a><span class="bold_code">make_dir(Dir) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dir = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg</span></div>
+    <p><a name="make_dir-1"></a><span class="bold_code bc-1">make_dir(Dir) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dir = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Tries to create directory <span class="code">Dir</span>. Missing parent
           directories are <strong>not</strong> created. Returns <span class="code">ok</span> if
           successful.</p>
@@ -1266,13 +1289,13 @@ f.txt:  {person, "kalle", 25}.
           </dd>
         </dl>
       </p></div>
-    <p><a name="make_link-2"></a><span class="bold_code">make_link(Existing, New) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Existing = New = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg</span></div>
+    <p><a name="make_link-2"></a><span class="bold_code bc-1">make_link(Existing, New) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Existing = New = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Makes a hard link from <span class="code">Existing</span> to
           <span class="code">New</span> on
           platforms supporting links (Unix and Windows). This function returns
@@ -1297,13 +1320,13 @@ f.txt:  {person, "kalle", 25}.
           </dd>
         </dl>
       </p></div>
-    <p><a name="make_symlink-2"></a><span class="bold_code">make_symlink(Existing, New) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Existing = New = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg</span></div>
+    <p><a name="make_symlink-2"></a><span class="bold_code bc-1">make_symlink(Existing, New) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Existing = New = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Creates a symbolic link <span class="code">New</span> to
           the file or directory <span class="code">Existing</span> on platforms
           supporting symbolic links (most Unix systems and Windows, beginning with
@@ -1335,8 +1358,8 @@ f.txt:  {person, "kalle", 25}.
           </dd>
         </dl>
       </p></div>
-    <p><a name="native_name_encoding-0"></a><span class="bold_code">native_name_encoding() -&gt; latin1 | utf8</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="native_name_encoding-0"></a><span class="bold_code bc-1">native_name_encoding() -&gt; latin1 | utf8</span></p>
+<div class="REFBODY rb-7"><p>
 	<p><a name="native_name_encoding"></a>Returns
 	the filename encoding mode. If it is <span class="code">latin1</span>, the
 	system translates no filenames. If it is
@@ -1344,15 +1367,15 @@ f.txt:  {person, "kalle", 25}.
 	the native filename encoding (usually UTF-8, but UTF-16 on
 	Windows).</p>
       </p></div>
-    <p><a name="open-2"></a><span class="bold_code">open(File, Modes) -&gt; {ok, IoDevice} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">File = Filename | iodata()</span></div>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Modes = [<span class="bold_code"><a href="#type-mode">mode()</a></span> | ram]</span></div>
-<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-io_device">io_device()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg | system_limit</span></div>
+    <p><a name="open-2"></a><span class="bold_code bc-1">open(File, Modes) -&gt; {ok, IoDevice} | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">File = Filename | iodata()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Modes = [<span class="bold_code bc-17"><a href="#type-mode">mode()</a></span> | ram]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">IoDevice = <span class="bold_code bc-17"><a href="#type-io_device">io_device()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg | system_limit</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Opens file <span class="code">File</span> in the mode determined
           by <span class="code">Modes</span>, which can contain one or more of the
           following options:</p>
@@ -1398,9 +1421,9 @@ f.txt:  {person, "kalle", 25}.
               <li><p>The functions in the <span class="code">io</span> module cannot be used,
                as they can only talk to an Erlang process.
                Instead, use functions
-	       <span class="bold_code"><a href="#read-2"><span class="code">read/2</span></a></span>,
-	       <span class="bold_code"><a href="#read_line-1"><span class="code">read_line/1</span></a></span>, and
-	       <span class="bold_code"><a href="#write-2"><span class="code">write/2</span></a></span>.</p></li>
+	       <span class="bold_code bc-17"><a href="#read-2"><span class="code">read/2</span></a></span>,
+	       <span class="bold_code bc-17"><a href="#read_line-1"><span class="code">read_line/1</span></a></span>, and
+	       <span class="bold_code bc-17"><a href="#write-2"><span class="code">write/2</span></a></span>.</p></li>
 	      <li><p>Especially if <span class="code">read_line/1</span> is to be used on a <span class="code">raw</span>
 	      file, it is recommended to combine this option with option
 	      <span class="code">{read_ahead, Size}</span> as line-oriented I/O is inefficient
@@ -1477,7 +1500,7 @@ f.txt:  {person, "kalle", 25}.
               files. Option <span class="code">compressed</span> must be combined
 	      with <span class="code">read</span> or <span class="code">write</span>, but not both.
 	      Notice that the file size obtained with
-              <span class="bold_code"><a href="#read_file_info-1"><span class="code">read_file_info/1</span></a></span>
+              <span class="bold_code bc-17"><a href="#read_file_info-1"><span class="code">read_file_info/1</span></a></span>
 	      does probably not match the number of bytes that can be
 	      read from a compressed file.</p>
           </dd>
@@ -1486,9 +1509,9 @@ f.txt:  {person, "kalle", 25}.
             <p>Makes the file perform automatic translation of characters to
 	    and from a specific (Unicode) encoding. Notice that the data supplied
 	    to
-	    <span class="bold_code"><a href="#write-2"><span class="code">write/2</span></a></span>
+	    <span class="bold_code bc-17"><a href="#write-2"><span class="code">write/2</span></a></span>
 	    or returned by
-	    <span class="bold_code"><a href="#read-2"><span class="code">read/2</span></a></span>
+	    <span class="bold_code bc-17"><a href="#read-2"><span class="code">read/2</span></a></span>
 	    still is byte-oriented; this option
 	    denotes only how data is stored in the disk file.</p>
 	    <p>Depending on the encoding, different methods of reading and writing
@@ -1496,7 +1519,7 @@ f.txt:  {person, "kalle", 25}.
 	    this module (<span class="code">file</span>) for reading and writing data as the interfaces
 	    provided here work with byte-oriented data. Using other (Unicode)
 	    encodings makes the
-	    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html');"><span class="code">io(3)</span></a></span> functions
+	    <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html');"><span class="code">io(3)</span></a></span> functions
 	    <span class="code">get_chars</span>, <span class="code">get_line</span>, and <span class="code">put_chars</span> more suitable,
 	    as they can work with the full Unicode range.</p>
 	    <p>If data is sent to an <span class="code">io_device()</span> in a format that cannot be
@@ -1508,12 +1531,12 @@ f.txt:  {person, "kalle", 25}.
 	    <dt><strong><span class="code">latin1</span></strong></dt>
 	    <dd>
 	    <p>The default encoding. Bytes supplied to the file, that is,
-	    <span class="bold_code"><a href="#write-2"><span class="code">write/2</span></a></span>
+	    <span class="bold_code bc-17"><a href="#write-2"><span class="code">write/2</span></a></span>
 	    are written "as is" on the file. Likewise, bytes read from the file,
 	    that is,
-	    <span class="bold_code"><a href="#read-2"><span class="code">read/2</span></a></span> are
+	    <span class="bold_code bc-17"><a href="#read-2"><span class="code">read/2</span></a></span> are
 	    returned "as is". If module
-	    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html');"><span class="code">io(3)</span></a></span> is used for
+	    <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html');"><span class="code">io(3)</span></a></span> is used for
 	    writing, the file can only cope with Unicode characters up to code point
 	    255 (the ISO Latin-1 range).</p>
 	    </dd>
@@ -1522,12 +1545,12 @@ f.txt:  {person, "kalle", 25}.
 	    <p>Characters are translated to and from UTF-8 encoding before they are
 	    written to or read from the file. A file opened in this way can be
 	    readable using function
-	    <span class="bold_code"><a href="#read-2"><span class="code">read/2</span></a></span>,
+	    <span class="bold_code bc-17"><a href="#read-2"><span class="code">read/2</span></a></span>,
 	    as long as no data stored on
 	    the file lies beyond the ISO Latin-1 range (0..255), but failure occurs
 	    if the data contains Unicode code points beyond that range. The file is
 	    best read with the functions in the Unicode aware module
-	    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html');"><span class="code">io(3)</span></a></span>.</p>
+	    <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html');"><span class="code">io(3)</span></a></span>.</p>
 	    <p>Bytes written to the file by any means are translated to UTF-8 encoding
 	    before being stored on the disk file.</p>
 	    </dd>
@@ -1553,11 +1576,11 @@ f.txt:  {person, "kalle", 25}.
 	    </dd>
 	    </dl>
 	    <p>The Encoding can be changed for a file "on the fly" by using function
-	    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html#setopts-2');"><span class="code">io:setopts/2</span></a></span>.
+	    <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html#setopts-2');"><span class="code">io:setopts/2</span></a></span>.
 	    So a file can be analyzed in latin1 encoding for, for example, a BOM,
 	    positioned beyond the BOM and then be set for the right encoding before
 	    further reading. For functions identifying BOMs, see module
-	    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','unicode.html');"><span class="code">unicode(3)</span></a></span>. </p>
+	    <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','unicode.html');"><span class="code">unicode(3)</span></a></span>. </p>
 	    <p>This option is not allowed on <span class="code">raw</span> files.</p>
           </dd>
           <dt><strong><span class="code">ram</span></strong></dt>
@@ -1598,7 +1621,7 @@ f.txt:  {person, "kalle", 25}.
           closed and the process itself is terminated.
           An <span class="code">IoDevice</span> returned from this call can be used
           as an argument to the I/O functions (see
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html');"><span class="code">io(3)</span></a></span>).</p>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html');"><span class="code">io(3)</span></a></span>).</p>
         <div class="note">
 <div class="label">Note</div>
 <div class="content"><p>
@@ -1638,16 +1661,16 @@ f.txt:  {person, "kalle", 25}.
           </dd>
         </dl>
       </p></div>
-    <p><a name="path_consult-2"></a><span class="bold_code">path_consult(Path, Filename) -&gt;<br>                {ok, Terms, FullName} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Path = [Dir]</span></div>
-<div class="REFTYPES"><span class="bold_code">Dir = Filename = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Terms = [term()]</span></div>
-<div class="REFTYPES"><span class="bold_code">FullName = <span class="bold_code"><a href="#type-filename_all">filename_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <br>    <span class="bold_code"><a href="#type-posix">posix()</a></span> |<br>    badarg |<br>    terminated |<br>    system_limit |<br>    {Line :: integer(), Mod :: module(), Term :: term()}</span></div>
+    <p><a name="path_consult-2"></a><span class="bold_code bc-1">path_consult(Path, Filename) -&gt;<br>                {ok, Terms, FullName} | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Path = [Dir]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dir = Filename = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Terms = [term()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">FullName = <span class="bold_code bc-17"><a href="#type-filename_all">filename_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <br>    <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> |<br>    badarg |<br>    terminated |<br>    system_limit |<br>    {Line :: integer(), Mod :: module(), Term :: term()}</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Searches the path <span class="code">Path</span> (a list of directory
           names) until the file <span class="code">Filename</span> is found.
           If <span class="code">Filename</span>
@@ -1669,30 +1692,30 @@ f.txt:  {person, "kalle", 25}.
           <dd>
             <p>An error occurred when opening the file or reading it.
               For a list of typical error codes, see
-	    <span class="bold_code"><a href="#open-2"><span class="code">open/2</span></a></span>.</p>
+	    <span class="bold_code bc-17"><a href="#open-2"><span class="code">open/2</span></a></span>.</p>
           </dd>
           <dt><strong><span class="code">{error, {Line, Mod,
                            Term}}</span></strong></dt>
           <dd>
             <p>An error occurred when interpreting the Erlang terms in
               the file. Use
-	      <span class="bold_code"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>
+	      <span class="bold_code bc-17"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>
 	      to convert the three-element tuple to an English description of
               the error.</p>
           </dd>
         </dl>
         <p>The encoding of <span class="code">Filename</span> can be set
           by a comment as described in
-	  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','epp.html#encoding');"><span class="code">epp(3)</span></a></span>.</p>
+	  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','epp.html#encoding');"><span class="code">epp(3)</span></a></span>.</p>
       </p></div>
-    <p><a name="path_eval-2"></a><span class="bold_code">path_eval(Path, Filename) -&gt; {ok, FullName} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Path = [Dir :: <span class="bold_code"><a href="#type-name_all">name_all()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">FullName = <span class="bold_code"><a href="#type-filename_all">filename_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <br>    <span class="bold_code"><a href="#type-posix">posix()</a></span> |<br>    badarg |<br>    terminated |<br>    system_limit |<br>    {Line :: integer(), Mod :: module(), Term :: term()}</span></div>
+    <p><a name="path_eval-2"></a><span class="bold_code bc-1">path_eval(Path, Filename) -&gt; {ok, FullName} | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Path = [Dir :: <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span>]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">FullName = <span class="bold_code bc-17"><a href="#type-filename_all">filename_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <br>    <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> |<br>    badarg |<br>    terminated |<br>    system_limit |<br>    {Line :: integer(), Mod :: module(), Term :: term()}</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Searches the path <span class="code">Path</span> (a list of directory
           names) until the file <span class="code">Filename</span> is found.
           If <span class="code">Filename</span> is an absolute filename,
@@ -1718,32 +1741,32 @@ f.txt:  {person, "kalle", 25}.
           <dd>
             <p>An error occurred when opening the file or reading it.
               For a list of typical error codes, see
-	    <span class="bold_code"><a href="#open-2"><span class="code">open/2</span></a></span>.</p>
+	    <span class="bold_code bc-17"><a href="#open-2"><span class="code">open/2</span></a></span>.</p>
           </dd>
           <dt><strong><span class="code">{error, {Line, Mod,
                            Term}}</span></strong></dt>
           <dd>
             <p>An error occurred when interpreting the Erlang
               expressions in the file. Use
-	      <span class="bold_code"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>
+	      <span class="bold_code bc-17"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>
 	      to convert the three-element tuple to an English description
               of the error.</p>
           </dd>
         </dl>
         <p>The encoding of <span class="code">Filename</span> can be set
           by a comment as described in
-	  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','epp.html#encoding');"><span class="code">epp(3)</span></a></span>.</p>
+	  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','epp.html#encoding');"><span class="code">epp(3)</span></a></span>.</p>
       </p></div>
-    <p><a name="path_open-3"></a><span class="bold_code">path_open(Path, Filename, Modes) -&gt;<br>             {ok, IoDevice, FullName} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Path = [Dir :: <span class="bold_code"><a href="#type-name_all">name_all()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Modes = [<span class="bold_code"><a href="#type-mode">mode()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-io_device">io_device()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">FullName = <span class="bold_code"><a href="#type-filename_all">filename_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg | system_limit</span></div>
+    <p><a name="path_open-3"></a><span class="bold_code bc-1">path_open(Path, Filename, Modes) -&gt;<br>             {ok, IoDevice, FullName} | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Path = [Dir :: <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span>]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Modes = [<span class="bold_code bc-17"><a href="#type-mode">mode()</a></span>]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">IoDevice = <span class="bold_code bc-17"><a href="#type-io_device">io_device()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">FullName = <span class="bold_code bc-17"><a href="#type-filename_all">filename_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg | system_limit</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Searches the path <span class="code">Path</span> (a list of directory
           names) until the file <span class="code">Filename</span> is found.
           If <span class="code">Filename</span>
@@ -1768,15 +1791,15 @@ f.txt:  {person, "kalle", 25}.
           </dd>
         </dl>
       </p></div>
-    <p><a name="path_script-2"></a><span class="bold_code">path_script(Path, Filename) -&gt;<br>               {ok, Value, FullName} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Path = [Dir :: <span class="bold_code"><a href="#type-name_all">name_all()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Value = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">FullName = <span class="bold_code"><a href="#type-filename_all">filename_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <br>    <span class="bold_code"><a href="#type-posix">posix()</a></span> |<br>    badarg |<br>    terminated |<br>    system_limit |<br>    {Line :: integer(), Mod :: module(), Term :: term()}</span></div>
+    <p><a name="path_script-2"></a><span class="bold_code bc-1">path_script(Path, Filename) -&gt;<br>               {ok, Value, FullName} | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Path = [Dir :: <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span>]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Value = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">FullName = <span class="bold_code bc-17"><a href="#type-filename_all">filename_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <br>    <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> |<br>    badarg |<br>    terminated |<br>    system_limit |<br>    {Line :: integer(), Mod :: module(), Term :: term()}</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Searches the path <span class="code">Path</span> (a list of directory
           names) until the file <span class="code">Filename</span> is found.
           If <span class="code">Filename</span> is an absolute filename,
@@ -1800,43 +1823,43 @@ f.txt:  {person, "kalle", 25}.
           <dd>
             <p>An error occurred when opening the file or reading it.
               For a list of typical error codes, see
-	      <span class="bold_code"><a href="#open-2"><span class="code">open/2</span></a></span>.</p>
+	      <span class="bold_code bc-17"><a href="#open-2"><span class="code">open/2</span></a></span>.</p>
           </dd>
           <dt><strong><span class="code">{error, {Line, Mod,
                            Term}}</span></strong></dt>
           <dd>
             <p>An error occurred when interpreting the Erlang
               expressions in the file. Use
-	      <span class="bold_code"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>
+	      <span class="bold_code bc-17"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>
 	      to convert the three-element tuple to an English description
               of the error.</p>
           </dd>
         </dl>
         <p>The encoding of <span class="code">Filename</span> can be set
           by a comment as described in
-	  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','epp.html#encoding');"><span class="code">epp(3)</span></a></span>.</p>
+	  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','epp.html#encoding');"><span class="code">epp(3)</span></a></span>.</p>
    </p></div>
-    <p><a name="path_script-3"></a><span class="bold_code">path_script(Path, Filename, Bindings) -&gt;<br>               {ok, Value, FullName} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Path = [Dir :: <span class="bold_code"><a href="#type-name_all">name_all()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Bindings = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','erl_eval.html#type-binding_struct');">erl_eval:binding_struct()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Value = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">FullName = <span class="bold_code"><a href="#type-filename_all">filename_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <br>    <span class="bold_code"><a href="#type-posix">posix()</a></span> |<br>    badarg |<br>    terminated |<br>    system_limit |<br>    {Line :: integer(), Mod :: module(), Term :: term()}</span></div>
+    <p><a name="path_script-3"></a><span class="bold_code bc-1">path_script(Path, Filename, Bindings) -&gt;<br>               {ok, Value, FullName} | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Path = [Dir :: <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span>]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Bindings = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','stdlib','erl_eval.html#type-binding_struct');">erl_eval:binding_struct()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Value = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">FullName = <span class="bold_code bc-17"><a href="#type-filename_all">filename_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <br>    <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> |<br>    badarg |<br>    terminated |<br>    system_limit |<br>    {Line :: integer(), Mod :: module(), Term :: term()}</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>The same as <span class="code">path_script/2</span> but the variable bindings
           <span class="code">Bindings</span> are used in the evaluation. See
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','erl_eval.html');"><span class="code">erl_eval(3)</span></a></span> about
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','erl_eval.html');"><span class="code">erl_eval(3)</span></a></span> about
           variable bindings.</p>
       </p></div>
-    <p><a name="pid2name-1"></a><span class="bold_code">pid2name(Pid) -&gt; {ok, Filename} | undefined</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-filename_all">filename_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Pid = pid()</span></div>
+    <p><a name="pid2name-1"></a><span class="bold_code bc-1">pid2name(Pid) -&gt; {ok, Filename} | undefined</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-17"><a href="#type-filename_all">filename_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Pid = pid()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If <span class="code">Pid</span> is an I/O device, that is, a pid returned from
           <span class="code">open/2</span>, this function returns the filename, or rather:</p>
         <dl>
@@ -1860,14 +1883,14 @@ f.txt:  {person, "kalle", 25}.
         </p></div>
 </div>
       </p></div>
-    <p><a name="position-2"></a><span class="bold_code">position(IoDevice, Location) -&gt;<br>            {ok, NewPosition} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-io_device">io_device()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Location = <span class="bold_code"><a href="#type-location">location()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">NewPosition = integer()</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg | terminated</span></div>
+    <p><a name="position-2"></a><span class="bold_code bc-1">position(IoDevice, Location) -&gt;<br>            {ok, NewPosition} | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">IoDevice = <span class="bold_code bc-17"><a href="#type-io_device">io_device()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Location = <span class="bold_code bc-17"><a href="#type-location">location()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">NewPosition = integer()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg | terminated</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sets the position of the file referenced by <span class="code">IoDevice</span>
           to <span class="code">Location</span>. Returns <span class="code">{ok, NewPosition}</span>
 	  (as absolute offset) if successful, otherwise
@@ -1915,15 +1938,15 @@ f.txt:  {person, "kalle", 25}.
           </dd>
         </dl>
       </p></div>
-    <p><a name="pread-2"></a><span class="bold_code">pread(IoDevice, LocNums) -&gt; {ok, DataL} | eof | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-io_device">io_device()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">LocNums = <br>    [{Location :: <span class="bold_code"><a href="#type-location">location()</a></span>, Number :: integer() &gt;= 0}]</span></div>
-<div class="REFTYPES"><span class="bold_code">DataL = [Data]</span></div>
-<div class="REFTYPES"><span class="bold_code">Data = string() | binary() | eof</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg | terminated</span></div>
+    <p><a name="pread-2"></a><span class="bold_code bc-1">pread(IoDevice, LocNums) -&gt; {ok, DataL} | eof | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">IoDevice = <span class="bold_code bc-17"><a href="#type-io_device">io_device()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">LocNums = <br>    [{Location :: <span class="bold_code bc-17"><a href="#type-location">location()</a></span>, Number :: integer() &gt;= 0}]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">DataL = [Data]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Data = string() | binary() | eof</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg | terminated</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Performs a sequence of <span class="code">pread/3</span> in one operation, 
           which is more efficient than calling them one at a time.
           Returns <span class="code">{ok, [Data, ...]}</span> or
@@ -1937,15 +1960,15 @@ f.txt:  {person, "kalle", 25}.
 	  than <span class="code">latin1</span>, as not every byte position is a valid character
 	  boundary on such a file.</p>
       </p></div>
-    <p><a name="pread-3"></a><span class="bold_code">pread(IoDevice, Location, Number) -&gt;<br>         {ok, Data} | eof | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-io_device">io_device()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Location = <span class="bold_code"><a href="#type-location">location()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Number = integer() &gt;= 0</span></div>
-<div class="REFTYPES"><span class="bold_code">Data = string() | binary()</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg | terminated</span></div>
+    <p><a name="pread-3"></a><span class="bold_code bc-1">pread(IoDevice, Location, Number) -&gt;<br>         {ok, Data} | eof | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">IoDevice = <span class="bold_code bc-17"><a href="#type-io_device">io_device()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Location = <span class="bold_code bc-17"><a href="#type-location">location()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Number = integer() &gt;= 0</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Data = string() | binary()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg | terminated</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Combines <span class="code">position/2</span> and <span class="code">read/2</span> in one
           operation, which is more efficient than calling them one at a
           time. If <span class="code">IoDevice</span> is opened in <span class="code">raw</span> mode,
@@ -1962,14 +1985,14 @@ f.txt:  {person, "kalle", 25}.
 	  than <span class="code">latin1</span>, as not every byte position is a valid character
 	  boundary on such a file.</p>
         </p></div>
-    <p><a name="pwrite-2"></a><span class="bold_code">pwrite(IoDevice, LocBytes) -&gt; ok | {error, {N, Reason}}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-io_device">io_device()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">LocBytes = [{Location :: <span class="bold_code"><a href="#type-location">location()</a></span>, Bytes :: iodata()}]</span></div>
-<div class="REFTYPES"><span class="bold_code">N = integer() &gt;= 0</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg | terminated</span></div>
+    <p><a name="pwrite-2"></a><span class="bold_code bc-1">pwrite(IoDevice, LocBytes) -&gt; ok | {error, {N, Reason}}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">IoDevice = <span class="bold_code bc-17"><a href="#type-io_device">io_device()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">LocBytes = [{Location :: <span class="bold_code bc-17"><a href="#type-location">location()</a></span>, Bytes :: iodata()}]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">N = integer() &gt;= 0</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg | terminated</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Performs a sequence of <span class="code">pwrite/3</span> in one operation, 
           which is more efficient than calling them one at a time.
           Returns <span class="code">ok</span> or <span class="code">{error, {N,
@@ -1978,16 +2001,16 @@ f.txt:  {person, "kalle", 25}.
           before the failure.</p>
 	<p>When positioning in a file with other <span class="code">encoding</span> than <span class="code">latin1</span>,
 	caution must be taken to set the position on a correct character boundary.
-	For details, see <span class="bold_code"><a href="#position-2"><span class="code">position/2</span></a></span>.</p>
+	For details, see <span class="bold_code bc-17"><a href="#position-2"><span class="code">position/2</span></a></span>.</p>
       </p></div>
-    <p><a name="pwrite-3"></a><span class="bold_code">pwrite(IoDevice, Location, Bytes) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-io_device">io_device()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Location = <span class="bold_code"><a href="#type-location">location()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Bytes = iodata()</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg | terminated</span></div>
+    <p><a name="pwrite-3"></a><span class="bold_code bc-1">pwrite(IoDevice, Location, Bytes) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">IoDevice = <span class="bold_code bc-17"><a href="#type-io_device">io_device()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Location = <span class="bold_code bc-17"><a href="#type-location">location()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Bytes = iodata()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg | terminated</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Combines <span class="code">position/2</span> and <span class="code">write/2</span> in one
           operation, which is more efficient than calling them one at a
           time. If <span class="code">IoDevice</span> has been opened in <span class="code">raw</span> mode,
@@ -2001,21 +2024,21 @@ f.txt:  {person, "kalle", 25}.
 	  </ul>
 	<p>When positioning in a file with other <span class="code">encoding</span> than <span class="code">latin1</span>,
 	caution must be taken to set the position on a correct character boundary.
-	For details, see <span class="bold_code"><a href="#position-2"><span class="code">position/2</span></a></span>.</p>
+	For details, see <span class="bold_code bc-17"><a href="#position-2"><span class="code">position/2</span></a></span>.</p>
       </p></div>
-    <p><a name="read-2"></a><span class="bold_code">read(IoDevice, Number) -&gt; {ok, Data} | eof | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-io_device">io_device()</a></span> | atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Number = integer() &gt;= 0</span></div>
-<div class="REFTYPES"><span class="bold_code">Data = string() | binary()</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <br>    <span class="bold_code"><a href="#type-posix">posix()</a></span> |<br>    badarg |<br>    terminated |<br>    {no_translation, unicode, latin1}</span></div>
+    <p><a name="read-2"></a><span class="bold_code bc-1">read(IoDevice, Number) -&gt; {ok, Data} | eof | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">IoDevice = <span class="bold_code bc-17"><a href="#type-io_device">io_device()</a></span> | atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Number = integer() &gt;= 0</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Data = string() | binary()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <br>    <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> |<br>    badarg |<br>    terminated |<br>    {no_translation, unicode, latin1}</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Reads <span class="code">Number</span> bytes/characters from the file
           referenced by <span class="code">IoDevice</span>. The functions
-          <span class="bold_code"><a href="#read-2"><span class="code">read/2</span></a></span>,
-	  <span class="bold_code"><a href="#pread-3"><span class="code">pread/3</span></a></span>, and
-	  <span class="bold_code"><a href="#read_line-1"><span class="code">read_line/1</span></a></span>
+          <span class="bold_code bc-17"><a href="#read-2"><span class="code">read/2</span></a></span>,
+	  <span class="bold_code bc-17"><a href="#pread-3"><span class="code">pread/3</span></a></span>, and
+	  <span class="bold_code bc-17"><a href="#read_line-1"><span class="code">read_line/1</span></a></span>
 	  are the only ways to read from a file opened in <span class="code">raw</span> mode
 	  (although they work for normally opened files, too).</p>
 	  <p>For files where <span class="code">encoding</span> is set to something else than <span class="code">latin1</span>,
@@ -2025,7 +2048,7 @@ f.txt:  {person, "kalle", 25}.
 	  this number when reading a Unicode file.</p>
 	  <p>Also, if <span class="code">encoding</span> is set to something else than <span class="code">latin1</span>,
 	  the <span class="code">read/3</span> call fails if the data contains characters larger than 255,
-	  which is why module <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html');"><span class="code">io(3)</span></a></span>
+	  which is why module <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html');"><span class="code">io(3)</span></a></span>
 	  is to be preferred when reading such a file.</p>
 	  <p>The function returns:</p>
         <dl>
@@ -2060,13 +2083,13 @@ f.txt:  {person, "kalle", 25}.
           </dd>
         </dl>
       </p></div>
-    <p><a name="read_file-1"></a><span class="bold_code">read_file(Filename) -&gt; {ok, Binary} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Binary = binary()</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg | terminated | system_limit</span></div>
+    <p><a name="read_file-1"></a><span class="bold_code bc-1">read_file(Filename) -&gt; {ok, Binary} | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Binary = binary()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg | terminated | system_limit</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">{ok, Binary}</span>, where
           <span class="code">Binary</span> is a binary
           data object that contains the contents of
@@ -2098,14 +2121,14 @@ f.txt:  {person, "kalle", 25}.
           </dd>
         </dl>
       </p></div>
-    <p><a name="read_file_info-1"></a><span class="bold_code">read_file_info(Filename) -&gt; {ok, FileInfo} | {error, Reason}</span><br><a name="read_file_info-2"></a><span class="bold_code">read_file_info(Filename, Opts) -&gt; {ok, FileInfo} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Opts = [<span class="bold_code"><a href="#type-file_info_option">file_info_option()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">FileInfo = <span class="bold_code"><a href="#type-file_info">file_info()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg</span></div>
+    <p><a name="read_file_info-1"></a><span class="bold_code bc-1">read_file_info(Filename) -&gt; {ok, FileInfo} | {error, Reason}</span><a name="read_file_info-2"></a><span class="bold_code bc-1">read_file_info(Filename, Opts) -&gt; {ok, FileInfo} | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Opts = [<span class="bold_code bc-17"><a href="#type-file_info_option">file_info_option()</a></span>]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">FileInfo = <span class="bold_code bc-17"><a href="#type-file_info">file_info()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Retrieves information about a file. Returns
           <span class="code">{ok, FileInfo}</span> if successful, otherwise
           <span class="code">{error, Reason}</span>. <span class="code">FileInfo</span>
@@ -2153,19 +2176,19 @@ f.txt:  {person, "kalle", 25}.
             <p>The current system access to the file.</p>
           </dd>
           <dt><strong><span class="code">atime = </span>
-	  <span class="bold_code"><a href="#type-date_time"><span class="code">date_time()</span></a></span><span class="code"> |
+	  <span class="bold_code bc-17"><a href="#type-date_time"><span class="code">date_time()</span></a></span><span class="code"> |
 	  integer() &gt;= 0</span></strong></dt>
           <dd>
             <p>The last time the file was read.</p>
           </dd>
           <dt><strong><span class="code">mtime = </span>
-	  <span class="bold_code"><a href="#type-date_time"><span class="code">date_time()</span></a></span><span class="code"> |
+	  <span class="bold_code bc-17"><a href="#type-date_time"><span class="code">date_time()</span></a></span><span class="code"> |
 	  integer() &gt;= 0</span></strong></dt>
           <dd>
             <p>The last time the file was written.</p>
           </dd>
           <dt><strong><span class="code">ctime = </span>
-	  <span class="bold_code"><a href="#type-date_time"><span class="code">date_time()</span></a></span><span class="code"> |
+	  <span class="bold_code bc-17"><a href="#type-date_time"><span class="code">date_time()</span></a></span><span class="code"> |
 	  integer() &gt;=0</span></strong></dt>
           <dd>
             <p>The interpretation of this time field depends on
@@ -2254,13 +2277,13 @@ f.txt:  {person, "kalle", 25}.
           </dd>
         </dl>
       </p></div>
-    <p><a name="read_line-1"></a><span class="bold_code">read_line(IoDevice) -&gt; {ok, Data} | eof | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-io_device">io_device()</a></span> | atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Data = string() | binary()</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <br>    <span class="bold_code"><a href="#type-posix">posix()</a></span> |<br>    badarg |<br>    terminated |<br>    {no_translation, unicode, latin1}</span></div>
+    <p><a name="read_line-1"></a><span class="bold_code bc-1">read_line(IoDevice) -&gt; {ok, Data} | eof | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">IoDevice = <span class="bold_code bc-17"><a href="#type-io_device">io_device()</a></span> | atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Data = string() | binary()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <br>    <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> |<br>    badarg |<br>    terminated |<br>    {no_translation, unicode, latin1}</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Reads a line of bytes/characters from the file referenced by
           <span class="code">IoDevice</span>. Lines are defined to be delimited by the
 	  linefeed (LF, <span class="code">\n</span>) character, but any carriage return (CR, <span class="code">\r</span>)
@@ -2268,7 +2291,7 @@ f.txt:  {person, "kalle", 25}.
 	  return is silently ignored). The line is returned <strong>including</strong> the LF,
 	  but excluding any CR immediately followed by an LF. This behaviour is
 	  consistent with the behaviour of
-	  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html#get_line-2');"><span class="code">io:get_line/2</span></a></span>.
+	  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html#get_line-2');"><span class="code">io:get_line/2</span></a></span>.
 	  If end of file is reached without any LF ending the last line, a line with no
 	  trailing LF is returned.</p>
 	  <p>The function can be used on files opened in <span class="code">raw</span> mode. However, it is
@@ -2278,7 +2301,7 @@ f.txt:  {person, "kalle", 25}.
 	  raw line-oriented reading.</p>
 	  <p>If <span class="code">encoding</span> is set to something else than <span class="code">latin1</span>, the
 	  <span class="code">read_line/1</span> call fails if the data contains characters larger than 255,
-	  why module <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html');"><span class="code">io(3)</span></a></span> is to be
+	  why module <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html');"><span class="code">io(3)</span></a></span> is to be
 	  preferred when reading such a file.</p>
 	  <p>The function returns:</p>
         <dl>
@@ -2313,13 +2336,13 @@ f.txt:  {person, "kalle", 25}.
           </dd>
         </dl>
       </p></div>
-    <p><a name="read_link-1"></a><span class="bold_code">read_link(Name) -&gt; {ok, Filename} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-filename">filename()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg</span></div>
+    <p><a name="read_link-1"></a><span class="bold_code bc-1">read_link(Name) -&gt; {ok, Filename} | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-17"><a href="#type-filename">filename()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p><a name="read_link_all"></a>Returns
 	<span class="code">{ok, Filename}</span> if
           <span class="code">Name</span> refers to a symbolic link that is
@@ -2345,13 +2368,13 @@ f.txt:  {person, "kalle", 25}.
           </dd>
         </dl>
       </p></div>
-    <p><a name="read_link_all-1"></a><span class="bold_code">read_link_all(Name) -&gt; {ok, Filename} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-filename_all">filename_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg</span></div>
+    <p><a name="read_link_all-1"></a><span class="bold_code bc-1">read_link_all(Name) -&gt; {ok, Filename} | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-17"><a href="#type-filename_all">filename_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">{ok, Filename}</span> if
           <span class="code">Name</span> refers to a symbolic link or
           <span class="code">{error, Reason}</span> otherwise.
@@ -2375,16 +2398,16 @@ f.txt:  {person, "kalle", 25}.
           </dd>
         </dl>
       </p></div>
-    <p><a name="read_link_info-1"></a><span class="bold_code">read_link_info(Name) -&gt; {ok, FileInfo} | {error, Reason}</span><br><a name="read_link_info-2"></a><span class="bold_code">read_link_info(Name, Opts) -&gt; {ok, FileInfo} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Opts = [<span class="bold_code"><a href="#type-file_info_option">file_info_option()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">FileInfo = <span class="bold_code"><a href="#type-file_info">file_info()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg</span></div>
+    <p><a name="read_link_info-1"></a><span class="bold_code bc-1">read_link_info(Name) -&gt; {ok, FileInfo} | {error, Reason}</span><a name="read_link_info-2"></a><span class="bold_code bc-1">read_link_info(Name, Opts) -&gt; {ok, FileInfo} | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Opts = [<span class="bold_code bc-17"><a href="#type-file_info_option">file_info_option()</a></span>]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">FileInfo = <span class="bold_code bc-17"><a href="#type-file_info">file_info()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 	<p>Works like
-	<span class="bold_code"><a href="#read_file_info-2"><span class="code">read_file_info/1,2</span></a></span>
+	<span class="bold_code bc-17"><a href="#read_file_info-2"><span class="code">read_file_info/1,2</span></a></span>
 	except that if <span class="code">Name</span> is a symbolic link, information
 	about the link is returned in the <span class="code">file_info</span> record and
           the <span class="code">type</span> field of the record is set to <span class="code">symlink</span>.</p>
@@ -2395,13 +2418,13 @@ f.txt:  {person, "kalle", 25}.
           On platforms that do not support symbolic links, this function
           is always equivalent to <span class="code">read_file_info/1</span>.</p>
       </p></div>
-    <p><a name="rename-2"></a><span class="bold_code">rename(Source, Destination) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Source = Destination = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg</span></div>
+    <p><a name="rename-2"></a><span class="bold_code bc-1">rename(Source, Destination) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Source = Destination = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Tries to rename the file <span class="code">Source</span> to
           <span class="code">Destination</span>.
           It can be used to move files (and directories) between
@@ -2463,13 +2486,13 @@ f.txt:  {person, "kalle", 25}.
           </dd>
         </dl>
       </p></div>
-    <p><a name="script-1"></a><span class="bold_code">script(Filename) -&gt; {ok, Value} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Value = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <br>    <span class="bold_code"><a href="#type-posix">posix()</a></span> |<br>    badarg |<br>    terminated |<br>    system_limit |<br>    {Line :: integer(), Mod :: module(), Term :: term()}</span></div>
+    <p><a name="script-1"></a><span class="bold_code bc-1">script(Filename) -&gt; {ok, Value} | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Value = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <br>    <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> |<br>    badarg |<br>    terminated |<br>    system_limit |<br>    {Line :: integer(), Mod :: module(), Term :: term()}</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Reads and evaluates Erlang expressions, separated by '.' (or
           ',', a sequence of expressions is also an expression), from
           the file.</p>
@@ -2484,57 +2507,57 @@ f.txt:  {person, "kalle", 25}.
           <dd>
             <p>An error occurred when opening the file or reading it.
               For a list of typical error codes, see
-	    <span class="bold_code"><a href="#open-2"><span class="code">open/2</span></a></span>.</p>
+	    <span class="bold_code bc-17"><a href="#open-2"><span class="code">open/2</span></a></span>.</p>
           </dd>
           <dt><strong><span class="code">{error, {Line, Mod,
                            Term}}</span></strong></dt>
           <dd>
             <p>An error occurred when interpreting the Erlang
               expressions in the file. Use
-	      <span class="bold_code"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>
+	      <span class="bold_code bc-17"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>
 	      to convert the three-element tuple to an English description
               of the error.</p>
           </dd>
         </dl>
         <p>The encoding of <span class="code">Filename</span> can be set
           by a comment as described in
-	  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','epp.html#encoding');"><span class="code">epp(3)</span></a></span>.</p>
+	  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','epp.html#encoding');"><span class="code">epp(3)</span></a></span>.</p>
       </p></div>
-    <p><a name="script-2"></a><span class="bold_code">script(Filename, Bindings) -&gt; {ok, Value} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Bindings = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','erl_eval.html#type-binding_struct');">erl_eval:binding_struct()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Value = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <br>    <span class="bold_code"><a href="#type-posix">posix()</a></span> |<br>    badarg |<br>    terminated |<br>    system_limit |<br>    {Line :: integer(), Mod :: module(), Term :: term()}</span></div>
+    <p><a name="script-2"></a><span class="bold_code bc-1">script(Filename, Bindings) -&gt; {ok, Value} | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Bindings = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','stdlib','erl_eval.html#type-binding_struct');">erl_eval:binding_struct()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Value = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <br>    <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> |<br>    badarg |<br>    terminated |<br>    system_limit |<br>    {Line :: integer(), Mod :: module(), Term :: term()}</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>The same as <span class="code">script/1</span> but the variable bindings
           <span class="code">Bindings</span> are used in the evaluation. See
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','erl_eval.html');"><span class="code">erl_eval(3)</span></a></span> about
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','erl_eval.html');"><span class="code">erl_eval(3)</span></a></span> about
           variable bindings.</p>
       </p></div>
-    <p><a name="sendfile-2"></a><span class="bold_code">sendfile(Filename, Socket) -&gt;<br>            {ok, integer() &gt;= 0} |<br>            {error, <span class="bold_code"><a href="inet.html#type-posix">inet:posix()</a></span> | closed | badarg | not_owner}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="inet.html#type-socket">inet:socket()</a></span></span></div>
+    <p><a name="sendfile-2"></a><span class="bold_code bc-1">sendfile(Filename, Socket) -&gt;<br>            {ok, integer() &gt;= 0} |<br>            {error, <span class="bold_code bc-15"><a href="inet.html#type-posix">inet:posix()</a></span> | closed | badarg | not_owner}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Socket = <span class="bold_code bc-15"><a href="inet.html#type-socket">inet:socket()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sends the file <span class="code">Filename</span> to <span class="code">Socket</span>.
         Returns <span class="code">{ok, BytesSent}</span> if successful,
         otherwise <span class="code">{error, Reason}</span>.</p>
       </p></div>
-    <p><a name="sendfile-5"></a><span class="bold_code">sendfile(RawFile, Socket, Offset, Bytes, Opts) -&gt;<br>            {ok, integer() &gt;= 0} |<br>            {error, <span class="bold_code"><a href="inet.html#type-posix">inet:posix()</a></span> | closed | badarg | not_owner}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">RawFile = <span class="bold_code"><a href="#type-fd">fd()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Socket = <span class="bold_code"><a href="inet.html#type-socket">inet:socket()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Offset = Bytes = integer() &gt;= 0</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Opts = [sendfile_option()]</span></div>
-<div class="REFTYPES">
-      <span class="bold_code">sendfile_option() = <br>    {chunk_size, integer() &gt;= 0} | {use_threads, boolean()}</span><br>
+    <p><a name="sendfile-5"></a><span class="bold_code bc-1">sendfile(RawFile, Socket, Offset, Bytes, Opts) -&gt;<br>            {ok, integer() &gt;= 0} |<br>            {error, <span class="bold_code bc-15"><a href="inet.html#type-posix">inet:posix()</a></span> | closed | badarg | not_owner}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">RawFile = <span class="bold_code bc-17"><a href="#type-fd">fd()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Socket = <span class="bold_code bc-15"><a href="inet.html#type-socket">inet:socket()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Offset = Bytes = integer() &gt;= 0</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Opts = [sendfile_option()]</span></div>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">sendfile_option() = <br>    {chunk_size, integer() &gt;= 0} | {use_threads, boolean()}</span><br>
 </div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sends <span class="code">Bytes</span> from the file
         referenced by <span class="code">RawFile</span> beginning at <span class="code">Offset</span> to
         <span class="code">Socket</span>.
@@ -2543,11 +2566,11 @@ f.txt:  {person, "kalle", 25}.
 	<span class="code">0</span> all data after the specified <span class="code">Offset</span> is sent.</p>
 	<p>The file used must be opened using the <span class="code">raw</span> flag, and the process
 	calling <span class="code">sendfile</span> must be the controlling process of the socket.
-	See <span class="bold_code"><a href="gen_tcp.html#controlling_process-2"><span class="code">gen_tcp:controlling_process/2</span></a></span>.</p>
+	See <span class="bold_code bc-15"><a href="gen_tcp.html#controlling_process-2"><span class="code">gen_tcp:controlling_process/2</span></a></span>.</p>
 	<p>If the OS used does not support <span class="code">sendfile</span>, an Erlang fallback
 	using
-	<span class="bold_code"><a href="#read-2"><span class="code">read/2</span></a></span> and
-	<span class="bold_code"><a href="gen_tcp.html#send-2"><span class="code">gen_tcp:send/2</span></a></span> is used.</p>
+	<span class="bold_code bc-17"><a href="#read-2"><span class="code">read/2</span></a></span> and
+	<span class="bold_code bc-15"><a href="gen_tcp.html#send-2"><span class="code">gen_tcp:send/2</span></a></span> is used.</p>
 	<p>The option list can contain the following options:</p>
 	<dl>
           <dt><strong><span class="code">chunk_size</span></strong></dt>
@@ -2564,19 +2587,19 @@ f.txt:  {person, "kalle", 25}.
 	  Introduced in Erlang/OTP 17.0. Default is <span class="code">false</span>.</p></dd>
 	</dl>
       </p></div>
-    <p><a name="set_cwd-1"></a><span class="bold_code">set_cwd(Dir) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dir = <span class="bold_code"><a href="#type-name">name()</a></span> | EncodedBinary</span></div>
-<div class="REFTYPES"><span class="bold_code">EncodedBinary = binary()</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg | no_translation</span></div>
+    <p><a name="set_cwd-1"></a><span class="bold_code bc-1">set_cwd(Dir) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dir = <span class="bold_code bc-17"><a href="#type-name">name()</a></span> | EncodedBinary</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">EncodedBinary = binary()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg | no_translation</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sets the current working directory of the file server to
           <span class="code">Dir</span>. Returns <span class="code">ok</span> if successful.</p>
         <p>The functions in the module <span class="code">file</span> usually treat binaries
           as raw filenames, that is, they are passed "as is" even when the
 	  encoding of the binary does not agree with
-	  <span class="bold_code"><a href="#native_name_encoding"><span class="code">native_name_encoding()</span></a></span>.
+	  <span class="bold_code bc-17"><a href="#native_name_encoding"><span class="code">native_name_encoding()</span></a></span>.
           However, this function expects binaries to be encoded according to the
           value returned by <span class="code">native_name_encoding()</span>.</p>
         <p>Typical error reasons are:</p>
@@ -2616,12 +2639,12 @@ f.txt:  {person, "kalle", 25}.
         </p></div>
 </div>
       </p></div>
-    <p><a name="sync-1"></a><span class="bold_code">sync(IoDevice) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-io_device">io_device()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg | terminated</span></div>
+    <p><a name="sync-1"></a><span class="bold_code bc-1">sync(IoDevice) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">IoDevice = <span class="bold_code bc-17"><a href="#type-io_device">io_device()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg | terminated</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Ensures that any buffers kept by the operating system
           (not by the Erlang runtime system) are written to disk. On
           some platforms, this function might have no effect.</p>
@@ -2633,23 +2656,23 @@ f.txt:  {person, "kalle", 25}.
           </dd>
         </dl>
       </p></div>
-    <p><a name="truncate-1"></a><span class="bold_code">truncate(IoDevice) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-io_device">io_device()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg | terminated</span></div>
+    <p><a name="truncate-1"></a><span class="bold_code bc-1">truncate(IoDevice) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">IoDevice = <span class="bold_code bc-17"><a href="#type-io_device">io_device()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg | terminated</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Truncates the file referenced by <span class="code">IoDevice</span> at
           the current position. Returns <span class="code">ok</span> if successful,
           otherwise <span class="code">{error, Reason}</span>.</p>
       </p></div>
-    <p><a name="write-2"></a><span class="bold_code">write(IoDevice, Bytes) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">IoDevice = <span class="bold_code"><a href="#type-io_device">io_device()</a></span> | atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Bytes = iodata()</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg | terminated</span></div>
+    <p><a name="write-2"></a><span class="bold_code bc-1">write(IoDevice, Bytes) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">IoDevice = <span class="bold_code bc-17"><a href="#type-io_device">io_device()</a></span> | atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Bytes = iodata()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg | terminated</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Writes <span class="code">Bytes</span> to the file referenced by
           <span class="code">IoDevice</span>. This function is the only way to write to a
           file opened in <span class="code">raw</span> mode (although it works for normally opened
@@ -2671,13 +2694,13 @@ f.txt:  {person, "kalle", 25}.
           </dd>
         </dl>
       </p></div>
-    <p><a name="write_file-2"></a><span class="bold_code">write_file(Filename, Bytes) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Bytes = iodata()</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg | terminated | system_limit</span></div>
+    <p><a name="write_file-2"></a><span class="bold_code bc-1">write_file(Filename, Bytes) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Bytes = iodata()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg | terminated | system_limit</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Writes the contents of the <span class="code">iodata</span> term <span class="code">Bytes</span>
           to file <span class="code">Filename</span>.
           The file is created if it does not exist.
@@ -2710,28 +2733,28 @@ f.txt:  {person, "kalle", 25}.
           </dd>
         </dl>
       </p></div>
-    <p><a name="write_file-3"></a><span class="bold_code">write_file(Filename, Bytes, Modes) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Bytes = iodata()</span></div>
-<div class="REFTYPES"><span class="bold_code">Modes = [<span class="bold_code"><a href="#type-mode">mode()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg | terminated | system_limit</span></div>
+    <p><a name="write_file-3"></a><span class="bold_code bc-1">write_file(Filename, Bytes, Modes) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Bytes = iodata()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Modes = [<span class="bold_code bc-17"><a href="#type-mode">mode()</a></span>]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg | terminated | system_limit</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Same as <span class="code">write_file/2</span>, but takes a third argument
           <span class="code">Modes</span>, a list of possible modes, see
-          <span class="bold_code"><a href="#open-2"><span class="code">open/2</span></a></span>. The mode flags
+          <span class="bold_code bc-17"><a href="#open-2"><span class="code">open/2</span></a></span>. The mode flags
           <span class="code">binary</span> and <span class="code">write</span> are implicit, so they are
           not to be used.</p>
       </p></div>
-    <p><a name="write_file_info-2"></a><span class="bold_code">write_file_info(Filename, FileInfo) -&gt; ok | {error, Reason}</span><br><a name="write_file_info-3"></a><span class="bold_code">write_file_info(Filename, FileInfo, Opts) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="#type-name_all">name_all()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Opts = [<span class="bold_code"><a href="#type-file_info_option">file_info_option()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">FileInfo = <span class="bold_code"><a href="#type-file_info">file_info()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = <span class="bold_code"><a href="#type-posix">posix()</a></span> | badarg</span></div>
+    <p><a name="write_file_info-2"></a><span class="bold_code bc-1">write_file_info(Filename, FileInfo) -&gt; ok | {error, Reason}</span><a name="write_file_info-3"></a><span class="bold_code bc-1">write_file_info(Filename, FileInfo, Opts) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-17"><a href="#type-name_all">name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Opts = [<span class="bold_code bc-17"><a href="#type-file_info_option">file_info_option()</a></span>]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">FileInfo = <span class="bold_code bc-17"><a href="#type-file_info">file_info()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = <span class="bold_code bc-17"><a href="#type-posix">posix()</a></span> | badarg</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Changes file information. Returns <span class="code">ok</span> if successful,
           otherwise <span class="code">{error, Reason}</span>.
           <span class="code">FileInfo</span> is a record
@@ -2759,19 +2782,19 @@ f.txt:  {person, "kalle", 25}.
           specified:</p>
         <dl>
           <dt><strong><span class="code">atime = </span>
-	  <span class="bold_code"><a href="#type-date_time"><span class="code">date_time()</span></a></span><span class="code"> |
+	  <span class="bold_code bc-17"><a href="#type-date_time"><span class="code">date_time()</span></a></span><span class="code"> |
 	  integer() &gt;= 0</span></strong></dt>
           <dd>
             <p>The last time the file was read.</p>
           </dd>
           <dt><strong><span class="code">mtime = </span>
-	  <span class="bold_code"><a href="#type-date_time"><span class="code">date_time()</span></a></span><span class="code"> |
+	  <span class="bold_code bc-17"><a href="#type-date_time"><span class="code">date_time()</span></a></span><span class="code"> |
 	  integer() &gt;= 0</span></strong></dt>
           <dd>
             <p>The last time the file was written.</p>
           </dd>
           <dt><strong><span class="code">ctime = </span>
-	  <span class="bold_code"><a href="#type-date_time"><span class="code">date_time()</span></a></span><span class="code"> |
+	  <span class="bold_code bc-17"><a href="#type-date_time"><span class="code">date_time()</span></a></span><span class="code"> |
 	  integer() &gt;= 0</span></strong></dt>
           <dd>
             <p>On Unix, any value specified for this field is ignored
@@ -2839,10 +2862,10 @@ f.txt:  {person, "kalle", 25}.
           </dd>
         </dl>
       </p></div>
-  
+  </div>
 
-  <h3><a name="idm46525670793552">POSIX Error Codes</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45317251578464">POSIX Error Codes</a></h3>
+<div class="REFBODY rb-3">
     
     <ul>
       <li>
@@ -2912,8 +2935,8 @@ f.txt:  {person, "kalle", 25}.
     </ul>
   </div>
 
-  <h3><a name="idm46525670768192">Performance</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45317251553104">Performance</a></h3>
+<div class="REFBODY rb-3">
     
     <p>Some operating system file operations, for example, a
       <span class="code">sync/1</span> or <span class="code">close/1</span> on a huge file, can block their
@@ -2948,7 +2971,7 @@ f.txt:  {person, "kalle", 25}.
 </div>
     <p>A normal file is really a process so it can be used as an I/O
       device (see
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html');"><span class="code">io</span></a></span>).
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html');"><span class="code">io</span></a></span>).
       Therefore, when data is written to a
       normal file, the sending of the data to the file process, copies 
       all data that are not binaries. Opening the file in binary mode
@@ -2974,7 +2997,7 @@ create_file_slow(FD, M, N) -&gt;
 
     <p>The following, functionally equivalent, function collects 1024
       entries into a list of 128 32-byte binaries before each call to
-      <span class="bold_code"><a href="#write-2"><span class="code">write/2</span></a></span> and so
+      <span class="bold_code bc-17"><a href="#write-2"><span class="code">write/2</span></a></span> and so
       does the same work in 0.52 seconds,
       which is 44 times faster:</p>
     <div class="example"><pre>
@@ -3040,7 +3063,7 @@ create_file(FD, M, N0, R) -&gt;
       the whole operation, and the list iteration is done in the file
       driver.</p>
     <p>The options <span class="code">delayed_write</span> and <span class="code">read_ahead</span> to 
-      <span class="bold_code"><a href="#open-2"><span class="code">open/2</span></a></span>
+      <span class="bold_code bc-17"><a href="#open-2"><span class="code">open/2</span></a></span>
       make the file driver cache data to reduce
       the number of operating system calls. The function
       <span class="code">create_file/2</span> in the recent example takes 60 seconds
@@ -3056,7 +3079,7 @@ create_file(FD, M, N0, R) -&gt;
 <div class="label">Warning</div>
 <div class="content"><p>
 	<p>If an error occurs when accessing an open file with module
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html');"><span class="code">io</span></a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html');"><span class="code">io</span></a></span>,
       the process handling the file exits. The dead
       file process can hang if a process tries to access it later.
       This will be fixed in a future release.</p>
@@ -3064,10 +3087,10 @@ create_file(FD, M, N0, R) -&gt;
 </div>
   </div>
 
-  <h3><a name="idm46525670739984">See Also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45317251524896">See Also</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','filename.html');"><span class="code">filename(3)</span></a></span></p>
+    <p><span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','filename.html');"><span class="code">filename(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

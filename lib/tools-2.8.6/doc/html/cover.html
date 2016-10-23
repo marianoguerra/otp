@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Tools</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 2.8.6</p>
@@ -314,11 +314,11 @@
 <!-- refpage --><center><h1>cover</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">cover</div>
+<div class="REFBODY module-body">cover</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">A Coverage Analysis Tool for Erlang</div>
+<div class="REFBODY module-summary-body">A Coverage Analysis Tool for Erlang</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>The module <span class="code">cover</span> provides a set of functions for coverage
       analysis of Erlang programs, counting how many times each
       <strong>executable line</strong> of code is executed when a program is run.      <br>
@@ -400,60 +400,61 @@
       included in the analysis.</p>
   </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="start-0"></a><span class="bold_code">start() -&gt; {ok,Pid} | {error,Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Pid = pid()</span><br>
+<div class="exports-body">
+    <p><a name="start-0"></a><span class="bold_code bc-9">start() -&gt; {ok,Pid} | {error,Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Pid = pid()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = {already_started,Pid}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = {already_started,Pid}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Starts the Cover server which owns the Cover internal database.
           This function is called automatically by the other functions in
           the module.</p>
       </p></div>
-    <p><a name="start-1"></a><span class="bold_code">start(Nodes) -&gt; {ok,StartedNodes} | {error,not_main_node}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Nodes = StartedNodes = [atom()]</span><br>
+    <p><a name="start-1"></a><span class="bold_code bc-9">start(Nodes) -&gt; {ok,StartedNodes} | {error,not_main_node}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Nodes = StartedNodes = [atom()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Starts a Cover server on the each of given nodes, and loads
           all cover compiled modules.</p>
       </p></div>
-    <p><a name="compile-1"></a><span class="bold_code">compile(ModFiles) -&gt; Result | [Result]</span><br><a name="compile-2"></a><span class="bold_code">compile(ModFiles, Options) -&gt; Result | [Result]</span><br><a name="compile_module-1"></a><span class="bold_code">compile_module(ModFiles) -&gt; Result | [Result]</span><br><a name="compile_module-2"></a><span class="bold_code">compile_module(ModFiles, Options) -&gt; Result | [Result]</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-	<div class="REFTYPES">
-<span class="bold_code">ModFiles = ModFile | [ModFile]</span><br>
+    <p><a name="compile-1"></a><span class="bold_code bc-9">compile(ModFiles) -&gt; Result | [Result]</span><br><a name="compile-2"></a><span class="bold_code bc-9">compile(ModFiles, Options) -&gt; Result | [Result]</span><br><a name="compile_module-1"></a><span class="bold_code bc-9">compile_module(ModFiles) -&gt; Result | [Result]</span><br><a name="compile_module-2"></a><span class="bold_code bc-9">compile_module(ModFiles, Options) -&gt; Result | [Result]</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ModFiles = ModFile | [ModFile]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ModFile = Module | File</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ModFile = Module | File</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Module = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Module = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> File = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> File = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Options = [Option]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Options = [Option]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Option = {i,Dir} | {d,Macro} | {d,Macro,Value} | export_all</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Option = {i,Dir} | {d,Macro} | {d,Macro,Value} | export_all</span><br>
 </div>
-        <div class="REFBODY">See <span class="code">compile:file/2.</span>
+        <div class="REFBODY rb-6">See <span class="code">compile:file/2.</span>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Result = {ok,Module} | {error,File} | {error,not_main_node}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Result = {ok,Module} | {error,File} | {error,not_main_node}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Compiles a module for Cover analysis. The module is given by its
           module name <span class="code">Module</span> or by its file name <span class="code">File</span>.
           The <span class="code">.erl</span> extension may be omitted. If the module is
@@ -473,27 +474,27 @@
           the compilation, meaning any previously collected coverage data
           for the module will be lost.</p>
       </p></div>
-    <p><a name="compile_directory-0"></a><span class="bold_code">compile_directory() -&gt; [Result] | {error,Reason}</span><br><a name="compile_directory-1"></a><span class="bold_code">compile_directory(Dir) -&gt; [Result] | {error,Reason}</span><br><a name="compile_directory-2"></a><span class="bold_code">compile_directory(Dir, Options) -&gt; [Result] | {error,Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Dir = string()</span><br>
+    <p><a name="compile_directory-0"></a><span class="bold_code bc-9">compile_directory() -&gt; [Result] | {error,Reason}</span><br><a name="compile_directory-1"></a><span class="bold_code bc-9">compile_directory(Dir) -&gt; [Result] | {error,Reason}</span><br><a name="compile_directory-2"></a><span class="bold_code bc-9">compile_directory(Dir, Options) -&gt; [Result] | {error,Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Dir = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Options = [Option]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Options = [Option]</span><br>
 </div>
-        <div class="REFBODY">See <span class="code">compile_module/1,2</span>
+        <div class="REFBODY rb-6">See <span class="code">compile_module/1,2</span>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Result = {ok,Module} | {error,File} | {error,not_main_node}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Result = {ok,Module} | {error,File} | {error,not_main_node}</span><br>
 </div>
-        <div class="REFBODY">See <span class="code">compile_module/1,2</span>
+        <div class="REFBODY rb-6">See <span class="code">compile_module/1,2</span>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = eacces | enoent</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = eacces | enoent</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Compiles all modules (<span class="code">.erl</span> files) in a directory
           <span class="code">Dir</span> for Cover analysis the same way as
           <span class="code">compile_module/1,2</span> and returns a list with the return
@@ -502,29 +503,29 @@
         <p>The function returns <span class="code">{error,eacces}</span> if the directory is not
           readable or <span class="code">{error,enoent}</span> if the directory does not exist.</p>
       </p></div>
-    <p><a name="compile_beam-1"></a><span class="bold_code">compile_beam(ModFiles) -&gt; Result | [Result]</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-	<div class="REFTYPES">
-<span class="bold_code">ModFiles = ModFile | [ModFile]</span><br>
+    <p><a name="compile_beam-1"></a><span class="bold_code bc-9">compile_beam(ModFiles) -&gt; Result | [Result]</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ModFiles = ModFile | [ModFile]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ModFile = Module | BeamFile</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ModFile = Module | BeamFile</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Module = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Module = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> BeamFile = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> BeamFile = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Result = {ok,Module} | {error,BeamFile} | {error,Reason}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Result = {ok,Module} | {error,BeamFile} | {error,Reason}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Reason = non_existing | {no_abstract_code,BeamFile} | {encrypted_abstract_code,BeamFile} | {already_cover_compiled,no_beam_found,Module} | not_main_node</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Reason = non_existing | {no_abstract_code,BeamFile} | {encrypted_abstract_code,BeamFile} | {already_cover_compiled,no_beam_found,Module} | not_main_node</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Does the same as <span class="code">compile/1,2</span>, but uses an existing
           <span class="code">.beam</span> file as base, i.e. the module is not compiled
           from source. Thus <span class="code">compile_beam/1</span> is faster than
@@ -554,20 +555,20 @@
 	  of <span class="code">Result</span> will be returned. The order of the returned
 	  list is undefined.</p>
       </p></div>
-    <p><a name="compile_beam_directory-0"></a><span class="bold_code">compile_beam_directory() -&gt; [Result] | {error,Reason}</span><br><a name="compile_beam_directory-1"></a><span class="bold_code">compile_beam_directory(Dir) -&gt; [Result] | {error,Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Dir = string()</span><br>
+    <p><a name="compile_beam_directory-0"></a><span class="bold_code bc-9">compile_beam_directory() -&gt; [Result] | {error,Reason}</span><br><a name="compile_beam_directory-1"></a><span class="bold_code bc-9">compile_beam_directory(Dir) -&gt; [Result] | {error,Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Dir = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Result = See compile_beam/1</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Result = See compile_beam/1</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = eacces | enoent</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = eacces | enoent</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Compiles all modules (<span class="code">.beam</span> files) in a directory
           <span class="code">Dir</span> for Cover analysis the same way as
           <span class="code">compile_beam/1</span> and returns a list with the return
@@ -576,59 +577,59 @@
         <p>The function returns <span class="code">{error,eacces}</span> if the directory is not
           readable or <span class="code">{error,enoent}</span> if the directory does not exist.</p>
       </p></div>
-    <p><a name="analyse-0"></a><span class="bold_code">analyse() -&gt; {result,Ok,Fail} | {error,not_main_node}</span><br><a name="analyse-1"></a><span class="bold_code">analyse(Modules) -&gt; OneResult | {result,Ok,Fail} | {error,not_main_node}</span><br><a name="analyse-1"></a><span class="bold_code">analyse(Analysis) -&gt; {result,Ok,Fail} | {error,not_main_node}</span><br><a name="analyse-1"></a><span class="bold_code">analyse(Level) -&gt; {result,Ok,Fail} | {error,not_main_node}</span><br><a name="analyse-2"></a><span class="bold_code">analyse(Modules, Analysis) -&gt; OneResult | {result,Ok,Fail} | {error,not_main_node}</span><br><a name="analyse-2"></a><span class="bold_code">analyse(Modules, Level) -&gt; OneResult | {result,Ok,Fail} | {error,not_main_node}</span><br><a name="analyse-2"></a><span class="bold_code">analyse(Analysis, Level) -&gt; {result,Ok,Fail} | {error,not_main_node}</span><br><a name="analyse-3"></a><span class="bold_code">analyse(Modules, Analysis, Level) -&gt; OneResult | {result,Ok,Fail} | {error,not_main_node}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-	<div class="REFTYPES">
-<span class="bold_code">Modules = Module | [Module]</span><br>
+    <p><a name="analyse-0"></a><span class="bold_code bc-9">analyse() -&gt; {result,Ok,Fail} | {error,not_main_node}</span><br><a name="analyse-1"></a><span class="bold_code bc-9">analyse(Modules) -&gt; OneResult | {result,Ok,Fail} | {error,not_main_node}</span><br><a name="analyse-1"></a><span class="bold_code bc-9">analyse(Analysis) -&gt; {result,Ok,Fail} | {error,not_main_node}</span><br><a name="analyse-1"></a><span class="bold_code bc-9">analyse(Level) -&gt; {result,Ok,Fail} | {error,not_main_node}</span><br><a name="analyse-2"></a><span class="bold_code bc-9">analyse(Modules, Analysis) -&gt; OneResult | {result,Ok,Fail} | {error,not_main_node}</span><br><a name="analyse-2"></a><span class="bold_code bc-9">analyse(Modules, Level) -&gt; OneResult | {result,Ok,Fail} | {error,not_main_node}</span><br><a name="analyse-2"></a><span class="bold_code bc-9">analyse(Analysis, Level) -&gt; {result,Ok,Fail} | {error,not_main_node}</span><br><a name="analyse-3"></a><span class="bold_code bc-9">analyse(Modules, Analysis, Level) -&gt; OneResult | {result,Ok,Fail} | {error,not_main_node}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Modules = Module | [Module]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Module = atom() </span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Module = atom() </span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Analysis = coverage | calls</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Analysis = coverage | calls</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Level = line | clause | function | module</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Level = line | clause | function | module</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">OneResult = {ok,{Module,Value}} | {ok,[{Item,Value}]} | {error, Error}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">OneResult = {ok,{Module,Value}} | {ok,[{Item,Value}]} | {error, Error}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Item = Line | Clause | Function</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Item = Line | Clause | Function</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">  Line = {M,N}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">  Line = {M,N}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">  Clause = {M,F,A,C}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">  Clause = {M,F,A,C}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">  Function = {M,F,A}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">  Function = {M,F,A}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">   M = F = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">   M = F = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">   N = A = C = integer()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">   N = A = C = integer()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Value = {Cov,NotCov} | Calls</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Value = {Cov,NotCov} | Calls</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">  Cov = NotCov = Calls = integer()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">  Cov = NotCov = Calls = integer()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Error = {not_cover_compiled,Module}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Error = {not_cover_compiled,Module}</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Ok = [{Module,Value}] | [{Item,Value}]</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Ok = [{Module,Value}] | [{Item,Value}]</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Fail = [Error]</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Fail = [Error]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Performs analysis of one or more Cover compiled modules, as
           specified by <span class="code">Analysis</span> and <span class="code">Level</span> (see above), by
           examining the contents of the internal database.</p>
@@ -644,44 +645,44 @@
         <p>If a given module is not Cover compiled, this is indicated
           by the error reason <span class="code">{not_cover_compiled,Module}</span>.</p>
       </p></div>
-    <p><a name="analyse_to_file-0"></a><span class="bold_code">analyse_to_file() -&gt; {result,Ok,Fail} | {error,not_main_node}</span><br><a name="analyse_to_file-1"></a><span class="bold_code">analyse_to_file(Modules) -&gt;  Answer | {result,Ok,Fail} | {error,not_main_node}</span><br><a name="analyse_to_file-1"></a><span class="bold_code">analyse_to_file(Options) -&gt; {result,Ok,Fail} | {error,not_main_node}</span><br><a name="analyse_to_file-2"></a><span class="bold_code">analyse_to_file(Modules,Options) -&gt; Answer | {result,Ok,Fail} | {error,not_main_node}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Modules = Module | [Module]</span><br>
+    <p><a name="analyse_to_file-0"></a><span class="bold_code bc-9">analyse_to_file() -&gt; {result,Ok,Fail} | {error,not_main_node}</span><br><a name="analyse_to_file-1"></a><span class="bold_code bc-9">analyse_to_file(Modules) -&gt;  Answer | {result,Ok,Fail} | {error,not_main_node}</span><br><a name="analyse_to_file-1"></a><span class="bold_code bc-9">analyse_to_file(Options) -&gt; {result,Ok,Fail} | {error,not_main_node}</span><br><a name="analyse_to_file-2"></a><span class="bold_code bc-9">analyse_to_file(Modules,Options) -&gt; Answer | {result,Ok,Fail} | {error,not_main_node}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Modules = Module | [Module]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Module = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Module = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">OutFile = OutDir = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">OutFile = OutDir = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Options = [Option]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Options = [Option]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Option = html | {outfile,OutFile} | {outdir,OutDir}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Option = html | {outfile,OutFile} | {outdir,OutDir}</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Answer = {ok,OutFile} | {error,Error}</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Answer = {ok,OutFile} | {error,Error}</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Ok = [OutFile]</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Ok = [OutFile]</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Fail = [Error]</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Fail = [Error]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Error = {not_cover_compiled,Module} | {file,File,Reason} | {no_source_code_found,Module}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Error = {not_cover_compiled,Module} | {file,File,Reason} | {no_source_code_found,Module}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> File = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> File = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Makes copies of the source file for the given modules,
           where it for each executable line is specified
           how many times it has been executed.</p>
@@ -715,108 +716,108 @@
           If no source code is found, this is indicated by the error reason
           <span class="code">{no_source_code_found,Module}</span>.</p>
       </p></div>
-    <p><a name="async_analyse_to_file-1"></a><span class="bold_code">async_analyse_to_file(Module) -&gt; </span><br><a name="async_analyse_to_file-2"></a><span class="bold_code">async_analyse_to_file(Module,Options) -&gt; </span><br><a name="async_analyse_to_file-2"></a><span class="bold_code">async_analyse_to_file(Module, OutFile) -&gt; </span><br><a name="async_analyse_to_file-3"></a><span class="bold_code">async_analyse_to_file(Module, OutFile, Options) -&gt;  pid()</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Module = atom()</span><br>
+    <p><a name="async_analyse_to_file-1"></a><span class="bold_code bc-9">async_analyse_to_file(Module) -&gt; </span><br><a name="async_analyse_to_file-2"></a><span class="bold_code bc-9">async_analyse_to_file(Module,Options) -&gt; </span><br><a name="async_analyse_to_file-2"></a><span class="bold_code bc-9">async_analyse_to_file(Module, OutFile) -&gt; </span><br><a name="async_analyse_to_file-3"></a><span class="bold_code bc-9">async_analyse_to_file(Module, OutFile, Options) -&gt;  pid()</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Module = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">OutFile = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">OutFile = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Options = [Option]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Options = [Option]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Option = html</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Option = html</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Error = {not_cover_compiled,Module} | {file,File,Reason} | {no_source_code_found,Module} | not_main_node</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Error = {not_cover_compiled,Module} | {file,File,Reason} | {no_source_code_found,Module} | not_main_node</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> File = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> File = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 	<p>This function works exactly the same way as 
-	<span class="bold_code"><a href="#analyse_to_file-1">analyse_to_file</a></span> except
+	<span class="bold_code bc-17"><a href="#analyse_to_file-1">analyse_to_file</a></span> except
 	that it is asynchronous instead of synchronous. The spawned process
 	will link with the caller when created. If an <span class="code">Error</span> occurs
 	while doing the cover analysis the process will crash with the same
-	error reason as <span class="bold_code"><a href="#analyse_to_file-1">analyse_to_file</a></span> 
+	error reason as <span class="bold_code bc-17"><a href="#analyse_to_file-1">analyse_to_file</a></span> 
 	would return.</p>
       </p></div>
-    <p><a name="modules-0"></a><span class="bold_code">modules() -&gt; [Module] | {error,not_main_node}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Module = atom()</span><br>
+    <p><a name="modules-0"></a><span class="bold_code bc-9">modules() -&gt; [Module] | {error,not_main_node}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Module = atom()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a list with all modules that are currently Cover
           compiled.</p>
       </p></div>
-    <p><a name="imported_modules-0"></a><span class="bold_code">imported_modules() -&gt; [Module] | {error,not_main_node}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Module = atom()</span><br>
+    <p><a name="imported_modules-0"></a><span class="bold_code bc-9">imported_modules() -&gt; [Module] | {error,not_main_node}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Module = atom()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a list with all modules for which there are
           imported data.</p>
       </p></div>
-    <p><a name="imported-0"></a><span class="bold_code">imported() -&gt; [File] | {error,not_main_node}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">File = string()</span><br>
+    <p><a name="imported-0"></a><span class="bold_code bc-9">imported() -&gt; [File] | {error,not_main_node}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">File = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a list with all imported files.</p>
       </p></div>
-    <p><a name="which_nodes-0"></a><span class="bold_code">which_nodes() -&gt; [Node] | {error,not_main_node}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Node = atom()</span><br>
+    <p><a name="which_nodes-0"></a><span class="bold_code bc-9">which_nodes() -&gt; [Node] | {error,not_main_node}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Node = atom()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a list with all nodes that are part of the coverage
           analysis. Note that the current node is not returned. This
           node is always part of the analysis.</p>
       </p></div>
-    <p><a name="is_compiled-1"></a><span class="bold_code">is_compiled(Module) -&gt; {file,File} | false |  {error,not_main_node}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Module = atom()</span><br>
+    <p><a name="is_compiled-1"></a><span class="bold_code bc-9">is_compiled(Module) -&gt; {file,File} | false |  {error,not_main_node}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Module = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Beam = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Beam = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">{file,File}</span> if the module <span class="code">Module</span> is
           Cover compiled, or <span class="code">false</span> otherwise. <span class="code">File</span> is
           the <span class="code">.erl</span> file used by <span class="code">cover:compile_module/1,2</span>
           or the <span class="code">.beam</span> file used by <span class="code">compile_beam/1</span>.</p>
       </p></div>
-    <p><a name="reset-1"></a><span class="bold_code">reset(Module) -&gt;</span><br><a name="reset-0"></a><span class="bold_code">reset() -&gt;  ok | {error,not_main_node}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Module = atom()</span><br>
+    <p><a name="reset-1"></a><span class="bold_code bc-9">reset(Module) -&gt;</span><br><a name="reset-0"></a><span class="bold_code bc-9">reset() -&gt;  ok | {error,not_main_node}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Module = atom()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Resets all coverage data for a Cover compiled module
           <span class="code">Module</span> in the Cover database on all nodes. If the
           argument is omitted, the coverage data will be reset for all
@@ -824,20 +825,20 @@
         <p>If <span class="code">Module</span> is not Cover compiled, the function returns
           <span class="code">{error,{not_cover_compiled,Module}}</span>.</p>
       </p></div>
-    <p><a name="export-1"></a><span class="bold_code">export(ExportFile)</span><br><a name="export-2"></a><span class="bold_code">export(ExportFile,Module) -&gt; ok | {error,Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">ExportFile = string()</span><br>
+    <p><a name="export-1"></a><span class="bold_code bc-9">export(ExportFile)</span><br><a name="export-2"></a><span class="bold_code bc-9">export(ExportFile,Module) -&gt; ok | {error,Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ExportFile = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Module = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Module = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = {not_cover_compiled,Module} | {cant_open_file,ExportFile,Reason} | not_main_node</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = {not_cover_compiled,Module} | {cant_open_file,ExportFile,Reason} | not_main_node</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Exports the current coverage data for <span class="code">Module</span> to the
           file <span class="code">ExportFile</span>. It is recommended to name the
           <span class="code">ExportFile</span> with the extension <span class="code">.coverdata</span>, since
@@ -849,17 +850,17 @@
           systems is to be merged.</p>
         <p>See also <span class="code">cover:import/1</span></p>
       </p></div>
-    <p><a name="import-1"></a><span class="bold_code">import(ExportFile) -&gt; ok | {error,Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">ExportFile = string()</span><br>
+    <p><a name="import-1"></a><span class="bold_code bc-9">import(ExportFile) -&gt; ok | {error,Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ExportFile = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = {cant_open_file,ExportFile,Reason} | not_main_node</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = {cant_open_file,ExportFile,Reason} | not_main_node</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Imports coverage data from the file <span class="code">ExportFile</span>
           created with <span class="code">cover:export/1,2</span>. Any analysis performed
           after this will include the imported data.</p>
@@ -875,37 +876,37 @@
           easily fool the system by renaming your export file.</p>
         <p>See also <span class="code">cover:export/1,2</span></p>
       </p></div>
-    <p><a name="stop-0"></a><span class="bold_code">stop() -&gt; ok | {error,not_main_node}</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="stop-0"></a><span class="bold_code bc-9">stop() -&gt; ok | {error,not_main_node}</span><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Stops the Cover server and unloads all Cover compiled code.</p>
       </p></div>
-    <p><a name="stop-1"></a><span class="bold_code">stop(Nodes) -&gt; ok | {error,not_main_node}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Nodes = [atom()]</span><br>
+    <p><a name="stop-1"></a><span class="bold_code bc-9">stop(Nodes) -&gt; ok | {error,not_main_node}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Nodes = [atom()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Stops the Cover server and unloads all Cover compiled code
           on the given nodes. Data stored in the Cover database on the
           remote nodes is fetched and stored on the main node.</p>
       </p></div>
-    <p><a name="flush-1"></a><span class="bold_code">flush(Nodes) -&gt; ok | {error,not_main_node}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Nodes = [atom()]</span><br>
+    <p><a name="flush-1"></a><span class="bold_code bc-9">flush(Nodes) -&gt; ok | {error,not_main_node}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Nodes = [atom()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Fetch data from the Cover database on the remote nodes and
         stored on the main node.</p>
       </p></div>
-  
+  </div>
 
-  <h3><a name="idm46159111030080">SEE ALSO</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45435803812352">SEE ALSO</a></h3>
+<div class="REFBODY rb-3">
     
     <p>code(3), compile(3)</p>
   </div>

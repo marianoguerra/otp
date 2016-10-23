@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">STDLIB</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 3.1</p>
@@ -1717,18 +1717,18 @@
 <!-- refpage --><center><h1>sys</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">sys</div>
+<div class="REFBODY module-body">sys</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">A functional interface to system messages.</div>
+<div class="REFBODY module-summary-body">A functional interface to system messages.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>This module contains functions for sending system messages used by
       programs, and messages used for debugging purposes.</p>
     <p>Functions used for implementation of processes are also expected to
       understand system messages, such as debug messages and code change. These
       functions must be used to implement the use of system messages for a
       process; either directly, or through standard behaviors, such as
-      <span class="bold_code"><a href="gen_server.html"><span class="code">gen_server</span></a></span>.</p>
+      <span class="bold_code bc-19"><a href="gen_server.html"><span class="code">gen_server</span></a></span>.</p>
     <p>The default time-out is 5000 ms, unless otherwise specified.
       <span class="code">timeout</span> defines the time to wait for the process to
       respond to a request. If the process does not respond, the
@@ -1737,12 +1737,12 @@
     <a name="dbg_opt"></a>
     <p>The functions make references to a debug structure.
       The debug structure is a list of <span class="code">dbg_opt()</span>, which is an internal
-      data type used by function <span class="bold_code"><a href="#handle_system_msg-6"><span class="code">handle_system_msg/6</span></a></span>. No debugging is performed if it is 
+      data type used by function <span class="bold_code bc-17"><a href="#handle_system_msg-6"><span class="code">handle_system_msg/6</span></a></span>. No debugging is performed if it is 
       an empty list.</p>
   </p></div>
 
-  <h3><a name="idm46007666880272">System Messages</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46279757995008">System Messages</a></h3>
+<div class="REFBODY rb-3">
     
     <p>Processes that are not implemented as one of the standard
       behaviors must still understand system messages. The following 
@@ -1753,7 +1753,7 @@
           <span class="code">{system, From, Msg}</span>. The content and meaning of
           this message are not interpreted by the
           receiving process module. When a system message is received, function 
-	  <span class="bold_code"><a href="#handle_system_msg-6"><span class="code">handle_system_msg/6</span></a></span>
+	  <span class="bold_code bc-17"><a href="#handle_system_msg-6"><span class="code">handle_system_msg/6</span></a></span>
           is called to handle the request.</p>
       </li>
       <li>
@@ -1768,7 +1768,7 @@
       <li>
         <p>If the modules used to implement the process change dynamically
           during runtime, the process must understand one more message. An
-          example is the <span class="bold_code"><a href="gen_event.html"><span class="code">gen_event</span></a></span>
+          example is the <span class="bold_code bc-19"><a href="gen_event.html"><span class="code">gen_event</span></a></span>
           processes. The message is <span class="code">{get_modules, From}</span>.
           The reply to this message is <span class="code">From ! {modules, Modules}</span>, where
           <span class="code">Modules</span> is a list of the currently active modules in the
@@ -1781,8 +1781,8 @@
     </ul>
   </div>
 
-  <h3><a name="idm46007666868960">System Events</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46279757983696">System Events</a></h3>
+<div class="REFBODY rb-3">
     
     <p>When debugging a process with the functions of this
       module, the process generates <strong>system_events</strong>, which are
@@ -1796,30 +1796,41 @@
   </div>
 
   <h3><a name="data-types" href="#data-types">Data Types</a></h3>
-    <p>
-      <span class="bold_code"><a name="type-name">name()</a> = pid() | atom() | {global, atom()}</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-system_event">system_event()</a> = <br>    {in, Msg :: term()} |<br>    {in, Msg :: term(), From :: term()} |<br>    {out, Msg :: term(), To :: term()} |<br>    term()</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-dbg_opt">dbg_opt()</a></span><br></p>
-<div class="REFBODY"><p><p>See the introduction of this manual page.</p></p></div>
-    <p>
-      <span class="bold_code"><a name="type-dbg_fun">dbg_fun()</a> = <br>    fun((FuncState :: term(),<br>         Event :: <span class="bold_code"><a href="#type-system_event">system_event()</a></span>,<br>         ProcState :: term()) -&gt;<br>            done | (NewFuncState :: term()))</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-format_fun">format_fun()</a> = <br>    fun((Device :: <span class="bold_code"><a href="io.html#type-device">io:device()</a></span> | <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-io_device');">file:io_device()</a></span>,<br>         Event :: <span class="bold_code"><a href="#type-system_event">system_event()</a></span>,<br>         Extra :: term()) -&gt;<br>            any())</span><br></p>
-  
+<div class="data-types-body">
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-name">name()</a> = pid() | atom() | {global, atom()}</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-system_event">system_event()</a> = <br>    {in, Msg :: term()} |<br>    {in, Msg :: term(), From :: term()} |<br>    {out, Msg :: term(), To :: term()} |<br>    term()</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-dbg_opt">dbg_opt()</a></span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p><p>See the introduction of this manual page.</p></p></div></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-dbg_fun">dbg_fun()</a> = <br>    fun((FuncState :: term(),<br>         Event :: <span class="bold_code bc-17"><a href="#type-system_event">system_event()</a></span>,<br>         ProcState :: term()) -&gt;<br>            done | (NewFuncState :: term()))</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-format_fun">format_fun()</a> = <br>    fun((Device :: <span class="bold_code bc-15"><a href="io.html#type-device">io:device()</a></span> | <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-io_device');">file:io_device()</a></span>,<br>         Event :: <span class="bold_code bc-17"><a href="#type-system_event">system_event()</a></span>,<br>         Extra :: term()) -&gt;<br>            any())</span><br>
+</div>
+<div class="data-type-desc"></div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="change_code-4"></a><span class="bold_code">change_code(Name, Module, OldVsn, Extra) -&gt; ok | {error, Reason}</span><br><a name="change_code-5"></a><span class="bold_code">change_code(Name, Module, OldVsn, Extra, Timeout) -&gt;<br>               ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-name">name()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">OldVsn = undefined | term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Extra = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+<div class="exports-body">
+    <p><a name="change_code-4"></a><span class="bold_code bc-1">change_code(Name, Module, OldVsn, Extra) -&gt; ok | {error, Reason}</span><a name="change_code-5"></a><span class="bold_code bc-1">change_code(Name, Module, OldVsn, Extra, Timeout) -&gt;<br>               ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-name">name()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">OldVsn = undefined | term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Extra = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Timeout = timeout()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Tells the process to change code. The process must be
           suspended to handle this message. Argument <span class="code">Extra</span>
           is reserved for each process to use as its own. Function
@@ -1828,13 +1839,13 @@
           <span class="code">Module</span>.</p>
       </p></div>
 
-    <p><a name="get_state-1"></a><span class="bold_code">get_state(Name) -&gt; State</span><br><a name="get_state-2"></a><span class="bold_code">get_state(Name, Timeout) -&gt; State</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-name">name()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
-<div class="REFTYPES"><span class="bold_code">State = term()</span></div>
+    <p><a name="get_state-1"></a><span class="bold_code bc-1">get_state(Name) -&gt; State</span><a name="get_state-2"></a><span class="bold_code bc-1">get_state(Name, Timeout) -&gt; State</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-name">name()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Timeout = timeout()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">State = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Gets the state of the process.</p>
         <div class="note">
 <div class="label">Note</div>
@@ -1843,8 +1854,8 @@
             provided for convenience, allowing developers to avoid having to
             create their own state extraction functions and also avoid having
             to interactively extract the state from the return values of
-            <span class="bold_code"><a href="#get_status-1"><span class="code">get_status/1</span></a></span> or
-            <span class="bold_code"><a href="#get_status-2"><span class="code">get_status/2</span></a></span>
+            <span class="bold_code bc-17"><a href="#get_status-1"><span class="code">get_status/1</span></a></span> or
+            <span class="bold_code bc-17"><a href="#get_status-2"><span class="code">get_status/2</span></a></span>
             while debugging.</p>
         </p></div>
 </div>
@@ -1853,25 +1864,25 @@
         <ul>
           <li>
             <p>For a
-              <span class="bold_code"><a href="gen_server.html"><span class="code">gen_server</span></a></span>
+              <span class="bold_code bc-19"><a href="gen_server.html"><span class="code">gen_server</span></a></span>
               process, the returned <span class="code">State</span>
               is the state of the callback module.</p>
           </li>
           <li>
             <p>For a
-              <span class="bold_code"><a href="gen_fsm.html"><span class="code">gen_fsm</span></a></span>
+              <span class="bold_code bc-19"><a href="gen_fsm.html"><span class="code">gen_fsm</span></a></span>
               process, <span class="code">State</span> is the tuple
               <span class="code">{CurrentStateName, CurrentStateData}</span>.</p>
           </li>
           <li>
             <p>For a
-              <span class="bold_code"><a href="gen_statem.html"><span class="code">gen_statem</span></a></span>
+              <span class="bold_code bc-19"><a href="gen_statem.html"><span class="code">gen_statem</span></a></span>
               process, <span class="code">State</span> is the tuple
               <span class="code">{CurrentState,CurrentData}</span>.</p>
           </li>
           <li>
             <p>For a
-              <span class="bold_code"><a href="gen_event.html"><span class="code">gen_event</span></a></span>
+              <span class="bold_code bc-19"><a href="gen_event.html"><span class="code">gen_event</span></a></span>
               process, <span class="code">State</span> is a list of tuples,
               where each tuple corresponds to an event handler registered
               in the process and contains <span class="code">{Module, Id, HandlerState}</span>,
@@ -1896,8 +1907,8 @@
         <p>If the callback module exports a function <span class="code">system_get_state/1</span>,
           it is called in the target process to get its state. Its argument is
           the same as the <span class="code">Misc</span> value returned by
-          <span class="bold_code"><a href="#get_status-1"><span class="code">get_status/1,2</span></a></span>, and
-          function <span class="bold_code"><a href="#Module:system_get_state-1"><span class="code">Module:system_get_state/1</span></a></span> is expected to extract the
+          <span class="bold_code bc-17"><a href="#get_status-1"><span class="code">get_status/1,2</span></a></span>, and
+          function <span class="bold_code bc-17"><a href="#Module:system_get_state-1"><span class="code">Module:system_get_state/1</span></a></span> is expected to extract the
           state of the callback module from it. Function
           <span class="code">system_get_state/1</span> must return <span class="code">{ok, State}</span>, where
           <span class="code">State</span> is the state of the callback module.</p>
@@ -1911,44 +1922,44 @@
           <span class="code">Class</span> and <span class="code">Reason</span> indicate details of the exception.</p>
         <p>Function <span class="code">system_get_state/1</span> is primarily useful for
           user-defined behaviors and modules that implement OTP
-          <span class="bold_code"><a href="#special_process">special processes</a></span>. 
+          <span class="bold_code bc-17"><a href="#special_process">special processes</a></span>. 
           The <span class="code">gen_server</span>, <span class="code">gen_fsm</span>,
 	  <span class="code">gen_statem</span>, and <span class="code">gen_event</span> OTP
           behavior modules export this function, so callback modules for those
           behaviors need not to supply their own.</p>
         <p>For more information about a process, including its state, see
-          <span class="bold_code"><a href="#get_status-1"><span class="code">get_status/1</span></a></span> and
-          <span class="bold_code"><a href="#get_status-2"><span class="code">get_status/2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#get_status-1"><span class="code">get_status/1</span></a></span> and
+          <span class="bold_code bc-17"><a href="#get_status-2"><span class="code">get_status/2</span></a></span>.</p>
       </p></div>
 
-    <p><a name="get_status-1"></a><span class="bold_code">get_status(Name) -&gt; Status</span><br><a name="get_status-2"></a><span class="bold_code">get_status(Name, Timeout) -&gt; Status</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-name">name()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
-<div class="REFTYPES"><span class="bold_code">Status = <br>    {status, Pid :: pid(), {module, Module :: module()}, [SItem]}</span></div>
-<div class="REFTYPES"><span class="bold_code">SItem = <br>    (PDict :: [{Key :: term(), Value :: term()}]) |<br>    (SysState :: running | suspended) |<br>    (Parent :: pid()) |<br>    (Dbg :: [<span class="bold_code"><a href="#type-dbg_opt">dbg_opt()</a></span>]) |<br>    (Misc :: term())</span></div>
+    <p><a name="get_status-1"></a><span class="bold_code bc-1">get_status(Name) -&gt; Status</span><a name="get_status-2"></a><span class="bold_code bc-1">get_status(Name, Timeout) -&gt; Status</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-name">name()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Timeout = timeout()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Status = <br>    {status, Pid :: pid(), {module, Module :: module()}, [SItem]}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">SItem = <br>    (PDict :: [{Key :: term(), Value :: term()}]) |<br>    (SysState :: running | suspended) |<br>    (Parent :: pid()) |<br>    (Dbg :: [<span class="bold_code bc-17"><a href="#type-dbg_opt">dbg_opt()</a></span>]) |<br>    (Misc :: term())</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Gets the status of the process.</p>
         <p>The value of <span class="code">Misc</span> varies for different types of
           processes, for example:</p>
         <ul>
           <li>
-            <p>A <span class="bold_code"><a href="gen_server.html"><span class="code">gen_server</span></a></span>
+            <p>A <span class="bold_code bc-19"><a href="gen_server.html"><span class="code">gen_server</span></a></span>
               process returns the state of the callback module.</p>
           </li>
           <li>
-            <p>A <span class="bold_code"><a href="gen_fsm.html"><span class="code">gen_fsm</span></a></span>
+            <p>A <span class="bold_code bc-19"><a href="gen_fsm.html"><span class="code">gen_fsm</span></a></span>
               process returns information, such as its current 
               state name and state data.</p>
           </li>
           <li>
-            <p>A <span class="bold_code"><a href="gen_statem.html"><span class="code">gen_statem</span></a></span>
+            <p>A <span class="bold_code bc-19"><a href="gen_statem.html"><span class="code">gen_statem</span></a></span>
               process returns information, such as its current
               state name and state data.</p>
           </li>
           <li>
-            <p>A <span class="bold_code"><a href="gen_event.html"><span class="code">gen_event</span></a></span>
+            <p>A <span class="bold_code bc-19"><a href="gen_event.html"><span class="code">gen_event</span></a></span>
               process returns information about each of its
               registered handlers.</p>
           </li>
@@ -1958,21 +1969,21 @@
 	  can also change the value of <span class="code">Misc</span>
           by exporting a function <span class="code">format_status/2</span>, which contributes
           module-specific information. For details, see
-          <span class="bold_code"><a href="gen_server.html#Module:format_status-2"><span class="code">gen_server:format_status/2</span></a></span>,
-          <span class="bold_code"><a href="gen_fsm.html#Module:format_status-2"><span class="code">gen_fsm:format_status/2</span></a></span>,
-          <span class="bold_code"><a href="gen_statem.html#Module:format_status-2"><span class="code">gen_statem:format_status/2</span></a></span>, and
-          <span class="bold_code"><a href="gen_event.html#Module:format_status-2"><span class="code">gen_event:format_status/2</span></a></span>.</p>
+          <span class="bold_code bc-15"><a href="gen_server.html#Module:format_status-2"><span class="code">gen_server:format_status/2</span></a></span>,
+          <span class="bold_code bc-15"><a href="gen_fsm.html#Module:format_status-2"><span class="code">gen_fsm:format_status/2</span></a></span>,
+          <span class="bold_code bc-15"><a href="gen_statem.html#Module:format_status-2"><span class="code">gen_statem:format_status/2</span></a></span>, and
+          <span class="bold_code bc-15"><a href="gen_event.html#Module:format_status-2"><span class="code">gen_event:format_status/2</span></a></span>.</p>
       </p></div>
 
-    <p><a name="install-2"></a><span class="bold_code">install(Name, FuncSpec) -&gt; ok</span><br><a name="install-3"></a><span class="bold_code">install(Name, FuncSpec, Timeout) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-name">name()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">FuncSpec = {Func, FuncState}</span></div>
-<div class="REFTYPES"><span class="bold_code">Func = <span class="bold_code"><a href="#type-dbg_fun">dbg_fun()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">FuncState = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
+    <p><a name="install-2"></a><span class="bold_code bc-1">install(Name, FuncSpec) -&gt; ok</span><a name="install-3"></a><span class="bold_code bc-1">install(Name, FuncSpec, Timeout) -&gt; ok</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-name">name()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">FuncSpec = {Func, FuncState}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Func = <span class="bold_code bc-17"><a href="#type-dbg_fun">dbg_fun()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">FuncState = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Timeout = timeout()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Enables installation of alternative debug functions. An example of
           such a function is a trigger, a function that waits for some
           special event and performs some action when the event is
@@ -1983,13 +1994,13 @@
           also removed if the function fails.</p>
       </p></div>
 
-    <p><a name="log-2"></a><span class="bold_code">log(Name, Flag) -&gt; ok | {ok, [<span class="bold_code"><a href="#type-system_event">system_event()</a></span>]}</span><br><a name="log-3"></a><span class="bold_code">log(Name, Flag, Timeout) -&gt; ok | {ok, [<span class="bold_code"><a href="#type-system_event">system_event()</a></span>]}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-name">name()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Flag = true | {true, N :: integer() &gt;= 1} | false | get | print</span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
+    <p><a name="log-2"></a><span class="bold_code bc-1">log(Name, Flag) -&gt; ok | {ok, [<span class="bold_code bc-17"><a href="#type-system_event">system_event()</a></span>]}</span><a name="log-3"></a><span class="bold_code bc-1">log(Name, Flag, Timeout) -&gt; ok | {ok, [<span class="bold_code bc-17"><a href="#type-system_event">system_event()</a></span>]}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-name">name()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Flag = true | {true, N :: integer() &gt;= 1} | false | get | print</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Timeout = timeout()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Turns the logging of system events on or off. If on, a
           maximum of <span class="code">N</span> events are kept in the
           debug structure (default is 10).</p>
@@ -1999,55 +2010,55 @@
           are printed to <span class="code">standard_io</span>.</p>
         <p>The events are formatted with a function that is defined by the
           process that generated the event (with a call to
-          <span class="bold_code"><a href="#handle_debug-4"><span class="code">handle_debug/4</span>)</a></span>.</p>
+          <span class="bold_code bc-17"><a href="#handle_debug-4"><span class="code">handle_debug/4</span>)</a></span>.</p>
       </p></div>
 
-    <p><a name="log_to_file-2"></a><span class="bold_code">log_to_file(Name, Flag) -&gt; ok | {error, open_file}</span><br><a name="log_to_file-3"></a><span class="bold_code">log_to_file(Name, Flag, Timeout) -&gt; ok | {error, open_file}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-name">name()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Flag = (FileName :: string()) | false</span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
+    <p><a name="log_to_file-2"></a><span class="bold_code bc-1">log_to_file(Name, Flag) -&gt; ok | {error, open_file}</span><a name="log_to_file-3"></a><span class="bold_code bc-1">log_to_file(Name, Flag, Timeout) -&gt; ok | {error, open_file}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-name">name()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Flag = (FileName :: string()) | false</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Timeout = timeout()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Enables or disables the logging of all system events in text
           format to the file. The events are formatted with a function that is 
           defined by the process that generated the event (with a call to
-          <span class="bold_code"><a href="#handle_debug-4"><span class="code">handle_debug/4</span></a></span>).
+          <span class="bold_code bc-17"><a href="#handle_debug-4"><span class="code">handle_debug/4</span></a></span>).
         </p>
       </p></div>
 
-    <p><a name="no_debug-1"></a><span class="bold_code">no_debug(Name) -&gt; ok</span><br><a name="no_debug-2"></a><span class="bold_code">no_debug(Name, Timeout) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-name">name()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
+    <p><a name="no_debug-1"></a><span class="bold_code bc-1">no_debug(Name) -&gt; ok</span><a name="no_debug-2"></a><span class="bold_code bc-1">no_debug(Name, Timeout) -&gt; ok</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-name">name()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Timeout = timeout()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Turns off all debugging for the process. This includes
           functions that are installed explicitly with function
-          <span class="bold_code"><a href="#install-2"><span class="code">install/2,3</span></a></span>,
+          <span class="bold_code bc-17"><a href="#install-2"><span class="code">install/2,3</span></a></span>,
           for example, triggers.</p>
       </p></div>
 
-    <p><a name="remove-2"></a><span class="bold_code">remove(Name, Func) -&gt; ok</span><br><a name="remove-3"></a><span class="bold_code">remove(Name, Func, Timeout) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-name">name()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Func = <span class="bold_code"><a href="#type-dbg_fun">dbg_fun()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
+    <p><a name="remove-2"></a><span class="bold_code bc-1">remove(Name, Func) -&gt; ok</span><a name="remove-3"></a><span class="bold_code bc-1">remove(Name, Func, Timeout) -&gt; ok</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-name">name()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Func = <span class="bold_code bc-17"><a href="#type-dbg_fun">dbg_fun()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Timeout = timeout()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Removes an installed debug function from the
           process. <span class="code">Func</span> must be the same as previously
           installed.</p>
       </p></div>
 
-    <p><a name="replace_state-2"></a><span class="bold_code">replace_state(Name, StateFun) -&gt; NewState</span><br><a name="replace_state-3"></a><span class="bold_code">replace_state(Name, StateFun, Timeout) -&gt; NewState</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-name">name()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">StateFun = fun((State :: term()) -&gt; NewState :: term())</span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
-<div class="REFTYPES"><span class="bold_code">NewState = term()</span></div>
+    <p><a name="replace_state-2"></a><span class="bold_code bc-1">replace_state(Name, StateFun) -&gt; NewState</span><a name="replace_state-3"></a><span class="bold_code bc-1">replace_state(Name, StateFun, Timeout) -&gt; NewState</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-name">name()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">StateFun = fun((State :: term()) -&gt; NewState :: term())</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Timeout = timeout()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">NewState = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Replaces the state of the process, and returns the new state.</p>
         <div class="note">
 <div class="label">Note</div>
@@ -2065,20 +2076,20 @@
           processes as follows:</p>
         <ul>
           <li>
-            <p>For a <span class="bold_code"><a href="gen_server.html"><span class="code">gen_server</span></a></span>
+            <p>For a <span class="bold_code bc-19"><a href="gen_server.html"><span class="code">gen_server</span></a></span>
               process, <span class="code">State</span> is the state of the callback
               module and <span class="code">NewState</span> 
               is a new instance of that state.</p>
           </li>
           <li>
-            <p>For a <span class="bold_code"><a href="gen_fsm.html"><span class="code">gen_fsm</span></a></span> process,
+            <p>For a <span class="bold_code bc-19"><a href="gen_fsm.html"><span class="code">gen_fsm</span></a></span> process,
               <span class="code">State</span> is the tuple <span class="code">{CurrentStateName,
               CurrentStateData}</span>, and <span class="code">NewState</span> is a
               similar tuple, which can contain 
               a new state name, new state data, or both.</p>
           </li>
           <li>
-            <p>For a <span class="bold_code"><a href="gen_statem.html"><span class="code">gen_statem</span></a></span>
+            <p>For a <span class="bold_code bc-19"><a href="gen_statem.html"><span class="code">gen_statem</span></a></span>
 	      process, <span class="code">State</span> is the
 	      tuple <span class="code">{CurrentState,CurrentData}</span>,
 	      and <span class="code">NewState</span> is a
@@ -2086,7 +2097,7 @@
               a new current state, new state data, or both.</p>
           </li>
           <li>
-            <p>For a <span class="bold_code"><a href="gen_event.html"><span class="code">gen_event</span></a></span>
+            <p>For a <span class="bold_code bc-19"><a href="gen_event.html"><span class="code">gen_event</span></a></span>
               process, <span class="code">State</span> is the
               tuple <span class="code">{Module, Id, HandlerState}</span> as follows:</p>
             <dl>
@@ -2128,11 +2139,11 @@
           succeed in changing the states of other event
           handlers registered in the same <span class="code">gen_event</span> process.</p>
         <p>If the callback module exports a 
-          <span class="bold_code"><a href="#Module:system_replace_state-2"><span class="code">system_replace_state/2</span></a></span> function, it is called in the
+          <span class="bold_code bc-17"><a href="#Module:system_replace_state-2"><span class="code">system_replace_state/2</span></a></span> function, it is called in the
           target process to replace its state using <span class="code">StateFun</span>. Its two
           arguments are <span class="code">StateFun</span> and <span class="code">Misc</span>, where 
           <span class="code">Misc</span> is the same as the <span class="code">Misc</span> value returned by
-          <span class="bold_code"><a href="#get_status-1"><span class="code">get_status/1,2</span></a></span>.
+          <span class="bold_code bc-17"><a href="#get_status-1"><span class="code">get_status/1,2</span></a></span>.
           A <span class="code">system_replace_state/2</span> function is expected to return 
           <span class="code">{ok, NewState, NewMisc}</span>, where <span class="code">NewState</span> is the new state
           of the callback module, obtained by calling <span class="code">StateFun</span>, and
@@ -2142,7 +2153,7 @@
           module within it).</p>
         <p>If the callback module does not export a
           <span class="code">system_replace_state/2</span> function,
-          <span class="bold_code"><a href="#replace_state-2"><span class="code">replace_state/2,3</span></a></span>
+          <span class="bold_code bc-17"><a href="#replace_state-2"><span class="code">replace_state/2,3</span></a></span>
           assumes that <span class="code">Misc</span> is the state of the callback module,
 	  passes it to <span class="code">StateFun</span> and uses the return value as
 	  both the new state and as the new value of <span class="code">Misc</span>.</p>
@@ -2157,79 +2168,79 @@
           <span class="code">{callback_failed, StateFun, {Class, Reason}}</span>.</p>
         <p>Function <span class="code">system_replace_state/2</span> is primarily useful for
           user-defined behaviors and modules that implement OTP
-          <span class="bold_code"><a href="#special_process">special processes</a></span>. The
+          <span class="bold_code bc-17"><a href="#special_process">special processes</a></span>. The
           OTP behavior modules <span class="code">gen_server</span>,
 	  <span class="code">gen_fsm</span>, <span class="code">gen_statem</span>, and <span class="code">gen_event</span>
 	  export this function, so callback modules for those
           behaviors need not to supply their own.</p>
       </p></div>
 
-    <p><a name="resume-1"></a><span class="bold_code">resume(Name) -&gt; ok</span><br><a name="resume-2"></a><span class="bold_code">resume(Name, Timeout) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-name">name()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
+    <p><a name="resume-1"></a><span class="bold_code bc-1">resume(Name) -&gt; ok</span><a name="resume-2"></a><span class="bold_code bc-1">resume(Name, Timeout) -&gt; ok</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-name">name()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Timeout = timeout()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Resumes a suspended process.</p>
       </p></div>
 
-    <p><a name="statistics-2"></a><span class="bold_code">statistics(Name, Flag) -&gt; ok | {ok, Statistics}</span><br><a name="statistics-3"></a><span class="bold_code">statistics(Name, Flag, Timeout) -&gt; ok | {ok, Statistics}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-name">name()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Flag = true | false | get</span></div>
-<div class="REFTYPES"><span class="bold_code">Statistics = [StatisticsTuple] | no_statistics</span></div>
-<div class="REFTYPES"><span class="bold_code">StatisticsTuple = <br>    {start_time, DateTime1} |<br>    {current_time, DateTime2} |<br>    {reductions, integer() &gt;= 0} |<br>    {messages_in, integer() &gt;= 0} |<br>    {messages_out, integer() &gt;= 0}</span></div>
-<div class="REFTYPES"><span class="bold_code">DateTime1 = DateTime2 = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-date_time');">file:date_time()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
+    <p><a name="statistics-2"></a><span class="bold_code bc-1">statistics(Name, Flag) -&gt; ok | {ok, Statistics}</span><a name="statistics-3"></a><span class="bold_code bc-1">statistics(Name, Flag, Timeout) -&gt; ok | {ok, Statistics}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-name">name()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Flag = true | false | get</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Statistics = [StatisticsTuple] | no_statistics</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">StatisticsTuple = <br>    {start_time, DateTime1} |<br>    {current_time, DateTime2} |<br>    {reductions, integer() &gt;= 0} |<br>    {messages_in, integer() &gt;= 0} |<br>    {messages_out, integer() &gt;= 0}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">DateTime1 = DateTime2 = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-date_time');">file:date_time()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Timeout = timeout()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Enables or disables the collection of statistics. If 
           <span class="code">Flag</span> is <span class="code">get</span>, 
           the statistical collection is returned.</p>
       </p></div>
 
-    <p><a name="suspend-1"></a><span class="bold_code">suspend(Name) -&gt; ok</span><br><a name="suspend-2"></a><span class="bold_code">suspend(Name, Timeout) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-name">name()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
+    <p><a name="suspend-1"></a><span class="bold_code bc-1">suspend(Name) -&gt; ok</span><a name="suspend-2"></a><span class="bold_code bc-1">suspend(Name, Timeout) -&gt; ok</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-name">name()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Timeout = timeout()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Suspends the process. When the process is suspended, it
           only responds to other system messages, but not other
           messages.</p>
       </p></div>
 
-    <p><a name="terminate-2"></a><span class="bold_code">terminate(Name, Reason) -&gt; ok</span><br><a name="terminate-3"></a><span class="bold_code">terminate(Name, Reason, Timeout) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-name">name()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
+    <p><a name="terminate-2"></a><span class="bold_code bc-1">terminate(Name, Reason) -&gt; ok</span><a name="terminate-3"></a><span class="bold_code bc-1">terminate(Name, Reason, Timeout) -&gt; ok</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-name">name()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Timeout = timeout()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Orders the process to terminate with the
           specified <span class="code">Reason</span>. The termination is done
           asynchronously, so it is not guaranteed that the process is
           terminated when the function returns.</p>
       </p></div>
 
-    <p><a name="trace-2"></a><span class="bold_code">trace(Name, Flag) -&gt; ok</span><br><a name="trace-3"></a><span class="bold_code">trace(Name, Flag, Timeout) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-name">name()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Flag = boolean()</span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
+    <p><a name="trace-2"></a><span class="bold_code bc-1">trace(Name, Flag) -&gt; ok</span><a name="trace-3"></a><span class="bold_code bc-1">trace(Name, Flag, Timeout) -&gt; ok</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-name">name()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Flag = boolean()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Timeout = timeout()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Prints all system events on <span class="code">standard_io</span>. The events are
           formatted with a function that is defined by the process that
           generated the event (with a call to
-          <span class="bold_code"><a href="#handle_debug-4"><span class="code">handle_debug/4</span></a></span>).
+          <span class="bold_code bc-17"><a href="#handle_debug-4"><span class="code">handle_debug/4</span></a></span>).
         </p>
       </p></div>
-  
+  </div>
 
-  <h3><a name="idm46007666685792">Process Implementation Functions</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46279757800528">Process Implementation Functions</a></h3>
+<div class="REFBODY rb-3">
     
     <a name="special_process"></a>
     <p>The following functions are used when implementing a
@@ -2239,29 +2250,30 @@
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="debug_options-1"></a><span class="bold_code">debug_options(Options) -&gt; [<span class="bold_code"><a href="#type-dbg_opt">dbg_opt()</a></span>]</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Options = [Opt]</span></div>
-<div class="REFTYPES"><span class="bold_code">Opt = <br>    trace |<br>    log |<br>    {log, integer() &gt;= 1} |<br>    statistics |<br>    {log_to_file, FileName} |<br>    {install, FuncSpec}</span></div>
-<div class="REFTYPES"><span class="bold_code">FileName = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">file:name()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">FuncSpec = {Func, FuncState}</span></div>
-<div class="REFTYPES"><span class="bold_code">Func = <span class="bold_code"><a href="#type-dbg_fun">dbg_fun()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">FuncState = term()</span></div>
+<div class="exports-body">
+    <p><a name="debug_options-1"></a><span class="bold_code bc-1">debug_options(Options) -&gt; [<span class="bold_code bc-17"><a href="#type-dbg_opt">dbg_opt()</a></span>]</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Options = [Opt]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Opt = <br>    trace |<br>    log |<br>    {log, integer() &gt;= 1} |<br>    statistics |<br>    {log_to_file, FileName} |<br>    {install, FuncSpec}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">FileName = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">file:name()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">FuncSpec = {Func, FuncState}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Func = <span class="bold_code bc-17"><a href="#type-dbg_fun">dbg_fun()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">FuncState = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Can be used by a process that initiates a debug
           structure from a list of options. The values of argument
           <span class="code">Opt</span> are the same as for the corresponding
           functions.</p>
       </p></div>
 
-    <p><a name="get_debug-3"></a><span class="bold_code">get_debug(Item, Debug, Default) -&gt; term()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Item = log | statistics</span></div>
-<div class="REFTYPES"><span class="bold_code">Debug = [<span class="bold_code"><a href="#type-dbg_opt">dbg_opt()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">Default = term()</span></div>
+    <p><a name="get_debug-3"></a><span class="bold_code bc-1">get_debug(Item, Debug, Default) -&gt; term()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Item = log | statistics</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Debug = [<span class="bold_code bc-17"><a href="#type-dbg_opt">dbg_opt()</a></span>]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Default = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Gets the data associated with a debug option.
           <span class="code">Default</span>
           is returned if <span class="code">Item</span> is not found. Can be
@@ -2269,14 +2281,14 @@
           terminates.</p>
       </p></div>
 
-    <p><a name="handle_debug-4"></a><span class="bold_code">handle_debug(Debug, FormFunc, Extra, Event) -&gt; [<span class="bold_code"><a href="#type-dbg_opt">dbg_opt()</a></span>]</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Debug = [<span class="bold_code"><a href="#type-dbg_opt">dbg_opt()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">FormFunc = <span class="bold_code"><a href="#type-format_fun">format_fun()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Extra = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Event = <span class="bold_code"><a href="#type-system_event">system_event()</a></span></span></div>
+    <p><a name="handle_debug-4"></a><span class="bold_code bc-1">handle_debug(Debug, FormFunc, Extra, Event) -&gt; [<span class="bold_code bc-17"><a href="#type-dbg_opt">dbg_opt()</a></span>]</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Debug = [<span class="bold_code bc-17"><a href="#type-dbg_opt">dbg_opt()</a></span>]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">FormFunc = <span class="bold_code bc-17"><a href="#type-format_fun">format_fun()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Extra = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Event = <span class="bold_code bc-17"><a href="#type-system_event">system_event()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function is called by a process when it generates a
           system event. <span class="code">FormFunc</span> is a formatting
           function, called as <span class="code">FormFunc(Device,
@@ -2287,16 +2299,16 @@
           name.</p>
       </p></div>
 
-    <p><a name="handle_system_msg-6"></a><span class="bold_code">handle_system_msg(Msg, From, Parent, Module, Debug, Misc) -&gt;<br>                     no_return()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Msg = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">From = {pid(), Tag :: term()}</span></div>
-<div class="REFTYPES"><span class="bold_code">Parent = pid()</span></div>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Debug = [<span class="bold_code"><a href="#type-dbg_opt">dbg_opt()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">Misc = term()</span></div>
+    <p><a name="handle_system_msg-6"></a><span class="bold_code bc-1">handle_system_msg(Msg, From, Parent, Module, Debug, Misc) -&gt;<br>                     no_return()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Msg = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">From = {pid(), Tag :: term()}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Parent = pid()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Debug = [<span class="bold_code bc-17"><a href="#type-dbg_opt">dbg_opt()</a></span>]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Misc = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function is used by a process module to take care of system
           messages. The process receives a 
           <span class="code">{system, From, Msg}</span> message and
@@ -2330,39 +2342,39 @@
           <span class="code">Module:system_terminate/4</span>.</p>
       </p></div>
 
-    <p><a name="print_log-1"></a><span class="bold_code">print_log(Debug) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Debug = [<span class="bold_code"><a href="#type-dbg_opt">dbg_opt()</a></span>]</span></div>
+    <p><a name="print_log-1"></a><span class="bold_code bc-1">print_log(Debug) -&gt; ok</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Debug = [<span class="bold_code bc-17"><a href="#type-dbg_opt">dbg_opt()</a></span>]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Prints the logged system events in the debug structure,
           using <span class="code">FormFunc</span> as defined when the event was
           generated by a call to
-          <span class="bold_code"><a href="#handle_debug-4"><span class="code">handle_debug/4</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#handle_debug-4"><span class="code">handle_debug/4</span></a></span>.</p>
       </p></div>
 
-    <p><a name="Module:system_code_change-4"></a><span class="bold_code">Module:system_code_change(Misc, Module, OldVsn, Extra) -&gt;
+    <p><a name="Module:system_code_change-4"></a><span class="bold_code bc-9">Module:system_code_change(Misc, Module, OldVsn, Extra) -&gt;
         {ok, NMisc}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Misc = term()</span><br>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Misc = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">OldVsn = undefined | term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">OldVsn = undefined | term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Module = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Module = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Extra = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Extra = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">NMisc = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">NMisc = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
-        <p>Called from <span class="bold_code"><a href="#handle_system_msg-6"><span class="code">handle_system_msg/6</span></a></span> when the process is to perform a
+<div class="REFBODY rb-7"><p>
+        <p>Called from <span class="bold_code bc-17"><a href="#handle_system_msg-6"><span class="code">handle_system_msg/6</span></a></span> when the process is to perform a
           code change. The code change is used when the
           internal data structure has changed. This function
           converts argument <span class="code">Misc</span> to the new data
@@ -2371,90 +2383,90 @@
           defined, the atom <span class="code">undefined</span> is sent.</p>
       </p></div>
 
-    <p><a name="Module:system_continue-3"></a><span class="bold_code">Module:system_continue(Parent, Debug, Misc) -&gt; none()</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Parent = pid()</span><br>
+    <p><a name="Module:system_continue-3"></a><span class="bold_code bc-9">Module:system_continue(Parent, Debug, Misc) -&gt; none()</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Parent = pid()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Debug = [<span class="bold_code"><a href="#type-dbg_opt">dbg_opt()</a></span>]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Debug = [<span class="bold_code bc-17"><a href="#type-dbg_opt">dbg_opt()</a></span>]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Misc = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Misc = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
-        <p>Called from <span class="bold_code"><a href="#handle_system_msg-6"><span class="code">handle_system_msg/6</span></a></span> when the process is to continue
+<div class="REFBODY rb-7"><p>
+        <p>Called from <span class="bold_code bc-17"><a href="#handle_system_msg-6"><span class="code">handle_system_msg/6</span></a></span> when the process is to continue
           its execution (for example, after it has been
           suspended). This function never returns.</p>
       </p></div>
 
-    <p><a name="Module:system_get_state-1"></a><span class="bold_code">Module:system_get_state(Misc) -&gt; {ok, State}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Misc = term()</span><br>
+    <p><a name="Module:system_get_state-1"></a><span class="bold_code bc-9">Module:system_get_state(Misc) -&gt; {ok, State}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Misc = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">State = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">State = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
-        <p>Called from <span class="bold_code"><a href="#handle_system_msg-6"><span class="code">handle_system_msg/6</span></a></span>
+<div class="REFBODY rb-7"><p>
+        <p>Called from <span class="bold_code bc-17"><a href="#handle_system_msg-6"><span class="code">handle_system_msg/6</span></a></span>
           when the process is to return a term that reflects its current state. 
           <span class="code">State</span> is the value returned by 
-          <span class="bold_code"><a href="#get_state-2"><span class="code">get_state/2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#get_state-2"><span class="code">get_state/2</span></a></span>.</p>
       </p></div>
 
-    <p><a name="Module:system_replace_state-2"></a><span class="bold_code">Module:system_replace_state(StateFun, Misc) -&gt;
+    <p><a name="Module:system_replace_state-2"></a><span class="bold_code bc-9">Module:system_replace_state(StateFun, Misc) -&gt;
         {ok, NState, NMisc}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">StateFun = fun((State :: term()) -&gt; NState)</span><br>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">StateFun = fun((State :: term()) -&gt; NState)</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Misc = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Misc = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">NState = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">NState = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">NMisc = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">NMisc = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
-        <p>Called from <span class="bold_code"><a href="#handle_system_msg-6"><span class="code">handle_system_msg/6</span></a></span> when the process is to replace
+<div class="REFBODY rb-7"><p>
+        <p>Called from <span class="bold_code bc-17"><a href="#handle_system_msg-6"><span class="code">handle_system_msg/6</span></a></span> when the process is to replace
           its current state. <span class="code">NState</span> is the value returned by
-          <span class="bold_code"><a href="#replace_state-3"><span class="code">replace_state/3</span></a></span>.
+          <span class="bold_code bc-17"><a href="#replace_state-3"><span class="code">replace_state/3</span></a></span>.
           </p>
       </p></div>
 
-    <p><a name="Module:system_terminate-4"></a><span class="bold_code">Module:system_terminate(Reason, Parent, Debug, Misc) -&gt; none()</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+    <p><a name="Module:system_terminate-4"></a><span class="bold_code bc-9">Module:system_terminate(Reason, Parent, Debug, Misc) -&gt; none()</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Parent = pid()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Parent = pid()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Debug = [<span class="bold_code"><a href="#type-dbg_opt">dbg_opt()</a></span>]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Debug = [<span class="bold_code bc-17"><a href="#type-dbg_opt">dbg_opt()</a></span>]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Misc = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Misc = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
-        <p>Called from <span class="bold_code"><a href="#handle_system_msg-6"><span class="code">handle_system_msg/6</span></a></span> when the process is to terminate.
+<div class="REFBODY rb-7"><p>
+        <p>Called from <span class="bold_code bc-17"><a href="#handle_system_msg-6"><span class="code">handle_system_msg/6</span></a></span> when the process is to terminate.
           For example, this function is called when
           the process is suspended and its parent orders shutdown.
           It gives the process a chance to do a cleanup. This function never
           returns.</p>
       </p></div>
-  
+  </div>
 </div>
 <div class="footer">
 <hr>

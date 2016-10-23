@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Erlang Interface</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 3.9.1</p>
@@ -592,23 +592,24 @@
 <!-- refpage --><center><h1>erl_malloc</h1></center>
   
   <h3><a name="c-library" href="#c-library">C Library</a></h3>
-<div class="REFBODY">erl_malloc</div>
+<div class="REFBODY c-library-body">erl_malloc</div>
   <h3><a name="library-sumary" href="#library-sumary">Library Summary</a></h3>
-<div class="REFBODY">Memory Allocation Functions</div>
+<div class="REFBODY library-summary-body">Memory Allocation Functions</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>This module provides functions for allocating and deallocating
       memory.</p>
   </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="erl_alloc_eterm"><span class="bold_code">ETERM *erl_alloc_eterm(etype)</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">unsigned char etype;</span><br>
+<div class="exports-body">
+    <p><a name="erl_alloc_eterm"><span class="bold_code bc-7">ETERM *erl_alloc_eterm(etype)</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">unsigned char etype;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function allocates an <span class="code">(ETERM)</span> structure.
           Specify <span class="code">etype</span> as one of the following constants:</p>
         <ul>
@@ -661,24 +662,24 @@
           dependent, but in general any integer larger than 2^28
           requires a bignum.</p>
       </p></div>
-    <p><a name="erl_eterm_release"><span class="bold_code">void erl_eterm_release(void)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="erl_eterm_release"><span class="bold_code bc-7">void erl_eterm_release(void)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Clears the 
           freelist, where blocks are placed when they are
           released by <span class="code">erl_free_term()</span> and
           <span class="code">erl_free_compound()</span>. </p>
       </p></div>
-    <p><a name="erl_eterm_statistics"><span class="bold_code">void erl_eterm_statistics(allocated, freed)</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">long *allocated;</span><br>
+    <p><a name="erl_eterm_statistics"><span class="bold_code bc-7">void erl_eterm_statistics(allocated, freed)</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">long *allocated;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">long *freed;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">long *freed;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p><span class="code">allocated</span> and <span class="code">freed</span> are initialized to
           contain information about the fix-allocator used to allocate
           ETERM components. <span class="code">allocated</span> is the number of blocks
@@ -687,40 +688,40 @@
           released by <span class="code">erl_free_term()</span> and
           <span class="code">erl_free_compound()</span>. </p>
       </p></div>
-    <p><a name="erl_free_array"><span class="bold_code">void erl_free_array(array, size)</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">ETERM **array;</span><br>
+    <p><a name="erl_free_array"><span class="bold_code bc-7">void erl_free_array(array, size)</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ETERM **array;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">int size;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">int size;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function frees an array of Erlang terms.</p>
         <p><span class="code">array</span> is an array of ETERM* objects.
           </p>
         <p><span class="code">size</span> is the number of terms in the array.</p>
       </p></div>
-    <p><a name="erl_free_term"><span class="bold_code">void erl_free_term(t)</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">ETERM *t;</span><br>
+    <p><a name="erl_free_term"><span class="bold_code bc-7">void erl_free_term(t)</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ETERM *t;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Use this function to free an Erlang term.</p>
       </p></div>
-    <p><a name="erl_free_compound"><span class="bold_code">void erl_free_compound(t)</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">ETERM *t;</span><br>
+    <p><a name="erl_free_compound"><span class="bold_code bc-7">void erl_free_compound(t)</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ETERM *t;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Normally it is the programmer's responsibility to free each
           Erlang term that has been returned from any of the
           <span class="code">erl_interface</span> functions. However since many of the
@@ -737,29 +738,29 @@
           Terms and Patterns"
           </p>
       </p></div>
-    <p><a name="erl_malloc"><span class="bold_code">void erl_malloc(size)</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">long size;</span><br>
+    <p><a name="erl_malloc"><span class="bold_code bc-7">void erl_malloc(size)</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">long size;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function calls the standard 
           <span class="code">malloc()</span> function. </p>
       </p></div>
-    <p><a name="erl_free"><span class="bold_code">void erl_free(ptr)</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">void *ptr;</span><br>
+    <p><a name="erl_free"><span class="bold_code bc-7">void erl_free(ptr)</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">void *ptr;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function calls the standard 
           <span class="code">free()</span> function. </p>
       </p></div>
-  
+  </div>
 </div>
 <div class="footer">
 <hr>

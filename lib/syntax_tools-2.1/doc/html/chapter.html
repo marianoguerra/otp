@@ -46,7 +46,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Syntax_Tools</p>
 <p class="section-subtitle">User's Guide</p>
 <p class="section-version">Version 2.1</p>
@@ -68,7 +68,7 @@
 <li><a href="chapter.html">
               Top of chapter
             </a></li>
-<li title="Overview"><a href="chapter.html#idm45201785064272">Overview</a></li>
+<li title="Overview"><a href="chapter.html#idm45991972763632">Overview</a></li>
 </ul>
 </li></ul>
 </div></div>
@@ -77,31 +77,31 @@
 <h1>1 Erlang Syntax and Metaprogramming tools
 </h1>
 
-<h3><a name="idm45201785064272">1.1 
+<h3><a name="idm45991972763632">1.1 
         Overview</a></h3>
 
 <p>This package contains modules for handling abstract syntax trees (ASTs)
 in Erlang, in a way that is compatible with the "abstract format" parse
 trees of the stdlib module <span class="code">erl_parse</span>, together with utilities for reading
-source files, <span class="bold_code"><a href="erl_prettypr.html">pretty-printing syntax trees</a></span>, <span class="bold_code"><a href="igor.html">merging and renaming modules</a></span>, <span class="bold_code"><a href="erl_tidy.html">cleaning up obsolete constructs</a></span>, and doing <span class="bold_code"><a href="merl.html">metaprogramming</a></span> in Erlang.</p>
+source files, <span class="bold_code bc-19"><a href="erl_prettypr.html">pretty-printing syntax trees</a></span>, <span class="bold_code bc-19"><a href="igor.html">merging and renaming modules</a></span>, <span class="bold_code bc-19"><a href="erl_tidy.html">cleaning up obsolete constructs</a></span>, and doing <span class="bold_code bc-19"><a href="merl.html">metaprogramming</a></span> in Erlang.</p>
 
-<p>The abstract layer (defined in <span class="bold_code"><a href="erl_syntax.html">erl_syntax</a></span>) is nicely
+<p>The abstract layer (defined in <span class="bold_code bc-19"><a href="erl_syntax.html">erl_syntax</a></span>) is nicely
 structured and the node types are context-independent. The layer makes
 it possible to transparently attach source-code comments and user
 annotations to nodes of the tree. Using the abstract layer makes
-applications less sensitive to changes in the <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','erl_parse.html');">erl_parse(3)</a></span>
+applications less sensitive to changes in the <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','erl_parse.html');">erl_parse(3)</a></span>
 data structures, only requiring the <span class="code">erl_syntax</span> module to be up-to-date.</p>
 
-<p>The pretty printer <span class="bold_code"><a href="erl_prettypr.html">erl_prettypr</a></span> is implemented on top of the
-library module <span class="bold_code"><a href="prettypr.html">prettypr</a></span>: this is a powerful and flexible generic
+<p>The pretty printer <span class="bold_code bc-19"><a href="erl_prettypr.html">erl_prettypr</a></span> is implemented on top of the
+library module <span class="bold_code bc-19"><a href="prettypr.html">prettypr</a></span>: this is a powerful and flexible generic
 pretty printing library, which is also distributed separately.</p>
 
 <p>For a short demonstration of parsing and pretty-printing, simply
-compile the included module <span class="bold_code"><a href="../../examples/demo.erl">demo.erl</a></span>,
+compile the included module <span class="bold_code bc-20"><a href="../../examples/demo.erl">demo.erl</a></span>,
 and execute <span class="code">demo:run()</span> from the Erlang shell. It will compile the
 remaining modules and give you further instructions.</p>
 
-<p>Also try the <span class="bold_code"><a href="erl_tidy.html">erl_tidy</a></span> module, as follows:
+<p>Also try the <span class="bold_code bc-19"><a href="erl_tidy.html">erl_tidy</a></span> module, as follows:
 </p>
 <div class="example"><pre>   erl_tidy:dir("any-erlang-source-dir", [test, old_guard_tests]).</pre></div>
 <p>

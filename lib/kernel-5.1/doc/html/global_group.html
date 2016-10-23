@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Kernel</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 5.1</p>
@@ -646,21 +646,21 @@
 <!-- refpage --><center><h1>global_group</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">global_group</div>
+<div class="REFBODY module-body">global_group</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Grouping nodes to global name registration groups.</div>
+<div class="REFBODY module-summary-body">Grouping nodes to global name registration groups.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>This module makes it possible to partition the nodes of a
       system into <strong>global groups</strong>. Each global group has its own
-      global namespace, see <span class="bold_code"><a href="global.html"><span class="code">global(3)</span></a></span>.</p>
+      global namespace, see <span class="bold_code bc-19"><a href="global.html"><span class="code">global(3)</span></a></span>.</p>
     <p>The main advantage of dividing systems into global groups is that
       the background load decreases while the number of nodes to be
       updated is reduced when manipulating globally registered names.</p>
     <p>The Kernel configuration parameter <span class="code">global_groups</span> defines
       the global groups (see also
-      <span class="bold_code"><a href="kernel_app.html#global_groups"><span class="code">kernel(6)</span></a></span>
-      and <span class="bold_code"><a href="config.html"><span class="code">config(4)</span></a></span>):</p>
+      <span class="bold_code bc-15"><a href="kernel_app.html#global_groups"><span class="code">kernel(6)</span></a></span>
+      and <span class="bold_code bc-19"><a href="config.html"><span class="code">config(4)</span></a></span>):</p>
     <div class="example"><pre>
 {global_groups, [GroupTuple :: group_tuple()]}</pre></div>
     <p>For the processes and nodes to run smoothly using the global
@@ -685,20 +685,25 @@
   </p></div>
 
  <h3><a name="data-types" href="#data-types">Data Types</a></h3>
-    <p>
-      <span class="bold_code"><a name="type-group_tuple">group_tuple()</a> = <br>    {GroupName :: <span class="bold_code"><a href="#type-group_name">group_name()</a></span>, [node()]} |<br>    {GroupName :: <span class="bold_code"><a href="#type-group_name">group_name()</a></span>,<br>     PublishType :: <span class="bold_code"><a href="#type-publish_type">publish_type()</a></span>,<br>     [node()]}</span><br></p>
-<div class="REFBODY"><p>
+<div class="data-types-body">
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-group_tuple">group_tuple()</a> = <br>    {GroupName :: <span class="bold_code bc-17"><a href="#type-group_name">group_name()</a></span>, [node()]} |<br>    {GroupName :: <span class="bold_code bc-17"><a href="#type-group_name">group_name()</a></span>,<br>     PublishType :: <span class="bold_code bc-17"><a href="#type-publish_type">publish_type()</a></span>,<br>     [node()]}</span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p>
         <p>A <span class="code">GroupTuple</span> without <span class="code">PublishType</span> is the same as a
           <span class="code">GroupTuple</span> with <span class="code">PublishType</span> equal to <span class="code">normal</span>.
 	</p>
-      </p></div>
-    <p>
-      <span class="bold_code"><a name="type-group_name">group_name()</a> = atom()</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-publish_type">publish_type()</a> = hidden | normal</span><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-group_name">group_name()</a> = atom()</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-publish_type">publish_type()</a> = hidden | normal</span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p>
         <p>A node started with command-line flag <span class="code">-hidden</span> (see
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html');"><span class="code">erl(1)</span></a></span>) is said
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html');"><span class="code">erl(1)</span></a></span>) is said
           to be a <strong>hidden</strong> node. A hidden node establishes hidden
           connections to nodes not part of the same global group, but
           normal (visible) connections to nodes part of the same global
@@ -708,38 +713,42 @@
 	  All nodes in a hidden global
           group are hidden nodes, whether they are started with
           command-line flag <span class="code">-hidden</span> or not.</p>
-      </p></div>
-    <p>
-      <span class="bold_code"><a name="type-name">name()</a> = atom()</span><br></p>
-<div class="REFBODY"><p><p>A registered name.</p></p></div>
+      </p></div></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-name">name()</a> = atom()</span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p><p>A registered name.</p></p></div></div>
 
-    <p>
-      <span class="bold_code"><a name="type-where">where()</a> = {node, node()} | {group, <span class="bold_code"><a href="#type-group_name">group_name()</a></span>}</span><br></p>
-  
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-where">where()</a> = {node, node()} | {group, <span class="bold_code bc-17"><a href="#type-group_name">group_name()</a></span>}</span><br>
+</div>
+<div class="data-type-desc"></div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="global_groups-0"></a><span class="bold_code">global_groups() -&gt; {GroupName, GroupNames} | undefined</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">GroupName = <span class="bold_code"><a href="#type-group_name">group_name()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">GroupNames = [GroupName]</span></div>
+<div class="exports-body">
+    <p><a name="global_groups-0"></a><span class="bold_code bc-1">global_groups() -&gt; {GroupName, GroupNames} | undefined</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">GroupName = <span class="bold_code bc-17"><a href="#type-group_name">group_name()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">GroupNames = [GroupName]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a tuple containing the name of the global group that
           the local node belongs to, and the list of all other known
           group names. Returns <span class="code">undefined</span> if no global groups are
           defined.</p>
       </p></div>
 
-    <p><a name="info-0"></a><span class="bold_code">info() -&gt; [info_item()]</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES">
-      <span class="bold_code">info_item() = <br>    {state, State :: sync_state()} |<br>    {own_group_name, GroupName :: <span class="bold_code"><a href="#type-group_name">group_name()</a></span>} |<br>    {own_group_nodes, Nodes :: [node()]} |<br>    {synched_nodes, Nodes :: [node()]} |<br>    {sync_error, Nodes :: [node()]} |<br>    {no_contact, Nodes :: [node()]} |<br>    {other_groups, Groups :: [<span class="bold_code"><a href="#type-group_tuple">group_tuple()</a></span>]} |<br>    {monitoring, Pids :: [pid()]}</span><br>
+    <p><a name="info-0"></a><span class="bold_code bc-1">info() -&gt; [info_item()]</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">info_item() = <br>    {state, State :: sync_state()} |<br>    {own_group_name, GroupName :: <span class="bold_code bc-17"><a href="#type-group_name">group_name()</a></span>} |<br>    {own_group_nodes, Nodes :: [node()]} |<br>    {synched_nodes, Nodes :: [node()]} |<br>    {sync_error, Nodes :: [node()]} |<br>    {no_contact, Nodes :: [node()]} |<br>    {other_groups, Groups :: [<span class="bold_code bc-17"><a href="#type-group_tuple">group_tuple()</a></span>]} |<br>    {monitoring, Pids :: [pid()]}</span><br>
 </div>
-<div class="REFTYPES">
-      <span class="bold_code">sync_state() = no_conf | synced</span><br>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">sync_state() = no_conf | synced</span><br>
 </div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a list containing information about the global
           groups. Each list element is a tuple. The order of
           the tuples is undefined.</p>
@@ -790,11 +799,11 @@
         </dl>
       </p></div>
 
-    <p><a name="monitor_nodes-1"></a><span class="bold_code">monitor_nodes(Flag) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Flag = boolean()</span></div>
+    <p><a name="monitor_nodes-1"></a><span class="bold_code bc-1">monitor_nodes(Flag) -&gt; ok</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Flag = boolean()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Depending on <span class="code">Flag</span>, the calling process
           starts subscribing (<span class="code">Flag</span> equal to
           <span class="code">true</span>) or stops subscribing (<span class="code">Flag</span>
@@ -804,32 +813,32 @@
           group node connects or disconnects, respectively.</p>
       </p></div>
 
-    <p><a name="own_nodes-0"></a><span class="bold_code">own_nodes() -&gt; Nodes</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Nodes = [Node :: node()]</span></div>
+    <p><a name="own_nodes-0"></a><span class="bold_code bc-1">own_nodes() -&gt; Nodes</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Nodes = [Node :: node()]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the names of all group nodes, regardless of their
           current status.</p>
       </p></div>
 
-    <p><a name="registered_names-1"></a><span class="bold_code">registered_names(Where) -&gt; Names</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Where = <span class="bold_code"><a href="#type-where">where()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Names = [Name :: <span class="bold_code"><a href="#type-name">name()</a></span>]</span></div>
+    <p><a name="registered_names-1"></a><span class="bold_code bc-1">registered_names(Where) -&gt; Names</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Where = <span class="bold_code bc-17"><a href="#type-where">where()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Names = [Name :: <span class="bold_code bc-17"><a href="#type-name">name()</a></span>]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a list of all names that are globally registered
           on the specified node or in the specified global group.</p>
       </p></div>
 
-    <p><a name="send-2"></a><span class="bold_code">send(Name, Msg) -&gt; pid() | {badarg, {Name, Msg}}</span><br><a name="send-3"></a><span class="bold_code">send(Where, Name, Msg) -&gt; pid() | {badarg, {Name, Msg}}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Where = <span class="bold_code"><a href="#type-where">where()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-name">name()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Msg = term()</span></div>
+    <p><a name="send-2"></a><span class="bold_code bc-1">send(Name, Msg) -&gt; pid() | {badarg, {Name, Msg}}</span><a name="send-3"></a><span class="bold_code bc-1">send(Where, Name, Msg) -&gt; pid() | {badarg, {Name, Msg}}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Where = <span class="bold_code bc-17"><a href="#type-where">where()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-name">name()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Msg = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Searches for <span class="code">Name</span>, globally registered on
           the specified node or in the specified global group, or
           (if argument <span class="code">Where</span> is not provided) in any
@@ -843,27 +852,27 @@
           <span class="code">{badarg, {Name, Msg}}</span>.</p>
       </p></div>
 
-    <p><a name="sync-0"></a><span class="bold_code">sync() -&gt; ok</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="sync-0"></a><span class="bold_code bc-1">sync() -&gt; ok</span></p>
+<div class="REFBODY rb-7"><p>
         <p>Synchronizes the group nodes, that is, the global name
           servers on the group nodes. Also checks the names globally
           registered in the current global group and unregisters them
           on any known node not part of the group.</p>
         <p>If synchronization is not possible, an error report is sent
           to the error logger (see also
-          <span class="bold_code"><a href="error_logger.html"><span class="code">error_logger(3)</span></a></span>.
+          <span class="bold_code bc-19"><a href="error_logger.html"><span class="code">error_logger(3)</span></a></span>.
         </p>
         <p>Returns <span class="code">{error, {'invalid global_groups definition', Bad}}</span>
           if configuration parameter <span class="code">global_groups</span> has an
           invalid value <span class="code">Bad</span>.</p>
       </p></div>
 
-    <p><a name="whereis_name-1"></a><span class="bold_code">whereis_name(Name) -&gt; pid() | undefined</span><br><a name="whereis_name-2"></a><span class="bold_code">whereis_name(Where, Name) -&gt; pid() | undefined</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Where = <span class="bold_code"><a href="#type-where">where()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Name = <span class="bold_code"><a href="#type-name">name()</a></span></span></div>
+    <p><a name="whereis_name-1"></a><span class="bold_code bc-1">whereis_name(Name) -&gt; pid() | undefined</span><a name="whereis_name-2"></a><span class="bold_code bc-1">whereis_name(Where, Name) -&gt; pid() | undefined</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Where = <span class="bold_code bc-17"><a href="#type-where">where()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = <span class="bold_code bc-17"><a href="#type-name">name()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Searches for <span class="code">Name</span>, globally registered on
           the specified node or in the specified global group, or
           (if argument <span class="code">Where</span> is not provided) in any global
@@ -874,10 +883,10 @@
           returned. If the name is not found, the function returns
           <span class="code">undefined</span>.</p>
       </p></div>
-  
+  </div>
 
-  <h3><a name="idm46525669898976">Notes</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45317250683888">Notes</a></h3>
+<div class="REFBODY rb-3">
     
     <ul>
       <li><p>In the situation where a node has lost its connections to other
@@ -887,7 +896,7 @@
         have inaccurate information about registered names in its
         global group.</p></li>
      <li><p>Function
-       <span class="bold_code"><a href="#send-2"><span class="code">send/2,3</span></a></span>
+       <span class="bold_code bc-17"><a href="#send-2"><span class="code">send/2,3</span></a></span>
        is not secure.</p></li>
      <li><p>Distribution of applications is highly dependent of the global
         group definitions. It is not recommended that an application is
@@ -898,11 +907,11 @@
     </ul>
   </div>
 
-  <h3><a name="idm46525669894064">See Also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45317250678976">See Also</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="global.html"><span class="code">global(3)</span></a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html');"><span class="code">erl(1)</span></a></span></p>
+    <p><span class="bold_code bc-19"><a href="global.html"><span class="code">global(3)</span></a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html');"><span class="code">erl(1)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

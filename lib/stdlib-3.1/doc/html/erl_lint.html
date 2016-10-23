@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">STDLIB</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 3.1</p>
@@ -1717,11 +1717,11 @@
 <!-- refpage --><center><h1>erl_lint</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">erl_lint</div>
+<div class="REFBODY module-body">erl_lint</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">The Erlang code linter.</div>
+<div class="REFBODY module-summary-body">The Erlang code linter.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>This module is used to check Erlang code for illegal syntax and
       other bugs. It also warns against coding practices that are
       not recommended.</p>
@@ -1756,46 +1756,52 @@
   </p></div>
 
   <h3><a name="data-types" href="#data-types">Data Types</a></h3>
-    <p>
-      <span class="bold_code"><a name="type-error_info">error_info()</a> = {<span class="bold_code"><a href="erl_anno.html#type-line">erl_anno:line()</a></span>, module(), <span class="bold_code"><a href="#type-error_description">error_description()</a></span>}</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-error_description">error_description()</a> = term()</span><br></p>
-  
+<div class="data-types-body">
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-error_info">error_info()</a> = {<span class="bold_code bc-15"><a href="erl_anno.html#type-line">erl_anno:line()</a></span>, module(), <span class="bold_code bc-17"><a href="#type-error_description">error_description()</a></span>}</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-error_description">error_description()</a> = term()</span><br>
+</div>
+<div class="data-type-desc"></div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="format_error-1"></a><span class="bold_code">format_error(ErrorDescriptor) -&gt; <span class="bold_code"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">ErrorDescriptor = <span class="bold_code"><a href="#type-error_description">error_description()</a></span></span></div>
+<div class="exports-body">
+    <p><a name="format_error-1"></a><span class="bold_code bc-1">format_error(ErrorDescriptor) -&gt; <span class="bold_code bc-15"><a href="io_lib.html#type-chars">io_lib:chars()</a></span></span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">ErrorDescriptor = <span class="bold_code bc-17"><a href="#type-error_description">error_description()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Takes an <span class="code">ErrorDescriptor</span> and returns a string
           that describes the error or warning. This function is usually
           called implicitly when processing an <span class="code">ErrorInfo</span> structure
           (see section
-          <span class="bold_code"><a href="#errorinfo">Error Information</a></span>).</p>
+          <span class="bold_code bc-17"><a href="#errorinfo">Error Information</a></span>).</p>
       </p></div>
 
-    <p><a name="is_guard_test-1"></a><span class="bold_code">is_guard_test(Expr) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Expr = <span class="bold_code"><a href="erl_parse.html#type-abstract_expr">erl_parse:abstract_expr()</a></span></span></div>
+    <p><a name="is_guard_test-1"></a><span class="bold_code bc-1">is_guard_test(Expr) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Expr = <span class="bold_code bc-15"><a href="erl_parse.html#type-abstract_expr">erl_parse:abstract_expr()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Tests if <span class="code">Expr</span> is a legal guard test.
           <span class="code">Expr</span> is an Erlang term representing the abstract
-          form for the expression. <span class="bold_code"><a href="erl_parse.html#parse_exprs-1"><span class="code">erl_parse:parse_exprs(Tokens)</span></a></span>
+          form for the expression. <span class="bold_code bc-15"><a href="erl_parse.html#parse_exprs-1"><span class="code">erl_parse:parse_exprs(Tokens)</span></a></span>
           can be used to generate a list of <span class="code">Expr</span>.</p>
       </p></div>
 
-    <p><a name="module-1"></a><span class="bold_code">module(AbsForms) -&gt; {ok, Warnings} | {error, Errors, Warnings}</span><br><a name="module-2"></a><span class="bold_code">module(AbsForms, FileName) -&gt;<br>          {ok, Warnings} | {error, Errors, Warnings}</span><br><a name="module-3"></a><span class="bold_code">module(AbsForms, FileName, CompileOptions) -&gt;<br>          {ok, Warnings} | {error, Errors, Warnings}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">AbsForms = [<span class="bold_code"><a href="erl_parse.html#type-abstract_form">erl_parse:abstract_form()</a></span> | <span class="bold_code"><a href="erl_parse.html#type-form_info">erl_parse:form_info()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">FileName = atom() | string()</span></div>
-<div class="REFTYPES"><span class="bold_code">CompileOptions = [<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','compiler','compile.html#type-option');">compile:option()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">Warnings = [{<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename');">file:filename()</a></span>, [ErrorInfo]}]</span></div>
-<div class="REFTYPES"><span class="bold_code">Errors = [{FileName2 :: <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename');">file:filename()</a></span>, [ErrorInfo]}]</span></div>
-<div class="REFTYPES"><span class="bold_code">ErrorInfo = <span class="bold_code"><a href="#type-error_info">error_info()</a></span></span></div>
+    <p><a name="module-1"></a><span class="bold_code bc-1">module(AbsForms) -&gt; {ok, Warnings} | {error, Errors, Warnings}</span><a name="module-2"></a><span class="bold_code bc-1">module(AbsForms, FileName) -&gt;<br>          {ok, Warnings} | {error, Errors, Warnings}</span><a name="module-3"></a><span class="bold_code bc-1">module(AbsForms, FileName, CompileOptions) -&gt;<br>          {ok, Warnings} | {error, Errors, Warnings}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">AbsForms = [<span class="bold_code bc-15"><a href="erl_parse.html#type-abstract_form">erl_parse:abstract_form()</a></span> | <span class="bold_code bc-15"><a href="erl_parse.html#type-form_info">erl_parse:form_info()</a></span>]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">FileName = atom() | string()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">CompileOptions = [<span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','compiler','compile.html#type-option');">compile:option()</a></span>]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Warnings = [{<span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename');">file:filename()</a></span>, [ErrorInfo]}]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Errors = [{FileName2 :: <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename');">file:filename()</a></span>, [ErrorInfo]}]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">ErrorInfo = <span class="bold_code bc-17"><a href="#type-error_info">error_info()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Checks all the forms in a module for errors. It returns:</p>
         <dl>
           <dt><strong><span class="code">{ok,Warnings}</span></strong></dt>
@@ -1811,12 +1817,12 @@
           compiler, and to avoid the same description in two places, the
           elements of <span class="code">Options</span> that control the warnings are
           only described in the
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','compiler','compile.html#erl_lint_options');"><span class="code">compile(3)</span></a></span> module.</p>
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','compiler','compile.html#erl_lint_options');"><span class="code">compile(3)</span></a></span> module.</p>
         <p><span class="code">AbsForms</span> of a module, which comes from a file
           that is read through <span class="code">epp</span>, the Erlang preprocessor, can come
           from many files. This means that any references to errors must
-          include the filename, see the <span class="bold_code"><a href="epp.html"><span class="code">epp(3)</span></a></span> module or parser (see the
-          <span class="bold_code"><a href="erl_parse.html"><span class="code">erl_parse(3)</span></a></span> module).
+          include the filename, see the <span class="bold_code bc-19"><a href="epp.html"><span class="code">epp(3)</span></a></span> module or parser (see the
+          <span class="bold_code bc-19"><a href="erl_parse.html"><span class="code">erl_parse(3)</span></a></span> module).
           The returned errors and warnings have the following format:</p>
         <div class="example"><pre>
 [{FileName2,[ErrorInfo]}]</pre></div>
@@ -1824,12 +1830,12 @@
           encountered in the forms. The errors from one file can therefore be
           split into different entries in the list of errors.</p>
       </p></div>
-  
+  </div>
 
   <h3>
-<a name="errorinfo"></a><a name="idm46007676419760">Error Information</a>
+<a name="errorinfo"></a><a name="idm46279767534496">Error Information</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
     <p><span class="code">ErrorInfo</span> is the standard <span class="code">ErrorInfo</span> structure that is
@@ -1841,11 +1847,11 @@
 Module:format_error(ErrorDescriptor)</pre></div>
   </div>
 
-  <h3><a name="idm46007676415648">See Also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46279767530384">See Also</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="epp.html"><span class="code">epp(3)</span></a></span>,
-      <span class="bold_code"><a href="erl_parse.html"><span class="code">erl_parse(3)</span></a></span></p>
+    <p><span class="bold_code bc-19"><a href="epp.html"><span class="code">epp(3)</span></a></span>,
+      <span class="bold_code bc-19"><a href="erl_parse.html"><span class="code">erl_parse(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

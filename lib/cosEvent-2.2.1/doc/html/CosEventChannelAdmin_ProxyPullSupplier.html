@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">cosEvent</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 2.2.1</p>
@@ -145,11 +145,11 @@
 <!-- refpage --><center><h1>CosEventChannelAdmin_ProxyPullSupplier</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">CosEventChannelAdmin_ProxyPullSupplier</div>
+<div class="REFBODY module-body">CosEventChannelAdmin_ProxyPullSupplier</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">This module implements a ProxyPullSupplier interface which acts as a middleman between pull consumer and the event channel.</div>
+<div class="REFBODY module-summary-body">This module implements a ProxyPullSupplier interface which acts as a middleman between pull consumer and the event channel.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>The ProxyPullSupplier interface defines the second step for connecting pull consumers to the event channel. A proxy supplier is similar to a normal supplier,
       but includes an additional method for connecting a consumer to the proxy
       supplier.</p>
@@ -159,20 +159,21 @@
       interface can perform the following operations:</p>
   </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="connect_pull_consumer-2"></a><span class="bold_code">connect_pull_consumer(Object, PullConsumer) -&gt; Return</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Object       = #objref</span><br>
+<div class="exports-body">
+    <p><a name="connect_pull_consumer-2"></a><span class="bold_code bc-9">connect_pull_consumer(Object, PullConsumer) -&gt; Return</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Object       = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">PullConsumer = #objref of PullConsumer type</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">PullConsumer = #objref of PullConsumer type</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Return = ok | {'EXCEPTION', #'CosEventChannelAdmin_AlreadyConnected'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Return = ok | {'EXCEPTION', #'CosEventChannelAdmin_AlreadyConnected'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This operation connects PullConsumer object to the ProxyPullSupplier object.
           A nil object reference can be passed to this operation. If so a channel
           cannot invoke the disconnect_pull_consumer operation on the consumer;
@@ -181,55 +182,55 @@
           PullConsumer, then the <span class="code">CosEventChannelAdmin_AlreadyConnected</span> 
           exception is raised.</p>
       </p></div>
-    <p><a name="disconnect_pull_supplier-1"></a><span class="bold_code">disconnect_pull_supplier(Object) -&gt; Return</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Object = #objref</span><br>
+    <p><a name="disconnect_pull_supplier-1"></a><span class="bold_code bc-9">disconnect_pull_supplier(Object) -&gt; Return</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Object = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Return = ok</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Return = ok</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This operation disconnects proxy pull supplier from the event channel.
           It sends a notification about the loss of the connection to the pull consumer
           attached to it, unless nil object reference was passed at the connection
           time.</p>
       </p></div>
-    <p><a name="pull-1"></a><span class="bold_code">pull(Object) -&gt; Return</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Object = #objref</span><br>
+    <p><a name="pull-1"></a><span class="bold_code bc-9">pull(Object) -&gt; Return</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Object = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Return = any</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Return = any</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This operation blocks until the event data is available or the 
           <span class="code">CosEventComm_Disconnected</span> exception is raised. 
           It returns the event data to the consumer.</p>
       </p></div>
-    <p><a name="try_pull-1"></a><span class="bold_code">try_pull(Object) -&gt; Return</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Object = #objref</span><br>
+    <p><a name="try_pull-1"></a><span class="bold_code bc-9">try_pull(Object) -&gt; Return</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Object = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Return = {any, bool()}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Return = {any, bool()}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This operation does not block: if the event data is available, it returns 
           the event data and sets the data availability flag to true; otherwise
           it returns a long with an undefined value and sets the data availability to
           false. If the event communication has already been disconnected, the 
           <span class="code">CosEventComm_Disconnected</span> exception is raised.</p>
       </p></div>
-  
+  </div>
   
 </div>
 <div class="footer">

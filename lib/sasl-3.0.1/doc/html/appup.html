@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">System Architecture Support Libraries (SASL)</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 3.0.1</p>
@@ -147,20 +147,20 @@
 <!-- refpage --><center><h1>appup</h1></center>
   
   <h3><a name="file" href="#file">File</a></h3>
-<div class="REFBODY">appup</div>
+<div class="REFBODY file-body">appup</div>
   <h3><a name="file-summary" href="#file-summary">File Summary</a></h3>
-<div class="REFBODY">Application upgrade file</div>
+<div class="REFBODY file-summary-body">Application upgrade file</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>The <strong>application upgrade file</strong> defines how an application
       is upgraded or downgraded in a running system.</p>
     <p>This file is used by the functions in 
-    <span class="bold_code"><a href="systools.html"><span class="code">systools</span></a></span> 
+    <span class="bold_code bc-19"><a href="systools.html"><span class="code">systools</span></a></span> 
     when generating a release upgrade file <span class="code">relup</span>.</p>
   </p></div>
 
-  <h3><a name="idm45555976498960">File Syntax</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45820697520704">File Syntax</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The application upgrade file is to be called
       <span class="code">Application.appup</span>, where <span class="code">Application</span> is the
@@ -192,7 +192,7 @@
           numbers.</p></dd>
       <dt><strong><span class="code">Instructions</span></strong></dt>
         <dd><p>A list of <strong>release upgrade instructions</strong>, see
-          <span class="bold_code"><a href="#Release%20Upgrade%20Instructions">Release Upgrade Instructions</a></span>. It is recommended to use
+          <span class="bold_code bc-17"><a href="#Release%20Upgrade%20Instructions">Release Upgrade Instructions</a></span>. It is recommended to use
           high-level instructions only. These are automatically
           translated to low-level instructions by <span class="code">systools</span> when
           creating the <span class="code">relup</span> file.</p></dd>
@@ -211,26 +211,26 @@
   </div>
 
   <h3>
-<a name="Release%20Upgrade%20Instructions"></a><a name="idm45555976481248">Release Upgrade Instructions</a>
+<a name="Release%20Upgrade%20Instructions"></a><a name="idm45820697502992">Release Upgrade Instructions</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
     <p>Release upgrade instructions are interpreted by the release
       handler when an upgrade or downgrade is made. For more
       information about release handling, see
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','release_handling.html');">OTP Design Principles</a></span> in <strong>System Documentation</strong>.</p>
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','release_handling.html');">OTP Design Principles</a></span> in <strong>System Documentation</strong>.</p>
     <p>A process is said to <strong>use</strong> a module <span class="code">Mod</span> if
       <span class="code">Mod</span> is listed in the <span class="code">Modules</span> part of the child
       specification used to start the process, see
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','supervisor.html');"><span class="code">supervisor(3)</span></a></span>.
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','supervisor.html');"><span class="code">supervisor(3)</span></a></span>.
       In the case of 
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','gen_event.html');"><span class="code">gen_event</span></a></span>, 
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','gen_event.html');"><span class="code">gen_event</span></a></span>, 
       an event manager process is said to use <span class="code">Mod</span> if <span class="code">Mod</span> 
       is an installed event handler.</p>
 
     <h4>High-Level Instructions</h4>
-<div class="REFBODY">
+<div class="REFBODY rb-4">
     
     <div class="example"><pre>
 {update, Mod}
@@ -251,19 +251,19 @@
     <p>Synchronized code replacement of processes using module
       <span class="code">Mod</span>.</p>
     <p>All those processes are suspended using 
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','sys.html#suspend-1');"><span class="code">sys:suspend</span></a></span>,
+      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','sys.html#suspend-1');"><span class="code">sys:suspend</span></a></span>,
       the new module version is loaded, and
       then the processes are resumed using 
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','sys.html#resume-1');"><span class="code">sys:resume</span></a></span>.</p>
+      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','sys.html#resume-1');"><span class="code">sys:resume</span></a></span>.</p>
     <dl>
     <dt><strong><span class="code">Change</span></strong></dt>
       <dd><p>Defaults to <span class="code">soft</span> and defines the type of
       code change. If it is set to <span class="code">{advanced,Extra}</span>, implemented
       processes using 
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','gen_server.html');"><span class="code">gen_server</span></a></span>, 
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','gen_fsm.html');"><span class="code">gen_fsm</span></a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','gen_statem.html');"><span class="code">gen_statem</span></a></span>, or
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','gen_event.html');"><span class="code">gen_event</span></a></span> 
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','gen_server.html');"><span class="code">gen_server</span></a></span>, 
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','gen_fsm.html');"><span class="code">gen_fsm</span></a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','gen_statem.html');"><span class="code">gen_statem</span></a></span>, or
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','gen_event.html');"><span class="code">gen_event</span></a></span> 
       transform their internal state by calling the callback function
       <span class="code">code_change</span>. Special processes call the callback
       function <span class="code">system_code_change/4</span>. In both cases, the term
@@ -275,7 +275,7 @@
       before loading the new module version. If the value
       is <span class="code">brutal_purge</span>, the processes are killed. If the value is
       <span class="code">soft_purge</span>, 
-      <span class="bold_code"><a href="release_handler.html#install_release-1"><span class="code">release_handler:install_release/1</span></a></span>
+      <span class="bold_code bc-15"><a href="release_handler.html#install_release-1"><span class="code">release_handler:install_release/1</span></a></span>
       returns <span class="code">{error,{old_processes,Mod}}</span>.</p></dd>
     <dt><strong><span class="code">PostPurge</span></strong></dt>
       <dd><p>Defaults to <span class="code">brutal_purge</span>. It controls
@@ -296,7 +296,7 @@
     <dt><strong><span class="code">Timeout</span></strong></dt>
       <dd><p>Defines the time-out when suspending processes.
       If no value or <span class="code">default</span> is specified, the default value for
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','sys.html#suspend-1');"><span class="code">sys:suspend</span></a></span> 
+      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','sys.html#suspend-1');"><span class="code">sys:suspend</span></a></span> 
       is used.</p></dd>
     <dt><strong><span class="code">ModType</span></strong></dt>
       <dd><p>Defaults to <span class="code">dynamic</span>. It specifies if
@@ -359,7 +359,7 @@
     <p><span class="code">Type</span> defaults to <span class="code">permanent</span> and specifies the start type
       of the application. If <span class="code">Type = permanent | transient | temporary</span>,
       the application is loaded and started in the corresponding way, see
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','application.html');"><span class="code">application(3)</span></a></span>.
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','application.html');"><span class="code">application(3)</span></a></span>.
       If <span class="code">Type = load</span>, the application is only loaded.
       If <span class="code">Type = none</span>, the application is not loaded and not
       started, although the code for its modules is loaded.</p>
@@ -379,7 +379,7 @@
     </div>
 
     <h4>Low-Level Instructions</h4>
-<div class="REFBODY">
+<div class="REFBODY rb-4">
     
     <div class="example"><pre>
 {load_object_code, {App, Vsn, [Mod]}}
@@ -425,7 +425,7 @@ point_of_no_return</pre></div>
       spontaneously switches to new code, or as a result of a purge
       operation. If no <span class="code">Timeout</span> is specified or <span class="code">default</span> is
       specified, the default value for 
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','sys.html#suspend-1');"><span class="code">sys:suspend</span></a></span> 
+      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','sys.html#suspend-1');"><span class="code">sys:suspend</span></a></span> 
       is used.</p>
     <div class="example"><pre>
 {resume, [Mod]}
@@ -441,13 +441,13 @@ point_of_no_return</pre></div>
       upgrade or downgrade. This instruction sends a <span class="code">code_change</span>
       system message to all processes using a module <span class="code">Mod</span> by
       calling function 
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','sys.html#change_code-4');"><span class="code">sys:change_code</span></a></span>, 
+      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','sys.html#change_code-4');"><span class="code">sys:change_code</span></a></span>, 
       passing term <span class="code">Extra</span> as argument.</p>
     <div class="example"><pre>
 {stop, [Mod]}
   Mod = atom()</pre></div>
     <p>Stops all processes using a module <span class="code">Mod</span> by calling
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','supervisor.html#terminate_child-2');"><span class="code">supervisor:terminate_child/2</span></a></span>. 
+      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','supervisor.html#terminate_child-2');"><span class="code">supervisor:terminate_child/2</span></a></span>. 
       This instruction is useful
       when the simplest way to change code is to stop and restart the
       processes that run the code.</p>
@@ -455,7 +455,7 @@ point_of_no_return</pre></div>
 {start, [Mod]}
   Mod = atom()</pre></div>
     <p>Starts all stopped processes using a module <span class="code">Mod</span> by calling
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','supervisor.html#restart_child-2');"><span class="code">supervisor:restart_child/2</span></a></span>.</p>
+      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','supervisor.html#restart_child-2');"><span class="code">supervisor:restart_child/2</span></a></span>.</p>
     <div class="example"><pre>
 {sync_nodes, Id, [Node]}
 {sync_nodes, Id, {M, F, A}}
@@ -479,7 +479,7 @@ point_of_no_return</pre></div>
     <p>Evaluates <span class="code">apply(M, F, A)</span>.</p>
     <p>If the instruction appears before instruction
       <span class="code">point_of_no_return</span>, a failure is caught.
-      <span class="bold_code"><a href="release_handler.html#install_release-1"><span class="code">release_handler:install_release/1</span></a></span> 
+      <span class="bold_code bc-15"><a href="release_handler.html#install_release-1"><span class="code">release_handler:install_release/1</span></a></span> 
       then returns <span class="code">{error,{'EXIT',Reason}}</span>, unless <span class="code">{error,Error}</span> 
       is thrown or returned. Then it returns <span class="code">{error,Error}</span>.</p>
     <p>If the instruction appears after instruction
@@ -495,13 +495,13 @@ restart_new_emulator</pre></div>
       SASL are used when the emulator restarts.
       Only one <span class="code">restart_new_emulator</span> instruction is allowed
       in the <span class="code">relup</span> file, and it must be placed first.
-      <span class="bold_code"><a href="systools.html#make_relup-3"><span class="code">systools:make_relup/3,4</span></a></span>
+      <span class="bold_code bc-15"><a href="systools.html#make_relup-3"><span class="code">systools:make_relup/3,4</span></a></span>
       ensures this when the <span class="code">relup</span> file is generated. The rest of the
       instructions in the <span class="code">relup</span> file is executed after the
       restart as a part of the boot script.</p>
     <p>An info report is written when the upgrade is completed.
       To programmatically determine if the upgrade is complete,
-      call <span class="bold_code"><a href="release_handler.html#which_releases-0"><span class="code">release_handler:which_releases/0,1</span></a></span> and check if the
+      call <span class="bold_code bc-15"><a href="release_handler.html#which_releases-0"><span class="code">release_handler:which_releases/0,1</span></a></span> and check if the
       expected release has status <span class="code">current</span>.</p>
     <p>The new release must still be made permanent after the upgrade
       is completed, otherwise the old emulator is started if there is
@@ -531,20 +531,20 @@ restart_emulator</pre></div>
       applications, but can be used by any application when a complete
       reboot of the system is required.</p>
     <p>When generating the <span class="code">relup</span> file,
-      <span class="bold_code"><a href="systools.html#make_relup-3"><span class="code">systools:make_relup/3,4</span></a></span>
+      <span class="bold_code bc-15"><a href="systools.html#make_relup-3"><span class="code">systools:make_relup/3,4</span></a></span>
       ensures that there is only one <span class="code">restart_emulator</span>
       instruction and that it is the last instruction in the
       <span class="code">relup</span> file.</p>
     </div>
   </div>
 
-  <h3><a name="idm45555976372016">See Also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45820697393760">See Also</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="release_handler.html"><span class="code">release_handler(3)</span></a></span>,
-      <span class="bold_code"><a href="relup.html"><span class="code">relup(4)</span></a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','supervisor.html');"><span class="code">supervisor(3)</span></a></span>,
-      <span class="bold_code"><a href="systools.html"><span class="code">systools(3)</span></a></span></p>
+    <p><span class="bold_code bc-19"><a href="release_handler.html"><span class="code">release_handler(3)</span></a></span>,
+      <span class="bold_code bc-19"><a href="relup.html"><span class="code">relup(4)</span></a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','supervisor.html');"><span class="code">supervisor(3)</span></a></span>,
+      <span class="bold_code bc-19"><a href="systools.html"><span class="code">systools(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

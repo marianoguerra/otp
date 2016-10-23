@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">STDLIB</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 3.1</p>
@@ -1717,11 +1717,11 @@
 <!-- refpage --><center><h1>unicode</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">unicode</div>
+<div class="REFBODY module-body">unicode</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Functions for converting Unicode characters.</div>
+<div class="REFBODY module-summary-body">Functions for converting Unicode characters.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
   <p>This module contains functions for converting between different character 
     representations. It converts between ISO Latin-1 characters and Unicode
     characters, but it can also convert between different Unicode encodings
@@ -1744,63 +1744,83 @@
   </p></div>
 
   <h3><a name="data-types" href="#data-types">Data Types</a></h3>
-    <p>
-      <span class="bold_code"><a name="type-encoding">encoding()</a> = <br>    latin1 |<br>    unicode |<br>    utf8 |<br>    utf16 |<br>    {utf16, <span class="bold_code"><a href="#type-endian">endian()</a></span>} |<br>    utf32 |<br>    {utf32, <span class="bold_code"><a href="#type-endian">endian()</a></span>}</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-endian">endian()</a> = big | little</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-unicode_binary">unicode_binary()</a> = binary()</span><br></p>
-<div class="REFBODY"><p>
+<div class="data-types-body">
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-encoding">encoding()</a> = <br>    latin1 |<br>    unicode |<br>    utf8 |<br>    utf16 |<br>    {utf16, <span class="bold_code bc-17"><a href="#type-endian">endian()</a></span>} |<br>    utf32 |<br>    {utf32, <span class="bold_code bc-17"><a href="#type-endian">endian()</a></span>}</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-endian">endian()</a> = big | little</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-unicode_binary">unicode_binary()</a> = binary()</span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p>
         <p>A <span class="code">binary()</span> with characters encoded in the UTF-8 coding
           standard.</p>
-      </p></div>
-    <p>
-      <span class="bold_code"><a name="type-chardata">chardata()</a> = <span class="bold_code"><a href="#type-charlist">charlist()</a></span> | <span class="bold_code"><a href="#type-unicode_binary">unicode_binary()</a></span></span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-charlist">charlist()</a> = <br>    maybe_improper_list(char() | <span class="bold_code"><a href="#type-unicode_binary">unicode_binary()</a></span> | <span class="bold_code"><a href="#type-charlist">charlist()</a></span>,<br>                        <span class="bold_code"><a href="#type-unicode_binary">unicode_binary()</a></span> | [])</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-external_unicode_binary">external_unicode_binary()</a> = binary()</span><br></p>
-<div class="REFBODY"><p>
+      </p></div></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-chardata">chardata()</a> = <span class="bold_code bc-17"><a href="#type-charlist">charlist()</a></span> | <span class="bold_code bc-17"><a href="#type-unicode_binary">unicode_binary()</a></span></span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-charlist">charlist()</a> = <br>    maybe_improper_list(char() | <span class="bold_code bc-17"><a href="#type-unicode_binary">unicode_binary()</a></span> | <span class="bold_code bc-17"><a href="#type-charlist">charlist()</a></span>,<br>                        <span class="bold_code bc-17"><a href="#type-unicode_binary">unicode_binary()</a></span> | [])</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-external_unicode_binary">external_unicode_binary()</a> = binary()</span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p>
         <p>A <span class="code">binary()</span> with characters coded in a user-specified Unicode
           encoding other than UTF-8 (that is, UTF-16 or UTF-32).</p>
-      </p></div>
-    <p>
-      <span class="bold_code"><a name="type-external_chardata">external_chardata()</a> = <br>    <span class="bold_code"><a href="#type-external_charlist">external_charlist()</a></span> | <span class="bold_code"><a href="#type-external_unicode_binary">external_unicode_binary()</a></span></span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-external_charlist">external_charlist()</a> = <br>    maybe_improper_list(char() |<br>                        <span class="bold_code"><a href="#type-external_unicode_binary">external_unicode_binary()</a></span> |<br>                        <span class="bold_code"><a href="#type-external_charlist">external_charlist()</a></span>,<br>                        <span class="bold_code"><a href="#type-external_unicode_binary">external_unicode_binary()</a></span> | [])</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-latin1_binary">latin1_binary()</a> = binary()</span><br></p>
-<div class="REFBODY"><p><p>A <span class="code">binary()</span> with characters coded in ISO Latin-1.</p>
-      </p></div>
-    <p>
-      <span class="bold_code"><a name="type-latin1_char">latin1_char()</a> = byte()</span><br></p>
-<div class="REFBODY"><p><p>An <span class="code">integer()</span> representing a valid ISO Latin-1
+      </p></div></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-external_chardata">external_chardata()</a> = <br>    <span class="bold_code bc-17"><a href="#type-external_charlist">external_charlist()</a></span> | <span class="bold_code bc-17"><a href="#type-external_unicode_binary">external_unicode_binary()</a></span></span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-external_charlist">external_charlist()</a> = <br>    maybe_improper_list(char() |<br>                        <span class="bold_code bc-17"><a href="#type-external_unicode_binary">external_unicode_binary()</a></span> |<br>                        <span class="bold_code bc-17"><a href="#type-external_charlist">external_charlist()</a></span>,<br>                        <span class="bold_code bc-17"><a href="#type-external_unicode_binary">external_unicode_binary()</a></span> | [])</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-latin1_binary">latin1_binary()</a> = binary()</span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p><p>A <span class="code">binary()</span> with characters coded in ISO Latin-1.</p>
+      </p></div></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-latin1_char">latin1_char()</a> = byte()</span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p><p>An <span class="code">integer()</span> representing a valid ISO Latin-1
          character (0-255).</p>
-      </p></div>
-    <p>
-      <span class="bold_code"><a name="type-latin1_chardata">latin1_chardata()</a> = <span class="bold_code"><a href="#type-latin1_charlist">latin1_charlist()</a></span> | <span class="bold_code"><a href="#type-latin1_binary">latin1_binary()</a></span></span><br></p>
-<div class="REFBODY"><p><p>Same as <span class="code">iodata()</span>.</p>
-      </p></div>
-    <p>
-      <span class="bold_code"><a name="type-latin1_charlist">latin1_charlist()</a> = <br>    maybe_improper_list(<span class="bold_code"><a href="#type-latin1_char">latin1_char()</a></span> |<br>                        <span class="bold_code"><a href="#type-latin1_binary">latin1_binary()</a></span> |<br>                        <span class="bold_code"><a href="#type-latin1_charlist">latin1_charlist()</a></span>,<br>                        <span class="bold_code"><a href="#type-latin1_binary">latin1_binary()</a></span> | [])</span><br></p>
-<div class="REFBODY"><p><p>Same as <span class="code">iolist()</span>.</p>
-      </p></div>
-  
+      </p></div></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-latin1_chardata">latin1_chardata()</a> = <span class="bold_code bc-17"><a href="#type-latin1_charlist">latin1_charlist()</a></span> | <span class="bold_code bc-17"><a href="#type-latin1_binary">latin1_binary()</a></span></span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p><p>Same as <span class="code">iodata()</span>.</p>
+      </p></div></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-latin1_charlist">latin1_charlist()</a> = <br>    maybe_improper_list(<span class="bold_code bc-17"><a href="#type-latin1_char">latin1_char()</a></span> |<br>                        <span class="bold_code bc-17"><a href="#type-latin1_binary">latin1_binary()</a></span> |<br>                        <span class="bold_code bc-17"><a href="#type-latin1_charlist">latin1_charlist()</a></span>,<br>                        <span class="bold_code bc-17"><a href="#type-latin1_binary">latin1_binary()</a></span> | [])</span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p><p>Same as <span class="code">iolist()</span>.</p>
+      </p></div></div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="bom_to_encoding-1"></a><span class="bold_code">bom_to_encoding(Bin) -&gt; {Encoding, Length}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Bin = binary()</span></div>
-<div class="REFBODY">
+<div class="exports-body">
+    <p><a name="bom_to_encoding-1"></a><span class="bold_code bc-1">bom_to_encoding(Bin) -&gt; {Encoding, Length}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Bin = binary()</span></div>
+<div class="REFBODY rb-1">
         A <span class="code">binary()</span> such that <span class="code">byte_size(Bin) &gt;= 4</span>.
       </div>
-<div class="REFTYPES"><span class="bold_code">Encoding = <br>    latin1 | utf8 | {utf16, <span class="bold_code"><a href="#type-endian">endian()</a></span>} | {utf32, <span class="bold_code"><a href="#type-endian">endian()</a></span>}</span></div>
-<div class="REFTYPES"><span class="bold_code">Length = integer() &gt;= 0</span></div>
-<div class="REFTYPES">
-      <span class="bold_code">endian() = big | little</span><br>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Encoding = <br>    latin1 | utf8 | {utf16, <span class="bold_code bc-17"><a href="#type-endian">endian()</a></span>} | {utf32, <span class="bold_code bc-17"><a href="#type-endian">endian()</a></span>}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Length = integer() &gt;= 0</span></div>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">endian() = big | little</span><br>
 </div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Checks for a UTF Byte Order Mark (BOM) in the beginning of a
           binary. If the supplied binary <span class="code">Bin</span> begins with a
           valid BOM for either UTF-8, UTF-16, or UTF-32, the function
@@ -1809,39 +1829,39 @@
         <p>If no BOM is found, the function returns <span class="code">{latin1,0}</span>.</p>
       </p></div>
 
-    <p><a name="characters_to_binary-1"></a><span class="bold_code">characters_to_binary(Data) -&gt; Result</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Data = <span class="bold_code"><a href="#type-latin1_chardata">latin1_chardata()</a></span> | <span class="bold_code"><a href="#type-chardata">chardata()</a></span> | <span class="bold_code"><a href="#type-external_chardata">external_chardata()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Result = <br>    binary() |<br>    {error, binary(), RestData} |<br>    {incomplete, binary(), binary()}</span></div>
-<div class="REFTYPES"><span class="bold_code">RestData = <span class="bold_code"><a href="#type-latin1_chardata">latin1_chardata()</a></span> | <span class="bold_code"><a href="#type-chardata">chardata()</a></span> | <span class="bold_code"><a href="#type-external_chardata">external_chardata()</a></span></span></div>
+    <p><a name="characters_to_binary-1"></a><span class="bold_code bc-1">characters_to_binary(Data) -&gt; Result</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Data = <span class="bold_code bc-17"><a href="#type-latin1_chardata">latin1_chardata()</a></span> | <span class="bold_code bc-17"><a href="#type-chardata">chardata()</a></span> | <span class="bold_code bc-17"><a href="#type-external_chardata">external_chardata()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Result = <br>    binary() |<br>    {error, binary(), RestData} |<br>    {incomplete, binary(), binary()}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">RestData = <span class="bold_code bc-17"><a href="#type-latin1_chardata">latin1_chardata()</a></span> | <span class="bold_code bc-17"><a href="#type-chardata">chardata()</a></span> | <span class="bold_code bc-17"><a href="#type-external_chardata">external_chardata()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Same as <span class="code">characters_to_binary(Data, unicode,
           unicode)</span>.</p>
       </p></div>
 
-    <p><a name="characters_to_binary-2"></a><span class="bold_code">characters_to_binary(Data, InEncoding) -&gt; Result</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Data = <span class="bold_code"><a href="#type-latin1_chardata">latin1_chardata()</a></span> | <span class="bold_code"><a href="#type-chardata">chardata()</a></span> | <span class="bold_code"><a href="#type-external_chardata">external_chardata()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">InEncoding = <span class="bold_code"><a href="#type-encoding">encoding()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Result = <br>    binary() |<br>    {error, binary(), RestData} |<br>    {incomplete, binary(), binary()}</span></div>
-<div class="REFTYPES"><span class="bold_code">RestData = <span class="bold_code"><a href="#type-latin1_chardata">latin1_chardata()</a></span> | <span class="bold_code"><a href="#type-chardata">chardata()</a></span> | <span class="bold_code"><a href="#type-external_chardata">external_chardata()</a></span></span></div>
+    <p><a name="characters_to_binary-2"></a><span class="bold_code bc-1">characters_to_binary(Data, InEncoding) -&gt; Result</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Data = <span class="bold_code bc-17"><a href="#type-latin1_chardata">latin1_chardata()</a></span> | <span class="bold_code bc-17"><a href="#type-chardata">chardata()</a></span> | <span class="bold_code bc-17"><a href="#type-external_chardata">external_chardata()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">InEncoding = <span class="bold_code bc-17"><a href="#type-encoding">encoding()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Result = <br>    binary() |<br>    {error, binary(), RestData} |<br>    {incomplete, binary(), binary()}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">RestData = <span class="bold_code bc-17"><a href="#type-latin1_chardata">latin1_chardata()</a></span> | <span class="bold_code bc-17"><a href="#type-chardata">chardata()</a></span> | <span class="bold_code bc-17"><a href="#type-external_chardata">external_chardata()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Same as <span class="code">characters_to_binary(Data, 
           InEncoding, unicode)</span>.</p>
       </p></div>
 
-    <p><a name="characters_to_binary-3"></a><span class="bold_code">characters_to_binary(Data, InEncoding, OutEncoding) -&gt; Result</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Data = <span class="bold_code"><a href="#type-latin1_chardata">latin1_chardata()</a></span> | <span class="bold_code"><a href="#type-chardata">chardata()</a></span> | <span class="bold_code"><a href="#type-external_chardata">external_chardata()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">InEncoding = OutEncoding = <span class="bold_code"><a href="#type-encoding">encoding()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Result = <br>    binary() |<br>    {error, binary(), RestData} |<br>    {incomplete, binary(), binary()}</span></div>
-<div class="REFTYPES"><span class="bold_code">RestData = <span class="bold_code"><a href="#type-latin1_chardata">latin1_chardata()</a></span> | <span class="bold_code"><a href="#type-chardata">chardata()</a></span> | <span class="bold_code"><a href="#type-external_chardata">external_chardata()</a></span></span></div>
+    <p><a name="characters_to_binary-3"></a><span class="bold_code bc-1">characters_to_binary(Data, InEncoding, OutEncoding) -&gt; Result</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Data = <span class="bold_code bc-17"><a href="#type-latin1_chardata">latin1_chardata()</a></span> | <span class="bold_code bc-17"><a href="#type-chardata">chardata()</a></span> | <span class="bold_code bc-17"><a href="#type-external_chardata">external_chardata()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">InEncoding = OutEncoding = <span class="bold_code bc-17"><a href="#type-encoding">encoding()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Result = <br>    binary() |<br>    {error, binary(), RestData} |<br>    {incomplete, binary(), binary()}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">RestData = <span class="bold_code bc-17"><a href="#type-latin1_chardata">latin1_chardata()</a></span> | <span class="bold_code bc-17"><a href="#type-chardata">chardata()</a></span> | <span class="bold_code bc-17"><a href="#type-external_chardata">external_chardata()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
-        <p>Behaves as <span class="bold_code"><a href="#characters_to_list-2"><span class="code">characters_to_list/2</span></a></span>, but produces a binary
+<div class="REFBODY rb-7"><p>
+        <p>Behaves as <span class="bold_code bc-17"><a href="#characters_to_list-2"><span class="code">characters_to_list/2</span></a></span>, but produces a binary
           instead of a Unicode list.</p>
         <p><span class="code">InEncoding</span> defines how input is to be interpreted
           if binaries are present in <span class="code">Data</span></p>
@@ -1866,29 +1886,29 @@
         <p>The atoms <span class="code">big</span> and <span class="code">little</span> denote big- or little-endian
           encoding.</p>
         <p>Errors and exceptions occur as in
-          <span class="bold_code"><a href="#characters_to_list-2"><span class="code">characters_to_list/2</span></a></span>, but the second element
+          <span class="bold_code bc-17"><a href="#characters_to_list-2"><span class="code">characters_to_list/2</span></a></span>, but the second element
           in tuple <span class="code">error</span> or <span class="code">incomplete</span> is a <span class="code">binary()</span>
           and not a <span class="code">list()</span>.</p>
       </p></div>
 
-    <p><a name="characters_to_list-1"></a><span class="bold_code">characters_to_list(Data) -&gt; Result</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Data = <span class="bold_code"><a href="#type-latin1_chardata">latin1_chardata()</a></span> | <span class="bold_code"><a href="#type-chardata">chardata()</a></span> | <span class="bold_code"><a href="#type-external_chardata">external_chardata()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Result = <br>    list() |<br>    {error, list(), RestData} |<br>    {incomplete, list(), binary()}</span></div>
-<div class="REFTYPES"><span class="bold_code">RestData = <span class="bold_code"><a href="#type-latin1_chardata">latin1_chardata()</a></span> | <span class="bold_code"><a href="#type-chardata">chardata()</a></span> | <span class="bold_code"><a href="#type-external_chardata">external_chardata()</a></span></span></div>
+    <p><a name="characters_to_list-1"></a><span class="bold_code bc-1">characters_to_list(Data) -&gt; Result</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Data = <span class="bold_code bc-17"><a href="#type-latin1_chardata">latin1_chardata()</a></span> | <span class="bold_code bc-17"><a href="#type-chardata">chardata()</a></span> | <span class="bold_code bc-17"><a href="#type-external_chardata">external_chardata()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Result = <br>    list() |<br>    {error, list(), RestData} |<br>    {incomplete, list(), binary()}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">RestData = <span class="bold_code bc-17"><a href="#type-latin1_chardata">latin1_chardata()</a></span> | <span class="bold_code bc-17"><a href="#type-chardata">chardata()</a></span> | <span class="bold_code bc-17"><a href="#type-external_chardata">external_chardata()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Same as <span class="code">characters_to_list(Data, unicode)</span>.</p>
       </p></div>
 
-    <p><a name="characters_to_list-2"></a><span class="bold_code">characters_to_list(Data, InEncoding) -&gt; Result</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Data = <span class="bold_code"><a href="#type-latin1_chardata">latin1_chardata()</a></span> | <span class="bold_code"><a href="#type-chardata">chardata()</a></span> | <span class="bold_code"><a href="#type-external_chardata">external_chardata()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">InEncoding = <span class="bold_code"><a href="#type-encoding">encoding()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Result = <br>    list() |<br>    {error, list(), RestData} |<br>    {incomplete, list(), binary()}</span></div>
-<div class="REFTYPES"><span class="bold_code">RestData = <span class="bold_code"><a href="#type-latin1_chardata">latin1_chardata()</a></span> | <span class="bold_code"><a href="#type-chardata">chardata()</a></span> | <span class="bold_code"><a href="#type-external_chardata">external_chardata()</a></span></span></div>
+    <p><a name="characters_to_list-2"></a><span class="bold_code bc-1">characters_to_list(Data, InEncoding) -&gt; Result</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Data = <span class="bold_code bc-17"><a href="#type-latin1_chardata">latin1_chardata()</a></span> | <span class="bold_code bc-17"><a href="#type-chardata">chardata()</a></span> | <span class="bold_code bc-17"><a href="#type-external_chardata">external_chardata()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">InEncoding = <span class="bold_code bc-17"><a href="#type-encoding">encoding()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Result = <br>    list() |<br>    {error, list(), RestData} |<br>    {incomplete, list(), binary()}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">RestData = <span class="bold_code bc-17"><a href="#type-latin1_chardata">latin1_chardata()</a></span> | <span class="bold_code bc-17"><a href="#type-chardata">chardata()</a></span> | <span class="bold_code bc-17"><a href="#type-external_chardata">external_chardata()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Converts a possibly deep list of integers and
           binaries into a list of integers representing Unicode
           characters. The binaries in the input can have characters
@@ -1916,7 +1936,7 @@
           combinations of Unicode characters into a pure Unicode
           string in list representation for further processing. For
           writing the data to an external entity, the reverse function
-          <span class="bold_code"><a href="#characters_to_binary-3"><span class="code">characters_to_binary/3</span></a></span>
+          <span class="bold_code bc-17"><a href="#characters_to_binary-3"><span class="code">characters_to_binary/3</span></a></span>
           comes in handy.</p>
         <p>Option <span class="code">unicode</span> is an alias for <span class="code">utf8</span>, as this is the
           preferred encoding for Unicode characters in
@@ -2024,15 +2044,15 @@ decode_data(Data) -&gt;
         </ul>
       </p></div>
 
-    <p><a name="encoding_to_bom-1"></a><span class="bold_code">encoding_to_bom(InEncoding) -&gt; Bin</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Bin = binary()</span></div>
-<div class="REFBODY">
+    <p><a name="encoding_to_bom-1"></a><span class="bold_code bc-1">encoding_to_bom(InEncoding) -&gt; Bin</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Bin = binary()</span></div>
+<div class="REFBODY rb-1">
         A <span class="code">binary()</span> such that <span class="code">byte_size(Bin) &gt;= 4</span>.
       </div>
-<div class="REFTYPES"><span class="bold_code">InEncoding = <span class="bold_code"><a href="#type-encoding">encoding()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">InEncoding = <span class="bold_code bc-17"><a href="#type-encoding">encoding()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Creates a UTF Byte Order Mark (BOM) as a binary from the
           supplied <span class="code">InEncoding</span>. The BOM is, if supported at
           all, expected to be placed first in UTF encoded files or messages.</p>
@@ -2043,7 +2063,7 @@ decode_data(Data) -&gt;
           byte order issues with UTF-8, so the BOM is only there to
           differentiate UTF-8 encoding from other UTF formats.</p>
       </p></div>
-  
+  </div>
 </div>
 <div class="footer">
 <hr>

@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../doc"><img alt="Erlang Logo" src="../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Erlang Run-Time System Application (ERTS)</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 8.1</p>
@@ -952,11 +952,11 @@
 <!-- refpage --><center><h1>erl</h1></center>
   
   <h3><a name="command" href="#command">Command</a></h3>
-<div class="REFBODY">erl</div>
+<div class="REFBODY command-body">erl</div>
   <h3><a name="command-summary" href="#command-summary">Command Summary</a></h3>
-<div class="REFBODY">The Erlang emulator.</div>
+<div class="REFBODY command-summary-body">The Erlang emulator.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>The <span class="code">erl</span> program starts an Erlang runtime system.
       The exact details (for example, whether <span class="code">erl</span> is a
       script or a program and which other programs it calls) are
@@ -976,14 +976,15 @@
       <p>As from ERTS 5.9 (Erlang/OTP R15B) the runtime system does by
         default <strong>not</strong> bind schedulers to logical processors.
 	For more information, see system flag
-	<span class="bold_code"><a href="#+sbt"><span class="code">+sbt</span></a></span>.</p>
+	<span class="bold_code bc-17"><a href="#+sbt"><span class="code">+sbt</span></a></span>.</p>
     </p></div>
 </div>
   </p></div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><span class="bold_code">erl &lt;arguments&gt;</span></p>
-<div class="REFBODY"><p>
+<div class="exports-body">
+    <p><span class="bold_code bc-10">erl &lt;arguments&gt;</span></p>
+<div class="REFBODY rb-7"><p>
 	<p>Starts an Erlang runtime system.</p>
 	<p>The arguments can be divided into <strong>emulator flags</strong>,
 	  <strong>flags</strong>, and <strong>plain arguments</strong>:</p>
@@ -991,17 +992,17 @@
 	  <li>
 	    <p>Any argument starting with character <span class="code">+</span> is
 	      interpreted as an
-	      <span class="bold_code"><a href="#emu_flags">emulator flag</a></span>.</p>
+	      <span class="bold_code bc-17"><a href="#emu_flags">emulator flag</a></span>.</p>
 	    <p>As indicated by the name, emulator flags control
 	      the behavior of the emulator.</p>
 	  </li>
 	  <li>
 	    <p>Any argument starting with character <span class="code">-</span>
 	      (hyphen) is interpreted as a
-	      <span class="bold_code"><a href="#init_flags">flag</a></span>, which is to
+	      <span class="bold_code bc-17"><a href="#init_flags">flag</a></span>, which is to
 	      be passed to the Erlang part of the runtime system, more
 	      specifically to the <span class="code">init</span> system process, see
-	      <span class="bold_code"><a href="init.html"><span class="code">init(3)</span></a></span>.</p>
+	      <span class="bold_code bc-19"><a href="init.html"><span class="code">init(3)</span></a></span>.</p>
 	    <p>The <span class="code">init</span> process itself interprets some of
 	      these flags, the <strong>init flags</strong>. It also stores any
 	      remaining flags, the <strong>user flags</strong>. The latter can be
@@ -1020,10 +1021,10 @@
 	</ul>
 	<p><strong>Examples:</strong></p>
 	<div class="example"><pre>
-% <span class="bold_code">erl +W w -sname arnie +R 9 -s my_init -extra +bertie</span>
-(arnie@host)1&gt; <span class="bold_code">init:get_argument(sname).</span>
+% <span class="bold_code bc-12">erl +W w -sname arnie +R 9 -s my_init -extra +bertie</span>
+(arnie@host)1&gt; <span class="bold_code bc-12">init:get_argument(sname).</span>
 {ok,[["arnie"]]}
-(arnie@host)2&gt; <span class="bold_code">init:get_plain_arguments().</span>
+(arnie@host)2&gt; <span class="bold_code bc-12">init:get_plain_arguments().</span>
 ["+bertie"]</pre></div>
         <p>Here <span class="code">+W w</span> and <span class="code">+R 9</span> are
 	  emulator flags. <span class="code">-s my_init</span> is an init flag,
@@ -1034,21 +1035,21 @@
 	  <span class="code">-extra</span> (that is, <span class="code">+bertie</span>) is
 	  considered as plain arguments.</p>
 	<div class="example"><pre>
-% <span class="bold_code">erl -myflag 1</span>
-1&gt; <span class="bold_code">init:get_argument(myflag).</span>
+% <span class="bold_code bc-12">erl -myflag 1</span>
+1&gt; <span class="bold_code bc-12">init:get_argument(myflag).</span>
 {ok,[["1"]]}
-2&gt; <span class="bold_code">init:get_plain_arguments().</span>
+2&gt; <span class="bold_code bc-12">init:get_plain_arguments().</span>
 []</pre></div>
         <p>Here the user flag <span class="code">-myflag 1</span> is passed to and
 	  stored by the <span class="code">init</span> process. It is a user-defined
 	  flag, presumably used by some user-defined application.</p>
       </p></div>
-  
+  </div>
 
   <h3>
-<a name="init_flags"></a><a name="idm45311099147632">Flags</a>
+<a name="init_flags"></a><a name="idm46455779394784">Flags</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
     <p>In the following list, init flags are marked "(init flag)".
@@ -1071,8 +1072,8 @@
         <p>Sets the application configuration parameter <span class="code">Par</span>
           to the value <span class="code">Val</span> for the application
           <span class="code">Application</span>; see
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','app.html');"><span class="code">app(4)</span></a></span> and
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','application.html');"><span class="code">application(3)</span></a></span>.</p>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','app.html');"><span class="code">app(4)</span></a></span> and
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','application.html');"><span class="code">application(3)</span></a></span>.</p>
       </dd>
       <dt><strong><a name="args_file"></a><span class="code">-args_file FileName</span></strong></dt>
       <dd>
@@ -1106,7 +1107,7 @@
       <dd>
         <p>Specifies the name of the boot file, <span class="code">File.boot</span>,
           which is used to start the system; see
-          <span class="bold_code"><a href="init.html"><span class="code">init(3)</span></a></span>. Unless
+          <span class="bold_code bc-19"><a href="init.html"><span class="code">init(3)</span></a></span>. Unless
           <span class="code">File</span> contains an absolute path, the system searches
           for <span class="code">File.boot</span> in the current and 
           <span class="code">$ROOT/bin</span> directories.</p>
@@ -1118,19 +1119,19 @@
           other than <span class="code">$ROOT</span>, this variable is expanded to
           <span class="code">Dir</span>. Used when applications are installed in
           another directory than <span class="code">$ROOT/lib</span>; see
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','sasl','systools.html#make_script-1');"><span class="code">systools:make_script/1,2</span></a></span> in SASL.</p>
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../doc/../','sasl','systools.html#make_script-1');"><span class="code">systools:make_script/1,2</span></a></span> in SASL.</p>
       </dd>
       <dt><strong><span class="code">-code_path_cache</span></strong></dt>
       <dd>
         <p>Enables the code path cache of the code server; see
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','code.html');"><span class="code">code(3)</span></a></span>.</p>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','code.html');"><span class="code">code(3)</span></a></span>.</p>
       </dd>
       <dt><strong><span class="code">-compile Mod1 Mod2 ...</span></strong></dt>
       <dd>
         <p>Compiles the specified modules and then terminates (with
           non-zero exit code if the compilation of some file did not
           succeed). Implies <span class="code">-noinput</span>.</p>
-        <p>Not recommended; use <span class="bold_code"><a href="erlc.html"><span class="code">erlc</span></a></span>
+        <p>Not recommended; use <span class="bold_code bc-19"><a href="erlc.html"><span class="code">erlc</span></a></span>
           instead.</p>
       </dd>
       <dt><strong><span class="code">-config Config</span></strong></dt>
@@ -1138,15 +1139,15 @@
         <p>Specifies the name of a configuration file,
           <span class="code">Config.config</span>, which is used to configure
           applications; see
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','app.html');"><span class="code">app(4)</span></a></span> and
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','application.html');"><span class="code">application(3)</span></a></span>.</p>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','app.html');"><span class="code">app(4)</span></a></span> and
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','application.html');"><span class="code">application(3)</span></a></span>.</p>
       </dd>
       <dt><strong><a name="connect_all"></a><span class="code">-connect_all false</span></strong></dt>
       <dd>
         <p>If this flag is present, <span class="code">global</span> does not maintain
           a fully connected network of distributed Erlang nodes, and then
           global name registration cannot be used; see
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','global.html');"><span class="code">global(3)</span></a></span>.</p>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','global.html');"><span class="code">global(3)</span></a></span>.</p>
       </dd>
       <dt><strong><span class="code">-cookie Cookie</span></strong></dt>
       <dd>
@@ -1170,7 +1171,7 @@
           the value <span class="code">Value</span> for the Erlang runtime system.
           Example:</p>
         <div class="example"><pre>
-% <span class="bold_code">erl -env DISPLAY gin:0</span></pre></div>
+% <span class="bold_code bc-12">erl -env DISPLAY gin:0</span></pre></div>
         <p>In this example, an Erlang runtime system is started with
           environment variable <span class="code">DISPLAY</span> set to
           <span class="code">gin:0</span>.</p>
@@ -1179,7 +1180,7 @@
       <dd>
         <p>Makes <span class="code">init</span> evaluate the expression
           <span class="code">Expr</span>; see
-          <span class="bold_code"><a href="init.html"><span class="code">init(3)</span></a></span>.</p>
+          <span class="bold_code bc-19"><a href="init.html"><span class="code">init(3)</span></a></span>.</p>
       </dd>
       <dt><strong><span class="code">-extra</span> (init flag)</strong></dt>
       <dd>
@@ -1190,7 +1191,7 @@
       <dt><strong><span class="code">-heart</span></strong></dt>
       <dd>
         <p>Starts heartbeat monitoring of the Erlang runtime system;
-          see <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','heart.html');"><span class="code">heart(3)</span></a></span>.</p>
+          see <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','heart.html');"><span class="code">heart(3)</span></a></span>.</p>
       </dd>
       <dt><strong><span class="code">-hidden</span></strong></dt>
       <dd>
@@ -1201,12 +1202,12 @@
           any of the connected nodes, that is, none of the connected
           nodes are part of the result from <span class="code">nodes/0</span> on the
           other node. See also hidden global groups;
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','global_group.html');"><span class="code">global_group(3)</span></a></span>.</p>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','global_group.html');"><span class="code">global_group(3)</span></a></span>.</p>
       </dd>
       <dt><strong><span class="code">-hosts Hosts</span></strong></dt>
       <dd>
         <p>Specifies the IP addresses for the hosts on which Erlang boot servers
-          are running, see <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','erl_boot_server.html');"><span class="code">erl_boot_server(3)</span></a></span>. This flag
+          are running, see <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','erl_boot_server.html');"><span class="code">erl_boot_server(3)</span></a></span>. This flag
           is mandatory if flag <span class="code">-loader inet</span> is present.</p>
         <p>The IP addresses must be specified in the standard form (four
           decimal numbers separated by periods, for example,
@@ -1239,7 +1240,7 @@
       <dd>
         <p>Specifies the method used by <span class="code">erl_prim_loader</span> to
           load Erlang modules into the system; see
-          <span class="bold_code"><a href="erl_prim_loader.html"><span class="code">erl_prim_loader(3)</span></a></span>.
+          <span class="bold_code bc-19"><a href="erl_prim_loader.html"><span class="code">erl_prim_loader(3)</span></a></span>.
           Two <span class="code">Loader</span> methods are supported:</p>
         <ul>
           <li>
@@ -1260,7 +1261,7 @@
       <dd>
         <p>Makes the Erlang runtime system invoke <span class="code">make:all()</span>
           in the current working directory and then terminate; see
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','tools','make.html');"><span class="code">make(3)</span></a></span>. Implies
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','tools','make.html');"><span class="code">make(3)</span></a></span>. Implies
           <span class="code">-noinput</span>.</p>
       </dd>
       <dt><strong><span class="code">-man Module</span></strong></dt>
@@ -1273,17 +1274,17 @@
         <p>Indicates if the system is to load code dynamically
           (<span class="code">interactive</span>), or if all code is to be loaded
           during system initialization (<span class="code">embedded</span>); see
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','code.html');"><span class="code">code(3)</span></a></span>.
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','code.html');"><span class="code">code(3)</span></a></span>.
           Defaults to <span class="code">interactive</span>.</p>
       </dd>
       <dt><strong><span class="code">-name Name</span></strong></dt>
       <dd>
         <p>Makes the Erlang runtime system into a distributed node.
           This flag invokes all network servers necessary for a node to
-          become distributed; see <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','net_kernel.html');"><span class="code">net_kernel(3)</span></a></span>. It is also ensured that
+          become distributed; see <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','net_kernel.html');"><span class="code">net_kernel(3)</span></a></span>. It is also ensured that
           <span class="code">epmd</span> runs on the current host before Erlang is
-          started; see <span class="bold_code"><a href="epmd.html"><span class="code">epmd(1)</span></a></span>.and the
-          <span class="bold_code"><a href="#start_epmd"><span class="code">-start_epmd</span></a></span> option.</p>
+          started; see <span class="bold_code bc-19"><a href="epmd.html"><span class="code">epmd(1)</span></a></span>.and the
+          <span class="bold_code bc-17"><a href="#start_epmd"><span class="code">-start_epmd</span></a></span> option.</p>
         <p>The node name will be <span class="code">Name@Host</span>, where
           <span class="code">Host</span> is the fully qualified host name of the
           current host. For short names, use flag <span class="code">-sname</span>
@@ -1304,7 +1305,7 @@
       <dd>
         <p>Disables the sticky directory facility of the Erlang code
           server; see
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','code.html');"><span class="code">code(3)</span></a></span>.</p>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','code.html');"><span class="code">code(3)</span></a></span>.</p>
       </dd>
       <dt><strong><span class="code">-oldshell</span></strong></dt>
       <dd>
@@ -1314,25 +1315,25 @@
       <dt><strong><span class="code">-pa Dir1 Dir2 ...</span></strong></dt>
       <dd>
         <p>Adds the specified directories to the beginning of the code
-          path, similar to <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','code.html#add_pathsa-1');"><span class="code">code:add_pathsa/1</span></a></span>. Note that the
+          path, similar to <span class="bold_code bc-13"><a href="javascript:erlhref('../../../doc/../','kernel','code.html#add_pathsa-1');"><span class="code">code:add_pathsa/1</span></a></span>. Note that the
 	  order of the given directories will be reversed in the
 	  resulting path.</p>
 	<p>As an alternative to <span class="code">-pa</span>, if several directories are
 	  to be prepended to the code path and the directories have a
 	  common parent directory, that parent directory can be
 	  specified in environment variable <span class="code">ERL_LIBS</span>; see
-	  <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','code.html');"><span class="code">code(3)</span></a></span>.</p>
+	  <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','code.html');"><span class="code">code(3)</span></a></span>.</p>
       </dd>
       <dt><strong><span class="code">-pz Dir1 Dir2 ...</span></strong></dt>
       <dd>
         <p>Adds the specified directories to the end of the code path,
           similar to <span class="code">code:add_pathsz/1</span>; see
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','code.html');"><span class="code">code(3)</span></a></span>.</p>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','code.html');"><span class="code">code(3)</span></a></span>.</p>
       </dd>
       <dt><strong><span class="code">-path Dir1 Dir2 ...</span></strong></dt>
       <dd>
         <p>Replaces the path specified in the boot script; see
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','sasl','script.html');"><span class="code">script(4)</span></a></span>.</p>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','sasl','script.html');"><span class="code">script(4)</span></a></span>.</p>
       </dd>
       <dt><strong><span class="code">-proto_dist Proto</span></strong></dt>
       <dd>
@@ -1347,7 +1348,7 @@
         </dl>
         <p>For example, to start up IPv6 distributed nodes:</p>
 <div class="example"><pre>
-% <span class="bold_code">erl -name test@ipv6node.example.com -proto_dist inet6_tcp</span></pre></div>
+% <span class="bold_code bc-12">erl -name test@ipv6node.example.com -proto_dist inet6_tcp</span></pre></div>
       </dd>
       <dt><strong><span class="code">-remsh Node</span></strong></dt>
       <dd>
@@ -1358,7 +1359,7 @@
       <dd>
         <p>Specifies an alternative to <span class="code">rsh</span> for starting a
           slave node on a remote host; see
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','stdlib','slave.html');"><span class="code">slave(3)</span></a></span>.</p>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','stdlib','slave.html');"><span class="code">slave(3)</span></a></span>.</p>
       </dd>
       <dt><strong><span class="code">-run Mod [Func [Arg1, Arg2, ...]]</span> (init
         flag)</strong></dt>
@@ -1368,7 +1369,7 @@
           If no arguments are provided, the function is assumed to be of
           arity 0. Otherwise it is assumed to be of arity 1, taking the list
           <span class="code">[Arg1,Arg2,...]</span> as argument. All arguments are
-          passed as strings. See <span class="bold_code"><a href="init.html"><span class="code">init(3)</span></a></span>.</p>
+          passed as strings. See <span class="bold_code bc-19"><a href="init.html"><span class="code">init(3)</span></a></span>.</p>
       </dd>
       <dt><strong><span class="code">-s Mod [Func [Arg1, Arg2, ...]]</span> (init flag)</strong></dt>
       <dd>
@@ -1377,12 +1378,12 @@
           If no arguments are provided, the function is assumed to be of
           arity 0. Otherwise it is assumed to be of arity 1, taking the list
           <span class="code">[Arg1,Arg2,...]</span> as argument. All arguments are
-          passed as atoms. See <span class="bold_code"><a href="init.html"><span class="code">init(3)</span></a></span>.</p>
+          passed as atoms. See <span class="bold_code bc-19"><a href="init.html"><span class="code">init(3)</span></a></span>.</p>
       </dd>
       <dt><strong><span class="code">-setcookie Cookie</span></strong></dt>
       <dd>
         <p>Sets the magic cookie of the node to <span class="code">Cookie</span>; see
-          <span class="bold_code"><a href="erlang.html#set_cookie-2"><span class="code">erlang:set_cookie/2</span></a></span>.</p>
+          <span class="bold_code bc-15"><a href="erlang.html#set_cookie-2"><span class="code">erlang:set_cookie/2</span></a></span>.</p>
       </dd>
       <dt><strong><span class="code">-shutdown_time Time</span></strong></dt>
       <dd>
@@ -1407,7 +1408,7 @@
       <dd>
 
         <p>Specifies whether Erlang should start
-          <span class="bold_code"><a href="epmd.html">epmd</a></span> on startup. By default
+          <span class="bold_code bc-19"><a href="epmd.html">epmd</a></span> on startup. By default
           this is <span class="code">true</span>, but if you prefer to start epmd
           manually, set this to <span class="code">false</span>.</p>
 
@@ -1431,7 +1432,7 @@
 <div class="content"><p>
           <p>The runtime system with SMP support is not available on all
             supported platforms. See also flag
-            <span class="bold_code"><a href="#+S"><span class="code">+S</span></a></span>.</p>
+            <span class="bold_code bc-17"><a href="#+S"><span class="code">+S</span></a></span>.</p>
         </p></div>
 </div>
       </dd>
@@ -1444,9 +1445,9 @@
   </div>
 
   <h3>
-<a name="emu_flags"></a><a name="idm45311098982192">Emulator Flags</a>
+<a name="emu_flags"></a><a name="idm46455779229344">Emulator Flags</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
     <p><span class="code">erl</span> invokes the code for the Erlang emulator (virtual
@@ -1463,7 +1464,7 @@
           be large. The default size is enough for drivers
           delivered with Erlang/OTP, but might not be large
           enough for other dynamically linked-in drivers that use the
-          <span class="bold_code"><a href="erl_driver.html#driver_async"><span class="code">driver_async()</span></a></span> functionality.
+          <span class="bold_code bc-15"><a href="erl_driver.html#driver_async"><span class="code">driver_async()</span></a></span> functionality.
           Notice that the value passed is only a suggestion,
           and it can even be ignored on some platforms.</p>
       </dd>
@@ -1492,7 +1493,7 @@
       <dt><strong><a name="+c"></a><span class="code">+c true | false</span></strong></dt>
       <dd>
         <p>Enables or disables
-          <span class="bold_code"><a href="time_correction.html#Time_Correction">time correction</a></span>:</p>
+          <span class="bold_code bc-15"><a href="time_correction.html#Time_Correction">time correction</a></span>:</p>
 	<dl>
 	  <dt><strong><span class="code">true</span></strong></dt>
           <dd>Enables time correction. This is the default if
@@ -1506,15 +1507,15 @@
       <dt><strong><a name="+C_"></a><span class="code">+C no_time_warp | single_time_warp |
         multi_time_warp</span></strong></dt>
       <dd>
-        <p>Sets <span class="bold_code"><a href="time_correction.html#Time_Warp_Modes">time warp mode</a></span>:</p>
+        <p>Sets <span class="bold_code bc-15"><a href="time_correction.html#Time_Warp_Modes">time warp mode</a></span>:</p>
         <dl>
         <dt><strong><span class="code">no_time_warp</span></strong></dt>
           <dd>
-<span class="bold_code"><a href="time_correction.html#No_Time_Warp_Mode">No time warp mode</a></span> (the default)</dd>
+<span class="bold_code bc-15"><a href="time_correction.html#No_Time_Warp_Mode">No time warp mode</a></span> (the default)</dd>
           <dt><strong><span class="code">single_time_warp</span></strong></dt>
-          <dd><span class="bold_code"><a href="time_correction.html#Single_Time_Warp_Mode">Single time warp mode</a></span></dd>
+          <dd><span class="bold_code bc-15"><a href="time_correction.html#Single_Time_Warp_Mode">Single time warp mode</a></span></dd>
           <dt><strong><span class="code">multi_time_warp</span></strong></dt>
-          <dd><span class="bold_code"><a href="time_correction.html#Multi_Time_Warp_Mode">Multi-time warp mode</a></span></dd>
+          <dd><span class="bold_code bc-15"><a href="time_correction.html#Multi_Time_Warp_Mode">Multi-time warp mode</a></span></dd>
       </dl>
       </dd>
       <dt><strong><span class="code">+d</span></strong></dt>
@@ -1525,7 +1526,7 @@
           of process heaps is destroyed by the crash dump generation.</p>
         <p>Option <span class="code">+d</span> instructs the emulator to produce only a
           core dump and no crash dump if an internal error is detected.</p>
-        <p>Calling <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','erlang','halt/1.html');"><span class="code">erlang:halt/1</span></a></span> with a string argument still
+        <p>Calling <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','erlang','halt/1.html');"><span class="code">erlang:halt/1</span></a></span> with a string argument still
           produces a crash dump. On Unix systems, sending an emulator process
           a <span class="code">SIGUSR1</span> signal also forces a crash dump.</p>
       </dd>
@@ -1545,9 +1546,9 @@
           using the ISO Latin-1 encoding, disallowing Unicode characters with
           code points &gt; 255.</p>
         <p>For more information about Unicode filenames, see section
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','stdlib','unicode_usage.html#unicode_file_names');">Unicode Filenames</a></span> in the STDLIB User's Guide. Notice that
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../doc/../','stdlib','unicode_usage.html#unicode_file_names');">Unicode Filenames</a></span> in the STDLIB User's Guide. Notice that
           this value also applies to command-line parameters and environment
-          variables (see section <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','stdlib','unicode_usage.html#unicode_in_environment_and_parameters');">Unicode in Enviroment and Parameters</a></span> in the STDLIB
+          variables (see section <span class="bold_code bc-13"><a href="javascript:erlhref('../../../doc/../','stdlib','unicode_usage.html#unicode_in_environment_and_parameters');">Unicode in Enviroment and Parameters</a></span> in the STDLIB
           User's Guide).</p>
       </dd>
       <dt><strong><span class="code">+fnu[{w|i|e}]</span></strong></dt>
@@ -1574,12 +1575,12 @@
               wrongly encoded filename (or directory name) is encountered.</p>
           </li>
         </ul>
-        <p>Notice that <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','file.html#read_link-1');"><span class="code">file:read_link/1</span></a></span> always returns an error if the link
+        <p>Notice that <span class="bold_code bc-13"><a href="javascript:erlhref('../../../doc/../','kernel','file.html#read_link-1');"><span class="code">file:read_link/1</span></a></span> always returns an error if the link
           points to an invalid filename.</p>
         <p>For more information about Unicode filenames, see section
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','stdlib','unicode_usage.html#unicode_file_names');">Unicode Filenames</a></span> in the STDLIB User's Guide. Notice that
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../doc/../','stdlib','unicode_usage.html#unicode_file_names');">Unicode Filenames</a></span> in the STDLIB User's Guide. Notice that
           this value also applies to command-line parameters and environment
-          variables (see section <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','stdlib','unicode_usage.html#unicode_in_environment_and_parameters');">Unicode in Enviroment and Parameters</a></span> in the STDLIB
+          variables (see section <span class="bold_code bc-13"><a href="javascript:erlhref('../../../doc/../','stdlib','unicode_usage.html#unicode_in_environment_and_parameters');">Unicode in Enviroment and Parameters</a></span> in the STDLIB
           User's Guide).</p>
       </dd>
       <dt><strong><span class="code">+fna[{w|i|e}]</span></strong></dt>
@@ -1595,9 +1596,9 @@
           above. If the locale settings cause the behavior of <span class="code">+fnl</span> to be
           selected, then <span class="code">w</span>, <span class="code">i</span>, or <span class="code">e</span> have no effect.</p>
         <p>For more information about Unicode filenames, see section
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','stdlib','unicode_usage.html#unicode_file_names');">Unicode Filenames</a></span> in the STDLIB User's Guide. Notice that
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../doc/../','stdlib','unicode_usage.html#unicode_file_names');">Unicode Filenames</a></span> in the STDLIB User's Guide. Notice that
           this value also applies to command-line parameters and environment
-          variables (see section <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','stdlib','unicode_usage.html#unicode_in_environment_and_parameters');">Unicode in Enviroment and Parameters</a></span> in the STDLIB
+          variables (see section <span class="bold_code bc-13"><a href="javascript:erlhref('../../../doc/../','stdlib','unicode_usage.html#unicode_in_environment_and_parameters');">Unicode in Enviroment and Parameters</a></span> in the STDLIB
           User's Guide).</p>
       </dd>
       <dt><strong><span class="code">+hms Size</span></strong></dt>
@@ -1615,20 +1616,20 @@
         <p>Sets the default maximum heap size of processes to the size
           <span class="code">Size</span>. Defaults to <span class="code">0</span>, which means that no
           maximum heap size is used. For more information, see
-          <span class="bold_code"><a href="erlang.html#process_flag_max_heap_size"><span class="code">process_flag(max_heap_size, MaxHeapSize)</span></a></span>.</p>
+          <span class="bold_code bc-15"><a href="erlang.html#process_flag_max_heap_size"><span class="code">process_flag(max_heap_size, MaxHeapSize)</span></a></span>.</p>
       </dd>
       <dt><strong><a name="+hmaxel"></a><span class="code">+hmaxel true|false</span></strong></dt>
       <dd>
         <p>Sets whether to send an error logger message or not for processes
           reaching the maximum heap size. Defaults to <span class="code">true</span>.
           For more information, see
-          <span class="bold_code"><a href="erlang.html#process_flag_max_heap_size"><span class="code">process_flag(max_heap_size, MaxHeapSize)</span></a></span>.</p>
+          <span class="bold_code bc-15"><a href="erlang.html#process_flag_max_heap_size"><span class="code">process_flag(max_heap_size, MaxHeapSize)</span></a></span>.</p>
       </dd>
       <dt><strong><a name="+hmaxk"></a><span class="code">+hmaxk true|false</span></strong></dt>
       <dd>
         <p>Sets whether to kill processes reaching the maximum heap size or not.
           Default to <span class="code">true</span>. For more information, see
-          <span class="bold_code"><a href="erlang.html#process_flag_max_heap_size"><span class="code">process_flag(max_heap_size, MaxHeapSize)</span></a></span>.</p>
+          <span class="bold_code bc-15"><a href="erlang.html#process_flag_max_heap_size"><span class="code">process_flag(max_heap_size, MaxHeapSize)</span></a></span>.</p>
       </dd>
       <dt><strong><span class="code">+hpds Size</span></strong></dt>
       <dd>
@@ -1640,7 +1641,7 @@
         <p>Sets the default value for process flag <span class="code">message_queue_data</span>.
           Defaults to <span class="code">on_heap</span>. If <span class="code">+hmqd</span> is not
 	  passed, <span class="code">on_heap</span> will be the default. For more information, see
-          <span class="bold_code"><a href="erlang.html#process_flag_message_queue_data"><span class="code">process_flag(message_queue_data, MQD)</span></a></span>.</p>
+          <span class="bold_code bc-15"><a href="erlang.html#process_flag_message_queue_data"><span class="code">process_flag(message_queue_data, MQD)</span></a></span>.</p>
       </dd>
       <dt><strong><span class="code">+K true | false</span></strong></dt>
       <dd>
@@ -1664,7 +1665,7 @@
       <dt><strong><a name="erts_alloc"></a><span class="code">+MFlag Value</span></strong></dt>
       <dd>
         <p>Memory allocator-specific flags. For more information, see
-          <span class="bold_code"><a href="erts_alloc.html"><span class="code">erts_alloc(3)</span></a></span>.</p>
+          <span class="bold_code bc-19"><a href="erts_alloc.html"><span class="code">erts_alloc(3)</span></a></span>.</p>
       </dd>
       <dt><strong><a name="+pc"></a><a name="printable_character_range"></a>
         <span class="code">+pc Range</span></strong></dt>
@@ -1687,7 +1688,7 @@
             string syntax. This can give unexpected results if, for
             example, your font does not cover all Unicode characters.</dd>
         </dl>
-        <p>See also <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','stdlib','io.html#printable_range-0');"><span class="code">io:printable_range/0</span></a></span> in STDLIB.</p>
+        <p>See also <span class="bold_code bc-13"><a href="javascript:erlhref('../../../doc/../','stdlib','io.html#printable_range-0');"><span class="code">io:printable_range/0</span></a></span> in STDLIB.</p>
       </dd>
       <dt><strong><a name="+P"></a><a name="max_processes"></a><span class="code">+P Number</span></strong></dt>
       <dd>
@@ -1699,7 +1700,7 @@
 	but not always, chooses a value that is a power of 2. This might,
 	however, be changed in the future. The actual value chosen can be
 	checked by calling
-	<span class="bold_code"><a href="erlang.html#system_info_process_limit">erlang:system_info(process_limit)</a></span>.</p>
+	<span class="bold_code bc-15"><a href="erlang.html#system_info_process_limit">erlang:system_info(process_limit)</a></span>.</p>
 	<p>The default value is <span class="code">262144</span></p>
       </dd>
       <dt><strong><a name="+Q"></a><a name="max_ports"></a><span class="code">+Q Number</span></strong></dt>
@@ -1712,7 +1713,7 @@
 	but not always, chooses a value that is a power of 2. This might,
 	however, be changed in the future. The actual value chosen can be
 	checked by calling
-	<span class="bold_code"><a href="erlang.html#system_info_port_limit">erlang:system_info(port_limit)</a></span>.</p>
+	<span class="bold_code bc-15"><a href="erlang.html#system_info_port_limit">erlang:system_info(port_limit)</a></span>.</p>
 	<p>The default value used is normally <span class="code">65536</span>. However, if
 	the runtime system is able to determine maximum amount of file
 	descriptors that it is allowed to open and this value is larger
@@ -1762,7 +1763,7 @@
           for write operations. Each reader group consumes 64 byte
           in each read/write lock.</p>
         <p>Notice that a runtime system using shared reader groups benefits from
-          <span class="bold_code"><a href="#+sbt">binding schedulers to logical processors</a></span>, as the reader groups are distributed better
+          <span class="bold_code bc-17"><a href="#+sbt">binding schedulers to logical processors</a></span>, as the reader groups are distributed better
           between schedulers.</p>
       </dd>
       <dt><strong><a name="+S"></a>
@@ -1777,7 +1778,7 @@
           available; otherwise the default values are 1. <span class="code">Schedulers</span> can
           be omitted if <span class="code">:SchedulerOnline</span> is not and conversely. The
           number of schedulers online can be changed at runtime through
-          <span class="bold_code"><a href="erlang.html#system_flag_schedulers_online"><span class="code">erlang:system_flag(schedulers_online, SchedulersOnline)</span></a></span>.</p>
+          <span class="bold_code bc-15"><a href="erlang.html#system_flag_schedulers_online"><span class="code">erlang:system_flag(schedulers_online, SchedulersOnline)</span></a></span>.</p>
         <p>If <span class="code">Schedulers</span> or <span class="code">SchedulersOnline</span> is specified as a
           negative number, the value is subtracted from the default number of
           logical processors configured or logical processors available,
@@ -1786,12 +1787,12 @@
           <span class="code">SchedulersOnline</span> resets the number of scheduler threads or
           scheduler threads online, respectively, to its default value.</p>
         <p>This option is ignored if the emulator does not have SMP support
-          enabled (see flag <span class="bold_code"><a href="#smp"><span class="code">-smp</span></a></span>).</p>
+          enabled (see flag <span class="bold_code bc-17"><a href="#smp"><span class="code">-smp</span></a></span>).</p>
       </dd>
       <dt><strong><a name="+SP"></a><span class="code">+SP
         SchedulersPercentage:SchedulersOnlinePercentage</span></strong></dt>
       <dd>
-        <p>Similar to <span class="bold_code"><a href="#+S"><span class="code">+S</span></a></span> but uses
+        <p>Similar to <span class="bold_code bc-17"><a href="#+S"><span class="code">+S</span></a></span> but uses
           percentages to set the number of scheduler threads to create, based
           on logical processors configured, and scheduler threads to set online,
           based on logical processors available, when SMP support has been
@@ -1802,14 +1803,14 @@
           <span class="code">SchedulersPercentage</span> can be omitted if
           <span class="code">:SchedulersOnlinePercentage</span> is not and conversely. The number
           of schedulers online can be changed at runtime through
-          <span class="bold_code"><a href="erlang.html#system_flag_schedulers_online"><span class="code">erlang:system_flag(schedulers_online, SchedulersOnline)</span></a></span>.</p>
-        <p>This option interacts with <span class="bold_code"><a href="#+S"><span class="code">+S</span></a></span>
+          <span class="bold_code bc-15"><a href="erlang.html#system_flag_schedulers_online"><span class="code">erlang:system_flag(schedulers_online, SchedulersOnline)</span></a></span>.</p>
+        <p>This option interacts with <span class="bold_code bc-17"><a href="#+S"><span class="code">+S</span></a></span>
           settings. For example, on a system with 8 logical cores configured
           and 8 logical cores available, the combination of the options
           <span class="code">+S 4:4 +SP 50:25</span> (in either order) results in 2 scheduler
           threads (50% of 4) and 1 scheduler thread online (25% of 4).</p>
         <p>This option is ignored if the emulator does not have SMP support
-          enabled (see flag <span class="bold_code"><a href="#smp"><span class="code">-smp</span></a></span>).</p>
+          enabled (see flag <span class="bold_code bc-17"><a href="#smp"><span class="code">-smp</span></a></span>).</p>
       </dd>
       <dt><strong><a name="+SDcpu"></a><span class="code">+SDcpu
         DirtyCPUSchedulers:DirtyCPUSchedulersOnline</span></strong></dt>
@@ -1824,15 +1825,15 @@
           <li>The number of dirty CPU scheduler threads online cannot exceed
             the number of normal scheduler threads online.</li>
         </ul>
-        <p>For details, see the <span class="bold_code"><a href="#+S"><span class="code">+S</span></a></span> and
-          <span class="bold_code"><a href="#+SP"><span class="code">+SP</span></a></span>. By default, the number
+        <p>For details, see the <span class="bold_code bc-17"><a href="#+S"><span class="code">+S</span></a></span> and
+          <span class="bold_code bc-17"><a href="#+SP"><span class="code">+SP</span></a></span>. By default, the number
           of dirty CPU scheduler threads created equals the number of normal
           scheduler threads created, and the number of dirty CPU scheduler
           threads online equals the number of normal scheduler threads online.
           <span class="code">DirtyCPUSchedulers</span> can be omitted if
           <span class="code">:DirtyCPUSchedulersOnline</span> is not and conversely. The number of
           dirty CPU schedulers online can be changed at runtime through
-          <span class="bold_code"><a href="erlang.html#system_flag_dirty_cpu_schedulers_online"><span class="code">erlang:system_flag(dirty_cpu_schedulers_online, DirtyCPUSchedulersOnline)</span></a></span>.</p>
+          <span class="bold_code bc-15"><a href="erlang.html#system_flag_dirty_cpu_schedulers_online"><span class="code">erlang:system_flag(dirty_cpu_schedulers_online, DirtyCPUSchedulersOnline)</span></a></span>.</p>
 	<p>The amount of dirty CPU schedulers is limited by the amount of
 	  normal schedulers in order to limit the effect on processes
 	  executing on ordinary schedulers. If the amount of dirty CPU
@@ -1846,7 +1847,7 @@
       <dt><strong><a name="+SDPcpu"></a><span class="code">+SDPcpu
         DirtyCPUSchedulersPercentage:DirtyCPUSchedulersOnlinePercentage</span></strong></dt>
       <dd>
-        <p>Similar to <span class="bold_code"><a href="#+SDcpu"><span class="code">+SDcpu</span></a></span> but
+        <p>Similar to <span class="bold_code bc-17"><a href="#+SDcpu"><span class="code">+SDcpu</span></a></span> but
           uses percentages to set the number of dirty CPU scheduler threads to
           create and the number of dirty CPU scheduler threads to set online
           when threading support has been enabled. Specified values must be
@@ -1857,8 +1858,8 @@
           be omitted if <span class="code">:DirtyCPUSchedulersOnlinePercentage</span> is not and
           conversely. The number of dirty CPU schedulers online can be changed
           at runtime through
-          <span class="bold_code"><a href="erlang.html#system_flag_dirty_cpu_schedulers_online"><span class="code">erlang:system_flag(dirty_cpu_schedulers_online, DirtyCPUSchedulersOnline)</span></a></span>.</p>
-        <p>This option interacts with <span class="bold_code"><a href="#+SDcpu"><span class="code">+SDcpu</span></a></span> settings. For example, on a
+          <span class="bold_code bc-15"><a href="erlang.html#system_flag_dirty_cpu_schedulers_online"><span class="code">erlang:system_flag(dirty_cpu_schedulers_online, DirtyCPUSchedulersOnline)</span></a></span>.</p>
+        <p>This option interacts with <span class="bold_code bc-17"><a href="#+SDcpu"><span class="code">+SDcpu</span></a></span> settings. For example, on a
           system with 8 logical cores configured and 8 logical cores available,
           the combination of the options <span class="code">+SDcpu 4:4 +SDPcpu 50:25</span> (in
           either order) results in 2 dirty CPU scheduler threads (50% of 4) and
@@ -1873,9 +1874,9 @@
         <p>Sets the number of dirty I/O scheduler threads to create when
           threading support has been enabled. Valid range is 0-1024. By
           default, the number of dirty I/O scheduler threads created is 10,
-          same as the default number of threads in the <span class="bold_code"><a href="#async_thread_pool_size">async thread pool</a></span>.</p>
+          same as the default number of threads in the <span class="bold_code bc-17"><a href="#async_thread_pool_size">async thread pool</a></span>.</p>
 	<p>The amount of dirty IO schedulers is not limited by the amount of
-	  normal schedulers <span class="bold_code"><a href="#+SDcpu">like the amount of dirty CPU schedulers</a></span>. This since only I/O bound work is
+	  normal schedulers <span class="bold_code bc-17"><a href="#+SDcpu">like the amount of dirty CPU schedulers</a></span>. This since only I/O bound work is
 	  expected to execute on dirty I/O schedulers. If the user should schedule CPU
 	  bound jobs on dirty I/O schedulers, these jobs might starve ordinary
 	  jobs executing on ordinary schedulers.</p>
@@ -1892,7 +1893,7 @@
           <dd>
             <p>Sets scheduler bind type.</p>
             <p>Schedulers can also be bound using flag
-              <span class="bold_code"><a href="#+stbt"><span class="code">+stbt</span></a></span>. The only
+              <span class="bold_code bc-17"><a href="#+stbt"><span class="code">+stbt</span></a></span>. The only
               difference between these two flags is how the following errors
               are handled:</p>
             <ul>
@@ -1900,7 +1901,7 @@
                 platform.</li>
               <li>No available CPU topology. That is, the runtime system was
                 not able to detect the CPU topology automatically, and no
-                <span class="bold_code"><a href="#+sct">user-defined CPU topology</a></span>
+                <span class="bold_code bc-17"><a href="#+sct">user-defined CPU topology</a></span>
                 was set.</li>
             </ul>
             <p>If any of these errors occur when <span class="code">+sbt</span> has been passed,
@@ -1976,7 +1977,7 @@
               is processed and <span class="code">BindType</span> is any other type than
               <span class="code">u</span>, the runtime system fails to start. CPU
               topology can be defined using flag
-              <span class="bold_code"><a href="#+sct"><span class="code">+sct</span></a></span>. Notice
+              <span class="bold_code bc-17"><a href="#+sct"><span class="code">+sct</span></a></span>. Notice
               that flag <span class="code">+sct</span> can have to be passed before flag
               <span class="code">+sbt</span> on the command line (if no CPU topology
               has been automatically detected).</p>
@@ -2012,7 +2013,7 @@
                 an error is reported, it is reported to the
                 <span class="code">error_logger</span>. If you want to verify that the
                 schedulers have bound as requested, call
-                <span class="bold_code"><a href="erlang.html#system_info_scheduler_bindings"><span class="code">erlang:system_info(scheduler_bindings)</span></a></span>.</p>
+                <span class="bold_code bc-15"><a href="erlang.html#system_info_scheduler_bindings"><span class="code">erlang:system_info(scheduler_bindings)</span></a></span>.</p>
             </p></div>
 </div>
           </dd>
@@ -2042,7 +2043,7 @@
               the frequency with which schedulers run out of work is
               not taken into account by the load balancing logic.</p>
             <p><span class="code">+scl false</span> is similar to
-              <span class="bold_code"><a href="#+sub"><span class="code">+sub true</span></a></span>, but
+              <span class="bold_code bc-17"><a href="#+sub"><span class="code">+sub true</span></a></span>, but
               <span class="code">+sub true</span> also balances scheduler utilization
               between schedulers.</p>
           </dd>
@@ -2076,7 +2077,7 @@
             <p>Sets a user-defined CPU topology. The user-defined
               CPU topology overrides any automatically detected
               CPU topology. The CPU topology is used when
-              <span class="bold_code"><a href="#+sbt">binding schedulers to logical processors</a></span>.</p>
+              <span class="bold_code bc-17"><a href="#+sbt">binding schedulers to logical processors</a></span>.</p>
             <p>Uppercase letters signify real identifiers and lowercase
 	      letters signify fake identifiers only used for description
               of the topology. Identifiers passed as real identifiers can
@@ -2132,8 +2133,8 @@
             <p>A simple example. A single quad core processor can be
               described as follows:</p>
 <div class="example"><pre>
-% <span class="bold_code">erl +sct L0-3c0-3</span>
-1&gt; <span class="bold_code">erlang:system_info(cpu_topology).</span>
+% <span class="bold_code bc-12">erl +sct L0-3c0-3</span>
+1&gt; <span class="bold_code bc-12">erlang:system_info(cpu_topology).</span>
 [{processor,[{core,{logical,0}},
              {core,{logical,1}},
              {core,{logical,2}},
@@ -2143,8 +2144,8 @@
               The ordering of logical processors is a bit weird.
               This to give a better example of identifier lists:</p>
 <div class="example"><pre>
-% <span class="bold_code">erl +sct L0-1,3-2c0-3p0N0:L7,4,6-5c0-3p1N1</span>
-1&gt; <span class="bold_code">erlang:system_info(cpu_topology).</span>
+% <span class="bold_code bc-12">erl +sct L0-1,3-2c0-3p0N0:L7,4,6-5c0-3p1N1</span>
+1&gt; <span class="bold_code bc-12">erlang:system_info(cpu_topology).</span>
 [{node,[{processor,[{core,{logical,0}},
                     {core,{logical,1}},
                     {core,{logical,3}},
@@ -2165,8 +2166,8 @@
               different logical CPUs. An example, with two Erlang
               runtime systems on a quad core machine:</p>
 <div class="example"><pre>
-% <span class="bold_code">erl +sct L0-3c0-3 +sbt db +S3:2 -detached -noinput -noshell -sname one</span>
-% <span class="bold_code">erl +sct L3-0c0-3 +sbt db +S3:2 -detached -noinput -noshell -sname two</span></pre></div>
+% <span class="bold_code bc-12">erl +sct L0-3c0-3 +sbt db +S3:2 -detached -noinput -noshell -sname one</span>
+% <span class="bold_code bc-12">erl +sct L3-0c0-3 +sbt db +S3:2 -detached -noinput -noshell -sname two</span></pre></div>
             <p>In this example, each runtime system have two
               schedulers each online, and all schedulers online
               will run on different cores. If we change to one
@@ -2177,7 +2178,7 @@
               how the real CPU topology looks like is likely to
               decrease the performance of the runtime system.</p>
             <p>For more information, see
-              <span class="bold_code"><a href="erlang.html#system_info_cpu_topology"><span class="code">erlang:system_info(cpu_topology)</span></a></span>.</p>
+              <span class="bold_code bc-15"><a href="erlang.html#system_info_cpu_topology"><span class="code">erlang:system_info(cpu_topology)</span></a></span>.</p>
           </dd>
           <dt><strong><a name="+secio"></a><span class="code">+secio true|false</span></strong></dt>
           <dd>
@@ -2193,7 +2194,7 @@
               execution of outstanding I/O operation is not
               prioritized to the same extent as when <span class="code">false</span> is
               passed.</p>
-            <p><span class="bold_code"><a href="erlang.html#system_info_eager_check_io"><span class="code">erlang:system_info(eager_check_io)</span></a></span>
+            <p><span class="bold_code bc-15"><a href="erlang.html#system_info_eager_check_io"><span class="code">erlang:system_info(eager_check_io)</span></a></span>
               returns the value of this parameter used when starting
               the virtual machine.</p>
           </dd>
@@ -2222,10 +2223,10 @@
               virtual machine tries to perform port tasks immediately,
               improving latency at the expense of parallelism. Default to
               <span class="code">false</span>. The default used can be inspected in runtime by
-              calling <span class="bold_code"><a href="erlang.html#system_info_port_parallelism"><span class="code">erlang:system_info(port_parallelism)</span></a></span>.
+              calling <span class="bold_code bc-15"><a href="erlang.html#system_info_port_parallelism"><span class="code">erlang:system_info(port_parallelism)</span></a></span>.
               The default can be overridden on port creation by passing option
-              <span class="bold_code"><a href="erlang.html#open_port_parallelism"><span class="code">parallelism</span></a></span> to
-              <span class="bold_code"><a href="erlang.html#open_port-2"><span class="code">erlang:open_port/2</span></a></span></p>.
+              <span class="bold_code bc-15"><a href="erlang.html#open_port_parallelism"><span class="code">parallelism</span></a></span> to
+              <span class="bold_code bc-15"><a href="erlang.html#open_port-2"><span class="code">erlang:open_port/2</span></a></span></p>.
           </dd>
           <dt><strong><a name="sched_thread_stack_size"></a>
             <span class="code">+sss size</span></strong></dt>
@@ -2237,14 +2238,14 @@
           <dt><strong><a name="+stbt"></a><span class="code">+stbt BindType</span></strong></dt>
           <dd>
             <p>Tries to set the scheduler bind type. The same as flag
-              <span class="bold_code"><a href="#+sbt"><span class="code">+sbt</span></a></span> except
+              <span class="bold_code bc-17"><a href="#+sbt"><span class="code">+sbt</span></a></span> except
               how some errors are handled. For more information, see
-              <span class="bold_code"><a href="#+sbt"><span class="code">+sbt</span></a></span>.</p>
+              <span class="bold_code bc-17"><a href="#+sbt"><span class="code">+sbt</span></a></span>.</p>
           </dd>
           <dt><strong><a name="+sub"></a><span class="code">+sub true|false</span></strong></dt>
           <dd>
             <p>Enables or disables
-              <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','erts','erlang.html#statistics_scheduler_wall_time');">scheduler utilization</a></span> balancing of load. By default
+              <span class="bold_code bc-13"><a href="javascript:erlhref('../../../doc/../','erts','erlang.html#statistics_scheduler_wall_time');">scheduler utilization</a></span> balancing of load. By default
               scheduler utilization balancing is disabled and instead scheduler
               compaction of load is enabled, which strives for a load
               distribution that causes as many scheduler threads as possible
@@ -2255,7 +2256,7 @@
             <p><span class="code">+sub true</span> is only supported on systems where the runtime
               system detects and uses a monotonically increasing high-resolution
               clock. On other systems, the runtime system fails to start.</p>
-            <p><span class="code">+sub true</span> implies <span class="bold_code"><a href="#+scl"><span class="code">+scl false</span></a></span>. The difference between
+            <p><span class="code">+sub true</span> implies <span class="bold_code bc-17"><a href="#+scl"><span class="code">+scl false</span></a></span>. The difference between
               <span class="code">+sub true</span> and <span class="code">+scl false</span> is that <span class="code">+scl false</span>
               does not try to balance the scheduler utilization.</p>
           </dd>
@@ -2369,7 +2370,7 @@
           information reports (<span class="code">+W i</span>). Defaults to warnings.
           The current mapping can be retrieved using
           <span class="code">error_logger:warning_map/0</span>. For more information,
-          see <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','error_logger.html#warning_map-0');"><span class="code">error_logger:warning_map/0</span></a></span> in Kernel.</p>
+          see <span class="bold_code bc-13"><a href="javascript:erlhref('../../../doc/../','kernel','error_logger.html#warning_map-0');"><span class="code">error_logger:warning_map/0</span></a></span> in Kernel.</p>
       </dd>
       <dt><strong><span class="code">+zFlag Value</span></strong></dt>
       <dd>
@@ -2378,7 +2379,7 @@
           <dt><strong><a name="+zdbbl"></a><span class="code">+zdbbl size</span></strong></dt>
           <dd>
             <p>Sets the distribution buffer busy limit
-              (<span class="bold_code"><a href="erlang.html#system_info_dist_buf_busy_limit"><span class="code">dist_buf_busy_limit</span></a></span>)
+              (<span class="bold_code bc-15"><a href="erlang.html#system_info_dist_buf_busy_limit"><span class="code">dist_buf_busy_limit</span></a></span>)
               in kilobytes. Valid range is 1-2097151. Defaults to 1024.</p>
             <p>A larger buffer limit allows processes to buffer
               more outgoing messages over the distribution. When the
@@ -2391,7 +2392,7 @@
           <dt><strong><a name="+zdntgc"></a><span class="code">+zdntgc time</span></strong></dt>
           <dd>
             <p>Sets the delayed node table garbage collection time
-              (<span class="bold_code"><a href="erlang.html#system_info_delayed_node_table_gc"><span class="code">delayed_node_table_gc</span></a></span>)
+              (<span class="bold_code bc-15"><a href="erlang.html#system_info_delayed_node_table_gc"><span class="code">delayed_node_table_gc</span></a></span>)
               in seconds. Valid values are either <span class="code">infinity</span> or
               an integer in the range 0-100000000. Defaults to 60.</p>
             <p>Node table entries that are not referred linger
@@ -2405,9 +2406,9 @@
   </div>
 
   <h3>
-<a name="environment_variables"></a><a name="idm45311098653488">Environment Variables</a>
+<a name="environment_variables"></a><a name="idm46455778900640">Environment Variables</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
     <dl>
@@ -2438,7 +2439,7 @@
         <p>If the variable is set to negative value, such as
           <span class="code">ERL_CRASH_DUMP_SECONDS=-1</span>, the runtime system
           waits indefinitely for the crash dump file to be written.</p>
-        <p>This variable is used with <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','heart.html');"><span class="code">heart(3)</span></a></span> if <span class="code">heart</span> is running:</p>
+        <p>This variable is used with <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','heart.html');"><span class="code">heart(3)</span></a></span> if <span class="code">heart</span> is running:</p>
         <dl>
           <dt><strong><span class="code">ERL_CRASH_DUMP_SECONDS=0</span></strong></dt>
           <dd>Suppresses the writing a crash dump file entirely, thus
@@ -2481,19 +2482,19 @@
       <dd>
         <p>Contains a list of additional library directories that the code
           server searches for applications and adds to the code path; see
-          <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','code.html');"><span class="code">code(3)</span></a></span>.</p>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','code.html');"><span class="code">code(3)</span></a></span>.</p>
       </dd>
       <dt><strong><span class="code">ERL_EPMD_ADDRESS</span></strong></dt>
       <dd>
         <p>Can be set to a comma-separated list of IP addresses, in which case
-          the <span class="bold_code"><a href="epmd.html"><span class="code">epmd</span></a></span> daemon listens only
+          the <span class="bold_code bc-19"><a href="epmd.html"><span class="code">epmd</span></a></span> daemon listens only
           on the specified address(es) and on the loopback address (which is
           implicitly added to the list if it has not been specified).</p>
       </dd>
       <dt><strong><span class="code">ERL_EPMD_PORT</span></strong></dt>
       <dd>
         <p>Can contain the port number to use when communicating with
-          <span class="bold_code"><a href="epmd.html"><span class="code">epmd</span></a></span>. The default port works
+          <span class="bold_code bc-19"><a href="epmd.html"><span class="code">epmd</span></a></span>. The default port works
           fine in most cases. A different port can be specified
           to allow nodes of independent clusters to co-exist on the same host.
           All nodes in a cluster must use the same <span class="code">epmd</span> port number.</p>
@@ -2502,9 +2503,9 @@
   </div>
 
   <h3>
-<a name="configuration"></a><a name="idm45311098617152">Configuration</a>
+<a name="configuration"></a><a name="idm46455778864304">Configuration</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
     <p>The standard Erlang/OTP system can be reconfigured to change the default
@@ -2545,25 +2546,25 @@ code:load_abs("..../user_default").    </pre></div>
           of <span class="code">user_default</span> is defined, the Erlang/OTP environment can be
           customized. More powerful changes can be made by supplying
           command-line arguments in the startup script <span class="code">erl</span>. For more
-          information, see <span class="bold_code"><a href="init.html"><span class="code">init(3)</span></a></span>.</p>
+          information, see <span class="bold_code bc-19"><a href="init.html"><span class="code">init(3)</span></a></span>.</p>
       </dd>
     </dl>
   </div>
 
-  <h3><a name="idm45311098601200">See Also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46455778848352">See Also</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="epmd.html"><span class="code">epmd(1)</span></a></span>,
-      <span class="bold_code"><a href="erl_prim_loader.html"><span class="code">erl_prim_loader(3)</span></a></span>,
-      <span class="bold_code"><a href="erts_alloc.html"><span class="code">erts_alloc(3)</span></a></span>,
-      <span class="bold_code"><a href="init.html"><span class="code">init(3)</span></a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','application.html');"><span class="code">application(3)</span></a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','auth.html');"><span class="code">auth(3)</span></a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','code.html');"><span class="code">code(3)</span></a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','erl_boot_server.html');"><span class="code">erl_boot_server(3)</span></a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','heart.html');"><span class="code">heart(3)</span></a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','kernel','net_kernel.html');"><span class="code">net_kernel(3)</span></a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../doc/../','tools','make.html');"><span class="code">make(3)</span></a></span></p>
+    <p><span class="bold_code bc-19"><a href="epmd.html"><span class="code">epmd(1)</span></a></span>,
+      <span class="bold_code bc-19"><a href="erl_prim_loader.html"><span class="code">erl_prim_loader(3)</span></a></span>,
+      <span class="bold_code bc-19"><a href="erts_alloc.html"><span class="code">erts_alloc(3)</span></a></span>,
+      <span class="bold_code bc-19"><a href="init.html"><span class="code">init(3)</span></a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','application.html');"><span class="code">application(3)</span></a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','auth.html');"><span class="code">auth(3)</span></a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','code.html');"><span class="code">code(3)</span></a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','erl_boot_server.html');"><span class="code">erl_boot_server(3)</span></a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','heart.html');"><span class="code">heart(3)</span></a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','kernel','net_kernel.html');"><span class="code">net_kernel(3)</span></a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../doc/../','tools','make.html');"><span class="code">make(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

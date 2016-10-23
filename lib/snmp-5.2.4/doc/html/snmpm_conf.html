@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Simple Network Management Protocol (SNMP)</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 5.2.4</p>
@@ -802,118 +802,119 @@
 <!-- refpage --><center><h1>snmpm_conf</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">snmpm_conf</div>
+<div class="REFBODY module-body">snmpm_conf</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Utility functions for handling the manager config files.</div>
+<div class="REFBODY module-summary-body">Utility functions for handling the manager config files.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>The module <span class="code">snmpm_conf</span> contains various utility functions to 
       used for manipulating (write/append/read) the config files of the
       SNMP manager. </p>
     <a name="manager_entry"></a>
   </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="manager_entry-2"></a><span class="bold_code">manager_entry(Tag, Val) -&gt; manager_entry()</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Tag = address | port | engine_id | max_message_size</span><br>
+<div class="exports-body">
+    <p><a name="manager_entry-2"></a><span class="bold_code bc-9">manager_entry(Tag, Val) -&gt; manager_entry()</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Tag = address | port | engine_id | max_message_size</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Val = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Val = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">manager_entry() = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">manager_entry() = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Create an entry for the manager config file, 
           <span class="code">manager.conf</span>. </p>
         <p>The type of <span class="code">Val</span> depends on the value of <span class="code">Tag</span>, 
           see 
-          <span class="bold_code"><a href="snmp_manager_config_files.html#manager_information">Manager Information</a></span> 
+          <span class="bold_code bc-15"><a href="snmp_manager_config_files.html#manager_information">Manager Information</a></span> 
           for more info. </p>
         <a name="write_manager_config"></a>
       </p></div>
-    <p><a name="write_manager_config-2"></a><span class="bold_code">write_manager_config(Dir, Conf) -&gt; ok</span><br><a name="write_manager_config-3"></a><span class="bold_code">write_manager_config(Dir, Hdr, Conf) -&gt; ok</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Dir = string()</span><br>
+    <p><a name="write_manager_config-2"></a><span class="bold_code bc-9">write_manager_config(Dir, Conf) -&gt; ok</span><br><a name="write_manager_config-3"></a><span class="bold_code bc-9">write_manager_config(Dir, Hdr, Conf) -&gt; ok</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Dir = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Hdr = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Hdr = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Conf = [manager_entry()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Conf = [manager_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Write the manager config to the manager config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p><span class="code">Hdr</span> is an optional file header (note that this text is
           written to the file as is). </p>
         <p>See 
-          <span class="bold_code"><a href="snmp_manager_config_files.html#manager_information">Manager Information</a></span> 
+          <span class="bold_code bc-15"><a href="snmp_manager_config_files.html#manager_information">Manager Information</a></span> 
           for more info. </p>
         <a name="append_manager_config"></a>
       </p></div>
-    <p><a name="append_manager_config-2"></a><span class="bold_code">append_manager_config(Dir, Conf) -&gt; ok</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Dir = string()</span><br>
+    <p><a name="append_manager_config-2"></a><span class="bold_code bc-9">append_manager_config(Dir, Conf) -&gt; ok</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Dir = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Conf = [manager_entry()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Conf = [manager_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Append the config to the current manager config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p>See 
-          <span class="bold_code"><a href="snmp_manager_config_files.html#manager_information">Manager Information</a></span> 
+          <span class="bold_code bc-15"><a href="snmp_manager_config_files.html#manager_information">Manager Information</a></span> 
           for more info. </p>
         <a name="read_manager_config"></a>
       </p></div>
-    <p><a name="read_manager_config-1"></a><span class="bold_code">read_manager_config(Dir) -&gt; Conf</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Dir = string()</span><br>
+    <p><a name="read_manager_config-1"></a><span class="bold_code bc-9">read_manager_config(Dir) -&gt; Conf</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Dir = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Conf = [manager_entry()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Conf = [manager_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Read the current manager config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p>See 
-          <span class="bold_code"><a href="snmp_manager_config_files.html#manager_information">Manager Information</a></span> 
+          <span class="bold_code bc-15"><a href="snmp_manager_config_files.html#manager_information">Manager Information</a></span> 
           for more info. </p>
         <a name="users_entry"></a>
       </p></div>
-    <p><a name="users_entry-1"></a><span class="bold_code">users_entry(UserId) -&gt; users_entry()</span><br><a name="users_entry-2"></a><span class="bold_code">users_entry(UserId, UserMod) -&gt; users_entry()</span><br><a name="users_entry-3"></a><span class="bold_code">users_entry(UserId, UserMod, UserData) -&gt; users_entry()</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">UserId = term()</span><br>
+    <p><a name="users_entry-1"></a><span class="bold_code bc-9">users_entry(UserId) -&gt; users_entry()</span><br><a name="users_entry-2"></a><span class="bold_code bc-9">users_entry(UserId, UserMod) -&gt; users_entry()</span><br><a name="users_entry-3"></a><span class="bold_code bc-9">users_entry(UserId, UserMod, UserData) -&gt; users_entry()</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">UserId = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">UserMod = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">UserMod = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">UserData = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">UserData = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">standard_entry() = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">standard_entry() = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Create an entry for the manager users config file, 
           <span class="code">users.conf</span>. </p>
         <p><span class="code">users_entry(UserId)</span> translates to the following call:
@@ -921,24 +922,24 @@
         <p><span class="code">users_entry(UserId, UserMod)</span> translates to the following 
           call: <span class="code">users_entry(UserId, UserMod, undefined)</span>. </p>
         <p>See 
-          <span class="bold_code"><a href="snmp_manager_config_files.html#users">Users</a></span> 
+          <span class="bold_code bc-15"><a href="snmp_manager_config_files.html#users">Users</a></span> 
           for more info. </p>
         <a name="write_users_config"></a>
       </p></div>
-    <p><a name="write_users_config-2"></a><span class="bold_code">write_users_config(Dir, Conf) -&gt; ok</span><br><a name="write_users_config-3"></a><span class="bold_code">write_users_config(Dir, Hdr, Conf) -&gt; ok</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Dir = string()</span><br>
+    <p><a name="write_users_config-2"></a><span class="bold_code bc-9">write_users_config(Dir, Conf) -&gt; ok</span><br><a name="write_users_config-3"></a><span class="bold_code bc-9">write_users_config(Dir, Hdr, Conf) -&gt; ok</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Dir = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Hdr = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Hdr = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Conf = [users_entry()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Conf = [users_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Write the manager users config to the manager users 
           config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
@@ -946,114 +947,114 @@
         <p><span class="code">Hdr</span> is an optional file header (note that this text is
           written to the file as is). </p>
         <p>See 
-          <span class="bold_code"><a href="snmp_manager_config_files.html#users">Users</a></span> 
+          <span class="bold_code bc-15"><a href="snmp_manager_config_files.html#users">Users</a></span> 
           for more info. </p>
         <a name="append_users_config"></a>
       </p></div>
-    <p><a name="append_users_config-2"></a><span class="bold_code">append_users_config(Dir, Conf) -&gt; ok</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Dir = string()</span><br>
+    <p><a name="append_users_config-2"></a><span class="bold_code bc-9">append_users_config(Dir, Conf) -&gt; ok</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Dir = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Conf = [users_entry()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Conf = [users_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Append the users config to the current manager users  
           config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p>See 
-          <span class="bold_code"><a href="snmp_manager_config_files.html#users">Users</a></span> 
+          <span class="bold_code bc-15"><a href="snmp_manager_config_files.html#users">Users</a></span> 
           for more info. </p>
         <a name="read_users_config"></a>
       </p></div>
-    <p><a name="read_users_config-1"></a><span class="bold_code">read_users_config(Dir) -&gt; Conf</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Dir = string()</span><br>
+    <p><a name="read_users_config-1"></a><span class="bold_code bc-9">read_users_config(Dir) -&gt; Conf</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Dir = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Conf = [users_entry()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Conf = [users_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Read the current manager users config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p>See 
-          <span class="bold_code"><a href="snmp_manager_config_files.html#users">Users</a></span> 
+          <span class="bold_code bc-15"><a href="snmp_manager_config_files.html#users">Users</a></span> 
           for more info. </p>
         <a name="agents_entry"></a>
       </p></div>
-    <p><a name="agents_entry-12"></a><span class="bold_code">agents_entry(UserId, TargetName, Comm, Domain, Addr, EngineID, Timeout, MaxMessageSize, Version, SecModel, SecName, SecLevel) -&gt; agents_entry()</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">UserId = term()</span><br>
+    <p><a name="agents_entry-12"></a><span class="bold_code bc-9">agents_entry(UserId, TargetName, Comm, Domain, Addr, EngineID, Timeout, MaxMessageSize, Version, SecModel, SecName, SecLevel) -&gt; agents_entry()</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">UserId = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">TargetName = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">TargetName = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Comm = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Comm = string()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Domain = transportDomain()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Domain = transportDomain()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Addr = transportAddress()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Addr = transportAddress()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">EngineID = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EngineID = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Timeout = integer()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Timeout = integer()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MaxMessageSize = integer()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MaxMessageSize = integer()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Version = v1 | v2 | v3</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Version = v1 | v2 | v3</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">SecModel = v1 | v2c | usm</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">SecModel = v1 | v2c | usm</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">SecName = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">SecName = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">SecLevel = noAuthNoPriv | authNoPriv | authPriv</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">SecLevel = noAuthNoPriv | authNoPriv | authPriv</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">agents_entry() = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">agents_entry() = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Create an entry for the manager agents config file, 
           <span class="code">agents.conf</span>. </p>
         <p>See 
-          <span class="bold_code"><a href="snmp_manager_config_files.html#agents">Agents</a></span> 
+          <span class="bold_code bc-15"><a href="snmp_manager_config_files.html#agents">Agents</a></span> 
           for more info. </p>
         <a name="write_agents_config"></a>
       </p></div>
-    <p><a name="write_agents_config-2"></a><span class="bold_code">write_agents_config(Dir, Conf) -&gt; ok</span><br><a name="write_agents_config-3"></a><span class="bold_code">write_agents_config(Dir, Hdr, Conf) -&gt; ok</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Dir = string()</span><br>
+    <p><a name="write_agents_config-2"></a><span class="bold_code bc-9">write_agents_config(Dir, Conf) -&gt; ok</span><br><a name="write_agents_config-3"></a><span class="bold_code bc-9">write_agents_config(Dir, Hdr, Conf) -&gt; ok</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Dir = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Hdr = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Hdr = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Conf = [_entry()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Conf = [_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Write the manager agents config to the manager agents 
           config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
@@ -1061,99 +1062,99 @@
         <p><span class="code">Hdr</span> is an optional file header (note that this text is
           written to the file as is). </p>
         <p>See 
-          <span class="bold_code"><a href="snmp_manager_config_files.html#agents">Agents</a></span> 
+          <span class="bold_code bc-15"><a href="snmp_manager_config_files.html#agents">Agents</a></span> 
           for more info. </p>
         <a name="append_agents_config"></a>
       </p></div>
-    <p><a name="append_agents_config-2"></a><span class="bold_code">append_agents_config(Dir, Conf) -&gt; ok</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Dir = string()</span><br>
+    <p><a name="append_agents_config-2"></a><span class="bold_code bc-9">append_agents_config(Dir, Conf) -&gt; ok</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Dir = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Conf = [agents_entry()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Conf = [agents_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Append the agents config to the current manager agents 
           config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p>See 
-          <span class="bold_code"><a href="snmp_manager_config_files.html#agents">Agents</a></span> 
+          <span class="bold_code bc-15"><a href="snmp_manager_config_files.html#agents">Agents</a></span> 
           for more info. </p>
         <a name="read_agents_config"></a>
       </p></div>
-    <p><a name="read_agents_config-1"></a><span class="bold_code">read_agents_config(Dir) -&gt; Conf</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Dir = string()</span><br>
+    <p><a name="read_agents_config-1"></a><span class="bold_code bc-9">read_agents_config(Dir) -&gt; Conf</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Dir = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Conf = [agents_entry()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Conf = [agents_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Read the current manager agents config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p>See 
-          <span class="bold_code"><a href="snmp_manager_config_files.html#agents">Agents</a></span> 
+          <span class="bold_code bc-15"><a href="snmp_manager_config_files.html#agents">Agents</a></span> 
           for more info. </p>
         <a name="usm_entry"></a>
       </p></div>
-    <p><a name="usm_entry-6"></a><span class="bold_code">usm_entry(EngineID, UserName, AuthP, AuthKey, PrivP, PrivKey) -&gt; usm_entry()</span><br><a name="usm_entry-7"></a><span class="bold_code">usm_entry(EngineID, UserName, SecName, AuthP, AuthKey, PrivP, PrivKey) -&gt; usm_entry()</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EngineID = string()</span><br>
+    <p><a name="usm_entry-6"></a><span class="bold_code bc-9">usm_entry(EngineID, UserName, AuthP, AuthKey, PrivP, PrivKey) -&gt; usm_entry()</span><br><a name="usm_entry-7"></a><span class="bold_code bc-9">usm_entry(EngineID, UserName, SecName, AuthP, AuthKey, PrivP, PrivKey) -&gt; usm_entry()</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EngineID = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">UserName = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">UserName = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">SecName = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">SecName = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">AuthP = usmNoAuthProtocol | usmHMACMD5AuthProtocol | usmHMACSHAAuthProtocol</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">AuthP = usmNoAuthProtocol | usmHMACMD5AuthProtocol | usmHMACSHAAuthProtocol</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">AuthKey = [integer()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">AuthKey = [integer()]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">PrivP = usmNoPrivProtocol | usmDESPrivProtocol | usmAesCfb128Protocol</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">PrivP = usmNoPrivProtocol | usmDESPrivProtocol | usmAesCfb128Protocol</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">PrivKey = [integer()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">PrivKey = [integer()]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">usm_entry() = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">usm_entry() = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Create an entry for the agent community config file, 
           <span class="code">community.conf</span>. </p>
         <p>See 
-          <span class="bold_code"><a href="snmp_manager_config_files.html#usm">Security data for USM</a></span> 
+          <span class="bold_code bc-15"><a href="snmp_manager_config_files.html#usm">Security data for USM</a></span> 
           for more info. </p>
         <a name="write_usm_config"></a>
       </p></div>
-    <p><a name="write_usm_config-2"></a><span class="bold_code">write_usm_config(Dir, Conf) -&gt; ok</span><br><a name="write_usm_config-3"></a><span class="bold_code">write_usm_config(Dir, Hdr, Conf) -&gt; ok</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Dir = string()</span><br>
+    <p><a name="write_usm_config-2"></a><span class="bold_code bc-9">write_usm_config(Dir, Conf) -&gt; ok</span><br><a name="write_usm_config-3"></a><span class="bold_code bc-9">write_usm_config(Dir, Hdr, Conf) -&gt; ok</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Dir = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Hdr = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Hdr = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Conf = [usm_entry()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Conf = [usm_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Write the manager usm config to the manager usm 
           config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
@@ -1161,50 +1162,50 @@
         <p><span class="code">Hdr</span> is an optional file header (note that this text is
           written to the file as is). </p>
         <p>See 
-          <span class="bold_code"><a href="snmp_manager_config_files.html#usm">Security data for USM</a></span> 
+          <span class="bold_code bc-15"><a href="snmp_manager_config_files.html#usm">Security data for USM</a></span> 
           for more info. </p>
         <a name="append_usm_config"></a>
       </p></div>
-    <p><a name="append_usm_config-2"></a><span class="bold_code">append_usm_config(Dir, Conf) -&gt; ok</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Dir = string()</span><br>
+    <p><a name="append_usm_config-2"></a><span class="bold_code bc-9">append_usm_config(Dir, Conf) -&gt; ok</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Dir = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Conf = [usm_entry()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Conf = [usm_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Append the usm config to the current manager usm 
           config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p>See 
-          <span class="bold_code"><a href="snmp_manager_config_files.html#usm">Security data for USM</a></span> 
+          <span class="bold_code bc-15"><a href="snmp_manager_config_files.html#usm">Security data for USM</a></span> 
           for more info. </p>
         <a name="read_usm_config"></a>
       </p></div>
-    <p><a name="read_usm_config-1"></a><span class="bold_code">read_usm_config(Dir) -&gt; Conf</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Dir = string()</span><br>
+    <p><a name="read_usm_config-1"></a><span class="bold_code bc-9">read_usm_config(Dir) -&gt; Conf</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Dir = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Conf = [usm_entry()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Conf = [usm_entry()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Read the current manager usm config file. </p>
         <p><span class="code">Dir</span> is the path to the directory where to store the 
           config file. </p>
         <p>See 
-          <span class="bold_code"><a href="snmp_manager_config_files.html#usm">Security data for USM</a></span> 
+          <span class="bold_code bc-15"><a href="snmp_manager_config_files.html#usm">Security data for USM</a></span> 
           for more info. </p>
         <a name="end"></a>
       </p></div>
-  
+  </div>
   
 </div>
 <div class="footer">

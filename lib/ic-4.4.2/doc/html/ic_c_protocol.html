@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">ic</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 4.4.2</p>
@@ -129,11 +129,11 @@
 <!-- refpage --><center><h1>ic_c_protocol</h1></center>
   
   <h3><a name="c-library" href="#c-library">C Library</a></h3>
-<div class="REFBODY">ic_c_protocol</div>
+<div class="REFBODY c-library-body">ic_c_protocol</div>
   <h3><a name="library-sumary" href="#library-sumary">Library Summary</a></h3>
-<div class="REFBODY">IC C Protocol Functions</div>
+<div class="REFBODY library-summary-body">IC C Protocol Functions</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>This manual page lists some of the functions of the IC C runtime
       library that are used internally for the IC protocol.
       </p>
@@ -159,36 +159,37 @@
     <p></p>
   </p></div>
 
-  <h3><a name="idm45242578619808">Client Protocol Functions</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46510888279920">Client Protocol Functions</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The following functions are used internally by generated C
       client code.</p>
   </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="oe_prepare_notification_encoding"><span class="bold_code">int oe_prepare_notification_encoding(CORBA_Environment *env)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="exports-body">
+    <p><a name="oe_prepare_notification_encoding"><span class="bold_code bc-7">int oe_prepare_notification_encoding(CORBA_Environment *env)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>The result of this function is the beginning of a binary of
           in external format of the tuple <span class="code">{'$gen_cast', X}</span> where
           <span class="code">X</span> is not yet filled in. </p>
         <p>In generated client code this function is the first to be called
           in the encoding function for each oneway operation.</p>
       </p></div>
-    <p><a name="oe_send_notification"><span class="bold_code">int oe_send_notification(CORBA_Environment *env)</span></a><br><a name="oe_send_notification_tmo"><span class="bold_code">int oe_send_notification_tmo(CORBA_Environment *env,  unsigned int send_ms)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="oe_send_notification"><span class="bold_code bc-7">int oe_send_notification(CORBA_Environment *env)</span></a><br><a name="oe_send_notification_tmo"><span class="bold_code bc-7">int oe_send_notification_tmo(CORBA_Environment *env,  unsigned int send_ms)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Sends a client notification to a server according to the
           Erlang distribution + gen_server protocol.</p>
         <p>The <span class="code">send_ms</span> parameter specified a timeout in milliseconds.</p>
       </p></div>
-    <p><a name="oe_prepare_request_encoding"><span class="bold_code">int oe_prepare_request_encoding(CORBA_Environment *env)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="oe_prepare_request_encoding"><span class="bold_code bc-7">int oe_prepare_request_encoding(CORBA_Environment *env)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>The result of this function is the beginning of a binary in
           the external format of the tuple <span class="code">{'$gen_call', {Pid, Ref}, X}</span> where <span class="code">X</span> is not yet filled in.</p>
         <p>In generated client code this function is the first to be called
           in the encoding function for each twoway operation.</p>
       </p></div>
-    <p><a name="oe_send_request_and_receive_reply"><span class="bold_code">int oe_send_request_and_receive_reply(CORBA_Environment *env)</span></a><br><a name="oe_send_request_and_receive_reply_tmo"><span class="bold_code">int oe_send_request_and_receive_reply_tmo(CORBA_Environment *env, unsigned int send_ms, unsigned int recv_ms)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="oe_send_request_and_receive_reply"><span class="bold_code bc-7">int oe_send_request_and_receive_reply(CORBA_Environment *env)</span></a><br><a name="oe_send_request_and_receive_reply_tmo"><span class="bold_code bc-7">int oe_send_request_and_receive_reply_tmo(CORBA_Environment *env, unsigned int send_ms, unsigned int recv_ms)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Sends a client request and receives the reply according to
           the Erlang distribution + gen_server protocol. This function
           calls the <span class="code">oe_prepare_reply_decoding</span> function in order
@@ -197,23 +198,24 @@
         <p><span class="code">send_ms</span> and <span class="code">recv_ms</span> specify timeouts for send
           and receive, respectively, in milliseconds.</p>
       </p></div>
-    <p><a name="oe_prepare_reply_decoding"><span class="bold_code">int oe_prepare_reply_decoding(CORBA_Environment *env)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="oe_prepare_reply_decoding"><span class="bold_code bc-7">int oe_prepare_reply_decoding(CORBA_Environment *env)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Decodes the binary version of the tuple <span class="code">{Ref, X}</span>,
           where <span class="code">X</span> is to be decoded later by the specific client
           decoding function.</p>
       </p></div>
-  
+  </div>
 
-  <h3><a name="idm45242578595520">Server Protocol Functions</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46510887515568">Server Protocol Functions</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The following functions are used internally by generated C
       server code.</p>
   </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="oe_prepare_request_decoding"><span class="bold_code">int oe_prepare_request_decoding(CORBA_Environment *env)</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="exports-body">
+    <p><a name="oe_prepare_request_decoding"><span class="bold_code bc-7">int oe_prepare_request_decoding(CORBA_Environment *env)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Decodes the binary version of the tuple <span class="code">{'$gen_cast', Op}</span> (<span class="code">Op</span> an atom), or the tuple <span class="code">{'$gen_cast', {Op, X}}</span>, where <span class="code">Op</span> is the operation name, and
           where <span class="code">X</span> is to be decoded later by the specific
           operation decoding function; or</p>
@@ -222,18 +224,18 @@
           is the operation name, and <span class="code">X</span> is to be decode later by
           the specific operation decoding function.</p>
       </p></div>
-    <p><a name="oe_prepare_reply_encoding"><span class="bold_code">int oe_prepare_reply_encoding(CORBA_Environment *env)</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="oe_prepare_reply_encoding"><span class="bold_code bc-7">int oe_prepare_reply_encoding(CORBA_Environment *env)</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Encodes the beginning of the binary version of the tuple
           <span class="code">{{Ref,X}</span>, where <span class="code">X</span> is to be filled in by the
           specific server encoding function.</p>
       </p></div>
-  
+  </div>
 
-  <h3><a name="idm45242578582016">SEE ALSO</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46510887502064">SEE ALSO</a></h3>
+<div class="REFBODY rb-3">
     
-    <p>ic(3), ic_clib(3), <span class="bold_code"><a href="ch_ic_protocol.html">IC Protocol</a></span></p>
+    <p>ic(3), ic_clib(3), <span class="bold_code bc-19"><a href="ch_ic_protocol.html">IC Protocol</a></span></p>
   </div>
   
 </div>

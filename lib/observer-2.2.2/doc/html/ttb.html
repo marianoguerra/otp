@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Observer</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 2.2.2</p>
@@ -128,11 +128,11 @@
 <!-- refpage --><center><h1>ttb</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">ttb</div>
+<div class="REFBODY module-body">ttb</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">A base for building trace tools for distributed systems.</div>
+<div class="REFBODY module-summary-body">A base for building trace tools for distributed systems.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>The Trace Tool Builder, <span class="code">ttb</span>, is a base for building trace
       tools for distributed systems.
       </p>
@@ -140,130 +140,131 @@
       Runtime_Tools in parallel.</p>
   </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="start_trace-4"></a><span class="bold_code">start_trace(Nodes, Patterns, FlagSpec, Opts) -&gt; Result</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Result = see p/2</span><br>
+<div class="exports-body">
+    <p><a name="start_trace-4"></a><span class="bold_code bc-9">start_trace(Nodes, Patterns, FlagSpec, Opts) -&gt; Result</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Result = see p/2</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Nodes = see tracer/2</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Nodes = see tracer/2</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Patterns = [tuple()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Patterns = [tuple()]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">FlagSpec = {Procs, Flags}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">FlagSpec = {Procs, Flags}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Proc = see p/2</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Proc = see p/2</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Flags = see p/2</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Flags = see p/2</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Opts = see tracer/2</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Opts = see tracer/2</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function is a shortcut allowing to start a trace with one command. Each
           tuple in <span class="code">Patterns</span> is converted to a list, which in turn is passed to
           <span class="code">ttb:tpl/2,3,4</span>.</p>
          <p>The call:</p>
 	 <div class="example"><pre>
-&gt; <span class="bold_code">ttb:start_trace([Node, OtherNode],
+&gt; <span class="bold_code bc-12">ttb:start_trace([Node, OtherNode],
                   [{mod, foo, []}, {mod, bar, 2}],
                   {all, call},
                   [{file, File}, {handler,{fun myhandler/4, S}}]).</span></pre></div>
          <p> is equivalent to:</p>
 	 <div class="example"><pre>
-&gt; <span class="bold_code">ttb:start_trace([Node, OtherNode],
+&gt; <span class="bold_code bc-12">ttb:start_trace([Node, OtherNode],
                   [{file, File}, {handler,{fun myhandler/4, S}}]),
 ttb:tpl(mod, foo, []),
 ttb:tpl(mod, bar, 2, []),
 ttb:p(all, call).</span></pre></div>
       </p></div>
 
-    <p><a name="tracer-0"></a><span class="bold_code">tracer() -&gt; Result</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="tracer-0"></a><span class="bold_code bc-9">tracer() -&gt; Result</span><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Equivalent to <span class="code">tracer(node())</span>.</p>
       </p></div>
 
-    <p><a name="tracer-1"></a><span class="bold_code">tracer(Shortcut) -&gt; Result</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Shortcut = shell | dbg</span><br>
+    <p><a name="tracer-1"></a><span class="bold_code bc-9">tracer(Shortcut) -&gt; Result</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Shortcut = shell | dbg</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 	<p>Handy shortcuts for common tracing settings.</p>
         <p><span class="code">shell</span> is equivalent to <span class="code">tracer(node(),[{file, {local, "ttb"}}, shell])</span>.</p>
         <p><span class="code">dbg</span> is equivalent to <span class="code">tracer(node(),[{shell, only}])</span>.</p>
       </p></div>
 
-    <p><a name="tracer-1"></a><span class="bold_code">tracer(Nodes) -&gt; Result</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="tracer-1"></a><span class="bold_code bc-9">tracer(Nodes) -&gt; Result</span><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Equivalent to <span class="code">tracer(Nodes,[])</span>.</p>
       </p></div>
 
-    <p><a name="tracer-2"></a><span class="bold_code">tracer(Nodes,Opts) -&gt; Result</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Result = {ok, ActivatedNodes} | {error,Reason}</span><br>
+    <p><a name="tracer-2"></a><span class="bold_code bc-9">tracer(Nodes,Opts) -&gt; Result</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Result = {ok, ActivatedNodes} | {error,Reason}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Nodes   = atom() | [atom()] | all | existing | new</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Nodes   = atom() | [atom()] | all | existing | new</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Opts = Opt | [Opt]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Opts = Opt | [Opt]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Opt = {file,Client} | {handler, FormatHandler} | {process_info,PI} |
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Opt = {file,Client} | {handler, FormatHandler} | {process_info,PI} |
           shell | {shell, ShellSpec} | {timer, TimerSpec} |
 	  {overload_check, {MSec, Module, Function}} |
 	{flush, MSec} | resume | {resume, FetchTimeout} |
 	{queue_size, QueueSize}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">TimerSpec = MSec | {MSec, StopOpts}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">TimerSpec = MSec | {MSec, StopOpts}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MSec = FetchTimeout = integer()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MSec = FetchTimeout = integer()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Module = Function = atom() </span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Module = Function = atom() </span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">StopOpts = see stop/2</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">StopOpts = see stop/2</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Client = File | {local, File}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Client = File | {local, File}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">File = Filename | Wrap</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">File = Filename | Wrap</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Filename = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Filename = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Wrap = {wrap,Filename} | {wrap,Filename,Size,Count}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Wrap = {wrap,Filename} | {wrap,Filename,Size,Count}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">FormatHandler = See format/2</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">FormatHandler = See format/2</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">PI = true | false </span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">PI = true | false </span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ShellSpec = true | false | only</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ShellSpec = true | false | only</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">QueueSize = non_neg_integer()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">QueueSize = non_neg_integer()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Starts a file trace port on all specified nodes
           and points the system tracer for sequential tracing to
           the same port.
@@ -293,7 +294,7 @@ ttb:p(all, call).</span></pre></div>
 	  only useful if many <span class="code">{drop,N}</span> trace messages are
 	  received by the trace handler. It has no meaning if shell
 	  or <span class="code">{local,File}</span> is not used. See
-	  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','runtime_tools','dbg.html#trace_port-2');">dbg:trace_port/2</a></span>
+	  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','runtime_tools','dbg.html#trace_port-2');">dbg:trace_port/2</a></span>
 	  for more information about the ip trace driver.</p></dd>
        <dt><strong><span class="code">process_info</span></strong></dt>
        <dd><p>Indicates if process
@@ -335,7 +336,7 @@ ttb:p(all, call).</span></pre></div>
        <dt><strong><span class="code">flush</span></strong></dt>
        <dd><p>Periodically flushes all file trace
           port clients (see
-	  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','runtime_tools','dbg.html#flush_trace_port-1');"><span class="code">dbg:flush_trace_port/1</span></a></span>). When enabled,
+	  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','runtime_tools','dbg.html#flush_trace_port-1');"><span class="code">dbg:flush_trace_port/1</span></a></span>). When enabled,
           the buffers are freed each <span class="code">MSec</span> millisecond. This option is
           not allowed with <span class="code">{file, {local, File}}</span> tracing.</p></dd>
        <dt><strong><span class="code">{resume, FetchTimeout}</span></strong></dt>
@@ -347,7 +348,7 @@ ttb:p(all, call).</span></pre></div>
           scripts if the traced nodes run with embedded Erlang). If this is
           not possible, resume can be performed manually by starting
           <span class="code">Runtime_Tools</span> remotely using 
-	  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','rpc.html#call-4');"><span class="code">rpc:call/4</span></a></span>.</p>
+	  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','rpc.html#call-4');"><span class="code">rpc:call/4</span></a></span>.</p>
           <p><span class="code">ttb</span> tries to fetch all logs from a reconnecting node before
           reinitializing the trace. This must finish within <span class="code">FetchTimeout</span> 
 	  milliseconds or is aborted.</p>
@@ -378,37 +379,37 @@ ttb:p(all, call).</span></pre></div>
           
       </p></div>
 
-    <p><a name="p-2"></a><span class="bold_code">p(Item,Flags) -&gt; Return</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Return  = {ok,[{Item,MatchDesc}]}</span><br>
+    <p><a name="p-2"></a><span class="bold_code bc-9">p(Item,Flags) -&gt; Return</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Return  = {ok,[{Item,MatchDesc}]}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Items   = Item | [Item]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Items   = Item | [Item]</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">Item    = pid() | port() | RegName | {global,GlobalRegName} |
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Item    = pid() | port() | RegName | {global,GlobalRegName} |
 	  all | processes | ports |
 	  existing | existing_processes | existing_ports |
 	  new | new_processes | new_ports</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">RegName = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">RegName = atom()</span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code">GlobalRegName = term()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">GlobalRegName = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Flags   = Flag | [Flag]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Flags   = Flag | [Flag]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sets the specified trace flags on the specified processes
           or ports. Flag <span class="code">timestamp</span> is always turned on.
           </p>
         <p>See the Reference Manual for module 
-	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','runtime_tools','dbg.html');"><span class="code">dbg</span></a></span>
+	<span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','runtime_tools','dbg.html');"><span class="code">dbg</span></a></span>
           for the possible trace flags. Parameter
           <span class="code">MatchDesc</span> is the same as returned from 
 	<span class="code">dbg:p/2</span>.</p>
@@ -422,8 +423,8 @@ ttb:p(all, call).</span></pre></div>
         </p>
       </p></div>
 
-    <p><a name="-0"></a><span class="bold_code">tp, tpl, tpe, ctp, ctpl, ctpg, ctpe</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="-0"></a><span class="bold_code bc-9">tp, tpl, tpe, ctp, ctpl, ctpg, ctpe</span><br></p>
+<div class="REFBODY rb-7"><p>
         <p>These functions are to be used with trace
           flag <span class="code">call</span>, <span class="code">send</span>, and <span class="code">'receive'</span> for
           setting and clearing trace patterns.</p>
@@ -437,11 +438,11 @@ ttb:p(all, call).</span></pre></div>
 	<p>Trace patterns specify how to trace a function or a message
           by using match specifications. Match specifications are
           described in the
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','match_spec.html');"><span class="code">ERTS User's Guide</span></a></span>.
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','match_spec.html');"><span class="code">ERTS User's Guide</span></a></span>.
           </p>
         <p>These functions are equivalent to the corresponding
           functions in module
-	  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','runtime_tools','dbg.html');">dbg</a></span>,
+	  <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','runtime_tools','dbg.html');">dbg</a></span>,
 	  but all calls are stored in the
           history. The history buffer makes it easy to create configuration
           files; the same trace environment can be set up many
@@ -483,63 +484,63 @@ ttb:p(all, call).</span></pre></div>
           </ul>
       </p></div>
 
-    <p><a name="list_history-0"></a><span class="bold_code">list_history() -&gt; History</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">History = [{N,Func,Args}]</span><br>
+    <p><a name="list_history-0"></a><span class="bold_code bc-9">list_history() -&gt; History</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">History = [{N,Func,Args}]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>All calls to <span class="code">ttb</span> is stored in the history. This
           function returns the current content of the history. Any entry
           can be reexecuted with <span class="code">run_history/1</span> or stored in a
           configuration file with <span class="code">write_config/2,3</span>.</p>
       </p></div>
 
-    <p><a name="run_history-1"></a><span class="bold_code">run_history(N) -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">N = integer() | [integer()]</span><br>
+    <p><a name="run_history-1"></a><span class="bold_code bc-9">run_history(N) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">N = integer() | [integer()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Executes the specified entry or entries from the history
           list. To list history, use <span class="code">list_history/0</span>.</p>
       </p></div>
 
-    <p><a name="write_config-2"></a><span class="bold_code">write_config(ConfigFile,Config)</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="write_config-2"></a><span class="bold_code bc-9">write_config(ConfigFile,Config)</span><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Equivalent to <span class="code">write_config(ConfigFile,Config,[])</span>.</p>
       </p></div>
 
-    <p><a name="write_config-3"></a><span class="bold_code">write_config(ConfigFile,Config,Opts) -&gt; ok | {error,Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">ConfigFile = string()</span><br>
+    <p><a name="write_config-3"></a><span class="bold_code bc-9">write_config(ConfigFile,Config,Opts) -&gt; ok | {error,Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ConfigFile = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Config = all | [integer()] | [{Mod,Func,Args}]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Config = all | [integer()] | [{Mod,Func,Args}]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Mod = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Mod = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Func = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Func = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Args = [term()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Args = [term()]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Opts = Opt | [Opt]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Opts = Opt | [Opt]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Opt = append</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Opt = append</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Creates or extends a configuration file, which can be
           used for restoring a specific configuration later.
           </p>
@@ -559,30 +560,30 @@ ttb:p(all, call).</span></pre></div>
           The new information is appended at the end of the file.</p>
       </p></div>
 
-    <p><a name="run_config-1"></a><span class="bold_code">run_config(ConfigFile) -&gt; ok | {error,Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">ConfigFile = string()</span><br>
+    <p><a name="run_config-1"></a><span class="bold_code bc-9">run_config(ConfigFile) -&gt; ok | {error,Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ConfigFile = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Executes all entries in the specified configuration file. 
 	Notice that the history of the last trace is always available 
 	in file <span class="code">ttb_last_config</span>.</p>
       </p></div>
 
-    <p><a name="run_config-2"></a><span class="bold_code">run_config(ConfigFile,NumList) -&gt; ok | {error,Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">ConfigFile = string()</span><br>
+    <p><a name="run_config-2"></a><span class="bold_code bc-9">run_config(ConfigFile,NumList) -&gt; ok | {error,Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ConfigFile = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">NumList = [integer()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">NumList = [integer()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Executes selected entries from the specified configuration
           file. <span class="code">NumList</span> is a list of integers pointing out the
           entries to be executed.
@@ -593,59 +594,59 @@ ttb:p(all, call).</span></pre></div>
 	   in file <span class="code">ttb_last_config</span>.</p>
       </p></div>
 
-    <p><a name="list_config-1"></a><span class="bold_code">list_config(ConfigFile) -&gt; Config | {error,Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">ConfigFile = string()</span><br>
+    <p><a name="list_config-1"></a><span class="bold_code bc-9">list_config(ConfigFile) -&gt; Config | {error,Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ConfigFile = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Config = [{N,Func,Args}]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Config = [{N,Func,Args}]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Lists all entries in the specified configuration file.</p>
       </p></div>
 
-    <p><a name="write_trace_info-2"></a><span class="bold_code">write_trace_info(Key,Info) -&gt; ok</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Key = term()</span><br>
+    <p><a name="write_trace_info-2"></a><span class="bold_code bc-9">write_trace_info(Key,Info) -&gt; ok</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Key = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Info = Data | fun() -&gt; Data</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Info = Data | fun() -&gt; Data</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Data = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Data = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>File <span class="code">.ti</span> contains <span class="code">{Key,ValueList}</span>
           tuples. This function adds <span class="code">Data</span> to the <span class="code">ValueList</span>
           associated with <span class="code">Key</span>. All information written with this
           function is included in the call to the format handler.</p>
       </p></div>
 
-    <p><a name="seq_trigger_ms-0"></a><span class="bold_code">seq_trigger_ms() -&gt; MatchSpec</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="seq_trigger_ms-0"></a><span class="bold_code bc-9">seq_trigger_ms() -&gt; MatchSpec</span><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Equivalent to <span class="code">seq_trigger_ms(all)</span>.</p>
       </p></div>
 
-    <p><a name="seq_trigger_ms-1"></a><span class="bold_code">seq_trigger_ms(Flags) -&gt; MatchSpec</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">MatchSpec = match_spec()</span><br>
+    <p><a name="seq_trigger_ms-1"></a><span class="bold_code bc-9">seq_trigger_ms(Flags) -&gt; MatchSpec</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MatchSpec = match_spec()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Flags = all | SeqTraceFlag | [SeqTraceFlag]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Flags = all | SeqTraceFlag | [SeqTraceFlag]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">SeqTraceFlag = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">SeqTraceFlag = atom()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>A match specification can turn on or off sequential
           tracing. This function returns a match specification, which
           turns on sequential tracing with the specified <span class="code">Flags</span>.
@@ -660,10 +661,10 @@ ttb:p(all, call).</span></pre></div>
         <p>If <span class="code">Flags = all</span>, all possible flags are set.
           </p>
         <p>The possible values for <span class="code">SeqTraceFlag</span> are available in
-	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','seq_trace.html');"><span class="code">seq_trace</span></a></span>.</p>
+	<span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','seq_trace.html');"><span class="code">seq_trace</span></a></span>.</p>
 	 <p>For a description of the <span class="code">match_spec()</span> syntax, 
 	   see section
-	   <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','match_spec.html');"><span class="code">Match Specifications in Erlang</span></a></span>
+	   <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','match_spec.html');"><span class="code">Match Specifications in Erlang</span></a></span>
 	   in ERTS, which explains the general match specification "language".
           </p>
         <div class="note">
@@ -676,39 +677,39 @@ ttb:p(all, call).</span></pre></div>
 </div>
         <p>An example of how to use function <span class="code">seq_trigger_ms/0,1</span> follows:</p>
         <div class="example"><pre>
-(tiger@durin)5&gt; <span class="bold_code">ttb:tracer().</span>
+(tiger@durin)5&gt; <span class="bold_code bc-12">ttb:tracer().</span>
 {ok,[tiger@durin]}
-(tiger@durin)6&gt; <span class="bold_code">ttb:p(all,call).</span>
+(tiger@durin)6&gt; <span class="bold_code bc-12">ttb:p(all,call).</span>
 {ok,{[all],[call]}}
-(tiger@durin)7&gt; <span class="bold_code">ttb:tp(mod,func,ttb:seq_trigger_ms()).</span>
+(tiger@durin)7&gt; <span class="bold_code bc-12">ttb:tp(mod,func,ttb:seq_trigger_ms()).</span>
 {ok,[{matched,1},{saved,1}]}
 (tiger@durin)8&gt;</pre></div>
         <p>Whenever <span class="code">mod:func(...)</span> is called after this,
           token <span class="code">seq_trace</span> is set on the executing process.</p>
       </p></div>
 
-    <p><a name="stop-0"></a><span class="bold_code">stop()</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="stop-0"></a><span class="bold_code bc-9">stop()</span><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Equivalent to <span class="code">stop([])</span>.</p>
       </p></div>
 
-    <p><a name="stop-1"></a><span class="bold_code">stop(Opts) -&gt; stopped | {stopped, Dir}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Opts = Opt | [Opt]</span><br>
+    <p><a name="stop-1"></a><span class="bold_code bc-9">stop(Opts) -&gt; stopped | {stopped, Dir}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Opts = Opt | [Opt]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Opt = nofetch | {fetch_dir, Dir} | format | {format, FormatOpts} | return_fetch_dir</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Opt = nofetch | {fetch_dir, Dir} | format | {format, FormatOpts} | return_fetch_dir</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Dir = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Dir = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">FormatOpts = see format/2</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">FormatOpts = see format/2</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Stops tracing on all nodes. Logs and
           trace information files are sent to the trace control
           node and stored in a directory named
@@ -742,59 +743,59 @@ ttb:p(all, call).</span></pre></div>
 
       </p></div>
 
-    <p><a name="get_et_handler-0"></a><span class="bold_code">get_et_handler()</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="get_et_handler-0"></a><span class="bold_code bc-9">get_et_handler()</span><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the <span class="code">et</span> handler, which can be used with <span class="code">format/2</span>
           or <span class="code">tracer/2</span>.</p>
 	  <p>Example: <span class="code">ttb:format(Dir, [{handler, ttb:get_et_handler()}])</span>.</p>
       </p></div>
 
-    <p><a name="format-1"></a><span class="bold_code">format(File)</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="format-1"></a><span class="bold_code bc-9">format(File)</span><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Equivalent to <span class="code">format(File,[])</span>.</p>
       </p></div>
 
-    <p><a name="format-2"></a><span class="bold_code">format(File,Options) -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">File = string() | [string()]</span><br>
+    <p><a name="format-2"></a><span class="bold_code bc-9">format(File,Options) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">File = string() | [string()]</span><br>
 </div>
-        <div class="REFBODY">This can be the name of a binary log, a list of such logs,
+        <div class="REFBODY rb-6">This can be the name of a binary log, a list of such logs,
 	or the name of a directory containing one or more binary logs.</div>
-        <div class="REFTYPES">
-<span class="bold_code">Options = Opt | [Opt]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Options = Opt | [Opt]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Opt = {out,Out} | {handler,FormatHandler} | disable_sort</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Opt = {out,Out} | {handler,FormatHandler} | disable_sort</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Out = standard_io | string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Out = standard_io | string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">FormatHandler = {Function, InitialState}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">FormatHandler = {Function, InitialState}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Function = fun(Fd,Trace,TraceInfo,State) -&gt; State</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Function = fun(Fd,Trace,TraceInfo,State) -&gt; State</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Fd = standard_io | FileDescriptor</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Fd = standard_io | FileDescriptor</span><br>
 </div>
-        <div class="REFBODY">File descriptor of the destination file <span class="code">Out</span>.</div>
-        <div class="REFTYPES">
-<span class="bold_code">Trace = tuple()</span><br>
+        <div class="REFBODY rb-6">File descriptor of the destination file <span class="code">Out</span>.</div>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Trace = tuple()</span><br>
 </div>
-        <div class="REFBODY">The trace message. For details, see the Reference Manual for 
+        <div class="REFBODY rb-6">The trace message. For details, see the Reference Manual for 
 	module <span class="code">erlang</span>.</div>
-        <div class="REFTYPES">
-<span class="bold_code">TraceInfo = [{Key,ValueList}]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">TraceInfo = [{Key,ValueList}]</span><br>
 </div>
-        <div class="REFBODY">Includes the keys <span class="code">flags</span>, <span class="code">client</span>, and <span class="code">node</span>.
+        <div class="REFBODY rb-6">Includes the keys <span class="code">flags</span>, <span class="code">client</span>, and <span class="code">node</span>.
 	If <span class="code">handler</span> is specified as option to the tracer function, this 
 	is also included. Also, all information written with function
 	<span class="code">write_trace_info/2</span> is included.</div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Reads the specified binary trace log(s). The logs are processed
           in the order of their time stamps as long as option <span class="code">disable_sort</span>
           is not specified.
@@ -823,10 +824,10 @@ ttb:p(all, call).</span></pre></div>
           format one of the wrap logs in a set, specify the exact file name.
           To format the whole set of wrap logs, specify the name
           with <span class="code">*</span> instead of the wrap count. For examples, see the
-          <span class="bold_code"><a href="ttb_ug.html#format"><span class="code">User's Guide</span></a></span>.
+          <span class="bold_code bc-15"><a href="ttb_ug.html#format"><span class="code">User's Guide</span></a></span>.
 	  </p>
       </p></div>
-  
+  </div>
 </div>
 <div class="footer">
 <hr>

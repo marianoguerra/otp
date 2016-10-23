@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">inets</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 6.3.3</p>
@@ -333,11 +333,11 @@
 <!-- refpage --><center><h1>mod_alias</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">mod_alias</div>
+<div class="REFBODY module-body">mod_alias</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">URL aliasing.</div>
+<div class="REFBODY module-summary-body">URL aliasing.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>Erlang web server internal API for handling of, for example,
     interaction data exported by module <span class="code">mod_alias</span>.</p>
 
@@ -345,17 +345,18 @@
   </p></div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="default_index-2"></a><span class="bold_code">default_index(ConfigDB, Path) -&gt; NewPath</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">ConfigDB = config_db()</span><br>
+<div class="exports-body">
+    <p><a name="default_index-2"></a><span class="bold_code bc-9">default_index(ConfigDB, Path) -&gt; NewPath</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ConfigDB = config_db()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Path = NewPath = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Path = NewPath = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="default_index"></a>
         <p>If <span class="code">Path</span> is a directory, <span class="code">default_index/2</span>, it starts
 	searching for resources or files that are specified in the config
@@ -366,60 +367,60 @@
 	file is found or if <span class="code">Path</span> is not a directory.
 	<span class="code">config_db()</span> is the server config file in ETS table format
 	as described in
-	<span class="bold_code"><a href="http_server.html">Inets User's Guide</a></span>.</p>
+	<span class="bold_code bc-19"><a href="http_server.html">Inets User's Guide</a></span>.</p>
 
 	<a name="path"></a>
       </p></div>
 
-    <p><a name="path-3"></a><span class="bold_code">path(PathData, ConfigDB, RequestURI) -&gt; Path</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">PathData = interaction_data()</span><br>
+    <p><a name="path-3"></a><span class="bold_code bc-9">path(PathData, ConfigDB, RequestURI) -&gt; Path</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">PathData = interaction_data()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ConfigDB = config_db()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ConfigDB = config_db()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">RequestURI = Path = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">RequestURI = Path = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="path"></a>
         <p><span class="code">path/3</span> returns the file <span class="code">Path</span> in the
 	<span class="code">RequestURI</span> (see 
-	<span class="bold_code"><a href="http://www.rfc-base.org/rfc-1945.html">RFC 1945</a></span>). 
+	<span class="bold_code bc-20"><a href="http://www.rfc-base.org/rfc-1945.html">RFC 1945</a></span>). 
 	If the interaction data <span class="code">{real_name,{Path,AfterPath}}</span> 
 	has been exported by <span class="code">mod_alias</span>,
 	<span class="code">Path</span> is returned. If no interaction data has been
 	exported, <span class="code">ServerRoot</span> is used to
 	generate a file <span class="code">Path</span>. <span class="code">config_db()</span> and
 	<span class="code">interaction_data()</span> are as defined in 
-	<span class="bold_code"><a href="http_server.html">Inets User's Guide</a></span>.</p>
+	<span class="bold_code bc-19"><a href="http_server.html">Inets User's Guide</a></span>.</p>
 
 	<a name="real_name"></a>
       </p></div>
 
-    <p><a name="real_name-3"></a><span class="bold_code">real_name(ConfigDB, RequestURI, Aliases) -&gt; Ret</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">ConfigDB = config_db()</span><br>
+    <p><a name="real_name-3"></a><span class="bold_code bc-9">real_name(ConfigDB, RequestURI, Aliases) -&gt; Ret</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ConfigDB = config_db()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">RequestURI = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">RequestURI = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Aliases = [{FakeName,RealName}]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Aliases = [{FakeName,RealName}]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Ret = {ShortPath,Path,AfterPath}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Ret = {ShortPath,Path,AfterPath}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ShortPath = Path = AfterPath = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ShortPath = Path = AfterPath = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="real_name"></a>
         <p><span class="code">real_name/3</span> traverses <span class="code">Aliases</span>, typically
 	extracted from <span class="code">ConfigDB</span>, and matches each
@@ -427,38 +428,38 @@
 	<span class="code">FakeName</span> is replaced with <span class="code">RealName</span> in the
 	match. The resulting path is split into two parts,
 	<span class="code">ShortPath</span> and <span class="code">AfterPath</span>, as defined in 
-	<span class="bold_code"><a href="httpd_util.html#split_path-1">httpd_util:split_path/1</a></span>. 
+	<span class="bold_code bc-15"><a href="httpd_util.html#split_path-1">httpd_util:split_path/1</a></span>. 
 	<span class="code">Path</span> is generated from <span class="code">ShortPath</span>, that is,
 	the result from 
-	<span class="bold_code"><a href="#default_index">default_index/2</a></span> with
+	<span class="bold_code bc-17"><a href="#default_index">default_index/2</a></span> with
 	<span class="code">ShortPath</span> as an argument.
 	<span class="code">config_db()</span> is the server config file in ETS table
 	format as described in 
-	<span class="bold_code"><a href="http_server.html">Inets User's Guide</a></span>.</p>
+	<span class="bold_code bc-19"><a href="http_server.html">Inets User's Guide</a></span>.</p>
 
 	<a name="real_script_name"></a>
       </p></div>
 
-    <p><a name="real_script_name-3"></a><span class="bold_code">real_script_name(ConfigDB, RequestURI, ScriptAliases) -&gt; Ret</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">ConfigDB = config_db()</span><br>
+    <p><a name="real_script_name-3"></a><span class="bold_code bc-9">real_script_name(ConfigDB, RequestURI, ScriptAliases) -&gt; Ret</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ConfigDB = config_db()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">RequestURI = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">RequestURI = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ScriptAliases = [{FakeName,RealName}]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ScriptAliases = [{FakeName,RealName}]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Ret = {ShortPath,AfterPath} | not_a_script</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Ret = {ShortPath,AfterPath} | not_a_script</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ShortPath = AfterPath = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ShortPath = AfterPath = string()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <a name="real_script_name"></a>
         <p><span class="code">real_script_name/3</span> traverses <span class="code">ScriptAliases</span>,
 	typically extracted from <span class="code">ConfigDB</span>, and matches each
@@ -468,12 +469,12 @@
 	<span class="code">not_a_script</span> is returned. If it is a script, the
 	resulting script path is in two parts,
 	<span class="code">ShortPath</span> and <span class="code">AfterPath</span>, as defined in 
-	<span class="bold_code"><a href="httpd_util.html#split_script_path-1">httpd_util:split_script_path/1</a></span>.
+	<span class="bold_code bc-15"><a href="httpd_util.html#split_script_path-1">httpd_util:split_script_path/1</a></span>.
 	<span class="code">config_db()</span> is the server config file in ETS table
 	format as described in 
-	<span class="bold_code"><a href="http_server.html">Inets User's Guide</a></span>.</p>
+	<span class="bold_code bc-19"><a href="http_server.html">Inets User's Guide</a></span>.</p>
       </p></div>
-  
+  </div>
   
 </div>
 <div class="footer">

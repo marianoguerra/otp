@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Runtime_Tools</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 1.10.1</p>
@@ -191,11 +191,11 @@
 <!-- refpage --><center><h1>erts_alloc_config</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">erts_alloc_config</div>
+<div class="REFBODY module-body">erts_alloc_config</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Configuration tool for erts_alloc</div>
+<div class="REFBODY module-summary-body">Configuration tool for erts_alloc</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <div class="note">
 <div class="label">Note</div>
 <div class="content"><p>
@@ -204,10 +204,10 @@
         changes.</p>
     </p></div>
 </div>
-    <p><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erts_alloc.html');">erts_alloc(3)</a></span> is an
+    <p><span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','erts_alloc.html');">erts_alloc(3)</a></span> is an
       Erlang Run-Time System internal memory allocator library.
       <span class="code">erts_alloc_config</span> is intended to be used to aid creation
-      of an <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erts_alloc.html');">erts_alloc(3)</a></span>
+      of an <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','erts_alloc.html');">erts_alloc(3)</a></span>
       configuration that is suitable for a limited number of runtime
       scenarios. The configuration that <span class="code">erts_alloc_config</span>
       produce is intended as a suggestion, and may need to be
@@ -232,25 +232,25 @@
     <p>A configuration is created in the following way:</p>
     <ul>
       <li>
-        <p>Pass the <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erts_alloc.html#Mea');">+Mea config</a></span>
+        <p>Pass the <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erts_alloc.html#Mea');">+Mea config</a></span>
 	   command-line flag to the Erlang runtime system you are going
 	   to use for creation of the allocator configuration. It will
 	   disable features that prevent <span class="code">erts_alloc_config</span> from
 	   doing its job. Note, you should <strong>not</strong> use this flag
 	   when using the created configuration. Also note that it is
 	   important that you use the same
-	   <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html#+S');">amount of schedulers</a></span>
+	   <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html#+S');">amount of schedulers</a></span>
 	   when creating the configuration as you are going the use on
 	   the system using the configuration.</p>
       </li>
       <li>
         <p>Run your applications with different scenarios (the more
           the better) and save information about each scenario by calling
-          <span class="bold_code"><a href="#save_scenario-0">save_scenario/0</a></span>.
+          <span class="bold_code bc-17"><a href="#save_scenario-0">save_scenario/0</a></span>.
           It may be hard to know when the applications are at an (for
           <span class="code">erts_alloc_config</span>) important runtime scenario. A good
           approach may therefore be to call
-          <span class="bold_code"><a href="#save_scenario-0">save_scenario/0</a></span>
+          <span class="bold_code bc-17"><a href="#save_scenario-0">save_scenario/0</a></span>
           repeatedly, e.g. once every tenth second. Note that it is
           important that your applications reach the runtime scenarios
           that are important for <span class="code">erts_alloc_config</span> when you are
@@ -259,13 +259,13 @@
       </li>
       <li>
         <p>When you have covered all scenarios, call
-          <span class="bold_code"><a href="#make_config-1">make_config/1</a></span>
+          <span class="bold_code bc-17"><a href="#make_config-1">make_config/1</a></span>
           in order to create a configuration. The configuration is
           written to a file that you have chosen. This configuration
           file can later be read by an Erlang runtime-system at
           startup. Pass the command line argument 
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html#args_file');">-args_file FileName</a></span>
-          to the <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html');">erl(1)</a></span> command.</p>
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html#args_file');">-args_file FileName</a></span>
+          to the <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html');">erl(1)</a></span> command.</p>
       </li>
       <li>
         <p>The configuration produced by <span class="code">erts_alloc_config</span> may
@@ -273,10 +273,10 @@
           file produced by <span class="code">erts_alloc_config</span>; instead, put your
           modifications in another file and load this file after the
           file produced by <span class="code">erts_alloc_config</span>. That is, put the
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html#args_file');">-args_file FileName</a></span>
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html#args_file');">-args_file FileName</a></span>
           argument that reads your modification file later on the
           command-line than the 
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html#args_file');">-args_file FileName</a></span>
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html#args_file');">-args_file FileName</a></span>
           argument that reads the configuration file produced by
           <span class="code">erts_alloc_config</span>. If a memory allocation parameter
           appear multiple times, the last version of will be used, i.e.,
@@ -305,48 +305,49 @@
       <span class="code">'__erts_alloc_config__'</span>.</p>
   </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="save_scenario-0"></a><span class="bold_code">save_scenario() -&gt; ok | {error, Error}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Error = term()</span><br>
+<div class="exports-body">
+    <p><a name="save_scenario-0"></a><span class="bold_code bc-9">save_scenario() -&gt; ok | {error, Error}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Error = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p><span class="code">save_scenario/0</span> saves information about the current
           runtime scenario. This information will later be used when
-          <span class="bold_code"><a href="#make_config-0">make_config/0</a></span>,
-          or <span class="bold_code"><a href="#make_config-1">make_config/1</a></span>
+          <span class="bold_code bc-17"><a href="#make_config-0">make_config/0</a></span>,
+          or <span class="bold_code bc-17"><a href="#make_config-1">make_config/1</a></span>
           is called.</p>
         <p>The first time <span class="code">save_scenario/0</span> is called a server
           will be started. This server will save runtime scenarios. All
           saved scenarios can be removed by calling
-          <span class="bold_code"><a href="#make_config-0">stop/0</a></span>.</p>
+          <span class="bold_code bc-17"><a href="#make_config-0">stop/0</a></span>.</p>
       </p></div>
-    <p><a name="make_config-0"></a><span class="bold_code">make_config() -&gt; ok | {error, Error}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Error = term()</span><br>
+    <p><a name="make_config-0"></a><span class="bold_code bc-9">make_config() -&gt; ok | {error, Error}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Error = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This is the same as calling
-          <span class="bold_code"><a href="#make_config-1">make_config(group_leader())</a></span>.</p>
+          <span class="bold_code bc-17"><a href="#make_config-1">make_config(group_leader())</a></span>.</p>
       </p></div>
-    <p><a name="make_config-1"></a><span class="bold_code">make_config(FileNameOrIODev) -&gt; ok | {error, Error}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">FileNameOrIODev = string() | io_device()</span><br>
+    <p><a name="make_config-1"></a><span class="bold_code bc-9">make_config(FileNameOrIODev) -&gt; ok | {error, Error}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">FileNameOrIODev = string() | io_device()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Error = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Error = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p><span class="code">make_config/1</span> uses the information previously saved by
-          <span class="bold_code"><a href="#save_scenario-0">save_scenario/0</a></span>
+          <span class="bold_code bc-17"><a href="#save_scenario-0">save_scenario/0</a></span>
           in order to produce an <span class="code">erts_alloc</span> configuration. At
           least one scenario have had to be saved. All scenarios
           previously saved will be used when creating the
@@ -356,29 +357,29 @@
           filename. A file named <span class="code">FileNameOrIODev</span> is created and
           the configuration will be written to that file. If
           <span class="code">FileNameOrIODev</span> is an
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html');">io_device()</a></span> (see the
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html');">io_device()</a></span> (see the
           documentation of the module
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html');">io</a></span>), the configuration
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html');">io</a></span>), the configuration
           will be written to the io device.</p>
       </p></div>
-    <p><a name="stop-0"></a><span class="bold_code">stop() -&gt; ok | {error, Error}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Error = term()</span><br>
+    <p><a name="stop-0"></a><span class="bold_code bc-9">stop() -&gt; ok | {error, Error}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Error = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Stops the server that saves runtime scenarios.</p>
       </p></div>
-  
+  </div>
 
-  <h3><a name="idm45686121640816">See Also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45761686489312">See Also</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erts_alloc.html');">erts_alloc(3)</a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html');">erl(1)</a></span>,
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html');">io(3)</a></span></p>
+    <p><span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','erts_alloc.html');">erts_alloc(3)</a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html');">erl(1)</a></span>,
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html');">io(3)</a></span></p>
   </div>
 </div>
 <div class="footer">

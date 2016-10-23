@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">cosTransactions</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 1.3.2</p>
@@ -148,26 +148,27 @@
 <!-- refpage --><center><h1>CosTransactions_Coordinator</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">CosTransactions_Coordinator</div>
+<div class="REFBODY module-body">CosTransactions_Coordinator</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">This module implements the OMG CosTransactions::Coordinator interface.</div>
+<div class="REFBODY module-summary-body">This module implements the OMG CosTransactions::Coordinator interface.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>To get access to the record definitions for the structures use:      <br>
 <span class="code">-include_lib("cosTransactions/include/CosTransactions.hrl").</span></p>
   </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="create_subtransaction-1"></a><span class="bold_code">create_subtransaction(Coordinator) -&gt; Control</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Coordinator = #objref</span><br>
+<div class="exports-body">
+    <p><a name="create_subtransaction-1"></a><span class="bold_code bc-9">create_subtransaction(Coordinator) -&gt; Control</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Coordinator = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Control = #objref</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Control = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>A new subtransaction is created whose parent is the Coordinator argument.</p>
         <p>Raises exception:</p>
         <ul>
@@ -175,30 +176,30 @@
           <li>'Inactive' - if target transaction has already been prepared.</li>
         </ul>
       </p></div>
-    <p><a name="get_transaction_name-1"></a><span class="bold_code">get_transaction_name(Coordinator) -&gt; Name</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Coordinator = #objref</span><br>
+    <p><a name="get_transaction_name-1"></a><span class="bold_code bc-9">get_transaction_name(Coordinator) -&gt; Name</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Coordinator = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Name = string() of type "oe_name@machine_type_timestamp"</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Name = string() of type "oe_name@machine_type_timestamp"</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a printable string, which describe the transaction. The main purpose is to support debugging.</p>
       </p></div>
-    <p><a name="get_parent_status-1"></a><span class="bold_code">get_parent_status(Coordinator) -&gt; Status</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Coordinator = #objref</span><br>
+    <p><a name="get_parent_status-1"></a><span class="bold_code bc-9">get_parent_status(Coordinator) -&gt; Status</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Coordinator = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Status = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Status = atom()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the status of the parent transaction
           associated with the target object. If the target object is a top-level
           transaction this operation is equivalent to <span class="code">get_status/1</span> operation. </p>
@@ -216,122 +217,122 @@
           <li>'StatusPreparing'</li>
         </ul>
       </p></div>
-    <p><a name="get_status-1"></a><span class="bold_code">get_status(Coordinator) -&gt; Status</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Coordinator = #objref</span><br>
+    <p><a name="get_status-1"></a><span class="bold_code bc-9">get_status(Coordinator) -&gt; Status</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Coordinator = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Status = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Status = atom()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the status of the transaction associated with the target object.</p>
       </p></div>
-    <p><a name="get_top_level_status-1"></a><span class="bold_code">get_top_level_status(Coordinator) -&gt; Status</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Coordinator = #objref</span><br>
+    <p><a name="get_top_level_status-1"></a><span class="bold_code bc-9">get_top_level_status(Coordinator) -&gt; Status</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Coordinator = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Status = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Status = atom()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the status of the top-level transaction associated with the target object.</p>
       </p></div>
-    <p><a name="hash_top_level_tran-1"></a><span class="bold_code">hash_top_level_tran(Coordinator) -&gt; Return</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Coordinator = #objref</span><br>
+    <p><a name="hash_top_level_tran-1"></a><span class="bold_code bc-9">hash_top_level_tran(Coordinator) -&gt; Return</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Coordinator = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Return = integer()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Return = integer()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a hash code for the top-level transaction 
           associated with the target object. Equals the operation
           <span class="code">hash_transaction/1</span> if the target object is a top-level transaction.</p>
       </p></div>
-    <p><a name="hash_transaction-1"></a><span class="bold_code">hash_transaction(Coordinator) -&gt; Return</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Coordinator = #objref</span><br>
+    <p><a name="hash_transaction-1"></a><span class="bold_code bc-9">hash_transaction(Coordinator) -&gt; Return</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Coordinator = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Return = integer()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Return = integer()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a hash code for the transaction associated with the target object.</p>
       </p></div>
-    <p><a name="is_descendant_transaction-2"></a><span class="bold_code">is_descendant_transaction(Coordinator, OtherCoordinator) -&gt; Return</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Coordinator = #objref</span><br>
+    <p><a name="is_descendant_transaction-2"></a><span class="bold_code bc-9">is_descendant_transaction(Coordinator, OtherCoordinator) -&gt; Return</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Coordinator = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">OtherCoordinator = #objref</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">OtherCoordinator = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Return = Boolean</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Return = Boolean</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns true if the transaction associated with the target object is a 
           descendant of the transaction associated with the parameter object.</p>
       </p></div>
-    <p><a name="is_same_transaction-2"></a><span class="bold_code">is_same_transaction(Coordinator, OtherCoordinator) -&gt; Return</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Coordinator = #objref</span><br>
+    <p><a name="is_same_transaction-2"></a><span class="bold_code bc-9">is_same_transaction(Coordinator, OtherCoordinator) -&gt; Return</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Coordinator = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">OtherCoordinator = #objref</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">OtherCoordinator = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Return = Boolean</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Return = Boolean</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns true if the transaction associated with the target object is 
           related to the transaction associated with the parameter object.</p>
       </p></div>
-    <p><a name="is_top_level_transaction-1"></a><span class="bold_code">is_top_level_transaction(Coordinator) -&gt; Return</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Coordinator = #objref</span><br>
+    <p><a name="is_top_level_transaction-1"></a><span class="bold_code bc-9">is_top_level_transaction(Coordinator) -&gt; Return</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Coordinator = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Return = Boolean</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Return = Boolean</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns true if the transaction associated with the target object is 
           a top-level transaction.</p>
       </p></div>
-    <p><a name="register_resource-2"></a><span class="bold_code">register_resource(Coordinator, Resource) -&gt; RecoveryCoordinator</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Coordinator = #objref</span><br>
+    <p><a name="register_resource-2"></a><span class="bold_code bc-9">register_resource(Coordinator, Resource) -&gt; RecoveryCoordinator</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Coordinator = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Resource = #objref</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Resource = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">RecoveryCoordinator = #objref</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">RecoveryCoordinator = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This operation registers the parameter <span class="code">Resource</span> object as a participant in the
           transaction associated with the target object. The <span class="code">RecoveryCoordinator</span> returned
           by this operation can be used by this Resource during recovery.</p>
@@ -347,17 +348,17 @@
           <li>'Inactive' - if target transaction has already been prepared.</li>
         </ul>
       </p></div>
-    <p><a name="register_subtran_aware-2"></a><span class="bold_code">register_subtran_aware(Coordinator, SubtransactionAwareResource) -&gt; Return</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Coordinator = #objref</span><br>
+    <p><a name="register_subtran_aware-2"></a><span class="bold_code bc-9">register_subtran_aware(Coordinator, SubtransactionAwareResource) -&gt; Return</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Coordinator = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Return = ok</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Return = ok</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This operation registers the parameter <span class="code">SubtransactionAwareResource</span> object such that
           it will be notified when the transaction, associated wit the target object, 
           has committed or rolled back.</p>
@@ -369,21 +370,21 @@
         </p></div>
 </div>
       </p></div>
-    <p><a name="rollback_only-1"></a><span class="bold_code">rollback_only(Coordinator) -&gt; Return</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Coordinator = #objref</span><br>
+    <p><a name="rollback_only-1"></a><span class="bold_code bc-9">rollback_only(Coordinator) -&gt; Return</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Coordinator = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Return = ok</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Return = ok</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>The transaction associated with the target object is modified so the only
           possible outcome is to rollback the transaction.</p>
       </p></div>
-  
+  </div>
   
 </div>
 <div class="footer">

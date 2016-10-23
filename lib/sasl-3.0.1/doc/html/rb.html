@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">System Architecture Support Libraries (SASL)</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 3.0.1</p>
@@ -147,50 +147,51 @@
 <!-- refpage --><center><h1>rb</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">rb</div>
+<div class="REFBODY module-body">rb</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">The Report Browser Tool</div>
+<div class="REFBODY module-summary-body">The Report Browser Tool</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>The Report Browser (RB) tool is used to browse and
       format error reports written by the error logger handler
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','log_mf_h.html');"><span class="code">log_mf_h</span></a></span>
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','log_mf_h.html');"><span class="code">log_mf_h</span></a></span>
       in STDLIB.</p>
   </p></div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="filter-1"></a><span class="bold_code">filter(Filters)</span><br><a name="filter-2"></a><span class="bold_code">filter(Filters, Dates)</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Filters = [filter()]</span><br>
+<div class="exports-body">
+    <p><a name="filter-1"></a><span class="bold_code bc-9">filter(Filters)</span><br><a name="filter-2"></a><span class="bold_code bc-9">filter(Filters, Dates)</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Filters = [filter()]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">filter() = {Key, Value} | {Key, Value, no} | {Key, RegExp, re} |
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">filter() = {Key, Value} | {Key, Value, no} | {Key, RegExp, re} |
           {Key, RegExp, re, no}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Key = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Key = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Value = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Value = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">RegExp = string() | {string(), Options} | re:mp() | {re:mp(), Options}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">RegExp = string() | {string(), Options} | re:mp() | {re:mp(), Options}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Dates = {DateFrom, DateTo} | {DateFrom, from} | {DateTo, to}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Dates = {DateFrom, DateTo} | {DateFrom, from} | {DateTo, to}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">DateFrom = DateTo = calendar:datetime()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">DateFrom = DateTo = calendar:datetime()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Displays the reports that match the provided filters.</p>
         <p>When a filter includes the <span class="code">no</span> atom, it excludes the
           reports that match that filter.</p>
         <p>The reports are matched using the
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','proplists.html');"><span class="code">proplists</span></a></span>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','proplists.html');"><span class="code">proplists</span></a></span>
           module in STDLIB. The report must be a proplist
           to be matched against any of the filters.</p>
         <p>If the filter has the form <span class="code">{Key, RegExp, re}</span>, the
@@ -208,19 +209,19 @@
 	   parameter.</p>
         <p>For details about parameter <span class="code">RegExp</span>, see <span class="code">rb:grep/1</span>.</p>
 	<p>For details about data type <span class="code">mp()</span>, see 
-	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','re.html#type-mp');"><span class="code">re:mp()</span></a></span>.</p>
+	<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','re.html#type-mp');"><span class="code">re:mp()</span></a></span>.</p>
 	<p>For details about data type <span class="code">datetime()</span>, see 
-	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','calendar.html#type-datetime');"><span class="code">calendar:datetime()</span></a></span>.</p>
+	<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','calendar.html#type-datetime');"><span class="code">calendar:datetime()</span></a></span>.</p>
       </p></div>
 
-    <p><a name="grep-1"></a><span class="bold_code">grep(RegExp)</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">RegExp = string() | {string(), Options} | re:mp() | {re:mp(), Options}</span><br>
+    <p><a name="grep-1"></a><span class="bold_code bc-9">grep(RegExp)</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">RegExp = string() | {string(), Options} | re:mp() | {re:mp(), Options}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>All reports matching the regular expression <span class="code">RegExp</span>
           are displayed. <span class="code">RegExp</span> can be any of the following:</p>
         <ul>
@@ -230,113 +231,113 @@
           <li>A compiled regular expression and the options for running it</li>
         </ul>
         <p>For a definition of valid regular expressions and options, see
-          the <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','re.html');"><span class="code">re</span></a></span> module in
+          the <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','re.html');"><span class="code">re</span></a></span> module in
           STDLIB and in particular function <span class="code">re:run/3</span>.</p>
 	  <p>For details about data type <span class="code">mp()</span>, see 
-	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','re.html#type-mp');"><span class="code">re:mp()</span></a></span>.</p>
+	<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','re.html#type-mp');"><span class="code">re:mp()</span></a></span>.</p>
       </p></div>
 
-    <p><a name="h-0"></a><span class="bold_code">h()</span><br><a name="help-0"></a><span class="bold_code">help()</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="h-0"></a><span class="bold_code bc-9">h()</span><br><a name="help-0"></a><span class="bold_code bc-9">help()</span><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Displays online help information.</p>
       </p></div>
 
-    <p><a name="list-0"></a><span class="bold_code">list()</span><br><a name="list-1"></a><span class="bold_code">list(Type)</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Type = type()</span><br>
+    <p><a name="list-0"></a><span class="bold_code bc-9">list()</span><br><a name="list-1"></a><span class="bold_code bc-9">list(Type)</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Type = type()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">type() = error | error_report | info_msg | info_report |
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">type() = error | error_report | info_msg | info_report |
           warning_msg | warning_report | crash_report |
           supervisor_report | progress</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Lists all reports loaded in
           <span class="code">rb_server</span>. Each report is given a unique number that
           can be used as a reference to the report in function
-          <span class="bold_code"><a href="#show-1"><span class="code">show/1</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#show-1"><span class="code">show/1</span></a></span>.</p>
         <p>If no <span class="code">Type</span> is specified, all reports are listed.</p>
       </p></div>
 
-    <p><a name="log_list-0"></a><span class="bold_code">log_list()</span><br><a name="log_list-1"></a><span class="bold_code">log_list(Type)</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Type = type()</span><br>
+    <p><a name="log_list-0"></a><span class="bold_code bc-9">log_list()</span><br><a name="log_list-1"></a><span class="bold_code bc-9">log_list(Type)</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Type = type()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">type() = error | error_report | info_msg | info_report |
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">type() = error | error_report | info_msg | info_report |
           warning_msg | warning_report | crash_report |
           supervisor_report | progress</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Same as functions 
-	<span class="bold_code"><a href="#list-0"><span class="code">list/0</span></a></span> or 
-	<span class="bold_code"><a href="#list-1"><span class="code">list/1</span></a></span>,
+	<span class="bold_code bc-17"><a href="#list-0"><span class="code">list/0</span></a></span> or 
+	<span class="bold_code bc-17"><a href="#list-1"><span class="code">list/1</span></a></span>,
 	  but the result is printed to a log file, if set; otherwise
           to <span class="code">standard_io</span>.</p>
         <p>If no <span class="code">Type</span> is specified, all reports are listed.</p>
       </p></div>
 
-    <p><a name="rescan-0"></a><span class="bold_code">rescan()</span><br><a name="rescan-1"></a><span class="bold_code">rescan(Options)</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Options = [opt()]</span><br>
+    <p><a name="rescan-0"></a><span class="bold_code bc-9">rescan()</span><br><a name="rescan-1"></a><span class="bold_code bc-9">rescan(Options)</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Options = [opt()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Rescans the report directory. <span class="code">Options</span> is the same as
           for function 
-	<span class="bold_code"><a href="#start-1"><span class="code">start/1</span></a></span>.</p>
+	<span class="bold_code bc-17"><a href="#start-1"><span class="code">start/1</span></a></span>.</p>
       </p></div>
 
-    <p><a name="show-0"></a><span class="bold_code">show()</span><br><a name="show-1"></a><span class="bold_code">show(Report)</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Report = integer() | type()</span><br>
+    <p><a name="show-0"></a><span class="bold_code bc-9">show()</span><br><a name="show-1"></a><span class="bold_code bc-9">show(Report)</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Report = integer() | type()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If argument <span class="code">type</span> is specified, all loaded reports of this
           type are displayed. If an integer argument is specified, the
           report with this reference number is displayed. If no argument
           is specified, all reports are displayed.</p>
       </p></div>
 
-    <p><a name="start-0"></a><span class="bold_code">start()</span><br><a name="start-1"></a><span class="bold_code">start(Options)</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Options = [opt()]</span><br>
+    <p><a name="start-0"></a><span class="bold_code bc-9">start()</span><br><a name="start-1"></a><span class="bold_code bc-9">start(Options)</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Options = [opt()]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">opt() = {start_log, FileName} | {max, MaxNoOfReports} |
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">opt() = {start_log, FileName} | {max, MaxNoOfReports} |
           {report_dir, DirString} | {type, ReportType} |
           {abort_on_error, Bool}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">FileName = string() | atom() | pid()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">FileName = string() | atom() | pid()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MaxNoOfReports = integer() | all</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MaxNoOfReports = integer() | all</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">DirString = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">DirString = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ReportType = type() | [type()] | all</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ReportType = type() | [type()] | all</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Bool = boolean()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Bool = boolean()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Function <span class="code">start/1</span> starts <span class="code">rb_server</span> with the
           specified options, whereas function <span class="code">start/0</span> starts with
           default options. <span class="code">rb_server</span> must be started before
@@ -363,7 +364,7 @@
           the error log files are located. Default is
           the directory specified by application environment
           variable <span class="code">error_logger_mf_dir</span>,
-          see <span class="bold_code"><a href="sasl_app.html">sasl(6)</a></span>.</p></dd>
+          see <span class="bold_code bc-19"><a href="sasl_app.html">sasl(6)</a></span>.</p></dd>
         <dt><strong><span class="code">{type, ReportType}</span></strong></dt>
           <dd><p>Controls what kind of reports
           <span class="code">rb_server</span> is to read at startup. <span class="code">ReportType</span>
@@ -392,29 +393,29 @@
        </dl>
       </p></div>
 
-    <p><a name="start_log-1"></a><span class="bold_code">start_log(FileName)</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">FileName = string() | atom() | pid()</span><br>
+    <p><a name="start_log-1"></a><span class="bold_code bc-9">start_log(FileName)</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">FileName = string() | atom() | pid()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Redirects all report output from the RB tool to the
           specified file, registered name, or <span class="code">io_device</span>.</p>
       </p></div>
 
-    <p><a name="stop-0"></a><span class="bold_code">stop()</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="stop-0"></a><span class="bold_code bc-9">stop()</span><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Stops <span class="code">rb_server</span>.</p>
       </p></div>
 
-    <p><a name="stop_log-0"></a><span class="bold_code">stop_log()</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="stop_log-0"></a><span class="bold_code bc-9">stop_log()</span><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Closes the log file. The output from the RB tool is
           directed to <span class="code">standard_io</span>.</p>
       </p></div>
-  
+  </div>
 </div>
 <div class="footer">
 <hr>

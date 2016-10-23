@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">SSH</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 4.3.6</p>
@@ -228,29 +228,29 @@
 <!-- refpage --><center><h1>ssh_client_key_api</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">ssh_client_key_api</div>
+<div class="REFBODY module-body">ssh_client_key_api</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">
+<div class="REFBODY module-summary-body">
      -behaviour(ssh_client_key_api).
   </div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>Behavior describing the API for public key handling of an SSH client. By implementing
     the callbacks defined in this behavior, the public key handling of an SSH client can
     be customized. By default the <span class="code">ssh</span> application implements this behavior
     with help of the standard OpenSSH files,
-    see the <span class="bold_code"><a href="SSH_app.html">ssh(6)</a></span> application manual.</p>
+    see the <span class="bold_code bc-19"><a href="SSH_app.html">ssh(6)</a></span> application manual.</p>
   </p></div>
 
-  <h3><a name="idm45964127446592">DATA TYPES</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45411850747456">DATA TYPES</a></h3>
+<div class="REFBODY rb-3">
     
 
     <p>Type definitions that are used more than once in this module,
     or abstractions to indicate the intended use of the data
     type, or both. For more details on public key data types,
     refer to Section 2 Public Key Records in the
-    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key_records.html');">public_key user's guide:</a></span>
+    <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key_records.html');">public_key user's guide:</a></span>
     </p>
     <dl>
       <dt><strong><span class="code">boolean() =</span></strong></dt>
@@ -267,90 +267,91 @@
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="Module:add_host_key-3"></a><span class="bold_code">Module:add_host_key(HostNames, Key, ConnectOptions) -&gt; ok | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-      <div class="REFTYPES">
-<span class="bold_code">HostNames = string()</span><br>
+<div class="exports-body">
+    <p><a name="Module:add_host_key-3"></a><span class="bold_code bc-9">Module:add_host_key(HostNames, Key, ConnectOptions) -&gt; ok | {error, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+      <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">HostNames = string()</span><br>
 </div>
-      <div class="REFBODY">Description of the host that owns the <span class="code">PublicKey</span>.</div>
+      <div class="REFBODY rb-6">Description of the host that owns the <span class="code">PublicKey</span>.</div>
 
-      <div class="REFTYPES">
-<span class="bold_code">Key = public_key()</span><br>
+      <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Key = public_key()</span><br>
 </div>
-      <div class="REFBODY">Normally an RSA or DSA public key, but handling of other public keys can be added.</div>
+      <div class="REFBODY rb-6">Normally an RSA or DSA public key, but handling of other public keys can be added.</div>
 
-      <div class="REFTYPES">
-<span class="bold_code">ConnectOptions = proplists:proplist()</span><br>
+      <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ConnectOptions = proplists:proplist()</span><br>
 </div>
-      <div class="REFBODY">Options provided to <span class="bold_code"><a href="ssh.html#connect-3">ssh:connect/[3,4]</a></span>
+      <div class="REFBODY rb-6">Options provided to <span class="bold_code bc-15"><a href="ssh.html#connect-3">ssh:connect/[3,4]</a></span>
 </div>
-      <div class="REFTYPES">
-<span class="bold_code">Reason = term().</span><br>
+      <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term().</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 	 <p>Adds a host key to the set of trusted host keys.</p>
       </p></div>
 
-    <p><a name="Module:is_host_key-4"></a><span class="bold_code">Module:is_host_key(Key, Host, Algorithm, ConnectOptions) -&gt; Result</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-	<div class="REFTYPES">
-<span class="bold_code">Key = public_key() </span><br>
+    <p><a name="Module:is_host_key-4"></a><span class="bold_code bc-9">Module:is_host_key(Key, Host, Algorithm, ConnectOptions) -&gt; Result</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Key = public_key() </span><br>
 </div>
-	<div class="REFBODY">Normally an RSA or DSA public key, but handling of other public keys can be added.</div>
+	<div class="REFBODY rb-6">Normally an RSA or DSA public key, but handling of other public keys can be added.</div>
 
-	<div class="REFTYPES">
-<span class="bold_code">Host = string()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Host = string()</span><br>
 </div>
-	<div class="REFBODY">Description of the host.</div>
+	<div class="REFBODY rb-6">Description of the host.</div>
 
-	<div class="REFTYPES">
-<span class="bold_code">Algorithm = public_key_algorithm()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Algorithm = public_key_algorithm()</span><br>
 </div>
-	<div class="REFBODY">Host key algorithm. Is to support <span class="code">'ssh-rsa'| 'ssh-dss'</span>, but more algorithms
+	<div class="REFBODY rb-6">Host key algorithm. Is to support <span class="code">'ssh-rsa'| 'ssh-dss'</span>, but more algorithms
 	can be handled.</div>
 
-	<div class="REFTYPES">
-<span class="bold_code">ConnectOptions = proplists:proplist() </span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ConnectOptions = proplists:proplist() </span><br>
 </div>
-	<div class="REFBODY">Options provided to <span class="bold_code"><a href="ssh.html#connect-3">ssh:connect/[3,4]</a></span>.</div>
+	<div class="REFBODY rb-6">Options provided to <span class="bold_code bc-15"><a href="ssh.html#connect-3">ssh:connect/[3,4]</a></span>.</div>
 
-	<div class="REFTYPES">
-<span class="bold_code">Result = boolean()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Result = boolean()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 	<p>Checks if a host key is trusted.</p>
       </p></div>
 
-    <p><a name="Module:user_key-2"></a><span class="bold_code">Module:user_key(Algorithm, ConnectOptions) -&gt;
+    <p><a name="Module:user_key-2"></a><span class="bold_code bc-9">Module:user_key(Algorithm, ConnectOptions) -&gt;
       {ok,  PrivateKey}  | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-	<div class="REFTYPES">
-<span class="bold_code">Algorithm = public_key_algorithm()</span><br>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Algorithm = public_key_algorithm()</span><br>
 </div>
-	<div class="REFBODY">Host key algorithm. Is to support <span class="code">'ssh-rsa'| 'ssh-dss'</span> but more algorithms
+	<div class="REFBODY rb-6">Host key algorithm. Is to support <span class="code">'ssh-rsa'| 'ssh-dss'</span> but more algorithms
 	can be handled.</div>
 
-	<div class="REFTYPES">
-<span class="bold_code">ConnectOptions = proplists:proplist()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ConnectOptions = proplists:proplist()</span><br>
 </div>
-	<div class="REFBODY">Options provided to <span class="bold_code"><a href="ssh.html#connect-3">ssh:connect/[3,4]</a></span>
+	<div class="REFBODY rb-6">Options provided to <span class="bold_code bc-15"><a href="ssh.html#connect-3">ssh:connect/[3,4]</a></span>
 </div>
 
-	<div class="REFTYPES">
-<span class="bold_code">PrivateKey = private_key()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">PrivateKey = private_key()</span><br>
 </div>
-	<div class="REFBODY">Private key of the user matching the <span class="code">Algorithm</span>.</div>
+	<div class="REFBODY rb-6">Private key of the user matching the <span class="code">Algorithm</span>.</div>
 
-	<div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 	<p>Fetches the users <strong>public key</strong> matching the <span class="code">Algorithm</span>.</p>
 	<div class="note">
 <div class="label">Note</div>
@@ -359,7 +360,7 @@
 
       </p></div>
 
-  
+  </div>
 
 </div>
 <div class="footer">

@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">cosEventDomain</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 1.2.1</p>
@@ -150,11 +150,11 @@
 <!-- refpage --><center><h1>CosEventDomainAdmin_EventDomain</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">CosEventDomainAdmin_EventDomain</div>
+<div class="REFBODY module-body">CosEventDomainAdmin_EventDomain</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">This module implements the Event Domain interface.</div>
+<div class="REFBODY module-summary-body">This module implements the Event Domain interface.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>To get access to all definitions include necessary <span class="code">hrl</span> files by using:<br><span class="code">-include_lib("cosEventDomain/include/*.hrl").</span></p>
     <p>This module also exports the functions described in:</p>
     <ul>
@@ -163,108 +163,109 @@
     </ul>
   </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="add_channel-2"></a><span class="bold_code">add_channel(EventDomain, Channel) -&gt; MemberID</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = Channel = #objref</span><br>
+<div class="exports-body">
+    <p><a name="add_channel-2"></a><span class="bold_code bc-9">add_channel(EventDomain, Channel) -&gt; MemberID</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = Channel = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MemberID    = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MemberID    = long()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Adds the given channel to the target domain. The channel
           must be a <span class="code">CosNotifyChannelAdmin::EventChannel</span>.</p>
       </p></div>
-    <p><a name="get_all_channels-1"></a><span class="bold_code">get_all_channels(EventDomain) -&gt; MemberIDSeq</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="get_all_channels-1"></a><span class="bold_code bc-9">get_all_channels(EventDomain) -&gt; MemberIDSeq</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MemberIDSeq = [long()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MemberIDSeq = [long()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a a sequence of all channels associated with
           the target object.</p>
       </p></div>
-    <p><a name="get_channel-2"></a><span class="bold_code">get_channel(EventDomain, MemberID) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="get_channel-2"></a><span class="bold_code bc-9">get_channel(EventDomain, MemberID) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MemberID    = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MemberID    = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = Channel | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = Channel | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Channel     = #objref</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Channel     = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If the target domain have a <span class="code">CosNotifyChannelAdmin::EventChannel</span>
           represented by the given id this channel is returned. Otherwise,
           an exception is raised.</p>
       </p></div>
-    <p><a name="remove_channel-2"></a><span class="bold_code">remove_channel(EventDomain, MemberID) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="remove_channel-2"></a><span class="bold_code bc-9">remove_channel(EventDomain, MemberID) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MemberID    = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MemberID    = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = ok | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = ok | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If a  <span class="code">CosNotifyChannelAdmin::EventChannel</span> with the 
           <span class="code">MemberID</span> exists it will removed and all its <span class="code">Connections</span>
           terminated. Otherwise an exception is raised.</p>
       </p></div>
-    <p><a name="add_connection-2"></a><span class="bold_code">add_connection(EventDomain, Connection) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain  = #objref</span><br>
+    <p><a name="add_connection-2"></a><span class="bold_code bc-9">add_connection(EventDomain, Connection) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain  = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Connection   = 'CosEventDomainAdmin_Connection'{supplier_id=MemberID, consumer_id=MemberID, ctype=Type, notification_style=Style}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Connection   = 'CosEventDomainAdmin_Connection'{supplier_id=MemberID, consumer_id=MemberID, ctype=Type, notification_style=Style}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MemberID     = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MemberID     = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Type         = 'ANY_EVENT' | 'STRUCTURED_EVENT' | 'SEQUENCE_EVENT'</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Type         = 'ANY_EVENT' | 'STRUCTURED_EVENT' | 'SEQUENCE_EVENT'</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Style        = 'Pull' | 'Push'</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Style        = 'Pull' | 'Push'</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply        = ConnectionID | {'EXCEPTION', Exc}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply        = ConnectionID | {'EXCEPTION', Exc}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ConnectionID = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ConnectionID = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Exc          = #'CosNotifyChannelAdmin_ChannelNotFound'{} | #'CosNotifyChannelAdmin_TypeError'{} | #'CosEventDomainAdmin_AlreadyExists'{} | #'CosEventDomainAdmin_DiamondCreationForbidden'{diam=RouteSeq} | #'CosEventDomainAdmin_CycleCreationForbidden'{cyc=MemberIDSeq}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Exc          = #'CosNotifyChannelAdmin_ChannelNotFound'{} | #'CosNotifyChannelAdmin_TypeError'{} | #'CosEventDomainAdmin_AlreadyExists'{} | #'CosEventDomainAdmin_DiamondCreationForbidden'{diam=RouteSeq} | #'CosEventDomainAdmin_CycleCreationForbidden'{cyc=MemberIDSeq}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">RouteSeq  = [MemberIDSeq]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">RouteSeq  = [MemberIDSeq]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MemberIDSeq  = [long()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MemberIDSeq  = [long()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>The Connection parameter must contain valid data to enable
           the target domain to setup a connection between two channels.
           The struct members <span class="code">supplier_id</span> and <span class="code">consumer_id</span>
@@ -275,669 +276,669 @@
         <p>If the target domain is not able to setup the connection
           the appropriate exception is raised.</p>
       </p></div>
-    <p><a name="get_all_connections-1"></a><span class="bold_code">get_all_connections(EventDomain) -&gt; ConnectionIDSeq</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain     = #objref</span><br>
+    <p><a name="get_all_connections-1"></a><span class="bold_code bc-9">get_all_connections(EventDomain) -&gt; ConnectionIDSeq</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain     = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ConnectionIDSeq = [long()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ConnectionIDSeq = [long()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This operation returns a sequence of all connections within
           the target domain.</p>
       </p></div>
-    <p><a name="get_connection-2"></a><span class="bold_code">get_connection(EventDomain, ConnectionID) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain  = #objref</span><br>
+    <p><a name="get_connection-2"></a><span class="bold_code bc-9">get_connection(EventDomain, ConnectionID) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain  = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ConnectionID = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ConnectionID = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply        = Connection | {'EXCEPTION', #'CosEventDomainAdmin_ConnectionNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply        = Connection | {'EXCEPTION', #'CosEventDomainAdmin_ConnectionNotFound'{}}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Connection   = 'CosEventDomainAdmin_Connection'{supplier_id=MemberID, consumer_id=MemberID, ctype=Type, notification_style=Style}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Connection   = 'CosEventDomainAdmin_Connection'{supplier_id=MemberID, consumer_id=MemberID, ctype=Type, notification_style=Style}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MemberID     = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MemberID     = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Type         = 'ANY_EVENT' | 'STRUCTURED_EVENT' | 'SEQUENCE_EVENT'</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Type         = 'ANY_EVENT' | 'STRUCTURED_EVENT' | 'SEQUENCE_EVENT'</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Style        = 'Pull' | 'Push'</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Style        = 'Pull' | 'Push'</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If a connection identified by the given id exists within the
           target domain, a <span class="code">#'CosEventDomainAdmin_Connection'{}</span> which
           describe the connection is returned. Otherwise, an exception
           is raised.</p>
       </p></div>
-    <p><a name="remove_connection-2"></a><span class="bold_code">remove_connection(EventDomain, ConnectionID) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain  = #objref</span><br>
+    <p><a name="remove_connection-2"></a><span class="bold_code bc-9">remove_connection(EventDomain, ConnectionID) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain  = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ConnectionID = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ConnectionID = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply        = ok | {'EXCEPTION', #'CosEventDomainAdmin_ConnectionNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply        = ok | {'EXCEPTION', #'CosEventDomainAdmin_ConnectionNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If the supplied connection id exists, the connection the
           id represents is terminated. Otherwise, an exception is raised.</p>
       </p></div>
-    <p><a name="get_offer_channels-2"></a><span class="bold_code">get_offer_channels(EventDomain, MemberID) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="get_offer_channels-2"></a><span class="bold_code bc-9">get_offer_channels(EventDomain, MemberID) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MemberID    = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MemberID    = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = MemberIDSeq | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = MemberIDSeq | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This operation returns a sequence, containing the member id's
           of all channels within the target domain which will supply events
           to the channel identified by the given id. But, if no such
           id exists in this domain, an exception is raised.</p>
       </p></div>
-    <p><a name="get_subscription_channels-2"></a><span class="bold_code">get_subscription_channels(EventDomain, MemberID) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="get_subscription_channels-2"></a><span class="bold_code bc-9">get_subscription_channels(EventDomain, MemberID) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = MemberIDSeq | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = MemberIDSeq | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This operations behaves like <span class="code">get_subscription_channels</span>;
           the difference is that the id's returned identifies channels
           which will consume events supplied by the channel associated
           with the given id.</p>
       </p></div>
-    <p><a name="destroy-1"></a><span class="bold_code">destroy(EventDomain) -&gt; ok</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="destroy-1"></a><span class="bold_code bc-9">destroy(EventDomain) -&gt; ok</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Calling this operation will terminate all connections
           within the target domain. The domain will terminate but
           all channels will not be affected.</p>
       </p></div>
-    <p><a name="get_cycles-1"></a><span class="bold_code">get_cycles(EventDomain) -&gt; RouteSeq</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="get_cycles-1"></a><span class="bold_code bc-9">get_cycles(EventDomain) -&gt; RouteSeq</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">RouteSeq    = [MemberIDSeq]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">RouteSeq    = [MemberIDSeq]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MemberIDSeq = [long()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MemberIDSeq = [long()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a list of all cycles within the target domain.</p>
       </p></div>
-    <p><a name="get_diamonds-1"></a><span class="bold_code">get_diamonds(EventDomain) -&gt; DiamondSeq</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="get_diamonds-1"></a><span class="bold_code bc-9">get_diamonds(EventDomain) -&gt; DiamondSeq</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">DiamondSeq  = [RouteSeq]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">DiamondSeq  = [RouteSeq]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">RouteSeq    = [MemberIDSeq]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">RouteSeq    = [MemberIDSeq]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MemberIDSeq = [long()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MemberIDSeq = [long()]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a list of all diamonds within the target domain</p>
       </p></div>
-    <p><a name="set_default_consumer_channel-2"></a><span class="bold_code">set_default_consumer_channel(EventDomain, MemberID) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="set_default_consumer_channel-2"></a><span class="bold_code bc-9">set_default_consumer_channel(EventDomain, MemberID) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = MemberID | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = MemberID | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MemberID    = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MemberID    = long()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If the given id represents a channel within the target domain,
           this channel will be used when connection a supplier client
           without specifying a certain channel. If no such channel exists
           an exceptions is raised.</p>
       </p></div>
-    <p><a name="set_default_supplier_channel-2"></a><span class="bold_code">set_default_supplier_channel(EventDomain, MemberID) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="set_default_supplier_channel-2"></a><span class="bold_code bc-9">set_default_supplier_channel(EventDomain, MemberID) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = MemberID | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = MemberID | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MemberID    = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MemberID    = long()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If the given id represents a channel within the target domain,
           this channel will be used when connection a consumer client
           without specifying a certain channel. If no such channel exists
           an exceptions is raised.</p>
       </p></div>
-    <p><a name="connect_push_consumer-2"></a><span class="bold_code">connect_push_consumer(EventDomain, Consumer) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="connect_push_consumer-2"></a><span class="bold_code bc-9">connect_push_consumer(EventDomain, Consumer) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Consumer    = CosEventComm::PushConsumer</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Consumer    = CosEventComm::PushConsumer</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = CosNotifyChannelAdmin::ProxyPushSupplier | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = CosNotifyChannelAdmin::ProxyPushSupplier | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If a default Channel have been set, this operation connects the given
           PushConsumer to it. Otherwise, the
           <span class="code">#'CosNotifyChannelAdmin_ChannelNotFound'{}</span> exception is raised.</p>
       </p></div>
-    <p><a name="connect_pull_consumer-2"></a><span class="bold_code">connect_pull_consumer(EventDomain, Consumer) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="connect_pull_consumer-2"></a><span class="bold_code bc-9">connect_pull_consumer(EventDomain, Consumer) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Consumer    = CosEventComm::PullConsumer</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Consumer    = CosEventComm::PullConsumer</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = CosNotifyChannelAdmin::ProxyPullSupplier | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = CosNotifyChannelAdmin::ProxyPullSupplier | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If a default Channel have been set, this operation connects the given
           PullConsumer to it. Otherwise, the
           <span class="code">#'CosNotifyChannelAdmin_ChannelNotFound'{}</span> exception is raised.</p>
       </p></div>
-    <p><a name="connect_push_supplier-2"></a><span class="bold_code">connect_push_supplier(EventDomain, Supplier) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="connect_push_supplier-2"></a><span class="bold_code bc-9">connect_push_supplier(EventDomain, Supplier) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Supplier    = CosEventComm::PushSupplier</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Supplier    = CosEventComm::PushSupplier</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = CosNotifyChannelAdmin::ProxyPushConsumer | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = CosNotifyChannelAdmin::ProxyPushConsumer | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If a default Channel have been set, this operation connects the given
           PushSupplier to it. Otherwise, the
           <span class="code">#'CosNotifyChannelAdmin_ChannelNotFound'{}</span> exception is raised.</p>
       </p></div>
-    <p><a name="connect_pull_supplier-2"></a><span class="bold_code">connect_pull_supplier(EventDomain, Supplier) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="connect_pull_supplier-2"></a><span class="bold_code bc-9">connect_pull_supplier(EventDomain, Supplier) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Supplier    = CosEventComm::PullSupplier</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Supplier    = CosEventComm::PullSupplier</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = CosNotifyChannelAdmin::ProxyPushConsumer | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = CosNotifyChannelAdmin::ProxyPushConsumer | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If a default Channel have been set, this operation connects the given
           PullSupplier to it. Otherwise, the
           <span class="code">#'CosNotifyChannelAdmin_ChannelNotFound'{}</span> exception is raised.</p>
       </p></div>
-    <p><a name="connect_structured_push_consumer-2"></a><span class="bold_code">connect_structured_push_consumer(EventDomain, Consumer) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="connect_structured_push_consumer-2"></a><span class="bold_code bc-9">connect_structured_push_consumer(EventDomain, Consumer) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Consumer    = CosNotifyComm::StructuredPushConsumer</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Consumer    = CosNotifyComm::StructuredPushConsumer</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = CosNotifyChannelAdmin::StructuredProxyPushSupplier | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = CosNotifyChannelAdmin::StructuredProxyPushSupplier | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If a default Channel have been set, this operation connects the given
           StructuredPushConsumer to it. Otherwise, the
           <span class="code">#'CosNotifyChannelAdmin_ChannelNotFound'{}</span> exception is raised.</p>
       </p></div>
-    <p><a name="connect_structured_pull_consumer-2"></a><span class="bold_code">connect_structured_pull_consumer(EventDomain, Consumer) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="connect_structured_pull_consumer-2"></a><span class="bold_code bc-9">connect_structured_pull_consumer(EventDomain, Consumer) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Consumer    = CosNotifyComm::StructuredPullConsumer</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Consumer    = CosNotifyComm::StructuredPullConsumer</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = CosNotifyChannelAdmin::StructuredProxyPullSupplier | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = CosNotifyChannelAdmin::StructuredProxyPullSupplier | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If a default Channel have been set, this operation connects the given
           StructuredPullConsumer to it. Otherwise, the
           <span class="code">#'CosNotifyChannelAdmin_ChannelNotFound'{}</span> exception is raised.</p>
       </p></div>
-    <p><a name="connect_structured_push_supplier-2"></a><span class="bold_code">connect_structured_push_supplier(EventDomain, Supplier) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="connect_structured_push_supplier-2"></a><span class="bold_code bc-9">connect_structured_push_supplier(EventDomain, Supplier) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Supplier    = CosNotifyComm::StructuredPushSupplier</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Supplier    = CosNotifyComm::StructuredPushSupplier</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = CosNotifyChannelAdmin::StructuredProxyPushConsumer | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = CosNotifyChannelAdmin::StructuredProxyPushConsumer | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If a default Channel have been set, this operation connects the given
           StructuredPushSupplier to it. Otherwise, the
           <span class="code">#'CosNotifyChannelAdmin_ChannelNotFound'{}</span> exception is raised.</p>
       </p></div>
-    <p><a name="connect_structured_pull_supplier-2"></a><span class="bold_code">connect_structured_pull_supplier(EventDomain, Supplier) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="connect_structured_pull_supplier-2"></a><span class="bold_code bc-9">connect_structured_pull_supplier(EventDomain, Supplier) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Supplier    = CosNotifyComm::StructuredPullSupplier</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Supplier    = CosNotifyComm::StructuredPullSupplier</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = CosNotifyChannelAdmin::StructuredProxyPullConsume | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = CosNotifyChannelAdmin::StructuredProxyPullConsume | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If a default Channel have been set, this operation connects the given
           StructuredPullSupplier to it. Otherwise, the
           <span class="code">#'CosNotifyChannelAdmin_ChannelNotFound'{}</span> exception is raised.</p>
       </p></div>
-    <p><a name="connect_sequence_push_consumer-2"></a><span class="bold_code">connect_sequence_push_consumer(EventDomain, Consumer) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="connect_sequence_push_consumer-2"></a><span class="bold_code bc-9">connect_sequence_push_consumer(EventDomain, Consumer) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Consumer    = CosNotifyComm::SequencePushConsumer</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Consumer    = CosNotifyComm::SequencePushConsumer</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = CosNotifyChannelAdmin::SequenceProxyPushSupplier | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = CosNotifyChannelAdmin::SequenceProxyPushSupplier | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If a default Channel have been set, this operation connects the given
           SequencePushConsumer to it. Otherwise, the
           <span class="code">#'CosNotifyChannelAdmin_ChannelNotFound'{}</span> exception is raised.</p>
       </p></div>
-    <p><a name="connect_sequence_pull_consumer-2"></a><span class="bold_code">connect_sequence_pull_consumer(EventDomain, Consumer) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="connect_sequence_pull_consumer-2"></a><span class="bold_code bc-9">connect_sequence_pull_consumer(EventDomain, Consumer) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Consumer    = CosNotifyComm::SequencePullConsumer</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Consumer    = CosNotifyComm::SequencePullConsumer</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = CosNotifyChannelAdmin::SequenceProxyPullSupplier | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = CosNotifyChannelAdmin::SequenceProxyPullSupplier | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If a default Channel have been set, this operation connects the given
           SequencePullConsumer to it. Otherwise, the
           <span class="code">#'CosNotifyChannelAdmin_ChannelNotFound'{}</span> exception is raised.</p>
       </p></div>
-    <p><a name="connect_sequence_push_supplier-2"></a><span class="bold_code">connect_sequence_push_supplier(EventDomain, Supplier) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="connect_sequence_push_supplier-2"></a><span class="bold_code bc-9">connect_sequence_push_supplier(EventDomain, Supplier) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Supplier    = CosNotifyComm::SequencePushSupplier</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Supplier    = CosNotifyComm::SequencePushSupplier</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = CosNotifyChannelAdmin::SequenceProxyPushConsumer | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = CosNotifyChannelAdmin::SequenceProxyPushConsumer | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If a default Channel have been set, this operation connects the given
           SequencePushSupplier to it. Otherwise, the
           <span class="code">#'CosNotifyChannelAdmin_ChannelNotFound'{}</span> exception is raised.</p>
       </p></div>
-    <p><a name="connect_sequence_pull_supplier-2"></a><span class="bold_code">connect_sequence_pull_supplier(EventDomain, Supplier) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="connect_sequence_pull_supplier-2"></a><span class="bold_code bc-9">connect_sequence_pull_supplier(EventDomain, Supplier) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Supplier    = CosNotifyComm::SequencePullSupplier</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Supplier    = CosNotifyComm::SequencePullSupplier</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = CosNotifyChannelAdmin::SequenceProxyPullConsumer | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = CosNotifyChannelAdmin::SequenceProxyPullConsumer | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If a default Channel have been set, this operation connects the given
           SequencePullSupplier to it. Otherwise, the 
           <span class="code">#'CosNotifyChannelAdmin_ChannelNotFound'{}</span> exception is raised.</p>
       </p></div>
-    <p><a name="connect_push_consumer_with_id-3"></a><span class="bold_code">connect_push_consumer_with_id(EventDomain, Consumer, MemberID) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="connect_push_consumer_with_id-3"></a><span class="bold_code bc-9">connect_push_consumer_with_id(EventDomain, Consumer, MemberID) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Consumer    = CosEventComm::PushConsumer</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Consumer    = CosEventComm::PushConsumer</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MemberID    = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MemberID    = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = CosNotifyChannelAdmin::ProxyPushSupplier | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = CosNotifyChannelAdmin::ProxyPushSupplier | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If a Channel associated with the given MemberID exists within the
           target Domain, this operation connects the given PushConsumer 
           to it. Otherwise, the <span class="code">#'CosNotifyChannelAdmin_ChannelNotFound'{}</span>
           exception is raised.</p>
       </p></div>
-    <p><a name="connect_pull_consumer_with_id-3"></a><span class="bold_code">connect_pull_consumer_with_id(EventDomain, Consumer, MemberID) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="connect_pull_consumer_with_id-3"></a><span class="bold_code bc-9">connect_pull_consumer_with_id(EventDomain, Consumer, MemberID) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Consumer    = CosEventComm::PullConsumer</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Consumer    = CosEventComm::PullConsumer</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MemberID    = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MemberID    = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = CosNotifyChannelAdmin::ProxyPullSupplier | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = CosNotifyChannelAdmin::ProxyPullSupplier | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If a Channel associated with the given MemberID exists within the
           target Domain, this operation connects the given PullConsumer 
           to it. Otherwise, the <span class="code">#'CosNotifyChannelAdmin_ChannelNotFound'{}</span>
           exception is raised.</p>
       </p></div>
-    <p><a name="connect_push_supplier_with_id-3"></a><span class="bold_code">connect_push_supplier_with_id(EventDomain, Supplier, MemberID) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="connect_push_supplier_with_id-3"></a><span class="bold_code bc-9">connect_push_supplier_with_id(EventDomain, Supplier, MemberID) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Supplier    = CosEventComm::PushSupplier</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Supplier    = CosEventComm::PushSupplier</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MemberID    = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MemberID    = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = CosNotifyChannelAdmin::ProxyPushConsumer | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = CosNotifyChannelAdmin::ProxyPushConsumer | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If a Channel associated with the given MemberID exists within the
           target Domain, this operation connects the given PushSupplier 
           to it. Otherwise, the <span class="code">#'CosNotifyChannelAdmin_ChannelNotFound'{}</span>
           exception is raised.</p>
       </p></div>
-    <p><a name="connect_pull_supplier_with_id-3"></a><span class="bold_code">connect_pull_supplier_with_id(EventDomain, Supplier, MemberID) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="connect_pull_supplier_with_id-3"></a><span class="bold_code bc-9">connect_pull_supplier_with_id(EventDomain, Supplier, MemberID) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Supplier    = CosEventComm::PullSupplier</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Supplier    = CosEventComm::PullSupplier</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MemberID    = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MemberID    = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = CosNotifyChannelAdmin::ProxyPushConsumer | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = CosNotifyChannelAdmin::ProxyPushConsumer | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If a Channel associated with the given MemberID exists within the
           target Domain, this operation connects the given PullSupplier 
           to it. Otherwise, the <span class="code">#'CosNotifyChannelAdmin_ChannelNotFound'{}</span>
           exception is raised.</p>
       </p></div>
-    <p><a name="connect_structured_push_consumer_with_id-3"></a><span class="bold_code">connect_structured_push_consumer_with_id(EventDomain, Consumer, MemberID) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="connect_structured_push_consumer_with_id-3"></a><span class="bold_code bc-9">connect_structured_push_consumer_with_id(EventDomain, Consumer, MemberID) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Consumer    = CosNotifyComm::StructuredPushConsumer</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Consumer    = CosNotifyComm::StructuredPushConsumer</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MemberID    = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MemberID    = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = CosNotifyChannelAdmin::StructuredProxyPushSupplier | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = CosNotifyChannelAdmin::StructuredProxyPushSupplier | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If a Channel associated with the given MemberID exists within the
           target Domain, this operation connects the given StructuredPushConsumer 
           to it. Otherwise, the <span class="code">#'CosNotifyChannelAdmin_ChannelNotFound'{}</span>
           exception is raised.</p>
       </p></div>
-    <p><a name="connect_structured_pull_consumer_with_id-3"></a><span class="bold_code">connect_structured_pull_consumer_with_id(EventDomain, Consumer, MemberID) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="connect_structured_pull_consumer_with_id-3"></a><span class="bold_code bc-9">connect_structured_pull_consumer_with_id(EventDomain, Consumer, MemberID) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Consumer    = CosNotifyComm::StructuredPullConsumer</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Consumer    = CosNotifyComm::StructuredPullConsumer</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MemberID    = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MemberID    = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = CosNotifyChannelAdmin::StructuredProxyPullSupplier | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = CosNotifyChannelAdmin::StructuredProxyPullSupplier | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If a Channel associated with the given MemberID exists within the
           target Domain, this operation connects the given StructuredPullConsumer 
           to it. Otherwise, the <span class="code">#'CosNotifyChannelAdmin_ChannelNotFound'{}</span>
           exception is raised.</p>
       </p></div>
-    <p><a name="connect_structured_push_supplier_with_id-3"></a><span class="bold_code">connect_structured_push_supplier_with_id(EventDomain, Supplier, MemberID) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="connect_structured_push_supplier_with_id-3"></a><span class="bold_code bc-9">connect_structured_push_supplier_with_id(EventDomain, Supplier, MemberID) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Supplier    = CosNotifyComm::StructuredPushSupplier</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Supplier    = CosNotifyComm::StructuredPushSupplier</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MemberID    = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MemberID    = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = CosNotifyChannelAdmin::StructuredProxyPushConsumer | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = CosNotifyChannelAdmin::StructuredProxyPushConsumer | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If a Channel associated with the given MemberID exists within the
           target Domain, this operation connects the given StructuredPushSupplier 
           to it. Otherwise, the <span class="code">#'CosNotifyChannelAdmin_ChannelNotFound'{}</span>
           exception is raised.</p>
       </p></div>
-    <p><a name="connect_structured_pull_supplier_with_id-3"></a><span class="bold_code">connect_structured_pull_supplier_with_id(EventDomain, Supplier, MemberID) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="connect_structured_pull_supplier_with_id-3"></a><span class="bold_code bc-9">connect_structured_pull_supplier_with_id(EventDomain, Supplier, MemberID) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Supplier    = CosNotifyComm::StructuredPullSupplier</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Supplier    = CosNotifyComm::StructuredPullSupplier</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MemberID    = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MemberID    = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = CosNotifyChannelAdmin::StructuredProxyPullConsumer | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = CosNotifyChannelAdmin::StructuredProxyPullConsumer | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If a Channel associated with the given MemberID exists within the
           target Domain, this operation connects the given StructuredPullSupplier 
           to it. Otherwise, the <span class="code">#'CosNotifyChannelAdmin_ChannelNotFound'{}</span>
           exception is raised.</p>
       </p></div>
-    <p><a name="connect_sequence_push_consumer_with_id-3"></a><span class="bold_code">connect_sequence_push_consumer_with_id(EventDomain, Consumer, MemberID) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="connect_sequence_push_consumer_with_id-3"></a><span class="bold_code bc-9">connect_sequence_push_consumer_with_id(EventDomain, Consumer, MemberID) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Consumer    = CosNotifyComm::SequencePushConsumer</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Consumer    = CosNotifyComm::SequencePushConsumer</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MemberID    = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MemberID    = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = CosNotifyChannelAdmin::SequenceProxyPushSupplier | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = CosNotifyChannelAdmin::SequenceProxyPushSupplier | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If a Channel associated with the given MemberID exists within the
           target Domain, this operation connects the given SequencePushConsumer
           to it. Otherwise, the <span class="code">#'CosNotifyChannelAdmin_ChannelNotFound'{}</span>
           exception is raised.</p>
       </p></div>
-    <p><a name="connect_sequence_pull_consumer_with_id-3"></a><span class="bold_code">connect_sequence_pull_consumer_with_id(EventDomain, Consumer, MemberID) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="connect_sequence_pull_consumer_with_id-3"></a><span class="bold_code bc-9">connect_sequence_pull_consumer_with_id(EventDomain, Consumer, MemberID) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Consumer    = CosNotifyComm::SequencePullConsumer</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Consumer    = CosNotifyComm::SequencePullConsumer</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MemberID    = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MemberID    = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = CosNotifyChannelAdmin::SequenceProxyPullSupplier | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = CosNotifyChannelAdmin::SequenceProxyPullSupplier | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If a Channel associated with the given MemberID exists within the
           target Domain, this operation connects the given SequencePullConsumer
           to it. Otherwise, the <span class="code">#'CosNotifyChannelAdmin_ChannelNotFound'{}</span>
           exception is raised.</p>
       </p></div>
-    <p><a name="connect_sequence_push_supplier_with_id-3"></a><span class="bold_code">connect_sequence_push_supplier_with_id(EventDomain, Supplier, MemberID) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="connect_sequence_push_supplier_with_id-3"></a><span class="bold_code bc-9">connect_sequence_push_supplier_with_id(EventDomain, Supplier, MemberID) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Supplier    = CosNotifyComm::SequencePushSupplier</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Supplier    = CosNotifyComm::SequencePushSupplier</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MemberID    = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MemberID    = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = CosNotifyChannelAdmin::SequenceProxyPushConsumer | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = CosNotifyChannelAdmin::SequenceProxyPushConsumer | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If a Channel associated with the given MemberID exists within the
           target Domain, this operation connects the given SequencePushSupplier
           to it. Otherwise, the <span class="code">#'CosNotifyChannelAdmin_ChannelNotFound'{}</span>
           exception is raised.</p>
       </p></div>
-    <p><a name="connect_sequence_pull_supplier_with_id-3"></a><span class="bold_code">connect_sequence_pull_supplier_with_id(EventDomain, Supplier, MemberID) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">EventDomain = #objref</span><br>
+    <p><a name="connect_sequence_pull_supplier_with_id-3"></a><span class="bold_code bc-9">connect_sequence_pull_supplier_with_id(EventDomain, Supplier, MemberID) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">EventDomain = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Supplier    = CosNotifyComm::SequencePullSupplier</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Supplier    = CosNotifyComm::SequencePullSupplier</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">MemberID    = long()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">MemberID    = long()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply       = CosNotifyChannelAdmin::SequenceProxyPullConsumer | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply       = CosNotifyChannelAdmin::SequenceProxyPullConsumer | {'EXCEPTION', #'CosNotifyChannelAdmin_ChannelNotFound'{}}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If a Channel associated with the given MemberID exists within the
           target Domain, this operation connects the given SequencePullSupplier
           to it. Otherwise, the <span class="code">#'CosNotifyChannelAdmin_ChannelNotFound'{}</span>
           exception is raised.</p>
       </p></div>
-  
+  </div>
   
 </div>
 <div class="footer">

@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Erlang Interface</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 3.9.1</p>
@@ -592,11 +592,11 @@
 <!-- refpage --><center><h1>erl_error</h1></center>
   
   <h3><a name="c-library" href="#c-library">C Library</a></h3>
-<div class="REFBODY">erl_error</div>
+<div class="REFBODY c-library-body">erl_error</div>
   <h3><a name="library-sumary" href="#library-sumary">Library Summary</a></h3>
-<div class="REFBODY">Error Print Routines</div>
+<div class="REFBODY library-summary-body">Error Print Routines</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>This module contains some error printing routines taken
       from <strong>Advanced Programming in the UNIX Environment</strong> 
       by W. Richard Stevens. </p>
@@ -606,60 +606,61 @@
       these functions is to <span class="code">stderr</span>.</p>
   </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="erl_err_msg"><span class="bold_code">void erl_err_msg(FormatStr, ... )</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">const char *FormatStr;</span><br>
+<div class="exports-body">
+    <p><a name="erl_err_msg"><span class="bold_code bc-7">void erl_err_msg(FormatStr, ... )</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">const char *FormatStr;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>The message provided by the caller is printed. This
           function is simply a wrapper for <span class="code">fprintf()</span>.</p>
       </p></div>
-    <p><a name="erl_err_quit"><span class="bold_code">void erl_err_quit(FormatStr, ... )</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">const char *FormatStr;</span><br>
+    <p><a name="erl_err_quit"><span class="bold_code bc-7">void erl_err_quit(FormatStr, ... )</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">const char *FormatStr;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Use this function when a fatal error has occurred that
           is not due to a system call. The message provided by the
           caller is printed and the process terminates with an exit
           value of 1. The function does not return.</p>
       </p></div>
-    <p><a name="erl_err_ret"><span class="bold_code">void erl_err_ret(FormatStr, ... )</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">const char *FormatStr;</span><br>
+    <p><a name="erl_err_ret"><span class="bold_code bc-7">void erl_err_ret(FormatStr, ... )</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">const char *FormatStr;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Use this function after a failed system call. The message
           provided by the caller is printed followed by a string
           describing the reason for failure. </p>
       </p></div>
-    <p><a name="erl_err_sys"><span class="bold_code">void erl_err_sys(FormatStr, ... )</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">const char *FormatStr;</span><br>
+    <p><a name="erl_err_sys"><span class="bold_code bc-7">void erl_err_sys(FormatStr, ... )</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">const char *FormatStr;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Use this function after a failed system call. The message
           provided by the caller is printed followed by a string
           describing the reason for failure, and the process
           terminates with an exit value of 1. The function does not
           return.</p>
       </p></div>
-  
+  </div>
 
-  <h3><a name="idm45830587660592">Error Reporting</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm44748586923776">Error Reporting</a></h3>
+<div class="REFBODY rb-3">
     
     <p>Most functions in erl_interface report failures to the caller by
       returning some otherwise meaningless value (typically <span class="code">NULL</span>
@@ -668,8 +669,9 @@
       <span class="code">erl_errno</span> if you want to find out more about the failure.</p>
   </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name=""><span class="bold_code">volatile int erl_errno</span></a><br></p>
-<div class="REFBODY"><p>
+<div class="exports-body">
+    <p><a name=""><span class="bold_code bc-7">volatile int erl_errno</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p><span class="code">erl_errno</span> is initially (at program startup) zero and
           is then set by many erl_interface functions on failure to a
           non-zero error code to indicate what kind of error it
@@ -695,7 +697,7 @@
         </p></div>
 </div>
       </p></div>
-  
+  </div>
 </div>
 <div class="footer">
 <hr>

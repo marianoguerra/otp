@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">EDoc</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 0.8</p>
@@ -141,193 +141,195 @@
 <!-- refpage --><center><h1>edoc_extract</h1></center>
 
 <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">edoc_extract</div>
+<div class="REFBODY module-body">edoc_extract</div>
 <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">EDoc documentation extraction.</div>
+<div class="REFBODY module-summary-body">EDoc documentation extraction.</div>
 <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
 <p>EDoc documentation extraction.</p></p></div>
-<h3><a name="idm45024549125888">DATA TYPES</a></h3>
-<div class="REFBODY">
+<h3><a name="idm45406547306544">DATA TYPES</a></h3>
+<div class="REFBODY rb-3">
 <a name="types"></a>
 
 <dl>
-<dt><strong><a name="type-edoc_env"></a>edoc_env() = <span class="bold_code"><a href="edoc_lib.html#type-edoc_env">edoc_lib:edoc_env()</a></span></strong></dt>
+<dt><strong><a name="type-edoc_env"></a>edoc_env() = <span class="bold_code bc-15"><a href="edoc_lib.html#type-edoc_env">edoc_lib:edoc_env()</a></span></strong></dt>
 <dd>
 <p></p> </dd>
-<dt><strong><a name="type-filename"></a>filename() = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename');">file:filename()</a></span></strong></dt>
+<dt><strong><a name="type-filename"></a>filename() = <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename');">file:filename()</a></span></strong></dt>
 <dd>
 <p></p> </dd>
-<dt><strong><a name="type-proplist"></a>proplist() = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','proplists.html#type-property');">proplists:property()</a></span></strong></dt>
+<dt><strong><a name="type-proplist"></a>proplist() = <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','proplists.html#type-property');">proplists:property()</a></span></strong></dt>
 <dd>
 <p></p> </dd>
-<dt><strong><a name="type-syntaxTree"></a>syntaxTree() = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','syntax_tools','erl_syntax.html#type-syntaxTree');">erl_syntax:syntaxTree()</a></span></strong></dt>
+<dt><strong><a name="type-syntaxTree"></a>syntaxTree() = <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','syntax_tools','erl_syntax.html#type-syntaxTree');">erl_syntax:syntaxTree()</a></span></strong></dt>
 <dd>
 <p></p> </dd>
 </dl>
 </div>
 <h3><a name="exports" href="#exports">Exports</a></h3>
-<p><a name="file-4"></a><span class="bold_code">file(File::<span class="bold_code"><a href="#type-filename">filename()</a></span>, Context, Env::<span class="bold_code"><a href="#type-edoc_env">edoc_env()</a></span>, Options::<span class="bold_code"><a href="#type-proplist">proplist()</a></span>) -&gt; {ok, Tags} | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES">
-<span class="bold_code">Context = overview</span><br>
+<div class="exports-body">
+<p><a name="file-4"></a><span class="bold_code bc-9">file(File::<span class="bold_code bc-17"><a href="#type-filename">filename()</a></span>, Context, Env::<span class="bold_code bc-17"><a href="#type-edoc_env">edoc_env()</a></span>, Options::<span class="bold_code bc-17"><a href="#type-proplist">proplist()</a></span>) -&gt; {ok, Tags} | {error, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Context = overview</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Tags = [term()]</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Tags = [term()]</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
 </div>
-<div class="REFBODY"><p><a name="file-4"></a>
+<div class="REFBODY rb-7"><p><a name="file-4"></a>
 
 <p>Reads a text file and returns the list of tags in the file. Any
   lines of text before the first tag are ignored. <span class="code">Env</span> is an
-  environment created by <span class="bold_code"><a href="edoc_lib.html#get_doc_env-3">edoc_lib:get_doc_env/3</a></span>. Upon error,
-  <span class="code">Reason</span> is an atom returned from the call to <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#read_file-1');">file:read_file/1</a></span> or the atom 'invalid_unicode'.</p>
+  environment created by <span class="bold_code bc-15"><a href="edoc_lib.html#get_doc_env-3">edoc_lib:get_doc_env/3</a></span>. Upon error,
+  <span class="code">Reason</span> is an atom returned from the call to <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#read_file-1');">file:read_file/1</a></span> or the atom 'invalid_unicode'.</p>
  
-  <p>See <span class="bold_code"><a href="#text-4">text/4</a></span> for options.</p>
+  <p>See <span class="bold_code bc-17"><a href="#text-4">text/4</a></span> for options.</p>
 </p></div>
-<p><a name="header-3"></a><span class="bold_code">header(File::<span class="bold_code"><a href="#type-filename">filename()</a></span>, Env::<span class="bold_code"><a href="#type-edoc_env">edoc_env()</a></span>, Options::<span class="bold_code"><a href="#type-proplist">proplist()</a></span>) -&gt; {ok, Tags} | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES">
-<span class="bold_code">Tags = [term()]</span><br>
+<p><a name="header-3"></a><span class="bold_code bc-9">header(File::<span class="bold_code bc-17"><a href="#type-filename">filename()</a></span>, Env::<span class="bold_code bc-17"><a href="#type-edoc_env">edoc_env()</a></span>, Options::<span class="bold_code bc-17"><a href="#type-proplist">proplist()</a></span>) -&gt; {ok, Tags} | {error, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Tags = [term()]</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
 </div>
-<div class="REFBODY"><p><a name="header-3"></a>
+<div class="REFBODY rb-7"><p><a name="header-3"></a>
 
-<p>Similar to <span class="bold_code"><a href="#header-5">header/5</a></span>, but reads the syntax tree and the
+<p>Similar to <span class="bold_code bc-17"><a href="#header-5">header/5</a></span>, but reads the syntax tree and the
   comments from the specified file.
  </p>
-<p><strong>See also:</strong> <span class="bold_code"><a href="#header-4">header/4</a></span>, <span class="bold_code"><a href="edoc.html#read_comments-2">edoc:read_comments/2</a></span>, <span class="bold_code"><a href="edoc.html#read_source-2">edoc:read_source/2</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code bc-17"><a href="#header-4">header/4</a></span>, <span class="bold_code bc-15"><a href="edoc.html#read_comments-2">edoc:read_comments/2</a></span>, <span class="bold_code bc-15"><a href="edoc.html#read_source-2">edoc:read_source/2</a></span>.</p>
 </p></div>
-<p><a name="header-4"></a><span class="bold_code">header(Forms, File::<span class="bold_code"><a href="#type-filename">filename()</a></span>, Env::<span class="bold_code"><a href="#type-edoc_env">edoc_env()</a></span>, Options::<span class="bold_code"><a href="#type-proplist">proplist()</a></span>) -&gt; {ok, Tags} | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES">
-<span class="bold_code">Forms = <span class="bold_code"><a href="#type-syntaxTree">syntaxTree()</a></span> | [<span class="bold_code"><a href="#type-syntaxTree">syntaxTree()</a></span>]</span><br>
+<p><a name="header-4"></a><span class="bold_code bc-9">header(Forms, File::<span class="bold_code bc-17"><a href="#type-filename">filename()</a></span>, Env::<span class="bold_code bc-17"><a href="#type-edoc_env">edoc_env()</a></span>, Options::<span class="bold_code bc-17"><a href="#type-proplist">proplist()</a></span>) -&gt; {ok, Tags} | {error, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Forms = <span class="bold_code bc-17"><a href="#type-syntaxTree">syntaxTree()</a></span> | [<span class="bold_code bc-17"><a href="#type-syntaxTree">syntaxTree()</a></span>]</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Tags = [term()]</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Tags = [term()]</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
 </div>
-<div class="REFBODY"><p><a name="header-4"></a>
+<div class="REFBODY rb-7"><p><a name="header-4"></a>
 
 <p>Extracts EDoc documentation from commented header file syntax
-  trees. Similar to <span class="bold_code"><a href="#source-5">source/5</a></span>, but ignores any documentation
+  trees. Similar to <span class="bold_code bc-17"><a href="#source-5">source/5</a></span>, but ignores any documentation
   that occurs before a module declaration or a function definition.
   (Warning messages are printed if content may be ignored.) <span class="code">Env</span> is
   assumed to already be set up with a suitable module context.
  </p>
-<p><strong>See also:</strong> <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','syntax_tools','erl_recomment.html');">erl_recomment(3)</a></span>, <span class="bold_code"><a href="#header-5">header/5</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','syntax_tools','erl_recomment.html');">erl_recomment(3)</a></span>, <span class="bold_code bc-17"><a href="#header-5">header/5</a></span>.</p>
 </p></div>
-<p><a name="header-5"></a><span class="bold_code">header(Forms, Comments::[<span class="bold_code"><a href="edoc.html#type-comment">edoc:comment()</a></span>], File::<span class="bold_code"><a href="#type-filename">filename()</a></span>, Env::<span class="bold_code"><a href="#type-edoc_env">edoc_env()</a></span>, Options::<span class="bold_code"><a href="#type-proplist">proplist()</a></span>) -&gt; {ok, Tags} | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES">
-<span class="bold_code">Forms = <span class="bold_code"><a href="#type-syntaxTree">syntaxTree()</a></span> | [<span class="bold_code"><a href="#type-syntaxTree">syntaxTree()</a></span>]</span><br>
+<p><a name="header-5"></a><span class="bold_code bc-9">header(Forms, Comments::[<span class="bold_code bc-15"><a href="edoc.html#type-comment">edoc:comment()</a></span>], File::<span class="bold_code bc-17"><a href="#type-filename">filename()</a></span>, Env::<span class="bold_code bc-17"><a href="#type-edoc_env">edoc_env()</a></span>, Options::<span class="bold_code bc-17"><a href="#type-proplist">proplist()</a></span>) -&gt; {ok, Tags} | {error, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Forms = <span class="bold_code bc-17"><a href="#type-syntaxTree">syntaxTree()</a></span> | [<span class="bold_code bc-17"><a href="#type-syntaxTree">syntaxTree()</a></span>]</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Tags = [term()]</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Tags = [term()]</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
 </div>
-<div class="REFBODY"><p><a name="header-5"></a>
+<div class="REFBODY rb-7"><p><a name="header-5"></a>
 
-<p>Similar to <span class="bold_code"><a href="#header-4">header/4</a></span>, but first inserts the given
+<p>Similar to <span class="bold_code bc-17"><a href="#header-4">header/4</a></span>, but first inserts the given
   comments in the syntax trees. The syntax trees must contain valid
-  position information. (Cf. <span class="bold_code"><a href="edoc.html#read_comments-2">edoc:read_comments/2</a></span>.)
+  position information. (Cf. <span class="bold_code bc-15"><a href="edoc.html#read_comments-2">edoc:read_comments/2</a></span>.)
  </p>
-<p><strong>See also:</strong> <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','syntax_tools','erl_recomment.html');">erl_recomment(3)</a></span>, <span class="bold_code"><a href="#header-3">header/3</a></span>, <span class="bold_code"><a href="#header-4">header/4</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','syntax_tools','erl_recomment.html');">erl_recomment(3)</a></span>, <span class="bold_code bc-17"><a href="#header-3">header/3</a></span>, <span class="bold_code bc-17"><a href="#header-4">header/4</a></span>.</p>
 </p></div>
-<p><a name="source-3"></a><span class="bold_code">source(File::<span class="bold_code"><a href="#type-filename">filename()</a></span>, Env::<span class="bold_code"><a href="#type-edoc_env">edoc_env()</a></span>, Options::<span class="bold_code"><a href="#type-proplist">proplist()</a></span>) -&gt; {ModuleName, <span class="bold_code"><a href="edoc.html#type-edoc_module">edoc:edoc_module()</a></span>}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES">
-<span class="bold_code">ModuleName = atom()</span><br>
+<p><a name="source-3"></a><span class="bold_code bc-9">source(File::<span class="bold_code bc-17"><a href="#type-filename">filename()</a></span>, Env::<span class="bold_code bc-17"><a href="#type-edoc_env">edoc_env()</a></span>, Options::<span class="bold_code bc-17"><a href="#type-proplist">proplist()</a></span>) -&gt; {ModuleName, <span class="bold_code bc-15"><a href="edoc.html#type-edoc_module">edoc:edoc_module()</a></span>}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ModuleName = atom()</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">proplist() = [term()]</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">proplist() = [term()]</span><br>
 </div>
 </div>
-<div class="REFBODY"><p><a name="source-3"></a>
+<div class="REFBODY rb-7"><p><a name="source-3"></a>
 
-<p>Like <span class="bold_code"><a href="#source-5">source/5</a></span>, but reads the syntax tree and the
+<p>Like <span class="bold_code bc-17"><a href="#source-5">source/5</a></span>, but reads the syntax tree and the
   comments from the specified file.
  </p>
-<p><strong>See also:</strong> <span class="bold_code"><a href="#source-4">source/4</a></span>, <span class="bold_code"><a href="edoc.html#read_comments-2">edoc:read_comments/2</a></span>, <span class="bold_code"><a href="edoc.html#read_source-2">edoc:read_source/2</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code bc-17"><a href="#source-4">source/4</a></span>, <span class="bold_code bc-15"><a href="edoc.html#read_comments-2">edoc:read_comments/2</a></span>, <span class="bold_code bc-15"><a href="edoc.html#read_source-2">edoc:read_source/2</a></span>.</p>
 </p></div>
-<p><a name="source-4"></a><span class="bold_code">source(Forms, File::<span class="bold_code"><a href="#type-filename">filename()</a></span>, Env::<span class="bold_code"><a href="#type-edoc_env">edoc_env()</a></span>, Options::<span class="bold_code"><a href="#type-proplist">proplist()</a></span>) -&gt; {ModuleName, <span class="bold_code"><a href="edoc.html#type-edoc_module">edoc:edoc_module()</a></span>}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES">
-<span class="bold_code">Forms = <span class="bold_code"><a href="#type-syntaxTree">syntaxTree()</a></span> | [<span class="bold_code"><a href="#type-syntaxTree">syntaxTree()</a></span>]</span><br>
+<p><a name="source-4"></a><span class="bold_code bc-9">source(Forms, File::<span class="bold_code bc-17"><a href="#type-filename">filename()</a></span>, Env::<span class="bold_code bc-17"><a href="#type-edoc_env">edoc_env()</a></span>, Options::<span class="bold_code bc-17"><a href="#type-proplist">proplist()</a></span>) -&gt; {ModuleName, <span class="bold_code bc-15"><a href="edoc.html#type-edoc_module">edoc:edoc_module()</a></span>}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Forms = <span class="bold_code bc-17"><a href="#type-syntaxTree">syntaxTree()</a></span> | [<span class="bold_code bc-17"><a href="#type-syntaxTree">syntaxTree()</a></span>]</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">ModuleName = atom()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ModuleName = atom()</span><br>
 </div>
 </div>
-<div class="REFBODY"><p><a name="source-4"></a>
+<div class="REFBODY rb-7"><p><a name="source-4"></a>
 
 <p>Extracts EDoc documentation from commented source code syntax
   trees. The given <span class="code">Forms</span> must be a single syntax tree of
   type <span class="code">form_list</span>, or a list of syntax trees representing
-  "program forms" (cf. <span class="bold_code"><a href="edoc.html#read_source-2">edoc:read_source/2</a></span>.
-  <span class="code">Env</span> is an environment created by <span class="bold_code"><a href="edoc_lib.html#get_doc_env-3">edoc_lib:get_doc_env/3</a></span>. The <span class="code">File</span> argument is used for  
+  "program forms" (cf. <span class="bold_code bc-15"><a href="edoc.html#read_source-2">edoc:read_source/2</a></span>.
+  <span class="code">Env</span> is an environment created by <span class="bold_code bc-15"><a href="edoc_lib.html#get_doc_env-3">edoc_lib:get_doc_env/3</a></span>. The <span class="code">File</span> argument is used for  
 error reporting and output file name generation only.</p>
  
-  <p>See <span class="bold_code"><a href="edoc.html#get_doc-2">edoc:get_doc/2</a></span> for descriptions of the <span class="code">def</span>,
+  <p>See <span class="bold_code bc-15"><a href="edoc.html#get_doc-2">edoc:get_doc/2</a></span> for descriptions of the <span class="code">def</span>,
   <span class="code">hidden</span>, <span class="code">private</span>, and <span class="code">todo</span> options.
  </p>
-<p><strong>See also:</strong> <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','syntax_tools','erl_recomment.html');">erl_recomment(3)</a></span>, <span class="bold_code"><a href="#source-5">source/5</a></span>, <span class="bold_code"><a href="edoc.html#read_comments-2">edoc:read_comments/2</a></span>, <span class="bold_code"><a href="edoc.html#read_source-2">edoc:read_source/2</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','syntax_tools','erl_recomment.html');">erl_recomment(3)</a></span>, <span class="bold_code bc-17"><a href="#source-5">source/5</a></span>, <span class="bold_code bc-15"><a href="edoc.html#read_comments-2">edoc:read_comments/2</a></span>, <span class="bold_code bc-15"><a href="edoc.html#read_source-2">edoc:read_source/2</a></span>.</p>
 </p></div>
-<p><a name="source-5"></a><span class="bold_code">source(Forms, Comments::[<span class="bold_code"><a href="edoc.html#type-comment">edoc:comment()</a></span>], File::<span class="bold_code"><a href="#type-filename">filename()</a></span>, Env::<span class="bold_code"><a href="#type-edoc_env">edoc_env()</a></span>, Options::<span class="bold_code"><a href="#type-proplist">proplist()</a></span>) -&gt; {ModuleName, <span class="bold_code"><a href="edoc.html#type-edoc_module">edoc:edoc_module()</a></span>}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES">
-<span class="bold_code">Forms = <span class="bold_code"><a href="#type-syntaxTree">syntaxTree()</a></span> | [<span class="bold_code"><a href="#type-syntaxTree">syntaxTree()</a></span>]</span><br>
+<p><a name="source-5"></a><span class="bold_code bc-9">source(Forms, Comments::[<span class="bold_code bc-15"><a href="edoc.html#type-comment">edoc:comment()</a></span>], File::<span class="bold_code bc-17"><a href="#type-filename">filename()</a></span>, Env::<span class="bold_code bc-17"><a href="#type-edoc_env">edoc_env()</a></span>, Options::<span class="bold_code bc-17"><a href="#type-proplist">proplist()</a></span>) -&gt; {ModuleName, <span class="bold_code bc-15"><a href="edoc.html#type-edoc_module">edoc:edoc_module()</a></span>}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Forms = <span class="bold_code bc-17"><a href="#type-syntaxTree">syntaxTree()</a></span> | [<span class="bold_code bc-17"><a href="#type-syntaxTree">syntaxTree()</a></span>]</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">ModuleName = atom()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ModuleName = atom()</span><br>
 </div>
 </div>
-<div class="REFBODY"><p><a name="source-5"></a>
+<div class="REFBODY rb-7"><p><a name="source-5"></a>
 
-<p>Like <span class="bold_code"><a href="#source-4">source/4</a></span>, but first inserts the given comments in
+<p>Like <span class="bold_code bc-17"><a href="#source-4">source/4</a></span>, but first inserts the given comments in
   the syntax trees. The syntax trees must contain valid position
-  information. (Cf. <span class="bold_code"><a href="edoc.html#read_comments-2">edoc:read_comments/2</a></span>.)
+  information. (Cf. <span class="bold_code bc-15"><a href="edoc.html#read_comments-2">edoc:read_comments/2</a></span>.)
  </p>
-<p><strong>See also:</strong> <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','syntax_tools','erl_recomment.html');">erl_recomment(3)</a></span>, <span class="bold_code"><a href="#source-3">source/3</a></span>, <span class="bold_code"><a href="#source-4">source/4</a></span>, <span class="bold_code"><a href="edoc.html#read_comments-2">edoc:read_comments/2</a></span>, <span class="bold_code"><a href="edoc.html#read_source-2">edoc:read_source/2</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','syntax_tools','erl_recomment.html');">erl_recomment(3)</a></span>, <span class="bold_code bc-17"><a href="#source-3">source/3</a></span>, <span class="bold_code bc-17"><a href="#source-4">source/4</a></span>, <span class="bold_code bc-15"><a href="edoc.html#read_comments-2">edoc:read_comments/2</a></span>, <span class="bold_code bc-15"><a href="edoc.html#read_source-2">edoc:read_source/2</a></span>.</p>
 </p></div>
-<p><a name="text-4"></a><span class="bold_code">text(Text::string(), Context, Env::<span class="bold_code"><a href="#type-edoc_env">edoc_env()</a></span>, Options::<span class="bold_code"><a href="#type-proplist">proplist()</a></span>) -&gt; Tags</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES">
-<span class="bold_code">Context = overview</span><br>
+<p><a name="text-4"></a><span class="bold_code bc-9">text(Text::string(), Context, Env::<span class="bold_code bc-17"><a href="#type-edoc_env">edoc_env()</a></span>, Options::<span class="bold_code bc-17"><a href="#type-proplist">proplist()</a></span>) -&gt; Tags</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Context = overview</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Tags = [term()]</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Tags = [term()]</span><br>
 </div>
 </div>
-<div class="REFBODY"><p><a name="text-4"></a>
+<div class="REFBODY rb-7"><p><a name="text-4"></a>
 
 <p>Returns the list of tags in the text. Any lines of text before
-  the first tag are ignored. <span class="code">Env</span> is an environment created by <span class="bold_code"><a href="edoc_lib.html#get_doc_env-3">edoc_lib:get_doc_env/3</a></span>.</p>
+  the first tag are ignored. <span class="code">Env</span> is an environment created by <span class="bold_code bc-15"><a href="edoc_lib.html#get_doc_env-3">edoc_lib:get_doc_env/3</a></span>.</p>
  
-  <p>See <span class="bold_code"><a href="#source-4">source/4</a></span> for a description of the <span class="code">def</span> option.</p>
+  <p>See <span class="bold_code bc-17"><a href="#source-4">source/4</a></span> for a description of the <span class="code">def</span> option.</p>
 </p></div>
-<h3><a name="idm45024549022880">See also</a></h3>
-<div class="REFBODY"><p><span class="bold_code"><a href="edoc.html">edoc</a></span></p></div>
+</div>
+<h3><a name="idm45406547203536">See also</a></h3>
+<div class="REFBODY rb-3"><p><span class="bold_code bc-19"><a href="edoc.html">edoc</a></span></p></div>
 
 
 Richard Carlsson

@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">cosTime</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 1.2.2</p>
@@ -139,45 +139,46 @@
 <!-- refpage --><center><h1>CosTime_TIO</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">CosTime_TIO</div>
+<div class="REFBODY module-body">CosTime_TIO</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">This module implements the OMG CosTime::TIO interface.</div>
+<div class="REFBODY module-summary-body">This module implements the OMG CosTime::TIO interface.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>To get access to the record definitions for the structures use:      <br>
 <span class="code">-include_lib("cosTime/include/*.hrl").</span></p>
   </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="'_get_time_interval'-1"></a><span class="bold_code">'_get_time_interval'(TIO) -&gt; TimeInterval</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">TIO = #objref</span><br>
+<div class="exports-body">
+    <p><a name="'_get_time_interval'-1"></a><span class="bold_code bc-9">'_get_time_interval'(TIO) -&gt; TimeInterval</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">TIO = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">TimeInterval = #'TimeBase_IntervalT{lower_bound, upper_bound}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">TimeInterval = #'TimeBase_IntervalT{lower_bound, upper_bound}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">lower_bound = upper_bound = ulonglong</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">lower_bound = upper_bound = ulonglong</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This operation returns the interval associated with the target object.</p>
       </p></div>
-    <p><a name="spans-2"></a><span class="bold_code">spans(TIO, UTO) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">TIO = UTO = OtherTIO = #objref</span><br>
+    <p><a name="spans-2"></a><span class="bold_code bc-9">spans(TIO, UTO) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">TIO = UTO = OtherTIO = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply = {OverlapType, OtherTIO}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply = {OverlapType, OtherTIO}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">OverlapType = 'OTContainer' | 'OTContained' | 'OTOverlap' | 'OTNoOverlap'</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">OverlapType = 'OTContainer' | 'OTContained' | 'OTOverlap' | 'OTNoOverlap'</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This operation returns a <strong>OverlapType</strong> depending on how the interval
           in the target object and the timerange represented by the UTO object 
           overlap. If the OverlapType is 'OTNoOverlap' the out parameter represents 
@@ -194,36 +195,36 @@
           <li>'OTNoOverlap' - target objects interval do not overlap given object's.</li>
         </ul>
       </p></div>
-    <p><a name="overlaps-2"></a><span class="bold_code">overlaps(TIO, OtherTIO) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">TIO = OtherTIO = AnotherTIO = #objref</span><br>
+    <p><a name="overlaps-2"></a><span class="bold_code bc-9">overlaps(TIO, OtherTIO) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">TIO = OtherTIO = AnotherTIO = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply = {OverlapType, AnotherTIO}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply = {OverlapType, AnotherTIO}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">OverlapType = 'OTContainer' | 'OTContained' | 'OTOverlap' | 'OTNoOverlap'</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">OverlapType = 'OTContainer' | 'OTContained' | 'OTOverlap' | 'OTNoOverlap'</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This operation returns a <strong>OverlapType</strong> depending on how the interval
           in the target object and the timerange represented by the TIO object 
           overlap. The OverlapType's are described under spans/2.</p>
       </p></div>
-    <p><a name="time-1"></a><span class="bold_code">time(TIO) -&gt; UTO</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">TIO = UTO = #objref</span><br>
+    <p><a name="time-1"></a><span class="bold_code bc-9">time(TIO) -&gt; UTO</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">TIO = UTO = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This operation returns a UTO in which the interval equals the time interval
           in the target object and time value is the midpoint of the interval.</p>
       </p></div>
-  
+  </div>
   
 </div>
 <div class="footer">

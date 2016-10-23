@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">orber</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 3.8.2</p>
@@ -437,223 +437,224 @@
 <!-- refpage --><center><h1>corba_object</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">corba_object</div>
+<div class="REFBODY module-body">corba_object</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">The CORBA Object interface functions</div>
+<div class="REFBODY module-summary-body">The CORBA Object interface functions</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>This module contains the CORBA Object interface functions that can be 
       called for all objects.</p>
   </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="get_interface-1"></a><span class="bold_code">get_interface(Object) -&gt; InterfaceDef</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Object = #objref</span><br>
+<div class="exports-body">
+    <p><a name="get_interface-1"></a><span class="bold_code bc-9">get_interface(Object) -&gt; InterfaceDef</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Object = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">InterfaceDef = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">InterfaceDef = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function returns the full interface description for an object.</p>
       </p></div>
-    <p><a name="is_nil-1"></a><span class="bold_code">is_nil(Object) -&gt; boolean()</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Object = #objref</span><br>
+    <p><a name="is_nil-1"></a><span class="bold_code bc-9">is_nil(Object) -&gt; boolean()</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Object = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function checks if the object reference has a nil object value,
           which denotes no object. It is the reference that is tested and no 
           object implementation is involved in the test. </p>
       </p></div>
-    <p><a name="is_a-2"></a><span class="bold_code">is_a(Object, Logical_type_id) -&gt; Return</span><br><a name="is_a-3"></a><span class="bold_code">is_a(Object, Logical_type_id, Contexts) -&gt; Return</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Object = #objref</span><br>
+    <p><a name="is_a-2"></a><span class="bold_code bc-9">is_a(Object, Logical_type_id) -&gt; Return</span><br><a name="is_a-3"></a><span class="bold_code bc-9">is_a(Object, Logical_type_id, Contexts) -&gt; Return</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Object = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Logical_type_id = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Logical_type_id = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Contexts = [Context]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Contexts = [Context]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Context = #'IOP_ServiceContext'{context_id = CtxId, context_data = CtxData}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Context = #'IOP_ServiceContext'{context_id = CtxId, context_data = CtxData}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">CtxId = ?ORBER_GENERIC_CTX_ID</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">CtxId = ?ORBER_GENERIC_CTX_ID</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">CtxData = {interface, Interface} | {userspecific, term()} | {configuration, Options}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">CtxData = {interface, Interface} | {userspecific, term()} | {configuration, Options}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Interface = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Interface = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Options = [{Key, Value}]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Options = [{Key, Value}]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Key = ssl_client_options</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Key = ssl_client_options</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Value = allowed value associated with the given key</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Value = allowed value associated with the given key</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Return = boolean() | {'EXCEPTION', E}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Return = boolean() | {'EXCEPTION', E}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>The <strong>Logical_type_id</strong> is a string that is a share type
           identifier (repository id). The function returns true if the object
           is an instance of that type or an ancestor of the "most derived"
           type of that object.</p>
         <p>The <strong>configuration</strong> context is used to override the global
            SSL client side 
-           <span class="bold_code"><a href="ch_install.html#config">configuration</a></span>.</p>
+           <span class="bold_code bc-15"><a href="ch_install.html#config">configuration</a></span>.</p>
         <p>Note: Other ORB suppliers may not support this function completely
           according to the OMG specification. Thus, a <strong>is_a</strong> call may
           raise an exception or respond unpredictable if the Object is
           located on a remote node.</p>
       </p></div>
-    <p><a name="is_remote-1"></a><span class="bold_code">is_remote(Object) -&gt; boolean()</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Object = #objref</span><br>
+    <p><a name="is_remote-1"></a><span class="bold_code bc-9">is_remote(Object) -&gt; boolean()</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Object = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function returns true if an object reference is remote 
           otherwise false. </p>
       </p></div>
-    <p><a name="non_existent-1"></a><span class="bold_code">non_existent(Object) -&gt; Return</span><br><a name="non_existent-2"></a><span class="bold_code">non_existent(Object, Contexts) -&gt; Return</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Object = #objref</span><br>
+    <p><a name="non_existent-1"></a><span class="bold_code bc-9">non_existent(Object) -&gt; Return</span><br><a name="non_existent-2"></a><span class="bold_code bc-9">non_existent(Object, Contexts) -&gt; Return</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Object = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Contexts = [Context]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Contexts = [Context]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Context = #'IOP_ServiceContext'{context_id = CtxId, context_data = CtxData}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Context = #'IOP_ServiceContext'{context_id = CtxId, context_data = CtxData}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">CtxId = ?ORBER_GENERIC_CTX_ID</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">CtxId = ?ORBER_GENERIC_CTX_ID</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">CtxData = {interface, Interface} | {userspecific, term()} | {configuration, Options}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">CtxData = {interface, Interface} | {userspecific, term()} | {configuration, Options}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Interface = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Interface = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Options = [{Key, Value}]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Options = [{Key, Value}]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Key = ssl_client_options</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Key = ssl_client_options</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Value = allowed value associated with the given key</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Value = allowed value associated with the given key</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Return = boolean() | {'EXCEPTION', E}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Return = boolean() | {'EXCEPTION', E}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function can be used to test if the object has been destroyed. 
           It does this without invoking any application level code. The ORB 
           returns true if it knows that the object is destroyed otherwise 
           false.</p>
         <p>The <strong>configuration</strong> context is used to override the global
            SSL client side 
-           <span class="bold_code"><a href="ch_install.html#config">configuration</a></span>.</p>
+           <span class="bold_code bc-15"><a href="ch_install.html#config">configuration</a></span>.</p>
         <p>Note: The OMG have specified two different operators, <span class="code">_not_existent</span> (CORBA version 2.0 and 2.2) and 
           <span class="code">_non_existent</span> (CORBA version 2.3), to be used for this function. It is not mandatory to support
           both versions. Thus, a <strong>non_existent</strong> call may raise an exception or respond unpredictable 
           if the Object is located on a remote node. Depending on which version, ORB:s you intend to
           communicate with supports, you can either use this function or <span class="code">not_existent/1</span>.</p>
       </p></div>
-    <p><a name="not_existent-1"></a><span class="bold_code">not_existent(Object) -&gt; Return</span><br><a name="not_existent-2"></a><span class="bold_code">not_existent(Object, Contexts) -&gt; Return</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Object = #objref</span><br>
+    <p><a name="not_existent-1"></a><span class="bold_code bc-9">not_existent(Object) -&gt; Return</span><br><a name="not_existent-2"></a><span class="bold_code bc-9">not_existent(Object, Contexts) -&gt; Return</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Object = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Contexts = [Context]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Contexts = [Context]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Context = #'IOP_ServiceContext'{context_id = CtxId, context_data = CtxData}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Context = #'IOP_ServiceContext'{context_id = CtxId, context_data = CtxData}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">CtxId = ?ORBER_GENERIC_CTX_ID</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">CtxId = ?ORBER_GENERIC_CTX_ID</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">CtxData = {interface, Interface} | {userspecific, term()} | {configuration, Options}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">CtxData = {interface, Interface} | {userspecific, term()} | {configuration, Options}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Interface = string()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Interface = string()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Options = [{Key, Value}]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Options = [{Key, Value}]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Key = ssl_client_options</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Key = ssl_client_options</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Value = allowed value associated with the given key</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Value = allowed value associated with the given key</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Return = boolean() | {'EXCEPTION', E}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Return = boolean() | {'EXCEPTION', E}</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function is implemented due to Interoperable purposes. Behaves as
           <span class="code">non_existent</span> except the operator <span class="code">_not_existent</span> is used when
           communicating with other ORB:s.</p>
         <p>The <strong>configuration</strong> context is used to override the global
            SSL client side 
-           <span class="bold_code"><a href="ch_install.html#config">configuration</a></span>.</p>
+           <span class="bold_code bc-15"><a href="ch_install.html#config">configuration</a></span>.</p>
       </p></div>
-    <p><a name="is_equivalent-2"></a><span class="bold_code">is_equivalent(Object, OtherObject) -&gt; boolean()</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Object = #objref</span><br>
+    <p><a name="is_equivalent-2"></a><span class="bold_code bc-9">is_equivalent(Object, OtherObject) -&gt; boolean()</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Object = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">OtherObject = #objref</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">OtherObject = #objref</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function is used to determine if two object references are 
           equivalent so far the ORB easily can determine. It returns 
           <strong>true</strong> if the target object reference is equal to the 
           other object reference and <strong>false</strong> otherwise.</p>
       </p></div>
-    <p><a name="hash-2"></a><span class="bold_code">hash(Object, Maximum) -&gt; int()</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Object = #objref</span><br>
+    <p><a name="hash-2"></a><span class="bold_code bc-9">hash(Object, Maximum) -&gt; int()</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Object = #objref</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Maximum = int()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Maximum = int()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function returns a hash value based on the object reference 
           that not will change during the lifetime of the object. 
           The <strong>Maximum</strong> parameter denotes the upper bound of the value.</p>
       </p></div>
-  
+  </div>
   
 </div>
 <div class="footer">

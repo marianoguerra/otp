@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Syntax_Tools</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 2.1</p>
@@ -547,14 +547,14 @@
 <!-- refpage --><center><h1>erl_comment_scan</h1></center>
 
 <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">erl_comment_scan</div>
+<div class="REFBODY module-body">erl_comment_scan</div>
 <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Functions for reading comment lines from Erlang source code.</div>
+<div class="REFBODY module-summary-body">Functions for reading comment lines from Erlang source code.</div>
 <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
 <p>Functions for reading comment lines from Erlang source code.</p></p></div>
-<h3><a name="idm45201783149696">DATA TYPES</a></h3>
-<div class="REFBODY">
+<h3><a name="idm45991970885296">DATA TYPES</a></h3>
+<div class="REFBODY rb-3">
 <a name="types"></a>
 
 <dl>
@@ -564,26 +564,27 @@
 </dl>
 </div>
 <h3><a name="exports" href="#exports">Exports</a></h3>
-<p><a name="file-1"></a><span class="bold_code">file(FileName::<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename');">file:filename()</a></span>) -&gt; [Comment]</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES">
-<span class="bold_code">Comment = {Line, Column, Indentation, Text}</span><br>
+<div class="exports-body">
+<p><a name="file-1"></a><span class="bold_code bc-9">file(FileName::<span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-filename');">file:filename()</a></span>) -&gt; [Comment]</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Comment = {Line, Column, Indentation, Text}</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Line = integer()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Line = integer()</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Column = integer()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Column = integer()</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Indentation = integer()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Indentation = integer()</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Text = [string()]</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Text = [string()]</span><br>
 </div>
 </div>
-<div class="REFBODY"><p><a name="file-1"></a>
+<div class="REFBODY rb-7"><p><a name="file-1"></a>
 
 <p>Extracts comments from an Erlang source code file. Returns a
   list of entries representing <strong>multi-line</strong> comments, listed in
@@ -605,63 +606,63 @@ newline.</p>
  
   <p>Evaluation exits with reason <span class="code">{read, Reason}</span> if a read
   error occurred, where <span class="code">Reason</span> is an atom corresponding to
-  a Posix error code; see the module <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html');">file(3)</a></span> for details.</p>
+  a Posix error code; see the module <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html');">file(3)</a></span> for details.</p>
 </p></div>
-<p><a name="join_lines-1"></a><span class="bold_code">join_lines(Lines::[CommentLine]) -&gt; [Comment]</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES">
-<span class="bold_code">CommentLine = {Line, Column, Indent, string()}</span><br>
+<p><a name="join_lines-1"></a><span class="bold_code bc-9">join_lines(Lines::[CommentLine]) -&gt; [Comment]</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">CommentLine = {Line, Column, Indent, string()}</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Line = integer()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Line = integer()</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Column = integer()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Column = integer()</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Indent = integer()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Indent = integer()</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Comment = {Line, Column, Indent, Text}</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Comment = {Line, Column, Indent, Text}</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Text = [string()]</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Text = [string()]</span><br>
 </div>
 </div>
-<div class="REFBODY"><p><a name="join_lines-1"></a>
+<div class="REFBODY rb-7"><p><a name="join_lines-1"></a>
 
 <p>Joins individual comment lines into multi-line comments. The
   input is a list of entries representing individual comment lines,
   <strong>in order of decreasing line-numbers</strong>; see
-  <span class="bold_code"><a href="#scan_lines-1">scan_lines/1</a></span> for details. The result is a list of
+  <span class="bold_code bc-17"><a href="#scan_lines-1">scan_lines/1</a></span> for details. The result is a list of
   entries representing <strong>multi-line</strong> comments, <strong>still listed
   in order of decreasing line-numbers</strong>, but where for each entry,
   <span class="code">Text</span> is a list of consecutive comment lines in order of
   <strong>increasing</strong> line-numbers (i.e., top-down).
  </p>
-<p><strong>See also:</strong> <span class="bold_code"><a href="#scan_lines-1">scan_lines/1</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code bc-17"><a href="#scan_lines-1">scan_lines/1</a></span>.</p>
 </p></div>
-<p><a name="scan_lines-1"></a><span class="bold_code">scan_lines(Text::string()) -&gt; [CommentLine]</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES">
-<span class="bold_code">CommentLine = {Line, Column, Indent, Text}</span><br>
+<p><a name="scan_lines-1"></a><span class="bold_code bc-9">scan_lines(Text::string()) -&gt; [CommentLine]</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">CommentLine = {Line, Column, Indent, Text}</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Line = integer()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Line = integer()</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Column = integer()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Column = integer()</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Indent = integer()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Indent = integer()</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Text = string()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Text = string()</span><br>
 </div>
 </div>
-<div class="REFBODY"><p><a name="scan_lines-1"></a>
+<div class="REFBODY rb-7"><p><a name="scan_lines-1"></a>
 
 <p>Extracts individual comment lines from a source code string.
   Returns a list of comment lines found in the text, listed in order of
@@ -670,35 +671,36 @@ newline.</p>
   string, containing all characters following (but not including) the
   first comment-introducing <span class="code">%</span> character on the line, up
   to (but not including) the line-terminating newline. For details on
-  <span class="code">Line</span>, <span class="code">Column</span> and <span class="code">Indent</span>, see <span class="bold_code"><a href="#file-1">file/1</a></span>.</p>
+  <span class="code">Line</span>, <span class="code">Column</span> and <span class="code">Indent</span>, see <span class="bold_code bc-17"><a href="#file-1">file/1</a></span>.</p>
 </p></div>
-<p><a name="string-1"></a><span class="bold_code">string(Text::string()) -&gt; [Comment]</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES">
-<span class="bold_code">Comment = {Line, Column, Indentation, Text}</span><br>
+<p><a name="string-1"></a><span class="bold_code bc-9">string(Text::string()) -&gt; [Comment]</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Comment = {Line, Column, Indentation, Text}</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Line = integer()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Line = integer()</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Column = integer()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Column = integer()</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Indentation = integer()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Indentation = integer()</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Text = [string()]</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Text = [string()]</span><br>
 </div>
 </div>
-<div class="REFBODY"><p><a name="string-1"></a>
+<div class="REFBODY rb-7"><p><a name="string-1"></a>
 
 <p>Extracts comments from a string containing Erlang source code.
   Except for reading directly from a string, the behaviour is the same
-  as for <span class="bold_code"><a href="#file-1">file/1</a></span>.
+  as for <span class="bold_code bc-17"><a href="#file-1">file/1</a></span>.
  </p>
-<p><strong>See also:</strong> <span class="bold_code"><a href="#file-1">file/1</a></span>.</p>
+<p><strong>See also:</strong> <span class="bold_code bc-17"><a href="#file-1">file/1</a></span>.</p>
 </p></div>
+</div>
 
 
 

@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">STDLIB</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 3.1</p>
@@ -1717,15 +1717,15 @@
 <!-- refpage --><center><h1>dict</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">dict</div>
+<div class="REFBODY module-body">dict</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Key-value dictionary.</div>
+<div class="REFBODY module-summary-body">Key-value dictionary.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>This module provides a <span class="code">Key</span>-<span class="code">Value</span> dictionary.
       The representation of a dictionary is not defined.</p>
     <p>This module provides the same interface as the
-      <span class="bold_code"><a href="orddict.html"><span class="code">orddict(3)</span></a></span> module.
+      <span class="bold_code bc-19"><a href="orddict.html"><span class="code">orddict(3)</span></a></span> module.
       One difference is that while this module
       considers two keys as different if they do not match (<span class="code">=:=</span>),
       <span class="code">orddict</span> considers two keys as different if and only if
@@ -1733,107 +1733,112 @@
   </p></div>
 
   <h3><a name="data-types" href="#data-types">Data Types</a></h3>
-    <p>
-      <span class="bold_code"><a name="type-dict">dict(Key, Value)</a></span><br></p>
-<div class="REFBODY"><p><p>Dictionary as returned by
-        <span class="bold_code"><a href="#new-0"><span class="code">new/0</span></a></span>.</p>
-      </p></div>
-    <p>
-      <span class="bold_code"><a name="type-dict">dict()</a> = <span class="bold_code"><a href="#type-dict">dict</a></span>(term(), term())</span><br></p>
-  
+<div class="data-types-body">
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-dict">dict(Key, Value)</a></span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p><p>Dictionary as returned by
+        <span class="bold_code bc-17"><a href="#new-0"><span class="code">new/0</span></a></span>.</p>
+      </p></div></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-dict">dict()</a> = <span class="bold_code bc-17"><a href="#type-dict">dict</a></span>(term(), term())</span><br>
+</div>
+<div class="data-type-desc"></div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="append-3"></a><span class="bold_code">append(Key, Value, Dict1) -&gt; Dict2</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dict1 = Dict2 = <span class="bold_code"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+<div class="exports-body">
+    <p><a name="append-3"></a><span class="bold_code bc-1">append(Key, Value, Dict1) -&gt; Dict2</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dict1 = Dict2 = <span class="bold_code bc-17"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Appends a new <span class="code">Value</span> to the current list
           of values associated with <span class="code">Key</span>.</p>
-        <p>See also section <span class="bold_code"><a href="#notes">Notes</a></span>.</p>
+        <p>See also section <span class="bold_code bc-17"><a href="#notes">Notes</a></span>.</p>
       </p></div>
 
-    <p><a name="append_list-3"></a><span class="bold_code">append_list(Key, ValList, Dict1) -&gt; Dict2</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dict1 = Dict2 = <span class="bold_code"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">ValList = [Value]</span></div>
+    <p><a name="append_list-3"></a><span class="bold_code bc-1">append_list(Key, ValList, Dict1) -&gt; Dict2</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dict1 = Dict2 = <span class="bold_code bc-17"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">ValList = [Value]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Appends a list of values <span class="code">ValList</span> to
           the current list of values associated with <span class="code">Key</span>. An
           exception is generated if the initial value associated with
           <span class="code">Key</span> is not a list of values.</p>
-        <p>See also section <span class="bold_code"><a href="#notes">Notes</a></span>.</p>
+        <p>See also section <span class="bold_code bc-17"><a href="#notes">Notes</a></span>.</p>
       </p></div>
 
-    <p><a name="erase-2"></a><span class="bold_code">erase(Key, Dict1) -&gt; Dict2</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dict1 = Dict2 = <span class="bold_code"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="erase-2"></a><span class="bold_code bc-1">erase(Key, Dict1) -&gt; Dict2</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dict1 = Dict2 = <span class="bold_code bc-17"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Erases all items with a given key from a dictionary.</p>
       </p></div>
 
-    <p><a name="fetch-2"></a><span class="bold_code">fetch(Key, Dict) -&gt; Value</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dict = <span class="bold_code"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
+    <p><a name="fetch-2"></a><span class="bold_code bc-1">fetch(Key, Dict) -&gt; Value</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dict = <span class="bold_code bc-17"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the value associated with <span class="code">Key</span>
           in dictionary <span class="code">Dict</span>. This function assumes that
           <span class="code">Key</span> is present in dictionary <span class="code">Dict</span>,
           and an exception
           is generated if <span class="code">Key</span> is not in the dictionary.</p>
-        <p>See also section <span class="bold_code"><a href="#notes">Notes</a></span>.</p>
+        <p>See also section <span class="bold_code bc-17"><a href="#notes">Notes</a></span>.</p>
       </p></div>
 
-    <p><a name="fetch_keys-1"></a><span class="bold_code">fetch_keys(Dict) -&gt; Keys</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dict = <span class="bold_code"><a href="#type-dict">dict</a></span>(Key, Value :: term())</span></div>
-<div class="REFTYPES"><span class="bold_code">Keys = [Key]</span></div>
+    <p><a name="fetch_keys-1"></a><span class="bold_code bc-1">fetch_keys(Dict) -&gt; Keys</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dict = <span class="bold_code bc-17"><a href="#type-dict">dict</a></span>(Key, Value :: term())</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Keys = [Key]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a list of all keys in dictionary <span class="code">Dict</span>.</p>
       </p></div>
 
-    <p><a name="filter-2"></a><span class="bold_code">filter(Pred, Dict1) -&gt; Dict2</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Pred = fun((Key, Value) -&gt; boolean())</span></div>
-<div class="REFTYPES"><span class="bold_code">Dict1 = Dict2 = <span class="bold_code"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="filter-2"></a><span class="bold_code bc-1">filter(Pred, Dict1) -&gt; Dict2</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Pred = fun((Key, Value) -&gt; boolean())</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dict1 = Dict2 = <span class="bold_code bc-17"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p><span class="code">Dict2</span> is a dictionary of all keys and values in
           <span class="code">Dict1</span> for which
           <span class="code">Pred(Key, Value)</span> is
           <span class="code">true</span>.</p>
       </p></div>
 
-    <p><a name="find-2"></a><span class="bold_code">find(Key, Dict) -&gt; {ok, Value} | error</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dict = <span class="bold_code"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
+    <p><a name="find-2"></a><span class="bold_code bc-1">find(Key, Dict) -&gt; {ok, Value} | error</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dict = <span class="bold_code bc-17"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Searches for a key in dictionary <span class="code">Dict</span>. Returns
           <span class="code">{ok, Value}</span>, where <span class="code">Value</span> is
           the value associated with <span class="code">Key</span>, or <span class="code">error</span>
           if the key is not present in the dictionary.</p>
-        <p>See also section <span class="bold_code"><a href="#notes">Notes</a></span>.</p>
+        <p>See also section <span class="bold_code bc-17"><a href="#notes">Notes</a></span>.</p>
       </p></div>
 
-    <p><a name="fold-3"></a><span class="bold_code">fold(Fun, Acc0, Dict) -&gt; Acc1</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Fun = fun((Key, Value, AccIn) -&gt; AccOut)</span></div>
-<div class="REFTYPES"><span class="bold_code">Dict = <span class="bold_code"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
-<div class="REFTYPES"><span class="bold_code">Acc0 = Acc1 = AccIn = AccOut = Acc</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="fold-3"></a><span class="bold_code bc-1">fold(Fun, Acc0, Dict) -&gt; Acc1</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Fun = fun((Key, Value, AccIn) -&gt; AccOut)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dict = <span class="bold_code bc-17"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Acc0 = Acc1 = AccIn = AccOut = Acc</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Calls <span class="code">Fun</span> on successive keys and values of
           dictionary <span class="code">Dict</span> together with an extra argument
           <span class="code">Acc</span>
@@ -1843,54 +1848,54 @@
           undefined.</p>
       </p></div>
 
-    <p><a name="from_list-1"></a><span class="bold_code">from_list(List) -&gt; Dict</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dict = <span class="bold_code"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
-<div class="REFTYPES"><span class="bold_code">List = [{Key, Value}]</span></div>
+    <p><a name="from_list-1"></a><span class="bold_code bc-1">from_list(List) -&gt; Dict</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dict = <span class="bold_code bc-17"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">List = [{Key, Value}]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Converts the <span class="code">Key</span>-<span class="code">Value</span> list
           <span class="code">List</span> to dictionary <span class="code">Dict</span>.</p>
       </p></div>
 
-    <p><a name="is_empty-1"></a><span class="bold_code">is_empty(Dict) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dict = <span class="bold_code"><a href="#type-dict">dict()</a></span></span></div>
+    <p><a name="is_empty-1"></a><span class="bold_code bc-1">is_empty(Dict) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dict = <span class="bold_code bc-17"><a href="#type-dict">dict()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if dictionary <span class="code">Dict</span> has no
           elements, otherwise <span class="code">false</span>.</p>
       </p></div>
 
-    <p><a name="is_key-2"></a><span class="bold_code">is_key(Key, Dict) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dict = <span class="bold_code"><a href="#type-dict">dict</a></span>(Key, Value :: term())</span></div>
+    <p><a name="is_key-2"></a><span class="bold_code bc-1">is_key(Key, Dict) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dict = <span class="bold_code bc-17"><a href="#type-dict">dict</a></span>(Key, Value :: term())</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Tests if <span class="code">Key</span> is contained in
           dictionary <span class="code">Dict</span>.</p>
       </p></div>
 
-    <p><a name="map-2"></a><span class="bold_code">map(Fun, Dict1) -&gt; Dict2</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Fun = fun((Key, Value1) -&gt; Value2)</span></div>
-<div class="REFTYPES"><span class="bold_code">Dict1 = <span class="bold_code"><a href="#type-dict">dict</a></span>(Key, Value1)</span></div>
-<div class="REFTYPES"><span class="bold_code">Dict2 = <span class="bold_code"><a href="#type-dict">dict</a></span>(Key, Value2)</span></div>
+    <p><a name="map-2"></a><span class="bold_code bc-1">map(Fun, Dict1) -&gt; Dict2</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Fun = fun((Key, Value1) -&gt; Value2)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dict1 = <span class="bold_code bc-17"><a href="#type-dict">dict</a></span>(Key, Value1)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dict2 = <span class="bold_code bc-17"><a href="#type-dict">dict</a></span>(Key, Value2)</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Calls <span class="code">Fun</span> on successive keys and values
           of dictionary <span class="code">Dict1</span> to return a new value for
           each key. The evaluation order is undefined.</p>
       </p></div>
 
-    <p><a name="merge-3"></a><span class="bold_code">merge(Fun, Dict1, Dict2) -&gt; Dict3</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Fun = fun((Key, Value1, Value2) -&gt; Value)</span></div>
-<div class="REFTYPES"><span class="bold_code">Dict1 = <span class="bold_code"><a href="#type-dict">dict</a></span>(Key, Value1)</span></div>
-<div class="REFTYPES"><span class="bold_code">Dict2 = <span class="bold_code"><a href="#type-dict">dict</a></span>(Key, Value2)</span></div>
-<div class="REFTYPES"><span class="bold_code">Dict3 = <span class="bold_code"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
+    <p><a name="merge-3"></a><span class="bold_code bc-1">merge(Fun, Dict1, Dict2) -&gt; Dict3</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Fun = fun((Key, Value1, Value2) -&gt; Value)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dict1 = <span class="bold_code bc-17"><a href="#type-dict">dict</a></span>(Key, Value1)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dict2 = <span class="bold_code bc-17"><a href="#type-dict">dict</a></span>(Key, Value2)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dict3 = <span class="bold_code bc-17"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Merges two dictionaries, <span class="code">Dict1</span> and
           <span class="code">Dict2</span>, to create a new dictionary.  All the
           <span class="code">Key</span>-<span class="code">Value</span> pairs from both
@@ -1905,61 +1910,61 @@ merge(Fun, D1, D2) -&gt;
          end, D2, D1).</pre></div>
       </p></div>
 
-    <p><a name="new-0"></a><span class="bold_code">new() -&gt; <span class="bold_code"><a href="#type-dict">dict()</a></span></span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="new-0"></a><span class="bold_code bc-1">new() -&gt; <span class="bold_code bc-17"><a href="#type-dict">dict()</a></span></span></p>
+<div class="REFBODY rb-7"><p>
         <p>Creates a new dictionary.</p>
       </p></div>
 
-    <p><a name="size-1"></a><span class="bold_code">size(Dict) -&gt; integer() &gt;= 0</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dict = <span class="bold_code"><a href="#type-dict">dict()</a></span></span></div>
+    <p><a name="size-1"></a><span class="bold_code bc-1">size(Dict) -&gt; integer() &gt;= 0</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dict = <span class="bold_code bc-17"><a href="#type-dict">dict()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the number of elements in dictionary
           <span class="code">Dict</span>.</p>
       </p></div>
 
-    <p><a name="store-3"></a><span class="bold_code">store(Key, Value, Dict1) -&gt; Dict2</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dict1 = Dict2 = <span class="bold_code"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="store-3"></a><span class="bold_code bc-1">store(Key, Value, Dict1) -&gt; Dict2</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dict1 = Dict2 = <span class="bold_code bc-17"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Stores a <span class="code">Key</span>-<span class="code">Value</span> pair in
           dictionary <span class="code">Dict2</span>. If <span class="code">Key</span> already exists in
           <span class="code">Dict1</span>,
           the associated value is replaced by <span class="code">Value</span>.</p>
       </p></div>
 
-    <p><a name="to_list-1"></a><span class="bold_code">to_list(Dict) -&gt; List</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dict = <span class="bold_code"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
-<div class="REFTYPES"><span class="bold_code">List = [{Key, Value}]</span></div>
+    <p><a name="to_list-1"></a><span class="bold_code bc-1">to_list(Dict) -&gt; List</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dict = <span class="bold_code bc-17"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">List = [{Key, Value}]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Converts dictionary <span class="code">Dict</span> to a list representation.</p>
       </p></div>
 
-    <p><a name="update-3"></a><span class="bold_code">update(Key, Fun, Dict1) -&gt; Dict2</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dict1 = Dict2 = <span class="bold_code"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Fun = fun((Value1 :: Value) -&gt; Value2 :: Value)</span></div>
+    <p><a name="update-3"></a><span class="bold_code bc-1">update(Key, Fun, Dict1) -&gt; Dict2</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dict1 = Dict2 = <span class="bold_code bc-17"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Fun = fun((Value1 :: Value) -&gt; Value2 :: Value)</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Updates a value in a dictionary by calling <span class="code">Fun</span> on
           the value to get a new value. An exception is generated if
           <span class="code">Key</span> is not present in the dictionary.</p>
       </p></div>
 
-    <p><a name="update-4"></a><span class="bold_code">update(Key, Fun, Initial, Dict1) -&gt; Dict2</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dict1 = Dict2 = <span class="bold_code"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Fun = fun((Value1 :: Value) -&gt; Value2 :: Value)</span></div>
-<div class="REFTYPES"><span class="bold_code">Initial = Value</span></div>
+    <p><a name="update-4"></a><span class="bold_code bc-1">update(Key, Fun, Initial, Dict1) -&gt; Dict2</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dict1 = Dict2 = <span class="bold_code bc-17"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Fun = fun((Value1 :: Value) -&gt; Value2 :: Value)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Initial = Value</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Updates a value in a dictionary by calling <span class="code">Fun</span> on
           the value to get a new value. If <span class="code">Key</span> is not
           present in the dictionary, <span class="code">Initial</span> is stored as
@@ -1969,13 +1974,13 @@ append(Key, Val, D) -&gt;
     update(Key, fun (Old) -&gt; Old ++ [Val] end, [Val], D).</pre></div>
       </p></div>
 
-    <p><a name="update_counter-3"></a><span class="bold_code">update_counter(Key, Increment, Dict1) -&gt; Dict2</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dict1 = Dict2 = <span class="bold_code"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Increment = number()</span></div>
+    <p><a name="update_counter-3"></a><span class="bold_code bc-1">update_counter(Key, Increment, Dict1) -&gt; Dict2</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dict1 = Dict2 = <span class="bold_code bc-17"><a href="#type-dict">dict</a></span>(Key, Value)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Increment = number()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Adds <span class="code">Increment</span> to the value associated with
           <span class="code">Key</span> and stores this value.
           If <span class="code">Key</span> is not present in the dictionary,
@@ -1985,10 +1990,10 @@ append(Key, Val, D) -&gt;
 update_counter(Key, Incr, D) -&gt;
     update(Key, fun (Old) -&gt; Old + Incr end, Incr, D).</pre></div>
       </p></div>
-  
+  </div>
 
-  <h3><a name="idm46007677321936">Notes</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46279768436672">Notes</a></h3>
+<div class="REFBODY rb-3">
     
     <a name="notes"></a>
     <p>Functions <span class="code">append</span> and <span class="code">append_list</span> are included
@@ -2009,11 +2014,11 @@ update_counter(Key, Incr, D) -&gt;
       be in the dictionary, otherwise function <span class="code">find</span>.</p>
   </div>
 
-  <h3><a name="idm46007677316032">See Also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46279768430768">See Also</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="gb_trees.html"><span class="code">gb_trees(3)</span></a></span>, 
-      <span class="bold_code"><a href="orddict.html"><span class="code">orddict(3)</span></a></span></p>
+    <p><span class="bold_code bc-19"><a href="gb_trees.html"><span class="code">gb_trees(3)</span></a></span>, 
+      <span class="bold_code bc-19"><a href="orddict.html"><span class="code">orddict(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

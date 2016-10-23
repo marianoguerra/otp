@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Erlang Interface</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 3.9.1</p>
@@ -592,11 +592,11 @@
 <!-- refpage --><center><h1>erl_connect</h1></center>
   
   <h3><a name="c-library" href="#c-library">C Library</a></h3>
-<div class="REFBODY">erl_connect</div>
+<div class="REFBODY c-library-body">erl_connect</div>
   <h3><a name="library-sumary" href="#library-sumary">Library Summary</a></h3>
-<div class="REFBODY">Communicate with Distributed Erlang</div>
+<div class="REFBODY library-summary-body">Communicate with Distributed Erlang</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>This module provides support for communication between distributed
       Erlang nodes and C nodes, in a manner that is transparent to Erlang
       processes.</p>
@@ -608,26 +608,27 @@
       Erlang function <span class="code">nodes/0</span>.</p>
   </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="erl_connect_init"><span class="bold_code">int erl_connect_init(number, cookie, creation)</span></a><br><a name="erl_connect_xinit"><span class="bold_code">int erl_connect_xinit(host, alive, node, addr, cookie, creation)</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">int number;</span><br>
+<div class="exports-body">
+    <p><a name="erl_connect_init"><span class="bold_code bc-7">int erl_connect_init(number, cookie, creation)</span></a><br><a name="erl_connect_xinit"><span class="bold_code bc-7">int erl_connect_xinit(host, alive, node, addr, cookie, creation)</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">int number;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">char *cookie;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">char *cookie;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">short creation;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">short creation;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">char *host,*alive,*node;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">char *host,*alive,*node;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">struct in_addr *addr;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">struct in_addr *addr;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>These functions initialize the <span class="code">erl_connect</span>
           module. In particular, they are used to identify the name of the
           C-node from which they are called. One of these functions must
@@ -686,17 +687,17 @@ if (!erl_connect_init(17, "samplecookiestring...", 0))
   erl_err_quit("&lt;ERROR&gt; when initializing !");
         </pre></div>
       </p></div>
-    <p><a name="erl_connect"><span class="bold_code">int erl_connect(node)</span></a><br><a name="erl_xconnect"><span class="bold_code">int erl_xconnect(addr, alive)</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">char *node, *alive;</span><br>
+    <p><a name="erl_connect"><span class="bold_code bc-7">int erl_connect(node)</span></a><br><a name="erl_xconnect"><span class="bold_code bc-7">int erl_xconnect(addr, alive)</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">char *node, *alive;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">struct in_addr *addr;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">struct in_addr *addr;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>These functions set up a connection to an Erlang node.</p>
         <p><span class="code">erl_xconnect()</span> requires the IP address of the remote
           host and the alive name of the remote node
@@ -734,14 +735,14 @@ addr = inet_addr(IP_ADDR);
 erl_xconnect( &amp;addr , ALIVE );
         </pre></div>
       </p></div>
-    <p><a name="erl_close_connection"><span class="bold_code">int erl_close_connection(fd)</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">int fd;</span><br>
+    <p><a name="erl_close_connection"><span class="bold_code bc-7">int erl_close_connection(fd)</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">int fd;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function closes an open connection to an Erlang node.</p>
         <p><span class="code">Fd</span> is a file descriptor obtained from
           <span class="code">erl_connect()</span> or <span class="code">erl_xconnect()</span>.</p>
@@ -750,20 +751,20 @@ erl_xconnect( &amp;addr , ALIVE );
           the error can be obtained with the appropriate platform-dependent
           call.</p>
       </p></div>
-    <p><a name="erl_receive"><span class="bold_code">int erl_receive(fd, bufp, bufsize)</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">int fd;</span><br>
+    <p><a name="erl_receive"><span class="bold_code bc-7">int erl_receive(fd, bufp, bufsize)</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">int fd;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">char *bufp;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">char *bufp;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">int bufsize;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">int bufsize;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function receives a message consisting of a sequence
           of bytes in the Erlang external format.</p>
         <p><span class="code">fd</span> is an open descriptor to an Erlang connection.</p>
@@ -788,23 +789,23 @@ erl_xconnect( &amp;addr , ALIVE );
           <dd>I/O error.</dd>
         </dl>
       </p></div>
-    <p><a name="erl_receive_msg"><span class="bold_code">int erl_receive_msg(fd, bufp, bufsize, emsg)</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">int fd;</span><br>
+    <p><a name="erl_receive_msg"><span class="bold_code bc-7">int erl_receive_msg(fd, bufp, bufsize, emsg)</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">int fd;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">unsigned char *bufp;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">unsigned char *bufp;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">int bufsize;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">int bufsize;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ErlMessage *emsg;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ErlMessage *emsg;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function receives the message into the specified buffer, 
           and decodes into the <span class="code">(ErlMessage *) emsg</span>.</p>
         <p><span class="code">fd</span> is an open descriptor to an Erlang connection.</p>
@@ -880,23 +881,23 @@ typedef struct {
           <dd>I/O error.</dd>
         </dl>
       </p></div>
-    <p><a name="erl_xreceive_msg"><span class="bold_code">int erl_xreceive_msg(fd, bufpp, bufsizep, emsg)</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">int fd;</span><br>
+    <p><a name="erl_xreceive_msg"><span class="bold_code bc-7">int erl_xreceive_msg(fd, bufpp, bufsizep, emsg)</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">int fd;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">unsigned char **bufpp;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">unsigned char **bufpp;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">int *bufsizep;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">int *bufsizep;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ErlMessage *emsg;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ErlMessage *emsg;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function is similar to <span class="code">erl_receive_msg</span>. The
           difference is that <span class="code">erl_xreceive_msg</span> expects the buffer to
           have been allocated by <span class="code">malloc</span>, and reallocates it if the received
@@ -918,17 +919,17 @@ typedef struct {
           <dd>I/O error.</dd>
         </dl>
       </p></div>
-    <p><a name="erl_send"><span class="bold_code">int erl_send(fd, to, msg)</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">int fd;</span><br>
+    <p><a name="erl_send"><span class="bold_code bc-7">int erl_send(fd, to, msg)</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">int fd;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ETERM *to, *msg;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ETERM *to, *msg;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function sends an Erlang term to a process.</p>
         <p><span class="code">fd</span> is an open descriptor to an Erlang connection.</p>
         <p><span class="code">to</span> is an Erlang term containing the Pid of the
@@ -945,20 +946,20 @@ typedef struct {
           <dd>I/O error.</dd>
         </dl>
       </p></div>
-    <p><a name="erl_reg_send"><span class="bold_code">int erl_reg_send(fd, to, msg)</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">int fd;</span><br>
+    <p><a name="erl_reg_send"><span class="bold_code bc-7">int erl_reg_send(fd, to, msg)</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">int fd;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">char *to;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">char *to;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ETERM *msg;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ETERM *msg;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function sends an Erlang term to a registered process.</p>
         <p><span class="code">fd</span> is an open descriptor to an Erlang connection.</p>
         <p><span class="code">to</span> is a string containing the registered name of
@@ -973,23 +974,23 @@ typedef struct {
           <dd>I/O error.</dd>
         </dl>
       </p></div>
-    <p><a name="erl_rpc"><span class="bold_code">ETERM *erl_rpc(fd, mod, fun, args)</span></a><br><a name="erl_rpc_to"><span class="bold_code">int erl_rpc_to(fd, mod, fun, args)</span></a><br><a name="erl_rpc_from"><span class="bold_code">int erl_rpc_from(fd, timeout, emsg)</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">int fd, timeout;</span><br>
+    <p><a name="erl_rpc"><span class="bold_code bc-7">ETERM *erl_rpc(fd, mod, fun, args)</span></a><br><a name="erl_rpc_to"><span class="bold_code bc-7">int erl_rpc_to(fd, mod, fun, args)</span></a><br><a name="erl_rpc_from"><span class="bold_code bc-7">int erl_rpc_from(fd, timeout, emsg)</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">int fd, timeout;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">char *mod, *fun;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">char *mod, *fun;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ETERM *args;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ETERM *args;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ErlMessage *emsg;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ErlMessage *emsg;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>These functions support calling Erlang functions on remote nodes.
           <span class="code">erl_rpc_to()</span> sends an rpc request to a remote node and
           <span class="code">erl_rpc_from()</span> receives the results of such a call.
@@ -1042,14 +1043,14 @@ typedef struct {
           <dd>Temporary error: Try again.</dd>
         </dl>
       </p></div>
-    <p><a name="erl_publish"><span class="bold_code">int erl_publish(port)</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">int port;</span><br>
+    <p><a name="erl_publish"><span class="bold_code bc-7">int erl_publish(port)</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">int port;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>These functions are used by a server process to register
           with the local name server <strong>epmd</strong>, thereby allowing
           other processes to send messages by using the registered name.
@@ -1072,17 +1073,17 @@ typedef struct {
           into <span class="code">erl_errno</span>.
           </p>
       </p></div>
-    <p><a name="erl_accept"><span class="bold_code">int erl_accept(listensock, conp)</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">int listensock;</span><br>
+    <p><a name="erl_accept"><span class="bold_code bc-7">int erl_accept(listensock, conp)</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">int listensock;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ErlConnect *conp;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ErlConnect *conp;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function is used by a server process to accept a
           connection from a client process.</p>
         <p><span class="code">listensock</span> is an open socket descriptor on which
@@ -1100,20 +1101,20 @@ typedef struct {
           returned. On failure, <span class="code">ERL_ERROR</span> is returned and
           <span class="code">erl_errno</span> is set to <span class="code">EIO</span>.</p>
       </p></div>
-    <p><a name="erl_thiscookie"><span class="bold_code">const char *erl_thiscookie()</span></a><br><a name="erl_thisnodename"><span class="bold_code">const char *erl_thisnodename()</span></a><br><a name="erl_thishostname"><span class="bold_code">const char *erl_thishostname()</span></a><br><a name="erl_thisalivename"><span class="bold_code">const char *erl_thisalivename()</span></a><br><a name="erl_thiscreation"><span class="bold_code">short erl_thiscreation()</span></a><br></p>
-<div class="REFBODY"><p>
+    <p><a name="erl_thiscookie"><span class="bold_code bc-7">const char *erl_thiscookie()</span></a><br><a name="erl_thisnodename"><span class="bold_code bc-7">const char *erl_thisnodename()</span></a><br><a name="erl_thishostname"><span class="bold_code bc-7">const char *erl_thishostname()</span></a><br><a name="erl_thisalivename"><span class="bold_code bc-7">const char *erl_thisalivename()</span></a><br><a name="erl_thiscreation"><span class="bold_code bc-7">short erl_thiscreation()</span></a><br></p>
+<div class="REFBODY rb-7"><p>
         <p>These functions can be used to retrieve information about
           the C Node. These values are initially set with
           <span class="code">erl_connect_init()</span> or <span class="code">erl_connect_xinit()</span>.</p>
       </p></div>
-    <p><a name="erl_unpublish"><span class="bold_code">int erl_unpublish(alive)</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">char *alive;</span><br>
+    <p><a name="erl_unpublish"><span class="bold_code bc-7">int erl_unpublish(alive)</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">char *alive;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
        <p>This function can be called by a process to unregister a
           specified node from epmd on the localhost. This is however usually not 
 	  allowed, unless epmd was started with the -relaxed_command_check 
@@ -1136,41 +1137,41 @@ typedef struct {
           function returns 0. Otherwise, it returns -1 and sets
           <span class="code">erl_errno</span> is to <span class="code">EIO</span>.</p>
       </p></div>
-    <p><a name="*erl_gethostbyname"><span class="bold_code">struct hostent *erl_gethostbyname(name)</span></a><br><a name="*erl_gethostbyaddr"><span class="bold_code">struct hostent *erl_gethostbyaddr(addr, length, type)</span></a><br><a name="*erl_gethostbyname_r"><span class="bold_code">struct hostent *erl_gethostbyname_r(name, hostp, buffer, buflen, h_errnop)</span></a><br><a name="*erl_gethostbyaddr_r"><span class="bold_code">struct hostent *erl_gethostbyaddr_r(addr, length, type, hostp, buffer, buflen, h_errnop)</span></a><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">const char *name;</span><br>
+    <p><a name="*erl_gethostbyname"><span class="bold_code bc-7">struct hostent *erl_gethostbyname(name)</span></a><br><a name="*erl_gethostbyaddr"><span class="bold_code bc-7">struct hostent *erl_gethostbyaddr(addr, length, type)</span></a><br><a name="*erl_gethostbyname_r"><span class="bold_code bc-7">struct hostent *erl_gethostbyname_r(name, hostp, buffer, buflen, h_errnop)</span></a><br><a name="*erl_gethostbyaddr_r"><span class="bold_code bc-7">struct hostent *erl_gethostbyaddr_r(addr, length, type, hostp, buffer, buflen, h_errnop)</span></a><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">const char *name;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">const char *addr;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">const char *addr;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">int length;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">int length;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">int type;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">int type;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">struct hostent *hostp;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">struct hostent *hostp;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">char *buffer;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">char *buffer;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">int buflen;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">int buflen;</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">int *h_errnop;</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">int *h_errnop;</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>These are convenience functions for some common name lookup functions.</p>
       </p></div>
-  
+  </div>
 
-  <h3><a name="idm45830587693392">Debug Information</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm44748586956576">Debug Information</a></h3>
+<div class="REFBODY rb-3">
     
     <p>If a connection attempt fails, the following can be checked:</p>
     <ul>

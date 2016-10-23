@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Kernel</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 5.1</p>
@@ -646,11 +646,11 @@
 <!-- refpage --><center><h1>global</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">global</div>
+<div class="REFBODY module-body">global</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">A global name registration facility.</div>
+<div class="REFBODY module-summary-body">A global name registration facility.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>This module consists of the following services:</p>
     <ul>
       <li>Registration of global names</li>
@@ -690,14 +690,14 @@
       sent from module <span class="code">net_kernel</span>. Relevant Kernel
       application variables in this context are <span class="code">net_setuptime</span>,
       <span class="code">net_ticktime</span>, and <span class="code">dist_auto_connect</span>. See also
-      <span class="bold_code"><a href="kernel_app.html#net_setuptime"><span class="code">kernel(6)</span></a></span>.</p>
+      <span class="bold_code bc-15"><a href="kernel_app.html#net_setuptime"><span class="code">kernel(6)</span></a></span>.</p>
     <p>The name server also maintains a fully connected network. For
       example, if node <span class="code">N1</span> connects to node <span class="code">N2</span> (which is
       already connected to <span class="code">N3</span>), the global name servers on the
       nodes <span class="code">N1</span> and <span class="code">N3</span> ensure that also <span class="code">N1</span>
       and <span class="code">N3</span> are connected. If this is not desired,
       command-line flag <span class="code">-connect_all false</span> can be used (see also
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html#connect_all');"><span class="code">erl(1)</span></a></span>).
+      <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html#connect_all');"><span class="code">erl(1)</span></a></span>).
       In this case, the name registration service cannot be used, but the
       lock mechanism still works.</p>
     <p>If the global name server fails to connect nodes (<span class="code">N1</span> and
@@ -716,100 +716,104 @@
   </p></div>
 
   <h3><a name="data-types" href="#data-types">Data Types</a></h3>
-    <p>
-      <span class="bold_code"><a name="type-id">id()</a> = {ResourceId :: term(), LockRequesterId :: term()}</span><br></p>
-  
+<div class="data-types-body">
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-id">id()</a> = {ResourceId :: term(), LockRequesterId :: term()}</span><br>
+</div>
+<div class="data-type-desc"></div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="del_lock-1"></a><span class="bold_code">del_lock(Id) -&gt; true</span><br><a name="del_lock-2"></a><span class="bold_code">del_lock(Id, Nodes) -&gt; true</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Id = <span class="bold_code"><a href="#type-id">id()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Nodes = [node()]</span></div>
+<div class="exports-body">
+    <p><a name="del_lock-1"></a><span class="bold_code bc-1">del_lock(Id) -&gt; true</span><a name="del_lock-2"></a><span class="bold_code bc-1">del_lock(Id, Nodes) -&gt; true</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Id = <span class="bold_code bc-17"><a href="#type-id">id()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Nodes = [node()]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Deletes the lock <span class="code">Id</span> synchronously.</p>
       </p></div>
 
-    <p><a name="notify_all_name-3"></a><span class="bold_code">notify_all_name(Name, Pid1, Pid2) -&gt; none</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Pid1 = Pid2 = pid()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="notify_all_name-3"></a><span class="bold_code bc-1">notify_all_name(Name, Pid1, Pid2) -&gt; none</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Pid1 = Pid2 = pid()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Can be used as a name resolving function for
-          <span class="bold_code"><a href="#register_name-3"><span class="code">register_name/3</span></a></span>
+          <span class="bold_code bc-17"><a href="#register_name-3"><span class="code">register_name/3</span></a></span>
           and
-          <span class="bold_code"><a href="#re_register_name-3"><span class="code">re_register_name/3</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#re_register_name-3"><span class="code">re_register_name/3</span></a></span>.</p>
         <p>The function unregisters both pids and sends the message
           <span class="code">{global_name_conflict, Name, OtherPid}</span> to both
           processes.</p>
       </p></div>
 
-    <p><a name="random_exit_name-3"></a><span class="bold_code">random_exit_name(Name, Pid1, Pid2) -&gt; pid()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Pid1 = Pid2 = pid()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="random_exit_name-3"></a><span class="bold_code bc-1">random_exit_name(Name, Pid1, Pid2) -&gt; pid()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Pid1 = Pid2 = pid()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Can be used as a name resolving function for
-          <span class="bold_code"><a href="#register_name-3"><span class="code">register_name/3</span></a></span>
+          <span class="bold_code bc-17"><a href="#register_name-3"><span class="code">register_name/3</span></a></span>
           and
-          <span class="bold_code"><a href="#re_register_name-3"><span class="code">re_register_name/3</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#re_register_name-3"><span class="code">re_register_name/3</span></a></span>.</p>
         <p>The function randomly selects one of the pids for registration and
           kills the other one.</p>
       </p></div>
 
-    <p><a name="random_notify_name-3"></a><span class="bold_code">random_notify_name(Name, Pid1, Pid2) -&gt; pid()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Pid1 = Pid2 = pid()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="random_notify_name-3"></a><span class="bold_code bc-1">random_notify_name(Name, Pid1, Pid2) -&gt; pid()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Pid1 = Pid2 = pid()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Can be used as a name resolving function for
-          <span class="bold_code"><a href="#register_name-3"><span class="code">register_name/3</span></a></span>
+          <span class="bold_code bc-17"><a href="#register_name-3"><span class="code">register_name/3</span></a></span>
           and
-          <span class="bold_code"><a href="#re_register_name-3"><span class="code">re_register_name/3</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#re_register_name-3"><span class="code">re_register_name/3</span></a></span>.</p>
         <p>The function randomly selects one of the pids for registration, and
           sends the message <span class="code">{global_name_conflict, Name}</span> to
           the other pid.</p>
       </p></div>
 
-    <p><a name="re_register_name-2"></a><span class="bold_code">re_register_name(Name, Pid) -&gt; yes</span><br><a name="re_register_name-3"></a><span class="bold_code">re_register_name(Name, Pid, Resolve) -&gt; yes</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Pid = pid()</span></div>
-<div class="REFTYPES"><span class="bold_code">Resolve = method()</span></div>
-<div class="REFTYPES">
-      <span class="bold_code">method() = <br>    fun((Name :: term(), Pid :: pid(), Pid2 :: pid()) -&gt;<br>            pid() | none)</span><br>
+    <p><a name="re_register_name-2"></a><span class="bold_code bc-1">re_register_name(Name, Pid) -&gt; yes</span><a name="re_register_name-3"></a><span class="bold_code bc-1">re_register_name(Name, Pid, Resolve) -&gt; yes</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Pid = pid()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Resolve = method()</span></div>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">method() = <br>    fun((Name :: term(), Pid :: pid(), Pid2 :: pid()) -&gt;<br>            pid() | none)</span><br>
 </div>
-<div class="REFBODY">{<span class="code">Module</span>, <span class="code">Function</span>}
+<div class="REFBODY rb-1">{<span class="code">Module</span>, <span class="code">Function</span>}
         is also allowed.
       </div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Atomically changes the registered name <span class="code">Name</span> on
           all nodes to refer to <span class="code">Pid</span>.</p>
         <p>Function <span class="code">Resolve</span> has the same behavior as in
-          <span class="bold_code"><a href="#register_name-2"><span class="code">register_name/2,3</span></a></span>.
+          <span class="bold_code bc-17"><a href="#register_name-2"><span class="code">register_name/2,3</span></a></span>.
         </p>
       </p></div>
 
-    <p><a name="register_name-2"></a><span class="bold_code">register_name(Name, Pid) -&gt; yes | no</span><br><a name="register_name-3"></a><span class="bold_code">register_name(Name, Pid, Resolve) -&gt; yes | no</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Pid = pid()</span></div>
-<div class="REFTYPES"><span class="bold_code">Resolve = method()</span></div>
-<div class="REFTYPES">
-      <span class="bold_code">method() = <br>    fun((Name :: term(), Pid :: pid(), Pid2 :: pid()) -&gt;<br>            pid() | none)</span><br>
+    <p><a name="register_name-2"></a><span class="bold_code bc-1">register_name(Name, Pid) -&gt; yes | no</span><a name="register_name-3"></a><span class="bold_code bc-1">register_name(Name, Pid, Resolve) -&gt; yes | no</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Pid = pid()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Resolve = method()</span></div>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">method() = <br>    fun((Name :: term(), Pid :: pid(), Pid2 :: pid()) -&gt;<br>            pid() | none)</span><br>
 </div>
-<div class="REFBODY">{<span class="code">Module</span>, <span class="code">Function</span>} is also
+<div class="REFBODY rb-1">{<span class="code">Module</span>, <span class="code">Function</span>} is also
         allowed for backward compatibility, but its use is deprecated.
       </div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Globally associates name <span class="code">Name</span> with a pid, that
           is, globally notifies all nodes of a new global name in a network
           of Erlang nodes.</p>
@@ -860,21 +864,21 @@
           down, the name is unregistered on all nodes.</p>
       </p></div>
 
-    <p><a name="registered_names-0"></a><span class="bold_code">registered_names() -&gt; [Name]</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = term()</span></div>
+    <p><a name="registered_names-0"></a><span class="bold_code bc-1">registered_names() -&gt; [Name]</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a list of all globally registered names.</p>
       </p></div>
 
-    <p><a name="send-2"></a><span class="bold_code">send(Name, Msg) -&gt; Pid</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = Msg = term()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Pid = pid()</span></div>
+    <p><a name="send-2"></a><span class="bold_code bc-1">send(Name, Msg) -&gt; Pid</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = Msg = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Pid = pid()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sends message <span class="code">Msg</span> to the pid globally registered
           as <span class="code">Name</span>.</p>
         <p>If <span class="code">Name</span> is not a globally registered
@@ -882,19 +886,19 @@
           <span class="code">{badarg, {Name, Msg}}</span>.</p>
       </p></div>
 
-    <p><a name="set_lock-1"></a><span class="bold_code">set_lock(Id) -&gt; boolean()</span><br><a name="set_lock-2"></a><span class="bold_code">set_lock(Id, Nodes) -&gt; boolean()</span><br><a name="set_lock-3"></a><span class="bold_code">set_lock(Id, Nodes, Retries) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Id = <span class="bold_code"><a href="#type-id">id()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Nodes = [node()]</span></div>
-<div class="REFTYPES"><span class="bold_code">Retries = retries()</span></div>
-<div class="REFTYPES">
-      <span class="bold_code">id() = {ResourceId :: term(), LockRequesterId :: term()}</span><br>
+    <p><a name="set_lock-1"></a><span class="bold_code bc-1">set_lock(Id) -&gt; boolean()</span><a name="set_lock-2"></a><span class="bold_code bc-1">set_lock(Id, Nodes) -&gt; boolean()</span><a name="set_lock-3"></a><span class="bold_code bc-1">set_lock(Id, Nodes, Retries) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Id = <span class="bold_code bc-17"><a href="#type-id">id()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Nodes = [node()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Retries = retries()</span></div>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">id() = {ResourceId :: term(), LockRequesterId :: term()}</span><br>
 </div>
-<div class="REFTYPES">
-      <span class="bold_code">retries() = integer() &gt;= 0 | infinity</span><br>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">retries() = integer() &gt;= 0 | infinity</span><br>
 </div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sets a lock on the specified nodes (or on all nodes if none
           are specified) on <span class="code">ResourceId</span> for
           <span class="code">LockRequesterId</span>. If a lock already exists on
@@ -935,8 +939,8 @@
 </div>
       </p></div>
 
-    <p><a name="sync-0"></a><span class="bold_code">sync() -&gt; ok | {error, Reason :: term()}</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="sync-0"></a><span class="bold_code bc-1">sync() -&gt; ok | {error, Reason :: term()}</span></p>
+<div class="REFBODY rb-7"><p>
         <p>Synchronizes the global name server with all nodes known to
           this node. These are the nodes that are returned from
           <span class="code">erlang:nodes()</span>. When this function returns,
@@ -947,23 +951,23 @@
           <span class="code">{"global_groups definition error", Error}</span>.</p>
       </p></div>
 
-    <p><a name="trans-2"></a><span class="bold_code">trans(Id, Fun) -&gt; Res | aborted</span><br><a name="trans-3"></a><span class="bold_code">trans(Id, Fun, Nodes) -&gt; Res | aborted</span><br><a name="trans-4"></a><span class="bold_code">trans(Id, Fun, Nodes, Retries) -&gt; Res | aborted</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Id = <span class="bold_code"><a href="#type-id">id()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Fun = trans_fun()</span></div>
-<div class="REFTYPES"><span class="bold_code">Nodes = [node()]</span></div>
-<div class="REFTYPES"><span class="bold_code">Retries = retries()</span></div>
-<div class="REFTYPES"><span class="bold_code">Res = term()</span></div>
-<div class="REFTYPES">
-      <span class="bold_code">retries() = integer() &gt;= 0 | infinity</span><br>
+    <p><a name="trans-2"></a><span class="bold_code bc-1">trans(Id, Fun) -&gt; Res | aborted</span><a name="trans-3"></a><span class="bold_code bc-1">trans(Id, Fun, Nodes) -&gt; Res | aborted</span><a name="trans-4"></a><span class="bold_code bc-1">trans(Id, Fun, Nodes, Retries) -&gt; Res | aborted</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Id = <span class="bold_code bc-17"><a href="#type-id">id()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Fun = trans_fun()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Nodes = [node()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Retries = retries()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Res = term()</span></div>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">retries() = integer() &gt;= 0 | infinity</span><br>
 </div>
-<div class="REFTYPES">
-      <span class="bold_code">trans_fun() = function() | {module(), atom()}</span><br>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">trans_fun() = function() | {module(), atom()}</span><br>
 </div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sets a lock on <span class="code">Id</span> (using
-          <span class="bold_code"><a href="#set_lock-3"><span class="code">set_lock/3</span></a></span>).
+          <span class="bold_code bc-17"><a href="#set_lock-3"><span class="code">set_lock/3</span></a></span>).
           If this succeeds, <span class="code">Fun()</span> is evaluated and the
           result <span class="code">Res</span>
           is returned. Returns <span class="code">aborted</span> if the lock attempt fails.
@@ -973,31 +977,31 @@
           no value is specified for <span class="code">Retries</span>.</p>
       </p></div>
 
-    <p><a name="unregister_name-1"></a><span class="bold_code">unregister_name(Name) -&gt; term()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = term()</span></div>
+    <p><a name="unregister_name-1"></a><span class="bold_code bc-1">unregister_name(Name) -&gt; term()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Removes the globally registered name <span class="code">Name</span> from
           the network of Erlang nodes.</p>
       </p></div>
 
-    <p><a name="whereis_name-1"></a><span class="bold_code">whereis_name(Name) -&gt; pid() | undefined</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = term()</span></div>
+    <p><a name="whereis_name-1"></a><span class="bold_code bc-1">whereis_name(Name) -&gt; pid() | undefined</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the pid with the globally registered name
           <span class="code">Name</span>. Returns <span class="code">undefined</span> if the name is not
           globally registered.</p>
       </p></div>
-  
+  </div>
 
-  <h3><a name="idm46525669997680">See Also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45317250782592">See Also</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="global_group.html"><span class="code">global_group(3)</span></a></span>,
-      <span class="bold_code"><a href="net_kernel.html"><span class="code">net_kernel(3)</span></a></span></p>
+    <p><span class="bold_code bc-19"><a href="global_group.html"><span class="code">global_group(3)</span></a></span>,
+      <span class="bold_code bc-19"><a href="net_kernel.html"><span class="code">net_kernel(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

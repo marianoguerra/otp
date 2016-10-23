@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">STDLIB</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 3.1</p>
@@ -1717,17 +1717,17 @@
 <!-- refpage --><center><h1>gen_server</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">gen_server</div>
+<div class="REFBODY module-body">gen_server</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Generic server behavior.</div>
+<div class="REFBODY module-summary-body">Generic server behavior.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>This behavior module provides the server of a client-server
       relation. A generic server process (<span class="code">gen_server</span>) implemented using
       this module has a standard set of interface functions and
       includes functionality for tracing and error reporting. It also
       fits into an OTP supervision tree. For more information, see section
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','gen_server_concepts.html');">gen_server Behaviour</a></span> in OTP Design Principles.</p>
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','gen_server_concepts.html');">gen_server Behaviour</a></span> in OTP Design Principles.</p>
 
     <p>A <span class="code">gen_server</span> process assumes all specific parts to be located in
       a callback module exporting a predefined set of functions.
@@ -1758,7 +1758,7 @@ gen_server:abcast     -----&gt; Module:handle_cast/2
       <span class="code">gen_server</span> process terminates.</p>
 
     <p>A <span class="code">gen_server</span> process handles system messages as described in
-      <span class="bold_code"><a href="sys.html"><span class="code">sys(3)</span></a></span>. The <span class="code">sys</span> module
+      <span class="bold_code bc-19"><a href="sys.html"><span class="code">sys(3)</span></a></span>. The <span class="code">sys</span> module
       can be used for debugging a <span class="code">gen_server</span> process.</p>
 
     <p>Notice that a <span class="code">gen_server</span> process does not trap exit signals
@@ -1770,7 +1770,7 @@ gen_server:abcast     -----&gt; Module:handle_cast/2
       arguments are specified.</p>
 
     <p>The <span class="code">gen_server</span> process can go into hibernation
-      (see <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#hibernate-3');"><span class="code">erlang:hibernate/3</span></a></span>) if a callback
+      (see <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#hibernate-3');"><span class="code">erlang:hibernate/3</span></a></span>) if a callback
       function specifies <span class="code">'hibernate'</span> instead of a time-out value. This
       can be useful if the server is expected to be idle for a long
       time. However, use this feature with care, as hibernation
@@ -1780,64 +1780,65 @@ gen_server:abcast     -----&gt; Module:handle_cast/2
   </p></div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="abcast-2"></a><span class="bold_code">abcast(Name, Request) -&gt; abcast</span><br><a name="abcast-3"></a><span class="bold_code">abcast(Nodes, Name, Request) -&gt; abcast</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Nodes = [Node]</span><br>
+<div class="exports-body">
+    <p><a name="abcast-2"></a><span class="bold_code bc-9">abcast(Name, Request) -&gt; abcast</span><br><a name="abcast-3"></a><span class="bold_code bc-9">abcast(Nodes, Name, Request) -&gt; abcast</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Nodes = [Node]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Node = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Node = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Name = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Name = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Request = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Request = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sends an asynchronous request to the <span class="code">gen_server</span> processes
           locally registered as <span class="code">Name</span> at the specified nodes. The function
           returns immediately and ignores nodes that do not exist, or
           where the <span class="code">gen_server</span> <span class="code">Name</span> does not exist.
           The <span class="code">gen_server</span> processes call
-          <span class="bold_code"><a href="#Module:handle_cast-2"><span class="code">Module:handle_cast/2</span></a></span> to handle the request.</p>
+          <span class="bold_code bc-17"><a href="#Module:handle_cast-2"><span class="code">Module:handle_cast/2</span></a></span> to handle the request.</p>
         <p>For a description of the arguments, see
-          <span class="bold_code"><a href="#multi_call-2"><span class="code">multi_call/2,3,4</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#multi_call-2"><span class="code">multi_call/2,3,4</span></a></span>.</p>
       </p></div>
 
-    <p><a name="call-2"></a><span class="bold_code">call(ServerRef, Request) -&gt; Reply</span><br><a name="call-3"></a><span class="bold_code">call(ServerRef, Request, Timeout) -&gt; Reply</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">ServerRef = Name | {Name,Node} | {global,GlobalName}</span><br>
+    <p><a name="call-2"></a><span class="bold_code bc-9">call(ServerRef, Request) -&gt; Reply</span><br><a name="call-3"></a><span class="bold_code bc-9">call(ServerRef, Request, Timeout) -&gt; Reply</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ServerRef = Name | {Name,Node} | {global,GlobalName}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">  | {via,Module,ViaName} | pid()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">  | {via,Module,ViaName} | pid()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Node = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Node = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> GlobalName = ViaName = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> GlobalName = ViaName = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Request = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Request = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Timeout = int()&gt;0 | infinity</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Timeout = int()&gt;0 | infinity</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Makes a synchronous call to the <span class="code">ServerRef</span> of the
           <span class="code">gen_server</span> process
           by sending a request and waiting until a reply arrives or a
           time-out occurs. The <span class="code">gen_server</span> process calls
-          <span class="bold_code"><a href="#Module:handle_call-3"><span class="code">Module:handle_call/3</span></a></span> to handle the request.</p>
+          <span class="bold_code bc-17"><a href="#Module:handle_call-3"><span class="code">Module:handle_call/3</span></a></span> to handle the request.</p>
         <p><span class="code">ServerRef</span> can be any of the following:</p>
         <ul>
           <li>The pid</li>
@@ -1880,98 +1881,98 @@ gen_server:abcast     -----&gt; Module:handle_cast/2
 </div>
       </p></div>
 
-    <p><a name="cast-2"></a><span class="bold_code">cast(ServerRef, Request) -&gt; ok</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">ServerRef = Name | {Name,Node} | {global,GlobalName}</span><br>
+    <p><a name="cast-2"></a><span class="bold_code bc-9">cast(ServerRef, Request) -&gt; ok</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ServerRef = Name | {Name,Node} | {global,GlobalName}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">  | {via,Module,ViaName} | pid()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">  | {via,Module,ViaName} | pid()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Node = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Node = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> GlobalName = ViaName = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> GlobalName = ViaName = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Request = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Request = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sends an asynchronous request to the <span class="code">ServerRef</span> of the
           <span class="code">gen_server</span> process
           and returns <span class="code">ok</span> immediately, ignoring
           if the destination node or <span class="code">gen_server</span> process does not exist.
           The <span class="code">gen_server</span> process calls
-          <span class="bold_code"><a href="#Module:handle_cast-2"><span class="code">Module:handle_cast/2</span></a></span> to handle the request.</p>
+          <span class="bold_code bc-17"><a href="#Module:handle_cast-2"><span class="code">Module:handle_cast/2</span></a></span> to handle the request.</p>
         <p>For a description of <span class="code">ServerRef</span>, see
-          <span class="bold_code"><a href="#call-2"><span class="code">call/2,3</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#call-2"><span class="code">call/2,3</span></a></span>.</p>
         <p><span class="code">Request</span> is any term that is passed as one
           of the arguments to <span class="code">Module:handle_cast/2</span>.</p>
       </p></div>
 
-    <p><a name="enter_loop-3"></a><span class="bold_code">enter_loop(Module, Options, State)</span><br><a name="enter_loop-4"></a><span class="bold_code">enter_loop(Module, Options, State, ServerName)</span><br><a name="enter_loop-4"></a><span class="bold_code">enter_loop(Module, Options, State, Timeout)</span><br><a name="enter_loop-5"></a><span class="bold_code">enter_loop(Module, Options, State, ServerName, Timeout)</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Module = atom()</span><br>
+    <p><a name="enter_loop-3"></a><span class="bold_code bc-9">enter_loop(Module, Options, State)</span><br><a name="enter_loop-4"></a><span class="bold_code bc-9">enter_loop(Module, Options, State, ServerName)</span><br><a name="enter_loop-4"></a><span class="bold_code bc-9">enter_loop(Module, Options, State, Timeout)</span><br><a name="enter_loop-5"></a><span class="bold_code bc-9">enter_loop(Module, Options, State, ServerName, Timeout)</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Module = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Options = [Option]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Options = [Option]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Option = {debug,Dbgs}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Option = {debug,Dbgs}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">  Dbgs = [Dbg]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">  Dbgs = [Dbg]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">   Dbg = trace | log | statistics</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">   Dbg = trace | log | statistics</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">    | {log_to_file,FileName} | {install,{Func,FuncState}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">    | {log_to_file,FileName} | {install,{Func,FuncState}}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">State = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">State = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">ServerName = {local,Name} | {global,GlobalName}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ServerName = {local,Name} | {global,GlobalName}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">  | {via,Module,ViaName}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">  | {via,Module,ViaName}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Name = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Name = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> GlobalName = ViaName = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> GlobalName = ViaName = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Timeout = int() | infinity</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Timeout = int() | infinity</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Makes an existing process into a <span class="code">gen_server</span> process. Does not
           return, instead the calling process enters the <span class="code">gen_server</span>
           process receive
           loop and becomes a <span class="code">gen_server</span> process. The process
           <strong>must</strong> have been started using one of the start functions in
-          <span class="bold_code"><a href="proc_lib.html"><span class="code">proc_lib(3)</span></a></span>. The user is
+          <span class="bold_code bc-19"><a href="proc_lib.html"><span class="code">proc_lib(3)</span></a></span>. The user is
           responsible for any initialization of the process, including
           registering a name for it.</p>
         <p>This function is useful when a more complex initialization procedure
           is needed than the <span class="code">gen_server</span> process behavior provides.</p>
         <p><span class="code">Module</span>, <span class="code">Options</span>, and <span class="code">ServerName</span> have
           the same meanings as when calling
-          <span class="bold_code"><a href="#start_link-3"><span class="code">start[_link]/3,4</span></a></span>.
+          <span class="bold_code bc-17"><a href="#start_link-3"><span class="code">start[_link]/3,4</span></a></span>.
           However, if <span class="code">ServerName</span> is specified, the process must
           have been registered accordingly <strong>before</strong> this function
           is called.</p>
         <p><span class="code">State</span> and <span class="code">Timeout</span> have the same meanings as in
           the return value of
-          <span class="bold_code"><a href="#Module:init-1"><span class="code">Module:init/1</span></a></span>.
+          <span class="bold_code bc-17"><a href="#Module:init-1"><span class="code">Module:init/1</span></a></span>.
           The callback module <span class="code">Module</span> does not need to
           export an <span class="code">init/1</span> function.</p>
         <p>The function fails if the calling process was not started by a
@@ -1979,43 +1980,43 @@ gen_server:abcast     -----&gt; Module:handle_cast/2
           according to <span class="code">ServerName</span>.</p>
       </p></div>
 
-    <p><a name="multi_call-2"></a><span class="bold_code">multi_call(Name, Request) -&gt; Result</span><br><a name="multi_call-3"></a><span class="bold_code">multi_call(Nodes, Name, Request) -&gt; Result</span><br><a name="multi_call-4"></a><span class="bold_code">multi_call(Nodes, Name, Request, Timeout) -&gt; Result</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Nodes = [Node]</span><br>
+    <p><a name="multi_call-2"></a><span class="bold_code bc-9">multi_call(Name, Request) -&gt; Result</span><br><a name="multi_call-3"></a><span class="bold_code bc-9">multi_call(Nodes, Name, Request) -&gt; Result</span><br><a name="multi_call-4"></a><span class="bold_code bc-9">multi_call(Nodes, Name, Request, Timeout) -&gt; Result</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Nodes = [Node]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Node = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Node = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Name = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Name = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Request = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Request = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Timeout = int()&gt;=0 | infinity</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Timeout = int()&gt;=0 | infinity</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Result = {Replies,BadNodes}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Result = {Replies,BadNodes}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Replies = [{Node,Reply}]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Replies = [{Node,Reply}]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">  Reply = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">  Reply = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">BadNodes = [Node]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">BadNodes = [Node]</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Makes a synchronous call to all <span class="code">gen_server</span> processes locally
           registered as <span class="code">Name</span> at the specified nodes by first
           sending a request to every node and then waits for
           the replies. The <span class="code">gen_server</span> process calls
-          <span class="bold_code"><a href="#Module:handle_call-3"><span class="code">Module:handle_call/3</span></a></span> to handle the request.</p>
+          <span class="bold_code bc-17"><a href="#Module:handle_call-3"><span class="code">Module:handle_call/3</span></a></span> to handle the request.</p>
         <p>The function returns a tuple <span class="code">{Replies,BadNodes}</span>, where
           <span class="code">Replies</span> is a list of <span class="code">{Node,Reply}</span> and
           <span class="code">BadNodes</span> is a list of node that either did not exist,
@@ -2054,26 +2055,26 @@ gen_server:abcast     -----&gt; Module:handle_cast/2
           when they arrive to a terminated process.</p>
       </p></div>
 
-    <p><a name="reply-2"></a><span class="bold_code">reply(Client, Reply) -&gt; Result</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Client - see below</span><br>
+    <p><a name="reply-2"></a><span class="bold_code bc-9">reply(Client, Reply) -&gt; Result</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Client - see below</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reply = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reply = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Result = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Result = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function can be used by a <span class="code">gen_server</span> process to
           explicitly send a reply to a client that called
-          <span class="bold_code"><a href="#call-2"><span class="code">call/2,3</span></a></span> or
-          <span class="bold_code"><a href="#multi_call-2"><span class="code">multi_call/2,3,4</span></a></span>,
+          <span class="bold_code bc-17"><a href="#call-2"><span class="code">call/2,3</span></a></span> or
+          <span class="bold_code bc-17"><a href="#multi_call-2"><span class="code">multi_call/2,3,4</span></a></span>,
           when the reply cannot be defined in the return value of
-          <span class="bold_code"><a href="#Module:handle_call-3"><span class="code">Module:handle_call/3</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#Module:handle_call-3"><span class="code">Module:handle_call/3</span></a></span>.</p>
         <p><span class="code">Client</span> must be the <span class="code">From</span> argument provided to
           the callback function. <span class="code">Reply</span> is any term
           given back to the client as the return value of
@@ -2082,113 +2083,113 @@ gen_server:abcast     -----&gt; Module:handle_cast/2
           is always to be ignored.</p>
       </p></div>
 
-    <p><a name="start-3"></a><span class="bold_code">start(Module, Args, Options) -&gt; Result</span><br><a name="start-4"></a><span class="bold_code">start(ServerName, Module, Args, Options) -&gt; Result</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">ServerName = {local,Name} | {global,GlobalName}</span><br>
+    <p><a name="start-3"></a><span class="bold_code bc-9">start(Module, Args, Options) -&gt; Result</span><br><a name="start-4"></a><span class="bold_code bc-9">start(ServerName, Module, Args, Options) -&gt; Result</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ServerName = {local,Name} | {global,GlobalName}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">  | {via,Module,ViaName}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">  | {via,Module,ViaName}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Name = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Name = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> GlobalName = ViaName = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> GlobalName = ViaName = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Module = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Module = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Args = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Args = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Options = [Option]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Options = [Option]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Option = {debug,Dbgs} | {timeout,Time} | {spawn_opt,SOpts}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Option = {debug,Dbgs} | {timeout,Time} | {spawn_opt,SOpts}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">  Dbgs = [Dbg]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">  Dbgs = [Dbg]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">   Dbg = trace | log | statistics | {log_to_file,FileName} | {install,{Func,FuncState}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">   Dbg = trace | log | statistics | {log_to_file,FileName} | {install,{Func,FuncState}}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">  SOpts = [term()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">  SOpts = [term()]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Result = {ok,Pid} | ignore | {error,Error}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Result = {ok,Pid} | ignore | {error,Error}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Pid = pid()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Pid = pid()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Error = {already_started,Pid} | term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Error = {already_started,Pid} | term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Creates a standalone <span class="code">gen_server</span> process, that is, a
           <span class="code">gen_server</span> process that is not part of a supervision tree
           and thus has no supervisor.</p>
         <p>For a description of arguments and return values, see
-          <span class="bold_code"><a href="#start_link-3"><span class="code">start_link/3,4</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#start_link-3"><span class="code">start_link/3,4</span></a></span>.</p>
       </p></div>
 
-    <p><a name="start_link-3"></a><span class="bold_code">start_link(Module, Args, Options) -&gt; Result</span><br><a name="start_link-4"></a><span class="bold_code">start_link(ServerName, Module, Args, Options) -&gt; Result</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">ServerName = {local,Name} | {global,GlobalName}</span><br>
+    <p><a name="start_link-3"></a><span class="bold_code bc-9">start_link(Module, Args, Options) -&gt; Result</span><br><a name="start_link-4"></a><span class="bold_code bc-9">start_link(ServerName, Module, Args, Options) -&gt; Result</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ServerName = {local,Name} | {global,GlobalName}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">  | {via,Module,ViaName}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">  | {via,Module,ViaName}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Name = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Name = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> GlobalName = ViaName = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> GlobalName = ViaName = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Module = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Module = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Args = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Args = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Options = [Option]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Options = [Option]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Option = {debug,Dbgs} | {timeout,Time} | {spawn_opt,SOpts}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Option = {debug,Dbgs} | {timeout,Time} | {spawn_opt,SOpts}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">  Dbgs = [Dbg]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">  Dbgs = [Dbg]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">   Dbg = trace | log | statistics | {log_to_file,FileName} | {install,{Func,FuncState}}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">   Dbg = trace | log | statistics | {log_to_file,FileName} | {install,{Func,FuncState}}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">  SOpts = [term()]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">  SOpts = [term()]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Result = {ok,Pid} | ignore | {error,Error}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Result = {ok,Pid} | ignore | {error,Error}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Pid = pid()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Pid = pid()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Error = {already_started,Pid} | term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Error = {already_started,Pid} | term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Creates a <span class="code">gen_server</span> process as part of a supervision tree.
           This function is to be called, directly or indirectly, by
           the supervisor. For example, it ensures that
           the <span class="code">gen_server</span> process is linked to the supervisor.</p>
         <p>The <span class="code">gen_server</span> process calls
-          <span class="bold_code"><a href="#Module:init-1"><span class="code">Module:init/1</span></a></span> to
+          <span class="bold_code bc-17"><a href="#Module:init-1"><span class="code">Module:init/1</span></a></span> to
           initialize. To ensure a synchronized startup procedure,
           <span class="code">start_link/3,4</span> does not return until
           <span class="code">Module:init/1</span> has returned.</p>
@@ -2200,7 +2201,7 @@ gen_server:abcast     -----&gt; Module:handle_cast/2
           <li>
             <p>If <span class="code">ServerName={global,GlobalName}</span>, the <span class="code">gen_server</span>
               process id registered globally as <span class="code">GlobalName</span> using
-              <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','global.html#register_name-2');"><span class="code">global:register_name/2</span></a></span> If no name is
+              <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','global.html#register_name-2');"><span class="code">global:register_name/2</span></a></span> If no name is
               provided, the <span class="code">gen_server</span> process is not registered.</p>
           </li>
           <li>
@@ -2210,14 +2211,14 @@ gen_server:abcast     -----&gt; Module:handle_cast/2
               <span class="code">register_name/2</span>, <span class="code">unregister_name/1</span>,
               <span class="code">whereis_name/1</span>, and <span class="code">send/2</span>, which are to behave
               like the corresponding functions in
-              <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','global.html');"><span class="code">global</span></a></span>.
+              <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','global.html');"><span class="code">global</span></a></span>.
               Thus, <span class="code">{via,global,GlobalName}</span> is a valid reference.</p>
           </li>
         </ul>
         <p><span class="code">Module</span> is the name of the callback module.</p>
         <p><span class="code">Args</span> is any term that is passed as
           the argument to
-          <span class="bold_code"><a href="#Module:init-1"><span class="code">Module:init/1</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#Module:init-1"><span class="code">Module:init/1</span></a></span>.</p>
         <ul>
           <li>
             <p>If option <span class="code">{timeout,Time}</span> is present, the <span class="code">gen_server</span>
@@ -2229,14 +2230,14 @@ gen_server:abcast     -----&gt; Module:handle_cast/2
             <p>If option <span class="code">{debug,Dbgs}</span> is present,
               the corresponding <span class="code">sys</span> function is called for each
               item in <span class="code">Dbgs</span>; see
-              <span class="bold_code"><a href="sys.html"><span class="code">sys(3)</span></a></span>.</p>
+              <span class="bold_code bc-19"><a href="sys.html"><span class="code">sys(3)</span></a></span>.</p>
           </li>
           <li>
             <p>If option <span class="code">{spawn_opt,SOpts}</span> is present,
               <span class="code">SOpts</span> is passed as option list to
               the <span class="code">spawn_opt</span> BIF, which is used to spawn
               the <span class="code">gen_server</span> process; see
-              <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#spawn_opt-2');"><span class="code">spawn_opt/2</span></a></span>.</p>
+              <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#spawn_opt-2');"><span class="code">spawn_opt/2</span></a></span>.</p>
           </li>
         </ul>
         <div class="note">
@@ -2260,37 +2261,37 @@ gen_server:abcast     -----&gt; Module:handle_cast/2
           returns <span class="code">{error,Reason}</span> or <span class="code">ignore</span>, respectively.</p>
       </p></div>
 
-    <p><a name="stop-1"></a><span class="bold_code">stop(ServerRef) -&gt; ok</span><br><a name="stop-3"></a><span class="bold_code">stop(ServerRef, Reason, Timeout) -&gt; ok</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">ServerRef = Name | {Name,Node} | {global,GlobalName}</span><br>
+    <p><a name="stop-1"></a><span class="bold_code bc-9">stop(ServerRef) -&gt; ok</span><br><a name="stop-3"></a><span class="bold_code bc-9">stop(ServerRef, Reason, Timeout) -&gt; ok</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">ServerRef = Name | {Name,Node} | {global,GlobalName}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">  | {via,Module,ViaName} | pid()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">  | {via,Module,ViaName} | pid()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Node = atom()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Node = atom()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> GlobalName = ViaName = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> GlobalName = ViaName = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Timeout = int()&gt;0 | infinity</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Timeout = int()&gt;0 | infinity</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Orders a generic server to exit with the specified <span class="code">Reason</span>
           and waits for it to terminate. The <span class="code">gen_server</span> process calls
-          <span class="bold_code"><a href="#Module:terminate-2"><span class="code">Module:terminate/2</span></a></span> before exiting.</p>
+          <span class="bold_code bc-17"><a href="#Module:terminate-2"><span class="code">Module:terminate/2</span></a></span> before exiting.</p>
         <p>The function returns <span class="code">ok</span> if the server terminates
           with the expected reason. Any other reason than <span class="code">normal</span>,
           <span class="code">shutdown</span>, or <span class="code">{shutdown,Term}</span> causes an
           error report to be issued using
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','error_logger.html#format-2');"><span class="code">error_logger:format/2</span></a></span>.
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','error_logger.html#format-2');"><span class="code">error_logger:format/2</span></a></span>.
           The default <span class="code">Reason</span> is <span class="code">normal</span>.</p>
         <p><span class="code">Timeout</span> is an integer greater than zero that
           specifies how many milliseconds to wait for the server to
@@ -2301,42 +2302,43 @@ gen_server:abcast     -----&gt; Module:handle_cast/2
         <p>If the process does not exist, a <span class="code">noproc</span> exception
           is raised.</p>
       </p></div>
-  
+  </div>
 
-  <h3><a name="idm46007673429344">Callback Functions</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46279764544080">Callback Functions</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The following functions
       are to be exported from a <span class="code">gen_server</span> callback module.</p>
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="Module:code_change-3"></a><span class="bold_code">Module:code_change(OldVsn, State, Extra) -&gt; {ok, NewState} | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">OldVsn = Vsn | {down, Vsn}</span><br>
+<div class="exports-body">
+    <p><a name="Module:code_change-3"></a><span class="bold_code bc-9">Module:code_change(OldVsn, State, Extra) -&gt; {ok, NewState} | {error, Reason}</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">OldVsn = Vsn | {down, Vsn}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">  Vsn = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">  Vsn = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">State = NewState = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">State = NewState = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Extra = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Extra = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function is called by a <span class="code">gen_server</span> process when it is
           to update its internal state during a release upgrade/downgrade,
           that is, when the instruction <span class="code">{update,Module,Change,...}</span>,
           where <span class="code">Change={advanced,Extra}</span>, is specifed in
           the <span class="code">appup</span> file. For more information, see section
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','release_handling.html#instr');">Release Handling Instructions</a></span> in OTP Design Principles.</p>
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','release_handling.html#instr');">Release Handling Instructions</a></span> in OTP Design Principles.</p>
         <p>For an upgrade, <span class="code">OldVsn</span> is <span class="code">Vsn</span>, and
           for a downgrade, <span class="code">OldVsn</span> is
           <span class="code">{down,Vsn}</span>. <span class="code">Vsn</span> is defined by the <span class="code">vsn</span>
@@ -2353,23 +2355,23 @@ gen_server:abcast     -----&gt; Module:handle_cast/2
           upgrade fails and rolls back to the old release.</p>
       </p></div>
 
-    <p><a name="Module:format_status-2"></a><span class="bold_code">Module:format_status(Opt, [PDict, State]) -&gt; Status</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Opt = normal | terminate</span><br>
+    <p><a name="Module:format_status-2"></a><span class="bold_code bc-9">Module:format_status(Opt, [PDict, State]) -&gt; Status</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Opt = normal | terminate</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">PDict = [{Key, Value}]</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">PDict = [{Key, Value}]</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">State = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">State = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Status = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Status = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <div class="note">
 <div class="label">Note</div>
 <div class="content"><p>
@@ -2383,7 +2385,7 @@ gen_server:abcast     -----&gt; Module:handle_cast/2
           following situations:</p>
         <ul>
           <li>
-            <p>One of <span class="bold_code"><a href="sys.html#get_status-1"><span class="code">sys:get_status/1,2</span></a></span>
+            <p>One of <span class="bold_code bc-15"><a href="sys.html#get_status-1"><span class="code">sys:get_status/1,2</span></a></span>
               is invoked to get the <span class="code">gen_server</span> status. <span class="code">Opt</span> is set
               to the atom <span class="code">normal</span>.</p>
           </li>
@@ -2420,50 +2422,50 @@ gen_server:abcast     -----&gt; Module:handle_cast/2
           printed in log files.</p>
       </p></div>
 
-    <p><a name="Module:handle_call-3"></a><span class="bold_code">Module:handle_call(Request, From, State) -&gt; Result</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Request = term()</span><br>
+    <p><a name="Module:handle_call-3"></a><span class="bold_code bc-9">Module:handle_call(Request, From, State) -&gt; Result</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Request = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">From = {pid(),Tag}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">From = {pid(),Tag}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">State = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">State = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Result = {reply,Reply,NewState} | {reply,Reply,NewState,Timeout}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Result = {reply,Reply,NewState} | {reply,Reply,NewState,Timeout}</span><br>
 </div> 
-        <div class="REFTYPES">
-<span class="bold_code">  | {reply,Reply,NewState,hibernate}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">  | {reply,Reply,NewState,hibernate}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">  | {noreply,NewState} | {noreply,NewState,Timeout}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">  | {noreply,NewState} | {noreply,NewState,Timeout}</span><br>
 </div> 
-        <div class="REFTYPES">
-<span class="bold_code">  | {noreply,NewState,hibernate}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">  | {noreply,NewState,hibernate}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">  | {stop,Reason,Reply,NewState} | {stop,Reason,NewState}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">  | {stop,Reason,Reply,NewState} | {stop,Reason,NewState}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Reply = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Reply = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> NewState = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> NewState = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Timeout = int()&gt;=0 | infinity</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Timeout = int()&gt;=0 | infinity</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Whenever a <span class="code">gen_server</span> process receives a request sent using
-          <span class="bold_code"><a href="#call-2"><span class="code">call/2,3</span></a></span> or
-          <span class="bold_code"><a href="#multi_call-2"><span class="code">multi_call/2,3,4</span></a></span>,
+          <span class="bold_code bc-17"><a href="#call-2"><span class="code">call/2,3</span></a></span> or
+          <span class="bold_code bc-17"><a href="#multi_call-2"><span class="code">multi_call/2,3,4</span></a></span>,
           this function is called to handle the request.</p>
         <p><span class="code">Request</span> is the <span class="code">Request</span> argument provided
           to <span class="code">call</span> or <span class="code">multi_call</span>.</p>
@@ -2482,7 +2484,7 @@ gen_server:abcast     -----&gt; Module:handle_cast/2
               continues executing with the possibly updated internal state
               <span class="code">NewState</span>.</p>
             <p>For a description of <span class="code">Timeout</span> and <span class="code">hibernate</span>, see
-              <span class="bold_code"><a href="#Module:init-1"><span class="code">Module:init/1</span></a></span>.</p>
+              <span class="bold_code bc-17"><a href="#Module:init-1"><span class="code">Module:init/1</span></a></span>.</p>
           </li>
           <li>
             <p>If <span class="code">{noreply,NewState}</span> is returned,
@@ -2490,7 +2492,7 @@ gen_server:abcast     -----&gt; Module:handle_cast/2
               <span class="code">{noreply,NewState,hibernate}</span>, the <span class="code">gen_server</span>
               process continues executing with <span class="code">NewState</span>. Any reply to
               <span class="code">From</span> must be specified explicitly using
-              <span class="bold_code"><a href="#reply-2"><span class="code">reply/2</span></a></span>.</p>
+              <span class="bold_code bc-17"><a href="#reply-2"><span class="code">reply/2</span></a></span>.</p>
           </li>
           <li>
             <p>If <span class="code">{stop,Reason,Reply,NewState}</span> is returned,
@@ -2499,114 +2501,114 @@ gen_server:abcast     -----&gt; Module:handle_cast/2
           <li>
             <p>If <span class="code">{stop,Reason,NewState}</span> is returned, any reply
               to <span class="code">From</span> must be specified explicitly using
-              <span class="bold_code"><a href="#reply-2"><span class="code">reply/2</span></a></span>.
+              <span class="bold_code bc-17"><a href="#reply-2"><span class="code">reply/2</span></a></span>.
               The <span class="code">gen_server</span> process then calls
               <span class="code">Module:terminate(Reason,NewState)</span> and terminates.</p>
           </li>
         </ul>
       </p></div>
 
-    <p><a name="Module:handle_cast-2"></a><span class="bold_code">Module:handle_cast(Request, State) -&gt; Result</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Request = term()</span><br>
+    <p><a name="Module:handle_cast-2"></a><span class="bold_code bc-9">Module:handle_cast(Request, State) -&gt; Result</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Request = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">State = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">State = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Result = {noreply,NewState} | {noreply,NewState,Timeout}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Result = {noreply,NewState} | {noreply,NewState,Timeout}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">  | {noreply,NewState,hibernate}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">  | {noreply,NewState,hibernate}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">  | {stop,Reason,NewState}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">  | {stop,Reason,NewState}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> NewState = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> NewState = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Timeout = int()&gt;=0 | infinity</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Timeout = int()&gt;=0 | infinity</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Whenever a <span class="code">gen_server</span> process receives a request sent using
-          <span class="bold_code"><a href="#cast-2"><span class="code">cast/2</span></a></span> or
-          <span class="bold_code"><a href="#abcast-2"><span class="code">abcast/2,3</span></a></span>,
+          <span class="bold_code bc-17"><a href="#cast-2"><span class="code">cast/2</span></a></span> or
+          <span class="bold_code bc-17"><a href="#abcast-2"><span class="code">abcast/2,3</span></a></span>,
           this function is called to handle the request.</p>
         <p>For a description of the arguments and possible return values, see
-          <span class="bold_code"><a href="#Module:handle_call-3"><span class="code">Module:handle_call/3</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#Module:handle_call-3"><span class="code">Module:handle_call/3</span></a></span>.</p>
       </p></div>
 
-    <p><a name="Module:handle_info-2"></a><span class="bold_code">Module:handle_info(Info, State) -&gt; Result</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Info = timeout | term()</span><br>
+    <p><a name="Module:handle_info-2"></a><span class="bold_code bc-9">Module:handle_info(Info, State) -&gt; Result</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Info = timeout | term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">State = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">State = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Result = {noreply,NewState} | {noreply,NewState,Timeout}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Result = {noreply,NewState} | {noreply,NewState,Timeout}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">  | {noreply,NewState,hibernate}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">  | {noreply,NewState,hibernate}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">  | {stop,Reason,NewState}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">  | {stop,Reason,NewState}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> NewState = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> NewState = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Timeout = int()&gt;=0 | infinity</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Timeout = int()&gt;=0 | infinity</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Reason = normal | term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Reason = normal | term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function is called by a <span class="code">gen_server</span> process when a
           time-out occurs or when it receives any other message than a
           synchronous or asynchronous request (or a system message).</p>
         <p><span class="code">Info</span> is either the atom <span class="code">timeout</span>, if a time-out
           has occurred, or the received message.</p>
         <p>For a description of the other arguments and possible return values,
-          see <span class="bold_code"><a href="#Module:handle_call-3"><span class="code">Module:handle_call/3</span></a></span>.</p>
+          see <span class="bold_code bc-17"><a href="#Module:handle_call-3"><span class="code">Module:handle_call/3</span></a></span>.</p>
       </p></div>
 
-    <p><a name="Module:init-1"></a><span class="bold_code">Module:init(Args) -&gt; Result</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Args = term()</span><br>
+    <p><a name="Module:init-1"></a><span class="bold_code bc-9">Module:init(Args) -&gt; Result</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Args = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">Result =  {ok,State} | {ok,State,Timeout} | {ok,State,hibernate}</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Result =  {ok,State} | {ok,State,Timeout} | {ok,State,hibernate}</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> | {stop,Reason} | ignore</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> | {stop,Reason} | ignore</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> State = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> State = term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Timeout = int()&gt;=0 | infinity</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Timeout = int()&gt;=0 | infinity</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Reason = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Reason = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Whenever a <span class="code">gen_server</span> process is started using
-          <span class="bold_code"><a href="#start-3"><span class="code">start/3,4</span></a></span> or
-          <span class="bold_code"><a href="#start_link-3"><span class="code">start_link/3,4</span></a></span>,
+          <span class="bold_code bc-17"><a href="#start-3"><span class="code">start/3,4</span></a></span> or
+          <span class="bold_code bc-17"><a href="#start_link-3"><span class="code">start_link/3,4</span></a></span>,
           this function is called by the new process to initialize.</p>
         <p><span class="code">Args</span> is the <span class="code">Args</span> argument provided to the start
           function.</p>
@@ -2618,32 +2620,32 @@ gen_server:abcast     -----&gt; Module:handle_cast/2
           unless a request or a message is received within
           <span class="code">Timeout</span> milliseconds. A time-out is represented by
           the atom <span class="code">timeout</span>, which is to be handled by the
-          <span class="bold_code"><a href="#Module:handle_info-2"><span class="code">Module:handle_info/2</span></a></span> callback function. The atom
+          <span class="bold_code bc-17"><a href="#Module:handle_info-2"><span class="code">Module:handle_info/2</span></a></span> callback function. The atom
           <span class="code">infinity</span> can be used to wait indefinitely, this is
           the default value.</p>
         <p>If <span class="code">hibernate</span> is specified instead of a time-out value,
           the process goes into
           hibernation when waiting for the next message to arrive (by calling 
-          <span class="bold_code"><a href="proc_lib.html#hibernate-3"><span class="code">proc_lib:hibernate/3</span></a></span>).</p>
+          <span class="bold_code bc-15"><a href="proc_lib.html#hibernate-3"><span class="code">proc_lib:hibernate/3</span></a></span>).</p>
         <p>If the initialization fails, the function is to return
           <span class="code">{stop,Reason}</span>, where <span class="code">Reason</span> is any term, or
           <span class="code">ignore</span>.</p>
       </p></div>
 
-    <p><a name="Module:terminate-2"></a><span class="bold_code">Module:terminate(Reason, State)</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Reason = normal | shutdown | {shutdown,term()} | term()</span><br>
+    <p><a name="Module:terminate-2"></a><span class="bold_code bc-9">Module:terminate(Reason, State)</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = normal | shutdown | {shutdown,term()} | term()</span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code">State = term()</span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">State = term()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function is called by a <span class="code">gen_server</span> process when it is
           about to terminate. It is to be the opposite of
-          <span class="bold_code"><a href="#Module:init-1"><span class="code">Module:init/1</span></a></span>
+          <span class="bold_code bc-17"><a href="#Module:init-1"><span class="code">Module:init/1</span></a></span>
           and do any necessary cleaning up. When it returns,
           the <span class="code">gen_server</span> process terminates with <span class="code">Reason</span>.
           The return value is ignored.</p>
@@ -2678,19 +2680,19 @@ gen_server:abcast     -----&gt; Module:handle_cast/2
           <span class="code">shutdown</span>, or <span class="code">{shutdown,Term}</span>, the <span class="code">gen_server</span>
           process is assumed to terminate because of an error and
           an error report is issued using
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','error_logger.html#format-2');"><span class="code">error_logger:format/2</span></a></span>.</p>
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','error_logger.html#format-2');"><span class="code">error_logger:format/2</span></a></span>.</p>
       </p></div>
-  
+  </div>
 
-  <h3><a name="idm46007673291296">See Also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46279764406032">See Also</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="gen_event.html"><span class="code">gen_event(3)</span></a></span>,
-      <span class="bold_code"><a href="gen_fsm.html"><span class="code">gen_fsm(3)</span></a></span>,
-      <span class="bold_code"><a href="gen_statem.html"><span class="code">gen_statem(3)</span></a></span>,
-      <span class="bold_code"><a href="proc_lib.html"><span class="code">proc_lib(3)</span></a></span>,
-      <span class="bold_code"><a href="supervisor.html"><span class="code">supervisor(3)</span></a></span>,
-      <span class="bold_code"><a href="sys.html"><span class="code">sys(3)</span></a></span></p>
+    <p><span class="bold_code bc-19"><a href="gen_event.html"><span class="code">gen_event(3)</span></a></span>,
+      <span class="bold_code bc-19"><a href="gen_fsm.html"><span class="code">gen_fsm(3)</span></a></span>,
+      <span class="bold_code bc-19"><a href="gen_statem.html"><span class="code">gen_statem(3)</span></a></span>,
+      <span class="bold_code bc-19"><a href="proc_lib.html"><span class="code">proc_lib(3)</span></a></span>,
+      <span class="bold_code bc-19"><a href="supervisor.html"><span class="code">supervisor(3)</span></a></span>,
+      <span class="bold_code bc-19"><a href="sys.html"><span class="code">sys(3)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

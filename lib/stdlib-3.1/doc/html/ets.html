@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">STDLIB</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 3.1</p>
@@ -1717,11 +1717,11 @@
 <!-- refpage --><center><h1>ets</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">ets</div>
+<div class="REFBODY module-body">ets</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Built-in term storage.</div>
+<div class="REFBODY module-summary-body">Built-in term storage.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>This module is an interface to the Erlang built-in term storage
       BIFs. These provide the ability to store very large quantities of
       data in an Erlang runtime system, and to have constant access
@@ -1752,11 +1752,11 @@
       Even if there are no references to a table from any process, it
       is not automatically destroyed unless the owner process
       terminates. To destroy a table explicitly, use function
-      <span class="bold_code"><a href="#delete-1"><span class="code">delete/1</span></a></span>.
+      <span class="bold_code bc-17"><a href="#delete-1"><span class="code">delete/1</span></a></span>.
       The default owner is the process that created the
       table. To transfer table ownership at process termination, use
-      option <span class="bold_code"><a href="#heir"><span class="code">heir</span></a></span> or call
-      <span class="bold_code"><a href="#give_away-3"><span class="code">give_away/3</span></a></span>.</p>
+      option <span class="bold_code bc-17"><a href="#heir"><span class="code">heir</span></a></span> or call
+      <span class="bold_code bc-17"><a href="#give_away-3"><span class="code">give_away/3</span></a></span>.</p>
 
     <p>Some implementation details:</p>
 
@@ -1765,8 +1765,8 @@
        look-up operation results in a copy of the object.</p></li>
       <li><p><span class="code">'$end_of_table'</span> is not to be used as a key, as
        this atom is used to mark the end of the table when using functions
-       <span class="bold_code"><a href="#first-1"><span class="code">first/1</span></a></span> and
-       <span class="bold_code"><a href="#next-2"><span class="code">next/2</span></a></span>.</p></li>
+       <span class="bold_code bc-17"><a href="#first-1"><span class="code">first/1</span></a></span> and
+       <span class="bold_code bc-17"><a href="#next-2"><span class="code">next/2</span></a></span>.</p></li>
     </ul>
 
     <p>Notice the subtle difference between
@@ -1796,20 +1796,20 @@
     </ul>
   </p></div>
 
-  <h3><a name="idm46007675841744">Failure</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46279766956480">Failure</a></h3>
+<div class="REFBODY rb-3">
     
     <p>The functions in this module exits with reason
       <span class="code">badarg</span> if any argument has the wrong format, if the
       table identifier is invalid, or if the operation is denied because of
-      table access rights (<span class="bold_code"><a href="#protected">protected</a></span>
-      or <span class="bold_code"><a href="#private">private</a></span>).</p>
+      table access rights (<span class="bold_code bc-17"><a href="#protected">protected</a></span>
+      or <span class="bold_code bc-17"><a href="#private">private</a></span>).</p>
   </div>
 
   <h3>
-<a name="concurrency"></a><a name="idm46007675837952">Concurrency</a>
+<a name="concurrency"></a><a name="idm46279766952688">Concurrency</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
       <p>This module provides some limited support for concurrent access.
        All updates to single objects are guaranteed to be both <strong>atomic</strong>
@@ -1825,65 +1825,80 @@
 
       <p>No other support is available within this module that would guarantee
        consistency between objects. However, function
-       <span class="bold_code"><a href="#safe_fixtable-2"><span class="code">safe_fixtable/2</span></a></span>
+       <span class="bold_code bc-17"><a href="#safe_fixtable-2"><span class="code">safe_fixtable/2</span></a></span>
        can be used to guarantee that a sequence of
-       <span class="bold_code"><a href="#first-1"><span class="code">first/1</span></a></span> and
-       <span class="bold_code"><a href="#next-2"><span class="code">next/2</span></a></span> calls traverse the
+       <span class="bold_code bc-17"><a href="#first-1"><span class="code">first/1</span></a></span> and
+       <span class="bold_code bc-17"><a href="#next-2"><span class="code">next/2</span></a></span> calls traverse the
        table without errors and that each existing object in the table is
        visited exactly once, even if another (or the same) process
        simultaneously deletes or inserts objects into the table.
        Nothing else is guaranteed; in particular objects that are inserted
        or deleted during such a traversal can be visited once or not at all.
        Functions that internally traverse over a table, like
-       <span class="bold_code"><a href="#select-1"><span class="code">select</span></a></span> and
-       <span class="bold_code"><a href="#match-1"><span class="code">match</span></a></span>,
+       <span class="bold_code bc-17"><a href="#select-1"><span class="code">select</span></a></span> and
+       <span class="bold_code bc-17"><a href="#match-1"><span class="code">match</span></a></span>,
        give the same guarantee as
-       <span class="bold_code"><a href="#safe_fixtable-2"><span class="code">safe_fixtable</span></a></span>.</p>
+       <span class="bold_code bc-17"><a href="#safe_fixtable-2"><span class="code">safe_fixtable</span></a></span>.</p>
   </div>
 
   <h3>
-<a name="match_spec"></a><a name="idm46007675828336">Match Specifications</a>
+<a name="match_spec"></a><a name="idm46279766943072">Match Specifications</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
     <p>Some of the functions use a <strong>match specification</strong>,
       <span class="code">match_spec</span>. For a brief explanation, see
-      <span class="bold_code"><a href="#select-2"><span class="code">select/2</span></a></span>. For a detailed
-      description, see section <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','match_spec.html');">Match Specifications in Erlang</a></span> in ERTS User's Guide.</p>
+      <span class="bold_code bc-17"><a href="#select-2"><span class="code">select/2</span></a></span>. For a detailed
+      description, see section <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','match_spec.html');">Match Specifications in Erlang</a></span> in ERTS User's Guide.</p>
   </div>
 
   <h3><a name="data-types" href="#data-types">Data Types</a></h3>
-    <p>
-      <span class="bold_code"><a name="type-access">access()</a> = public | protected | private</span><br></p>
-    <p><a name="type-continuation"></a><span class="bold_code">continuation()</span><br></p>
-<div class="REFBODY"><p>
-        <p>Opaque continuation used by <span class="bold_code"><a href="#select-1"><span class="code">select/1,3</span></a></span>, <span class="bold_code"><a href="#select_reverse-1"><span class="code">select_reverse/1,3</span></a></span>, <span class="bold_code"><a href="#match-1"><span class="code">match/1,3</span></a></span>, and <span class="bold_code"><a href="#match_object-1"><span class="code">match_object/1,3</span></a></span>.</p>
-      </p></div>
-    <p>
-      <span class="bold_code"><a name="type-match_spec">match_spec()</a> = [{<span class="bold_code"><a href="#type-match_pattern">match_pattern()</a></span>, [term()], [term()]}]</span><br></p>
-<div class="REFBODY"><p><p>A match specification, see above.</p></p></div>
-    <p>
-      <span class="bold_code"><a name="type-comp_match_spec">comp_match_spec()</a></span><br></p>
-<div class="REFBODY"><p><p>A compiled match specification.</p></p></div>
-    <p>
-      <span class="bold_code"><a name="type-match_pattern">match_pattern()</a> = atom() | tuple()</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-tab">tab()</a> = atom() | <span class="bold_code"><a href="#type-tid">tid()</a></span></span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-tid">tid()</a></span><br></p>
-<div class="REFBODY"><p><p>A table identifier, as returned by
-      <span class="bold_code"><a href="#new-2"><span class="code">new/2</span></a></span>.</p></p></div>
-    <p>
-      <span class="bold_code"><a name="type-type">type()</a> = set | ordered_set | bag | duplicate_bag</span><br></p>
-  
+<div class="data-types-body">
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-access">access()</a> = public | protected | private</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+<a name="type-continuation"></a><span class="bold_code bc-8">continuation()</span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p>
+        <p>Opaque continuation used by <span class="bold_code bc-17"><a href="#select-1"><span class="code">select/1,3</span></a></span>, <span class="bold_code bc-17"><a href="#select_reverse-1"><span class="code">select_reverse/1,3</span></a></span>, <span class="bold_code bc-17"><a href="#match-1"><span class="code">match/1,3</span></a></span>, and <span class="bold_code bc-17"><a href="#match_object-1"><span class="code">match_object/1,3</span></a></span>.</p>
+      </p></div></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-match_spec">match_spec()</a> = [{<span class="bold_code bc-17"><a href="#type-match_pattern">match_pattern()</a></span>, [term()], [term()]}]</span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p><p>A match specification, see above.</p></p></div></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-comp_match_spec">comp_match_spec()</a></span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p><p>A compiled match specification.</p></p></div></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-match_pattern">match_pattern()</a> = atom() | tuple()</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-tab">tab()</a> = atom() | <span class="bold_code bc-17"><a href="#type-tid">tid()</a></span></span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-tid">tid()</a></span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p><p>A table identifier, as returned by
+      <span class="bold_code bc-17"><a href="#new-2"><span class="code">new/2</span></a></span>.</p></p></div></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-type">type()</a> = set | ordered_set | bag | duplicate_bag</span><br>
+</div>
+<div class="data-type-desc"></div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="all-0"></a><span class="bold_code">all() -&gt; [Tab]</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
+<div class="exports-body">
+    <p><a name="all-0"></a><span class="bold_code bc-1">all() -&gt; [Tab]</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a list of all tables at the node. Named tables are
           specified by their names, unnamed tables are specified by their
           table identifiers.</p>
@@ -1894,40 +1909,40 @@
           guaranteed to be included/excluded.</p>
       </p></div>
 
-    <p><a name="delete-1"></a><span class="bold_code">delete(Tab) -&gt; true</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
+    <p><a name="delete-1"></a><span class="bold_code bc-1">delete(Tab) -&gt; true</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Deletes the entire table <span class="code">Tab</span>.</p>
       </p></div>
 
-    <p><a name="delete-2"></a><span class="bold_code">delete(Tab, Key) -&gt; true</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Key = term()</span></div>
+    <p><a name="delete-2"></a><span class="bold_code bc-1">delete(Tab, Key) -&gt; true</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Key = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Deletes all objects with key <span class="code">Key</span> from table
           <span class="code">Tab</span>.</p>
       </p></div>
 
-    <p><a name="delete_all_objects-1"></a><span class="bold_code">delete_all_objects(Tab) -&gt; true</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
+    <p><a name="delete_all_objects-1"></a><span class="bold_code bc-1">delete_all_objects(Tab) -&gt; true</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Delete all objects in the ETS table <span class="code">Tab</span>.
           The operation is guaranteed to be
-          <span class="bold_code"><a href="#concurrency">atomic and isolated</a></span>.</p>
+          <span class="bold_code bc-17"><a href="#concurrency">atomic and isolated</a></span>.</p>
       </p></div>
 
-    <p><a name="delete_object-2"></a><span class="bold_code">delete_object(Tab, Object) -&gt; true</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Object = tuple()</span></div>
+    <p><a name="delete_object-2"></a><span class="bold_code bc-1">delete_object(Tab, Object) -&gt; true</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Object = tuple()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Delete the exact object <span class="code">Object</span> from the
           ETS table,
           leaving objects with the same key but other differences
@@ -1935,36 +1950,36 @@
           instances of the object are deleted.</p>
       </p></div>
 
-    <p><a name="file2tab-1"></a><span class="bold_code">file2tab(Filename) -&gt; {ok, Tab} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">file:name()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+    <p><a name="file2tab-1"></a><span class="bold_code bc-1">file2tab(Filename) -&gt; {ok, Tab} | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">file:name()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
-        <p>Reads a file produced by <span class="bold_code"><a href="#tab2file-2"><span class="code">tab2file/2</span></a></span> or 
-          <span class="bold_code"><a href="#tab2file-3"><span class="code">tab2file/3</span></a></span> and
+<div class="REFBODY rb-7"><p>
+        <p>Reads a file produced by <span class="bold_code bc-17"><a href="#tab2file-2"><span class="code">tab2file/2</span></a></span> or 
+          <span class="bold_code bc-17"><a href="#tab2file-3"><span class="code">tab2file/3</span></a></span> and
           creates the corresponding table <span class="code">Tab</span>.</p>
         <p>Equivalent to <span class="code">file2tab(Filename, [])</span>.</p>
       </p></div>
 
-    <p><a name="file2tab-2"></a><span class="bold_code">file2tab(Filename, Options) -&gt; {ok, Tab} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">file:name()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Options = [Option]</span></div>
-<div class="REFTYPES"><span class="bold_code">Option = {verify, boolean()}</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+    <p><a name="file2tab-2"></a><span class="bold_code bc-1">file2tab(Filename, Options) -&gt; {ok, Tab} | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">file:name()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Options = [Option]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Option = {verify, boolean()}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
-        <p>Reads a file produced by <span class="bold_code"><a href="#tab2file-2"><span class="code">tab2file/2</span></a></span> or <span class="bold_code"><a href="#tab2file-3"><span class="code">tab2file/3</span></a></span> and creates the
+<div class="REFBODY rb-7"><p>
+        <p>Reads a file produced by <span class="bold_code bc-17"><a href="#tab2file-2"><span class="code">tab2file/2</span></a></span> or <span class="bold_code bc-17"><a href="#tab2file-3"><span class="code">tab2file/3</span></a></span> and creates the
           corresponding table <span class="code">Tab</span>.</p>
         <p>The only supported option is <span class="code">{verify,boolean()}</span>.
           If verification is turned on (by specifying <span class="code">{verify,true}</span>),
           the function uses whatever information is present in the file to
           assert that the information is not damaged. How this is done depends
           on which <span class="code">extended_info</span> was written using 
-          <span class="bold_code"><a href="#tab2file-3"><span class="code">tab2file/3</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#tab2file-3"><span class="code">tab2file/3</span></a></span>.</p>
         <p>If no <span class="code">extended_info</span> is present in the file and
           <span class="code">{verify,true}</span> is specified, the number of objects
           written is compared to the size of the original table when the
@@ -1973,7 +1988,7 @@
           table was dumped to file. To avoid this problem,
           either do not verify files dumped while updated simultaneously
           or use option <span class="code">{extended_info, [object_count]}</span> to
-          <span class="bold_code"><a href="#tab2file-3"><span class="code">tab2file/3</span></a></span>, which
+          <span class="bold_code bc-17"><a href="#tab2file-3"><span class="code">tab2file/3</span></a></span>, which
           extends the information in the file with the number of objects
           written.</p>
         <p>If verification is turned on and the file was written with
@@ -1982,12 +1997,12 @@
         <p><span class="code">{verify,false}</span> is the default.</p>
       </p></div>
 
-    <p><a name="first-1"></a><span class="bold_code">first(Tab) -&gt; Key | '$end_of_table'</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Key = term()</span></div>
+    <p><a name="first-1"></a><span class="bold_code bc-1">first(Tab) -&gt; Key | '$end_of_table'</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Key = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the first key <span class="code">Key</span> in table
           <span class="code">Tab</span>. For an <span class="code">ordered_set</span> table, the first
           key in Erlang term order is returned. For other
@@ -1995,22 +2010,22 @@
           order of the table is returned. If the table is empty,
           <span class="code">'$end_of_table'</span> is returned.</p>
         <p>To find subsequent keys in the table, use
-          <span class="bold_code"><a href="#next-2"><span class="code">next/2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#next-2"><span class="code">next/2</span></a></span>.</p>
       </p></div>
 
-    <p><a name="foldl-3"></a><span class="bold_code">foldl(Function, Acc0, Tab) -&gt; Acc1</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Function = fun((Element :: term(), AccIn) -&gt; AccOut)</span></div>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Acc0 = Acc1 = AccIn = AccOut = term()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="foldl-3"></a><span class="bold_code bc-1">foldl(Function, Acc0, Tab) -&gt; Acc1</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Function = fun((Element :: term(), AccIn) -&gt; AccOut)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Acc0 = Acc1 = AccIn = AccOut = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p><span class="code">Acc0</span> is returned if the table is empty.
           This function is similar to
-          <span class="bold_code"><a href="lists.html#foldl-3"><span class="code">lists:foldl/3</span></a></span>.
+          <span class="bold_code bc-15"><a href="lists.html#foldl-3"><span class="code">lists:foldl/3</span></a></span>.
           The table elements are traversed is unspecified order, except for
           <span class="code">ordered_set</span> tables, where they are traversed first to last.</p>
         <p>If <span class="code">Function</span> inserts objects into the table,
@@ -2019,19 +2034,19 @@
           (depending on key ordering) be included in the traversal.</p>
       </p></div>
 
-    <p><a name="foldr-3"></a><span class="bold_code">foldr(Function, Acc0, Tab) -&gt; Acc1</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Function = fun((Element :: term(), AccIn) -&gt; AccOut)</span></div>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Acc0 = Acc1 = AccIn = AccOut = term()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="foldr-3"></a><span class="bold_code bc-1">foldr(Function, Acc0, Tab) -&gt; Acc1</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Function = fun((Element :: term(), AccIn) -&gt; AccOut)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Acc0 = Acc1 = AccIn = AccOut = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p><span class="code">Acc0</span> is returned if the table is empty.
           This function is similar to
-          <span class="bold_code"><a href="lists.html#foldr-3"><span class="code">lists:foldr/3</span></a></span>.
+          <span class="bold_code bc-15"><a href="lists.html#foldr-3"><span class="code">lists:foldr/3</span></a></span>.
           The table elements are traversed is unspecified order, except for
           <span class="code">ordered_set</span> tables, where they are traversed last to first.</p>
         <p>If <span class="code">Function</span> inserts objects into the table,
@@ -2040,12 +2055,12 @@
           (depending on key ordering) be included in the traversal.</p>
       </p></div>
 
-    <p><a name="from_dets-2"></a><span class="bold_code">from_dets(Tab, DetsTab) -&gt; true</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">DetsTab = <span class="bold_code"><a href="dets.html#type-tab_name">dets:tab_name()</a></span></span></div>
+    <p><a name="from_dets-2"></a><span class="bold_code bc-1">from_dets(Tab, DetsTab) -&gt; true</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">DetsTab = <span class="bold_code bc-15"><a href="dets.html#type-tab_name">dets:tab_name()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Fills an already created ETS table with the objects in the
           already opened Dets table <span class="code">DetsTab</span>.
           Existing objects in the ETS table are kept unless
@@ -2054,16 +2069,16 @@
           not open, a <span class="code">badarg</span> exception is raised.</p>
       </p></div>
 
-    <p><a name="fun2ms-1"></a><span class="bold_code">fun2ms(LiteralFun) -&gt; MatchSpec</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">LiteralFun = function()</span></div>
-<div class="REFTYPES"><span class="bold_code">MatchSpec = <span class="bold_code"><a href="#type-match_spec">match_spec()</a></span></span></div>
+    <p><a name="fun2ms-1"></a><span class="bold_code bc-1">fun2ms(LiteralFun) -&gt; MatchSpec</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">LiteralFun = function()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">MatchSpec = <span class="bold_code bc-17"><a href="#type-match_spec">match_spec()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Pseudo function that by a <span class="code">parse_transform</span> translates
           <span class="code">LiteralFun</span> typed as parameter in the function
           call to a
-          <span class="bold_code"><a href="#match_spec">match specification</a></span>.
+          <span class="bold_code bc-17"><a href="#match_spec">match specification</a></span>.
           With "literal" is meant that the fun must textually be written
           as the parameter of the function, it cannot be held in a
           variable that in turn is passed to the function.</p>
@@ -2084,14 +2099,14 @@
         <p>The return value is the resulting match specification.</p>
         <p><strong>Example:</strong></p>
         <div class="example"><pre>
-1&gt; <span class="bold_code">ets:fun2ms(fun({M,N}) when N &gt; 3 -&gt; M end).</span>
+1&gt; <span class="bold_code bc-12">ets:fun2ms(fun({M,N}) when N &gt; 3 -&gt; M end).</span>
 [{{'$1','$2'},[{'&gt;','$2',3}],['$1']}]</pre></div>
         <p>Variables from the environment can be imported, so that the
           following works:</p>
         <div class="example"><pre>
-2&gt; <span class="bold_code">X=3.</span>
+2&gt; <span class="bold_code bc-12">X=3.</span>
 3
-3&gt; <span class="bold_code">ets:fun2ms(fun({M,N}) when N &gt; X -&gt; M end).</span>
+3&gt; <span class="bold_code bc-12">ets:fun2ms(fun({M,N}) when N &gt; X -&gt; M end).</span>
 [{{'$1','$2'},[{'&gt;','$2',{const,3}}],['$1']}]</pre></div>
         <p>The imported variables are replaced by match specification
           <span class="code">const</span> expressions, which is consistent with the
@@ -2099,11 +2114,11 @@
           calls cannot be in the guard or body of the fun. Calls to built-in
           match specification functions is of course allowed:</p>
         <div class="example"><pre>
-4&gt; <span class="bold_code">ets:fun2ms(fun({M,N}) when N &gt; X, is_atomm(M) -&gt; M end).</span>
+4&gt; <span class="bold_code bc-12">ets:fun2ms(fun({M,N}) when N &gt; X, is_atomm(M) -&gt; M end).</span>
 Error: fun containing local Erlang function calls
 ('is_atomm' called in guard) cannot be translated into match_spec
 {error,transform_error}
-5&gt; <span class="bold_code">ets:fun2ms(fun({M,N}) when N &gt; X, is_atom(M) -&gt; M end).</span>
+5&gt; <span class="bold_code bc-12">ets:fun2ms(fun({M,N}) when N &gt; X, is_atom(M) -&gt; M end).</span>
 [{{'$1','$2'},[{'&gt;','$2',{const,3}},{is_atom,'$1'}],['$1']}]</pre></div>
         <p>As shown by the example, the function can be called
           from the shell also. The fun must be literally in the call
@@ -2122,16 +2137,16 @@ Error: fun containing local Erlang function calls
             replaced by a literal match specification.</p>
         </p></div>
 </div>
-        <p>For more information, see <span class="bold_code"><a href="ms_transform.html#top"><span class="code">ms_transform(3)</span></a></span>.</p>
+        <p>For more information, see <span class="bold_code bc-15"><a href="ms_transform.html#top"><span class="code">ms_transform(3)</span></a></span>.</p>
       </p></div>
 
-    <p><a name="give_away-3"></a><span class="bold_code">give_away(Tab, Pid, GiftData) -&gt; true</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Pid = pid()</span></div>
-<div class="REFTYPES"><span class="bold_code">GiftData = term()</span></div>
+    <p><a name="give_away-3"></a><span class="bold_code bc-1">give_away(Tab, Pid, GiftData) -&gt; true</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Pid = pid()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">GiftData = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Make process <span class="code">Pid</span> the new owner of table
           <span class="code">Tab</span>. If successful, message
           <span class="code">{'ETS-TRANSFER',Tab,FromPid,GiftData}</span>
@@ -2140,31 +2155,31 @@ Error: fun containing local Erlang function calls
           already the owner of the table.
           The calling process must be the table owner.</p>
         <p>Notice that this function does not affect option
-          <span class="bold_code"><a href="#heir"><span class="code">heir</span></a></span> of the table. A table
+          <span class="bold_code bc-17"><a href="#heir"><span class="code">heir</span></a></span> of the table. A table
           owner can, for example, set <span class="code">heir</span> to itself, give the table
           away, and then get it back if the receiver terminates.</p>
       </p></div>
 
-    <p><a name="i-0"></a><span class="bold_code">i() -&gt; ok</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="i-0"></a><span class="bold_code bc-1">i() -&gt; ok</span></p>
+<div class="REFBODY rb-7"><p>
         <p>Displays information about all ETS tables on a terminal.</p>
       </p></div>
 
-    <p><a name="i-1"></a><span class="bold_code">i(Tab) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
+    <p><a name="i-1"></a><span class="bold_code bc-1">i(Tab) -&gt; ok</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Browses table <span class="code">Tab</span> on a terminal.</p>
       </p></div>
 
-    <p><a name="info-1"></a><span class="bold_code">info(Tab) -&gt; InfoList | undefined</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">InfoList = [InfoTuple]</span></div>
-<div class="REFTYPES"><span class="bold_code">InfoTuple = <br>    {compressed, boolean()} |<br>    {heir, pid() | none} |<br>    {keypos, integer() &gt;= 1} |<br>    {memory, integer() &gt;= 0} |<br>    {name, atom()} |<br>    {named_table, boolean()} |<br>    {node, node()} |<br>    {owner, pid()} |<br>    {protection, <span class="bold_code"><a href="#type-access">access()</a></span>} |<br>    {size, integer() &gt;= 0} |<br>    {type, <span class="bold_code"><a href="#type-type">type()</a></span>} |<br>    {write_concurrency, boolean()} |<br>    {read_concurrency, boolean()}</span></div>
+    <p><a name="info-1"></a><span class="bold_code bc-1">info(Tab) -&gt; InfoList | undefined</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">InfoList = [InfoTuple]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">InfoTuple = <br>    {compressed, boolean()} |<br>    {heir, pid() | none} |<br>    {keypos, integer() &gt;= 1} |<br>    {memory, integer() &gt;= 0} |<br>    {name, atom()} |<br>    {named_table, boolean()} |<br>    {node, node()} |<br>    {owner, pid()} |<br>    {protection, <span class="bold_code bc-17"><a href="#type-access">access()</a></span>} |<br>    {size, integer() &gt;= 0} |<br>    {type, <span class="bold_code bc-17"><a href="#type-type">type()</a></span>} |<br>    {write_concurrency, boolean()} |<br>    {read_concurrency, boolean()}</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns information about table <span class="code">Tab</span> as a list of
           tuples. If <span class="code">Tab</span> has the correct type
           for a table identifier, but does not refer to an existing ETS
@@ -2205,7 +2220,7 @@ Error: fun containing local Erlang function calls
           <dd>
             <p>The pid of the owner of the table.</p>
           </dd>
-          <dt><strong><span class="code">{protection,</span> <span class="bold_code"><a href="#type-access"><span class="code">access()</span></a></span><span class="code">}</span></strong></dt>
+          <dt><strong><span class="code">{protection,</span> <span class="bold_code bc-17"><a href="#type-access"><span class="code">access()</span></a></span><span class="code">}</span></strong></dt>
           <dd>
             <p>The table access rights.</p>
           </dd>
@@ -2213,7 +2228,7 @@ Error: fun containing local Erlang function calls
           <dd>
             <p>The number of objects inserted in the table.</p>
           </dd>
-          <dt><strong><span class="code">{type,</span> <span class="bold_code"><a href="#type-type"><span class="code">type()</span></a></span><span class="code">}</span></strong></dt>
+          <dt><strong><span class="code">{type,</span> <span class="bold_code bc-17"><a href="#type-type"><span class="code">type()</span></a></span><span class="code">}</span></strong></dt>
           <dd>
             <p>The table type.</p>
           </dd>
@@ -2229,13 +2244,13 @@ Error: fun containing local Erlang function calls
         </dl>
       </p></div>
 
-    <p><a name="info-2"></a><span class="bold_code">info(Tab, Item) -&gt; Value | undefined</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Item = <br>    compressed |<br>    fixed |<br>    heir |<br>    keypos |<br>    memory |<br>    name |<br>    named_table |<br>    node |<br>    owner |<br>    protection |<br>    safe_fixed |<br>    safe_fixed_monotonic_time |<br>    size |<br>    stats |<br>    type |<br>    write_concurrency |<br>    read_concurrency</span></div>
-<div class="REFTYPES"><span class="bold_code">Value = term()</span></div>
+    <p><a name="info-2"></a><span class="bold_code bc-1">info(Tab, Item) -&gt; Value | undefined</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Item = <br>    compressed |<br>    fixed |<br>    heir |<br>    keypos |<br>    memory |<br>    name |<br>    named_table |<br>    node |<br>    owner |<br>    protection |<br>    safe_fixed |<br>    safe_fixed_monotonic_time |<br>    size |<br>    stats |<br>    type |<br>    write_concurrency |<br>    read_concurrency</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Value = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the information associated with <span class="code">Item</span> for table
           <span class="code">Tab</span>, or returns <span class="code">undefined</span> if <span class="code">Tab</span>
           does not refer an existing ETS table. If
@@ -2250,7 +2265,7 @@ Error: fun containing local Erlang function calls
         </p></div>
 </div>
           <p>In addition to the <span class="code">{Item,Value}</span>
-            pairs defined for <span class="bold_code"><a href="#info-1"><span class="code">info/1</span></a></span>,
+            pairs defined for <span class="bold_code bc-17"><a href="#info-1"><span class="code">info/1</span></a></span>,
             the following items are allowed:</p>
         <ul>
           <li>
@@ -2262,7 +2277,7 @@ Error: fun containing local Erlang function calls
             <p><span class="code">Item=safe_fixed|safe_fixed_monotonic_time,
               Value={FixationTime,Info}|false</span></p>
             <p>If the table has been fixed using
-              <span class="bold_code"><a href="#safe_fixtable-2"><span class="code">safe_fixtable/2</span></a></span>,
+              <span class="bold_code bc-17"><a href="#safe_fixtable-2"><span class="code">safe_fixtable/2</span></a></span>,
               the call returns a tuple where <span class="code">FixationTime</span> is the
               time when the table was first fixed by a process, which either
               is or is not one of the processes it is fixed by now.</p>
@@ -2272,19 +2287,19 @@ Error: fun containing local Erlang function calls
               <dt><strong><span class="code">safe_fixed</span></strong></dt>
               <dd>
                 <p><span class="code">FixationTime</span> corresponds to the result returned by
-                  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#timestamp-0');"><span class="code">erlang:timestamp/0</span></a></span> at the time of fixation.
+                  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#timestamp-0');"><span class="code">erlang:timestamp/0</span></a></span> at the time of fixation.
                   Notice that when the system uses single or multi
-                  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','time_correction.html#Time_Warp_Modes');">time warp modes</a></span> this can produce strange results, as
+                  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','time_correction.html#Time_Warp_Modes');">time warp modes</a></span> this can produce strange results, as
                   the use of <span class="code">safe_fixed</span> is not
-                  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','time_correction.html#Time_Warp_Safe_Code');">time warp safe</a></span>. Time warp safe code must use
+                  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','time_correction.html#Time_Warp_Safe_Code');">time warp safe</a></span>. Time warp safe code must use
                   <span class="code">safe_fixed_monotonic_time</span> instead.</p>
               </dd>
               <dt><strong><span class="code">safe_fixed_monotonic_time</span></strong></dt>
               <dd>
                 <p><span class="code">FixationTime</span> corresponds to the result returned by
-                  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#monotonic_time-0');"><span class="code">erlang:monotonic_time/0</span></a></span> at the time of
+                  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#monotonic_time-0');"><span class="code">erlang:monotonic_time/0</span></a></span> at the time of
                   fixation. The use of <span class="code">safe_fixed_monotonic_time</span> is
-                  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','time_correction.html#Time_Warp_Safe_Code');">time warp safe</a></span>.</p>
+                  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','time_correction.html#Time_Warp_Safe_Code');">time warp safe</a></span>.</p>
               </dd>
             </dl>
             <p><span class="code">Info</span> is a possibly empty lists of tuples
@@ -2304,21 +2319,21 @@ Error: fun containing local Erlang function calls
         </ul>
       </p></div>
 
-    <p><a name="init_table-2"></a><span class="bold_code">init_table(Tab, InitFun) -&gt; true</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">InitFun = fun((Arg) -&gt; Res)</span></div>
-<div class="REFTYPES"><span class="bold_code">Arg = read | close</span></div>
-<div class="REFTYPES"><span class="bold_code">Res = end_of_input | {Objects :: [term()], InitFun} | term()</span></div>
+    <p><a name="init_table-2"></a><span class="bold_code bc-1">init_table(Tab, InitFun) -&gt; true</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">InitFun = fun((Arg) -&gt; Res)</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Arg = read | close</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Res = end_of_input | {Objects :: [term()], InitFun} | term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Replaces the existing objects of table <span class="code">Tab</span> with
           objects created by calling the input function
           <span class="code">InitFun</span>,
           see below. This function is provided for compatibility with
           the <span class="code">dets</span> module, it is not more efficient than filling
           a table by using
-          <span class="bold_code"><a href="#insert-2"><span class="code">insert/2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#insert-2"><span class="code">insert/2</span></a></span>.</p>
         <p>When called with argument <span class="code">read</span>, the function
           <span class="code">InitFun</span> is assumed to return
           <span class="code">end_of_input</span> when
@@ -2337,12 +2352,12 @@ Error: fun containing local Erlang function calls
           objects stored in tables of type <span class="code">bag</span>.</p>
       </p></div>
 
-    <p><a name="insert-2"></a><span class="bold_code">insert(Tab, ObjectOrObjects) -&gt; true</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">ObjectOrObjects = tuple() | [tuple()]</span></div>
+    <p><a name="insert-2"></a><span class="bold_code bc-1">insert(Tab, ObjectOrObjects) -&gt; true</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">ObjectOrObjects = tuple() | [tuple()]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Inserts the object or all of the objects in list
           <span class="code">ObjectOrObjects</span> into table
           <span class="code">Tab</span>.</p>
@@ -2366,17 +2381,17 @@ Error: fun containing local Erlang function calls
           </li>
         </ul>
         <p>The entire operation is guaranteed to be
-          <span class="bold_code"><a href="#concurrency">atomic and isolated</a></span>,
+          <span class="bold_code bc-17"><a href="#concurrency">atomic and isolated</a></span>,
           even when a list of objects is inserted.</p>
       </p></div>
 
-    <p><a name="insert_new-2"></a><span class="bold_code">insert_new(Tab, ObjectOrObjects) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">ObjectOrObjects = tuple() | [tuple()]</span></div>
+    <p><a name="insert_new-2"></a><span class="bold_code bc-1">insert_new(Tab, ObjectOrObjects) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">ObjectOrObjects = tuple() | [tuple()]</span></div>
 </div></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="#insert-2"><span class="code">insert/2</span></a></span>
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-17"><a href="#insert-2"><span class="code">insert/2</span></a></span>
           except that instead of overwriting objects with the same key
           (for <span class="code">set</span> or <span class="code">ordered_set</span>) or adding more objects with
           keys already existing in the table (for <span class="code">bag</span> and
@@ -2386,16 +2401,16 @@ Error: fun containing local Erlang function calls
           inserting anything. Nothing is inserted unless
           <strong>all</strong> keys present in the list are absent from the
           table. Like <span class="code">insert/2</span>, the entire operation is guaranteed to be
-          <span class="bold_code"><a href="#concurrency">atomic and isolated</a></span>.</p>
+          <span class="bold_code bc-17"><a href="#concurrency">atomic and isolated</a></span>.</p>
       </p></div>
 
-    <p><a name="is_compiled_ms-1"></a><span class="bold_code">is_compiled_ms(Term) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Term = term()</span></div>
+    <p><a name="is_compiled_ms-1"></a><span class="bold_code bc-1">is_compiled_ms(Term) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Term = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Checks if a term is a valid
-          compiled <span class="bold_code"><a href="#match_spec">match specification</a></span>.
+          compiled <span class="bold_code bc-17"><a href="#match_spec">match specification</a></span>.
           The compiled match specification is an opaque datatype that
           <strong>cannot</strong> be sent between Erlang nodes or be stored on
           disk. Any attempt to create an external representation of a
@@ -2423,28 +2438,28 @@ ets:is_compiled_ms(Broken).</pre></div>
 </div>
       </p></div>
 
-    <p><a name="last-1"></a><span class="bold_code">last(Tab) -&gt; Key | '$end_of_table'</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Key = term()</span></div>
+    <p><a name="last-1"></a><span class="bold_code bc-1">last(Tab) -&gt; Key | '$end_of_table'</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Key = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the last key <span class="code">Key</span> according to Erlang
           term order in table <span class="code">Tab</span> of type <span class="code">ordered_set</span>. For
           other table types, the function is synonymous to
-          <span class="bold_code"><a href="#first-1"><span class="code">first/1</span></a></span>.
+          <span class="bold_code bc-17"><a href="#first-1"><span class="code">first/1</span></a></span>.
           If the table is empty, <span class="code">'$end_of_table'</span> is returned.</p>
         <p>To find preceding keys in the table, use
-          <span class="bold_code"><a href="#prev-2"><span class="code">prev/2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#prev-2"><span class="code">prev/2</span></a></span>.</p>
       </p></div>
 
-    <p><a name="lookup-2"></a><span class="bold_code">lookup(Tab, Key) -&gt; [Object]</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Key = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Object = tuple()</span></div>
+    <p><a name="lookup-2"></a><span class="bold_code bc-1">lookup(Tab, Key) -&gt; [Object]</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Key = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Object = tuple()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a list of all objects with key <span class="code">Key</span> in
           table <span class="code">Tab</span>.</p>
         <ul>
@@ -2479,14 +2494,14 @@ ets:is_compiled_ms(Broken).</pre></div>
           the number of objects.</p>
       </p></div>
 
-    <p><a name="lookup_element-3"></a><span class="bold_code">lookup_element(Tab, Key, Pos) -&gt; Elem</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Key = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Pos = integer() &gt;= 1</span></div>
-<div class="REFTYPES"><span class="bold_code">Elem = term() | [term()]</span></div>
+    <p><a name="lookup_element-3"></a><span class="bold_code bc-1">lookup_element(Tab, Key, Pos) -&gt; Elem</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Key = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Pos = integer() &gt;= 1</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Elem = term() | [term()]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>For a table <span class="code">Tab</span> of type <span class="code">set</span> or
           <span class="code">ordered_set</span>, the function returns the
           <span class="code">Pos</span>:th
@@ -2504,14 +2519,14 @@ ets:is_compiled_ms(Broken).</pre></div>
           they <strong>match</strong>, holds for <span class="code">lookup_element/3</span>.</p>
       </p></div>
 
-    <p><a name="match-1"></a><span class="bold_code">match(Continuation) -&gt; {[Match], Continuation} | '$end_of_table'</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Match = [term()]</span></div>
-<div class="REFTYPES"><span class="bold_code">Continuation = <span class="bold_code"><a href="#type-continuation">continuation()</a></span></span></div>
+    <p><a name="match-1"></a><span class="bold_code bc-1">match(Continuation) -&gt; {[Match], Continuation} | '$end_of_table'</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Match = [term()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Continuation = <span class="bold_code bc-17"><a href="#type-continuation">continuation()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Continues a match started with
-          <span class="bold_code"><a href="#match-3"><span class="code">match/3</span></a></span>. The next
+          <span class="bold_code bc-17"><a href="#match-3"><span class="code">match/3</span></a></span>. The next
           chunk of the size specified in the initial <span class="code">match/3</span>
           call is returned together with a new <span class="code">Continuation</span>,
           which can be used in subsequent calls to this function.</p>
@@ -2519,13 +2534,13 @@ ets:is_compiled_ms(Broken).</pre></div>
           is returned.</p>
       </p></div>
 
-    <p><a name="match-2"></a><span class="bold_code">match(Tab, Pattern) -&gt; [Match]</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Pattern = <span class="bold_code"><a href="#type-match_pattern">match_pattern()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Match = [term()]</span></div>
+    <p><a name="match-2"></a><span class="bold_code bc-1">match(Tab, Pattern) -&gt; [Match]</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Pattern = <span class="bold_code bc-17"><a href="#type-match_pattern">match_pattern()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Match = [term()]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Matches the objects in table <span class="code">Tab</span> against
           pattern <span class="code">Pattern</span>.</p>
         <p>A pattern is a term that can contain:</p>
@@ -2539,11 +2554,11 @@ ets:is_compiled_ms(Broken).</pre></div>
           matching object, where each element is an ordered list of
           pattern variable bindings, for example:</p>
         <div class="example"><pre>
-6&gt; <span class="bold_code">ets:match(T, '$1').</span> % Matches every object in table
+6&gt; <span class="bold_code bc-12">ets:match(T, '$1').</span> % Matches every object in table
 [[{rufsen,dog,7}],[{brunte,horse,5}],[{ludde,dog,5}]]
-7&gt; <span class="bold_code">ets:match(T, {'_',dog,'$1'}).</span>
+7&gt; <span class="bold_code bc-12">ets:match(T, {'_',dog,'$1'}).</span>
 [[7],[5]]
-8&gt; <span class="bold_code">ets:match(T, {'_',cow,'$1'}).</span>
+8&gt; <span class="bold_code bc-12">ets:match(T, {'_',cow,'$1'}).</span>
 []</pre></div>
         <p>If the key is specified in the pattern, the match is very
           efficient. If the key is not specified, that is, if it is a
@@ -2553,46 +2568,46 @@ ets:is_compiled_ms(Broken).</pre></div>
           the same order as in a <span class="code">first</span>/<span class="code">next</span> traversal.</p>
       </p></div>
 
-    <p><a name="match-3"></a><span class="bold_code">match(Tab, Pattern, Limit) -&gt;<br>         {[Match], Continuation} | '$end_of_table'</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Pattern = <span class="bold_code"><a href="#type-match_pattern">match_pattern()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Limit = integer() &gt;= 1</span></div>
-<div class="REFTYPES"><span class="bold_code">Match = [term()]</span></div>
-<div class="REFTYPES"><span class="bold_code">Continuation = <span class="bold_code"><a href="#type-continuation">continuation()</a></span></span></div>
+    <p><a name="match-3"></a><span class="bold_code bc-1">match(Tab, Pattern, Limit) -&gt;<br>         {[Match], Continuation} | '$end_of_table'</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Pattern = <span class="bold_code bc-17"><a href="#type-match_pattern">match_pattern()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Limit = integer() &gt;= 1</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Match = [term()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Continuation = <span class="bold_code bc-17"><a href="#type-continuation">continuation()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
-        <p>Works like <span class="bold_code"><a href="#match-2"><span class="code">match/2</span></a></span>, 
+<div class="REFBODY rb-7"><p>
+        <p>Works like <span class="bold_code bc-17"><a href="#match-2"><span class="code">match/2</span></a></span>, 
           but returns only a limited (<span class="code">Limit</span>) number of
           matching objects. Term <span class="code">Continuation</span> can then
-          be used in subsequent calls to <span class="bold_code"><a href="#match-1"><span class="code">match/1</span></a></span> to get the next chunk of matching
+          be used in subsequent calls to <span class="bold_code bc-17"><a href="#match-1"><span class="code">match/1</span></a></span> to get the next chunk of matching
           objects. This is a space-efficient way to work on objects in a
           table, which is faster than traversing the table object
           by object using
-          <span class="bold_code"><a href="#first-1"><span class="code">first/1</span></a></span> and
-          <span class="bold_code"><a href="#next-2"><span class="code">next/2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#first-1"><span class="code">first/1</span></a></span> and
+          <span class="bold_code bc-17"><a href="#next-2"><span class="code">next/2</span></a></span>.</p>
         <p>If the table is empty, <span class="code">'$end_of_table'</span> is returned.</p>
       </p></div>
 
-    <p><a name="match_delete-2"></a><span class="bold_code">match_delete(Tab, Pattern) -&gt; true</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Pattern = <span class="bold_code"><a href="#type-match_pattern">match_pattern()</a></span></span></div>
+    <p><a name="match_delete-2"></a><span class="bold_code bc-1">match_delete(Tab, Pattern) -&gt; true</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Pattern = <span class="bold_code bc-17"><a href="#type-match_pattern">match_pattern()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Deletes all objects that match pattern <span class="code">Pattern</span>
           from table <span class="code">Tab</span>. For a description of patterns,
-          see <span class="bold_code"><a href="#match-2"><span class="code">match/2</span></a></span>.</p>
+          see <span class="bold_code bc-17"><a href="#match-2"><span class="code">match/2</span></a></span>.</p>
       </p></div>
 
-    <p><a name="match_object-1"></a><span class="bold_code">match_object(Continuation) -&gt;<br>                {[Object], Continuation} | '$end_of_table'</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Object = tuple()</span></div>
-<div class="REFTYPES"><span class="bold_code">Continuation = <span class="bold_code"><a href="#type-continuation">continuation()</a></span></span></div>
+    <p><a name="match_object-1"></a><span class="bold_code bc-1">match_object(Continuation) -&gt;<br>                {[Object], Continuation} | '$end_of_table'</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Object = tuple()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Continuation = <span class="bold_code bc-17"><a href="#type-continuation">continuation()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Continues a match started with
-          <span class="bold_code"><a href="#match_object-3"><span class="code">match_object/3</span></a></span>.
+          <span class="bold_code bc-17"><a href="#match_object-3"><span class="code">match_object/3</span></a></span>.
           The next chunk of the size specified in the initial
           <span class="code">match_object/3</span> call is returned together with a new
           <span class="code">Continuation</span>, which can be used in subsequent
@@ -2601,16 +2616,16 @@ ets:is_compiled_ms(Broken).</pre></div>
           is returned.</p>
       </p></div>
 
-    <p><a name="match_object-2"></a><span class="bold_code">match_object(Tab, Pattern) -&gt; [Object]</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Pattern = <span class="bold_code"><a href="#type-match_pattern">match_pattern()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Object = tuple()</span></div>
+    <p><a name="match_object-2"></a><span class="bold_code bc-1">match_object(Tab, Pattern) -&gt; [Object]</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Pattern = <span class="bold_code bc-17"><a href="#type-match_pattern">match_pattern()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Object = tuple()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Matches the objects in table <span class="code">Tab</span> against
           pattern <span class="code">Pattern</span>. For a description of patterns,
-          see <span class="bold_code"><a href="#match-2"><span class="code">match/2</span></a></span>.
+          see <span class="bold_code bc-17"><a href="#match-2"><span class="code">match/2</span></a></span>.
           The function returns a list of all objects that
           match the pattern.</p>
         <p>If the key is specified in the pattern, the match is very
@@ -2621,44 +2636,44 @@ ets:is_compiled_ms(Broken).</pre></div>
           the same order as in a <span class="code">first</span>/<span class="code">next</span> traversal.</p>
       </p></div>
 
-    <p><a name="match_object-3"></a><span class="bold_code">match_object(Tab, Pattern, Limit) -&gt;<br>                {[Object], Continuation} | '$end_of_table'</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Pattern = <span class="bold_code"><a href="#type-match_pattern">match_pattern()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Limit = integer() &gt;= 1</span></div>
-<div class="REFTYPES"><span class="bold_code">Object = tuple()</span></div>
-<div class="REFTYPES"><span class="bold_code">Continuation = <span class="bold_code"><a href="#type-continuation">continuation()</a></span></span></div>
+    <p><a name="match_object-3"></a><span class="bold_code bc-1">match_object(Tab, Pattern, Limit) -&gt;<br>                {[Object], Continuation} | '$end_of_table'</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Pattern = <span class="bold_code bc-17"><a href="#type-match_pattern">match_pattern()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Limit = integer() &gt;= 1</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Object = tuple()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Continuation = <span class="bold_code bc-17"><a href="#type-continuation">continuation()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
-        <p>Works like <span class="bold_code"><a href="#match_object-2"><span class="code">match_object/2</span></a></span>, but only returns a
+<div class="REFBODY rb-7"><p>
+        <p>Works like <span class="bold_code bc-17"><a href="#match_object-2"><span class="code">match_object/2</span></a></span>, but only returns a
           limited (<span class="code">Limit</span>) number of matching objects. Term
           <span class="code">Continuation</span> can then be used in subsequent
-          calls to <span class="bold_code"><a href="#match_object-1"><span class="code">match_object/1</span></a></span> to get the next chunk of matching
+          calls to <span class="bold_code bc-17"><a href="#match_object-1"><span class="code">match_object/1</span></a></span> to get the next chunk of matching
           objects. This is a space-efficient way to work on objects in a
           table, which is faster than traversing the table object
           by object using
-          <span class="bold_code"><a href="#first-1"><span class="code">first/1</span></a></span> and
-          <span class="bold_code"><a href="#next-2"><span class="code">next/2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#first-1"><span class="code">first/1</span></a></span> and
+          <span class="bold_code bc-17"><a href="#next-2"><span class="code">next/2</span></a></span>.</p>
         <p>If the table is empty, <span class="code">'$end_of_table'</span> is returned.</p>
       </p></div>
 
-    <p><a name="match_spec_compile-1"></a><span class="bold_code">match_spec_compile(MatchSpec) -&gt; CompiledMatchSpec</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">MatchSpec = <span class="bold_code"><a href="#type-match_spec">match_spec()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">CompiledMatchSpec = <span class="bold_code"><a href="#type-comp_match_spec">comp_match_spec()</a></span></span></div>
+    <p><a name="match_spec_compile-1"></a><span class="bold_code bc-1">match_spec_compile(MatchSpec) -&gt; CompiledMatchSpec</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">MatchSpec = <span class="bold_code bc-17"><a href="#type-match_spec">match_spec()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">CompiledMatchSpec = <span class="bold_code bc-17"><a href="#type-comp_match_spec">comp_match_spec()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Transforms a
-          <span class="bold_code"><a href="#match_spec">match specification</a></span> into an
+          <span class="bold_code bc-17"><a href="#match_spec">match specification</a></span> into an
           internal representation that can be used in subsequent calls to
-          <span class="bold_code"><a href="#match_spec_run-2"><span class="code">match_spec_run/2</span></a></span>.
+          <span class="bold_code bc-17"><a href="#match_spec_run-2"><span class="code">match_spec_run/2</span></a></span>.
           The internal representation is
           opaque and cannot be converted to external term format and
           then back again without losing its properties (that is, it cannot
           be sent to a process on another node and still remain a
           valid compiled match specification, nor can it be stored on disk).
           To check the validity of a compiled match specification, use
-          <span class="bold_code"><a href="#is_compiled_ms-1"><span class="code">is_compiled_ms/1</span></a></span>.
+          <span class="bold_code bc-17"><a href="#is_compiled_ms-1"><span class="code">is_compiled_ms/1</span></a></span>.
         </p>
         <p>If term <span class="code">MatchSpec</span> cannot be compiled (does not
           represent a valid match specification), a <span class="code">badarg</span> exception is
@@ -2667,22 +2682,22 @@ ets:is_compiled_ms(Broken).</pre></div>
 <div class="label">Note</div>
 <div class="content"><p>
           <p>This function has limited use in normal code. It is used by the
-            <span class="bold_code"><a href="dets.html"><span class="code">dets</span></a></span> module
+            <span class="bold_code bc-19"><a href="dets.html"><span class="code">dets</span></a></span> module
             to perform the <span class="code">dets:select()</span> operations.</p>
         </p></div>
 </div>
       </p></div>
 
-    <p><a name="match_spec_run-2"></a><span class="bold_code">match_spec_run(List, CompiledMatchSpec) -&gt; list()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">List = [tuple()]</span></div>
-<div class="REFTYPES"><span class="bold_code">CompiledMatchSpec = <span class="bold_code"><a href="#type-comp_match_spec">comp_match_spec()</a></span></span></div>
+    <p><a name="match_spec_run-2"></a><span class="bold_code bc-1">match_spec_run(List, CompiledMatchSpec) -&gt; list()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">List = [tuple()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">CompiledMatchSpec = <span class="bold_code bc-17"><a href="#type-comp_match_spec">comp_match_spec()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Executes the matching specified in a compiled
-          <span class="bold_code"><a href="#match_spec">match specification</a></span> on a list
+          <span class="bold_code bc-17"><a href="#match_spec">match specification</a></span> on a list
           of tuples. Term <span class="code">CompiledMatchSpec</span> is to be
-          the result of a call to <span class="bold_code"><a href="#match_spec_compile-1"><span class="code">match_spec_compile/1</span></a></span> and is hence the internal
+          the result of a call to <span class="bold_code bc-17"><a href="#match_spec_compile-1"><span class="code">match_spec_compile/1</span></a></span> and is hence the internal
           representation of the match specification one wants to use.</p>
         <p>The matching is executed on each element in <span class="code">List</span>
           and the function returns a list containing all results. If an element
@@ -2705,37 +2720,37 @@ ets:select(Table, MatchSpec),</pre></div>
 <div class="label">Note</div>
 <div class="content"><p>
           <p>This function has limited use in normal code. It is used by the
-            <span class="bold_code"><a href="dets.html"><span class="code">dets</span></a></span> module
+            <span class="bold_code bc-19"><a href="dets.html"><span class="code">dets</span></a></span> module
             to perform the <span class="code">dets:select()</span> operations and by
             Mnesia during transactions.</p>
         </p></div>
 </div>
       </p></div>
 
-    <p><a name="member-2"></a><span class="bold_code">member(Tab, Key) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Key = term()</span></div>
+    <p><a name="member-2"></a><span class="bold_code bc-1">member(Tab, Key) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Key = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
-        <p>Works like <span class="bold_code"><a href="#lookup-2"><span class="code">lookup/2</span></a></span>,
+<div class="REFBODY rb-7"><p>
+        <p>Works like <span class="bold_code bc-17"><a href="#lookup-2"><span class="code">lookup/2</span></a></span>,
           but does not return the objects. Returns <span class="code">true</span> if one or more
           elements in the table has key <span class="code">Key</span>, otherwise
           <span class="code">false</span>.</p>
       </p></div>
 
-    <p><a name="new-2"></a><span class="bold_code">new(Name, Options) -&gt; <span class="bold_code"><a href="#type-tid">tid()</a></span> | atom()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Options = [Option]</span></div>
-<div class="REFTYPES"><span class="bold_code">Option = <br>    Type |<br>    Access |<br>    named_table |<br>    {keypos, Pos} |<br>    {heir, Pid :: pid(), HeirData} |<br>    {heir, none} |<br>    Tweaks</span></div>
-<div class="REFTYPES"><span class="bold_code">Type = <span class="bold_code"><a href="#type-type">type()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Access = <span class="bold_code"><a href="#type-access">access()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Tweaks = <br>    {write_concurrency, boolean()} |<br>    {read_concurrency, boolean()} |<br>    compressed</span></div>
-<div class="REFTYPES"><span class="bold_code">Pos = integer() &gt;= 1</span></div>
-<div class="REFTYPES"><span class="bold_code">HeirData = term()</span></div>
+    <p><a name="new-2"></a><span class="bold_code bc-1">new(Name, Options) -&gt; <span class="bold_code bc-17"><a href="#type-tid">tid()</a></span> | atom()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Options = [Option]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Option = <br>    Type |<br>    Access |<br>    named_table |<br>    {keypos, Pos} |<br>    {heir, Pid :: pid(), HeirData} |<br>    {heir, none} |<br>    Tweaks</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Type = <span class="bold_code bc-17"><a href="#type-type">type()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Access = <span class="bold_code bc-17"><a href="#type-access">access()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tweaks = <br>    {write_concurrency, boolean()} |<br>    {read_concurrency, boolean()} |<br>    compressed</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Pos = integer() &gt;= 1</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">HeirData = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Creates a new table and returns a table identifier that can
           be used in subsequent operations. The table identifier can be
           sent to other processes so that a table can be shared between
@@ -2838,14 +2853,14 @@ ets:select(Table, MatchSpec),</pre></div>
               degree at the expense of memory consumption and the performance
               of sequential access and concurrent reading.</p>
             <p>Option <span class="code">write_concurrency</span> can be combined with option
-              <span class="bold_code"><a href="#new_2_read_concurrency"><span class="code">read_concurrency</span></a></span>. You typically want to combine
+              <span class="bold_code bc-17"><a href="#new_2_read_concurrency"><span class="code">read_concurrency</span></a></span>. You typically want to combine
               these when large concurrent read bursts and large concurrent
               write bursts are common; for more information, see option
-              <span class="bold_code"><a href="#new_2_read_concurrency"><span class="code">read_concurrency</span></a></span>.</p>
+              <span class="bold_code bc-17"><a href="#new_2_read_concurrency"><span class="code">read_concurrency</span></a></span>.</p>
             <p>Notice that this option does not change any guarantees about
-              <span class="bold_code"><a href="#concurrency">atomicity and isolation</a></span>.
+              <span class="bold_code bc-17"><a href="#concurrency">atomicity and isolation</a></span>.
               Functions that makes such promises over many objects (like
-              <span class="bold_code"><a href="#insert-2"><span class="code">insert/2</span></a></span>)
+              <span class="bold_code bc-17"><a href="#insert-2"><span class="code">insert/2</span></a></span>)
               gain less (or nothing) from this option.</p>
             <p>Table type <span class="code">ordered_set</span> is not affected by this option.
               Also, the memory consumption inflicted by
@@ -2873,7 +2888,7 @@ ets:select(Table, MatchSpec),</pre></div>
               operations repeatedly. In this case, you would get a performance
               degradation by enabling this option.</p>
             <p>Option <span class="code">read_concurrency</span> can be combined with option
-              <span class="bold_code"><a href="#new_2_write_concurrency"><span class="code">write_concurrency</span></a></span>.
+              <span class="bold_code bc-17"><a href="#new_2_write_concurrency"><span class="code">write_concurrency</span></a></span>.
               You typically want to combine these when large concurrent
               read bursts and large concurrent write bursts are common.</p>
             <a name="new_2_compressed"></a>
@@ -2889,13 +2904,13 @@ ets:select(Table, MatchSpec),</pre></div>
         </dl>
       </p></div>
 
-    <p><a name="next-2"></a><span class="bold_code">next(Tab, Key1) -&gt; Key2 | '$end_of_table'</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Key1 = Key2 = term()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="next-2"></a><span class="bold_code bc-1">next(Tab, Key1) -&gt; Key2 | '$end_of_table'</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Key1 = Key2 = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the next key <span class="code">Key2</span>, following key
           <span class="code">Key1</span> in table <span class="code">Tab</span>. For table
           type <span class="code">ordered_set</span>, the next key in Erlang term order is
@@ -2903,53 +2918,53 @@ ets:select(Table, MatchSpec),</pre></div>
           according to the internal order of the table is returned. If no
           next key exists, <span class="code">'$end_of_table'</span> is returned.</p>
         <p>To find the first key in the table, use
-          <span class="bold_code"><a href="#first-1"><span class="code">first/1</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#first-1"><span class="code">first/1</span></a></span>.</p>
         <p>Unless a table of type <span class="code">set</span>, <span class="code">bag</span>, or
           <span class="code">duplicate_bag</span> is protected using
-          <span class="bold_code"><a href="#safe_fixtable-2"><span class="code">safe_fixtable/2</span></a></span>,
+          <span class="bold_code bc-17"><a href="#safe_fixtable-2"><span class="code">safe_fixtable/2</span></a></span>,
           a traversal can fail if
           concurrent updates are made to the table. For table
           type <span class="code">ordered_set</span>, the function returns the next key in
           order, even if the object does no longer exist.</p>
       </p></div>
 
-    <p><a name="prev-2"></a><span class="bold_code">prev(Tab, Key1) -&gt; Key2 | '$end_of_table'</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Key1 = Key2 = term()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="prev-2"></a><span class="bold_code bc-1">prev(Tab, Key1) -&gt; Key2 | '$end_of_table'</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Key1 = Key2 = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the previous key <span class="code">Key2</span>, preceding key
           <span class="code">Key1</span> according to Erlang term order in table
           <span class="code">Tab</span> of type <span class="code">ordered_set</span>. For other
           table types, the function is synonymous to
-          <span class="bold_code"><a href="#next-2"><span class="code">next/2</span></a></span>.
+          <span class="bold_code bc-17"><a href="#next-2"><span class="code">next/2</span></a></span>.
           If no previous key exists, <span class="code">'$end_of_table'</span> is returned.</p>
         <p>To find the last key in the table, use
-          <span class="bold_code"><a href="#last-1"><span class="code">last/1</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#last-1"><span class="code">last/1</span></a></span>.</p>
       </p></div>
 
-    <p><a name="rename-2"></a><span class="bold_code">rename(Tab, Name) -&gt; Name</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Name = atom()</span></div>
+    <p><a name="rename-2"></a><span class="bold_code bc-1">rename(Tab, Name) -&gt; Name</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = atom()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Renames the named table <span class="code">Tab</span> to the new name
           <span class="code">Name</span>. Afterwards, the old name cannot be used to
           access the table. Renaming an unnamed table has no effect.</p>
       </p></div>
 
-    <p><a name="repair_continuation-2"></a><span class="bold_code">repair_continuation(Continuation, MatchSpec) -&gt; Continuation</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Continuation = <span class="bold_code"><a href="#type-continuation">continuation()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">MatchSpec = <span class="bold_code"><a href="#type-match_spec">match_spec()</a></span></span></div>
+    <p><a name="repair_continuation-2"></a><span class="bold_code bc-1">repair_continuation(Continuation, MatchSpec) -&gt; Continuation</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Continuation = <span class="bold_code bc-17"><a href="#type-continuation">continuation()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">MatchSpec = <span class="bold_code bc-17"><a href="#type-match_spec">match_spec()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Restores an opaque continuation returned by
-          <span class="bold_code"><a href="#select-3"><span class="code">select/3</span></a></span> or
-          <span class="bold_code"><a href="#select-1"><span class="code">select/1</span></a></span> if the
+          <span class="bold_code bc-17"><a href="#select-3"><span class="code">select/3</span></a></span> or
+          <span class="bold_code bc-17"><a href="#select-1"><span class="code">select/1</span></a></span> if the
           continuation has passed through external term format (been
           sent between nodes or stored on disk).</p>
         <p>The reason for this function is that continuation terms
@@ -2999,12 +3014,12 @@ ets:select(ets:repair_continuation(Broken,MS)).</pre></div>
 </div>
       </p></div>
 
-    <p><a name="safe_fixtable-2"></a><span class="bold_code">safe_fixtable(Tab, Fix) -&gt; true</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Fix = boolean()</span></div>
+    <p><a name="safe_fixtable-2"></a><span class="bold_code bc-1">safe_fixtable(Tab, Fix) -&gt; true</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Fix = boolean()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Fixes a table of type <span class="code">set</span>, <span class="code">bag</span>, or
           <span class="code">duplicate_bag</span> for safe traversal.</p>
         <p>A process fixes a table by calling
@@ -3017,8 +3032,8 @@ ets:select(ets:repair_continuation(Broken,MS)).</pre></div>
           A reference counter is kept on a per process basis, and N
           consecutive fixes requires N releases to release the table.</p>
         <p>When a table is fixed, a sequence of
-          <span class="bold_code"><a href="#first-1"><span class="code">first/1</span></a></span> and
-          <span class="bold_code"><a href="#next-2"><span class="code">next/2</span></a></span> calls are
+          <span class="bold_code bc-17"><a href="#first-1"><span class="code">first/1</span></a></span> and
+          <span class="bold_code bc-17"><a href="#next-2"><span class="code">next/2</span></a></span> calls are
           guaranteed to succeed, and each object in
           the table is returned only once, even if objects
           are removed or inserted during the traversal. The keys for new
@@ -3047,7 +3062,7 @@ clean_all_with_value(Tab,X,Key) -&gt;
           objects is never freed. The performance of operations on
           the table also degrades significantly.</p>
         <p>To retrieve information about which processes have fixed which
-          tables, use <span class="bold_code"><a href="#info_2_safe_fixed_monotonic_time"><span class="code">info(Tab, safe_fixed_monotonic_time)</span></a></span>. A system with
+          tables, use <span class="bold_code bc-17"><a href="#info_2_safe_fixed_monotonic_time"><span class="code">info(Tab, safe_fixed_monotonic_time)</span></a></span>. A system with
           many processes fixing tables can need a monitor that sends alarms
           when tables have been fixed for too long.</p>
         <p>Notice that for table type <span class="code">ordered_set</span>,
@@ -3055,14 +3070,14 @@ clean_all_with_value(Tab,X,Key) -&gt;
           <span class="code">first/1</span> and <span class="code">next/2</span> always succeed.</p>
       </p></div>
 
-    <p><a name="select-1"></a><span class="bold_code">select(Continuation) -&gt; {[Match], Continuation} | '$end_of_table'</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Match = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Continuation = <span class="bold_code"><a href="#type-continuation">continuation()</a></span></span></div>
+    <p><a name="select-1"></a><span class="bold_code bc-1">select(Continuation) -&gt; {[Match], Continuation} | '$end_of_table'</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Match = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Continuation = <span class="bold_code bc-17"><a href="#type-continuation">continuation()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Continues a match started with
-          <span class="bold_code"><a href="#select-3"><span class="code">select/3</span></a></span>. The next
+          <span class="bold_code bc-17"><a href="#select-3"><span class="code">select/3</span></a></span>. The next
           chunk of the size specified in the initial <span class="code">select/3</span>
           call is returned together with a new <span class="code">Continuation</span>,
           which can be used in subsequent calls to this function.</p>
@@ -3070,18 +3085,18 @@ clean_all_with_value(Tab,X,Key) -&gt;
           is returned.</p>
       </p></div>
 
-    <p><a name="select-2"></a><span class="bold_code">select(Tab, MatchSpec) -&gt; [Match]</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">MatchSpec = <span class="bold_code"><a href="#type-match_spec">match_spec()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Match = term()</span></div>
+    <p><a name="select-2"></a><span class="bold_code bc-1">select(Tab, MatchSpec) -&gt; [Match]</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">MatchSpec = <span class="bold_code bc-17"><a href="#type-match_spec">match_spec()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Match = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Matches the objects in table <span class="code">Tab</span> using a
-          <span class="bold_code"><a href="#match_spec">match specification</a></span>.
+          <span class="bold_code bc-17"><a href="#match_spec">match specification</a></span>.
           This is a more general call than
-          <span class="bold_code"><a href="#match-2"><span class="code">match/2</span></a></span> and
-          <span class="bold_code"><a href="#match_object-2"><span class="code">match_object/2</span></a></span>
+          <span class="bold_code bc-17"><a href="#match-2"><span class="code">match/2</span></a></span> and
+          <span class="bold_code bc-17"><a href="#match_object-2"><span class="code">match_object/2</span></a></span>
           calls. In its simplest form, the match specification is as
           follows:</p>
         <div class="example"><pre>
@@ -3093,7 +3108,7 @@ Result = "Term construct"</pre></div>
         <p>This means that the match specification is always a list of one or
           more tuples (of arity 3). The first element of the tuple is to be
           a pattern as described in
-          <span class="bold_code"><a href="#match-2"><span class="code">match/2</span></a></span>.
+          <span class="bold_code bc-17"><a href="#match-2"><span class="code">match/2</span></a></span>.
           The second element of the tuple is to
           be a list of 0 or more guard tests (described below). The
           third element of the tuple is to be a list containing a
@@ -3136,7 +3151,7 @@ ets:select(Tab,[{{'$1','$2','$1'},[],['$_']}])</pre></div>
 ets:select(Tab,[{{'$1','$2','$1'},[],[{{'$1','$2','$3'}}]}])</pre></div>
         <p>This syntax is equivalent to the syntax used in the trace
           patterns (see the
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','runtime_tools','dbg.html');"><span class="code">dbg(3)</span></a></span>) module in Runtime_Tools.</p>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','runtime_tools','dbg.html');"><span class="code">dbg(3)</span></a></span>) module in Runtime_Tools.</p>
         <p>The <span class="code">Guard</span>s are constructed as tuples, where the first
           element is the test name and the remaining elements
           are the test parameters. To check for a specific type
@@ -3165,60 +3180,60 @@ is_integer(X), is_integer(Y), X + Y &lt; 4711</pre></div>
           execution.</p>
       </p></div>
 
-    <p><a name="select-3"></a><span class="bold_code">select(Tab, MatchSpec, Limit) -&gt;<br>          {[Match], Continuation} | '$end_of_table'</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">MatchSpec = <span class="bold_code"><a href="#type-match_spec">match_spec()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Limit = integer() &gt;= 1</span></div>
-<div class="REFTYPES"><span class="bold_code">Match = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Continuation = <span class="bold_code"><a href="#type-continuation">continuation()</a></span></span></div>
+    <p><a name="select-3"></a><span class="bold_code bc-1">select(Tab, MatchSpec, Limit) -&gt;<br>          {[Match], Continuation} | '$end_of_table'</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">MatchSpec = <span class="bold_code bc-17"><a href="#type-match_spec">match_spec()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Limit = integer() &gt;= 1</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Match = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Continuation = <span class="bold_code bc-17"><a href="#type-continuation">continuation()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
-        <p>Works like <span class="bold_code"><a href="#select-2"><span class="code">select/2</span></a></span>,
+<div class="REFBODY rb-7"><p>
+        <p>Works like <span class="bold_code bc-17"><a href="#select-2"><span class="code">select/2</span></a></span>,
           but only returns a limited
           (<span class="code">Limit</span>) number of matching objects. Term
           <span class="code">Continuation</span> can then be used in subsequent
-          calls to <span class="bold_code"><a href="#select-1"><span class="code">select/1</span></a></span>
+          calls to <span class="bold_code bc-17"><a href="#select-1"><span class="code">select/1</span></a></span>
           to get the next chunk of matching
           objects. This is a space-efficient way to work on objects in a
           table, which is still faster than traversing the table object by
-          object using <span class="bold_code"><a href="#first-1"><span class="code">first/1</span></a></span>
-          and <span class="bold_code"><a href="#next-2"><span class="code">next/2</span></a></span>.</p>
+          object using <span class="bold_code bc-17"><a href="#first-1"><span class="code">first/1</span></a></span>
+          and <span class="bold_code bc-17"><a href="#next-2"><span class="code">next/2</span></a></span>.</p>
         <p>If the table is empty, <span class="code">'$end_of_table'</span> is returned.</p>
       </p></div>
 
-    <p><a name="select_count-2"></a><span class="bold_code">select_count(Tab, MatchSpec) -&gt; NumMatched</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">MatchSpec = <span class="bold_code"><a href="#type-match_spec">match_spec()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">NumMatched = integer() &gt;= 0</span></div>
+    <p><a name="select_count-2"></a><span class="bold_code bc-1">select_count(Tab, MatchSpec) -&gt; NumMatched</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">MatchSpec = <span class="bold_code bc-17"><a href="#type-match_spec">match_spec()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">NumMatched = integer() &gt;= 0</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Matches the objects in table <span class="code">Tab</span> using a
-          <span class="bold_code"><a href="#match_spec">match specification</a></span>. If the
+          <span class="bold_code bc-17"><a href="#match_spec">match specification</a></span>. If the
           match specification returns <span class="code">true</span> for an object, that object
           considered a match and is counted. For any other result from
           the match specification the object is not considered a match and is
           therefore not counted.</p>
         <p>This function can be described as a
-          <span class="bold_code"><a href="#match_delete-2"><span class="code">match_delete/2</span></a></span>
+          <span class="bold_code bc-17"><a href="#match_delete-2"><span class="code">match_delete/2</span></a></span>
           function that does not delete any elements, but only counts them.</p>
         <p>The function returns the number of objects matched.</p>
       </p></div>
 
-    <p><a name="select_delete-2"></a><span class="bold_code">select_delete(Tab, MatchSpec) -&gt; NumDeleted</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">MatchSpec = <span class="bold_code"><a href="#type-match_spec">match_spec()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">NumDeleted = integer() &gt;= 0</span></div>
+    <p><a name="select_delete-2"></a><span class="bold_code bc-1">select_delete(Tab, MatchSpec) -&gt; NumDeleted</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">MatchSpec = <span class="bold_code bc-17"><a href="#type-match_spec">match_spec()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">NumDeleted = integer() &gt;= 0</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Matches the objects in table <span class="code">Tab</span> using a
-          <span class="bold_code"><a href="#match_spec">match specification</a></span>. If the
+          <span class="bold_code bc-17"><a href="#match_spec">match specification</a></span>. If the
           match specification returns <span class="code">true</span> for an object, that object is
           removed from the table. For any other result from the match
           specification the object is retained. This is a more general
-          call than the <span class="bold_code"><a href="#match_delete-2"><span class="code">match_delete/2</span></a></span> call.</p>
+          call than the <span class="bold_code bc-17"><a href="#match_delete-2"><span class="code">match_delete/2</span></a></span> call.</p>
         <p>The function returns the number of objects
           deleted from the table.</p>
         <div class="note">
@@ -3232,18 +3247,18 @@ is_integer(X), is_integer(Y), X + Y &lt; 4711</pre></div>
 </div>
       </p></div>
 
-    <p><a name="select_reverse-1"></a><span class="bold_code">select_reverse(Continuation) -&gt;<br>                  {[Match], Continuation} | '$end_of_table'</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Continuation = <span class="bold_code"><a href="#type-continuation">continuation()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Match = term()</span></div>
+    <p><a name="select_reverse-1"></a><span class="bold_code bc-1">select_reverse(Continuation) -&gt;<br>                  {[Match], Continuation} | '$end_of_table'</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Continuation = <span class="bold_code bc-17"><a href="#type-continuation">continuation()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Match = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
-      <p>Continues a match started with <span class="bold_code"><a href="#select_reverse-3"><span class="code">select_reverse/3</span></a></span>. For tables of type
+<div class="REFBODY rb-7"><p>
+      <p>Continues a match started with <span class="bold_code bc-17"><a href="#select_reverse-3"><span class="code">select_reverse/3</span></a></span>. For tables of type
         <span class="code">ordered_set</span>, the traversal of the table continues
         to objects with keys earlier in the Erlang term order. The
         returned list also contains objects with keys in reverse order.
         For all other table types, the behavior is exactly that of
-        <span class="bold_code"><a href="#select-1"><span class="code">select/1</span></a></span>.</p>
+        <span class="bold_code bc-17"><a href="#select-1"><span class="code">select/1</span></a></span>.</p>
       <p><strong>Example:</strong></p>
       <div class="example"><pre>
 1&gt; T = ets:new(x,[ordered_set]).
@@ -3265,29 +3280,29 @@ is_integer(X), is_integer(Y), X + Y &lt; 4711</pre></div>
 ...</pre></div>
       </p></div>
 
-    <p><a name="select_reverse-2"></a><span class="bold_code">select_reverse(Tab, MatchSpec) -&gt; [Match]</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">MatchSpec = <span class="bold_code"><a href="#type-match_spec">match_spec()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Match = term()</span></div>
+    <p><a name="select_reverse-2"></a><span class="bold_code bc-1">select_reverse(Tab, MatchSpec) -&gt; [Match]</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">MatchSpec = <span class="bold_code bc-17"><a href="#type-match_spec">match_spec()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Match = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
-      <p>Works like <span class="bold_code"><a href="#select-2"><span class="code">select/2</span></a></span>,
+<div class="REFBODY rb-7"><p>
+      <p>Works like <span class="bold_code bc-17"><a href="#select-2"><span class="code">select/2</span></a></span>,
         but returns the list in reverse order for table type <span class="code">ordered_set</span>.
         For all other table types, the return value is identical to that of
         <span class="code">select/2</span>.</p>
       </p></div>
 
-    <p><a name="select_reverse-3"></a><span class="bold_code">select_reverse(Tab, MatchSpec, Limit) -&gt;<br>                  {[Match], Continuation} | '$end_of_table'</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">MatchSpec = <span class="bold_code"><a href="#type-match_spec">match_spec()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Limit = integer() &gt;= 1</span></div>
-<div class="REFTYPES"><span class="bold_code">Match = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Continuation = <span class="bold_code"><a href="#type-continuation">continuation()</a></span></span></div>
+    <p><a name="select_reverse-3"></a><span class="bold_code bc-1">select_reverse(Tab, MatchSpec, Limit) -&gt;<br>                  {[Match], Continuation} | '$end_of_table'</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">MatchSpec = <span class="bold_code bc-17"><a href="#type-match_spec">match_spec()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Limit = integer() &gt;= 1</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Match = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Continuation = <span class="bold_code bc-17"><a href="#type-continuation">continuation()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
-      <p>Works like <span class="bold_code"><a href="#select-3"><span class="code">select/3</span></a></span>,
+<div class="REFBODY rb-7"><p>
+      <p>Works like <span class="bold_code bc-17"><a href="#select-3"><span class="code">select/3</span></a></span>,
         but for table type <span class="code">ordered_set</span>
         traversing is done starting at the last object in
         Erlang term order and moves to the first. For all other table
@@ -3299,27 +3314,27 @@ is_integer(X), is_integer(Y), X + Y &lt; 4711</pre></div>
         matching objects in the table, not the first.</p>
       </p></div>
 
-    <p><a name="setopts-2"></a><span class="bold_code">setopts(Tab, Opts) -&gt; true</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Opts = Opt | [Opt]</span></div>
-<div class="REFTYPES"><span class="bold_code">Opt = {heir, pid(), HeirData} | {heir, none}</span></div>
-<div class="REFTYPES"><span class="bold_code">HeirData = term()</span></div>
+    <p><a name="setopts-2"></a><span class="bold_code bc-1">setopts(Tab, Opts) -&gt; true</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Opts = Opt | [Opt]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Opt = {heir, pid(), HeirData} | {heir, none}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">HeirData = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sets table options. The only allowed option to be set after the
           table has been created is
-          <span class="bold_code"><a href="#heir"><span class="code">heir</span></a></span>.
+          <span class="bold_code bc-17"><a href="#heir"><span class="code">heir</span></a></span>.
           The calling process must be the table owner.</p>
       </p></div>
 
-    <p><a name="slot-2"></a><span class="bold_code">slot(Tab, I) -&gt; [Object] | '$end_of_table'</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">I = integer() &gt;= 0</span></div>
-<div class="REFTYPES"><span class="bold_code">Object = tuple()</span></div>
+    <p><a name="slot-2"></a><span class="bold_code bc-1">slot(Tab, I) -&gt; [Object] | '$end_of_table'</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">I = integer() &gt;= 0</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Object = tuple()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function is mostly for debugging purposes, Normally
           <span class="code">first</span>/<span class="code">next</span> or <span class="code">last</span>/<span class="code">prev</span> are to be used
           instead.</p>
@@ -3332,36 +3347,36 @@ is_integer(X), is_integer(Y), X + Y &lt; 4711</pre></div>
           the function fails with reason <span class="code">badarg</span>.</p>
         <p>Unless a table of type <span class="code">set</span>, <span class="code">bag</span>, or
           <span class="code">duplicate_bag</span> is protected using
-          <span class="bold_code"><a href="#safe_fixtable-2"><span class="code">safe_fixtable/2</span></a></span>,
+          <span class="bold_code bc-17"><a href="#safe_fixtable-2"><span class="code">safe_fixtable/2</span></a></span>,
           a traversal can fail if
           concurrent updates are made to the table. For table type
           <span class="code">ordered_set</span>, the function returns a list containing
           object <span class="code">I</span> in Erlang term order.</p>
       </p></div>
 
-    <p><a name="tab2file-2"></a><span class="bold_code">tab2file(Tab, Filename) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">file:name()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+    <p><a name="tab2file-2"></a><span class="bold_code bc-1">tab2file(Tab, Filename) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">file:name()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Dumps table <span class="code">Tab</span> to file
           <span class="code">Filename</span>.</p>
         <p>Equivalent to
           <span class="code">tab2file(Tab, Filename,[])</span></p>
       </p></div>
 
-    <p><a name="tab2file-3"></a><span class="bold_code">tab2file(Tab, Filename, Options) -&gt; ok | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">file:name()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Options = [Option]</span></div>
-<div class="REFTYPES"><span class="bold_code">Option = {extended_info, [ExtInfo]} | {sync, boolean()}</span></div>
-<div class="REFTYPES"><span class="bold_code">ExtInfo = md5sum | object_count</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+    <p><a name="tab2file-3"></a><span class="bold_code bc-1">tab2file(Tab, Filename, Options) -&gt; ok | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">file:name()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Options = [Option]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Option = {extended_info, [ExtInfo]} | {sync, boolean()}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">ExtInfo = md5sum | object_count</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Dumps table <span class="code">Tab</span> to file
           <span class="code">Filename</span>.</p>
         <p>When dumping the table, some information about the table
@@ -3404,29 +3419,29 @@ is_integer(X), is_integer(Y), X + Y &lt; 4711</pre></div>
           <span class="code">tab2file</span> returns. Defaults to <span class="code">{sync, false}</span>.</p>
       </p></div>
 
-    <p><a name="tab2list-1"></a><span class="bold_code">tab2list(Tab) -&gt; [Object]</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Object = tuple()</span></div>
+    <p><a name="tab2list-1"></a><span class="bold_code bc-1">tab2list(Tab) -&gt; [Object]</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Object = tuple()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a list of all objects in table <span class="code">Tab</span>.</p>
       </p></div>
 
-    <p><a name="tabfile_info-1"></a><span class="bold_code">tabfile_info(Filename) -&gt; {ok, TableInfo} | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">file:name()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">TableInfo = [InfoItem]</span></div>
-<div class="REFTYPES"><span class="bold_code">InfoItem = <br>    {name, atom()} |<br>    {type, Type} |<br>    {protection, Protection} |<br>    {named_table, boolean()} |<br>    {keypos, integer() &gt;= 0} |<br>    {size, integer() &gt;= 0} |<br>    {extended_info, [ExtInfo]} |<br>    {version,<br>     {Major :: integer() &gt;= 0, Minor :: integer() &gt;= 0}}</span></div>
-<div class="REFTYPES"><span class="bold_code">ExtInfo = md5sum | object_count</span></div>
-<div class="REFTYPES"><span class="bold_code">Type = bag | duplicate_bag | ordered_set | set</span></div>
-<div class="REFTYPES"><span class="bold_code">Protection = private | protected | public</span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = term()</span></div>
+    <p><a name="tabfile_info-1"></a><span class="bold_code bc-1">tabfile_info(Filename) -&gt; {ok, TableInfo} | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name');">file:name()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">TableInfo = [InfoItem]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">InfoItem = <br>    {name, atom()} |<br>    {type, Type} |<br>    {protection, Protection} |<br>    {named_table, boolean()} |<br>    {keypos, integer() &gt;= 0} |<br>    {size, integer() &gt;= 0} |<br>    {extended_info, [ExtInfo]} |<br>    {version,<br>     {Major :: integer() &gt;= 0, Minor :: integer() &gt;= 0}}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">ExtInfo = md5sum | object_count</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Type = bag | duplicate_bag | ordered_set | set</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Protection = private | protected | public</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns information about the table dumped to file by
-          <span class="bold_code"><a href="#tab2file-2"><span class="code">tab2file/2</span></a></span> or 
-          <span class="bold_code"><a href="#tab2file-3"><span class="code">tab2file/3</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#tab2file-2"><span class="code">tab2file/2</span></a></span> or 
+          <span class="bold_code bc-17"><a href="#tab2file-3"><span class="code">tab2file/3</span></a></span>.</p>
         <p>The following items are returned:</p>
         <dl>
           <dt><strong><span class="code">name</span></strong></dt>
@@ -3434,7 +3449,7 @@ is_integer(X), is_integer(Y), X + Y &lt; 4711</pre></div>
             <p>The name of the dumped table. If the table was a
               named table, a table with the same name cannot exist when the
               table is loaded from file with 
-              <span class="bold_code"><a href="#file2tab-2"><span class="code">file2tab/2</span></a></span>.
+              <span class="bold_code bc-17"><a href="#file2tab-2"><span class="code">file2tab/2</span></a></span>.
               If the table is
               not saved as a named table, this field has no significance
               when loading the table from file.</p>
@@ -3475,7 +3490,7 @@ is_integer(X), is_integer(Y), X + Y &lt; 4711</pre></div>
           <dd>
             <p>The extended information written in the file footer to
               allow stronger verification during table loading from file, as
-              specified to <span class="bold_code"><a href="#tab2file-3"><span class="code">tab2file/3</span></a></span>. Notice that this
+              specified to <span class="bold_code bc-17"><a href="#tab2file-3"><span class="code">tab2file/3</span></a></span>. Notice that this
               function only tells <strong>which</strong> information is present, not
               the values in the file footer. The value is a list containing one
               or more of the atoms <span class="code">object_count</span> and <span class="code">md5sum</span>.</p>
@@ -3492,30 +3507,30 @@ is_integer(X), is_integer(Y), X + Y &lt; 4711</pre></div>
         </dl>
         <p>An error is returned if the file is inaccessible,
           badly damaged, or not produced with
-          <span class="bold_code"><a href="#tab2file-2"><span class="code">tab2file/2</span></a></span> or
-          <span class="bold_code"><a href="#tab2file-3"><span class="code">tab2file/3</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#tab2file-2"><span class="code">tab2file/2</span></a></span> or
+          <span class="bold_code bc-17"><a href="#tab2file-3"><span class="code">tab2file/3</span></a></span>.</p>
       </p></div>
 
-    <p><a name="table-1"></a><span class="bold_code">table(Tab) -&gt; QueryHandle</span><br><a name="table-2"></a><span class="bold_code">table(Tab, Options) -&gt; QueryHandle</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">QueryHandle = <span class="bold_code"><a href="qlc.html#type-query_handle">qlc:query_handle()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Options = [Option] | Option</span></div>
-<div class="REFTYPES"><span class="bold_code">Option = {n_objects, NObjects} | {traverse, TraverseMethod}</span></div>
-<div class="REFTYPES"><span class="bold_code">NObjects = default | integer() &gt;= 1</span></div>
-<div class="REFTYPES"><span class="bold_code">TraverseMethod = <br>    first_next |<br>    last_prev |<br>    select |<br>    {select, MatchSpec :: <span class="bold_code"><a href="#type-match_spec">match_spec()</a></span>}</span></div>
+    <p><a name="table-1"></a><span class="bold_code bc-1">table(Tab) -&gt; QueryHandle</span><a name="table-2"></a><span class="bold_code bc-1">table(Tab, Options) -&gt; QueryHandle</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">QueryHandle = <span class="bold_code bc-15"><a href="qlc.html#type-query_handle">qlc:query_handle()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Options = [Option] | Option</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Option = {n_objects, NObjects} | {traverse, TraverseMethod}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">NObjects = default | integer() &gt;= 1</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">TraverseMethod = <br>    first_next |<br>    last_prev |<br>    select |<br>    {select, MatchSpec :: <span class="bold_code bc-17"><a href="#type-match_spec">match_spec()</a></span>}</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a Query List
           Comprehension (QLC) query handle. The
-          <span class="bold_code"><a href="qlc.html"><span class="code">qlc</span></a></span> module provides
+          <span class="bold_code bc-19"><a href="qlc.html"><span class="code">qlc</span></a></span> module provides
           a query language aimed mainly at Mnesia, but ETS
           tables, Dets tables,
           and lists are also recognized by QLC as sources of
           data. Calling <span class="code">table/1,2</span> is the means to make the
           ETS table <span class="code">Tab</span> usable to QLC.</p>
         <p>When there are only simple restrictions on the key position,
-          QLC uses <span class="bold_code"><a href="#lookup-2"><span class="code">lookup/2</span></a></span>
+          QLC uses <span class="bold_code bc-17"><a href="#lookup-2"><span class="code">lookup/2</span></a></span>
           to look up the keys. When
           that is not possible, the whole table is traversed.
           Option <span class="code">traverse</span> determines how this is done:</p>
@@ -3523,24 +3538,24 @@ is_integer(X), is_integer(Y), X + Y &lt; 4711</pre></div>
           <dt><strong><span class="code">first_next</span></strong></dt>
           <dd>
             <p>The table is traversed one key at a time by calling
-              <span class="bold_code"><a href="#first-1"><span class="code">first/1</span></a></span> and
-              <span class="bold_code"><a href="#next-2"><span class="code">next/2</span></a></span>.</p>
+              <span class="bold_code bc-17"><a href="#first-1"><span class="code">first/1</span></a></span> and
+              <span class="bold_code bc-17"><a href="#next-2"><span class="code">next/2</span></a></span>.</p>
           </dd>
           <dt><strong><span class="code">last_prev</span></strong></dt>
           <dd>
             <p>The table is traversed one key at a time by calling
-              <span class="bold_code"><a href="#last-1"><span class="code">last/1</span></a></span> and
-              <span class="bold_code"><a href="#prev-2"><span class="code">prev/2</span></a></span>.</p>
+              <span class="bold_code bc-17"><a href="#last-1"><span class="code">last/1</span></a></span> and
+              <span class="bold_code bc-17"><a href="#prev-2"><span class="code">prev/2</span></a></span>.</p>
           </dd>
           <dt><strong><span class="code">select</span></strong></dt>
           <dd>
             <p>The table is traversed by calling
-              <span class="bold_code"><a href="#select-3"><span class="code">select/3</span></a></span> and
-              <span class="bold_code"><a href="#select-1"><span class="code">select/1</span></a></span>.
+              <span class="bold_code bc-17"><a href="#select-3"><span class="code">select/3</span></a></span> and
+              <span class="bold_code bc-17"><a href="#select-1"><span class="code">select/1</span></a></span>.
               Option <span class="code">n_objects</span> determines the number of objects
               returned (the third argument of <span class="code">select/3</span>); the
               default is to return <span class="code">100</span> objects at a time. The
-              <span class="bold_code"><a href="#match_spec">match specification</a></span> (the
+              <span class="bold_code bc-17"><a href="#match_spec">match specification</a></span> (the
               second argument of <span class="code">select/3</span>) is assembled by QLC: simple
               filters are translated into equivalent match specifications
               while more complicated filters must be applied to all
@@ -3550,8 +3565,8 @@ is_integer(X), is_integer(Y), X + Y &lt; 4711</pre></div>
           <dt><strong><span class="code">{select, MatchSpec}</span></strong></dt>
           <dd>
             <p>As for <span class="code">select</span>, the table is traversed by calling
-              <span class="bold_code"><a href="#select-3"><span class="code">select/3</span></a></span> and
-              <span class="bold_code"><a href="#select-1"><span class="code">select/1</span></a></span>.
+              <span class="bold_code bc-17"><a href="#select-3"><span class="code">select/3</span></a></span> and
+              <span class="bold_code bc-17"><a href="#select-1"><span class="code">select/1</span></a></span>.
               The difference is that the match specification is explicitly
               specified. This is how to state match specifications that cannot
               easily be expressed within the syntax provided by QLC.</p>
@@ -3561,49 +3576,49 @@ is_integer(X), is_integer(Y), X + Y &lt; 4711</pre></div>
         <p>An explicit match specification is here used to traverse the
           table:</p>
         <div class="example"><pre>
-9&gt; <span class="bold_code">true = ets:insert(Tab = ets:new(t, []), [{1,a},{2,b},{3,c},{4,d}]),</span>
-<span class="bold_code">MS = ets:fun2ms(fun({X,Y}) when (X &gt; 1) or (X &lt; 5) -&gt; {Y} end),</span>
-<span class="bold_code">QH1 = ets:table(Tab, [{traverse, {select, MS}}]).</span></pre></div>
+9&gt; <span class="bold_code bc-12">true = ets:insert(Tab = ets:new(t, []), [{1,a},{2,b},{3,c},{4,d}]),</span>
+<span class="bold_code bc-12">MS = ets:fun2ms(fun({X,Y}) when (X &gt; 1) or (X &lt; 5) -&gt; {Y} end),</span>
+<span class="bold_code bc-12">QH1 = ets:table(Tab, [{traverse, {select, MS}}]).</span></pre></div>
         <p>An example with an implicit match specification:</p>
         <div class="example"><pre>
-10&gt; <span class="bold_code">QH2 = qlc:q([{Y} || {X,Y} &lt;- ets:table(Tab), (X &gt; 1) or (X &lt; 5)]).</span></pre></div>
+10&gt; <span class="bold_code bc-12">QH2 = qlc:q([{Y} || {X,Y} &lt;- ets:table(Tab), (X &gt; 1) or (X &lt; 5)]).</span></pre></div>
         <p>The latter example is equivalent to the former, which
           can be verified using function <span class="code">qlc:info/1</span>:</p>
         <div class="example"><pre>
-11&gt; <span class="bold_code">qlc:info(QH1) =:= qlc:info(QH2).</span>
+11&gt; <span class="bold_code bc-12">qlc:info(QH1) =:= qlc:info(QH2).</span>
 true</pre></div>
         <p><span class="code">qlc:info/1</span> returns information about a query handle,
           and in this case identical information is returned for the
           two query handles.</p>
       </p></div>
 
-    <p><a name="take-2"></a><span class="bold_code">take(Tab, Key) -&gt; [Object]</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Key = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Object = tuple()</span></div>
+    <p><a name="take-2"></a><span class="bold_code bc-1">take(Tab, Key) -&gt; [Object]</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Key = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Object = tuple()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns and removes a list of all objects with key
           <span class="code">Key</span> in table <span class="code">Tab</span>.</p>
         <p>The specified <span class="code">Key</span> is used to identify the object
           by either <strong>comparing equal</strong> the key of an object in an
           <span class="code">ordered_set</span> table, or <strong>matching</strong> in other types of
           tables (for details on the difference, see
-          <span class="bold_code"><a href="#lookup-2"><span class="code">lookup/2</span></a></span> and
-          <span class="bold_code"><a href="#new-2"><span class="code">new/2</span></a></span>).</p>
+          <span class="bold_code bc-17"><a href="#lookup-2"><span class="code">lookup/2</span></a></span> and
+          <span class="bold_code bc-17"><a href="#new-2"><span class="code">new/2</span></a></span>).</p>
       </p></div>
-    <p><a name="test_ms-2"></a><span class="bold_code">test_ms(Tuple, MatchSpec) -&gt; {ok, Result} | {error, Errors}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tuple = tuple()</span></div>
-<div class="REFTYPES"><span class="bold_code">MatchSpec = <span class="bold_code"><a href="#type-match_spec">match_spec()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Result = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Errors = [{warning | error, string()}]</span></div>
+    <p><a name="test_ms-2"></a><span class="bold_code bc-1">test_ms(Tuple, MatchSpec) -&gt; {ok, Result} | {error, Errors}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tuple = tuple()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">MatchSpec = <span class="bold_code bc-17"><a href="#type-match_spec">match_spec()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Result = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Errors = [{warning | error, string()}]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function is a utility to test a
-          <span class="bold_code"><a href="#match_spec">match specification</a></span> used in
-          calls to <span class="bold_code"><a href="#select-2"><span class="code">select/2</span></a></span>.
+          <span class="bold_code bc-17"><a href="#match_spec">match specification</a></span> used in
+          calls to <span class="bold_code bc-17"><a href="#select-2"><span class="code">select/2</span></a></span>.
           The function both tests <span class="code">MatchSpec</span> for "syntactic"
           correctness and runs the match specification against object
           <span class="code">Tuple</span>.</p>
@@ -3618,31 +3633,31 @@ true</pre></div>
           descriptions of what was wrong with the match specification.</p>
         <p>This is a useful debugging and test tool, especially when
           writing complicated <span class="code">select/2</span> calls.</p>
-        <p>See also: <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#match_spec_test-3');">erlang:match_spec_test/3</a></span>.</p>
+        <p>See also: <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#match_spec_test-3');">erlang:match_spec_test/3</a></span>.</p>
       </p></div>
 
-    <p><a name="to_dets-2"></a><span class="bold_code">to_dets(Tab, DetsTab) -&gt; DetsTab</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">DetsTab = <span class="bold_code"><a href="dets.html#type-tab_name">dets:tab_name()</a></span></span></div>
+    <p><a name="to_dets-2"></a><span class="bold_code bc-1">to_dets(Tab, DetsTab) -&gt; DetsTab</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">DetsTab = <span class="bold_code bc-15"><a href="dets.html#type-tab_name">dets:tab_name()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Fills an already created/opened Dets table with the objects
           in the already opened ETS table named <span class="code">Tab</span>.
           The Dets table is emptied before the objects are inserted.</p>
       </p></div>
 
-    <p><a name="update_counter-3"></a><span class="bold_code">update_counter(Tab, Key, UpdateOp) -&gt; Result</span><br><a name="update_counter-4"></a><span class="bold_code">update_counter(Tab, Key, UpdateOp, Default) -&gt; Result</span><br><span class="bold_code">update_counter(Tab, Key, X3 :: [UpdateOp]) -&gt; [Result]</span><br><span class="bold_code">update_counter(Tab, Key, X3 :: [UpdateOp], Default) -&gt; [Result]</span><br><span class="bold_code">update_counter(Tab, Key, Incr) -&gt; Result</span><br><span class="bold_code">update_counter(Tab, Key, Incr, Default) -&gt; Result</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Key = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">UpdateOp = {Pos, Incr} | {Pos, Incr, Threshold, SetValue}</span></div>
-<div class="REFTYPES"><span class="bold_code">Pos = Incr = Threshold = SetValue = Result = integer()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Default = tuple()</span></div>
+    <p><a name="update_counter-3"></a><span class="bold_code bc-1">update_counter(Tab, Key, UpdateOp) -&gt; Result</span><a name="update_counter-4"></a><span class="bold_code bc-1">update_counter(Tab, Key, UpdateOp, Default) -&gt; Result</span><span class="bold_code bc-1">update_counter(Tab, Key, X3 :: [UpdateOp]) -&gt; [Result]</span><span class="bold_code bc-1">update_counter(Tab, Key, X3 :: [UpdateOp], Default) -&gt; [Result]</span><span class="bold_code bc-1">update_counter(Tab, Key, Incr) -&gt; Result</span><span class="bold_code bc-1">update_counter(Tab, Key, Incr, Default) -&gt; Result</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Key = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">UpdateOp = {Pos, Incr} | {Pos, Incr, Threshold, SetValue}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Pos = Incr = Threshold = SetValue = Result = integer()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Default = tuple()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function provides an efficient way to update one or more 
           counters, without the trouble of having to look up an object, update 
           the object by incrementing an element, and insert the resulting
@@ -3684,8 +3699,8 @@ true</pre></div>
           by either <strong>matching</strong> the key of an object in a <span class="code">set</span>
           table, or <strong>compare equal</strong> to the key of an object in an
           <span class="code">ordered_set</span> table (for details on the difference, see 
-          <span class="bold_code"><a href="#lookup-2"><span class="code">lookup/2</span></a></span> and 
-          <span class="bold_code"><a href="#new-2"><span class="code">new/2</span></a></span>).</p>
+          <span class="bold_code bc-17"><a href="#lookup-2"><span class="code">lookup/2</span></a></span> and 
+          <span class="bold_code bc-17"><a href="#new-2"><span class="code">new/2</span></a></span>).</p>
         <p>If a default object <span class="code">Default</span> is specified,
           it is used
           as the object to be updated if the key is missing from the table. The
@@ -3712,14 +3727,14 @@ true</pre></div>
         </ul>
       </p></div>
 
-    <p><a name="update_element-3"></a><span class="bold_code">update_element(Tab, Key, ElementSpec :: {Pos, Value}) -&gt; boolean()</span><br><span class="bold_code">update_element(Tab, Key, ElementSpec :: [{Pos, Value}]) -&gt;<br>                  boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tab = <span class="bold_code"><a href="#type-tab">tab()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Key = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Value = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Pos = integer() &gt;= 1</span></div>
+    <p><a name="update_element-3"></a><span class="bold_code bc-1">update_element(Tab, Key, ElementSpec :: {Pos, Value}) -&gt; boolean()</span><span class="bold_code bc-1">update_element(Tab, Key, ElementSpec :: [{Pos, Value}]) -&gt;<br>                  boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tab = <span class="bold_code bc-17"><a href="#type-tab">tab()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Key = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Value = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Pos = integer() &gt;= 1</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function provides an efficient way to update one or more 
           elements within an object, without the trouble of having to look up, 
           update, and write back the entire object.</p>
@@ -3740,8 +3755,8 @@ true</pre></div>
           by either <strong>matching</strong> the key of an object in a <span class="code">set</span>
           table, or <strong>compare equal</strong> to the key of an object in an
           <span class="code">ordered_set</span> table (for details on the difference, see
-          <span class="bold_code"><a href="#lookup-2"><span class="code">lookup/2</span></a></span> and 
-          <span class="bold_code"><a href="#new-2"><span class="code">new/2</span></a></span>).</p>
+          <span class="bold_code bc-17"><a href="#lookup-2"><span class="code">lookup/2</span></a></span> and 
+          <span class="bold_code bc-17"><a href="#new-2"><span class="code">new/2</span></a></span>).</p>
         <p>The function fails with reason <span class="code">badarg</span> in the following
           situations:</p>
         <ul>
@@ -3753,7 +3768,7 @@ true</pre></div>
           <li>The element to update is also the key.</li>
         </ul>
       </p></div>
-  
+  </div>
 </div>
 <div class="footer">
 <hr>

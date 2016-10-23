@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Secure Socket Layer </p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 8.0.3</p>
@@ -148,14 +148,14 @@
   
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">ssl_crl_cache_api</div>
+<div class="REFBODY module-body">ssl_crl_cache_api</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">API for a SSL/TLS CRL (Certificate Revocation List) cache.</div>
+<div class="REFBODY module-summary-body">API for a SSL/TLS CRL (Certificate Revocation List) cache.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>
       When SSL/TLS performs certificate path validation according to
-      <span class="bold_code"><a href="http://www.ietf.org/rfc/rfc5280.txt">RFC 5280 </a></span>
+      <span class="bold_code bc-20"><a href="http://www.ietf.org/rfc/rfc5280.txt">RFC 5280 </a></span>
       it should also perform CRL validation checks. To enable the CRL
       checks the application needs access to CRLs. A database of CRLs
       can be set up in many different ways. This module provides the
@@ -166,8 +166,8 @@
     </p>
   </p></div>
   
-  <h3><a name="idm45385840231136">DATA TYPES</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm46397769937552">DATA TYPES</a></h3>
+<div class="REFBODY rb-3">
     
     
     <p>The following data types are used in the functions below:
@@ -178,47 +178,48 @@
     <dt><strong><span class="code">cache_ref() =</span></strong></dt> 
     <dd>opaque()</dd>
     <dt><strong><span class="code">dist_point() =</span></strong></dt>
-    <dd><p>#'DistributionPoint'{} see <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key_records.html');">X509 certificates records</a></span></p></dd>
+    <dd><p>#'DistributionPoint'{} see <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key_records.html');">X509 certificates records</a></span></p></dd>
     
     </dl>
     
   </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-      <p><a name="fresh_crl-2"></a><span class="bold_code">fresh_crl(DistributionPoint, CRL) -&gt; FreshCRL</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-	<div class="REFTYPES">
-<span class="bold_code"> DistributionPoint = dist_point() </span><br>
+<div class="exports-body">
+      <p><a name="fresh_crl-2"></a><span class="bold_code bc-9">fresh_crl(DistributionPoint, CRL) -&gt; FreshCRL</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> DistributionPoint = dist_point() </span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code"> CRL = [<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html');">public_key:der_encoded()</a></span>] </span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> CRL = [<span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html');">public_key:der_encoded()</a></span>] </span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code"> FreshCRL = [<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html');">public_key:der_encoded()</a></span>] </span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> FreshCRL = [<span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html');">public_key:der_encoded()</a></span>] </span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 	<p> <span class="code">fun fresh_crl/2 </span> will be used as input option <span class="code">update_crl</span> to
-	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html#pkix_crls_validate-3');">public_key:pkix_crls_validate/3</a></span> </p>
+	<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html#pkix_crls_validate-3');">public_key:pkix_crls_validate/3</a></span> </p>
       </p></div>
     
-    <p><a name="lookup-3"></a><span class="bold_code">lookup(DistributionPoint, Issuer, DbHandle) -&gt; not_available | CRLs </span><br><a name="lookup-2"></a><span class="bold_code">lookup(DistributionPoint, DbHandle) -&gt; not_available | CRLs </span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code"> DistributionPoint = dist_point() </span><br>
+    <p><a name="lookup-3"></a><span class="bold_code bc-9">lookup(DistributionPoint, Issuer, DbHandle) -&gt; not_available | CRLs </span><br><a name="lookup-2"></a><span class="bold_code bc-9">lookup(DistributionPoint, DbHandle) -&gt; not_available | CRLs </span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> DistributionPoint = dist_point() </span><br>
 </div>
-        <div class="REFTYPES">
-<span class="bold_code"> Issuer = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html');">public_key:issuer_name()</a></span> </span><br>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Issuer = <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html');">public_key:issuer_name()</a></span> </span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code"> DbHandle  = cache_ref() </span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> DbHandle  = cache_ref() </span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code"> CRLs = [<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html');">public_key:der_encoded()</a></span>] </span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> CRLs = [<span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html');">public_key:der_encoded()</a></span>] </span><br>
 </div>
 	</div>
-<div class="REFBODY"><p> <p>Lookup the CRLs belonging to the distribution point <span class="code"> Distributionpoint</span>.
+<div class="REFBODY rb-7"><p> <p>Lookup the CRLs belonging to the distribution point <span class="code"> Distributionpoint</span>.
 	This function may choose to only look in the cache or to follow distribution point
 	links depending on how the cache is administrated. </p>
 
@@ -235,20 +236,20 @@
 	<span class="code">lookup/2</span> is called instead.</p>
 	</p></div>
     
-    <p><a name="select-2"></a><span class="bold_code">select(Issuer, DbHandle) -&gt; CRLs </span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-	<div class="REFTYPES">
-<span class="bold_code"> Issuer = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html');">public_key:issuer_name()</a></span></span><br>
+    <p><a name="select-2"></a><span class="bold_code bc-9">select(Issuer, DbHandle) -&gt; CRLs </span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> Issuer = <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html');">public_key:issuer_name()</a></span></span><br>
 </div>
-	<div class="REFTYPES">
-<span class="bold_code"> DbHandle  = cache_ref() </span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code bc-11"> DbHandle  = cache_ref() </span><br>
 </div>
 	</div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 	  <p>Select the CRLs in the cache that are issued by <span class="code">Issuer</span> </p>
 	</p></div>
-  
+  </div>
 </div>
 <div class="footer">
 <hr>

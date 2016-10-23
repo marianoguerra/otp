@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Kernel</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 5.1</p>
@@ -646,11 +646,11 @@
 <!-- refpage --><center><h1>code</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">code</div>
+<div class="REFBODY module-body">code</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Erlang code server.</div>
+<div class="REFBODY module-summary-body">Erlang code server.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>This module contains the interface to the Erlang
       <strong>code server</strong>, which deals with the loading of compiled
       code into a running Erlang runtime system.</p>
@@ -658,7 +658,7 @@
       <strong>interactive</strong> mode. Which one is decided by command-line
       flag <span class="code">-mode</span>:</p>
     <div class="example"><pre>
-% <span class="bold_code">erl -mode interactive</span></pre></div>
+% <span class="bold_code bc-12">erl -mode interactive</span></pre></div>
     <p>The modes are as follows:</p>
     <ul>
       <li>
@@ -684,8 +684,8 @@
       <span class="code">-nostick</span>.</p>
   </p></div>
 
-  <h3><a name="idm46525673119696">Code Path</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45317253904608">Code Path</a></h3>
+<div class="REFBODY rb-3">
     
     <p>In interactive mode, the code server maintains a search path,
       usually called the <strong>code path</strong>, consisting of a list of
@@ -722,8 +722,8 @@
     <p>On Windows, use semi-colon as separator.</p>
   </div>
 
-  <h3><a name="idm46525673107232">Loading of Code From Archive Files</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45317253892144">Loading of Code From Archive Files</a></h3>
+<div class="REFBODY rb-3">
     
 
     <div class="warning">
@@ -732,7 +732,7 @@
      experimental. The purpose of releasing it before it is ready
      is to obtain early feedback. The file format, semantics,
      interfaces, and so on, can be changed in a future release. The function
-     <span class="bold_code"><a href="#lib_dir-2"><span class="code">lib_dir/2</span></a></span>
+     <span class="bold_code bc-17"><a href="#lib_dir-2"><span class="code">lib_dir/2</span></a></span>
      and  flag <span class="code">-code_path_choice</span> are also
      experimental.</p></p></div>
 </div>
@@ -783,7 +783,7 @@ zip:create("mnesia-4.4.7.ez",
      example, the call
      <span class="code">erl_prim_loader:list_dir( "/otp/root/lib/mnesia-4.4.7.ez/mnesia-4.4.7/examples/bench)"</span>
      would list the contents of a directory inside an archive.
-     See <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl_prim_loader.html');"><span class="code">erl_prim_loader(3)</span></a></span>.</p>
+     See <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','erl_prim_loader.html');"><span class="code">erl_prim_loader(3)</span></a></span>.</p>
 
     <p>An application archive file and a regular application directory
      can coexist. This can be useful when it is needed to have
@@ -820,7 +820,7 @@ zip:create("mnesia-4.4.7.ez",
      level in the archive. At startup, the top directory in the
      embedded archive and all (second level) <span class="code">ebin</span>
      directories in the embedded archive are added to the code path.
-     See <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','escript.html');"><span class="code">erts:escript(1)</span></a></span>.</p>
+     See <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','escript.html');"><span class="code">erts:escript(1)</span></a></span>.</p>
 
     <p>When the choice of directories in the code path is
      <span class="code">strict</span>, the directory that ends up in the code path is
@@ -844,11 +844,11 @@ zip:create("mnesia-4.4.7.ez",
      script</span> can be <span class="code">strict</span> or <span class="code">relaxed</span>. It is
      particularly useful to set the flag to <span class="code">relaxed</span> when
      elaborating with code loading from archives without editing the
-     <span class="code">boot script</span>. The default is <span class="code">relaxed</span>. See <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','init.html');"><span class="code">erts:init(3)</span></a></span>.</p>
+     <span class="code">boot script</span>. The default is <span class="code">relaxed</span>. See <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','init.html');"><span class="code">erts:init(3)</span></a></span>.</p>
 </div>
 
-  <h3><a name="idm46525673069296">Current and Old Code</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45317253854208">Current and Old Code</a></h3>
+<div class="REFBODY rb-3">
 
     
     <p>The code for a module can exist in two variants in a system:
@@ -873,11 +873,11 @@ zip:create("mnesia-4.4.7.ez",
     <p>For more information about old and current code, and how to
       make a process switch from old to current code, see section
       Compilation and Code Loading in the
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/reference_manual','code_loading.html');">Erlang Reference Manual</a></span>.</p>
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/reference_manual','code_loading.html');">Erlang Reference Manual</a></span>.</p>
   </div>
 
-  <h3><a name="idm46525673062848">Argument Types and Invalid Arguments</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45317253847760">Argument Types and Invalid Arguments</a></h3>
+<div class="REFBODY rb-3">
     
 
     <p>Module and application names are atoms, while file and directory
@@ -893,9 +893,9 @@ zip:create("mnesia-4.4.7.ez",
   </div>
 
   <h3>
-<a name="error_reasons"></a><a name="idm46525673059456">Error Reasons for Code-Loading Functions</a>
+<a name="error_reasons"></a><a name="idm45317253844368">Error Reasons for Code-Loading Functions</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
 
@@ -924,7 +924,7 @@ zip:create("mnesia-4.4.7.ez",
       <dt><strong><span class="code">on_load_failure</span></strong></dt>
       <dd>
 	<p>The module has an
-	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/reference_manual','code_loading.html#on_load');">-on_load function</a></span>
+	<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','doc/reference_manual','code_loading.html#on_load');">-on_load function</a></span>
 	that failed when it was called.</p>
       </dd>
 
@@ -936,22 +936,29 @@ zip:create("mnesia-4.4.7.ez",
     </dl>
     </div>
   <h3><a name="data-types" href="#data-types">Data Types</a></h3>
-    <p>
-      <span class="bold_code"><a name="type-load_ret">load_ret()</a> = <br>    {error, What :: <span class="bold_code"><a href="#type-load_error_rsn">load_error_rsn()</a></span>} |<br>    {module, Module :: module()}</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-load_error_rsn">load_error_rsn()</a> = <br>    badfile |<br>    nofile |<br>    not_purged |<br>    on_load_failure |<br>    sticky_directory</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-prepared_code">prepared_code()</a></span><br></p>
-<div class="REFBODY"><p><p>An opaque term holding prepared code.</p></p></div>
-  
+<div class="data-types-body">
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-load_ret">load_ret()</a> = <br>    {error, What :: <span class="bold_code bc-17"><a href="#type-load_error_rsn">load_error_rsn()</a></span>} |<br>    {module, Module :: module()}</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-load_error_rsn">load_error_rsn()</a> = <br>    badfile |<br>    nofile |<br>    not_purged |<br>    on_load_failure |<br>    sticky_directory</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-prepared_code">prepared_code()</a></span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p><p>An opaque term holding prepared code.</p></p></div></div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="set_path-1"></a><span class="bold_code">set_path(Path) -&gt; true | {error, What}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Path = [Dir :: <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">What = bad_directory</span></div>
+<div class="exports-body">
+    <p><a name="set_path-1"></a><span class="bold_code bc-1">set_path(Path) -&gt; true | {error, What}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Path = [Dir :: <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span>]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">What = bad_directory</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sets the code path to the list of directories <span class="code">Path</span>.</p>
         <p>Returns:</p>
 	<dl>
@@ -961,21 +968,21 @@ zip:create("mnesia-4.4.7.ez",
 	<dd><p>If any <span class="code">Dir</span> is not a directory name</p></dd>
 	</dl>
       </p></div>
-    <p><a name="get_path-0"></a><span class="bold_code">get_path() -&gt; Path</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Path = [Dir :: <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span>]</span></div>
+    <p><a name="get_path-0"></a><span class="bold_code bc-1">get_path() -&gt; Path</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Path = [Dir :: <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span>]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the code path.</p>
       </p></div>
-    <p><a name="add_path-1"></a><span class="bold_code">add_path(Dir) -&gt; add_path_ret()</span><br><a name="add_pathz-1"></a><span class="bold_code">add_pathz(Dir) -&gt; add_path_ret()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dir = <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span></span></div>
-<div class="REFTYPES">
-      <span class="bold_code">add_path_ret() = true | {error, bad_directory}</span><br>
+    <p><a name="add_path-1"></a><span class="bold_code bc-1">add_path(Dir) -&gt; add_path_ret()</span><a name="add_pathz-1"></a><span class="bold_code bc-1">add_pathz(Dir) -&gt; add_path_ret()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dir = <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span></span></div>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">add_path_ret() = true | {error, bad_directory}</span><br>
 </div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Adds <span class="code">Dir</span> to the code path. The directory is added as
           the last directory in the new path. If <span class="code">Dir</span> already
           exists in the path, it is not added.</p>
@@ -983,14 +990,14 @@ zip:create("mnesia-4.4.7.ez",
           <span class="code">{error, bad_directory}</span> if <span class="code">Dir</span> is not the name
           of a directory.</p>
       </p></div>
-    <p><a name="add_patha-1"></a><span class="bold_code">add_patha(Dir) -&gt; add_path_ret()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dir = <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span></span></div>
-<div class="REFTYPES">
-      <span class="bold_code">add_path_ret() = true | {error, bad_directory}</span><br>
+    <p><a name="add_patha-1"></a><span class="bold_code bc-1">add_patha(Dir) -&gt; add_path_ret()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dir = <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span></span></div>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">add_path_ret() = true | {error, bad_directory}</span><br>
 </div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Adds <span class="code">Dir</span> to the beginning of the code path. If
           <span class="code">Dir</span> exists, it is removed from the old
           position in the code path.</p>
@@ -998,21 +1005,21 @@ zip:create("mnesia-4.4.7.ez",
           <span class="code">{error, bad_directory}</span> if <span class="code">Dir</span> is not the name
           of a directory.</p>
       </p></div>
-    <p><a name="add_paths-1"></a><span class="bold_code">add_paths(Dirs) -&gt; ok</span><br><a name="add_pathsz-1"></a><span class="bold_code">add_pathsz(Dirs) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dirs = [Dir :: <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span>]</span></div>
+    <p><a name="add_paths-1"></a><span class="bold_code bc-1">add_paths(Dirs) -&gt; ok</span><a name="add_pathsz-1"></a><span class="bold_code bc-1">add_pathsz(Dirs) -&gt; ok</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dirs = [Dir :: <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span>]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Adds the directories in <span class="code">Dirs</span> to the end of the code
           path. If a <span class="code">Dir</span> exists, it is not added.</p>
 	<p>Always returns <span class="code">ok</span>, regardless of the validity
           of each individual <span class="code">Dir</span>.</p>
       </p></div>
-    <p><a name="add_pathsa-1"></a><span class="bold_code">add_pathsa(Dirs) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dirs = [Dir :: <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span>]</span></div>
+    <p><a name="add_pathsa-1"></a><span class="bold_code bc-1">add_pathsa(Dirs) -&gt; ok</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dirs = [Dir :: <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span>]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 	<p>Traverses <span class="code">Dirs</span> and adds
 	  each <span class="code">Dir</span> to the beginning of the code
 	  path. This means that the order of <span class="code">Dirs</span>
@@ -1024,14 +1031,14 @@ zip:create("mnesia-4.4.7.ez",
 	<p>Always returns <span class="code">ok</span>, regardless of the validity of each
           individual <span class="code">Dir</span>.</p>
       </p></div>
-    <p><a name="del_path-1"></a><span class="bold_code">del_path(NameOrDir) -&gt; boolean() | {error, What}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">NameOrDir = Name | Dir</span></div>
-<div class="REFTYPES"><span class="bold_code">Name = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Dir = <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">What = bad_name</span></div>
+    <p><a name="del_path-1"></a><span class="bold_code bc-1">del_path(NameOrDir) -&gt; boolean() | {error, What}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">NameOrDir = Name | Dir</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dir = <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">What = bad_name</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Deletes a directory from the code path. The argument can be
           an atom <span class="code">Name</span>, in which case the directory with
           the name <span class="code">.../Name[-Vsn][/ebin]</span> is deleted from the code
@@ -1047,13 +1054,13 @@ zip:create("mnesia-4.4.7.ez",
 	<dd><p>If the argument is invalid</p></dd>
 	</dl>
       </p></div>
-    <p><a name="replace_path-2"></a><span class="bold_code">replace_path(Name, Dir) -&gt; true | {error, What}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Dir = <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">What = bad_directory | bad_name | {badarg, term()}</span></div>
+    <p><a name="replace_path-2"></a><span class="bold_code bc-1">replace_path(Name, Dir) -&gt; true | {error, What}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dir = <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">What = bad_directory | bad_name | {badarg, term()}</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Replaces an old occurrence of a directory
           named <span class="code">.../Name[-Vsn][/ebin]</span> in the code path, with
           <span class="code">Dir</span>. If <span class="code">Name</span> does not exist, it adds
@@ -1073,77 +1080,77 @@ zip:create("mnesia-4.4.7.ez",
 	  <dd><p>If <span class="code">Name</span> or <span class="code">Dir</span> is invalid</p></dd>
 	</dl>
       </p></div>
-    <p><a name="load_file-1"></a><span class="bold_code">load_file(Module) -&gt; <span class="bold_code"><a href="#type-load_ret">load_ret()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES">
-      <span class="bold_code">load_ret() = <br>    {error, What :: <span class="bold_code"><a href="#type-load_error_rsn">load_error_rsn()</a></span>} |<br>    {module, Module :: module()}</span><br>
+    <p><a name="load_file-1"></a><span class="bold_code bc-1">load_file(Module) -&gt; <span class="bold_code bc-17"><a href="#type-load_ret">load_ret()</a></span></span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">load_ret() = <br>    {error, What :: <span class="bold_code bc-17"><a href="#type-load_error_rsn">load_error_rsn()</a></span>} |<br>    {module, Module :: module()}</span><br>
 </div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Tries to load the Erlang module <span class="code">Module</span>, using
           the code path. It looks for the object code file with an
           extension corresponding to the Erlang machine used, for
           example, <span class="code">Module.beam</span>. The loading fails if the module
           name found in the object code differs from the name
           <span class="code">Module</span>.
-          <span class="bold_code"><a href="#load_binary-3"><span class="code">load_binary/3</span></a></span> must
+          <span class="bold_code bc-17"><a href="#load_binary-3"><span class="code">load_binary/3</span></a></span> must
           be used to load object code with a module name that is
           different from the file name.</p>
         <p>Returns <span class="code">{module, Module}</span> if successful, or
 	<span class="code">{error, Reason}</span> if loading fails.
-	See <span class="bold_code"><a href="#error_reasons">Error Reasons for Code-Loading Functions</a></span> for a description of the possible error reasons.</p>
+	See <span class="bold_code bc-17"><a href="#error_reasons">Error Reasons for Code-Loading Functions</a></span> for a description of the possible error reasons.</p>
       </p></div>
-    <p><a name="load_abs-1"></a><span class="bold_code">load_abs(Filename) -&gt; <span class="bold_code"><a href="#type-load_ret">load_ret()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span></span></div>
-<div class="REFTYPES">
-      <span class="bold_code">load_ret() = <br>    {error, What :: <span class="bold_code"><a href="#type-load_error_rsn">load_error_rsn()</a></span>} |<br>    {module, Module :: module()}</span><br>
+    <p><a name="load_abs-1"></a><span class="bold_code bc-1">load_abs(Filename) -&gt; <span class="bold_code bc-17"><a href="#type-load_ret">load_ret()</a></span></span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span></span></div>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">load_ret() = <br>    {error, What :: <span class="bold_code bc-17"><a href="#type-load_error_rsn">load_error_rsn()</a></span>} |<br>    {module, Module :: module()}</span><br>
 </div>
-<div class="REFTYPES">
-      <span class="bold_code">loaded_filename() = <br>    (Filename :: <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span>) | loaded_ret_atoms()</span><br>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">loaded_filename() = <br>    (Filename :: <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span>) | loaded_ret_atoms()</span><br>
 </div>
-<div class="REFTYPES">
-      <span class="bold_code">loaded_ret_atoms() = cover_compiled | preloaded</span><br>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">loaded_ret_atoms() = cover_compiled | preloaded</span><br>
 </div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Same as <span class="code">load_file(Module)</span>, but
           <span class="code">Filename</span> is an absolute or
           relative filename. The code path is not searched. It returns
           a value in the same way as
-          <span class="bold_code"><a href="#load_file-1"><span class="code">load_file/1</span></a></span>. Notice
+          <span class="bold_code bc-17"><a href="#load_file-1"><span class="code">load_file/1</span></a></span>. Notice
           that <span class="code">Filename</span> must not contain the extension (for
           example, <span class="code">.beam</span>) because <span class="code">load_abs/1</span> adds the correct
           extension.</p>
       </p></div>
-    <p><a name="ensure_loaded-1"></a><span class="bold_code">ensure_loaded(Module) -&gt; {module, Module} | {error, What}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">What = embedded | badfile | nofile | on_load_failure</span></div>
+    <p><a name="ensure_loaded-1"></a><span class="bold_code bc-1">ensure_loaded(Module) -&gt; {module, Module} | {error, What}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">What = embedded | badfile | nofile | on_load_failure</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Tries to load a module in the same way as
-          <span class="bold_code"><a href="#load_file-1"><span class="code">load_file/1</span></a></span>,
+          <span class="bold_code bc-17"><a href="#load_file-1"><span class="code">load_file/1</span></a></span>,
 	  unless the module is already loaded.
           However, in embedded mode it does not load a module that is not
           already loaded, but returns <span class="code">{error, embedded}</span> instead.
-	  See <span class="bold_code"><a href="#error_reasons">Error Reasons for Code-Loading Functions</a></span> for a description of other possible error reasons.</p>
+	  See <span class="bold_code bc-17"><a href="#error_reasons">Error Reasons for Code-Loading Functions</a></span> for a description of other possible error reasons.</p>
       </p></div>
-    <p><a name="load_binary-3"></a><span class="bold_code">load_binary(Module, Filename, Binary) -&gt;<br>               {module, Module} | {error, What}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Filename = loaded_filename()</span></div>
-<div class="REFTYPES"><span class="bold_code">Binary = binary()</span></div>
-<div class="REFTYPES"><span class="bold_code">What = badarg | <span class="bold_code"><a href="#type-load_error_rsn">load_error_rsn()</a></span></span></div>
-<div class="REFTYPES">
-      <span class="bold_code">loaded_filename() = <br>    (Filename :: <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span>) | loaded_ret_atoms()</span><br>
+    <p><a name="load_binary-3"></a><span class="bold_code bc-1">load_binary(Module, Filename, Binary) -&gt;<br>               {module, Module} | {error, What}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = loaded_filename()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Binary = binary()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">What = badarg | <span class="bold_code bc-17"><a href="#type-load_error_rsn">load_error_rsn()</a></span></span></div>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">loaded_filename() = <br>    (Filename :: <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span>) | loaded_ret_atoms()</span><br>
 </div>
-<div class="REFTYPES">
-      <span class="bold_code">loaded_ret_atoms() = cover_compiled | preloaded</span><br>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">loaded_ret_atoms() = cover_compiled | preloaded</span><br>
 </div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function can be used to load object code on remote
           Erlang nodes. Argument <span class="code">Binary</span> must contain
 	  object code for <span class="code">Module</span>.
@@ -1153,17 +1160,17 @@ zip:create("mnesia-4.4.7.ez",
           the code server.</p>
         <p>Returns <span class="code">{module, Module}</span> if successful, or
 	<span class="code">{error, Reason}</span> if loading fails.
-	See <span class="bold_code"><a href="#error_reasons">Error Reasons for Code-Loading Functions</a></span> for a description of the possible error reasons.</p>
+	See <span class="bold_code bc-17"><a href="#error_reasons">Error Reasons for Code-Loading Functions</a></span> for a description of the possible error reasons.</p>
       </p></div>
-    <p><a name="atomic_load-1"></a><span class="bold_code">atomic_load(Modules) -&gt; ok | {error, [{Module, What}]}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Modules = [Module | {Module, Filename, Binary}]</span></div>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Binary = binary()</span></div>
-<div class="REFTYPES"><span class="bold_code">What = <br>    badfile |<br>    nofile |<br>    on_load_not_allowed |<br>    duplicated |<br>    not_purged |<br>    sticky_directory |<br>    pending_on_load</span></div>
+    <p><a name="atomic_load-1"></a><span class="bold_code bc-1">atomic_load(Modules) -&gt; ok | {error, [{Module, What}]}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Modules = [Module | {Module, Filename, Binary}]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Binary = binary()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">What = <br>    badfile |<br>    nofile |<br>    on_load_not_allowed |<br>    duplicated |<br>    not_purged |<br>    sticky_directory |<br>    pending_on_load</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Tries to load all of the modules in the list
         <span class="code">Modules</span> atomically.  That means that
         either all modules are loaded at the same time, or
@@ -1183,7 +1190,7 @@ zip:create("mnesia-4.4.7.ez",
 	  <dt><strong><span class="code">on_load_not_allowed</span></strong></dt>
 	  <dd>
 	    <p>A module contains an
-	    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/reference_manual','code_loading.html#on_load');">-on_load function</a></span>.</p>
+	    <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','doc/reference_manual','code_loading.html#on_load');">-on_load function</a></span>.</p>
 	  </dd>
 	  <dt><strong><span class="code">duplicated</span></strong></dt>
 	  <dd>
@@ -1207,9 +1214,9 @@ zip:create("mnesia-4.4.7.ez",
 	</dl>
 	<p>If it is important to minimize the time that an application
 	is inactive while changing code, use
-	<span class="bold_code"><a href="#prepare_loading-1">prepare_loading/1</a></span>
+	<span class="bold_code bc-17"><a href="#prepare_loading-1">prepare_loading/1</a></span>
 	and
-	<span class="bold_code"><a href="#finish_loading-1">finish_loading/1</a></span>
+	<span class="bold_code bc-17"><a href="#finish_loading-1">finish_loading/1</a></span>
 	instead of <span class="code">atomic_load/1</span>. Here is an example:</p>
 <div class="example"><pre>
 {ok,Prepared} = code:prepare_loading(Modules),
@@ -1218,20 +1225,20 @@ zip:create("mnesia-4.4.7.ez",
 ok = code:finish_loading(Prepared),
 %% Resume the application.</pre></div>
       </p></div>
-    <p><a name="prepare_loading-1"></a><span class="bold_code">prepare_loading(Modules) -&gt;<br>                   {ok, Prepared} | {error, [{Module, What}]}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Modules = [Module | {Module, Filename, Binary}]</span></div>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Binary = binary()</span></div>
-<div class="REFTYPES"><span class="bold_code">Prepared = <span class="bold_code"><a href="#type-prepared_code">prepared_code()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">What = badfile | nofile | on_load_not_allowed | duplicated</span></div>
+    <p><a name="prepare_loading-1"></a><span class="bold_code bc-1">prepare_loading(Modules) -&gt;<br>                   {ok, Prepared} | {error, [{Module, What}]}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Modules = [Module | {Module, Filename, Binary}]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Binary = binary()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Prepared = <span class="bold_code bc-17"><a href="#type-prepared_code">prepared_code()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">What = badfile | nofile | on_load_not_allowed | duplicated</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Prepares to load the modules in the list
         <span class="code">Modules</span>.
 	Finish the loading by calling
-	<span class="bold_code"><a href="#finish_loading-1">finish_loading(Prepared)</a></span>.</p>
+	<span class="bold_code bc-17"><a href="#finish_loading-1">finish_loading(Prepared)</a></span>.</p>
 	<p>This function can fail with one of the following error reasons:</p>
 	<dl>
 	  <dt><strong><span class="code">badfile</span></strong></dt>
@@ -1246,7 +1253,7 @@ ok = code:finish_loading(Prepared),
 	  <dt><strong><span class="code">on_load_not_allowed</span></strong></dt>
 	  <dd>
 	    <p>A module contains an
-	    <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/reference_manual','code_loading.html#on_load');">-on_load function</a></span>.</p>
+	    <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','doc/reference_manual','code_loading.html#on_load');">-on_load function</a></span>.</p>
 	  </dd>
 	  <dt><strong><span class="code">duplicated</span></strong></dt>
 	  <dd>
@@ -1255,16 +1262,16 @@ ok = code:finish_loading(Prepared),
 	  </dd>
 	</dl>
       </p></div>
-    <p><a name="finish_loading-1"></a><span class="bold_code">finish_loading(Prepared) -&gt; ok | {error, [{Module, What}]}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Prepared = <span class="bold_code"><a href="#type-prepared_code">prepared_code()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">What = not_purged | sticky_directory | pending_on_load</span></div>
+    <p><a name="finish_loading-1"></a><span class="bold_code bc-1">finish_loading(Prepared) -&gt; ok | {error, [{Module, What}]}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Prepared = <span class="bold_code bc-17"><a href="#type-prepared_code">prepared_code()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">What = not_purged | sticky_directory | pending_on_load</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Tries to load code for all modules that have been previously
 	prepared by
-	<span class="bold_code"><a href="#prepare_loading-1">prepare_loading/1</a></span>.
+	<span class="bold_code bc-17"><a href="#prepare_loading-1">prepare_loading/1</a></span>.
 	The loading occurs atomically, meaning that
         either all modules are loaded at the same time, or
         none of the modules are loaded.</p>
@@ -1286,24 +1293,24 @@ ok = code:finish_loading(Prepared),
 	  </dd>
 	</dl>
       </p></div>
-    <p><a name="ensure_modules_loaded-1"></a><span class="bold_code">ensure_modules_loaded(Modules :: [Module]) -&gt;<br>                         ok | {error, [{Module, What}]}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">What = badfile | nofile | on_load_failure</span></div>
+    <p><a name="ensure_modules_loaded-1"></a><span class="bold_code bc-1">ensure_modules_loaded(Modules :: [Module]) -&gt;<br>                         ok | {error, [{Module, What}]}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">What = badfile | nofile | on_load_failure</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Tries to load any modules not already loaded in the list
 	<span class="code">Modules</span> in the same way as
-          <span class="bold_code"><a href="#load_file-1">load_file/1</a></span>.</p>
+          <span class="bold_code bc-17"><a href="#load_file-1">load_file/1</a></span>.</p>
 	  <p>Returns <span class="code">ok</span> if successful, or
 	  <span class="code">{error,[{Module,Reason}]}</span> if loading of some modules fails.
-	  See <span class="bold_code"><a href="#error_reasons">Error Reasons for Code-Loading Functions</a></span> for a description of other possible error reasons.</p>
+	  See <span class="bold_code bc-17"><a href="#error_reasons">Error Reasons for Code-Loading Functions</a></span> for a description of other possible error reasons.</p>
       </p></div>
-    <p><a name="delete-1"></a><span class="bold_code">delete(Module) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
+    <p><a name="delete-1"></a><span class="bold_code bc-1">delete(Module) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Removes the current code for <span class="code">Module</span>, that is,
           the current code for <span class="code">Module</span> is made old. This means
           that processes can continue to execute the code in the module,
@@ -1312,11 +1319,11 @@ ok = code:finish_loading(Prepared),
           is old code for <span class="code">Module</span> that must be purged first, or
           if <span class="code">Module</span> is not a (loaded) module.</p>
       </p></div>
-    <p><a name="purge-1"></a><span class="bold_code">purge(Module) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
+    <p><a name="purge-1"></a><span class="bold_code bc-1">purge(Module) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Purges the code for <span class="code">Module</span>, that is, removes code
           marked as old. If some processes still linger in the old code,
           these processes are killed before the code is removed.</p>
@@ -1325,17 +1332,17 @@ ok = code:finish_loading(Prepared),
 <div class="content"><p><p>As of ERTS version 9.0, a process is only considered
 	to be lingering in the code if it has direct references to the code.
 	For more information see documentation of
-	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#check_process_code-3');"><span class="code">erlang:check_process_code/3</span></a></span>,
+	<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#check_process_code-3');"><span class="code">erlang:check_process_code/3</span></a></span>,
 	which is used in order to determine this.</p></p></div>
 </div>
         <p>Returns <span class="code">true</span> if successful and any process is needed to
           be killed, otherwise <span class="code">false</span>.</p>
       </p></div>
-    <p><a name="soft_purge-1"></a><span class="bold_code">soft_purge(Module) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
+    <p><a name="soft_purge-1"></a><span class="bold_code bc-1">soft_purge(Module) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Purges the code for <span class="code">Module</span>, that is, removes code
           marked as old, but only if no processes linger in it.</p>
 	<div class="note">
@@ -1343,66 +1350,66 @@ ok = code:finish_loading(Prepared),
 <div class="content"><p><p>As of ERTS version 9.0, a process is only considered
 	to be lingering in the code if it has direct references to the code.
 	For more information see documentation of
-	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#check_process_code-3');"><span class="code">erlang:check_process_code/3</span></a></span>,
+	<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#check_process_code-3');"><span class="code">erlang:check_process_code/3</span></a></span>,
 	which is used in order to determine this.</p></p></div>
 </div>
         <p>Returns <span class="code">false</span> if the module cannot be purged because
           of processes lingering in old code, otherwise <span class="code">true</span>.</p>
       </p></div>
-    <p><a name="is_loaded-1"></a><span class="bold_code">is_loaded(Module) -&gt; {file, Loaded} | false</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Loaded = loaded_filename()</span></div>
-<div class="REFTYPES">
-      <span class="bold_code">loaded_filename() = <br>    (Filename :: <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span>) | loaded_ret_atoms()</span><br>
+    <p><a name="is_loaded-1"></a><span class="bold_code bc-1">is_loaded(Module) -&gt; {file, Loaded} | false</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Loaded = loaded_filename()</span></div>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">loaded_filename() = <br>    (Filename :: <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span>) | loaded_ret_atoms()</span><br>
 </div>
-<div class="REFBODY">
+<div class="REFBODY rb-1">
 <span class="code">Filename</span> is an absolute
       filename.</div>
-<div class="REFTYPES">
-      <span class="bold_code">loaded_ret_atoms() = cover_compiled | preloaded</span><br>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">loaded_ret_atoms() = cover_compiled | preloaded</span><br>
 </div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Checks if <span class="code">Module</span> is loaded. If it is,
           <span class="code">{file, Loaded}</span> is returned, otherwise <span class="code">false</span>.</p>
         <p>Normally, <span class="code">Loaded</span> is the absolute filename
           <span class="code">Filename</span> from which the code is obtained. If the module
           is preloaded (see
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','sasl','script.html');"><span class="code">script(4)</span></a></span>),
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','sasl','script.html');"><span class="code">script(4)</span></a></span>),
           <span class="code">Loaded==preloaded</span>. If the module is Cover-compiled (see
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','tools','cover.html');"><span class="code">cover(3)</span></a></span>),
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','tools','cover.html');"><span class="code">cover(3)</span></a></span>),
           <span class="code">Loaded==cover_compiled</span>.</p>
       </p></div>
-    <p><a name="all_loaded-0"></a><span class="bold_code">all_loaded() -&gt; [{Module, Loaded}]</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Loaded = loaded_filename()</span></div>
-<div class="REFTYPES">
-      <span class="bold_code">loaded_filename() = <br>    (Filename :: <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span>) | loaded_ret_atoms()</span><br>
+    <p><a name="all_loaded-0"></a><span class="bold_code bc-1">all_loaded() -&gt; [{Module, Loaded}]</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Loaded = loaded_filename()</span></div>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">loaded_filename() = <br>    (Filename :: <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span>) | loaded_ret_atoms()</span><br>
 </div>
-<div class="REFBODY">
+<div class="REFBODY rb-1">
 <span class="code">Filename</span> is an absolute
       filename.</div>
-<div class="REFTYPES">
-      <span class="bold_code">loaded_ret_atoms() = cover_compiled | preloaded</span><br>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">loaded_ret_atoms() = cover_compiled | preloaded</span><br>
 </div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a list of tuples <span class="code">{Module, Loaded}</span> for all
           loaded modules. <span class="code">Loaded</span> is normally the absolute filename,
           as described for
-          <span class="bold_code"><a href="#is_loaded-1"><span class="code">is_loaded/1</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#is_loaded-1"><span class="code">is_loaded/1</span></a></span>.</p>
       </p></div>
-    <p><a name="which-1"></a><span class="bold_code">which(Module) -&gt; Which</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Which = <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span> | loaded_ret_atoms() | non_existing</span></div>
-<div class="REFTYPES">
-      <span class="bold_code">loaded_ret_atoms() = cover_compiled | preloaded</span><br>
+    <p><a name="which-1"></a><span class="bold_code bc-1">which(Module) -&gt; Which</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Which = <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span> | loaded_ret_atoms() | non_existing</span></div>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">loaded_ret_atoms() = cover_compiled | preloaded</span><br>
 </div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>If the module is not loaded, this function searches the code
           path for the first file containing object code for
           <span class="code">Module</span> and returns the absolute filename.</p>
@@ -1412,13 +1419,13 @@ ok = code:finish_loading(Prepared),
 	  <p>If the module is Cover-compiled, <span class="code">cover_compiled</span> is returned.</p>
 	  <p>If the module cannot be found, <span class="code">non_existing</span> is returned.</p>
       </p></div>
-    <p><a name="get_object_code-1"></a><span class="bold_code">get_object_code(Module) -&gt; {Module, Binary, Filename} | error</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Binary = binary()</span></div>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span></span></div>
+    <p><a name="get_object_code-1"></a><span class="bold_code bc-1">get_object_code(Module) -&gt; {Module, Binary, Filename} | error</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Binary = binary()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Searches the code path for the object code of module
           <span class="code">Module</span>. Returns <span class="code">{Module, Binary, Filename}</span>
           if successful, otherwise <span class="code">error</span>. <span class="code">Binary</span> is a
@@ -1433,29 +1440,29 @@ ok = code:finish_loading(Prepared),
 rpc:call(Node, code, load_binary, [Module, Filename, Binary]),
 ...</pre></div>
       </p></div>
-    <p><a name="root_dir-0"></a><span class="bold_code">root_dir() -&gt; <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span></span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="root_dir-0"></a><span class="bold_code bc-1">root_dir() -&gt; <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span></span></p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the root directory of Erlang/OTP, which is
           the directory where it is installed.</p>
 	<p><strong>Example:</strong></p>
         <div class="example"><pre>
-&gt; <span class="bold_code">code:root_dir().</span>
+&gt; <span class="bold_code bc-12">code:root_dir().</span>
 "/usr/local/otp"</pre></div>
       </p></div>
-    <p><a name="lib_dir-0"></a><span class="bold_code">lib_dir() -&gt; <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span></span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="lib_dir-0"></a><span class="bold_code bc-1">lib_dir() -&gt; <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span></span></p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the library directory, <span class="code">$OTPROOT/lib</span>, where
           <span class="code">$OTPROOT</span> is the root directory of Erlang/OTP.</p>
 	<p><strong>Example:</strong></p>
         <div class="example"><pre>
-&gt; <span class="bold_code">code:lib_dir().</span>
+&gt; <span class="bold_code bc-12">code:lib_dir().</span>
 "/usr/local/otp/lib"</pre></div>
       </p></div>
-    <p><a name="lib_dir-1"></a><span class="bold_code">lib_dir(Name) -&gt; <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span> | {error, bad_name}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = atom()</span></div>
+    <p><a name="lib_dir-1"></a><span class="bold_code bc-1">lib_dir(Name) -&gt; <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span> | {error, bad_name}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = atom()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the path
           for the "library directory", the top directory, for an
           application <span class="code">Name</span> located under <span class="code">$OTPROOT/lib</span> or
@@ -1474,7 +1481,7 @@ rpc:call(Node, code, load_binary, [Module, Filename, Binary]),
           application resides in an archive or not.</p>
 	<p><strong>Example:</strong></p>
         <div class="example"><pre>
-&gt; <span class="bold_code">code:lib_dir(mnesia).</span>
+&gt; <span class="bold_code bc-12">code:lib_dir(mnesia).</span>
 "/usr/local/otp/lib/mnesia-4.2.2"</pre></div>
         <p>Returns <span class="code">{error, bad_name}</span> if <span class="code">Name</span>
 	 is not the name of an application under <span class="code">$OTPROOT/lib</span> or
@@ -1487,12 +1494,12 @@ rpc:call(Node, code, load_binary, [Module, Filename, Binary]),
 	allowed to be a string. That will probably change in a future release.</p></p></div>
 </div>
       </p></div>
-    <p><a name="lib_dir-2"></a><span class="bold_code">lib_dir(Name, SubDir) -&gt; <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span> | {error, bad_name}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = SubDir = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="lib_dir-2"></a><span class="bold_code bc-1">lib_dir(Name, SubDir) -&gt; <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span> | {error, bad_name}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = SubDir = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the path to a subdirectory directly under the top
          directory of an application. Normally the subdirectories
          reside under the top directory for the application, but when
@@ -1502,22 +1509,22 @@ rpc:call(Node, code, load_binary, [Module, Filename, Binary]),
          file. It is not checked whether this directory exists.</p>
 	 <p><strong>Example:</strong></p>
         <div class="example"><pre>
-&gt; <span class="bold_code">code:lib_dir(megaco, priv).</span>
+&gt; <span class="bold_code bc-12">code:lib_dir(megaco, priv).</span>
 "/usr/local/otp/lib/megaco-3.9.1.1/priv"</pre></div>
 
         <p>Fails with an exception if <span class="code">Name</span> or <span class="code">SubDir</span> has
         the wrong type.</p>
       </p></div>
-    <p><a name="compiler_dir-0"></a><span class="bold_code">compiler_dir() -&gt; <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span></span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="compiler_dir-0"></a><span class="bold_code bc-1">compiler_dir() -&gt; <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span></span></p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the compiler library directory. Equivalent to
           <span class="code">code:lib_dir(compiler)</span>.</p>
       </p></div>
-    <p><a name="priv_dir-1"></a><span class="bold_code">priv_dir(Name) -&gt; <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span> | {error, bad_name}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = atom()</span></div>
+    <p><a name="priv_dir-1"></a><span class="bold_code bc-1">priv_dir(Name) -&gt; <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span> | {error, bad_name}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = atom()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the path to the <span class="code">priv</span> directory in an
          application. Equivalent to <span class="code">code:lib_dir(Name, priv)</span>.</p>
 
@@ -1527,61 +1534,61 @@ rpc:call(Node, code, load_binary, [Module, Filename, Binary]),
 	be a string. That will probably change in a future release.</p></p></div>
 </div>
       </p></div>
-    <p><a name="objfile_extension-0"></a><span class="bold_code">objfile_extension() -&gt; nonempty_string()</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="objfile_extension-0"></a><span class="bold_code bc-1">objfile_extension() -&gt; nonempty_string()</span></p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the object code file extension corresponding to
           the Erlang machine used, namely <span class="code">.beam</span>.</p>
       </p></div>
-    <p><a name="stick_dir-1"></a><span class="bold_code">stick_dir(Dir) -&gt; ok | error</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dir = <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span></span></div>
+    <p><a name="stick_dir-1"></a><span class="bold_code bc-1">stick_dir(Dir) -&gt; ok | error</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dir = <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Marks <span class="code">Dir</span> as sticky.</p>
         <p>Returns <span class="code">ok</span> if successful, otherwise <span class="code">error</span>.</p>
       </p></div>
-    <p><a name="unstick_dir-1"></a><span class="bold_code">unstick_dir(Dir) -&gt; ok | error</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Dir = <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span></span></div>
+    <p><a name="unstick_dir-1"></a><span class="bold_code bc-1">unstick_dir(Dir) -&gt; ok | error</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Dir = <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Unsticks a directory that is marked as
           sticky.</p>
         <p>Returns <span class="code">ok</span> if successful, otherwise <span class="code">error</span>.</p>
       </p></div>
-    <p><a name="is_sticky-1"></a><span class="bold_code">is_sticky(Module) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
+    <p><a name="is_sticky-1"></a><span class="bold_code bc-1">is_sticky(Module) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">Module</span> is the
 	name of a module that has been loaded from a sticky directory
 	(in other words: an attempt to reload the module will fail),
 	or <span class="code">false</span> if <span class="code">Module</span> is not a loaded module or is
 	not sticky.</p>
       </p></div>
-    <p><a name="where_is_file-1"></a><span class="bold_code">where_is_file(Filename) -&gt; non_existing | Absname</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = Absname = <span class="bold_code"><a href="file.html#type-filename">file:filename()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="where_is_file-1"></a><span class="bold_code bc-1">where_is_file(Filename) -&gt; non_existing | Absname</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = Absname = <span class="bold_code bc-15"><a href="file.html#type-filename">file:filename()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Searches the code path for <span class="code">Filename</span>, a file of
           arbitrary type. If found, the full name is returned.
           <span class="code">non_existing</span> is returned if the file cannot be found.
           The function can be useful, for example, to locate
           application resource files.</p>
       </p></div>
-    <p><a name="clash-0"></a><span class="bold_code">clash() -&gt; ok</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="clash-0"></a><span class="bold_code bc-1">clash() -&gt; ok</span></p>
+<div class="REFBODY rb-7"><p>
         <p>Searches all directories in the code path for module names with
           identical names and writes a report to <span class="code">stdout</span>.</p>
       </p></div>
-    <p><a name="is_module_native-1"></a><span class="bold_code">is_module_native(Module) -&gt; true | false | undefined</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
+    <p><a name="is_module_native-1"></a><span class="bold_code bc-1">is_module_native(Module) -&gt; true | false | undefined</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 	<p>Returns:</p>
 	<dl>
 	<dt><strong><span class="code">true</span></strong></dt>
@@ -1595,17 +1602,17 @@ rpc:call(Node, code, load_binary, [Module, Filename, Binary]),
 	</dl>
       </p></div>
 
-    <p><a name="get_mode-0"></a><span class="bold_code">get_mode() -&gt; embedded | interactive</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="get_mode-0"></a><span class="bold_code bc-1">get_mode() -&gt; embedded | interactive</span></p>
+<div class="REFBODY rb-7"><p>
         <p>Returns an atom describing the mode of the code server:
         <span class="code">interactive</span> or <span class="code">embedded</span>.</p>
         <p>This information is useful when an external entity (for example,
         an IDE) provides additional code for a running node. If the code server is
 	in interactive mode, it only has to add the path to the code. If the code server
 	is in embedded mode, the code must be loaded with
-	<span class="bold_code"><a href="#load_binary-3"><span class="code">load_binary/3</span></a></span>.</p>
+	<span class="bold_code bc-17"><a href="#load_binary-3"><span class="code">load_binary/3</span></a></span>.</p>
       </p></div>
-  
+  </div>
 </div>
 <div class="footer">
 <hr>

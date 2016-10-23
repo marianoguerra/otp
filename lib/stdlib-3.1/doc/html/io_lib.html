@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">STDLIB</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 3.1</p>
@@ -1717,40 +1717,53 @@
 <!-- refpage --><center><h1>io_lib</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">io_lib</div>
+<div class="REFBODY module-body">io_lib</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">I/O library functions.</div>
+<div class="REFBODY module-summary-body">I/O library functions.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>This module contains functions for converting to and from
       strings (lists of characters). They are used for implementing the
-      functions in the <span class="bold_code"><a href="io.html"><span class="code">io</span></a></span> module.
+      functions in the <span class="bold_code bc-19"><a href="io.html"><span class="code">io</span></a></span> module.
       There is no guarantee that the
       character lists returned from some of the functions are flat,
       they can be deep lists. Function
-      <span class="bold_code"><a href="lists.html#flatten-1"><span class="code">lists:flatten/1</span></a></span>
+      <span class="bold_code bc-15"><a href="lists.html#flatten-1"><span class="code">lists:flatten/1</span></a></span>
       can be used for flattening deep lists.</p>
   </p></div>
 
   <h3><a name="data-types" href="#data-types">Data Types</a></h3>
-    <p>
-      <span class="bold_code"><a name="type-chars">chars()</a> = [char() | <span class="bold_code"><a href="#type-chars">chars()</a></span>]</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-continuation">continuation()</a></span><br></p>
-<div class="REFBODY"><p><p>A continuation as returned by
-        <span class="bold_code"><a href="#fread-3"><span class="code">fread/3</span></a></span>.</p>
-      </p></div>
-    <p>
-      <span class="bold_code"><a name="type-depth">depth()</a> = -1 | integer() &gt;= 0</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-fread_error">fread_error()</a> = <br>    atom |<br>    based |<br>    character |<br>    float |<br>    format |<br>    input |<br>    integer |<br>    string |<br>    unsigned</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-fread_item">fread_item()</a> = string() | atom() | integer() | float()</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-latin1_string">latin1_string()</a> = [<span class="bold_code"><a href="unicode.html#type-latin1_char">unicode:latin1_char()</a></span>]</span><br></p>
-    <p>
-      <span class="bold_code"><a name="type-format_spec">format_spec()</a> = <br>    #{control_char := char(),<br>      args := [any()],<br>      width := none | integer(),<br>      adjust := left | right,<br>      precision := none | integer(),<br>      pad_char := char(),<br>      encoding := unicode | latin1,<br>      strings := boolean()}</span><br></p>
-<div class="REFBODY"><p><p>Where:</p>
+<div class="data-types-body">
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-chars">chars()</a> = [char() | <span class="bold_code bc-17"><a href="#type-chars">chars()</a></span>]</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-continuation">continuation()</a></span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p><p>A continuation as returned by
+        <span class="bold_code bc-17"><a href="#fread-3"><span class="code">fread/3</span></a></span>.</p>
+      </p></div></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-depth">depth()</a> = -1 | integer() &gt;= 0</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-fread_error">fread_error()</a> = <br>    atom |<br>    based |<br>    character |<br>    float |<br>    format |<br>    input |<br>    integer |<br>    string |<br>    unsigned</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-fread_item">fread_item()</a> = string() | atom() | integer() | float()</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-latin1_string">latin1_string()</a> = [<span class="bold_code bc-15"><a href="unicode.html#type-latin1_char">unicode:latin1_char()</a></span>]</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-format_spec">format_spec()</a> = <br>    #{control_char := char(),<br>      args := [any()],<br>      width := none | integer(),<br>      adjust := left | right,<br>      precision := none | integer(),<br>      pad_char := char(),<br>      encoding := unicode | latin1,<br>      strings := boolean()}</span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p><p>Where:</p>
       <ul>
         <li>
 <p><span class="code">control_char</span> is the type of control
@@ -1783,57 +1796,58 @@
           <span class="code">l</span> is present.</p>
         </li>
       </ul>
-      </p></div>
-  
+      </p></div></div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="build_text-1"></a><span class="bold_code">build_text(FormatList) -&gt; <span class="bold_code"><a href="#type-chars">chars()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">FormatList = [char() | <span class="bold_code"><a href="#type-format_spec">format_spec()</a></span>]</span></div>
+<div class="exports-body">
+    <p><a name="build_text-1"></a><span class="bold_code bc-1">build_text(FormatList) -&gt; <span class="bold_code bc-17"><a href="#type-chars">chars()</a></span></span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">FormatList = [char() | <span class="bold_code bc-17"><a href="#type-format_spec">format_spec()</a></span>]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>For details, see
-          <span class="bold_code"><a href="#scan_format-2"><span class="code">scan_format/2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#scan_format-2"><span class="code">scan_format/2</span></a></span>.</p>
       </p></div>
 
-    <p><a name="char_list-1"></a><span class="bold_code">char_list(Term) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Term = term()</span></div>
+    <p><a name="char_list-1"></a><span class="bold_code bc-1">char_list(Term) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Term = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">Term</span> is a flat list of
           characters in the Unicode range, otherwise <span class="code">false</span>.</p>
       </p></div>
 
-    <p><a name="deep_char_list-1"></a><span class="bold_code">deep_char_list(Term) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Term = term()</span></div>
+    <p><a name="deep_char_list-1"></a><span class="bold_code bc-1">deep_char_list(Term) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Term = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">Term</span> is a, possibly deep,
           list of characters in the Unicode range, otherwise <span class="code">false</span>.</p>
       </p></div>
 
-    <p><a name="deep_latin1_char_list-1"></a><span class="bold_code">deep_latin1_char_list(Term) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Term = term()</span></div>
+    <p><a name="deep_latin1_char_list-1"></a><span class="bold_code bc-1">deep_latin1_char_list(Term) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Term = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">Term</span> is a, possibly deep,
           list of characters in the ISO Latin-1 range, otherwise
           <span class="code">false</span>.</p>
       </p></div>
 
-    <p><a name="format-2"></a><span class="bold_code">format(Format, Data) -&gt; <span class="bold_code"><a href="#type-chars">chars()</a></span></span><br><a name="fwrite-2"></a><span class="bold_code">fwrite(Format, Data) -&gt; <span class="bold_code"><a href="#type-chars">chars()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Format = <span class="bold_code"><a href="io.html#type-format">io:format()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Data = [term()]</span></div>
+    <p><a name="format-2"></a><span class="bold_code bc-1">format(Format, Data) -&gt; <span class="bold_code bc-17"><a href="#type-chars">chars()</a></span></span><a name="fwrite-2"></a><span class="bold_code bc-1">fwrite(Format, Data) -&gt; <span class="bold_code bc-17"><a href="#type-chars">chars()</a></span></span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Format = <span class="bold_code bc-15"><a href="io.html#type-format">io:format()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Data = [term()]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a character list that represents <span class="code">Data</span>
           formatted in accordance with <span class="code">Format</span>.
           For a detailed description of the available formatting options, see
-          <span class="bold_code"><a href="io.html#fwrite-1"><span class="code">io:fwrite/1,2,3</span></a></span>.
+          <span class="bold_code bc-15"><a href="io.html#fwrite-1"><span class="code">io:fwrite/1,2,3</span></a></span>.
           If the format string or argument list contains an error, a fault is
           generated.</p>
         <p>If and only if the Unicode translation modifier is used in the
@@ -1844,17 +1858,17 @@
           used in any context where Unicode data is allowed.</p>
       </p></div>
 
-    <p><a name="fread-2"></a><span class="bold_code">fread(Format, String) -&gt; Result</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Format = String = string()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Result = <br>    {ok, InputList :: [<span class="bold_code"><a href="#type-fread_item">fread_item()</a></span>], LeftOverChars :: string()} |<br>    {more,<br>     RestFormat :: string(),<br>     Nchars :: integer() &gt;= 0,<br>     InputStack :: <span class="bold_code"><a href="#type-chars">chars()</a></span>} |<br>    {error, {fread, What :: <span class="bold_code"><a href="#type-fread_error">fread_error()</a></span>}}</span></div>
+    <p><a name="fread-2"></a><span class="bold_code bc-1">fread(Format, String) -&gt; Result</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Format = String = string()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Result = <br>    {ok, InputList :: [<span class="bold_code bc-17"><a href="#type-fread_item">fread_item()</a></span>], LeftOverChars :: string()} |<br>    {more,<br>     RestFormat :: string(),<br>     Nchars :: integer() &gt;= 0,<br>     InputStack :: <span class="bold_code bc-17"><a href="#type-chars">chars()</a></span>} |<br>    {error, {fread, What :: <span class="bold_code bc-17"><a href="#type-fread_error">fread_error()</a></span>}}</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Tries to read <span class="code">String</span> in accordance with the
           control sequences in <span class="code">Format</span>.
           For a detailed description of the available formatting options, see
-          <span class="bold_code"><a href="io.html#fread-3"><span class="code">io:fread/3</span></a></span>. It is
+          <span class="bold_code bc-15"><a href="io.html#fread-3"><span class="code">io:fread/3</span></a></span>. It is
           assumed that <span class="code">String</span> contains whole lines.</p>
         <p>The function returns:</p>
         <dl>
@@ -1883,19 +1897,19 @@
         </dl>
         <p><strong>Example:</strong></p>
         <div class="example"><pre>
-3&gt; <span class="bold_code">io_lib:fread("~f~f~f", "15.6 17.3e-6 24.5").</span>
+3&gt; <span class="bold_code bc-12">io_lib:fread("~f~f~f", "15.6 17.3e-6 24.5").</span>
 {ok,[15.6,1.73e-5,24.5],[]}</pre></div>
       </p></div>
 
-    <p><a name="fread-3"></a><span class="bold_code">fread(Continuation, CharSpec, Format) -&gt; Return</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Continuation = <span class="bold_code"><a href="#type-continuation">continuation()</a></span> | []</span></div>
-<div class="REFTYPES"><span class="bold_code">CharSpec = string() | eof</span></div>
-<div class="REFTYPES"><span class="bold_code">Format = string()</span></div>
-<div class="REFTYPES"><span class="bold_code">Return = <br>    {more, Continuation1 :: <span class="bold_code"><a href="#type-continuation">continuation()</a></span>} |<br>    {done, Result, LeftOverChars :: string()}</span></div>
-<div class="REFTYPES"><span class="bold_code">Result = <br>    {ok, InputList :: [<span class="bold_code"><a href="#type-fread_item">fread_item()</a></span>]} |<br>    eof |<br>    {error, {fread, What :: <span class="bold_code"><a href="#type-fread_error">fread_error()</a></span>}}</span></div>
+    <p><a name="fread-3"></a><span class="bold_code bc-1">fread(Continuation, CharSpec, Format) -&gt; Return</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Continuation = <span class="bold_code bc-17"><a href="#type-continuation">continuation()</a></span> | []</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">CharSpec = string() | eof</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Format = string()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Return = <br>    {more, Continuation1 :: <span class="bold_code bc-17"><a href="#type-continuation">continuation()</a></span>} |<br>    {done, Result, LeftOverChars :: string()}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Result = <br>    {ok, InputList :: [<span class="bold_code bc-17"><a href="#type-fread_item">fread_item()</a></span>]} |<br>    eof |<br>    {error, {fread, What :: <span class="bold_code bc-17"><a href="#type-fread_error">fread_error()</a></span>}}</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This is the re-entrant formatted reader. The continuation of
           the first call to the functions must be <span class="code">[]</span>. For a complete
           description of how the re-entrant input scheme works, see
@@ -1937,38 +1951,38 @@
         </dl>
       </p></div>
 
-    <p><a name="indentation-2"></a><span class="bold_code">indentation(String, StartIndent) -&gt; integer()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">String = string()</span></div>
-<div class="REFTYPES"><span class="bold_code">StartIndent = integer()</span></div>
+    <p><a name="indentation-2"></a><span class="bold_code bc-1">indentation(String, StartIndent) -&gt; integer()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">String = string()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">StartIndent = integer()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the indentation if <span class="code">String</span> has been
           printed, starting at <span class="code">StartIndent</span>.</p>
       </p></div>
 
-    <p><a name="latin1_char_list-1"></a><span class="bold_code">latin1_char_list(Term) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Term = term()</span></div>
+    <p><a name="latin1_char_list-1"></a><span class="bold_code bc-1">latin1_char_list(Term) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Term = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">Term</span> is a flat list of
           characters in the ISO Latin-1 range, otherwise <span class="code">false</span>.</p>
       </p></div>
 
-    <p><a name="nl-0"></a><span class="bold_code">nl() -&gt; string()</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="nl-0"></a><span class="bold_code bc-1">nl() -&gt; string()</span></p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a character list that represents a new line character.</p>
       </p></div>
 
-    <p><a name="print-1"></a><span class="bold_code">print(Term) -&gt; <span class="bold_code"><a href="#type-chars">chars()</a></span></span><br><a name="print-4"></a><span class="bold_code">print(Term, Column, LineLength, Depth) -&gt; <span class="bold_code"><a href="#type-chars">chars()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Term = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Column = LineLength = integer() &gt;= 0</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Depth = <span class="bold_code"><a href="#type-depth">depth()</a></span></span></div>
+    <p><a name="print-1"></a><span class="bold_code bc-1">print(Term) -&gt; <span class="bold_code bc-17"><a href="#type-chars">chars()</a></span></span><a name="print-4"></a><span class="bold_code bc-1">print(Term, Column, LineLength, Depth) -&gt; <span class="bold_code bc-17"><a href="#type-chars">chars()</a></span></span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Term = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Column = LineLength = integer() &gt;= 0</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Depth = <span class="bold_code bc-17"><a href="#type-depth">depth()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a list of characters that represents
           <span class="code">Term</span>, but breaks representations longer
           than one line into many lines and indents each line sensibly.
@@ -1987,54 +2001,54 @@
         </ul>
       </p></div>
 
-    <p><a name="printable_latin1_list-1"></a><span class="bold_code">printable_latin1_list(Term) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Term = term()</span></div>
+    <p><a name="printable_latin1_list-1"></a><span class="bold_code bc-1">printable_latin1_list(Term) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Term = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">Term</span> is a flat list of
           printable ISO Latin-1 characters, otherwise <span class="code">false</span>.</p>
       </p></div>
 
-    <p><a name="printable_list-1"></a><span class="bold_code">printable_list(Term) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Term = term()</span></div>
+    <p><a name="printable_list-1"></a><span class="bold_code bc-1">printable_list(Term) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Term = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">Term</span> is a flat list of
           printable characters, otherwise <span class="code">false</span>.</p>
         <p>What is a printable character in this case is determined by
           startup flag <span class="code">+pc</span> to the Erlang VM; see
-          <span class="bold_code"><a href="io.html#printable_range-0"><span class="code">io:printable_range/0</span></a></span> and 
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html');"><span class="code">erl(1)</span></a></span>.</p>
+          <span class="bold_code bc-15"><a href="io.html#printable_range-0"><span class="code">io:printable_range/0</span></a></span> and 
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','erl.html');"><span class="code">erl(1)</span></a></span>.</p>
       </p></div>
 
-    <p><a name="printable_unicode_list-1"></a><span class="bold_code">printable_unicode_list(Term) -&gt; boolean()</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Term = term()</span></div>
+    <p><a name="printable_unicode_list-1"></a><span class="bold_code bc-1">printable_unicode_list(Term) -&gt; boolean()</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Term = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns <span class="code">true</span> if <span class="code">Term</span> is a flat list of
           printable Unicode characters, otherwise <span class="code">false</span>.</p>
       </p></div>
 
-    <p><a name="scan_format-2"></a><span class="bold_code">scan_format(Format, Data) -&gt; FormatList</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Format = <span class="bold_code"><a href="io.html#type-format">io:format()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Data = [term()]</span></div>
-<div class="REFTYPES"><span class="bold_code">FormatList = [char() | <span class="bold_code"><a href="#type-format_spec">format_spec()</a></span>]</span></div>
+    <p><a name="scan_format-2"></a><span class="bold_code bc-1">scan_format(Format, Data) -&gt; FormatList</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Format = <span class="bold_code bc-15"><a href="io.html#type-format">io:format()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Data = [term()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">FormatList = [char() | <span class="bold_code bc-17"><a href="#type-format_spec">format_spec()</a></span>]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a list corresponding to the specified format string,
           where control sequences have been replaced with
           corresponding tuples. This list can be passed to:</p>
         <ul>
           <li>
-            <p><span class="bold_code"><a href="#build_text-1"><span class="code">build_text/1</span></a></span>
+            <p><span class="bold_code bc-17"><a href="#build_text-1"><span class="code">build_text/1</span></a></span>
               to have the same effect as <span class="code">format(Format, Args)</span></p>
           </li>
           <li>
-            <p><span class="bold_code"><a href="#unscan_format-1"><span class="code">unscan_format/1</span></a></span> to get the corresponding pair
+            <p><span class="bold_code bc-17"><a href="#unscan_format-1"><span class="code">unscan_format/1</span></a></span> to get the corresponding pair
               of <span class="code">Format</span> and <span class="code">Args</span> (with every <span class="code">*</span> and
               corresponding argument expanded to numeric values)</p>
           </li>
@@ -2045,23 +2059,23 @@
           formatting to text in, for example, a logger.</p>
       </p></div>
 
-    <p><a name="unscan_format-1"></a><span class="bold_code">unscan_format(FormatList) -&gt; {Format, Data}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">FormatList = [char() | <span class="bold_code"><a href="#type-format_spec">format_spec()</a></span>]</span></div>
-<div class="REFTYPES"><span class="bold_code">Format = <span class="bold_code"><a href="io.html#type-format">io:format()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Data = [term()]</span></div>
+    <p><a name="unscan_format-1"></a><span class="bold_code bc-1">unscan_format(FormatList) -&gt; {Format, Data}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">FormatList = [char() | <span class="bold_code bc-17"><a href="#type-format_spec">format_spec()</a></span>]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Format = <span class="bold_code bc-15"><a href="io.html#type-format">io:format()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Data = [term()]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>For details, see
-          <span class="bold_code"><a href="#scan_format-2"><span class="code">scan_format/2</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#scan_format-2"><span class="code">scan_format/2</span></a></span>.</p>
       </p></div>
 
-    <p><a name="write-1"></a><span class="bold_code">write(Term) -&gt; <span class="bold_code"><a href="#type-chars">chars()</a></span></span><br><a name="write-2"></a><span class="bold_code">write(Term, Depth) -&gt; <span class="bold_code"><a href="#type-chars">chars()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Term = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Depth = <span class="bold_code"><a href="#type-depth">depth()</a></span></span></div>
+    <p><a name="write-1"></a><span class="bold_code bc-1">write(Term) -&gt; <span class="bold_code bc-17"><a href="#type-chars">chars()</a></span></span><a name="write-2"></a><span class="bold_code bc-1">write(Term, Depth) -&gt; <span class="bold_code bc-17"><a href="#type-chars">chars()</a></span></span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Term = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Depth = <span class="bold_code bc-17"><a href="#type-depth">depth()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns a character list that represents <span class="code">Term</span>.
           Argument <span class="code">Depth</span> controls the depth of the
           structures written. When the specified depth is reached,
@@ -2070,77 +2084,77 @@
           no limitation.</p>
         <p><strong>Example:</strong></p>
         <div class="example"><pre>
-1&gt; <span class="bold_code">lists:flatten(io_lib:write({1,[2],[3],[4,5],6,7,8,9})).</span>
+1&gt; <span class="bold_code bc-12">lists:flatten(io_lib:write({1,[2],[3],[4,5],6,7,8,9})).</span>
 "{1,[2],[3],[4,5],6,7,8,9}"
-2&gt; <span class="bold_code">lists:flatten(io_lib:write({1,[2],[3],[4,5],6,7,8,9}, 5)).</span>
+2&gt; <span class="bold_code bc-12">lists:flatten(io_lib:write({1,[2],[3],[4,5],6,7,8,9}, 5)).</span>
 "{1,[2],[3],[...],...}"</pre></div>
       </p></div>
 
-    <p><a name="write_atom-1"></a><span class="bold_code">write_atom(Atom) -&gt; <span class="bold_code"><a href="#type-chars">chars()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Atom = atom()</span></div>
+    <p><a name="write_atom-1"></a><span class="bold_code bc-1">write_atom(Atom) -&gt; <span class="bold_code bc-17"><a href="#type-chars">chars()</a></span></span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Atom = atom()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the list of characters needed to print atom
           <span class="code">Atom</span>.</p>
       </p></div>
 
-    <p><a name="write_char-1"></a><span class="bold_code">write_char(Char) -&gt; <span class="bold_code"><a href="#type-chars">chars()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Char = char()</span></div>
+    <p><a name="write_char-1"></a><span class="bold_code bc-1">write_char(Char) -&gt; <span class="bold_code bc-17"><a href="#type-chars">chars()</a></span></span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Char = char()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the list of characters needed to print a character
           constant in the Unicode character set.</p>
       </p></div>
 
-    <p><a name="write_char_as_latin1-1"></a><span class="bold_code">write_char_as_latin1(Char) -&gt; <span class="bold_code"><a href="#type-latin1_string">latin1_string()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Char = char()</span></div>
+    <p><a name="write_char_as_latin1-1"></a><span class="bold_code bc-1">write_char_as_latin1(Char) -&gt; <span class="bold_code bc-17"><a href="#type-latin1_string">latin1_string()</a></span></span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Char = char()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the list of characters needed to print a character
           constant in the Unicode character set. Non-Latin-1 characters
           are escaped.</p>
       </p></div>
 
-    <p><a name="write_latin1_char-1"></a><span class="bold_code">write_latin1_char(Latin1Char) -&gt; <span class="bold_code"><a href="#type-latin1_string">latin1_string()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Latin1Char = <span class="bold_code"><a href="unicode.html#type-latin1_char">unicode:latin1_char()</a></span></span></div>
+    <p><a name="write_latin1_char-1"></a><span class="bold_code bc-1">write_latin1_char(Latin1Char) -&gt; <span class="bold_code bc-17"><a href="#type-latin1_string">latin1_string()</a></span></span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Latin1Char = <span class="bold_code bc-15"><a href="unicode.html#type-latin1_char">unicode:latin1_char()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the list of characters needed to print a character
           constant in the ISO Latin-1 character set.</p>
       </p></div>
 
-    <p><a name="write_latin1_string-1"></a><span class="bold_code">write_latin1_string(Latin1String) -&gt; <span class="bold_code"><a href="#type-latin1_string">latin1_string()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Latin1String = <span class="bold_code"><a href="#type-latin1_string">latin1_string()</a></span></span></div>
+    <p><a name="write_latin1_string-1"></a><span class="bold_code bc-1">write_latin1_string(Latin1String) -&gt; <span class="bold_code bc-17"><a href="#type-latin1_string">latin1_string()</a></span></span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Latin1String = <span class="bold_code bc-17"><a href="#type-latin1_string">latin1_string()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the list of characters needed to print
           <span class="code">Latin1String</span> as a string.</p>
       </p></div>
 
-    <p><a name="write_string-1"></a><span class="bold_code">write_string(String) -&gt; <span class="bold_code"><a href="#type-chars">chars()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">String = string()</span></div>
+    <p><a name="write_string-1"></a><span class="bold_code bc-1">write_string(String) -&gt; <span class="bold_code bc-17"><a href="#type-chars">chars()</a></span></span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">String = string()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the list of characters needed to print
           <span class="code">String</span> as a string.</p>
       </p></div>
 
-    <p><a name="write_string_as_latin1-1"></a><span class="bold_code">write_string_as_latin1(String) -&gt; <span class="bold_code"><a href="#type-latin1_string">latin1_string()</a></span></span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">String = string()</span></div>
+    <p><a name="write_string_as_latin1-1"></a><span class="bold_code bc-1">write_string_as_latin1(String) -&gt; <span class="bold_code bc-17"><a href="#type-latin1_string">latin1_string()</a></span></span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">String = string()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the list of characters needed to print
           <span class="code">String</span> as a string. Non-Latin-1
           characters are escaped.</p>
       </p></div>
-  
+  </div>
 </div>
 <div class="footer">
 <hr>

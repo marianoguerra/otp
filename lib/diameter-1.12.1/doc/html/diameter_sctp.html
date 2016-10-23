@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Diameter</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 1.12.1</p>
@@ -144,19 +144,19 @@
 
 
 <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">diameter_sctp</div>
+<div class="REFBODY module-body">diameter_sctp</div>
 <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Diameter transport over SCTP.</div>
+<div class="REFBODY module-summary-body">Diameter transport over SCTP.</div>
 
 <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
 
 <p>
-This module implements diameter transport over SCTP using <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_sctp.html');">gen_sctp(3)</a></span>.
+This module implements diameter transport over SCTP using <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_sctp.html');">gen_sctp(3)</a></span>.
 It can be specified as the value of a transport_module option to
-<span class="bold_code"><a href="diameter.html#add_transport-2">diameter:add_transport/2</a></span>
+<span class="bold_code bc-15"><a href="diameter.html#add_transport-2">diameter:add_transport/2</a></span>
 and implements the behaviour documented in
-<span class="bold_code"><a href="diameter_transport.html">diameter_transport(3)</a></span>.</p>
+<span class="bold_code bc-19"><a href="diameter_transport.html">diameter_transport(3)</a></span>.</p>
 
 <a name="start"></a>
 </p></div>
@@ -164,48 +164,49 @@ and implements the behaviour documented in
 
 
 <h3><a name="exports" href="#exports">Exports</a></h3>
+<div class="exports-body">
 
-<p><a name="start-3"></a><span class="bold_code">start({Type, Ref}, Svc, [Opt])
+<p><a name="start-3"></a><span class="bold_code bc-9">start({Type, Ref}, Svc, [Opt])
          -&gt; {ok, Pid, [LAddr]} | {error, Reason}</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES">
-<span class="bold_code">Type = connect | accept</span><br>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Type = connect | accept</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Ref = <span class="bold_code"><a href="diameter.html#transport_ref">diameter:transport_ref()</a></span></span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Ref = <span class="bold_code bc-15"><a href="diameter.html#transport_ref">diameter:transport_ref()</a></span></span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Svc = #diameter_service{}</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Svc = #diameter_service{}</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Opt = OwnOpt | SctpOpt</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Opt = OwnOpt | SctpOpt</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Pid = pid()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Pid = pid()</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">LAddr = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#type-ip_address');">inet:ip_address()</a></span></span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">LAddr = <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#type-ip_address');">inet:ip_address()</a></span></span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Reason = term()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Reason = term()</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">OwnOpt = {raddr, <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#type-ip_address');">inet:ip_address()</a></span>}
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">OwnOpt = {raddr, <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#type-ip_address');">inet:ip_address()</a></span>}
           | {rport, integer()}
           | {accept, Match}</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">SctpOpt = term()</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">SctpOpt = term()</span><br>
 </div>
-<div class="REFTYPES">
-<span class="bold_code">Match = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#type-ip_address');">inet:ip_address()</a></span> | string() | [Match]</span><br>
+<div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Match = <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#type-ip_address');">inet:ip_address()</a></span> | string() | [Match]</span><br>
 </div>
 </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
 
 <p>
-The start function required by <span class="bold_code"><a href="diameter_transport.html">diameter_transport(3)</a></span>.</p>
+The start function required by <span class="bold_code bc-19"><a href="diameter_transport.html">diameter_transport(3)</a></span>.</p>
 
 <p>
 Options <span class="code">raddr</span> and <span class="code">rport</span> specify the remote address
@@ -226,7 +227,7 @@ A string-valued <span class="code">Match</span> that does not parse as an addres
 interpreted as a regular expression.</p>
 
 <p>
-Remaining options are any accepted by <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_sctp.html#open-1');">gen_sctp:open/1</a></span>, with the exception
+Remaining options are any accepted by <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_sctp.html#open-1');">gen_sctp:open/1</a></span>, with the exception
 of options <span class="code">mode</span>, <span class="code">binary</span>, <span class="code">list</span>, <span class="code">active</span>
 and <span class="code">sctp_events</span>.
 Note that options <span class="code">ip</span> and <span class="code">port</span> specify the local address
@@ -245,12 +246,12 @@ connecting transport.</p>
 <div class="content"><p>
 <p>
 An insufficiently large receive buffer may result in a peer having to
-resend incoming messages: set the <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html');">inet(3)</a></span> option <span class="code">recbuf</span> to increase
+resend incoming messages: set the <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html');">inet(3)</a></span> option <span class="code">recbuf</span> to increase
 the buffer size.</p>
 
 <p>
 An insufficiently large send buffer may result in outgoing messages
-being discarded: set the <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html');">inet(3)</a></span> option <span class="code">sndbuf</span> to increase
+being discarded: set the <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html');">inet(3)</a></span> option <span class="code">sndbuf</span> to increase
 the buffer size.</p>
 </p></div>
 </div>
@@ -260,27 +261,27 @@ The <span class="code">transport_data</span> field of record <span class="code">
 is used to communicate the stream on which an inbound message
 has been received, or on which an outbound message should be sent.
 The value will be of the form <span class="code">{stream, Id}</span> for an inbound
-message passed to a <span class="bold_code"><a href="diameter_app.html#Mod:handle_request-3">handle_request/3</a></span> or <span class="bold_code"><a href="diameter_app.html#Mod:handle_answer-4">handle_answer/4</a></span>
+message passed to a <span class="bold_code bc-15"><a href="diameter_app.html#Mod:handle_request-3">handle_request/3</a></span> or <span class="bold_code bc-15"><a href="diameter_app.html#Mod:handle_answer-4">handle_answer/4</a></span>
 callback.
 For an outbound message, <span class="code">{outstream, Id}</span> in the return value of
-<span class="bold_code"><a href="diameter_app.html#Mod:handle_request-3">handle_request/3</a></span> or <span class="bold_code"><a href="diameter_app.html#Mod:prepare_retransmit-3">prepare_retransmit/3</a></span> sets the outbound
+<span class="bold_code bc-15"><a href="diameter_app.html#Mod:handle_request-3">handle_request/3</a></span> or <span class="bold_code bc-15"><a href="diameter_app.html#Mod:prepare_retransmit-3">prepare_retransmit/3</a></span> sets the outbound
 stream, the stream id being interpreted modulo the number of outbound
 streams.
 Any other value, or not setting a value, causes successive such sends
 to cycle though all outbound streams.</p>
 </p></div>
 
+</div>
 
 
 
 
-
-<h3><a name="idp46355814782048">SEE ALSO</a></h3>
-<div class="REFBODY">
+<h3><a name="idp46985883485776">SEE ALSO</a></h3>
+<div class="REFBODY rb-3">
 
 
 <p>
-<span class="bold_code"><a href="diameter.html">diameter(3)</a></span>, <span class="bold_code"><a href="diameter_transport.html">diameter_transport(3)</a></span>, <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_sctp.html');">gen_sctp(3)</a></span>, <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html');">inet(3)</a></span></p>
+<span class="bold_code bc-19"><a href="diameter.html">diameter(3)</a></span>, <span class="bold_code bc-19"><a href="diameter_transport.html">diameter_transport(3)</a></span>, <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_sctp.html');">gen_sctp(3)</a></span>, <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html');">inet(3)</a></span></p>
 
 </div>
 

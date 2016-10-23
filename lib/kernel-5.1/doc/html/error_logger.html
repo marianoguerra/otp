@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Kernel</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 5.1</p>
@@ -646,14 +646,14 @@
 <!-- refpage --><center><h1>error_logger</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">error_logger</div>
+<div class="REFBODY module-body">error_logger</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Erlang error logger.</div>
+<div class="REFBODY module-summary-body">Erlang error logger.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>The Erlang <strong>error logger</strong> is an event manager (see
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','des_princ.html');">OTP Design Principles</a></span> and
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','gen_event.html');"><span class="code">gen_event(3)</span></a></span>),
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','des_princ.html');">OTP Design Principles</a></span> and
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','gen_event.html');"><span class="code">gen_event(3)</span></a></span>),
       registered as <span class="code">error_logger</span>. Errors, warnings, and info events
       are sent to the error logger from the Erlang runtime system and
       the different Erlang/OTP applications. The events are, by default,
@@ -668,19 +668,19 @@
       <strong>standard event handler</strong>, by default one that writes
       nicely formatted output to the terminal. Kernel can also be
       configured so that events are logged to a file instead, or not logged at all,
-      see <span class="bold_code"><a href="kernel_app.html"><span class="code">kernel(6)</span></a></span>.</p>
+      see <span class="bold_code bc-19"><a href="kernel_app.html"><span class="code">kernel(6)</span></a></span>.</p>
     <p>Also the SASL application, if started, adds its own event
       handler, which by default writes supervisor, crash, and progress
       reports to the terminal. See
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','sasl','sasl_app.html');"><span class="code">sasl(6)</span></a></span>.</p>
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','sasl','sasl_app.html');"><span class="code">sasl(6)</span></a></span>.</p>
     <p>It is recommended that user-defined applications report
       errors through the error logger to get uniform reports.
       User-defined event handlers can be added to handle application-specific
       events, see
-      <span class="bold_code"><a href="#add_report_handler-1"><span class="code">add_report_handler/1,2</span></a></span>.
+      <span class="bold_code bc-17"><a href="#add_report_handler-1"><span class="code">add_report_handler/1,2</span></a></span>.
       Also, a useful event handler is provided in STDLIB for multi-file
       logging of events, see
-      <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','log_mf_h.html');"><span class="code">log_mf_h(3)</span></a></span>.</p>
+      <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','log_mf_h.html');"><span class="code">log_mf_h(3)</span></a></span>.</p>
     <p>Warning events were introduced in Erlang/OTP R9C and are enabled
       by default as from Erlang/OTP 18.0. To retain backwards compatibility
       with existing user-defined event handlers, the warning events can be
@@ -689,53 +689,57 @@
       <span class="code">ERROR REPORT</span> or <span class="code">INFO REPORT</span> in the logs.</p>
   </p></div>
   <h3><a name="data-types" href="#data-types">Data Types</a></h3>
-    <p>
-      <span class="bold_code"><a name="type-report">report()</a> = <br>    [{Tag :: term(), Data :: term()} | term()] | string() | term()</span><br></p>
-  
+<div class="data-types-body">
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-report">report()</a> = <br>    [{Tag :: term(), Data :: term()} | term()] | string() | term()</span><br>
+</div>
+<div class="data-type-desc"></div>
+  </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="add_report_handler-1"></a><span class="bold_code">add_report_handler(Handler) -&gt; any()</span><br><a name="add_report_handler-2"></a><span class="bold_code">add_report_handler(Handler, Args) -&gt; Result</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Handler = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','gen_event.html#type-handler_args');">gen_event:handler_args()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Result = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','gen_event.html#type-add_handler_ret');">gen_event:add_handler_ret()</a></span></span></div>
+<div class="exports-body">
+    <p><a name="add_report_handler-1"></a><span class="bold_code bc-1">add_report_handler(Handler) -&gt; any()</span><a name="add_report_handler-2"></a><span class="bold_code bc-1">add_report_handler(Handler, Args) -&gt; Result</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Handler = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Args = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','stdlib','gen_event.html#type-handler_args');">gen_event:handler_args()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Result = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','stdlib','gen_event.html#type-add_handler_ret');">gen_event:add_handler_ret()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Adds a new event handler to the error logger. The event
           handler must be implemented as a <span class="code">gen_event</span> callback
           module, see
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','gen_event.html');"><span class="code">gen_event(3)</span></a></span>.</p>
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','gen_event.html');"><span class="code">gen_event(3)</span></a></span>.</p>
         <p><span class="code">Handler</span> is typically the name of the callback module
           and <span class="code">Args</span> is an optional term (defaults to []) passed
           to the initialization callback function <span class="code">Handler:init/1</span>.
           The function returns <span class="code">ok</span> if successful.</p>
         <p>The event handler must be able to handle the events in this module, see
-          section <span class="bold_code"><a href="#events">Events</a></span>.</p>
+          section <span class="bold_code bc-17"><a href="#events">Events</a></span>.</p>
       </p></div>
-    <p><a name="delete_report_handler-1"></a><span class="bold_code">delete_report_handler(Handler) -&gt; Result</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Handler = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Result = <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','gen_event.html#type-del_handler_ret');">gen_event:del_handler_ret()</a></span></span></div>
+    <p><a name="delete_report_handler-1"></a><span class="bold_code bc-1">delete_report_handler(Handler) -&gt; Result</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Handler = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Result = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','stdlib','gen_event.html#type-del_handler_ret');">gen_event:del_handler_ret()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Deletes an event handler from the error logger by calling
           <span class="code">gen_event:delete_handler(error_logger, Handler, [])</span>,
-          see <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','gen_event.html');"><span class="code">gen_event(3)</span></a></span>.</p>
+          see <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','gen_event.html');"><span class="code">gen_event(3)</span></a></span>.</p>
       </p></div>
-    <p><a name="error_msg-1"></a><span class="bold_code">error_msg(Format) -&gt; ok</span><br><a name="error_msg-2"></a><span class="bold_code">error_msg(Format, Data) -&gt; ok</span><br><a name="format-2"></a><span class="bold_code">format(Format, Data) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Format = string()</span></div>
-<div class="REFTYPES"><span class="bold_code">Data = list()</span></div>
+    <p><a name="error_msg-1"></a><span class="bold_code bc-1">error_msg(Format) -&gt; ok</span><a name="error_msg-2"></a><span class="bold_code bc-1">error_msg(Format, Data) -&gt; ok</span><a name="format-2"></a><span class="bold_code bc-1">format(Format, Data) -&gt; ok</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Format = string()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Data = list()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sends a standard error event to the error logger.
           The <span class="code">Format</span> and <span class="code">Data</span> arguments
 	  are the same as the arguments of
-	  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html#format-2');"><span class="code">io:format/2</span></a></span>
+	  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html#format-2');"><span class="code">io:format/2</span></a></span>
 	  in STDLIB.
 	  The event is handled by the standard event handler.</p>
 	<p><strong>Example:</strong></p>
         <div class="example"><pre>
-1&gt; <span class="bold_code">error_logger:error_msg("An error occurred in ~p~n", [a_module]).</span>
+1&gt; <span class="bold_code bc-12">error_logger:error_msg("An error occurred in ~p~n", [a_module]).</span>
 
 =ERROR REPORT==== 11-Aug-2005::14:03:19 ===
 An error occurred in a_module
@@ -746,60 +750,60 @@ ok</pre></div>
           <p>If called with bad arguments, this function can crash
             the standard event handler, meaning no further events are
             logged. When in doubt, use
-	  <span class="bold_code"><a href="#error_report-1"><span class="code">error_report/1</span></a></span>
+	  <span class="bold_code bc-17"><a href="#error_report-1"><span class="code">error_report/1</span></a></span>
 	  instead.</p>
         </p></div>
 </div>
       </p></div>
-    <p><a name="error_report-1"></a><span class="bold_code">error_report(Report) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Report = <span class="bold_code"><a href="#type-report">report()</a></span></span></div>
+    <p><a name="error_report-1"></a><span class="bold_code bc-1">error_report(Report) -&gt; ok</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Report = <span class="bold_code bc-17"><a href="#type-report">report()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sends a standard error report event to the error logger.
           The event is handled by the standard event handler.</p>
 	<p><strong>Example:</strong></p>
         <div class="example"><pre>
-2&gt; <span class="bold_code">error_logger:error_report([{tag1,data1},a_term,{tag2,data}]).</span>
+2&gt; <span class="bold_code bc-12">error_logger:error_report([{tag1,data1},a_term,{tag2,data}]).</span>
 
 =ERROR REPORT==== 11-Aug-2005::13:45:41 ===
     tag1: data1
     a_term
     tag2: data
 ok
-3&gt; <span class="bold_code">error_logger:error_report("Serious error in my module").</span>
+3&gt; <span class="bold_code bc-12">error_logger:error_report("Serious error in my module").</span>
 
 =ERROR REPORT==== 11-Aug-2005::13:45:49 ===
 Serious error in my module
 ok</pre></div>
       </p></div>
-    <p><a name="error_report-2"></a><span class="bold_code">error_report(Type, Report) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Type = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Report = <span class="bold_code"><a href="#type-report">report()</a></span></span></div>
+    <p><a name="error_report-2"></a><span class="bold_code bc-1">error_report(Type, Report) -&gt; ok</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Type = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Report = <span class="bold_code bc-17"><a href="#type-report">report()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sends a user-defined error report event to the error logger.
           An event handler to handle the event is supposed to have been
           added. The event is ignored by the standard event handler.</p>
         <p>It is recommended that <span class="code">Report</span> follows the same
           structure as for
-	<span class="bold_code"><a href="#error_report-1"><span class="code">error_report/1</span></a></span>.</p>
+	<span class="bold_code bc-17"><a href="#error_report-1"><span class="code">error_report/1</span></a></span>.</p>
       </p></div>
-    <p><a name="info_msg-1"></a><span class="bold_code">info_msg(Format) -&gt; ok</span><br><a name="info_msg-2"></a><span class="bold_code">info_msg(Format, Data) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Format = string()</span></div>
-<div class="REFTYPES"><span class="bold_code">Data = list()</span></div>
+    <p><a name="info_msg-1"></a><span class="bold_code bc-1">info_msg(Format) -&gt; ok</span><a name="info_msg-2"></a><span class="bold_code bc-1">info_msg(Format, Data) -&gt; ok</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Format = string()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Data = list()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sends a standard information event to the error logger.
           The <span class="code">Format</span> and <span class="code">Data</span> arguments
 	  are the same as the arguments of
-	  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html#format-2');"><span class="code">io:format/2</span></a></span>
+	  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html#format-2');"><span class="code">io:format/2</span></a></span>
 	  in STDLIB. The event is handled by the standard event handler.</p>
 	<p><strong>Example:</strong></p>
         <div class="example"><pre>
-1&gt; <span class="bold_code">error_logger:info_msg("Something happened in ~p~n", [a_module]).</span>
+1&gt; <span class="bold_code bc-12">error_logger:info_msg("Something happened in ~p~n", [a_module]).</span>
 
 =INFO REPORT==== 11-Aug-2005::14:06:15 ===
 Something happened in a_module
@@ -813,53 +817,53 @@ ok</pre></div>
         </p></div>
 </div>
       </p></div>
-    <p><a name="info_report-1"></a><span class="bold_code">info_report(Report) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Report = <span class="bold_code"><a href="#type-report">report()</a></span></span></div>
+    <p><a name="info_report-1"></a><span class="bold_code bc-1">info_report(Report) -&gt; ok</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Report = <span class="bold_code bc-17"><a href="#type-report">report()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sends a standard information report event to the error
           logger. The event is handled by the standard event handler.</p>
 	<p><strong>Example:</strong></p>
         <div class="example"><pre>
-2&gt; <span class="bold_code">error_logger:info_report([{tag1,data1},a_term,{tag2,data}]).</span>
+2&gt; <span class="bold_code bc-12">error_logger:info_report([{tag1,data1},a_term,{tag2,data}]).</span>
 
 =INFO REPORT==== 11-Aug-2005::13:55:09 ===
     tag1: data1
     a_term
     tag2: data
 ok
-3&gt; <span class="bold_code">error_logger:info_report("Something strange happened").</span>
+3&gt; <span class="bold_code bc-12">error_logger:info_report("Something strange happened").</span>
 
 =INFO REPORT==== 11-Aug-2005::13:55:36 ===
 Something strange happened
 ok</pre></div>
       </p></div>
-    <p><a name="info_report-2"></a><span class="bold_code">info_report(Type, Report) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Type = any()</span></div>
-<div class="REFTYPES"><span class="bold_code">Report = <span class="bold_code"><a href="#type-report">report()</a></span></span></div>
+    <p><a name="info_report-2"></a><span class="bold_code bc-1">info_report(Type, Report) -&gt; ok</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Type = any()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Report = <span class="bold_code bc-17"><a href="#type-report">report()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sends a user-defined information report event to the error
           logger. An event handler to handle the event is supposed to
           have been added. The event is ignored by the standard event
           handler.</p>
         <p>It is recommended that <span class="code">Report</span> follows the same
           structure as for
-	<span class="bold_code"><a href="#info_report-1"><span class="code">info_report/1</span></a></span>.</p>
+	<span class="bold_code bc-17"><a href="#info_report-1"><span class="code">info_report/1</span></a></span>.</p>
       </p></div>
-    <p><a name="logfile-1"></a><span class="bold_code">logfile(Request :: {open, Filename}) -&gt; ok | {error, OpenReason}</span><br><span class="bold_code">logfile(Request :: close) -&gt; ok | {error, CloseReason}</span><br><span class="bold_code">logfile(Request :: filename) -&gt; Filename | {error, FilenameReason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Filename = <span class="bold_code"><a href="file.html#type-name">file:name()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">OpenReason = allready_have_logfile | open_error()</span></div>
-<div class="REFTYPES"><span class="bold_code">CloseReason = module_not_found</span></div>
-<div class="REFTYPES"><span class="bold_code">FilenameReason = no_log_file</span></div>
-<div class="REFTYPES">
-      <span class="bold_code">open_error() = <span class="bold_code"><a href="file.html#type-posix">file:posix()</a></span> | badarg | system_limit</span><br>
+    <p><a name="logfile-1"></a><span class="bold_code bc-1">logfile(Request :: {open, Filename}) -&gt; ok | {error, OpenReason}</span><span class="bold_code bc-1">logfile(Request :: close) -&gt; ok | {error, CloseReason}</span><span class="bold_code bc-1">logfile(Request :: filename) -&gt; Filename | {error, FilenameReason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = <span class="bold_code bc-15"><a href="file.html#type-name">file:name()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">OpenReason = allready_have_logfile | open_error()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">CloseReason = module_not_found</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">FilenameReason = no_log_file</span></div>
+<div class="REFTYPES rt-2">
+      <span class="bold_code bc-5">open_error() = <span class="bold_code bc-15"><a href="file.html#type-posix">file:posix()</a></span> | badarg | system_limit</span><br>
 </div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Enables or disables printout of standard events to a file.</p>
         <p>This is done by adding or deleting the standard event handler
           for output to file. Thus, calling this function overrides
@@ -892,11 +896,11 @@ ok</pre></div>
           </dd>
         </dl>
       </p></div>
-    <p><a name="tty-1"></a><span class="bold_code">tty(Flag) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Flag = boolean()</span></div>
+    <p><a name="tty-1"></a><span class="bold_code bc-1">tty(Flag) -&gt; ok</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Flag = boolean()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Enables (<span class="code">Flag == true</span>) or disables
           (<span class="code">Flag == false</span>) printout of standard events
 	  to the terminal.</p>
@@ -904,24 +908,24 @@ ok</pre></div>
           for output to the terminal. Thus, calling this function overrides
           the value of the Kernel <span class="code">error_logger</span> configuration parameter.</p>
       </p></div>
-    <p><a name="warning_map-0"></a><span class="bold_code">warning_map() -&gt; Tag</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Tag = error | warning | info</span></div>
+    <p><a name="warning_map-0"></a><span class="bold_code bc-1">warning_map() -&gt; Tag</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Tag = error | warning | info</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the current mapping for warning events. Events sent
           using <span class="code">warning_msg/1,2</span> or <span class="code">warning_report/1,2</span>
           are tagged as errors, warnings (default), or info, depending
           on the value of command-line flag <span class="code">+W</span>.</p>
 	<p><strong>Example:</strong></p>
         <div class="example"><pre>
-os$ <span class="bold_code">erl</span>
+os$ <span class="bold_code bc-12">erl</span>
 Erlang (BEAM) emulator version 5.4.8 [hipe] [threads:0] [kernel-poll]
 
 Eshell V5.4.8  (abort with ^G)
-1&gt; <span class="bold_code">error_logger:warning_map().</span>
+1&gt; <span class="bold_code bc-12">error_logger:warning_map().</span>
 warning
-2&gt; <span class="bold_code">error_logger:warning_msg("Warnings tagged as: ~p~n", [warning]).</span>
+2&gt; <span class="bold_code bc-12">error_logger:warning_msg("Warnings tagged as: ~p~n", [warning]).</span>
 
 =WARNING REPORT==== 11-Aug-2005::15:31:55 ===
 Warnings tagged as: warning
@@ -929,32 +933,32 @@ ok
 3&gt;
 User switch command
  --&gt; q
-os$ <span class="bold_code">erl +W e</span>
+os$ <span class="bold_code bc-12">erl +W e</span>
 Erlang (BEAM) emulator version 5.4.8 [hipe] [threads:0] [kernel-poll]
 
 Eshell V5.4.8  (abort with ^G)
-1&gt; <span class="bold_code">error_logger:warning_map().</span>
+1&gt; <span class="bold_code bc-12">error_logger:warning_map().</span>
 error
-2&gt; <span class="bold_code">error_logger:warning_msg("Warnings tagged as: ~p~n", [error]).</span>
+2&gt; <span class="bold_code bc-12">error_logger:warning_msg("Warnings tagged as: ~p~n", [error]).</span>
 
 =ERROR REPORT==== 11-Aug-2005::15:31:23 ===
 Warnings tagged as: error
 ok</pre></div>
       </p></div>
-    <p><a name="warning_msg-1"></a><span class="bold_code">warning_msg(Format) -&gt; ok</span><br><a name="warning_msg-2"></a><span class="bold_code">warning_msg(Format, Data) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Format = string()</span></div>
-<div class="REFTYPES"><span class="bold_code">Data = list()</span></div>
+    <p><a name="warning_msg-1"></a><span class="bold_code bc-1">warning_msg(Format) -&gt; ok</span><a name="warning_msg-2"></a><span class="bold_code bc-1">warning_msg(Format, Data) -&gt; ok</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Format = string()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Data = list()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sends a standard warning event to the error logger.
           The <span class="code">Format</span> and <span class="code">Data</span> arguments
 	  are the same as the arguments of
-	  <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html#format-2');"><span class="code">io:format/2</span></a></span>
+	  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html#format-2');"><span class="code">io:format/2</span></a></span>
 	  in STDLIB.
 	  The event is handled by the standard event handler. It is tagged
 	  as an error, warning, or info, see
-          <span class="bold_code"><a href="#warning_map-0"><span class="code">warning_map/0</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#warning_map-0"><span class="code">warning_map/0</span></a></span>.</p>
         <div class="warning">
 <div class="label">Warning</div>
 <div class="content"><p>
@@ -964,35 +968,35 @@ ok</pre></div>
         </p></div>
 </div>
       </p></div>
-    <p><a name="warning_report-1"></a><span class="bold_code">warning_report(Report) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Report = <span class="bold_code"><a href="#type-report">report()</a></span></span></div>
+    <p><a name="warning_report-1"></a><span class="bold_code bc-1">warning_report(Report) -&gt; ok</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Report = <span class="bold_code bc-17"><a href="#type-report">report()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sends a standard warning report event to the error logger.
           The event is handled by the standard event handler. It is
           tagged as an error, warning, or info, see
-          <span class="bold_code"><a href="#warning_map-0"><span class="code">warning_map/0</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#warning_map-0"><span class="code">warning_map/0</span></a></span>.</p>
       </p></div>
-    <p><a name="warning_report-2"></a><span class="bold_code">warning_report(Type, Report) -&gt; ok</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Type = any()</span></div>
-<div class="REFTYPES"><span class="bold_code">Report = <span class="bold_code"><a href="#type-report">report()</a></span></span></div>
+    <p><a name="warning_report-2"></a><span class="bold_code bc-1">warning_report(Type, Report) -&gt; ok</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Type = any()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Report = <span class="bold_code bc-17"><a href="#type-report">report()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Sends a user-defined warning report event to the error
           logger. An event handler to handle the event is supposed to
           have been added. The event is ignored by the standard event
           handler. It is tagged as an error, warning, or info,
           depending on the value of
-          <span class="bold_code"><a href="#warning_map-0"><span class="code">warning_map/0</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#warning_map-0"><span class="code">warning_map/0</span></a></span>.</p>
       </p></div>
-  
+  </div>
 
   <h3>
-<a name="events"></a><a name="idm46525671682704">Events</a>
+<a name="events"></a><a name="idm45317252467616">Events</a>
 </h3>
-<div class="REFBODY">
+<div class="REFBODY rb-3">
     
     
     <p>All event handlers added to the error logger must handle
@@ -1048,13 +1052,13 @@ ok</pre></div>
       <span class="code">Module:handle_info/2</span>, as the event handler must also take care of
       some system-internal messages.</p>
   </div>
-  <h3><a name="idm46525671660144">See Also</a></h3>
-<div class="REFBODY">
+  <h3><a name="idm45317252445056">See Also</a></h3>
+<div class="REFBODY rb-3">
     
-    <p><span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','gen_event.html');"><span class="code">gen_event(3)</span></a></span>,
-       <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','log_mf_h.html');"><span class="code">log_mf_h(3)</span></a></span>
-       <span class="bold_code"><a href="kernel_app.html"><span class="code">kernel(6)</span></a></span>
-       <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','sasl','sasl_app.html');"><span class="code">sasl(6)</span></a></span></p>
+    <p><span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','gen_event.html');"><span class="code">gen_event(3)</span></a></span>,
+       <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','log_mf_h.html');"><span class="code">log_mf_h(3)</span></a></span>
+       <span class="bold_code bc-19"><a href="kernel_app.html"><span class="code">kernel(6)</span></a></span>
+       <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','sasl','sasl_app.html');"><span class="code">sasl(6)</span></a></span></p>
   </div>
 </div>
 <div class="footer">

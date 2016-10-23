@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Kernel</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 5.1</p>
@@ -646,11 +646,11 @@
 <!-- refpage --><center><h1>rpc</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">rpc</div>
+<div class="REFBODY module-body">rpc</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Remote Procedure Call services.</div>
+<div class="REFBODY module-summary-body">Remote Procedure Call services.</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>This module contains services similar to Remote
       Procedure Calls. It also contains broadcast facilities and
       parallel evaluators. A remote procedure call is a method to call
@@ -660,46 +660,49 @@
   </p></div>
 
   <h3><a name="data-types" href="#data-types">Data Types</a></h3>
-    <p>
-      <span class="bold_code"><a name="type-key">key()</a></span><br></p>
-<div class="REFBODY"><p>
+<div class="data-types-body">
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-key">key()</a></span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p>
         <p>As returned by
-          <span class="bold_code"><a href="#async_call-4"><span class="code">async_call/4</span></a></span>.</p>
-      </p></div>
-  
+          <span class="bold_code bc-17"><a href="#async_call-4"><span class="code">async_call/4</span></a></span>.</p>
+      </p></div></div>
+  </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="abcast-2"></a><span class="bold_code">abcast(Name, Msg) -&gt; abcast</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Msg = term()</span></div>
+<div class="exports-body">
+    <p><a name="abcast-2"></a><span class="bold_code bc-1">abcast(Name, Msg) -&gt; abcast</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Msg = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Equivalent to <span class="code">abcast([node()|nodes()], Name,
         Msg)</span>.</p>
       </p></div>
 
-    <p><a name="abcast-3"></a><span class="bold_code">abcast(Nodes, Name, Msg) -&gt; abcast</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Nodes = [node()]</span></div>
-<div class="REFTYPES"><span class="bold_code">Name = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Msg = term()</span></div>
+    <p><a name="abcast-3"></a><span class="bold_code bc-1">abcast(Nodes, Name, Msg) -&gt; abcast</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Nodes = [node()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Msg = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Broadcasts the message <span class="code">Msg</span> asynchronously to
           the registered process <span class="code">Name</span> on the specified
           nodes.</p>
       </p></div>
 
-    <p><a name="async_call-4"></a><span class="bold_code">async_call(Node, Module, Function, Args) -&gt; Key</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Node = node()</span></div>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Function = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = [term()]</span></div>
-<div class="REFTYPES"><span class="bold_code">Key = <span class="bold_code"><a href="#type-key">key()</a></span></span></div>
+    <p><a name="async_call-4"></a><span class="bold_code bc-1">async_call(Node, Module, Function, Args) -&gt; Key</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Node = node()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Function = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Args = [term()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Key = <span class="bold_code bc-17"><a href="#type-key">key()</a></span></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Implements <strong>call streams with promises</strong>, a type of
           RPC that does not suspend the caller until the result is
           finished. Instead, a key is returned, which can be used
@@ -707,24 +710,24 @@
           promise to deliver the answer.</p>
         <p>In this case, the key <span class="code">Key</span> is returned, which
           can be used in a subsequent call to
-          <span class="bold_code"><a href="#yield-1"><span class="code">yield/1</span></a></span> or
-          <span class="bold_code"><a href="#nb_yield-1"><span class="code">nb_yield/1,2</span></a></span>
+          <span class="bold_code bc-17"><a href="#yield-1"><span class="code">yield/1</span></a></span> or
+          <span class="bold_code bc-17"><a href="#nb_yield-1"><span class="code">nb_yield/1,2</span></a></span>
           to retrieve the value of evaluating <span class="code">apply(Module,
           Function, Args)</span> on node
           <span class="code">Node</span>.</p>
       </p></div>
 
-    <p><a name="block_call-4"></a><span class="bold_code">block_call(Node, Module, Function, Args) -&gt; Res | {badrpc, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Node = node()</span></div>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Function = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = [term()]</span></div>
-<div class="REFTYPES"><span class="bold_code">Res = Reason = term()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="block_call-4"></a><span class="bold_code bc-1">block_call(Node, Module, Function, Args) -&gt; Res | {badrpc, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Node = node()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Function = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Args = [term()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Res = Reason = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
-        <p>Same as <span class="bold_code"><a href="#call-4"><span class="code">call/4</span></a></span>,
+<div class="REFBODY rb-7"><p>
+        <p>Same as <span class="bold_code bc-17"><a href="#call-4"><span class="code">call/4</span></a></span>,
           but the RPC server at <span class="code">Node</span> does
           not create a separate process to handle the call. Thus,
           this function can be used if the intention of the call is to
@@ -735,50 +738,50 @@
           suspend.</p>
       </p></div>
 
-    <p><a name="block_call-5"></a><span class="bold_code">block_call(Node, Module, Function, Args, Timeout) -&gt;<br>              Res | {badrpc, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Node = node()</span></div>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Function = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = [term()]</span></div>
-<div class="REFTYPES"><span class="bold_code">Res = Reason = term()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
+    <p><a name="block_call-5"></a><span class="bold_code bc-1">block_call(Node, Module, Function, Args, Timeout) -&gt;<br>              Res | {badrpc, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Node = node()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Function = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Args = [term()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Res = Reason = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Timeout = timeout()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Same as
-          <span class="bold_code"><a href="#block_call-4"><span class="code">block_call/4</span></a></span>,
+          <span class="bold_code bc-17"><a href="#block_call-4"><span class="code">block_call/4</span></a></span>,
           but with a time-out value in the same manner as
-          <span class="bold_code"><a href="#call-5"><span class="code">call/5</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#call-5"><span class="code">call/5</span></a></span>.</p>
       </p></div>
 
-    <p><a name="call-4"></a><span class="bold_code">call(Node, Module, Function, Args) -&gt; Res | {badrpc, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Node = node()</span></div>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Function = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = [term()]</span></div>
-<div class="REFTYPES"><span class="bold_code">Res = Reason = term()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="call-4"></a><span class="bold_code bc-1">call(Node, Module, Function, Args) -&gt; Res | {badrpc, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Node = node()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Function = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Args = [term()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Res = Reason = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Evaluates <span class="code">apply(Module, Function,
           Args)</span> on node <span class="code">Node</span> and returns
           the corresponding value <span class="code">Res</span>, or
           <span class="code">{badrpc, Reason}</span> if the call fails.</p>
       </p></div>
 
-    <p><a name="call-5"></a><span class="bold_code">call(Node, Module, Function, Args, Timeout) -&gt;<br>        Res | {badrpc, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Node = node()</span></div>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Function = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = [term()]</span></div>
-<div class="REFTYPES"><span class="bold_code">Res = Reason = term()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
+    <p><a name="call-5"></a><span class="bold_code bc-1">call(Node, Module, Function, Args, Timeout) -&gt;<br>        Res | {badrpc, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Node = node()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Function = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Args = [term()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Res = Reason = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Timeout = timeout()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Evaluates <span class="code">apply(Module, Function,
           Args)</span> on node <span class="code">Node</span> and returns
           the corresponding value <span class="code">Res</span>, or
@@ -794,68 +797,68 @@
           the caller's end.</p>
       </p></div>
 
-    <p><a name="cast-4"></a><span class="bold_code">cast(Node, Module, Function, Args) -&gt; true</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Node = node()</span></div>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Function = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = [term()]</span></div>
+    <p><a name="cast-4"></a><span class="bold_code bc-1">cast(Node, Module, Function, Args) -&gt; true</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Node = node()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Function = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Args = [term()]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Evaluates <span class="code">apply(Module, Function,
           Args)</span> on node
           <span class="code">Node</span>. No response is delivered and the calling
           process is not suspended until the evaluation is complete, as
           is the case with
-          <span class="bold_code"><a href="#call-4"><span class="code">call/4,5</span></a></span>.</p>
+          <span class="bold_code bc-17"><a href="#call-4"><span class="code">call/4,5</span></a></span>.</p>
       </p></div>
 
-    <p><a name="eval_everywhere-3"></a><span class="bold_code">eval_everywhere(Module, Function, Args) -&gt; abcast</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Function = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = [term()]</span></div>
+    <p><a name="eval_everywhere-3"></a><span class="bold_code bc-1">eval_everywhere(Module, Function, Args) -&gt; abcast</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Function = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Args = [term()]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Equivalent to <span class="code">eval_everywhere([node()|nodes()],
           Module, Function,
           Args)</span>.</p>
       </p></div>
 
-    <p><a name="eval_everywhere-4"></a><span class="bold_code">eval_everywhere(Nodes, Module, Function, Args) -&gt; abcast</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Nodes = [node()]</span></div>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Function = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = [term()]</span></div>
+    <p><a name="eval_everywhere-4"></a><span class="bold_code bc-1">eval_everywhere(Nodes, Module, Function, Args) -&gt; abcast</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Nodes = [node()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Function = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Args = [term()]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Evaluates <span class="code">apply(Module, Function,
           Args)</span> on
           the specified nodes. No answers are collected.</p>
       </p></div>
 
-    <p><a name="multi_server_call-2"></a><span class="bold_code">multi_server_call(Name, Msg) -&gt; {Replies, BadNodes}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Msg = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Replies = [Reply :: term()]</span></div>
-<div class="REFTYPES"><span class="bold_code">BadNodes = [node()]</span></div>
+    <p><a name="multi_server_call-2"></a><span class="bold_code bc-1">multi_server_call(Name, Msg) -&gt; {Replies, BadNodes}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Msg = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Replies = [Reply :: term()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">BadNodes = [node()]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Equivalent to <span class="code">multi_server_call([node()|nodes()],
           Name, Msg)</span>.</p>
       </p></div>
 
-    <p><a name="multi_server_call-3"></a><span class="bold_code">multi_server_call(Nodes, Name, Msg) -&gt; {Replies, BadNodes}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Nodes = [node()]</span></div>
-<div class="REFTYPES"><span class="bold_code">Name = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Msg = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Replies = [Reply :: term()]</span></div>
-<div class="REFTYPES"><span class="bold_code">BadNodes = [node()]</span></div>
+    <p><a name="multi_server_call-3"></a><span class="bold_code bc-1">multi_server_call(Nodes, Name, Msg) -&gt; {Replies, BadNodes}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Nodes = [node()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Msg = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Replies = [Reply :: term()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">BadNodes = [node()]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Can be used when interacting with servers called
           <span class="code">Name</span> on the specified nodes. It is assumed that
           the servers receive messages in the format
@@ -874,59 +877,59 @@
         </ul>
       </p></div>
 
-    <p><a name="multicall-3"></a><span class="bold_code">multicall(Module, Function, Args) -&gt; {ResL, BadNodes}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Function = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = ResL = [term()]</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">BadNodes = [node()]</span></div>
+    <p><a name="multicall-3"></a><span class="bold_code bc-1">multicall(Module, Function, Args) -&gt; {ResL, BadNodes}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Function = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Args = ResL = [term()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">BadNodes = [node()]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Equivalent to <span class="code">multicall([node()|nodes()], Module,
           Function, Args, infinity)</span>.</p>
       </p></div>
 
-    <p><a name="multicall-4"></a><span class="bold_code">multicall(Nodes, Module, Function, Args) -&gt; {ResL, BadNodes}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Nodes = [node()]</span></div>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Function = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = ResL = [term()]</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">BadNodes = [node()]</span></div>
+    <p><a name="multicall-4"></a><span class="bold_code bc-1">multicall(Nodes, Module, Function, Args) -&gt; {ResL, BadNodes}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Nodes = [node()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Function = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Args = ResL = [term()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">BadNodes = [node()]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Equivalent to <span class="code">multicall(Nodes, Module,
           Function, Args, infinity)</span>.</p>
       </p></div>
 
-    <p><span class="bold_code">multicall(Module, Function, Args, Timeout) -&gt; {ResL, BadNodes}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Function = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = [term()]</span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
-<div class="REFTYPES"><span class="bold_code">ResL = [term()]</span></div>
-<div class="REFTYPES"><span class="bold_code">BadNodes = [node()]</span></div>
+    <p><span class="bold_code bc-1">multicall(Module, Function, Args, Timeout) -&gt; {ResL, BadNodes}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Function = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Args = [term()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Timeout = timeout()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">ResL = [term()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">BadNodes = [node()]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Equivalent to <span class="code">multicall([node()|nodes()], Module,
           Function, Args,
           Timeout)</span>.</p>
       </p></div>
 
-    <p><a name="multicall-5"></a><span class="bold_code">multicall(Nodes, Module, Function, Args, Timeout) -&gt;<br>             {ResL, BadNodes}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Nodes = [node()]</span></div>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Function = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = [term()]</span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
-<div class="REFTYPES"><span class="bold_code">ResL = [term()]</span></div>
-<div class="REFTYPES"><span class="bold_code">BadNodes = [node()]</span></div>
+    <p><a name="multicall-5"></a><span class="bold_code bc-1">multicall(Nodes, Module, Function, Args, Timeout) -&gt;<br>             {ResL, BadNodes}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Nodes = [node()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Function = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Args = [term()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Timeout = timeout()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">ResL = [term()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">BadNodes = [node()]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>In contrast to an RPC, a multicall is an RPC that is sent
           concurrently from one client to multiple servers. This is
           useful for collecting information from a set of nodes,
@@ -957,38 +960,38 @@
 %% and then maybe check the ResL list.</pre></div>
       </p></div>
 
-    <p><a name="nb_yield-1"></a><span class="bold_code">nb_yield(Key) -&gt; {value, Val} | timeout</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Key = <span class="bold_code"><a href="#type-key">key()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Val = (Res :: term()) | {badrpc, Reason :: term()}</span></div>
+    <p><a name="nb_yield-1"></a><span class="bold_code bc-1">nb_yield(Key) -&gt; {value, Val} | timeout</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Key = <span class="bold_code bc-17"><a href="#type-key">key()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Val = (Res :: term()) | {badrpc, Reason :: term()}</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Equivalent to <span class="code">nb_yield(Key, 0)</span>.</p>
       </p></div>
 
-    <p><a name="nb_yield-2"></a><span class="bold_code">nb_yield(Key, Timeout) -&gt; {value, Val} | timeout</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Key = <span class="bold_code"><a href="#type-key">key()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Timeout = timeout()</span></div>
-<div class="REFTYPES"><span class="bold_code">Val = (Res :: term()) | {badrpc, Reason :: term()}</span></div>
+    <p><a name="nb_yield-2"></a><span class="bold_code bc-1">nb_yield(Key, Timeout) -&gt; {value, Val} | timeout</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Key = <span class="bold_code bc-17"><a href="#type-key">key()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Timeout = timeout()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Val = (Res :: term()) | {badrpc, Reason :: term()}</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Non-blocking version of
-          <span class="bold_code"><a href="#yield-1"><span class="code">yield/1</span></a></span>. It returns
+          <span class="bold_code bc-17"><a href="#yield-1"><span class="code">yield/1</span></a></span>. It returns
           the tuple <span class="code">{value, Val}</span> when the computation is
           finished, or <span class="code">timeout</span> when <span class="code">Timeout</span>
           milliseconds has elapsed.</p>
       </p></div>
 
-    <p><a name="parallel_eval-1"></a><span class="bold_code">parallel_eval(FuncCalls) -&gt; ResL</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">FuncCalls = [{Module, Function, Args}]</span></div>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Function = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Args = ResL = [term()]</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="parallel_eval-1"></a><span class="bold_code bc-1">parallel_eval(FuncCalls) -&gt; ResL</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">FuncCalls = [{Module, Function, Args}]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Function = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Args = ResL = [term()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Evaluates, for every tuple in <span class="code">FuncCalls</span>,
           <span class="code">apply(Module, Function,
           Args)</span> on some node in
@@ -996,39 +999,39 @@
           order as in <span class="code">FuncCalls</span>.</p>
       </p></div>
 
-    <p><a name="pinfo-1"></a><span class="bold_code">pinfo(Pid) -&gt; [{Item, Info}] | undefined</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Pid = pid()</span></div>
-<div class="REFTYPES"><span class="bold_code">Item = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Info = term()</span></div>
+    <p><a name="pinfo-1"></a><span class="bold_code bc-1">pinfo(Pid) -&gt; [{Item, Info}] | undefined</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Pid = pid()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Item = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Info = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Location transparent version of the BIF
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#process_info-1');"><span class="code">erlang:process_info/1</span></a></span> in ERTS.</p>
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#process_info-1');"><span class="code">erlang:process_info/1</span></a></span> in ERTS.</p>
       </p></div>
 
-    <p><a name="pinfo-2"></a><span class="bold_code">pinfo(Pid, Item) -&gt; {Item, Info} | undefined | []</span><br><span class="bold_code">pinfo(Pid, ItemList) -&gt; [{Item, Info}] | undefined | []</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Pid = pid()</span></div>
-<div class="REFTYPES"><span class="bold_code">Item = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">ItemList = [Item]</span></div>
-<div class="REFTYPES"><span class="bold_code">Info = term()</span></div>
+    <p><a name="pinfo-2"></a><span class="bold_code bc-1">pinfo(Pid, Item) -&gt; {Item, Info} | undefined | []</span><span class="bold_code bc-1">pinfo(Pid, ItemList) -&gt; [{Item, Info}] | undefined | []</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Pid = pid()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Item = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">ItemList = [Item]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Info = term()</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Location transparent version of the BIF
-          <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#process_info-2');"><span class="code">erlang:process_info/2</span></a></span> in ERTS.</p>
+          <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#process_info-2');"><span class="code">erlang:process_info/2</span></a></span> in ERTS.</p>
       </p></div>
 
-    <p><a name="pmap-3"></a><span class="bold_code">pmap(FuncSpec, ExtraArgs, List1) -&gt; List2</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">FuncSpec = {Module, Function}</span></div>
-<div class="REFTYPES"><span class="bold_code">Module = module()</span></div>
-<div class="REFTYPES"><span class="bold_code">Function = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">ExtraArgs = [term()]</span></div>
-<div class="REFTYPES"><span class="bold_code">List1 = [Elem :: term()]</span></div>
-<div class="REFTYPES"><span class="bold_code">List2 = [term()]</span></div>
+    <p><a name="pmap-3"></a><span class="bold_code bc-1">pmap(FuncSpec, ExtraArgs, List1) -&gt; List2</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">FuncSpec = {Module, Function}</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Module = module()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Function = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">ExtraArgs = [term()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">List1 = [Elem :: term()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">List2 = [term()]</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Evaluates <span class="code">apply(Module, Function,
           [Elem|ExtraArgs])</span> for every element
           <span class="code">Elem</span> in <span class="code">List1</span>, in parallel.
@@ -1036,27 +1039,27 @@
           <span class="code">List1</span>.</p>
       </p></div>
 
-    <p><a name="sbcast-2"></a><span class="bold_code">sbcast(Name, Msg) -&gt; {GoodNodes, BadNodes}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Msg = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">GoodNodes = BadNodes = [node()]</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="sbcast-2"></a><span class="bold_code bc-1">sbcast(Name, Msg) -&gt; {GoodNodes, BadNodes}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Msg = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">GoodNodes = BadNodes = [node()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Equivalent to <span class="code">sbcast([node()|nodes()], Name,
           Msg)</span>.</p>
       </p></div>
 
-    <p><a name="sbcast-3"></a><span class="bold_code">sbcast(Nodes, Name, Msg) -&gt; {GoodNodes, BadNodes}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Name = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">Msg = term()</span></div>
-<div class="REFTYPES"><span class="bold_code">Nodes = GoodNodes = BadNodes = [node()]</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="sbcast-3"></a><span class="bold_code bc-1">sbcast(Nodes, Name, Msg) -&gt; {GoodNodes, BadNodes}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Msg = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Nodes = GoodNodes = BadNodes = [node()]</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Broadcasts the message <span class="code">Msg</span> synchronously to
           the registered process <span class="code">Name</span> on the specified
           nodes.</p>
@@ -1072,16 +1075,16 @@
           this message.</p>
       </p></div>
 
-    <p><a name="server_call-4"></a><span class="bold_code">server_call(Node, Name, ReplyWrapper, Msg) -&gt;<br>               Reply | {error, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Node = node()</span></div>
-<div class="REFTYPES"><span class="bold_code">Name = atom()</span></div>
-<div class="REFTYPES"><span class="bold_code">ReplyWrapper = Msg = Reply = term()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
-<div class="REFTYPES"><span class="bold_code">Reason = nodedown</span></div>
+    <p><a name="server_call-4"></a><span class="bold_code bc-1">server_call(Node, Name, ReplyWrapper, Msg) -&gt;<br>               Reply | {error, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Node = node()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Name = atom()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">ReplyWrapper = Msg = Reply = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Reason = nodedown</span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Can be used when interacting with a server called
           <span class="code">Name</span> on node <span class="code">Node</span>. It is
           assumed that the server receives messages in the format
@@ -1096,20 +1099,20 @@
           <span class="code">{error, Reason}</span>.</p>
       </p></div>
 
-    <p><a name="yield-1"></a><span class="bold_code">yield(Key) -&gt; Res | {badrpc, Reason}</span><br><div class="REFBODY">
-<p>Types:</p>
-<div class="REFTYPES"><span class="bold_code">Key = <span class="bold_code"><a href="#type-key">key()</a></span></span></div>
-<div class="REFTYPES"><span class="bold_code">Res = Reason = term()</span></div>
-<div class="REFTYPES"><span class="bold_code"></span></div>
+    <p><a name="yield-1"></a><span class="bold_code bc-1">yield(Key) -&gt; Res | {badrpc, Reason}</span><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types:</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Key = <span class="bold_code bc-17"><a href="#type-key">key()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Res = Reason = term()</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>Returns the promised answer from a previous
-          <span class="bold_code"><a href="#async_call-4"><span class="code">async_call/4</span></a></span>.
+          <span class="bold_code bc-17"><a href="#async_call-4"><span class="code">async_call/4</span></a></span>.
           If the answer is available, it is
           returned immediately. Otherwise, the calling process is
           suspended until the answer arrives from <span class="code">Node</span>.</p>
       </p></div>
-  
+  </div>
 </div>
 <div class="footer">
 <hr>

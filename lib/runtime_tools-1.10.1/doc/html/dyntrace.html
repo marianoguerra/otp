@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Runtime_Tools</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 1.10.1</p>
@@ -191,11 +191,11 @@
 <!-- refpage --><center><h1>dyntrace</h1></center>
   
   <h3><a name="module" href="#module">Module</a></h3>
-<div class="REFBODY">dyntrace</div>
+<div class="REFBODY module-body">dyntrace</div>
   <h3><a name="module-sumary" href="#module-sumary">Module Summary</a></h3>
-<div class="REFBODY">Interface to dynamic tracing</div>
+<div class="REFBODY module-summary-body">Interface to dynamic tracing</div>
   <h3><a name="description" href="#description">Description</a></h3>
-<div class="REFBODY"><p>
+<div class="REFBODY description-body"><p>
     <p>This module implements interfaces to dynamic tracing, should such be compiled into the virtual machine. For a standard and/or commercial build, no dynamic tracing is available, in which case none of the functions in this module is usable or give any effect.</p>
     <p>Should dynamic tracing be enabled in the current build, either by configuring with <span class="code">./configure --with-dynamic-trace=dtrace</span> or with  <span class="code">./configure --with-dynamic-trace=systemtap</span>, the module can be used for two things:</p>
     <ul>
@@ -204,98 +204,99 @@
     </ul>
       <p>Both building with dynamic trace probes and using them is experimental and unsupported by Erlang/OTP. It is included as an option for the developer to trace and debug performance issues in their systems.</p>
       <p>The original implementation is mostly done by Scott Lystiger Fritchie as an Open Source Contribution and it should be viewed as such even though the source for dynamic tracing as well as this module is included in the main distribution. However, the ability to use dynamic tracing of the virtual machine is a very valuable contribution which OTP has every intention to maintain as a tool for the developer.</p>
-      <p>How to write <span class="code">d</span> programs or <span class="code">systemtap</span> scripts can be learned from books and from a lot of pages on the Internet. This manual page does not include any documentation about using the dynamic trace tools of respective platform. The <span class="code">examples</span> directory of the <span class="code">runtime_tools</span> application however contains comprehensive examples of both <span class="code">d</span> and <span class="code">systemtap</span> programs that will help you get started. Another source of information is the <span class="bold_code"><a href="DTRACE.html">dtrace</a></span> and <span class="bold_code"><a href="SYSTEMTAP.html">systemtap</a></span> chapters in the Runtime Tools Users' Guide.</p>
+      <p>How to write <span class="code">d</span> programs or <span class="code">systemtap</span> scripts can be learned from books and from a lot of pages on the Internet. This manual page does not include any documentation about using the dynamic trace tools of respective platform. The <span class="code">examples</span> directory of the <span class="code">runtime_tools</span> application however contains comprehensive examples of both <span class="code">d</span> and <span class="code">systemtap</span> programs that will help you get started. Another source of information is the <span class="bold_code bc-19"><a href="DTRACE.html">dtrace</a></span> and <span class="bold_code bc-19"><a href="SYSTEMTAP.html">systemtap</a></span> chapters in the Runtime Tools Users' Guide.</p>
   </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
-    <p><a name="available-0"></a><span class="bold_code">available() -&gt; boolean()</span><br></p>
-<div class="REFBODY"><p>
+<div class="exports-body">
+    <p><a name="available-0"></a><span class="bold_code bc-9">available() -&gt; boolean()</span><br></p>
+<div class="REFBODY rb-7"><p>
 	<p>This function uses the NIF library to determine if dynamic
-	tracing is available. Usually calling <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#system_info-1');">erlang:system_info/1</a></span>
+	tracing is available. Usually calling <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#system_info-1');">erlang:system_info/1</a></span>
 	is a better indicator of the availability of dynamic
 	tracing.</p>
 	<p>The function will throw an exception if the <span class="code">dyntrace</span> NIF library could not be loaded by the on_load function of this module.</p>
       </p></div>
-    <p><a name="p-0"></a><span class="bold_code">p() -&gt; true | false | error | badarg</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="p-0"></a><span class="bold_code bc-9">p() -&gt; true | false | error | badarg</span><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Calling this function will trigger the "user" trace probe user_trace_i4s4 in the dyntrace NIF module, sending a trace message only containing the user tag and zeroes/empty strings in all other fields.</p>
       </p></div>
-    <p><a name="p-1"></a><span class="bold_code">p(integer() | string()) -&gt; true | false | error | badarg</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="p-1"></a><span class="bold_code bc-9">p(integer() | string()) -&gt; true | false | error | badarg</span><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Calling this function will trigger the "user" trace probe user_trace_i4s4 in the dyntrace NIF module, sending a trace message containing the user tag and the integer or string parameter in the first integer/string field.</p>
       </p></div>
-    <p><a name="p-2"></a><span class="bold_code">p(integer() | string(), integer() | string()) -&gt; true | false | error | badarg</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="p-2"></a><span class="bold_code bc-9">p(integer() | string(), integer() | string()) -&gt; true | false | error | badarg</span><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Calling this function will trigger the "user" trace probe user_trace_i4s4 in the dyntrace NIF module, sending a trace message containing the user tag and the integer() or string() parameters as the first fields of respective type. integer() parameters should be put before any string() parameters. I.e. <span class="code">p(1,"Hello")</span> is ok, as is <span class="code">p(1,1)</span> and <span class="code">p("Hello","Again")</span>, but not <span class="code">p("Hello",1)</span>.</p>
       </p></div>
-    <p><a name="p-3"></a><span class="bold_code">p(integer() | string(), integer() | string(), integer() | string()) -&gt; true | false | error | badarg</span><br></p>
-<div class="REFBODY"><p>
-        <p>Calling this function will trigger the "user" trace probe user_trace_i4s4 in the dyntrace NIF module, sending a trace message containing the user tag and the integer() or string() parameters as the first fields of respective type. integer() parameters should be put before any string() parameters, as in <span class="bold_code"><a href="#p-2">p/2</a></span>.</p>
+    <p><a name="p-3"></a><span class="bold_code bc-9">p(integer() | string(), integer() | string(), integer() | string()) -&gt; true | false | error | badarg</span><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Calling this function will trigger the "user" trace probe user_trace_i4s4 in the dyntrace NIF module, sending a trace message containing the user tag and the integer() or string() parameters as the first fields of respective type. integer() parameters should be put before any string() parameters, as in <span class="bold_code bc-17"><a href="#p-2">p/2</a></span>.</p>
       </p></div>
-    <p><a name="p-4"></a><span class="bold_code">p(integer() | string(), integer() | string(), integer() | string(), integer() | string()) -&gt; true | false | error | badarg</span><br></p>
-<div class="REFBODY"><p>
-        <p>Calling this function will trigger the "user" trace probe user_trace_i4s4 in the dyntrace NIF module, sending a trace message containing the user tag and the integer() or string() parameters as the first fields of respective type. integer() parameters should be put before any string() parameters, as in <span class="bold_code"><a href="#p-2">p/2</a></span>.</p>
+    <p><a name="p-4"></a><span class="bold_code bc-9">p(integer() | string(), integer() | string(), integer() | string(), integer() | string()) -&gt; true | false | error | badarg</span><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Calling this function will trigger the "user" trace probe user_trace_i4s4 in the dyntrace NIF module, sending a trace message containing the user tag and the integer() or string() parameters as the first fields of respective type. integer() parameters should be put before any string() parameters, as in <span class="bold_code bc-17"><a href="#p-2">p/2</a></span>.</p>
       </p></div>
-    <p><a name="p-5"></a><span class="bold_code">p(integer(), integer() | string(), integer() | string(), integer() | string(), string()) -&gt; true | false | error | badarg</span><br></p>
-<div class="REFBODY"><p>
-        <p>Calling this function will trigger the "user" trace probe user_trace_i4s4 in the dyntrace NIF module, sending a trace message containing the user tag and the integer() or string() parameters as the first fields of respective type. integer() parameters should be put before any string() parameters, as in <span class="bold_code"><a href="#p-2">p/2</a></span>.</p>
+    <p><a name="p-5"></a><span class="bold_code bc-9">p(integer(), integer() | string(), integer() | string(), integer() | string(), string()) -&gt; true | false | error | badarg</span><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Calling this function will trigger the "user" trace probe user_trace_i4s4 in the dyntrace NIF module, sending a trace message containing the user tag and the integer() or string() parameters as the first fields of respective type. integer() parameters should be put before any string() parameters, as in <span class="bold_code bc-17"><a href="#p-2">p/2</a></span>.</p>
 	<p>There can be no more than four parameters of any type (integer() or string()), so the first parameter has to be an integer() and the last a string().</p> 
       </p></div>
-     <p><a name="p-6"></a><span class="bold_code">p(integer(), integer(), integer() | string(), integer() | string(), string(), string()) -&gt; true | false | error | badarg</span><br></p>
-<div class="REFBODY"><p>
-        <p>Calling this function will trigger the "user" trace probe user_trace_i4s4 in the dyntrace NIF module, sending a trace message containing the user tag and the integer() or string() parameters as the first fields of respective type. integer() parameters should be put before any string() parameters, as in <span class="bold_code"><a href="#p-2">p/2</a></span>.</p>
+     <p><a name="p-6"></a><span class="bold_code bc-9">p(integer(), integer(), integer() | string(), integer() | string(), string(), string()) -&gt; true | false | error | badarg</span><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Calling this function will trigger the "user" trace probe user_trace_i4s4 in the dyntrace NIF module, sending a trace message containing the user tag and the integer() or string() parameters as the first fields of respective type. integer() parameters should be put before any string() parameters, as in <span class="bold_code bc-17"><a href="#p-2">p/2</a></span>.</p>
 	<p>There can be no more than four parameters of any type (integer() or string()), so the first two parameters has to be integer()'s and the last two string()'s.</p> 
       </p></div>
-     <p><a name="p-7"></a><span class="bold_code">p(integer(), integer(), integer(), integer() | string(), string(), string(), string()) -&gt; true | false | error | badarg</span><br></p>
-<div class="REFBODY"><p>
-        <p>Calling this function will trigger the "user" trace probe user_trace_i4s4 in the dyntrace NIF module, sending a trace message containing the user tag and the integer() or string() parameters as the first fields of respective type. integer() parameters should be put before any string() parameters, as in <span class="bold_code"><a href="#p-2">p/2</a></span>.</p>
+     <p><a name="p-7"></a><span class="bold_code bc-9">p(integer(), integer(), integer(), integer() | string(), string(), string(), string()) -&gt; true | false | error | badarg</span><br></p>
+<div class="REFBODY rb-7"><p>
+        <p>Calling this function will trigger the "user" trace probe user_trace_i4s4 in the dyntrace NIF module, sending a trace message containing the user tag and the integer() or string() parameters as the first fields of respective type. integer() parameters should be put before any string() parameters, as in <span class="bold_code bc-17"><a href="#p-2">p/2</a></span>.</p>
 	<p>There can be no more than four parameters of any type (integer() or string()), so the first three parameters has to be integer()'s and the last three string()'s.</p> 
       </p></div>
-     <p><a name="p-8"></a><span class="bold_code">p(integer(), integer(), integer(), integer(), string(), string(), string(), string()) -&gt; true | false | error | badarg</span><br></p>
-<div class="REFBODY"><p>
+     <p><a name="p-8"></a><span class="bold_code bc-9">p(integer(), integer(), integer(), integer(), string(), string(), string(), string()) -&gt; true | false | error | badarg</span><br></p>
+<div class="REFBODY rb-7"><p>
         <p>Calling this function will trigger the "user" trace probe user_trace_i4s4 in the dyntrace NIF module, sending a trace message containing all the integer()'s and string()'s provided, as well as any user tag set in the current process.</p> 
       </p></div>
-    <p><a name="get_tag-0"></a><span class="bold_code">get_tag() -&gt; binary() | undefined</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="get_tag-0"></a><span class="bold_code bc-9">get_tag() -&gt; binary() | undefined</span><br></p>
+<div class="REFBODY rb-7"><p>
 	<p>This function returns the user tag set in the current
 	process. If no tag is set or dynamic tracing is not available,
 	it returns <span class="code">undefined</span></p>
       </p></div>
-    <p><a name="get_tag-0"></a><span class="bold_code">get_tag() -&gt; binary() | undefined</span><br></p>
-<div class="REFBODY"><p>
+    <p><a name="get_tag-0"></a><span class="bold_code bc-9">get_tag() -&gt; binary() | undefined</span><br></p>
+<div class="REFBODY rb-7"><p>
 	<p>This function returns the user tag set in the current
 	process or, if no user tag is present, the last user tag sent
 	to the process together with a message (in the same way as
-	<span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','seq_trace.html');">sequential trace tokens</a></span> are spread to other processes together with
+	<span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','seq_trace.html');">sequential trace tokens</a></span> are spread to other processes together with
 	messages. For an explanation of how user tags can be spread
-	together with messages, see <span class="bold_code"><a href="#spread_tag-1">spread_tag/1</a></span>. If no tag is
+	together with messages, see <span class="bold_code bc-17"><a href="#spread_tag-1">spread_tag/1</a></span>. If no tag is
 	found or dynamic tracing is not available, it returns
 	<span class="code">undefined</span></p>
       </p></div>
     
-    <p><a name="put_tag-1"></a><span class="bold_code">put_tag(Item) -&gt; binary() | undefined </span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">Item = iodata()</span><br>
+    <p><a name="put_tag-1"></a><span class="bold_code bc-9">put_tag(Item) -&gt; binary() | undefined </span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">Item = iodata()</span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function sets the user tag of the current process. The user tag is a binary(), but can be specified as any iodata(), which is automatically converted to a binary by this function.</p>
 	<p>The user tag is provided to the user probes triggered by calls top <span class="code">dyntrace:p/{1,2,3,4,5,6,7,8}</span> as well as probes in the efile_driver. In the future, user tags might be added to more probes.</p>
 	<p>The old user tag (if any) is returned, or <span class="code">undefined</span> if no user tag was present or dynamic tracing is not enabled.</p>
       </p></div>
-    <p><a name="spread_tag-1"></a><span class="bold_code">spread_tag(boolean()) -&gt; TagData</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">TagData = opaque data that can be used as parameter to <span class="bold_code"><a href="#restore_tag-1">restore_tag/1</a></span></span><br>
+    <p><a name="spread_tag-1"></a><span class="bold_code bc-9">spread_tag(boolean()) -&gt; TagData</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">TagData = opaque data that can be used as parameter to <span class="bold_code bc-17"><a href="#restore_tag-1">restore_tag/1</a></span></span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
+<div class="REFBODY rb-7"><p>
         <p>This function controls if user tags are to be spread to other processes with the next message. Spreading of user tags work like spreading of sequential trace tokens, so that a received user tag will be active in the process until the next message arrives (if that message does not also contain the user tag.</p>
 	<p>This functionality is used when a client process communicates with a file i/o-server to spread the user tag to the I/O-server and then down to the efile_drv driver. By using <span class="code">spread_tag/1</span> and <span class="code">restore_tag/1</span>, one can enable or disable spreading of user tags to other processes and then restore the previous state of the user tag. The TagData returned from this call contains all previous information so the state (including any previously spread user tags) will be completely restored by a later call to <span class="code">restore_tag/1</span>.</p> 
-	<p>The <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html');">file</a></span> module already spread's tags, so there is noo need to manually call these function to get user tags spread to the efile driver through that module.</p>
-	<p>The most use of this function would be if one for example uses the <span class="bold_code"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html');">io</a></span> module to communicate with an I/O-server for a regular file, like in the following example:</p>
+	<p>The <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html');">file</a></span> module already spread's tags, so there is noo need to manually call these function to get user tags spread to the efile driver through that module.</p>
+	<p>The most use of this function would be if one for example uses the <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','io.html');">io</a></span> module to communicate with an I/O-server for a regular file, like in the following example:</p>
 <div class="example"><pre>
 f() -&gt;
    {ok, F} = file:open("test.tst",[write]),
@@ -306,15 +307,15 @@ f() -&gt;
 </pre></div>
           <p>In this example, any user tag set in the calling process will be spread to the I/O-server when the io:format call is done.</p>
       </p></div>
-    <p><a name="restore_tag-1"></a><span class="bold_code">restore_tag(TagData) -&gt; true</span><br></p>
-<div class="REFBODY">
-<p>Types:</p>
-        <div class="REFTYPES">
-<span class="bold_code">TagData = opaque data returned by <span class="bold_code"><a href="#spread_tag-1">spread_tag/1</a></span></span><br>
+    <p><a name="restore_tag-1"></a><span class="bold_code bc-9">restore_tag(TagData) -&gt; true</span><br></p>
+<div class="REFBODY rb-5">
+<h3>Types:</h3>
+        <div class="REFTYPES rt-4">
+<span class="bold_code bc-11">TagData = opaque data returned by <span class="bold_code bc-17"><a href="#spread_tag-1">spread_tag/1</a></span></span><br>
 </div>
       </div>
-<div class="REFBODY"><p>
-	<p>Restores the previous state of user tags and their spreading as it was before a call to <span class="bold_code"><a href="#spread_tag-1">spread_tag/1</a></span>. Note that the restoring is not limited to the same process, one can utilize this to turn off spreding in one process and restore it in a newly created, the one that actually is going to send messages:</p>
+<div class="REFBODY rb-7"><p>
+	<p>Restores the previous state of user tags and their spreading as it was before a call to <span class="bold_code bc-17"><a href="#spread_tag-1">spread_tag/1</a></span>. Note that the restoring is not limited to the same process, one can utilize this to turn off spreding in one process and restore it in a newly created, the one that actually is going to send messages:</p>
 <div class="example"><pre>
 f() -&gt;
     TagData=dyntrace:spread_tag(false),
@@ -327,7 +328,7 @@ f() -&gt;
 </pre></div>
         <p>Correctly handling user tags and their spreading might take some effort, as Erlang programs tend to send and receive messages so that sometimes the user tag gets lost due to various things, like double receives or communication with a port (ports do not handle user tags, in the same way as they do not handle regular sequential trace tokens).</p>
       </p></div>
-  
+  </div>
  </div>
 <div class="footer">
 <hr>
