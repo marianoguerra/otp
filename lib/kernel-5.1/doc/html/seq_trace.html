@@ -672,8 +672,8 @@
   </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
 <div class="exports-body">
-    <p><a name="set_token-1"></a><span class="bold_code bc-1">set_token(Token) -&gt; PreviousToken | ok</span><div class="REFBODY fun-types">
-<h3 class="func-types-title">Types:</h3>
+    <p><a name="set_token-1"></a><div class="bold_code func-head">set_token(Token) -&gt; PreviousToken | ok</div><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types</h3>
 <div class="REFTYPES rt-1"><span class="bold_code bc-2">Token = PreviousToken = [] | <span class="bold_code bc-17"><a href="#type-token">token()</a></span></span></div>
 <div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 </div></p>
@@ -693,8 +693,8 @@ seq_trace:set_token(OldToken), % activate the trace token again
 ...  </pre></div>
         <p>Returns the previous value of the trace token.</p>
       </p></div>
-    <p><a name="set_token-2"></a><span class="bold_code bc-1">set_token(Component, Val) -&gt; {Component, OldVal}</span><div class="REFBODY fun-types">
-<h3 class="func-types-title">Types:</h3>
+    <p><a name="set_token-2"></a><div class="bold_code func-head">set_token(Component, Val) -&gt; {Component, OldVal}</div><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types</h3>
 <div class="REFTYPES rt-1"><span class="bold_code bc-2">Component = component()</span></div>
 <div class="REFTYPES rt-1"><span class="bold_code bc-2">Val = OldVal = value()</span></div>
 <div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
@@ -781,7 +781,8 @@ seq_trace:set_token(OldToken), % activate the trace token again
 	  and the one with highest precedence later is disabled
 	  the other one will become active.</p>
       </p></div>
-    <p><a name="get_token-0"></a><span class="bold_code bc-1">get_token() -&gt; [] | <span class="bold_code bc-17"><a href="#type-token">token()</a></span></span></p>
+    <p><a name="get_token-0"></a><div class="bold_code func-head">get_token() -&gt; [] | <span class="bold_code bc-17"><a href="#type-token">token()</a></span>
+</div></p>
 <div class="REFBODY rb-7"><p>
         <p>Returns the value of the trace token for the calling process.
           If <span class="code">[]</span> is returned, it means that tracing is not active.
@@ -789,8 +790,8 @@ seq_trace:set_token(OldToken), % activate the trace token again
           token. The value returned can be used as input to
           the <span class="code">set_token/1</span> function.</p>
       </p></div>
-    <p><a name="get_token-1"></a><span class="bold_code bc-1">get_token(Component) -&gt; {Component, Val}</span><div class="REFBODY fun-types">
-<h3 class="func-types-title">Types:</h3>
+    <p><a name="get_token-1"></a><div class="bold_code func-head">get_token(Component) -&gt; {Component, Val}</div><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types</h3>
 <div class="REFTYPES rt-1"><span class="bold_code bc-2">Component = component()</span></div>
 <div class="REFTYPES rt-1"><span class="bold_code bc-2">Val = value()</span></div>
 <div class="REFTYPES rt-2">
@@ -809,8 +810,8 @@ seq_trace:set_token(OldToken), % activate the trace token again
           <span class="bold_code bc-17"><a href="#set_token-2">set_token/2</a></span> for
           possible values of <span class="code">Component</span> and <span class="code">Val</span>.</p>
       </p></div>
-    <p><a name="print-1"></a><span class="bold_code bc-1">print(TraceInfo) -&gt; ok</span><div class="REFBODY fun-types">
-<h3 class="func-types-title">Types:</h3>
+    <p><a name="print-1"></a><div class="bold_code func-head">print(TraceInfo) -&gt; ok</div><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types</h3>
 <div class="REFTYPES rt-1"><span class="bold_code bc-2">TraceInfo = term()</span></div>
 </div></p>
 <div class="REFBODY rb-7"><p>
@@ -819,8 +820,8 @@ seq_trace:set_token(OldToken), % activate the trace token again
           within a sequential trace and the <span class="code">print</span> flag of
           the trace token is set.</p>
       </p></div>
-    <p><a name="print-2"></a><span class="bold_code bc-1">print(Label, TraceInfo) -&gt; ok</span><div class="REFBODY fun-types">
-<h3 class="func-types-title">Types:</h3>
+    <p><a name="print-2"></a><div class="bold_code func-head">print(Label, TraceInfo) -&gt; ok</div><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types</h3>
 <div class="REFTYPES rt-1"><span class="bold_code bc-2">Label = integer()</span></div>
 <div class="REFTYPES rt-1"><span class="bold_code bc-2">TraceInfo = term()</span></div>
 </div></p>
@@ -829,7 +830,7 @@ seq_trace:set_token(OldToken), % activate the trace token again
           <span class="code">TraceInfo</span> is output only if <span class="code">Label</span> is equal to
           the label component of the trace token.</p>
       </p></div>
-    <p><a name="reset_trace-0"></a><span class="bold_code bc-1">reset_trace() -&gt; true</span></p>
+    <p><a name="reset_trace-0"></a><div class="bold_code func-head">reset_trace() -&gt; true</div></p>
 <div class="REFBODY rb-7"><p>
         <p>Sets the trace token to empty for all processes on the
           local node. The process internal counters used to create
@@ -838,8 +839,8 @@ seq_trace:set_token(OldToken), % activate the trace token again
           this will effectively stop all ongoing sequential tracing in
           the local node.</p>
       </p></div>
-    <p><a name="set_system_tracer-1"></a><span class="bold_code bc-1">set_system_tracer(Tracer) -&gt; OldTracer</span><div class="REFBODY fun-types">
-<h3 class="func-types-title">Types:</h3>
+    <p><a name="set_system_tracer-1"></a><div class="bold_code func-head">set_system_tracer(Tracer) -&gt; OldTracer</div><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types</h3>
 <div class="REFTYPES rt-1"><span class="bold_code bc-2">Tracer = OldTracer = tracer()</span></div>
 <div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
 <div class="REFTYPES rt-2">
@@ -855,8 +856,8 @@ seq_trace:set_token(OldToken), % activate the trace token again
         <p>Failure: <span class="code">{badarg, Info}}</span> if <span class="code">Pid</span> is not an
           existing local pid.</p>
       </p></div>
-    <p><a name="get_system_tracer-0"></a><span class="bold_code bc-1">get_system_tracer() -&gt; Tracer</span><div class="REFBODY fun-types">
-<h3 class="func-types-title">Types:</h3>
+    <p><a name="get_system_tracer-0"></a><div class="bold_code func-head">get_system_tracer() -&gt; Tracer</div><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types</h3>
 <div class="REFTYPES rt-1"><span class="bold_code bc-2">Tracer = tracer()</span></div>
 <div class="REFTYPES rt-2">
       <span class="bold_code bc-5">tracer() = <br>    (Pid :: pid()) |<br>    port() |<br>    (TracerModule :: {module(), term()}) |<br>    false</span><br>
@@ -868,7 +869,7 @@ seq_trace:set_token(OldToken), % activate the trace token again
       </p></div>
   </div>
 
-  <h3><a name="idm46088172897120">Trace Messages Sent to the System Tracer</a></h3>
+  <h3><a name="idm46658255537776">Trace Messages Sent to the System Tracer</a></h3>
 <div class="REFBODY rb-3">
     
     <p>The format of the messages is one of the following, depending on if
@@ -920,7 +921,7 @@ TimeStamp = {Seconds, Milliseconds, Microseconds}
   </div>
 
   <h3>
-<a name="whatis"></a><a name="idm46088172874576">Sequential Tracing</a>
+<a name="whatis"></a><a name="idm46658255515232">Sequential Tracing</a>
 </h3>
 <div class="REFBODY rb-3">
     
@@ -958,7 +959,7 @@ TimeStamp = {Seconds, Milliseconds, Microseconds}
       fundamental concepts.</p>
   </div>
 
-  <h3><a name="idm46088172866576">Trace Token</a></h3>
+  <h3><a name="idm46658255507232">Trace Token</a></h3>
 <div class="REFBODY rb-3">
     
     <p>Each process has a current trace token. Initially, the token is
@@ -983,7 +984,7 @@ TimeStamp = {Seconds, Milliseconds, Microseconds}
       the label and the flags are set in both alternatives above.</p>
   </div>
 
-  <h3><a name="idm46088172860512">Serial</a></h3>
+  <h3><a name="idm46658255501168">Serial</a></h3>
 <div class="REFBODY rb-3">
     
     <p>The trace token contains a component called
@@ -1041,7 +1042,7 @@ prev_cnt := tcurr</pre></div>
       thus stops all ongoing sequential tracing.</p>
   </div>
 
-  <h3><a name="idm46088172840000">Performance Considerations</a></h3>
+  <h3><a name="idm46658255480656">Performance Considerations</a></h3>
 <div class="REFBODY rb-3">
     
     <p>The performance degradation for a system that is enabled for
@@ -1051,7 +1052,7 @@ prev_cnt := tcurr</pre></div>
       unaffected.</p>
   </div>
 
-  <h3><a name="idm46088172838384">Ports</a></h3>
+  <h3><a name="idm46658255479040">Ports</a></h3>
 <div class="REFBODY rb-3">
     
     <p>Sequential tracing is not performed across ports.</p>
@@ -1067,7 +1068,7 @@ prev_cnt := tcurr</pre></div>
       <span class="code">seq_trace:set_token/2</span>.</p>
   </div>
 
-  <h3><a name="idm46088172834704">Distribution</a></h3>
+  <h3><a name="idm46658255475360">Distribution</a></h3>
 <div class="REFBODY rb-3">
     
     <p>Sequential tracing between nodes is performed transparently.
@@ -1083,7 +1084,7 @@ prev_cnt := tcurr</pre></div>
       not be traced.</p>
   </div>
 
-  <h3><a name="idm46088172831472">Example of Use</a></h3>
+  <h3><a name="idm46658255472128">Example of Use</a></h3>
 <div class="REFBODY rb-3">
     
     <p>This example gives a rough idea of how the new
