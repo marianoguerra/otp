@@ -1,19 +1,23 @@
 /* standard OTP style sheet */
 body {
   background: #fefefe;
-  color: #3E4349;
-  font-family: serif;
+  color: #1a1a1a;
+  font-family: sans-serif;
   margin: 0;
   padding: 0;
   border: 0;
   overflow: scroll;
   height: 100%;
   max-height: 100%;
+  line-height: 1.2em;
+  font-size: 16px;
 }
 
-th            { font-family: Verdana, Arial, Helvetica, sans-serif }
-td            { font-family: Verdana, Arial, Helvetica, sans-serif }
-p             { font-family: Verdana, Arial, Helvetica, sans-serif }
+h1, h2, h3, h4, h5, h6{
+ line-height: 1.2em;
+}
+
+p             { max-width: 42em }
 
 .header       { background: #222; color: #fefefe }
 .top          { background: #efe }
@@ -47,6 +51,7 @@ a:visited      { color: #1b6ec2; text-decoration: none }
 
 #content {
   margin-left: 340px; /* set left value to WidthOfFrameDiv */
+  max-width: 42em;
 }
 
 .frontpage 
@@ -62,10 +67,15 @@ a:visited      { color: #1b6ec2; text-decoration: none }
 .footer 
 {
   margin: 15px; /* Magins for inner DIV inside each DIV (to provide padding) */
+  text-align: center;
 }
 
-span.bold_code   { font-family: mono, Courier, monospace; white-space: pre; font-weight: bold }
-span.code        { font-family: mono, Courier, monospace; white-space: pre; font-weight: normal }
+.bold_code   { font-family: mono, Courier, monospace; font-weight: bold }
+.code        {
+ font-family: mono, Courier, monospace;
+ font-weight: normal;
+ background-color: #f3f3f3;
+}
 
 .note, .warning, .do, .dont {
   border: 1px solid #495057;
@@ -91,33 +101,30 @@ span.code        { font-family: mono, Courier, monospace; white-space: pre; font
 }
 .warning .content {
   background-color: #f8f9fa;
-  border: 1px solid #dee2e6;
   line-height: 120%;
   font-size: 90%;
   padding: 0.5em 1em;
 }
 .do .label {
-  background: #30d42a;
+  background-color: #2b8a3e;
   color: #fefefe;
   font-weight: bold;
   padding: 5px 10px;
 }
 .do .content {
-  background: #eafeea;
-  color: #3E4349;
+  background: #f8f9fa;
   line-height: 120%;
   font-size: 90%;
   padding: 5px 10px;
 }
 .dont .label {
-  background: #C00;
+  background: #c92a2a;
   color: #fefefe;
   font-weight: bold;
   padding: 5px 10px;
 }
 .dont .content {
-  background: #FFF0F0;
-  color: #3E4349;
+  background-color: #f8f9fa;
   line-height: 120%;
   font-size: 90%;
   padding: 5px 10px;
@@ -132,6 +139,7 @@ span.code        { font-family: mono, Courier, monospace; white-space: pre; font
   border: 1px solid #dee2e6;
   padding: 0.5em 1em;
   margin: 1em 0;
+  font-size: 0.7em;
 }
 .extrafrontpageinfo {
   color: #C00;
@@ -139,11 +147,17 @@ span.code        { font-family: mono, Courier, monospace; white-space: pre; font
   font-size: 120%;
 }
 
-pre          { font-family: mono, Courier, monospace; font-weight: normal }
+pre {
+ font-family: mono, Courier, monospace;
+ font-weight: normal;
+ margin: 0;
+}
 
-.REFBODY     { margin-left: 13mm }
 
-.REFTYPES    { margin-left: 8mm }
+.exports-body, .data-types-body, .REFBODY{
+ margin-left: 2em;
+}
+.REFTYPES    { margin-left: 1.5em }
 
 footer       { }
 
@@ -162,16 +176,21 @@ footer       { }
  font-size: 1.5em;
 }
 
-.doc-table-wrapper{
+.doc-table-wrapper, .doc-image-wrapper{
  width: 100%;
 }
 
-.doc-table{
- min-width: 50%;
- margin: 0 auto;
+.doc-image-wrapper{
+ text-align: center;
 }
 
-.doc-table-caption{
+.doc-table, .doc-image{
+ min-width: 50%;
+ margin: 0 auto;
+ font-size: 0.7em;
+}
+
+.doc-table-caption, .doc-image-caption{
  margin-top: 1em;
  font-style: italic;
  text-align: center;
@@ -223,5 +242,26 @@ th {
 }
 
 h3>a{
- color: #3E4349 !important;
+ color: #1a1a1a !important;
+}
+
+hr{
+  border: 0;
+  border-top: 1px solid #aaa;
+}
+
+.section-links, .panel-sections, .expand-collapse-items{
+ padding: 0 1em;
+}
+
+.section-links, .panel-sections{
+ margin-top: 0;
+}
+
+a > .code {
+ color: #1862ab;
+}
+
+.func-types-title{
+ font-size: 1em;
 }
