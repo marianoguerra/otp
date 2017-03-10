@@ -1,4 +1,4 @@
-.TH gen_statem 3 "stdlib 3.1" "Ericsson AB" "Erlang Module Definition"
+.TH gen_statem 3 "stdlib 3.2" "Ericsson AB" "Erlang Module Definition"
 .SH NAME
 gen_statem \- Generic state machine behavior.
 .SH DESCRIPTION
@@ -389,7 +389,7 @@ A term in which the state machine implementation is to store any server data it 
 .fi
 .RS
 .LP
-External events are of three types: \fI{call,From}\fR\&, \fIcast\fR\&, or \fIinfo\fR\&\&. \fBCalls\fR\& (synchronous) and \fBcasts\fR\& originate from the corresponding API functions\&. For calls, the event contains whom to reply to\&. Type \fIinfo\fR\& originates from regular process messages sent to the \fIgen_statem\fR\&\&. Also, the state machine implementation can generate events of types \fItimeout\fR\&, \fIstate_timeout\fR\&, \fIenter\fR\&, and \fIinternal\fR\& to itself\&.
+External events are of three types: \fI{call,From}\fR\&, \fIcast\fR\&, or \fIinfo\fR\&\&. \fBCalls\fR\& (synchronous) and \fBcasts\fR\& originate from the corresponding API functions\&. For calls, the event contains whom to reply to\&. Type \fIinfo\fR\& originates from regular process messages sent to the \fIgen_statem\fR\&\&. Also, the state machine implementation can generate events of types \fItimeout\fR\&, \fIstate_timeout\fR\&, and \fIinternal\fR\& to itself\&.
 .RE
 .nf
 
@@ -442,13 +442,17 @@ Note that a state enter call \fIwill\fR\& be done right before entering the init
 
 \fBtransition_option()\fR\& = 
 .br
-    \fBpostpone()\fR\& | \fBhibernate()\fR\& | \fBevent_timeout()\fR\&
+    \fBpostpone()\fR\& | \fBhibernate()\fR\& | \fBevent_timeout()\fR\& | \fBstate_timeout()\fR\&
 .br
 .fi
 .RS
 .LP
 Transition options can be set by \fBactions\fR\& and they modify how the state transition is done:
 .RS 2
+.TP 2
+*
+If the state changes or is the initial state, and \fB\fIstate enter calls\fR\&\fR\& are used, the \fIgen_statem\fR\& calls the new state callback with arguments \fB(enter, OldState, Data)\fR\&\&. Any \fB\fIactions\fR\&\fR\& returned from this call are handled as if they were appended to the actions returned by the state callback that changed states\&.
+.LP
 .TP 2
 *
 All \fBactions\fR\& are processed in order of appearance\&.
@@ -467,15 +471,19 @@ All events stored with \fB\fIaction()\fR\&\fR\& \fInext_event\fR\& are inserted 
 .LP
 .TP 2
 *
-If the state changes or is the initial state, and \fB\fIstate enter calls\fR\&\fR\& are used, the \fIgen_statem\fR\& calls the new state callback with arguments \fB(enter, OldState, Data)\fR\&\&. Any \fB\fIactions\fR\&\fR\& returned from this call are handled as if they were appended to the actions returned by the state callback that changed states\&.
+Timeout timers \fB\fIstate_timeout()\fR\&\fR\& and \fB\fIevent_timeout()\fR\&\fR\& are handled\&. Time-outs with zero time are guaranteed to be delivered to the state machine before any external not yet received event so if there is such a timeout requested, the corresponding time-out zero event is enqueued as the newest event\&.
+.RS 2
+.LP
+Any event cancels an \fB\fIevent_timeout()\fR\&\fR\& so a zero time event time-out is only generated if the event queue is empty\&.
+.RE
+.RS 2
+.LP
+A state change cancels a \fB\fIstate_timeout()\fR\&\fR\& and any new transition option of this type belongs to the new state\&.
+.RE
 .LP
 .TP 2
 *
-If there are enqueued events the (possibly new) \fBstate callback\fR\& is called with the oldest enqueued event, and we start again from the top of this list\&.
-.LP
-.TP 2
-*
-Timeout timers \fB\fIstate_timeout()\fR\&\fR\& and \fB\fIevent_timeout()\fR\&\fR\& are handled\&. This may lead to a time-out zero event being generated to the \fBstate callback\fR\& and we start again from the top of this list\&.
+If there are enqueued events the \fBstate callback\fR\& for the possibly new state is called with the oldest enqueued event, and we start again from the top of this list\&.
 .LP
 .TP 2
 *
@@ -509,7 +517,7 @@ If \fItrue\fR\&, hibernates the \fIgen_statem\fR\& by calling \fB\fIproc_lib:hib
 .fi
 .RS
 .LP
-Generates an event of \fB\fIevent_type()\fR\&\fR\& \fItimeout\fR\& after this time (in milliseconds) unless another event arrives or has arrived in which case this time-out is cancelled\&. Note that a retried, inserted or state time-out zero events counts as arrived\&.
+Generates an event of \fB\fIevent_type()\fR\&\fR\& \fItimeout\fR\& after this time (in milliseconds) unless another event arrives or has arrived in which case this time-out is cancelled\&. Note that a retried or inserted event counts as arrived\&. So does a state time-out zero event, if it was generated before this timer is requested\&.
 .LP
 If the value is \fIinfinity\fR\&, no timer is started, as it never would trigger anyway\&.
 .LP
@@ -530,7 +538,7 @@ If the value is \fIinfinity\fR\&, no timer is started, as it never would trigger
 .LP
 If the value is \fI0\fR\& no timer is actually started, instead the the time-out event is enqueued to ensure that it gets processed before any not yet received external event\&.
 .LP
-Setting this timer while it is running will restart it with the new time-out value\&. Therefore it is possible to cancel this timeout by setting it to \fIinfinity\fR\&\&.
+Setting this timer while it is running will restart it with the new time-out value\&. Therefore it is possible to cancel this time-out by setting it to \fIinfinity\fR\&\&.
 .RE
 .nf
 
@@ -637,13 +645,13 @@ Note that using this action from \fB\fIModule:init/1\fR\&\fR\& or \fB\fIenter_lo
 .RE
 .nf
 
-\fBstate_enter_result(StateType)\fR\& = 
+\fBstate_enter_result(State)\fR\& = 
 .br
-    {next_state, State :: StateType, NewData :: \fBdata()\fR\&} |
+    {next_state, State, NewData :: \fBdata()\fR\&} |
 .br
     {next_state,
 .br
-     State :: StateType,
+     State,
 .br
      NewData :: \fBdata()\fR\&,
 .br
@@ -796,7 +804,7 @@ Note:
 For \fITimeout < infinity\fR\&, to avoid getting a late reply in the caller\&'s inbox if the caller should catch exceptions, this function spawns a proxy process that does the call\&. A late reply gets delivered to the dead proxy process, hence gets discarded\&. This is less efficient than using \fITimeout == infinity\fR\&\&.
 
 .LP
-\fITimeout\fR\& can also be a tuple \fI{clean_timeout,T}\fR\& or \fI{dirty_timeout,T}\fR\&, where \fIT\fR\& is the timeout time\&. \fI{clean_timeout,T}\fR\& works like just \fIT\fR\& described in the note above and uses a proxy process for \fIT < infinity\fR\&, while \fI{dirty_timeout,T}\fR\& bypasses the proxy process which is more lightweight\&.
+\fITimeout\fR\& can also be a tuple \fI{clean_timeout,T}\fR\& or \fI{dirty_timeout,T}\fR\&, where \fIT\fR\& is the time-out time\&. \fI{clean_timeout,T}\fR\& works like just \fIT\fR\& described in the note above and uses a proxy process for \fIT < infinity\fR\&, while \fI{dirty_timeout,T}\fR\& bypasses the proxy process which is more lightweight\&.
 .LP
 
 .RS -4
@@ -1254,7 +1262,7 @@ Module:StateName(enter, OldState, Data) -> StateEnterResult(StateName)
 Module:StateName(EventType, EventContent, Data) -> StateFunctionResult 
 .br
 .B
-Module:handle_event(enter, OldState, State, Data) -> StateEnterResult 
+Module:handle_event(enter, OldState, State, Data) -> StateEnterResult(State) 
 .br
 .B
 Module:handle_event(EventType, EventContent, State, Data) -> HandleEventResult 
@@ -1276,7 +1284,7 @@ EventContent = term()
 .br
  StateFunctionResult = \fBevent_handler_result\fR\&(\fBstate_name()\fR\&) 
 .br
- StateEnterResult = \fBstate_enter_result\fR\&(\fBstate()\fR\&) 
+ StateEnterResult(State) = \fBstate_enter_result(State)\fR\&
 .br
  HandleEventResult = \fBevent_handler_result\fR\&(\fBstate()\fR\&) 
 .br

@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc/index.html"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">cosNotification</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 1.2.2</p>
@@ -430,17 +430,17 @@
   </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
 <div class="exports-body">
-    <p><a name="add_filter-2"></a><span class="bold_code bc-9">add_filter(Object, Filter) -&gt; FilterID</span><br></p>
+    <p><a name="add_filter-2"></a><span class="bold_code fun-type">add_filter(Object, Filter) -&gt; FilterID</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Object = #objref</span><br>
+<span class="bold_code fun-param-type">Object = #objref</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Filter = #objref</span><br>
+<span class="bold_code fun-param-type">Filter = #objref</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">FilterID = long()</span><br>
+<span class="bold_code fun-param-type">FilterID = long()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -448,14 +448,14 @@
           with other associated <span class="code">Filters</span>, be used to select events to forward. A unique Id is
           returned and should be used if we no longer want to consult the given <span class="code">Filter</span>.</p>
       </p></div>
-    <p><a name="remove_filter-2"></a><span class="bold_code bc-9">remove_filter(Object, FilterID) -&gt; ok</span><br></p>
+    <p><a name="remove_filter-2"></a><span class="bold_code fun-type">remove_filter(Object, FilterID) -&gt; ok</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Object = #objref</span><br>
+<span class="bold_code fun-param-type">Object = #objref</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">FilterID = long()</span><br>
+<span class="bold_code fun-param-type">FilterID = long()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -463,20 +463,20 @@
           this operation must be used. Events will no longer be tested against the <span class="code">Filter</span>
           associated with the given Id.</p>
       </p></div>
-    <p><a name="get_filter-2"></a><span class="bold_code bc-9">get_filter(Object, FilterID) -&gt; Reply</span><br></p>
+    <p><a name="get_filter-2"></a><span class="bold_code fun-type">get_filter(Object, FilterID) -&gt; Reply</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Object = #objref</span><br>
+<span class="bold_code fun-param-type">Object = #objref</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">FilterID = long()</span><br>
+<span class="bold_code fun-param-type">FilterID = long()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reply = Filter | {'EXCEPTION', #'CosNotifyFilter_FilterNotFound'{}}</span><br>
+<span class="bold_code fun-param-type">Reply = Filter | {'EXCEPTION', #'CosNotifyFilter_FilterNotFound'{}}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Filter = #objref</span><br>
+<span class="bold_code fun-param-type">Filter = #objref</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -484,28 +484,28 @@
           reference will be returned. If no such <span class="code">Filter</span> is known by the target object
           an exception is raised.</p>
       </p></div>
-    <p><a name="get_all_filters-1"></a><span class="bold_code bc-9">get_all_filters(Object) -&gt; FilterIDSeq</span><br></p>
+    <p><a name="get_all_filters-1"></a><span class="bold_code fun-type">get_all_filters(Object) -&gt; FilterIDSeq</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Object = #objref</span><br>
+<span class="bold_code fun-param-type">Object = #objref</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">FilterIDSeq = [FilterID]</span><br>
+<span class="bold_code fun-param-type">FilterIDSeq = [FilterID]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">FilterID = long()</span><br>
+<span class="bold_code fun-param-type">FilterID = long()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>Id's for all <span class="code">Filter</span> objects associated with the target object is
           returned by this operation.</p>
       </p></div>
-    <p><a name="remove_all_filters-1"></a><span class="bold_code bc-9">remove_all_filters(Object) -&gt; ok</span><br></p>
+    <p><a name="remove_all_filters-1"></a><span class="bold_code fun-type">remove_all_filters(Object) -&gt; ok</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Object = #objref</span><br>
+<span class="bold_code fun-param-type">Object = #objref</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -516,7 +516,7 @@
 </div>
 <div class="footer">
 <hr>
-<p>Copyright © 2000-2016 Ericsson AB. All Rights Reserved.</p>
+<p>Copyright © 2000-2017 Ericsson AB. All Rights Reserved.</p>
 </div>
 </div>
 </div>

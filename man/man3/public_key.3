@@ -1,4 +1,4 @@
-.TH public_key 3 "public_key 1.2" "Ericsson AB" "Erlang Module Definition"
+.TH public_key 3 "public_key 1.3" "Ericsson AB" "Erlang Module Definition"
 .SH NAME
 public_key \- API module for public-key infrastructure.
 .SH DESCRIPTION
@@ -986,6 +986,46 @@ Verifies PKIX x\&.509 certificate signature\&.
 .RE
 .LP
 .B
+pkix_verify_hostname(Cert, ReferenceIDs) -> boolean()
+.br
+.B
+pkix_verify_hostname(Cert, ReferenceIDs, Opts) -> boolean()
+.br
+.RS
+.LP
+Types:
+
+.RS 3
+Cert = der_encoded() | #\&'OTPCertificate\&'{} 
+.br
+ReferenceIDs = [ RefID ]
+.br
+RefID = {IdType,string()}
+.br
+IdType = dns_id | srv_id | uri_id
+.br
+Opts = [ PvhOpt() ]
+.br
+PvhOpt = [MatchOpt | FailCallBackOpt | FqdnExtractOpt]
+.br
+MatchOpt = {fun(RefId | FQDN::string(), PresentedID) -> boolean() | default}
+.br
+PresentedID = {dNSName,string()} | {uniformResourceIdentifier,string()}
+.br
+FailCallBackOpt = {fail_callback, fun(#\&'OTPCertificate\&'{}) -> boolean()}
+.br
+FqdnExtractOpt = {fqdn_fun, fun(RefID) -> FQDN::string() | default | undefined}
+.br
+.RE
+.RE
+.RS
+.LP
+This function checks that the \fIPresented Identifier\fR\&  (e\&.g hostname) in a peer certificate conforms with the Expected Identifier that the client wants to connect to\&. This functions is intended to be added as an extra client check to the peer certificate when performing \fBpublic_key:pkix_path_validation/3\fR\& 
+.LP
+See RFC 6125 for detailed information about hostname verification\&. The \fBUser\&'s Manual\fR\& and \fBcode examples\fR\& describes this function more detailed\&.
+.RE
+.LP
+.B
 sign(Msg, DigestType, Key) -> binary()
 .br
 .RS
@@ -1067,6 +1107,48 @@ Type = ssh_file()
 .RS
 .LP
 Encodes a list of SSH file entries (public keys and attributes) to a binary\&. Possible attributes depend on the file type, see \fB ssh_decode/2 \fR\&\&.
+.RE
+.LP
+.B
+ssh_hostkey_fingerprint(HostKey) -> string()
+.br
+.B
+ssh_hostkey_fingerprint(DigestType, HostKey) -> string()
+.br
+.RS
+.LP
+Types:
+
+.RS 3
+Key = public_key()
+.br
+DigestType = digest_type()
+.br
+.RE
+.RE
+.RS
+.LP
+Calculates a ssh fingerprint from a public host key as openssh does\&.
+.LP
+The algorithm in \fIssh_hostkey_fingerprint/1\fR\& is md5 to be compatible with older ssh-keygen commands\&. The string from the second variant is prepended by the algorithm name in uppercase as in newer ssh-keygen commands\&.
+.LP
+Examples:
+.LP
+.nf
+
+ 2> public_key:ssh_hostkey_fingerprint(Key).    
+ "f5:64:a6:c1:5a:cb:9f:0a:10:46:a2:5c:3e:2f:57:84"
+
+ 3> public_key:ssh_hostkey_fingerprint(md5,Key).
+ "MD5:f5:64:a6:c1:5a:cb:9f:0a:10:46:a2:5c:3e:2f:57:84"
+
+ 4> public_key:ssh_hostkey_fingerprint(sha,Key).
+ "SHA1:bSLY/C4QXLDL/Iwmhyg0PGW9UbY"
+
+ 5> public_key:ssh_hostkey_fingerprint(sha256,Key).
+ "SHA256:aZGXhabfbf4oxglxltItWeHU7ub3Dc31NcNw2cMJePQ"
+    
+.fi
 .RE
 .LP
 .B

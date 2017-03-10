@@ -95,34 +95,34 @@
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
 <div class="exports-body">
-    <p><a name="env_compiler_options-0"></a><span class="bold_code bc-9">env_compiler_options()</span><br></p>
+    <p><a name="env_compiler_options-0"></a><span class="bold_code fun-type">env_compiler_options()</span><br></p>
 <div class="REFBODY rb-7"><p>
 	<p>Return compiler options given via the environment variable
 	  <span class="code">ERL_COMPILER_OPTIONS</span>. If the value is a list, it is
 	  returned as is. If it is not a list, it is put into a list.
 	</p>
       </p></div>
-    <p><a name="file-1"></a><span class="bold_code bc-9">file(File)</span><br></p>
+    <p><a name="file-1"></a><span class="bold_code fun-type">file(File)</span><br></p>
 <div class="REFBODY rb-7"><p>
         <p>Is the same as
 	  <span class="code">file(File, [verbose,report_errors,report_warnings])</span>.
 	</p>
       </p></div>
 
-    <p><a name="file-2"></a><span class="bold_code bc-9">file(File, Options) -&gt; CompRet</span><br></p>
+    <p><a name="file-2"></a><span class="bold_code fun-type">file(File, Options) -&gt; CompRet</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CompRet = ModRet | BinRet | ErrRet</span><br>
+<span class="bold_code fun-param-type">CompRet = ModRet | BinRet | ErrRet</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ModRet = {ok,ModuleName} | {ok,ModuleName,Warnings}</span><br>
+<span class="bold_code fun-param-type">ModRet = {ok,ModuleName} | {ok,ModuleName,Warnings}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">BinRet = {ok,ModuleName,Binary} | {ok,ModuleName,Binary,Warnings}</span><br>
+<span class="bold_code fun-param-type">BinRet = {ok,ModuleName,Binary} | {ok,ModuleName,Binary,Warnings}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ErrRet = error | {error,Errors,Warnings}</span><br>
+<span class="bold_code fun-param-type">ErrRet = error | {error,Errors,Warnings}</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -741,30 +741,30 @@ module.beam: module.erl \
 	</p>
       </p></div>
 
-    <p><a name="forms-1"></a><span class="bold_code bc-9">forms(Forms)</span><br></p>
+    <p><a name="forms-1"></a><span class="bold_code fun-type">forms(Forms)</span><br></p>
 <div class="REFBODY rb-7"><p>
         <p>Is the same as
 	  <span class="code">forms(File, [verbose,report_errors,report_warnings])</span>.
 	</p>
       </p></div>
 
-    <p><a name="forms-2"></a><span class="bold_code bc-9">forms(Forms, Options) -&gt; CompRet</span><br></p>
+    <p><a name="forms-2"></a><span class="bold_code fun-type">forms(Forms, Options) -&gt; CompRet</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Forms = [Form]</span><br>
+<span class="bold_code fun-param-type">Forms = [Form]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CompRet = BinRet | ErrRet</span><br>
+<span class="bold_code fun-param-type">CompRet = BinRet | ErrRet</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">BinRet = {ok,ModuleName,BinaryOrCode} | {ok,ModuleName,BinaryOrCode,Warnings}</span><br>
+<span class="bold_code fun-param-type">BinRet = {ok,ModuleName,BinaryOrCode} | {ok,ModuleName,BinaryOrCode,Warnings}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">BinaryOrCode = binary() | term()</span><br>
+<span class="bold_code fun-param-type">BinaryOrCode = binary() | term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ErrRet = error | {error,Errors,Warnings}</span><br>
+<span class="bold_code fun-param-type">ErrRet = error | {error,Errors,Warnings}</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -777,11 +777,11 @@ module.beam: module.erl \
 	a binary.</p>
       </p></div>
 
-    <p><a name="format_error-1"></a><span class="bold_code bc-9">format_error(ErrorDescriptor) -&gt; chars()</span><br></p>
+    <p><a name="format_error-1"></a><span class="bold_code fun-type">format_error(ErrorDescriptor) -&gt; chars()</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ErrorDescriptor = errordesc()</span><br>
+<span class="bold_code fun-param-type">ErrorDescriptor = errordesc()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -792,11 +792,11 @@ module.beam: module.erl \
 	<span class="bold_code bc-17"><a href="#error_information">Error Information</a></span>) is processed.</p>
       </p></div>
 
-    <p><a name="output_generated-1"></a><span class="bold_code bc-9">output_generated(Options) -&gt; true | false</span><br></p>
+    <p><a name="output_generated-1"></a><span class="bold_code fun-type">output_generated(Options) -&gt; true | false</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Options = [term()]</span><br>
+<span class="bold_code fun-param-type">Options = [term()]</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -807,25 +807,25 @@ module.beam: module.erl \
 	checks the syntax of the source code.</p>
       </p></div>
 
-    <p><a name="noenv_file-2"></a><span class="bold_code bc-9">noenv_file(File, Options) -&gt; CompRet</span><br></p>
+    <p><a name="noenv_file-2"></a><span class="bold_code fun-type">noenv_file(File, Options) -&gt; CompRet</span><br></p>
 <div class="REFBODY rb-7"><p>
       <p>Works like <span class="bold_code bc-17"><a href="#file-2">file/2</a></span>,
 	 except that the environment variable <span class="code">ERL_COMPILER_OPTIONS</span>
 	 is not consulted.</p>
       </p></div>
 
-    <p><a name="noenv_forms-2"></a><span class="bold_code bc-9">noenv_forms(Forms, Options) -&gt; CompRet</span><br></p>
+    <p><a name="noenv_forms-2"></a><span class="bold_code fun-type">noenv_forms(Forms, Options) -&gt; CompRet</span><br></p>
 <div class="REFBODY rb-7"><p>
         <p>Works like <span class="bold_code bc-17"><a href="#forms-2">forms/2</a></span>,
 	 except that the environment variable <span class="code">ERL_COMPILER_OPTIONS</span>
 	 is not consulted.</p>
       </p></div>
 
-    <p><a name="noenv_output_generated-1"></a><span class="bold_code bc-9">noenv_output_generated(Options) -&gt; true | false</span><br></p>
+    <p><a name="noenv_output_generated-1"></a><span class="bold_code fun-type">noenv_output_generated(Options) -&gt; true | false</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Options = [term()]</span><br>
+<span class="bold_code fun-param-type">Options = [term()]</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -837,7 +837,7 @@ module.beam: module.erl \
 
   </div>
 
-  <h3><a name="idm45637869608928">Default Compiler Options</a></h3>
+  <h3><a name="idm45491148124640">Default Compiler Options</a></h3>
 <div class="REFBODY rb-3">
     
     <p>The (host operating system) environment variable
@@ -862,7 +862,7 @@ module.beam: module.erl \
       <span class="bold_code bc-17"><a href="#env_compiler_options-0">env_compiler_options/0</a></span>.</p>
   </div>
 
-  <h3><a name="idm45637869617616">Inlining</a></h3>
+  <h3><a name="idm45491148133168">Inlining</a></h3>
 <div class="REFBODY rb-3">
     
     <p>The compiler can do function inlining within an Erlang
@@ -920,7 +920,7 @@ pi() -&gt; 3.1416.
 -compile({inline_size,100}).</pre></div>
   </div>
 
-  <h3><a name="idm45637869199696">Inlining of List Functions</a></h3>
+  <h3><a name="idm45491147932896">Inlining of List Functions</a></h3>
 <div class="REFBODY rb-3">
     
     <p>The compiler can also inline various list manipulation functions
@@ -946,7 +946,7 @@ pi() -&gt; 3.1416.
     </ul>
   </div>
 
-  <h3><a name="idm45637869377904">Parse Transformations</a></h3>
+  <h3><a name="idm45491148421200">Parse Transformations</a></h3>
 <div class="REFBODY rb-3">
     
 
@@ -956,7 +956,7 @@ pi() -&gt; 3.1416.
   </div>
 
   <h3>
-<a name="error_information"></a><a name="idm45637869379856">Error Information</a>
+<a name="error_information"></a><a name="idm45491148423152">Error Information</a>
 </h3>
 <div class="REFBODY rb-3">
     
@@ -978,7 +978,7 @@ pi() -&gt; 3.1416.
 Module:format_error(ErrorDescriptor)</pre></div>
   </div>
 
-  <h3><a name="idm45637869221952">See Also</a></h3>
+  <h3><a name="idm45491147954160">See Also</a></h3>
 <div class="REFBODY rb-3">
     
     <p>
@@ -991,7 +991,7 @@ Module:format_error(ErrorDescriptor)</pre></div>
 </div>
 <div class="footer">
 <hr>
-<p>Copyright © 1997-2016 Ericsson AB. All Rights Reserved.</p>
+<p>Copyright © 1997-2017 Ericsson AB. All Rights Reserved.</p>
 </div>
 </div>
 </div>

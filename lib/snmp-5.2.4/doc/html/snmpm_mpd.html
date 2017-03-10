@@ -820,14 +820,14 @@
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
 <div class="exports-body">
-    <p><a name="init_mpd-1"></a><span class="bold_code bc-9">init_mpd(Vsns) -&gt; mpd_state()</span><br></p>
+    <p><a name="init_mpd-1"></a><span class="bold_code fun-type">init_mpd(Vsns) -&gt; mpd_state()</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Vsns = [Vsn]</span><br>
+<span class="bold_code fun-param-type">Vsns = [Vsn]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Vsn = v1 | v2 | v3</span><br>
+<span class="bold_code fun-param-type">Vsn = v1 | v2 | v3</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -838,38 +838,38 @@
                     <a name="process_msg"></a>
 </p>
       </p></div>
-    <p><a name="process_msg-6"></a><span class="bold_code bc-9">process_msg(Msg, Domain, Addr, State, NoteStore, Logger) -&gt; {ok, Vsn, Pdu, PduMS, MsgData} | {discarded, Reason}</span><br></p>
+    <p><a name="process_msg-6"></a><span class="bold_code fun-type">process_msg(Msg, Domain, Addr, State, NoteStore, Logger) -&gt; {ok, Vsn, Pdu, PduMS, MsgData} | {discarded, Reason}</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Msg = binary()</span><br>
+<span class="bold_code fun-param-type">Msg = binary()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Domain = transportDomainUdpIpv4 | transportDomainUdpIpv6</span><br>
+<span class="bold_code fun-param-type">Domain = transportDomainUdpIpv4 | transportDomainUdpIpv6</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Addr = {<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#type-ip_address');">inet:ip_address(), inet:port_number()</a></span>} </span><br>
+<span class="bold_code fun-param-type">Addr = {<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#type-ip_address');">inet:ip_address(), inet:port_number()</a></span>} </span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">State = mpd_state()</span><br>
+<span class="bold_code fun-param-type">State = mpd_state()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">NoteStore = pid()</span><br>
+<span class="bold_code fun-param-type">NoteStore = pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Logger = function()</span><br>
+<span class="bold_code fun-param-type">Logger = function()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Vsn = 'version-1' | 'version-2' | 'version-3'</span><br>
+<span class="bold_code fun-param-type">Vsn = 'version-1' | 'version-2' | 'version-3'</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Pdu = #pdu</span><br>
+<span class="bold_code fun-param-type">Pdu = #pdu</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">PduMs = integer()</span><br>
+<span class="bold_code fun-param-type">PduMs = integer()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">MsgData = term()</span><br>
+<span class="bold_code fun-param-type">MsgData = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -884,29 +884,29 @@
           either <span class="code">ok</span> or <span class="code">{error, ReqId, Reason}</span>.
           </p>
       </p></div>
-    <p><a name="generate_msg-5"></a><span class="bold_code bc-9">generate_msg(Vsn, NoteStore, Pdu, MsgData, Logger) -&gt; {ok, Packet} | {discarded, Reason}</span><br></p>
+    <p><a name="generate_msg-5"></a><span class="bold_code fun-type">generate_msg(Vsn, NoteStore, Pdu, MsgData, Logger) -&gt; {ok, Packet} | {discarded, Reason}</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Vsn = 'version-1' | 'version-2' | 'version-3'</span><br>
+<span class="bold_code fun-param-type">Vsn = 'version-1' | 'version-2' | 'version-3'</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">NoteStore = pid()</span><br>
+<span class="bold_code fun-param-type">NoteStore = pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Pdu = #pdu</span><br>
+<span class="bold_code fun-param-type">Pdu = #pdu</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">MsgData = term()</span><br>
+<span class="bold_code fun-param-type">MsgData = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Logger = function()</span><br>
+<span class="bold_code fun-param-type">Logger = function()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Packet = binary()</span><br>
+<span class="bold_code fun-param-type">Packet = binary()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code fun-param-type">Reason = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -921,26 +921,26 @@
         <p><span class="code">Logger</span> is the function used for audit trail logging.
           </p>
       </p></div>
-    <p><a name="generate_response_msg-4"></a><span class="bold_code bc-9">generate_response_msg(Vsn, Pdu, MsgData, Logger) -&gt; {ok, Packet} | {discarded, Reason}</span><br></p>
+    <p><a name="generate_response_msg-4"></a><span class="bold_code fun-type">generate_response_msg(Vsn, Pdu, MsgData, Logger) -&gt; {ok, Packet} | {discarded, Reason}</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Vsn = 'version-1' | 'version-2' | 'version-3'</span><br>
+<span class="bold_code fun-param-type">Vsn = 'version-1' | 'version-2' | 'version-3'</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Pdu = #pdu</span><br>
+<span class="bold_code fun-param-type">Pdu = #pdu</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">MsgData = term()</span><br>
+<span class="bold_code fun-param-type">MsgData = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Logger = function()</span><br>
+<span class="bold_code fun-param-type">Logger = function()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Packet = binary()</span><br>
+<span class="bold_code fun-param-type">Packet = binary()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code fun-param-type">Reason = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -958,7 +958,7 @@
 </div>
 <div class="footer">
 <hr>
-<p>Copyright © 1997-2016 Ericsson AB. All Rights Reserved.</p>
+<p>Copyright © 1997-2017 Ericsson AB. All Rights Reserved.</p>
 </div>
 </div>
 </div>

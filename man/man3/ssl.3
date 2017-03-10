@@ -1,4 +1,4 @@
-.TH ssl 3 "ssl 8.0.3" "Ericsson AB" "Erlang Module Definition"
+.TH ssl 3 "ssl 8.1" "Ericsson AB" "Erlang Module Definition"
 .SH NAME
 ssl \- Interface Functions for Secure Socket Layer
 .SH DESCRIPTION
@@ -223,6 +223,10 @@ According to old API\&.
 .B
 \fISNIfun::fun()\fR\&:
 \fI= fun(ServerName :: string()) -> [ssl_option()]\fR\&
+.TP 2
+.B
+\fInamed_curve() =\fR\&:
+\fIsect571r1 | sect571k1 | secp521r1 | brainpoolP512r1 | sect409k1 | sect409r1 | brainpoolP384r1 | secp384r1 | sect283k1 | sect283r1 | brainpoolP256r1 | secp256k1 | secp256r1 | sect239k1 | sect233k1 | sect233r1 | secp224k1 | secp224r1 | sect193r1 | sect193r2 | secp192k1 | secp192r1 | sect163k1 | sect163r1 | sect163r2 | secp160k1 | secp160r1 | secp160r2\fR\&
 .RE
 .SH "SSL OPTION DESCRIPTIONS - COMMON FOR SERVER AND CLIENT"
 
@@ -253,6 +257,10 @@ String containing the user\&'s password\&. Only used if the private keyfile is p
 .B
 \fI{ciphers, ciphers()}\fR\&:
 Supported cipher suites\&. The function \fIcipher_suites/0\fR\& can be used to find all ciphers that are supported by default\&. \fIcipher_suites(all)\fR\& can be called to find all available cipher suites\&. Pre-Shared Key (RFC 4279 and RFC 5487), Secure Remote Password (RFC 5054), RC4 cipher suites, and anonymous cipher suites only work if explicitly enabled by this option; they are supported/enabled by the peer also\&. Anonymous cipher suites are supported for testing purposes only and are not be used when security matters\&.
+.TP 2
+.B
+\fI{eccs, [named_curve()]}\fR\&:
+Allows to specify the order of preference for named curves and to restrict their usage when using a cipher suite supporting them\&.
 .TP 2
 .B
 \fI{secure_renegotiate, boolean()}\fR\&:
@@ -421,6 +429,10 @@ The following argument is required:
 \fI{dir, string()}\fR\&:
 Specifies the directory in which the CRLs can be found\&.
 .RE
+.TP 2
+.B
+\fImax_handshake_size\fR\&:
+Integer (24 bits unsigned)\&. Used to limit the size of valid TLS handshake packets to avoid DoS attacks\&. Defaults to 256*1024\&.
 .RE
 .TP 2
 .B
@@ -691,6 +703,10 @@ In protocols that support client-initiated renegotiation, the cost of resources 
 If true, use the server\&'s preference for cipher selection\&. If false (the default), use the client\&'s preference\&. 
 .TP 2
 .B
+\fI{honor_ecc_order, boolean()}\fR\&:
+If true, use the server\&'s preference for ECC curve selection\&. If false (the default), use the client\&'s preference\&. 
+.TP 2
+.B
 \fI{signature_algs, [{hash(), ecdsa | rsa | dsa}]}\fR\&:
 The algorithms specified by this option will be the ones accepted by the server in a signature algorithm negotiation, introduced in TLS-1\&.2\&. The algorithms will also be offered to the client if a client certificate is requested\&. For more details see the \fBcorresponding client option\fR\&\&.
 .TP 2
@@ -739,6 +755,17 @@ Type = erlang | openssl | all
 .RS
 .LP
 Returns a list of supported cipher suites\&. \fIcipher_suites()\fR\& is equivalent to \fIcipher_suites(erlang)\&.\fR\& Type \fIopenssl\fR\& is provided for backwards compatibility with the old SSL, which used OpenSSL\&. \fIcipher_suites(all)\fR\& returns all available cipher suites\&. The cipher suites not present in \fIcipher_suites(erlang)\fR\& but included in \fIcipher_suites(all)\fR\& are not used unless explicitly configured by the user\&.
+.RE
+.LP
+.B
+eccs() ->
+.br
+.B
+eccs(protocol()) -> [named_curve()]
+.br
+.RS
+.LP
+Returns a list of supported ECCs\&. \fIeccs()\fR\& is equivalent to calling \fIeccs(Protocol)\fR\& with all supported protocols and then deduplicating the output\&.
 .RE
 .LP
 .B
@@ -876,7 +903,7 @@ connection_information(SslSocket) -> {ok, Result} | {error, Reason}
 Types:
 
 .RS 3
-Item = protocol | cipher_suite | sni_hostname | atom()
+Item = protocol | cipher_suite | sni_hostname | ecc | atom()
 .br
 .RS 2
 Meaningful atoms, not specified above, are the ssl option names\&.

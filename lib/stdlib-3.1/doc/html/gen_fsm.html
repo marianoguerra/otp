@@ -1796,14 +1796,14 @@ gen_fsm:sync_send_all_state_event -----&gt; Module:handle_sync_event/4
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
 <div class="exports-body">
-    <p><a name="cancel_timer-1"></a><span class="bold_code bc-9">cancel_timer(Ref) -&gt; RemainingTime | false</span><br></p>
+    <p><a name="cancel_timer-1"></a><span class="bold_code fun-type">cancel_timer(Ref) -&gt; RemainingTime | false</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Ref = reference()</span><br>
+<span class="bold_code fun-param-type">Ref = reference()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">RemainingTime = integer()</span><br>
+<span class="bold_code fun-param-type">RemainingTime = integer()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -1821,47 +1821,47 @@ gen_fsm:sync_send_all_state_event -----&gt; Module:handle_sync_event/4
           <span class="code">false</span>.</p>
       </p></div>
 
-    <p><a name="enter_loop-4"></a><span class="bold_code bc-9">enter_loop(Module, Options, StateName, StateData)</span><br><a name="enter_loop-5"></a><span class="bold_code bc-9">enter_loop(Module, Options, StateName, StateData, FsmName)</span><br><a name="enter_loop-5"></a><span class="bold_code bc-9">enter_loop(Module, Options, StateName, StateData, Timeout)</span><br><a name="enter_loop-6"></a><span class="bold_code bc-9">enter_loop(Module, Options, StateName, StateData, FsmName, Timeout)</span><br></p>
+    <p><a name="enter_loop-4"></a><span class="bold_code fun-type">enter_loop(Module, Options, StateName, StateData)</span><br><a name="enter_loop-5"></a><span class="bold_code fun-type">enter_loop(Module, Options, StateName, StateData, FsmName)</span><br><a name="enter_loop-5"></a><span class="bold_code fun-type">enter_loop(Module, Options, StateName, StateData, Timeout)</span><br><a name="enter_loop-6"></a><span class="bold_code fun-type">enter_loop(Module, Options, StateName, StateData, FsmName, Timeout)</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Module = atom()</span><br>
+<span class="bold_code fun-param-type">Module = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Options = [Option]</span><br>
+<span class="bold_code fun-param-type">Options = [Option]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Option = {debug,Dbgs}</span><br>
+<span class="bold_code fun-param-type"> Option = {debug,Dbgs}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  Dbgs = [Dbg]</span><br>
+<span class="bold_code fun-param-type">  Dbgs = [Dbg]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">   Dbg = trace | log | statistics</span><br>
+<span class="bold_code fun-param-type">   Dbg = trace | log | statistics</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">    | {log_to_file,FileName} | {install,{Func,FuncState}}</span><br>
+<span class="bold_code fun-param-type">    | {log_to_file,FileName} | {install,{Func,FuncState}}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">StateName = atom()</span><br>
+<span class="bold_code fun-param-type">StateName = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">StateData = term()</span><br>
+<span class="bold_code fun-param-type">StateData = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">FsmName = {local,Name} | {global,GlobalName}</span><br>
+<span class="bold_code fun-param-type">FsmName = {local,Name} | {global,GlobalName}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {via,Module,ViaName}</span><br>
+<span class="bold_code fun-param-type">  | {via,Module,ViaName}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Name = atom()</span><br>
+<span class="bold_code fun-param-type"> Name = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> GlobalName = ViaName = term()</span><br>
+<span class="bold_code fun-param-type"> GlobalName = ViaName = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Timeout = int() | infinity</span><br>
+<span class="bold_code fun-param-type">Timeout = int() | infinity</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -1891,17 +1891,17 @@ gen_fsm:sync_send_all_state_event -----&gt; Module:handle_sync_event/4
           according to <span class="code">FsmName</span>.</p>
       </p></div>
 
-    <p><a name="reply-2"></a><span class="bold_code bc-9">reply(Caller, Reply) -&gt; Result</span><br></p>
+    <p><a name="reply-2"></a><span class="bold_code fun-type">reply(Caller, Reply) -&gt; Result</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Caller - see below</span><br>
+<span class="bold_code fun-param-type">Caller - see below</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reply = term()</span><br>
+<span class="bold_code fun-param-type">Reply = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Result = term()</span><br>
+<span class="bold_code fun-param-type">Result = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -1921,23 +1921,23 @@ gen_fsm:sync_send_all_state_event -----&gt; Module:handle_sync_event/4
           is always to be ignored.</p>
       </p></div>
 
-    <p><a name="send_all_state_event-2"></a><span class="bold_code bc-9">send_all_state_event(FsmRef, Event) -&gt; ok</span><br></p>
+    <p><a name="send_all_state_event-2"></a><span class="bold_code fun-type">send_all_state_event(FsmRef, Event) -&gt; ok</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">FsmRef = Name | {Name,Node} | {global,GlobalName}</span><br>
+<span class="bold_code fun-param-type">FsmRef = Name | {Name,Node} | {global,GlobalName}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {via,Module,ViaName} | pid()</span><br>
+<span class="bold_code fun-param-type">  | {via,Module,ViaName} | pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Name = Node = atom()</span><br>
+<span class="bold_code fun-param-type"> Name = Node = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> GlobalName = ViaName = term()</span><br>
+<span class="bold_code fun-param-type"> GlobalName = ViaName = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Event = term()</span><br>
+<span class="bold_code fun-param-type">Event = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -1955,23 +1955,23 @@ gen_fsm:sync_send_all_state_event -----&gt; Module:handle_sync_event/4
           the event instead of one clause in each state name function.</p>
       </p></div>
 
-    <p><a name="send_event-2"></a><span class="bold_code bc-9">send_event(FsmRef, Event) -&gt; ok</span><br></p>
+    <p><a name="send_event-2"></a><span class="bold_code fun-type">send_event(FsmRef, Event) -&gt; ok</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">FsmRef = Name | {Name,Node} | {global,GlobalName}</span><br>
+<span class="bold_code fun-param-type">FsmRef = Name | {Name,Node} | {global,GlobalName}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {via,Module,ViaName} | pid()</span><br>
+<span class="bold_code fun-param-type">  | {via,Module,ViaName} | pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Name = Node = atom()</span><br>
+<span class="bold_code fun-param-type"> Name = Node = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> GlobalName = ViaName = term()</span><br>
+<span class="bold_code fun-param-type"> GlobalName = ViaName = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Event = term()</span><br>
+<span class="bold_code fun-param-type">Event = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -2001,17 +2001,17 @@ gen_fsm:sync_send_all_state_event -----&gt; Module:handle_sync_event/4
           the arguments to <span class="code">Module:StateName/2</span>.</p>
       </p></div>
 
-    <p><a name="send_event_after-2"></a><span class="bold_code bc-9">send_event_after(Time, Event) -&gt; Ref</span><br></p>
+    <p><a name="send_event_after-2"></a><span class="bold_code fun-type">send_event_after(Time, Event) -&gt; Ref</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Time = integer()</span><br>
+<span class="bold_code fun-param-type">Time = integer()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Event = term()</span><br>
+<span class="bold_code fun-param-type">Event = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Ref = reference()</span><br>
+<span class="bold_code fun-param-type">Ref = reference()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -2029,53 +2029,53 @@ gen_fsm:sync_send_all_state_event -----&gt; Module:handle_sync_event/4
           the arguments to <span class="code">Module:StateName/2</span>.</p>
       </p></div>
 
-    <p><a name="start-3"></a><span class="bold_code bc-9">start(Module, Args, Options) -&gt; Result</span><br><a name="start-4"></a><span class="bold_code bc-9">start(FsmName, Module, Args, Options) -&gt; Result</span><br></p>
+    <p><a name="start-3"></a><span class="bold_code fun-type">start(Module, Args, Options) -&gt; Result</span><br><a name="start-4"></a><span class="bold_code fun-type">start(FsmName, Module, Args, Options) -&gt; Result</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">FsmName = {local,Name} | {global,GlobalName}</span><br>
+<span class="bold_code fun-param-type">FsmName = {local,Name} | {global,GlobalName}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {via,Module,ViaName}</span><br>
+<span class="bold_code fun-param-type">  | {via,Module,ViaName}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Name = atom()</span><br>
+<span class="bold_code fun-param-type"> Name = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> GlobalName = ViaName = term()</span><br>
+<span class="bold_code fun-param-type"> GlobalName = ViaName = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Module = atom()</span><br>
+<span class="bold_code fun-param-type">Module = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Args = term()</span><br>
+<span class="bold_code fun-param-type">Args = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Options = [Option]</span><br>
+<span class="bold_code fun-param-type">Options = [Option]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Option = {debug,Dbgs} | {timeout,Time} | {spawn_opt,SOpts}</span><br>
+<span class="bold_code fun-param-type"> Option = {debug,Dbgs} | {timeout,Time} | {spawn_opt,SOpts}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  Dbgs = [Dbg]</span><br>
+<span class="bold_code fun-param-type">  Dbgs = [Dbg]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">   Dbg = trace | log | statistics</span><br>
+<span class="bold_code fun-param-type">   Dbg = trace | log | statistics</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">    | {log_to_file,FileName} | {install,{Func,FuncState}}</span><br>
+<span class="bold_code fun-param-type">    | {log_to_file,FileName} | {install,{Func,FuncState}}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  SOpts = [term()]</span><br>
+<span class="bold_code fun-param-type">  SOpts = [term()]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Result = {ok,Pid} | ignore | {error,Error}</span><br>
+<span class="bold_code fun-param-type">Result = {ok,Pid} | ignore | {error,Error}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Pid = pid()</span><br>
+<span class="bold_code fun-param-type"> Pid = pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Error = {already_started,Pid} | term()</span><br>
+<span class="bold_code fun-param-type"> Error = {already_started,Pid} | term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -2085,56 +2085,56 @@ gen_fsm:sync_send_all_state_event -----&gt; Module:handle_sync_event/4
           <span class="bold_code bc-17"><a href="#start_link-3"><span class="code">start_link/3,4</span></a></span>.</p>
       </p></div>
 
-    <p><a name="start_link-3"></a><span class="bold_code bc-9">start_link(Module, Args, Options) -&gt; Result</span><br><a name="start_link-4"></a><span class="bold_code bc-9">start_link(FsmName, Module, Args, Options) -&gt; Result</span><br></p>
+    <p><a name="start_link-3"></a><span class="bold_code fun-type">start_link(Module, Args, Options) -&gt; Result</span><br><a name="start_link-4"></a><span class="bold_code fun-type">start_link(FsmName, Module, Args, Options) -&gt; Result</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">FsmName = {local,Name} | {global,GlobalName}</span><br>
+<span class="bold_code fun-param-type">FsmName = {local,Name} | {global,GlobalName}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {via,Module,ViaName}</span><br>
+<span class="bold_code fun-param-type">  | {via,Module,ViaName}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Name = atom()</span><br>
+<span class="bold_code fun-param-type"> Name = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> GlobalName = ViaName = term()</span><br>
+<span class="bold_code fun-param-type"> GlobalName = ViaName = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Module = atom()</span><br>
+<span class="bold_code fun-param-type">Module = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Args = term()</span><br>
+<span class="bold_code fun-param-type">Args = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Options = [Option]</span><br>
+<span class="bold_code fun-param-type">Options = [Option]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Option = {debug,Dbgs} | {timeout,Time} | {spawn_opt,SOpts}</span><br>
+<span class="bold_code fun-param-type"> Option = {debug,Dbgs} | {timeout,Time} | {spawn_opt,SOpts}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  Dbgs = [Dbg]</span><br>
+<span class="bold_code fun-param-type">  Dbgs = [Dbg]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">   Dbg = trace | log | statistics</span><br>
+<span class="bold_code fun-param-type">   Dbg = trace | log | statistics</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">    | {log_to_file,FileName} | {install,{Func,FuncState}}</span><br>
+<span class="bold_code fun-param-type">    | {log_to_file,FileName} | {install,{Func,FuncState}}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  SOpts = [SOpt]</span><br>
+<span class="bold_code fun-param-type">  SOpts = [SOpt]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">   SOpt - see erlang:spawn_opt/2,3,4,5</span><br>
+<span class="bold_code fun-param-type">   SOpt - see erlang:spawn_opt/2,3,4,5</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Result = {ok,Pid} | ignore | {error,Error}</span><br>
+<span class="bold_code fun-param-type">Result = {ok,Pid} | ignore | {error,Error}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Pid = pid()</span><br>
+<span class="bold_code fun-param-type"> Pid = pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Error = {already_started,Pid} | term()</span><br>
+<span class="bold_code fun-param-type"> Error = {already_started,Pid} | term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -2205,17 +2205,17 @@ gen_fsm:sync_send_all_state_event -----&gt; Module:handle_sync_event/4
           returns <span class="code">{error,Reason}</span> or <span class="code">ignore</span>, respectively.</p>
       </p></div>
 
-    <p><a name="start_timer-2"></a><span class="bold_code bc-9">start_timer(Time, Msg) -&gt; Ref</span><br></p>
+    <p><a name="start_timer-2"></a><span class="bold_code fun-type">start_timer(Time, Msg) -&gt; Ref</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Time = integer()</span><br>
+<span class="bold_code fun-param-type">Time = integer()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Msg = term()</span><br>
+<span class="bold_code fun-param-type">Msg = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Ref = reference()</span><br>
+<span class="bold_code fun-param-type">Ref = reference()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -2234,26 +2234,26 @@ gen_fsm:sync_send_all_state_event -----&gt; Module:handle_sync_event/4
           the arguments to <span class="code">Module:StateName/2</span>.</p>
       </p></div>
 
-    <p><a name="stop-1"></a><span class="bold_code bc-9">stop(FsmRef) -&gt; ok</span><br><a name="stop-3"></a><span class="bold_code bc-9">stop(FsmRef, Reason, Timeout) -&gt; ok</span><br></p>
+    <p><a name="stop-1"></a><span class="bold_code fun-type">stop(FsmRef) -&gt; ok</span><br><a name="stop-3"></a><span class="bold_code fun-type">stop(FsmRef, Reason, Timeout) -&gt; ok</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">FsmRef = Name | {Name,Node} | {global,GlobalName}</span><br>
+<span class="bold_code fun-param-type">FsmRef = Name | {Name,Node} | {global,GlobalName}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {via,Module,ViaName} | pid()</span><br>
+<span class="bold_code fun-param-type">  | {via,Module,ViaName} | pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Node = atom()</span><br>
+<span class="bold_code fun-param-type"> Node = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> GlobalName = ViaName = term()</span><br>
+<span class="bold_code fun-param-type"> GlobalName = ViaName = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code fun-param-type">Reason = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Timeout = int()&gt;0 | infinity</span><br>
+<span class="bold_code fun-param-type">Timeout = int()&gt;0 | infinity</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -2276,29 +2276,29 @@ gen_fsm:sync_send_all_state_event -----&gt; Module:handle_sync_event/4
           is raised.</p>
       </p></div>
 
-    <p><a name="sync_send_all_state_event-2"></a><span class="bold_code bc-9">sync_send_all_state_event(FsmRef, Event) -&gt; Reply</span><br><a name="sync_send_all_state_event-3"></a><span class="bold_code bc-9">sync_send_all_state_event(FsmRef, Event, Timeout) -&gt; Reply</span><br></p>
+    <p><a name="sync_send_all_state_event-2"></a><span class="bold_code fun-type">sync_send_all_state_event(FsmRef, Event) -&gt; Reply</span><br><a name="sync_send_all_state_event-3"></a><span class="bold_code fun-type">sync_send_all_state_event(FsmRef, Event, Timeout) -&gt; Reply</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">FsmRef = Name | {Name,Node} | {global,GlobalName}</span><br>
+<span class="bold_code fun-param-type">FsmRef = Name | {Name,Node} | {global,GlobalName}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {via,Module,ViaName} | pid()</span><br>
+<span class="bold_code fun-param-type">  | {via,Module,ViaName} | pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Name = Node = atom()</span><br>
+<span class="bold_code fun-param-type"> Name = Node = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> GlobalName = ViaName = term()</span><br>
+<span class="bold_code fun-param-type"> GlobalName = ViaName = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Event = term()</span><br>
+<span class="bold_code fun-param-type">Event = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Timeout = int()&gt;0 | infinity</span><br>
+<span class="bold_code fun-param-type">Timeout = int()&gt;0 | infinity</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reply = term()</span><br>
+<span class="bold_code fun-param-type">Reply = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -2315,29 +2315,29 @@ gen_fsm:sync_send_all_state_event -----&gt; Module:handle_sync_event/4
           <span class="bold_code bc-17"><a href="#send_all_state_event-2"><span class="code">send_all_state_event/2</span></a></span>.</p>
       </p></div>
 
-    <p><a name="sync_send_event-2"></a><span class="bold_code bc-9">sync_send_event(FsmRef, Event) -&gt; Reply</span><br><a name="sync_send_event-3"></a><span class="bold_code bc-9">sync_send_event(FsmRef, Event, Timeout) -&gt; Reply</span><br></p>
+    <p><a name="sync_send_event-2"></a><span class="bold_code fun-type">sync_send_event(FsmRef, Event) -&gt; Reply</span><br><a name="sync_send_event-3"></a><span class="bold_code fun-type">sync_send_event(FsmRef, Event, Timeout) -&gt; Reply</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">FsmRef = Name | {Name,Node} | {global,GlobalName}</span><br>
+<span class="bold_code fun-param-type">FsmRef = Name | {Name,Node} | {global,GlobalName}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {via,Module,ViaName} | pid()</span><br>
+<span class="bold_code fun-param-type">  | {via,Module,ViaName} | pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Name = Node = atom()</span><br>
+<span class="bold_code fun-param-type"> Name = Node = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> GlobalName = ViaName = term()</span><br>
+<span class="bold_code fun-param-type"> GlobalName = ViaName = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Event = term()</span><br>
+<span class="bold_code fun-param-type">Event = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Timeout = int()&gt;0 | infinity</span><br>
+<span class="bold_code fun-param-type">Timeout = int()&gt;0 | infinity</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reply = term()</span><br>
+<span class="bold_code fun-param-type">Reply = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -2367,7 +2367,7 @@ gen_fsm:sync_send_all_state_event -----&gt; Module:handle_sync_event/4
       </p></div>
   </div>
 
-  <h3><a name="idm45630381632192">Callback Functions</a></h3>
+  <h3><a name="idm46466951288960">Callback Functions</a></h3>
 <div class="REFBODY rb-3">
     
     <p>The following functions are to be exported from a <span class="code">gen_fsm</span>
@@ -2381,23 +2381,23 @@ gen_fsm:sync_send_all_state_event -----&gt; Module:handle_sync_event/4
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
 <div class="exports-body">
-    <p><a name="Module:code_change-4"></a><span class="bold_code bc-9">Module:code_change(OldVsn, StateName, StateData, Extra) -&gt; {ok, NextStateName, NewStateData}</span><br></p>
+    <p><a name="Module:code_change-4"></a><span class="bold_code fun-type">Module:code_change(OldVsn, StateName, StateData, Extra) -&gt; {ok, NextStateName, NewStateData}</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">OldVsn = Vsn | {down,  Vsn}</span><br>
+<span class="bold_code fun-param-type">OldVsn = Vsn | {down,  Vsn}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  Vsn = term()</span><br>
+<span class="bold_code fun-param-type">  Vsn = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">StateName = NextStateName = atom()</span><br>
+<span class="bold_code fun-param-type">StateName = NextStateName = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">StateData = NewStateData = term()</span><br>
+<span class="bold_code fun-param-type">StateData = NewStateData = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Extra = term()</span><br>
+<span class="bold_code fun-param-type">Extra = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -2420,20 +2420,20 @@ gen_fsm:sync_send_all_state_event -----&gt; Module:handle_sync_event/4
           updated internal data.</p>
       </p></div>
 
-    <p><a name="Module:format_status-2"></a><span class="bold_code bc-9">Module:format_status(Opt, [PDict, StateData]) -&gt; Status</span><br></p>
+    <p><a name="Module:format_status-2"></a><span class="bold_code fun-type">Module:format_status(Opt, [PDict, StateData]) -&gt; Status</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Opt = normal | terminate</span><br>
+<span class="bold_code fun-param-type">Opt = normal | terminate</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">PDict = [{Key, Value}]</span><br>
+<span class="bold_code fun-param-type">PDict = [{Key, Value}]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">StateData = term()</span><br>
+<span class="bold_code fun-param-type">StateData = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Status = term()</span><br>
+<span class="bold_code fun-param-type">Status = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -2484,41 +2484,41 @@ gen_fsm:sync_send_all_state_event -----&gt; Module:handle_sync_event/4
           are printed in log files.</p>
       </p></div>
 
-    <p><a name="Module:handle_event-3"></a><span class="bold_code bc-9">Module:handle_event(Event, StateName, StateData) -&gt; Result</span><br></p>
+    <p><a name="Module:handle_event-3"></a><span class="bold_code fun-type">Module:handle_event(Event, StateName, StateData) -&gt; Result</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Event = term()</span><br>
+<span class="bold_code fun-param-type">Event = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">StateName = atom()</span><br>
+<span class="bold_code fun-param-type">StateName = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">StateData = term()</span><br>
+<span class="bold_code fun-param-type">StateData = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Result = {next_state,NextStateName,NewStateData}</span><br>
+<span class="bold_code fun-param-type">Result = {next_state,NextStateName,NewStateData}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {next_state,NextStateName,NewStateData,Timeout}</span><br>
+<span class="bold_code fun-param-type">  | {next_state,NextStateName,NewStateData,Timeout}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {next_state,NextStateName,NewStateData,hibernate}</span><br>
+<span class="bold_code fun-param-type">  | {next_state,NextStateName,NewStateData,hibernate}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {stop,Reason,NewStateData}</span><br>
+<span class="bold_code fun-param-type">  | {stop,Reason,NewStateData}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> NextStateName = atom()</span><br>
+<span class="bold_code fun-param-type"> NextStateName = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> NewStateData = term()</span><br>
+<span class="bold_code fun-param-type"> NewStateData = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Timeout = int()&gt;0 | infinity</span><br>
+<span class="bold_code fun-param-type"> Timeout = int()&gt;0 | infinity</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Reason = term()</span><br>
+<span class="bold_code fun-param-type"> Reason = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -2531,41 +2531,41 @@ gen_fsm:sync_send_all_state_event -----&gt; Module:handle_sync_event/4
           see <span class="bold_code bc-17"><a href="#Module:StateName-2"><span class="code">Module:StateName/2</span></a></span>.</p>
       </p></div>
 
-    <p><a name="Module:handle_info-3"></a><span class="bold_code bc-9">Module:handle_info(Info, StateName, StateData) -&gt; Result</span><br></p>
+    <p><a name="Module:handle_info-3"></a><span class="bold_code fun-type">Module:handle_info(Info, StateName, StateData) -&gt; Result</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Info = term()</span><br>
+<span class="bold_code fun-param-type">Info = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">StateName = atom()</span><br>
+<span class="bold_code fun-param-type">StateName = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">StateData = term()</span><br>
+<span class="bold_code fun-param-type">StateData = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Result = {next_state,NextStateName,NewStateData}</span><br>
+<span class="bold_code fun-param-type">Result = {next_state,NextStateName,NewStateData}</span><br>
 </div> 
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {next_state,NextStateName,NewStateData,Timeout}</span><br>
+<span class="bold_code fun-param-type">  | {next_state,NextStateName,NewStateData,Timeout}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {next_state,NextStateName,NewStateData,hibernate}</span><br>
+<span class="bold_code fun-param-type">  | {next_state,NextStateName,NewStateData,hibernate}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {stop,Reason,NewStateData}</span><br>
+<span class="bold_code fun-param-type">  | {stop,Reason,NewStateData}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> NextStateName = atom()</span><br>
+<span class="bold_code fun-param-type"> NextStateName = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> NewStateData = term()</span><br>
+<span class="bold_code fun-param-type"> NewStateData = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Timeout = int()&gt;0 | infinity</span><br>
+<span class="bold_code fun-param-type"> Timeout = int()&gt;0 | infinity</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Reason = normal | term()</span><br>
+<span class="bold_code fun-param-type"> Reason = normal | term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -2577,56 +2577,56 @@ gen_fsm:sync_send_all_state_event -----&gt; Module:handle_sync_event/4
           see <span class="bold_code bc-17"><a href="#Module:StateName-2"><span class="code">Module:StateName/2</span></a></span>.</p>
       </p></div>
 
-    <p><a name="Module:handle_sync_event-4"></a><span class="bold_code bc-9">Module:handle_sync_event(Event, From, StateName, StateData) -&gt; Result</span><br></p>
+    <p><a name="Module:handle_sync_event-4"></a><span class="bold_code fun-type">Module:handle_sync_event(Event, From, StateName, StateData) -&gt; Result</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Event = term()</span><br>
+<span class="bold_code fun-param-type">Event = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">From = {pid(),Tag}</span><br>
+<span class="bold_code fun-param-type">From = {pid(),Tag}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">StateName = atom()</span><br>
+<span class="bold_code fun-param-type">StateName = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">StateData = term()</span><br>
+<span class="bold_code fun-param-type">StateData = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Result = {reply,Reply,NextStateName,NewStateData}</span><br>
+<span class="bold_code fun-param-type">Result = {reply,Reply,NextStateName,NewStateData}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {reply,Reply,NextStateName,NewStateData,Timeout}</span><br>
+<span class="bold_code fun-param-type">  | {reply,Reply,NextStateName,NewStateData,Timeout}</span><br>
 </div> 
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {reply,Reply,NextStateName,NewStateData,hibernate}</span><br>
+<span class="bold_code fun-param-type">  | {reply,Reply,NextStateName,NewStateData,hibernate}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {next_state,NextStateName,NewStateData}</span><br>
+<span class="bold_code fun-param-type">  | {next_state,NextStateName,NewStateData}</span><br>
 </div> 
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {next_state,NextStateName,NewStateData,Timeout}</span><br>
+<span class="bold_code fun-param-type">  | {next_state,NextStateName,NewStateData,Timeout}</span><br>
 </div> 
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {next_state,NextStateName,NewStateData,hibernate}</span><br>
+<span class="bold_code fun-param-type">  | {next_state,NextStateName,NewStateData,hibernate}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {stop,Reason,Reply,NewStateData} | {stop,Reason,NewStateData}</span><br>
+<span class="bold_code fun-param-type">  | {stop,Reason,Reply,NewStateData} | {stop,Reason,NewStateData}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Reply = term()</span><br>
+<span class="bold_code fun-param-type"> Reply = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> NextStateName = atom()</span><br>
+<span class="bold_code fun-param-type"> NextStateName = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> NewStateData = term()</span><br>
+<span class="bold_code fun-param-type"> NewStateData = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Timeout = int()&gt;0 | infinity</span><br>
+<span class="bold_code fun-param-type"> Timeout = int()&gt;0 | infinity</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Reason = term()</span><br>
+<span class="bold_code fun-param-type"> Reason = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -2639,32 +2639,32 @@ gen_fsm:sync_send_all_state_event -----&gt; Module:handle_sync_event/4
          see <span class="bold_code bc-17"><a href="#Module:StateName-3"><span class="code">Module:StateName/3</span></a></span>.</p>
       </p></div>
 
-    <p><a name="Module:init-1"></a><span class="bold_code bc-9">Module:init(Args) -&gt; Result</span><br></p>
+    <p><a name="Module:init-1"></a><span class="bold_code fun-type">Module:init(Args) -&gt; Result</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Args = term()</span><br>
+<span class="bold_code fun-param-type">Args = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Result = {ok,StateName,StateData} | {ok,StateName,StateData,Timeout}</span><br>
+<span class="bold_code fun-param-type">Result = {ok,StateName,StateData} | {ok,StateName,StateData,Timeout}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {ok,StateName,StateData,hibernate}</span><br>
+<span class="bold_code fun-param-type">  | {ok,StateName,StateData,hibernate}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {stop,Reason} | ignore</span><br>
+<span class="bold_code fun-param-type">  | {stop,Reason} | ignore</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> StateName = atom()</span><br>
+<span class="bold_code fun-param-type"> StateName = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> StateData = term()</span><br>
+<span class="bold_code fun-param-type"> StateData = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Timeout = int()&gt;0 | infinity</span><br>
+<span class="bold_code fun-param-type"> Timeout = int()&gt;0 | infinity</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Reason = term()</span><br>
+<span class="bold_code fun-param-type"> Reason = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -2696,38 +2696,38 @@ gen_fsm:sync_send_all_state_event -----&gt; Module:handle_sync_event/4
           or <span class="code">ignore</span>.</p>
       </p></div>
 
-    <p><a name="Module:StateName-2"></a><span class="bold_code bc-9">Module:StateName(Event, StateData) -&gt; Result</span><br></p>
+    <p><a name="Module:StateName-2"></a><span class="bold_code fun-type">Module:StateName(Event, StateData) -&gt; Result</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Event = timeout | term()</span><br>
+<span class="bold_code fun-param-type">Event = timeout | term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">StateData = term()</span><br>
+<span class="bold_code fun-param-type">StateData = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Result = {next_state,NextStateName,NewStateData} </span><br>
+<span class="bold_code fun-param-type">Result = {next_state,NextStateName,NewStateData} </span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {next_state,NextStateName,NewStateData,Timeout}</span><br>
+<span class="bold_code fun-param-type">  | {next_state,NextStateName,NewStateData,Timeout}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {next_state,NextStateName,NewStateData,hibernate}</span><br>
+<span class="bold_code fun-param-type">  | {next_state,NextStateName,NewStateData,hibernate}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {stop,Reason,NewStateData}</span><br>
+<span class="bold_code fun-param-type">  | {stop,Reason,NewStateData}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> NextStateName = atom()</span><br>
+<span class="bold_code fun-param-type"> NextStateName = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> NewStateData = term()</span><br>
+<span class="bold_code fun-param-type"> NewStateData = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Timeout = int()&gt;0 | infinity</span><br>
+<span class="bold_code fun-param-type"> Timeout = int()&gt;0 | infinity</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Reason = term()</span><br>
+<span class="bold_code fun-param-type"> Reason = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -2757,53 +2757,53 @@ gen_fsm:sync_send_all_state_event -----&gt; Module:handle_sync_event/4
           terminates.</p>
       </p></div>
 
-    <p><a name="Module:StateName-3"></a><span class="bold_code bc-9">Module:StateName(Event, From, StateData) -&gt; Result</span><br></p>
+    <p><a name="Module:StateName-3"></a><span class="bold_code fun-type">Module:StateName(Event, From, StateData) -&gt; Result</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Event = term()</span><br>
+<span class="bold_code fun-param-type">Event = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">From = {pid(),Tag}</span><br>
+<span class="bold_code fun-param-type">From = {pid(),Tag}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">StateData = term()</span><br>
+<span class="bold_code fun-param-type">StateData = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Result = {reply,Reply,NextStateName,NewStateData}</span><br>
+<span class="bold_code fun-param-type">Result = {reply,Reply,NextStateName,NewStateData}</span><br>
 </div> 
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {reply,Reply,NextStateName,NewStateData,Timeout}</span><br>
+<span class="bold_code fun-param-type">  | {reply,Reply,NextStateName,NewStateData,Timeout}</span><br>
 </div> 
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {reply,Reply,NextStateName,NewStateData,hibernate}</span><br>
+<span class="bold_code fun-param-type">  | {reply,Reply,NextStateName,NewStateData,hibernate}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {next_state,NextStateName,NewStateData}</span><br>
+<span class="bold_code fun-param-type">  | {next_state,NextStateName,NewStateData}</span><br>
 </div> 
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {next_state,NextStateName,NewStateData,Timeout}</span><br>
+<span class="bold_code fun-param-type">  | {next_state,NextStateName,NewStateData,Timeout}</span><br>
 </div> 
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {next_state,NextStateName,NewStateData,hibernate}</span><br>
+<span class="bold_code fun-param-type">  | {next_state,NextStateName,NewStateData,hibernate}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">  | {stop,Reason,Reply,NewStateData} | {stop,Reason,NewStateData}</span><br>
+<span class="bold_code fun-param-type">  | {stop,Reason,Reply,NewStateData} | {stop,Reason,NewStateData}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Reply = term()</span><br>
+<span class="bold_code fun-param-type"> Reply = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> NextStateName = atom()</span><br>
+<span class="bold_code fun-param-type"> NextStateName = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> NewStateData = term()</span><br>
+<span class="bold_code fun-param-type"> NewStateData = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Timeout = int()&gt;0 | infinity</span><br>
+<span class="bold_code fun-param-type"> Timeout = int()&gt;0 | infinity</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Reason = normal | term()</span><br>
+<span class="bold_code fun-param-type"> Reason = normal | term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -2854,17 +2854,17 @@ gen_fsm:sync_send_all_state_event -----&gt; Module:handle_sync_event/4
         </ul>
       </p></div>
 
-    <p><a name="Module:terminate-3"></a><span class="bold_code bc-9">Module:terminate(Reason, StateName, StateData)</span><br></p>
+    <p><a name="Module:terminate-3"></a><span class="bold_code fun-type">Module:terminate(Reason, StateName, StateData)</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reason = normal | shutdown | {shutdown,term()} | term()</span><br>
+<span class="bold_code fun-param-type">Reason = normal | shutdown | {shutdown,term()} | term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">StateName = atom()</span><br>
+<span class="bold_code fun-param-type">StateName = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">StateData = term()</span><br>
+<span class="bold_code fun-param-type">StateData = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -2909,7 +2909,7 @@ gen_fsm:sync_send_all_state_event -----&gt; Module:handle_sync_event/4
       </p></div>
   </div>
 
-  <h3><a name="idm45630381453504">See Also</a></h3>
+  <h3><a name="idm46466951110272">See Also</a></h3>
 <div class="REFBODY rb-3">
     
     <p><span class="bold_code bc-19"><a href="gen_event.html"><span class="code">gen_event(3)</span></a></span>,
@@ -2922,7 +2922,7 @@ gen_fsm:sync_send_all_state_event -----&gt; Module:handle_sync_event/4
 </div>
 <div class="footer">
 <hr>
-<p>Copyright © 1997-2016 Ericsson AB. All Rights Reserved.</p>
+<p>Copyright © 1997-2017 Ericsson AB. All Rights Reserved.</p>
 </div>
 </div>
 </div>

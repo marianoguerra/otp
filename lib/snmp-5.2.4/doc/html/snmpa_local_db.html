@@ -831,7 +831,7 @@
       </p>
   </p></div>
 
-  <h3><a name="idm46261602935296">Common Data Types</a></h3>
+  <h3><a name="idm45384629685376">Common Data Types</a></h3>
 <div class="REFBODY rb-3">
     
     <p>In the functions defined below, the following types are
@@ -859,28 +859,28 @@
   </div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
 <div class="exports-body">
-    <p><a name="dump-0"></a><span class="bold_code bc-9">dump() -&gt; ok | {error, Reason}</span><br></p>
+    <p><a name="dump-0"></a><span class="bold_code fun-type">dump() -&gt; ok | {error, Reason}</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code fun-param-type">Reason = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>This function can be used to manually dump the database 
           to file.</p>
       </p></div>
-    <p><a name="match-2"></a><span class="bold_code bc-9">match(NameDb, Pattern)</span><br></p>
+    <p><a name="match-2"></a><span class="bold_code fun-type">match(NameDb, Pattern)</span><br></p>
 <div class="REFBODY rb-7"><p>
         <p>Performs an ets/dets matching on the table. 
           See Stdlib documentation, module ets, for a description of 
           <span class="code">Pattern</span> and the return values.</p>
       </p></div>
-    <p><a name="print-0"></a><span class="bold_code bc-9">print()</span><br><a name="print-1"></a><span class="bold_code bc-9">print(TableName)</span><br><a name="print-2"></a><span class="bold_code bc-9">print(TableName, Db)</span><br></p>
+    <p><a name="print-0"></a><span class="bold_code fun-type">print()</span><br><a name="print-1"></a><span class="bold_code fun-type">print(TableName)</span><br><a name="print-2"></a><span class="bold_code fun-type">print(TableName, Db)</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">TableName = atom()</span><br>
+<span class="bold_code fun-param-type">TableName = atom()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -892,7 +892,7 @@
         <p><span class="code">TableName</span> is an atom for a table in the database. 
           When no name is supplied, the whole database is shown.</p>
       </p></div>
-    <p><a name="table_create-1"></a><span class="bold_code bc-9">table_create(NameDb) -&gt; bool()</span><br></p>
+    <p><a name="table_create-1"></a><span class="bold_code fun-type">table_create(NameDb) -&gt; bool()</span><br></p>
 <div class="REFBODY rb-7"><p>
         <p>Creates a table. If the table already exist, the old copy
           is destroyed.
@@ -900,40 +900,40 @@
         <p>Returns <span class="code">false</span> if the <span class="code">NameDb</span> argument is
           incorrectly specified, <span class="code">true</span> otherwise.</p>
       </p></div>
-    <p><a name="table_create_row-3"></a><span class="bold_code bc-9">table_create_row(NameDb, RowIndex, Row) -&gt; bool()</span><br></p>
+    <p><a name="table_create_row-3"></a><span class="bold_code fun-type">table_create_row(NameDb, RowIndex, Row) -&gt; bool()</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Row = {Val1, Val2, ..., ValN}</span><br>
+<span class="bold_code fun-param-type">Row = {Val1, Val2, ..., ValN}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Val1 = Val2 = ... = ValN = term()</span><br>
+<span class="bold_code fun-param-type">Val1 = Val2 = ... = ValN = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>Creates a row in a table.  <span class="code">Row</span> is a tuple with
           values for all columns, including the index columns.</p>
       </p></div>
-    <p><a name="table_delete-1"></a><span class="bold_code bc-9">table_delete(NameDb) -&gt; void()</span><br></p>
+    <p><a name="table_delete-1"></a><span class="bold_code fun-type">table_delete(NameDb) -&gt; void()</span><br></p>
 <div class="REFBODY rb-7"><p>
         <p>Deletes a table.</p>
       </p></div>
-    <p><a name="table_delete_row-2"></a><span class="bold_code bc-9">table_delete_row(NameDb, RowIndex) -&gt; bool()</span><br></p>
+    <p><a name="table_delete_row-2"></a><span class="bold_code fun-type">table_delete_row(NameDb, RowIndex) -&gt; bool()</span><br></p>
 <div class="REFBODY rb-7"><p>
         <p>Deletes the row in the table.</p>
       </p></div>
-    <p><a name="table_exists-1"></a><span class="bold_code bc-9">table_exists(NameDb) -&gt; bool()</span><br></p>
+    <p><a name="table_exists-1"></a><span class="bold_code fun-type">table_exists(NameDb) -&gt; bool()</span><br></p>
 <div class="REFBODY rb-7"><p>
         <p>Checks if a table exists.</p>
       </p></div>
-    <p><a name="table_get_row-2"></a><span class="bold_code bc-9">table_get_row(NameDb, RowIndex) -&gt; Row | undefined</span><br></p>
+    <p><a name="table_get_row-2"></a><span class="bold_code fun-type">table_get_row(NameDb, RowIndex) -&gt; Row | undefined</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Row = {Val1, Val2, ..., ValN}</span><br>
+<span class="bold_code fun-param-type">Row = {Val1, Val2, ..., ValN}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Val1 = Val2 = ... = ValN = term()</span><br>
+<span class="bold_code fun-param-type">Val1 = Val2 = ... = ValN = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -942,7 +942,7 @@
       </p></div>
   </div>
 
-  <h3><a name="idm46261602895408">See Also</a></h3>
+  <h3><a name="idm45384629645488">See Also</a></h3>
 <div class="REFBODY rb-3">
     
     <p>ets(3), dets(3), snmp_generic(3)
@@ -952,7 +952,7 @@
 </div>
 <div class="footer">
 <hr>
-<p>Copyright © 1997-2016 Ericsson AB. All Rights Reserved.</p>
+<p>Copyright © 1997-2017 Ericsson AB. All Rights Reserved.</p>
 </div>
 </div>
 </div>

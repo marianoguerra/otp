@@ -1,13 +1,13 @@
-.TH erl_format 3 "erl_interface 3.9.1" "Ericsson AB" "C Library Functions"
+.TH erl_format 3 "erl_interface 3.9.2" "Ericsson AB" "C Library Functions"
 .SH NAME
-erl_format \- Create and Match Erlang Terms
+erl_format \- Create and match Erlang terms.
 .SH DESCRIPTION
 .LP
-This module contains two routines - one general function for creating Erlang terms and one for pattern matching Erlang terms\&.
+This module contains two routines: one general function for creating Erlang terms and one for pattern matching Erlang terms\&.
 .SH EXPORTS
 .LP
 .B
-ETERM *erl_format(FormatStr, ... )
+ETERM *erl_format(FormatStr, ...)
 .br
 .RS
 .LP
@@ -20,34 +20,34 @@ char *FormatStr;
 .RE
 .RS
 .LP
-This is a general function for creating Erlang terms using a format specifier and a corresponding set of arguments, much in the way \fIprintf()\fR\& works\&.
+A general function for creating Erlang terms using a format specifier and a corresponding set of arguments, much in the way \fIprintf()\fR\& works\&.
 .LP
-\fIFormatStr\fR\& is a format specification string\&. The set of valid format specifiers is as follows:
+\fIFormatStr\fR\& is a format specification string\&. The valid format specifiers are as follows:
 .RS 2
 .TP 2
 *
-~i - Integer
+\fI~i\fR\& - Integer
 .LP
 .TP 2
 *
-~f - Floating point
+\fI~f\fR\& - Floating point
 .LP
 .TP 2
 *
-~a - Atom
+\fI~a\fR\& - Atom
 .LP
 .TP 2
 *
-~s - String
+\fI~s\fR\& - String
 .LP
 .TP 2
 *
-~w - Arbitrary Erlang term
+\fI~w\fR\& - Arbitrary Erlang term
 .LP
 .RE
 
 .LP
-For each format specifier that appears in \fIFormatStr\fR\&, there must be a corresponding argument following \fIFormatStr\fR\&\&. An Erlang term is built according to the \fIFormatStr\fR\& with values and Erlang terms substituted from the corresponding arguments and according to the individual format specifiers\&. For example:
+For each format specifier included in \fIFormatStr\fR\&, there must be a corresponding argument following \fIFormatStr\fR\&\&. An Erlang term is built according to \fIFormatStr\fR\& with values and Erlang terms substituted from the corresponding arguments, and according to the individual format specifiers\&. For example:
 .LP
 .nf
 
@@ -58,9 +58,9 @@ erl_format("[{name,~a},{age,~i},{data,~w}]",
         
 .fi
 .LP
-This will create an \fI(ETERM *)\fR\& structure corresponding to the Erlang term: \fI[{name,madonna},{age,21},{data,[{adr,"E-street",42}]}]\fR\&
+This creates an \fI(ETERM *)\fR\& structure corresponding to the Erlang term \fI[{name,madonna},{age,21},{data,[{adr,"E-street",42}]}]\fR\&
 .LP
-The function returns an Erlang term, or NULL if \fIFormatStr\fR\& does not describe a valid Erlang term\&.
+The function returns an Erlang term, or \fINULL\fR\& if \fIFormatStr\fR\& does not describe a valid Erlang term\&.
 .RE
 .LP
 .B
@@ -77,15 +77,22 @@ ETERM *Pattern,*Term;
 .RE
 .RS
 .LP
-This function is used to perform pattern matching similar to that done in Erlang\&. Refer to an Erlang manual for matching rules and more examples\&.
-.LP
+This function is used to perform pattern matching similar to that done in Erlang\&. For matching rules and more examples, see section \fB Pattern Matching\fR\& in the Erlang Reference Manual\&.
+.RS 2
+.TP 2
+*
 \fIPattern\fR\& is an Erlang term, possibly containing unbound variables\&.
 .LP
+.TP 2
+*
 \fITerm\fR\& is an Erlang term that we wish to match against \fIPattern\fR\&\&.
 .LP
-\fITerm\fR\& and \fIPattern\fR\& are compared, and any unbound variables in \fIPattern\fR\& are bound to corresponding values in \fITerm\fR\&\&.
+.RE
+
 .LP
-If \fITerm\fR\& and \fIPattern\fR\& can be matched, the function returns a non-zero value and binds any unbound variables in \fIPattern\fR\&\&. If \fITerm\fR\& \fIPattern\fR\& do not match, the function returns 0\&. For example:
+\fITerm\fR\& and \fIPattern\fR\& are compared and any unbound variables in \fIPattern\fR\& are bound to corresponding values in \fITerm\fR\&\&.
+.LP
+If \fITerm\fR\& and \fIPattern\fR\& can be matched, the function returns a non-zero value and binds any unbound variables in \fIPattern\fR\&\&. If \fITerm\fR\& and \fIPattern\fR\& do not match, \fI0\fR\& is returned\&. For example:
 .LP
 .nf
 

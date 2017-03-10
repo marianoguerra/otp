@@ -1,4 +1,4 @@
-.TH erl_nif 3 "erts 8.1" "Ericsson AB" "C Library Functions"
+.TH erl_nif 3 "erts 8.2.1" "Ericsson AB" "C Library Functions"
 .SH NAME
 erl_nif \- API functions for an Erlang NIF library.
 .SH DESCRIPTION
@@ -83,7 +83,7 @@ ok
 "Hello world!"
 .fi
 .LP
-A better solution for a real module is to take advantage of the new directive \fIon load\fR\& (see section \fBRunning a Function When a Module is Loaded\fR\& in the Erlang Reference Manual) to load the NIF library automatically when the module is loaded\&.
+A better solution for a real module is to take advantage of the new directive \fIon_load\fR\& (see section \fBRunning a Function When a Module is Loaded\fR\& in the Erlang Reference Manual) to load the NIF library automatically when the module is loaded\&.
 .LP
 
 .RS -4
@@ -93,13 +93,11 @@ Note:
 A NIF does not have to be exported, it can be local to the module\&. However, unused local stub functions will be optimized away by the compiler, causing loading of the NIF library to fail\&.
 
 .LP
-A loaded NIF library is tied to the Erlang module code version that loaded it\&. If the module is upgraded with a new version, the new Erlang code need to load its own NIF library (or maybe choose not to)\&. The new code version can, however, choose to load the same NIF library as the old code if it wants to\&. Sharing the dynamic library means that static data defined by the library is shared as well\&. To avoid unintentionally shared static data, each Erlang module code can keep its own private data\&. This private data can be set when the NIF library is loaded and then retrieved by calling \fB\fIenif_priv_data\fR\&\fR\&\&.
-.LP
-A NIF library cannot be loaded explicitly\&. A library is automatically unloaded when the module code that it belongs to is purged by the code server\&.
+Once loaded, a NIF library is persistent\&. It will not be unloaded until the module code version that it belongs to is purged\&.
 .SH "FUNCTIONALITY"
 
 .LP
-All functions that a NIF library needs to do with Erlang are performed through the NIF API functions\&. Functions exist for the following functionality:
+All interaction between NIF code and the Erlang runtime system is performed by calling NIF API functions\&. Functions exist for the following functionality:
 .RS 2
 .TP 2
 .B
@@ -168,6 +166,10 @@ Another use of resource objects is to create binary terms with user-defined memo
 .LP
 Resource types support upgrade in runtime by allowing a loaded NIF library to take over an already existing resource type and by that "inherit" all existing objects of that type\&. The destructor of the new library is thereafter called for the inherited objects and the library with the old destructor function can be safely unloaded\&. Existing resource objects, of a module that is upgraded, must either be deleted or taken over by the new NIF library\&. The unloading of a library is postponed as long as there exist resource objects with a destructor function in the library\&.
 .RE
+.TP 2
+.B
+Module upgrade and static data:
+A loaded NIF library is tied to the Erlang module instance that loaded it\&. If the module is upgraded, the new module instance needs to load its own NIF library (or maybe choose not to)\&. The new module instance can, however, choose to load the exact same NIF library as the old code if it wants to\&. Sharing the dynamic library means that static data defined by the library is shared as well\&. To avoid unintentionally shared static data between module instances, each Erlang module version can keep its own private data\&. This private data can be set when the NIF library is loaded and later retrieved by calling \fB\fIenif_priv_data\fR\&\fR\&\&.
 .TP 2
 .B
 Threads and concurrency:
@@ -271,7 +273,7 @@ Dirty NIF:
 .B
 Note:
 .RE
-\fIThe dirty NIF functionality described here is experimental\fR\&\&. Dirty NIF support is available only when the emulator is configured with dirty schedulers enabled\&. This feature is disabled by default\&. The Erlang runtime without SMP support does not support dirty schedulers even when the dirty scheduler support is enabled\&. To check at runtime for the presence of dirty scheduler threads, code can use the \fB\fIenif_system_info()\fR\&\fR\& API function\&.
+Dirty NIF support is available only when the emulator is configured with dirty scheduler support\&. As of ERTS version 9\&.0, dirty scheduler support is enabled by default on the runtime system with SMP support\&. The Erlang runtime without SMP support does \fInot\fR\& support dirty schedulers even when the dirty scheduler support is explicitly enabled\&. To check at runtime for the presence of dirty scheduler threads, code can use the \fB\fIenif_system_info()\fR\&\fR\& API function\&.
 
 .RS 2
 .LP
@@ -347,7 +349,7 @@ If compiling a NIF for static inclusion through \fI--enable-static-nifs\fR\&, yo
 \fIload\fR\& is called when the NIF library is loaded and no previously loaded library exists for this module\&.
 .RS 2
 .LP
-\fI*priv_data\fR\& can be set to point to some private data that the library needs to keep a state between NIF calls\&. \fIenif_priv_data\fR\& returns this pointer\&. \fI*priv_data\fR\& is initialized to \fINULL\fR\& when \fIload\fR\& is called\&.
+\fI*priv_data\fR\& can be set to point to some private data if the library needs to keep a state between NIF calls\&. \fIenif_priv_data\fR\& returns this pointer\&. \fI*priv_data\fR\& is initialized to \fINULL\fR\& when \fIload\fR\& is called\&.
 .RE
 .RS 2
 .LP
@@ -441,10 +443,6 @@ Is \fI0\fR\& for a regular NIF (and so its value can be omitted for statically i
 .RS 2
 .LP
 \fIflags\fR\& can be used to indicate that the NIF is a \fBdirty NIF\fR\& that is to be executed on a dirty scheduler thread\&.
-.RE
-.RS 2
-.LP
-\fIThe dirty NIF functionality described here is experimental\&.\fR\& You have to enable support for dirty schedulers when building OTP to try out the functionality\&.
 .RE
 .RS 2
 .LP
@@ -1944,8 +1942,6 @@ ERL_NIF_TERM enif_schedule_nif(ErlNifEnv* env,
 .RS
 .LP
 Schedules NIF \fIfp\fR\& to execute\&. This function allows an application to break up long-running work into multiple regular NIF calls or to schedule a \fB dirty NIF\fR\& to execute on a dirty scheduler thread\&.
-.LP
-\fIThe dirty NIF functionality described here is experimental\&.\fR\& You have to enable support for dirty schedulers when building OTP to try out the functionality\&.
 .RS 2
 .TP 2
 .B
@@ -1954,7 +1950,7 @@ Provides a name for the NIF that is scheduled for execution\&. If it cannot be c
 .TP 2
 .B
 \fIflags\fR\&:
-Must be set to \fI0\fR\& for a regular NIF\&. If the emulator was built with the experimental dirty scheduler support enabled, \fIflags\fR\& can be set to either \fIERL_NIF_DIRTY_JOB_CPU_BOUND\fR\& if the job is expected to be CPU-bound, or \fIERL_NIF_DIRTY_JOB_IO_BOUND\fR\& for jobs that will be I/O-bound\&. If dirty scheduler threads are not available in the emulator, an attempt to schedule such a job results in a \fIbadarg\fR\& exception\&.
+Must be set to \fI0\fR\& for a regular NIF\&. If the emulator was built with dirty scheduler support enabled, \fIflags\fR\& can be set to either \fIERL_NIF_DIRTY_JOB_CPU_BOUND\fR\& if the job is expected to be CPU-bound, or \fIERL_NIF_DIRTY_JOB_IO_BOUND\fR\& for jobs that will be I/O-bound\&. If dirty scheduler threads are not available in the emulator, an attempt to schedule such a job results in a \fInotsup\fR\& exception\&.
 .TP 2
 .B
 \fIargc\fR\& and \fIargv\fR\&:

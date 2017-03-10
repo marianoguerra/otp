@@ -1,4 +1,4 @@
-.TH gb_trees 3 "stdlib 3.1" "Ericsson AB" "Erlang Module Definition"
+.TH gb_trees 3 "stdlib 3.2" "Ericsson AB" "Erlang Module Definition"
 .SH NAME
 gb_trees \- General balanced trees.
 .SH DESCRIPTION
@@ -111,6 +111,52 @@ Tree1 = Tree2 = \fBtree\fR\&(Key, Value)
 .RS
 .LP
 Removes the node with key \fIKey\fR\& from \fITree1\fR\& if the key is present in the tree, otherwise does nothing\&. Returns the new tree\&.
+.RE
+.LP
+.nf
+
+.B
+take(Key, Tree1) -> {Value, Tree2}
+.br
+.fi
+.br
+.RS
+.LP
+Types:
+
+.RS 3
+Tree1 = Tree2 = \fBtree\fR\&(Key, term())
+.br
+Key = Value = term()
+.br
+.RE
+.RE
+.RS
+.LP
+Returns a value \fIValue\fR\& from node with key \fIKey\fR\& and new \fITree2\fR\& without the node with this value\&. Assumes that the node with key is present in the tree, crashes otherwise\&.
+.RE
+.LP
+.nf
+
+.B
+take_any(Key, Tree1) -> {Value, Tree2} | error
+.br
+.fi
+.br
+.RS
+.LP
+Types:
+
+.RS 3
+Tree1 = Tree2 = \fBtree\fR\&(Key, term())
+.br
+Key = Value = term()
+.br
+.RE
+.RE
+.RS
+.LP
+Returns a value \fIValue\fR\& from node with key \fIKey\fR\& and new \fITree2\fR\& without the node with this value\&. Returns \fIerror\fR\& if the node with the key is not present in the tree\&.
 .RE
 .LP
 .nf

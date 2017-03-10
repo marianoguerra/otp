@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc/index.html"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Event Tracer (ET)</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 1.6</p>
@@ -139,85 +139,85 @@
   </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
 <div class="exports-body">
-    <p><a name="file-1"></a><span class="bold_code bc-9">file(FileName) -&gt; {ok, ViewerPid} | {error, Reason}</span><br></p>
+    <p><a name="file-1"></a><span class="bold_code fun-type">file(FileName) -&gt; {ok, ViewerPid} | {error, Reason}</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">FileName() = string()</span><br>
+<span class="bold_code fun-param-type">FileName() = string()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ViewerPid = pid()</span><br>
+<span class="bold_code fun-param-type">ViewerPid = pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code fun-param-type">Reason = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>Start a new event viewer and a corresponding collector
           and load them with trace events from a trace file.</p>
       </p></div>
-    <p><a name="start-0"></a><span class="bold_code bc-9">start() -&gt; ok</span><br></p>
+    <p><a name="start-0"></a><span class="bold_code fun-type">start() -&gt; ok</span><br></p>
 <div class="REFBODY rb-7"><p>
         <p>Simplified start of a sequence chart viewer with
           global tracing activated.</p>
         <p>Convenient to be used from the command line
           (erl -s et_viewer).</p>
       </p></div>
-    <p><a name="start-1"></a><span class="bold_code bc-9">start(Options) -&gt; ok</span><br></p>
+    <p><a name="start-1"></a><span class="bold_code fun-type">start(Options) -&gt; ok</span><br></p>
 <div class="REFBODY rb-7"><p>
         <p>Start of a sequence chart viewer without linking
           to the parent process.</p>
       </p></div>
-    <p><a name="start_link-1"></a><span class="bold_code bc-9">start_link(Options) -&gt; {ok, ViewerPid} | {error, Reason}</span><br></p>
+    <p><a name="start_link-1"></a><span class="bold_code fun-type">start_link(Options) -&gt; {ok, ViewerPid} | {error, Reason}</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Options = [option() | collector_option()]</span><br>
+<span class="bold_code fun-param-type">Options = [option() | collector_option()]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">option() = {parent_pid, extended_pid()} | {title, term()} | {detail_level, detail_level()} | {is_suspended, boolean()} | {scale, integer()} | {width, integer()} | {height, integer()} | {collector_pid, extended_pid()} | {event_order, event_order()} | {active_filter, atom()} | {max_actors, extended_integer()} | {trace_pattern, et_collector_trace_pattern()} | {trace_port, et_collector_trace_port()} | {trace_global, et_collector_trace_global()} | {trace_client, et_collector_trace_client()} | {dict_insert, {filter, filter_name()}, event_filter_fun()} | {dict_insert, et_collector_dict_key(), et_collector_dict_val()} | {dict_delete, {filter, filter_name()}} | {dict_delete, et_collector_dict_key()} | {actors, actors()} | {first_event, first_key()} | {hide_unknown, boolean()} | {hide_actions, boolean()} | {display_mode, display_mode()}</span><br>
+<span class="bold_code fun-param-type">option() = {parent_pid, extended_pid()} | {title, term()} | {detail_level, detail_level()} | {is_suspended, boolean()} | {scale, integer()} | {width, integer()} | {height, integer()} | {collector_pid, extended_pid()} | {event_order, event_order()} | {active_filter, atom()} | {max_actors, extended_integer()} | {trace_pattern, et_collector_trace_pattern()} | {trace_port, et_collector_trace_port()} | {trace_global, et_collector_trace_global()} | {trace_client, et_collector_trace_client()} | {dict_insert, {filter, filter_name()}, event_filter_fun()} | {dict_insert, et_collector_dict_key(), et_collector_dict_val()} | {dict_delete, {filter, filter_name()}} | {dict_delete, et_collector_dict_key()} | {actors, actors()} | {first_event, first_key()} | {hide_unknown, boolean()} | {hide_actions, boolean()} | {display_mode, display_mode()}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">extended_pid() = pid() | undefined</span><br>
+<span class="bold_code fun-param-type">extended_pid() = pid() | undefined</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">detail_level() = min | max | integer(X) when X &gt;=0, X =&lt; 100</span><br>
+<span class="bold_code fun-param-type">detail_level() = min | max | integer(X) when X &gt;=0, X =&lt; 100</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">event_order() = trace_ts | event_ts</span><br>
+<span class="bold_code fun-param-type">event_order() = trace_ts | event_ts</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">extended_integer() = integer() | infinity</span><br>
+<span class="bold_code fun-param-type">extended_integer() = integer() | infinity</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">display_mode() = all | {search_actors, direction(), first_key(), actors()}</span><br>
+<span class="bold_code fun-param-type">display_mode() = all | {search_actors, direction(), first_key(), actors()}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">direction() = forward | reverse</span><br>
+<span class="bold_code fun-param-type">direction() = forward | reverse</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">first_key() = event_key()</span><br>
+<span class="bold_code fun-param-type">first_key() = event_key()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">actors() = [term()]</span><br>
+<span class="bold_code fun-param-type">actors() = [term()]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"></span><br>
+<span class="bold_code fun-param-type"></span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">filter_name() = atom()</span><br>
+<span class="bold_code fun-param-type">filter_name() = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">filter_fun() =  fun(Event) -&gt; false | true | {true, NewEvent}</span><br>
+<span class="bold_code fun-param-type">filter_fun() =  fun(Event) -&gt; false | true | {true, NewEvent}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Event = NewEvent = record(event)</span><br>
+<span class="bold_code fun-param-type">Event = NewEvent = record(event)</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ViewerPid = pid()</span><br>
+<span class="bold_code fun-param-type">ViewerPid = pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code fun-param-type">Reason = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -253,24 +253,24 @@
           <li>display_mode - all.</li>
         </ul>
       </p></div>
-    <p><a name="get_collector_pid-1"></a><span class="bold_code bc-9">get_collector_pid(ViewerPid) -&gt; CollectorPid</span><br></p>
+    <p><a name="get_collector_pid-1"></a><span class="bold_code fun-type">get_collector_pid(ViewerPid) -&gt; CollectorPid</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ViewerPid = pid()</span><br>
+<span class="bold_code fun-param-type">ViewerPid = pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CollectorPid = pid()</span><br>
+<span class="bold_code fun-param-type">CollectorPid = pid()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>Returns the identifier of the collector process.</p>
       </p></div>
-    <p><a name="stop-1"></a><span class="bold_code bc-9">stop(ViewerPid) -&gt; ok</span><br></p>
+    <p><a name="stop-1"></a><span class="bold_code fun-type">stop(ViewerPid) -&gt; ok</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ViewerPid = pid()</span><br>
+<span class="bold_code fun-param-type">ViewerPid = pid()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -281,7 +281,7 @@
 </div>
 <div class="footer">
 <hr>
-<p>Copyright © 2002-2016 Ericsson AB. All Rights Reserved.</p>
+<p>Copyright © 2002-2017 Ericsson AB. All Rights Reserved.</p>
 </div>
 </div>
 </div>

@@ -168,7 +168,7 @@
     </ul>
   </p></div>
 
- <h3><a name="idm45475620218048">DATA TYPES </a></h3>
+ <h3><a name="idm46461408283936">DATA TYPES </a></h3>
 <div class="REFBODY rb-3">
     
     
@@ -277,17 +277,17 @@
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
 <div class="exports-body">
-    <p><a name="block_encrypt-3"></a><span class="bold_code bc-9">block_encrypt(Type, Key, PlainText) -&gt; CipherText</span><br></p>
+    <p><a name="block_encrypt-3"></a><span class="bold_code fun-type">block_encrypt(Type, Key, PlainText) -&gt; CipherText</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
   <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Type = des_ecb | blowfish_ecb | aes_ecb </span><br>
+<span class="bold_code fun-param-type">Type = des_ecb | blowfish_ecb | aes_ecb </span><br>
 </div>
   <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Key = block_key() </span><br>
+<span class="bold_code fun-param-type">Key = block_key() </span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">PlainText = iodata() </span><br>
+<span class="bold_code fun-param-type">PlainText = iodata() </span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -296,17 +296,17 @@
   is not supported by the underlying OpenSSL implementation.</p>
       </p></div>
 
-    <p><a name="block_decrypt-3"></a><span class="bold_code bc-9">block_decrypt(Type, Key, CipherText) -&gt; PlainText</span><br></p>
+    <p><a name="block_decrypt-3"></a><span class="bold_code fun-type">block_decrypt(Type, Key, CipherText) -&gt; PlainText</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
   <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Type = des_ecb | blowfish_ecb | aes_ecb </span><br>
+<span class="bold_code fun-param-type">Type = des_ecb | blowfish_ecb | aes_ecb </span><br>
 </div>
   <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Key = block_key() </span><br>
+<span class="bold_code fun-param-type">Key = block_key() </span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">PlainText = iodata() </span><br>
+<span class="bold_code fun-param-type">PlainText = iodata() </span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -315,26 +315,26 @@
   is not supported by the underlying OpenSSL implementation.</p>
       </p></div>
 
-    <p><a name="block_encrypt-4"></a><span class="bold_code bc-9">block_encrypt(Type, Key, Ivec, PlainText) -&gt; CipherText</span><br><a name="block_encrypt-4"></a><span class="bold_code bc-9">block_encrypt(AeadType, Key, Ivec, {AAD, PlainText}) -&gt; {CipherText, CipherTag}</span><br><a name="block_encrypt-4"></a><span class="bold_code bc-9">block_encrypt(aes_gcm, Key, Ivec, {AAD, PlainText, TagLength}) -&gt; {CipherText, CipherTag}</span><br></p>
+    <p><a name="block_encrypt-4"></a><span class="bold_code fun-type">block_encrypt(Type, Key, Ivec, PlainText) -&gt; CipherText</span><br><a name="block_encrypt-4"></a><span class="bold_code fun-type">block_encrypt(AeadType, Key, Ivec, {AAD, PlainText}) -&gt; {CipherText, CipherTag}</span><br><a name="block_encrypt-4"></a><span class="bold_code fun-type">block_encrypt(aes_gcm, Key, Ivec, {AAD, PlainText, TagLength}) -&gt; {CipherText, CipherTag}</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Type = block_cipher() </span><br>
+<span class="bold_code fun-param-type">Type = block_cipher() </span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">AeadType = aead_cipher() </span><br>
+<span class="bold_code fun-param-type">AeadType = aead_cipher() </span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Key = block_key() </span><br>
+<span class="bold_code fun-param-type">Key = block_key() </span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">PlainText = iodata() </span><br>
+<span class="bold_code fun-param-type">PlainText = iodata() </span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">AAD = IVec = CipherText = CipherTag = binary()</span><br>
+<span class="bold_code fun-param-type">AAD = IVec = CipherText = CipherTag = binary()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">TagLength = 1..16</span><br>
+<span class="bold_code fun-param-type">TagLength = 1..16</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -347,23 +347,23 @@
 	is not supported by the underlying OpenSSL implementation.</p>
       </p></div>
 
-    <p><a name="block_decrypt-4"></a><span class="bold_code bc-9">block_decrypt(Type, Key, Ivec, CipherText) -&gt; PlainText</span><br><a name="block_decrypt-4"></a><span class="bold_code bc-9">block_decrypt(AeadType, Key, Ivec, {AAD, CipherText, CipherTag}) -&gt; PlainText | error</span><br></p>
+    <p><a name="block_decrypt-4"></a><span class="bold_code fun-type">block_decrypt(Type, Key, Ivec, CipherText) -&gt; PlainText</span><br><a name="block_decrypt-4"></a><span class="bold_code fun-type">block_decrypt(AeadType, Key, Ivec, {AAD, CipherText, CipherTag}) -&gt; PlainText | error</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Type = block_cipher() </span><br>
+<span class="bold_code fun-param-type">Type = block_cipher() </span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">AeadType = aead_cipher() </span><br>
+<span class="bold_code fun-param-type">AeadType = aead_cipher() </span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Key = block_key() </span><br>
+<span class="bold_code fun-param-type">Key = block_key() </span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">PlainText = iodata() </span><br>
+<span class="bold_code fun-param-type">PlainText = iodata() </span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">AAD = IVec = CipherText = CipherTag = binary()</span><br>
+<span class="bold_code fun-param-type">AAD = IVec = CipherText = CipherTag = binary()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -377,15 +377,15 @@
 	is not supported by the underlying OpenSSL implementation.</p>
       </p></div>
     
-     <p><a name="bytes_to_integer-1"></a><span class="bold_code bc-9">bytes_to_integer(Bin) -&gt; Integer </span><br></p>
+     <p><a name="bytes_to_integer-1"></a><span class="bold_code fun-type">bytes_to_integer(Bin) -&gt; Integer </span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Bin = binary() - as returned by crypto functions</span><br>
+<span class="bold_code fun-param-type">Bin = binary() - as returned by crypto functions</span><br>
 </div>
 	
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Integer = integer() </span><br>
+<span class="bold_code fun-param-type">Integer = integer() </span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -393,29 +393,29 @@
          </p>
       </p></div>
 
-    <p><a name="compute_key-4"></a><span class="bold_code bc-9">compute_key(Type, OthersPublicKey, MyKey, Params) -&gt; SharedSecret</span><br></p>
+    <p><a name="compute_key-4"></a><span class="bold_code fun-type">compute_key(Type, OthersPublicKey, MyKey, Params) -&gt; SharedSecret</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Type = dh | ecdh | srp </span><br>
+<span class="bold_code fun-param-type"> Type = dh | ecdh | srp </span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">OthersPublicKey =  dh_public() | ecdh_public() | srp_public() </span><br>
+<span class="bold_code fun-param-type">OthersPublicKey =  dh_public() | ecdh_public() | srp_public() </span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">MyKey = dh_private() | ecdh_private() | {srp_public(),srp_private()}</span><br>
+<span class="bold_code fun-param-type">MyKey = dh_private() | ecdh_private() | {srp_public(),srp_private()}</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Params = dh_params() | ecdh_params() | SrpUserParams | SrpHostParams</span><br>
+<span class="bold_code fun-param-type">Params = dh_params() | ecdh_params() | SrpUserParams | SrpHostParams</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">SrpUserParams = {user, [DerivedKey::binary(), Prime::binary(), Generator::binary(), Version::atom() | [Scrambler:binary()]]} </span><br>
+<span class="bold_code fun-param-type">SrpUserParams = {user, [DerivedKey::binary(), Prime::binary(), Generator::binary(), Version::atom() | [Scrambler:binary()]]} </span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">SrpHostParams = {host, [Verifier::binary(), Prime::binary(), Version::atom() | [Scrambler::binary]]} </span><br>
+<span class="bold_code fun-param-type">SrpHostParams = {host, [Verifier::binary(), Prime::binary(), Version::atom() | [Scrambler::binary]]} </span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">SharedSecret = binary()</span><br>
+<span class="bold_code fun-param-type">SharedSecret = binary()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -424,43 +424,43 @@
 	</p>
       </p></div>
 
-    <p><a name="exor-2"></a><span class="bold_code bc-9">exor(Data1, Data2) -&gt; Result</span><br></p>
+    <p><a name="exor-2"></a><span class="bold_code fun-type">exor(Data1, Data2) -&gt; Result</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Data1, Data2 = iodata()</span><br>
+<span class="bold_code fun-param-type">Data1, Data2 = iodata()</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Result = binary()</span><br>
+<span class="bold_code fun-param-type">Result = binary()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
 	<p>Performs bit-wise XOR (exclusive or) on the data supplied.</p>
       </p></div>
 
-   <p><a name="generate_key-2"></a><span class="bold_code bc-9">generate_key(Type, Params) -&gt; {PublicKey, PrivKeyOut} </span><br><a name="generate_key-3"></a><span class="bold_code bc-9">generate_key(Type, Params, PrivKeyIn) -&gt; {PublicKey, PrivKeyOut} </span><br></p>
+   <p><a name="generate_key-2"></a><span class="bold_code fun-type">generate_key(Type, Params) -&gt; {PublicKey, PrivKeyOut} </span><br><a name="generate_key-3"></a><span class="bold_code fun-type">generate_key(Type, Params, PrivKeyIn) -&gt; {PublicKey, PrivKeyOut} </span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Type = dh | ecdh | srp </span><br>
+<span class="bold_code fun-param-type"> Type = dh | ecdh | srp </span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Params = dh_params() | ecdh_params() | SrpUserParams | SrpHostParams </span><br>
+<span class="bold_code fun-param-type">Params = dh_params() | ecdh_params() | SrpUserParams | SrpHostParams </span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">SrpUserParams = {user, [Generator::binary(), Prime::binary(), Version::atom()]}</span><br>
+<span class="bold_code fun-param-type">SrpUserParams = {user, [Generator::binary(), Prime::binary(), Version::atom()]}</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">SrpHostParams = {host, [Verifier::binary(), Generator::binary(), Prime::binary(), Version::atom()]}</span><br>
+<span class="bold_code fun-param-type">SrpHostParams = {host, [Verifier::binary(), Generator::binary(), Prime::binary(), Version::atom()]}</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">PublicKey =  dh_public() | ecdh_public() | srp_public() </span><br>
+<span class="bold_code fun-param-type">PublicKey =  dh_public() | ecdh_public() | srp_public() </span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">PrivKeyIn = undefined | dh_private() | ecdh_private() | srp_private() </span><br>
+<span class="bold_code fun-param-type">PrivKeyIn = undefined | dh_private() | ecdh_private() | srp_private() </span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">PrivKeyOut =  dh_private() | ecdh_private() | srp_private() </span><br>
+<span class="bold_code fun-param-type">PrivKeyOut =  dh_private() | ecdh_private() | srp_private() </span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -471,17 +471,17 @@
 	</p>
       </p></div>
 
-     <p><a name="hash-2"></a><span class="bold_code bc-9">hash(Type, Data) -&gt; Digest</span><br></p>
+     <p><a name="hash-2"></a><span class="bold_code fun-type">hash(Type, Data) -&gt; Digest</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Type = md4 | hash_algorithms()</span><br>
+<span class="bold_code fun-param-type">Type = md4 | hash_algorithms()</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Data = iodata()</span><br>
+<span class="bold_code fun-param-type">Data = iodata()</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Digest = binary()</span><br>
+<span class="bold_code fun-param-type">Digest = binary()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -490,11 +490,11 @@
 	is not supported by the underlying OpenSSL implementation.</p>
       </p></div>
 
-    <p><a name="hash_init-1"></a><span class="bold_code bc-9">hash_init(Type) -&gt; Context</span><br></p>
+    <p><a name="hash_init-1"></a><span class="bold_code fun-type">hash_init(Type) -&gt; Context</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Type = md4 | hash_algorithms()</span><br>
+<span class="bold_code fun-param-type">Type = md4 | hash_algorithms()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -505,11 +505,11 @@
 	is not supported by the underlying OpenSSL implementation.</p>
       </p></div>
 
-    <p><a name="hash_update-2"></a><span class="bold_code bc-9">hash_update(Context, Data) -&gt; NewContext</span><br></p>
+    <p><a name="hash_update-2"></a><span class="bold_code fun-type">hash_update(Context, Data) -&gt; NewContext</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Data = iodata()</span><br>
+<span class="bold_code fun-param-type">Data = iodata()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -519,11 +519,11 @@
         must be passed into the next call to <span class="code">hash_update</span>
 	or <span class="bold_code bc-17"><a href="#hash_final-1">hash_final</a></span>.</p>
       </p></div>
-    <p><a name="hash_final-1"></a><span class="bold_code bc-9">hash_final(Context) -&gt; Digest</span><br></p>
+    <p><a name="hash_final-1"></a><span class="bold_code fun-type">hash_final(Context) -&gt; Digest</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Digest = binary()</span><br>
+<span class="bold_code fun-param-type">Digest = binary()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -533,23 +533,23 @@
 	function used to generate it.</p>
       </p></div>
 
-    <p><a name="hmac-3"></a><span class="bold_code bc-9">hmac(Type, Key, Data) -&gt; Mac</span><br><a name="hmac-4"></a><span class="bold_code bc-9">hmac(Type, Key, Data, MacLength) -&gt; Mac</span><br></p>
+    <p><a name="hmac-3"></a><span class="bold_code fun-type">hmac(Type, Key, Data) -&gt; Mac</span><br><a name="hmac-4"></a><span class="bold_code fun-type">hmac(Type, Key, Data, MacLength) -&gt; Mac</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Type = hash_algorithms() - except ripemd160</span><br>
+<span class="bold_code fun-param-type">Type = hash_algorithms() - except ripemd160</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Key = iodata()</span><br>
+<span class="bold_code fun-param-type">Key = iodata()</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Data = iodata()</span><br>
+<span class="bold_code fun-param-type">Data = iodata()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">MacLength = integer()</span><br>
+<span class="bold_code fun-param-type">MacLength = integer()</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Mac = binary()</span><br>
+<span class="bold_code fun-param-type">Mac = binary()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -558,17 +558,17 @@
         will limit the size of the resultant <span class="code">Mac</span>.</p>
       </p></div>
 
-    <p><a name="hmac_init-2"></a><span class="bold_code bc-9">hmac_init(Type, Key) -&gt; Context</span><br></p>
+    <p><a name="hmac_init-2"></a><span class="bold_code fun-type">hmac_init(Type, Key) -&gt; Context</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Type = hash_algorithms() - except ripemd160</span><br>
+<span class="bold_code fun-param-type">Type = hash_algorithms() - except ripemd160</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Key = iodata()</span><br>
+<span class="bold_code fun-param-type">Key = iodata()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Context = binary()</span><br>
+<span class="bold_code fun-param-type">Context = binary()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -577,14 +577,14 @@
         key. The key can be any length.</p>
       </p></div>
 
-    <p><a name="hmac_update-2"></a><span class="bold_code bc-9">hmac_update(Context, Data) -&gt; NewContext</span><br></p>
+    <p><a name="hmac_update-2"></a><span class="bold_code fun-type">hmac_update(Context, Data) -&gt; NewContext</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Context = NewContext = binary()</span><br>
+<span class="bold_code fun-param-type">Context = NewContext = binary()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Data = iodata()</span><br>
+<span class="bold_code fun-param-type">Data = iodata()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -605,11 +605,11 @@
 </div>
       </p></div>
 
-    <p><a name="hmac_final-1"></a><span class="bold_code bc-9">hmac_final(Context) -&gt; Mac</span><br></p>
+    <p><a name="hmac_final-1"></a><span class="bold_code fun-type">hmac_final(Context) -&gt; Mac</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Context = Mac = binary()</span><br>
+<span class="bold_code fun-param-type">Context = Mac = binary()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -617,14 +617,14 @@
         determined by the type of hash function used to generate it.</p>
       </p></div>
 
-    <p><a name="hmac_final_n-2"></a><span class="bold_code bc-9">hmac_final_n(Context, HashLen) -&gt; Mac</span><br></p>
+    <p><a name="hmac_final_n-2"></a><span class="bold_code fun-type">hmac_final_n(Context, HashLen) -&gt; Mac</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Context = Mac = binary()</span><br>
+<span class="bold_code fun-param-type">Context = Mac = binary()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">HashLen = non_neg_integer()</span><br>
+<span class="bold_code fun-param-type">HashLen = non_neg_integer()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -632,23 +632,23 @@
         zero. <span class="code">Mac</span> will be a binary with at most <span class="code">HashLen</span> bytes. Note that if HashLen is greater than the actual number of bytes returned from the underlying hash, the returned hash will have fewer than <span class="code">HashLen</span> bytes.</p>
       </p></div>
 
-    <p><a name="cmac-3"></a><span class="bold_code bc-9">cmac(Type, Key, Data) -&gt; Mac</span><br><a name="cmac-4"></a><span class="bold_code bc-9">cmac(Type, Key, Data, MacLength) -&gt; Mac</span><br></p>
+    <p><a name="cmac-3"></a><span class="bold_code fun-type">cmac(Type, Key, Data) -&gt; Mac</span><br><a name="cmac-4"></a><span class="bold_code fun-type">cmac(Type, Key, Data, MacLength) -&gt; Mac</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Type = block_cipher()</span><br>
+<span class="bold_code fun-param-type">Type = block_cipher()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Key = iodata()</span><br>
+<span class="bold_code fun-param-type">Key = iodata()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Data = iodata()</span><br>
+<span class="bold_code fun-param-type">Data = iodata()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">MacLength = integer()</span><br>
+<span class="bold_code fun-param-type">MacLength = integer()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Mac = binary()</span><br>
+<span class="bold_code fun-param-type">Mac = binary()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -657,11 +657,11 @@
         will limit the size of the resultant <span class="code">Mac</span>.</p>
       </p></div>
 
-    <p><a name="info_fips-0"></a><span class="bold_code bc-9">info_fips() -&gt; Status</span><br></p>
+    <p><a name="info_fips-0"></a><span class="bold_code fun-type">info_fips() -&gt; Status</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Status = enabled | not_enabled | not_supported</span><br>
+<span class="bold_code fun-param-type">Status = enabled | not_enabled | not_supported</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -682,17 +682,17 @@
 </div>
       </p></div>
 
-    <p><a name="info_lib-0"></a><span class="bold_code bc-9">info_lib() -&gt; [{Name,VerNum,VerStr}]</span><br></p>
+    <p><a name="info_lib-0"></a><span class="bold_code fun-type">info_lib() -&gt; [{Name,VerNum,VerStr}]</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Name = binary()</span><br>
+<span class="bold_code fun-param-type">Name = binary()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">VerNum = integer()</span><br>
+<span class="bold_code fun-param-type">VerNum = integer()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">VerStr = binary()</span><br>
+<span class="bold_code fun-param-type">VerStr = binary()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -715,31 +715,31 @@
 </div>
       </p></div>
 
-    <p><a name="mod_pow-3"></a><span class="bold_code bc-9">mod_pow(N, P, M) -&gt; Result</span><br></p>
+    <p><a name="mod_pow-3"></a><span class="bold_code fun-type">mod_pow(N, P, M) -&gt; Result</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">N, P, M = binary() | integer()</span><br>
+<span class="bold_code fun-param-type">N, P, M = binary() | integer()</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Result = binary() | error</span><br>
+<span class="bold_code fun-param-type">Result = binary() | error</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
 	<p>Computes the function <span class="code">N^P mod M</span>.</p>
       </p></div>
 
-    <p><a name="next_iv-2"></a><span class="bold_code bc-9">next_iv(Type, Data) -&gt; NextIVec</span><br><a name="next_iv-3"></a><span class="bold_code bc-9">next_iv(Type, Data, IVec) -&gt; NextIVec</span><br></p>
+    <p><a name="next_iv-2"></a><span class="bold_code fun-type">next_iv(Type, Data) -&gt; NextIVec</span><br><a name="next_iv-3"></a><span class="bold_code fun-type">next_iv(Type, Data, IVec) -&gt; NextIVec</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
      <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Type = des_cbc | des3_cbc | aes_cbc | des_cfb</span><br>
+<span class="bold_code fun-param-type">Type = des_cbc | des3_cbc | aes_cbc | des_cfb</span><br>
 </div>
      <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Data = iodata()</span><br>
+<span class="bold_code fun-param-type">Data = iodata()</span><br>
 </div>
      <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">IVec = NextIVec = binary()</span><br>
+<span class="bold_code fun-param-type">IVec = NextIVec = binary()</span><br>
 </div>
    </div>
 <div class="REFBODY rb-7"><p>
@@ -750,23 +750,23 @@
      in the previous iteration step.</p>
    </p></div>
 
-    <p><a name="private_decrypt-4"></a><span class="bold_code bc-9">private_decrypt(Type, CipherText, PrivateKey, Padding) -&gt; PlainText</span><br></p>
+    <p><a name="private_decrypt-4"></a><span class="bold_code fun-type">private_decrypt(Type, CipherText, PrivateKey, Padding) -&gt; PlainText</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Type = rsa</span><br>
+<span class="bold_code fun-param-type">Type = rsa</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CipherText = binary()</span><br>
+<span class="bold_code fun-param-type">CipherText = binary()</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">PrivateKey = rsa_private()</span><br>
+<span class="bold_code fun-param-type">PrivateKey = rsa_private()</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Padding = rsa_pkcs1_padding | rsa_pkcs1_oaep_padding | rsa_no_padding</span><br>
+<span class="bold_code fun-param-type">Padding = rsa_pkcs1_padding | rsa_pkcs1_oaep_padding | rsa_no_padding</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">PlainText = binary()</span><br>
+<span class="bold_code fun-param-type">PlainText = binary()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -779,27 +779,27 @@
 	</p>
       </p></div>
     
-    <p><a name="private_encrypt-4"></a><span class="bold_code bc-9">private_encrypt(Type, PlainText, PrivateKey, Padding) -&gt; CipherText</span><br></p>
+    <p><a name="private_encrypt-4"></a><span class="bold_code fun-type">private_encrypt(Type, PlainText, PrivateKey, Padding) -&gt; CipherText</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Type = rsa</span><br>
+<span class="bold_code fun-param-type">Type = rsa</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">PlainText = binary()</span><br>
+<span class="bold_code fun-param-type">PlainText = binary()</span><br>
 </div>
 	<div class="REFBODY rb-6"> The size of the <span class="code">PlainText</span> must be less
 	than <span class="code">byte_size(N)-11</span> if <span class="code">rsa_pkcs1_padding</span> is
 	used, and <span class="code">byte_size(N)</span> if <span class="code">rsa_no_padding</span> is
 	used, where N is public modulus of the RSA key.</div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">PrivateKey = rsa_private()</span><br>
+<span class="bold_code fun-param-type">PrivateKey = rsa_private()</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Padding = rsa_pkcs1_padding | rsa_no_padding</span><br>
+<span class="bold_code fun-param-type">Padding = rsa_pkcs1_padding | rsa_no_padding</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CipherText = binary()</span><br>
+<span class="bold_code fun-param-type">CipherText = binary()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -809,23 +809,23 @@
 	also <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html#encrypt_private-2');">public_key:encrypt_private/[2,3]</a></span>
 	</p>
       </p></div>
-    <p><a name="public_decrypt-4"></a><span class="bold_code bc-9">public_decrypt(Type, CipherText, PublicKey, Padding) -&gt; PlainText</span><br></p>
+    <p><a name="public_decrypt-4"></a><span class="bold_code fun-type">public_decrypt(Type, CipherText, PublicKey, Padding) -&gt; PlainText</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Type = rsa</span><br>
+<span class="bold_code fun-param-type">Type = rsa</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CipherText = binary()</span><br>
+<span class="bold_code fun-param-type">CipherText = binary()</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">PublicKey =  rsa_public() </span><br>
+<span class="bold_code fun-param-type">PublicKey =  rsa_public() </span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Padding = rsa_pkcs1_padding | rsa_no_padding</span><br>
+<span class="bold_code fun-param-type">Padding = rsa_pkcs1_padding | rsa_no_padding</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">PlainText = binary()</span><br>
+<span class="bold_code fun-param-type">PlainText = binary()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -838,27 +838,27 @@
 	</p>
       </p></div>
 
-    <p><a name="public_encrypt-4"></a><span class="bold_code bc-9">public_encrypt(Type, PlainText, PublicKey, Padding) -&gt; CipherText</span><br></p>
+    <p><a name="public_encrypt-4"></a><span class="bold_code fun-type">public_encrypt(Type, PlainText, PublicKey, Padding) -&gt; CipherText</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Type = rsa</span><br>
+<span class="bold_code fun-param-type">Type = rsa</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">PlainText = binary()</span><br>
+<span class="bold_code fun-param-type">PlainText = binary()</span><br>
 </div>
 	<div class="REFBODY rb-6"> The size of the <span class="code">PlainText</span> must be less
 	than <span class="code">byte_size(N)-11</span> if <span class="code">rsa_pkcs1_padding</span> is
 	used, and <span class="code">byte_size(N)</span> if <span class="code">rsa_no_padding</span> is
 	used, where N is public modulus of the RSA key.</div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">PublicKey = rsa_public()</span><br>
+<span class="bold_code fun-param-type">PublicKey = rsa_public()</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Padding = rsa_pkcs1_padding | rsa_pkcs1_oaep_padding | rsa_no_padding</span><br>
+<span class="bold_code fun-param-type">Padding = rsa_pkcs1_padding | rsa_pkcs1_oaep_padding | rsa_no_padding</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CipherText = binary()</span><br>
+<span class="bold_code fun-param-type">CipherText = binary()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -868,11 +868,11 @@
 	</p>
       </p></div>
 
-    <p><a name="rand_seed-1"></a><span class="bold_code bc-9">rand_seed(Seed) -&gt; ok</span><br></p>
+    <p><a name="rand_seed-1"></a><span class="bold_code fun-type">rand_seed(Seed) -&gt; ok</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Seed = binary()</span><br>
+<span class="bold_code fun-param-type">Seed = binary()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -882,11 +882,11 @@
 	Normally this is when <span class="bold_code bc-17"><a href="#strong_rand_bytes-1">strong_rand_bytes/1</a></span> returns <span class="code">low_entropy</span></p>
       </p></div>
 
-     <p><a name="rand_uniform-2"></a><span class="bold_code bc-9">rand_uniform(Lo, Hi) -&gt; N</span><br></p>
+     <p><a name="rand_uniform-2"></a><span class="bold_code fun-type">rand_uniform(Lo, Hi) -&gt; N</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Lo, Hi, N = integer()</span><br>
+<span class="bold_code fun-param-type">Lo, Hi, N = integer()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -895,23 +895,23 @@
 	<span class="code">Hi</span> must be larger than <span class="code">Lo</span>.</p>
       </p></div>
 
-    <p><a name="sign-4"></a><span class="bold_code bc-9">sign(Algorithm, DigestType, Msg, Key) -&gt; binary()</span><br></p>
+    <p><a name="sign-4"></a><span class="bold_code fun-type">sign(Algorithm, DigestType, Msg, Key) -&gt; binary()</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Algorithm = rsa | dss | ecdsa </span><br>
+<span class="bold_code fun-param-type">Algorithm = rsa | dss | ecdsa </span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Msg = binary() | {digest,binary()}</span><br>
+<span class="bold_code fun-param-type">Msg = binary() | {digest,binary()}</span><br>
 </div>
 	<div class="REFBODY rb-6">The msg is either the binary "cleartext" data to be
 	signed or it is the hashed value of "cleartext" i.e. the
 	digest (plaintext).</div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">DigestType = digest_type()</span><br>
+<span class="bold_code fun-param-type">DigestType = digest_type()</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Key = rsa_private() | dss_private() | [ecdh_private(),ecdh_params()]</span><br>
+<span class="bold_code fun-param-type">Key = rsa_private() | dss_private() | [ecdh_private(),ecdh_params()]</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -921,20 +921,20 @@
 	<p>See also <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html#sign-3');">public_key:sign/3</a></span>.</p>
       </p></div>
 
-    <p><a name="start-0"></a><span class="bold_code bc-9">start() -&gt; ok</span><br></p>
+    <p><a name="start-0"></a><span class="bold_code fun-type">start() -&gt; ok</span><br></p>
 <div class="REFBODY rb-7"><p>
         <p> Equivalent to application:start(crypto).</p>
       </p></div>
-    <p><a name="stop-0"></a><span class="bold_code bc-9">stop() -&gt; ok</span><br></p>
+    <p><a name="stop-0"></a><span class="bold_code fun-type">stop() -&gt; ok</span><br></p>
 <div class="REFBODY rb-7"><p>
         <p> Equivalent to application:stop(crypto).</p>
       </p></div>
 
-    <p><a name="strong_rand_bytes-1"></a><span class="bold_code bc-9">strong_rand_bytes(N) -&gt; binary()</span><br></p>
+    <p><a name="strong_rand_bytes-1"></a><span class="bold_code fun-type">strong_rand_bytes(N) -&gt; binary()</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">N = integer()</span><br>
+<span class="bold_code fun-param-type">N = integer()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -945,17 +945,17 @@
 	<p>May throw exception <span class="code">low_entropy</span> in case the random generator
 	failed due to lack of secure "randomness".</p>
       </p></div>
-    <p><a name="stream_init-2"></a><span class="bold_code bc-9">stream_init(Type, Key) -&gt; State</span><br></p>
+    <p><a name="stream_init-2"></a><span class="bold_code fun-type">stream_init(Type, Key) -&gt; State</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Type = rc4 </span><br>
+<span class="bold_code fun-param-type">Type = rc4 </span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">State = opaque() </span><br>
+<span class="bold_code fun-param-type">State = opaque() </span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Key = iodata()</span><br>
+<span class="bold_code fun-param-type">Key = iodata()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -964,20 +964,20 @@
         <span class="bold_code bc-17"><a href="#stream_decrypt-2">stream_decrypt</a></span></p>
       </p></div>
 
-   <p><a name="stream_init-3"></a><span class="bold_code bc-9">stream_init(Type, Key, IVec) -&gt; State</span><br></p>
+   <p><a name="stream_init-3"></a><span class="bold_code fun-type">stream_init(Type, Key, IVec) -&gt; State</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Type = aes_ctr </span><br>
+<span class="bold_code fun-param-type">Type = aes_ctr </span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">State = opaque() </span><br>
+<span class="bold_code fun-param-type">State = opaque() </span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Key = iodata()</span><br>
+<span class="bold_code fun-param-type">Key = iodata()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">IVec = binary()</span><br>
+<span class="bold_code fun-param-type">IVec = binary()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -988,14 +988,14 @@
         <span class="bold_code bc-17"><a href="#stream_decrypt-2">stream_decrypt</a></span>.</p>
       </p></div>
 
-    <p><a name="stream_encrypt-2"></a><span class="bold_code bc-9">stream_encrypt(State, PlainText) -&gt; { NewState, CipherText}</span><br></p>
+    <p><a name="stream_encrypt-2"></a><span class="bold_code fun-type">stream_encrypt(State, PlainText) -&gt; { NewState, CipherText}</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Text = iodata()</span><br>
+<span class="bold_code fun-param-type">Text = iodata()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CipherText = binary()</span><br>
+<span class="bold_code fun-param-type">CipherText = binary()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -1005,14 +1005,14 @@
 	<span class="code">NewState</span> must be passed into the next call to <span class="code">stream_encrypt</span>.</p>
       </p></div>
 
-    <p><a name="stream_decrypt-2"></a><span class="bold_code bc-9">stream_decrypt(State, CipherText) -&gt; { NewState, PlainText }</span><br></p>
+    <p><a name="stream_decrypt-2"></a><span class="bold_code fun-type">stream_decrypt(State, CipherText) -&gt; { NewState, PlainText }</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CipherText = iodata()</span><br>
+<span class="bold_code fun-param-type">CipherText = iodata()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">PlainText = binary()</span><br>
+<span class="bold_code fun-param-type">PlainText = binary()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -1022,11 +1022,11 @@
 	<span class="code">NewState</span> must be passed into the next call to <span class="code">stream_decrypt</span>.</p>
       </p></div>
 
-   <p><a name="supports-0"></a><span class="bold_code bc-9">supports() -&gt; AlgorithmList </span><br></p>
+   <p><a name="supports-0"></a><span class="bold_code fun-type">supports() -&gt; AlgorithmList </span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
       <div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> AlgorithmList =  [{hashs, [hash_algorithms()]},
+<span class="bold_code fun-param-type"> AlgorithmList =  [{hashs, [hash_algorithms()]},
                             {ciphers, [cipher_algorithms()]},
 			    {public_keys, [public_key_algorithms()]}
       </span><br>
@@ -1037,50 +1037,50 @@
 	by the underlying OpenSSL library</p>
       </p></div>
 
-    <p><a name="ec_curves-0"></a><span class="bold_code bc-9">ec_curves() -&gt; EllipticCurveList </span><br></p>
+    <p><a name="ec_curves-0"></a><span class="bold_code fun-type">ec_curves() -&gt; EllipticCurveList </span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
       <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">EllipticCurveList = [ec_named_curve()]</span><br>
+<span class="bold_code fun-param-type">EllipticCurveList = [ec_named_curve()]</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>Can be used to determine which named elliptic curves are supported.</p>
       </p></div>
 
-    <p><a name="ec_curve-1"></a><span class="bold_code bc-9">ec_curve(NamedCurve) -&gt; EllipticCurve </span><br></p>
+    <p><a name="ec_curve-1"></a><span class="bold_code fun-type">ec_curve(NamedCurve) -&gt; EllipticCurve </span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
       <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">NamedCurve = ec_named_curve()</span><br>
+<span class="bold_code fun-param-type">NamedCurve = ec_named_curve()</span><br>
 </div>
       <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">EllipticCurve = ec_explicit_curve()</span><br>
+<span class="bold_code fun-param-type">EllipticCurve = ec_explicit_curve()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>Return the defining parameters of a elliptic curve.</p>
       </p></div>
 
-  <p><a name="verify-5"></a><span class="bold_code bc-9">verify(Algorithm, DigestType, Msg, Signature, Key) -&gt; boolean()</span><br></p>
+  <p><a name="verify-5"></a><span class="bold_code fun-type">verify(Algorithm, DigestType, Msg, Signature, Key) -&gt; boolean()</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11"> Algorithm = rsa | dss | ecdsa </span><br>
+<span class="bold_code fun-param-type"> Algorithm = rsa | dss | ecdsa </span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Msg = binary() | {digest,binary()}</span><br>
+<span class="bold_code fun-param-type">Msg = binary() | {digest,binary()}</span><br>
 </div>
 	<div class="REFBODY rb-6">The msg is either the binary "cleartext" data
         or it is the hashed value of "cleartext" i.e. the digest (plaintext).</div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">DigestType = digest_type()</span><br>
+<span class="bold_code fun-param-type">DigestType = digest_type()</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Signature = binary()</span><br>
+<span class="bold_code fun-param-type">Signature = binary()</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Key = rsa_public() | dss_public() | [ecdh_public(),ecdh_params()]</span><br>
+<span class="bold_code fun-param-type">Key = rsa_public() | dss_public() | [ecdh_public(),ecdh_params()]</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -1167,7 +1167,7 @@
 </div>
 <div class="footer">
 <hr>
-<p>Copyright © 1999-2016 Ericsson AB. All Rights Reserved.</p>
+<p>Copyright © 1999-2017 Ericsson AB. All Rights Reserved.</p>
 </div>
 </div>
 </div>

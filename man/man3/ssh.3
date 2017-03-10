@@ -1,4 +1,4 @@
-.TH ssh 3 "ssh 4.3.6" "Ericsson AB" "Erlang Module Definition"
+.TH ssh 3 "ssh 4.4" "Ericsson AB" "Erlang Module Definition"
 .SH NAME
 ssh \- Main API of the ssh application
 .SH DESCRIPTION
@@ -181,8 +181,18 @@ If the user DSA key is protected by a passphrase, it can be supplied with this o
 If the user RSA key is protected by a passphrase, it can be supplied with this option\&.
 .TP 2
 .B
-\fI{silently_accept_hosts, boolean()}\fR\&:
-When \fItrue\fR\&, hosts are added to the file \fIknown_hosts\fR\& without asking the user\&. Defaults to \fIfalse\fR\&\&.
+\fI{silently_accept_hosts, boolean() | accept_fun() | {crypto:digest_type(), accept_fun()} }\fR\&
+.br
+\fIaccept_fun() :: fun(PeerName::string(), FingerPrint::string()) -> boolean()\fR\&:
+When \fItrue\fR\&, hosts are added to the file \fIknown_hosts\fR\& without asking the user\&. Defaults to \fIfalse\fR\& which will give a user question on stdio of whether to accept or reject a previously unseen host\&.
+.RS 2
+.LP
+If the option value is has an \fIaccept_fun()\fR\&, that fun will called with the arguments \fI(PeerName, PeerHostKeyFingerPrint)\fR\&\&. The fingerprint is calculated on the Peer\&'s Host Key with \fBpublic_key:ssh_hostkey_fingerprint/1\fR\&\&.
+.RE
+.RS 2
+.LP
+If the \fIcrypto:digest_type()\fR\& is present, the fingerprint is calculated with that digest type by the function \fBpublic_key:ssh_hostkey_fingerprint/2\fR\&\&.
+.RE
 .TP 2
 .B
 \fI{user_interaction, boolean()}\fR\&:

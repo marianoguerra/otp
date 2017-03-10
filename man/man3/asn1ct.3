@@ -218,54 +218,6 @@ The compiler generates the following files:
 .RE
 .LP
 .B
-encode(Module, Type, Value)-> {ok, Bytes} | {error, Reason}
-.br
-.RS
-.LP
-Types:
-
-.RS 3
-Module = Type = atom()
-.br
-Value = term()
-.br
-Bytes = binary()
-.br
-Reason = term()
-.br
-.RE
-.RE
-.RS
-.LP
-Encodes \fIValue\fR\& of \fIType\fR\& defined in the \fIASN\&.1\fR\& module \fIModule\fR\&\&. To get as fast execution as possible, the encode function performs only the rudimentary tests that input \fIValue\fR\& is a correct instance of \fIType\fR\&\&. So, for example, the length of strings is not always checked\&. Returns \fI{ok, Bytes}\fR\& if successful or \fI{error, Reason}\fR\& if an error occurred\&.
-.LP
-This function is deprecated\&. Use \fIModule:encode(Type, Value)\fR\& instead\&.
-.RE
-.LP
-.B
-decode(Module, Type, Bytes) -> {ok, Value} | {error, Reason}
-.br
-.RS
-.LP
-Types:
-
-.RS 3
-Module = Type = atom()
-.br
-Value = Reason = term()
-.br
-Bytes = binary()
-.br
-.RE
-.RE
-.RS
-.LP
-Decodes \fIType\fR\& from \fIModule\fR\& from the binary \fIBytes\fR\&\&. Returns \fI{ok, Value}\fR\& if successful\&.
-.LP
-This function is deprecated\&. Use \fIModule:decode(Type, Bytes)\fR\& instead\&.
-.RE
-.LP
-.B
 value(Module, Type) -> {ok, Value} | {error, Reason}
 .br
 .RS
@@ -350,9 +302,9 @@ Schematically, the following occurs for each type in the module:
 .nf
 
 {ok, Value} = asn1ct:value(Module, Type),
-{ok, Bytes} = asn1ct:encode(Module, Type, Value),
-{ok, Value} = asn1ct:decode(Module, Type, Bytes).
+{ok, Bytes} = Module:encode(Type, Value),
+{ok, Value} = Module:decode(Type, Bytes).
 .fi
 .LP
-The \fItest\fR\& functions use the \fI*\&.asn1db\fR\& files for all included modules\&. If they are located in a different directory than the current working directory, use the include option to add paths\&. This is only needed when automatically generating values\&. For static values using \fIValue\fR\& no options are needed\&.
+The \fItest\fR\& functions use the \fI*\&.asn1db\fR\& files for all included modules\&. If they are located in a different directory than the current working directory, use the \fIinclude\fR\& option to add paths\&. This is only needed when automatically generating values\&. For static values using \fIValue\fR\& no options are needed\&.
 .RE

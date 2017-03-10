@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc/index.html"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Event Tracer (ET)</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 1.6</p>
@@ -139,62 +139,62 @@
   </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
 <div class="exports-body">
-    <p><a name="start_link-1"></a><span class="bold_code bc-9">start_link(Options) -&gt; {ok, CollectorPid} | {error, Reason}</span><br></p>
+    <p><a name="start_link-1"></a><span class="bold_code fun-type">start_link(Options) -&gt; {ok, CollectorPid} | {error, Reason}</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Options = [option()]</span><br>
+<span class="bold_code fun-param-type">Options = [option()]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">option() = {parent_pid, pid()} | {event_order, event_order()} | {dict_insert, {filter, collector}, collector_fun()} | {dict_insert, {filter, event_filter_name()}, event_filter_fun()} | {dict_insert, {subscriber, pid()}, dict_val()} | {dict_insert, dict_key(), dict_val()} | {dict_delete, dict_key()} | {trace_client, trace_client()} | {trace_global, boolean()} |  {trace_pattern, trace_pattern()} | {trace_port, integer()} |  {trace_max_queue, integer()}</span><br>
+<span class="bold_code fun-param-type">option() = {parent_pid, pid()} | {event_order, event_order()} | {dict_insert, {filter, collector}, collector_fun()} | {dict_insert, {filter, event_filter_name()}, event_filter_fun()} | {dict_insert, {subscriber, pid()}, dict_val()} | {dict_insert, dict_key(), dict_val()} | {dict_delete, dict_key()} | {trace_client, trace_client()} | {trace_global, boolean()} |  {trace_pattern, trace_pattern()} | {trace_port, integer()} |  {trace_max_queue, integer()}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">event_order() = trace_ts | event_ts</span><br>
+<span class="bold_code fun-param-type">event_order() = trace_ts | event_ts</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">trace_pattern() = {report_module(), extended_dbg_match_spec()} | undefined</span><br>
+<span class="bold_code fun-param-type">trace_pattern() = {report_module(), extended_dbg_match_spec()} | undefined</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">report_module() = atom() | undefined &lt;v&gt;extended_dbg_match_spec()() = detail_level() | dbg_match_spec()</span><br>
+<span class="bold_code fun-param-type">report_module() = atom() | undefined &lt;v&gt;extended_dbg_match_spec()() = detail_level() | dbg_match_spec()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">detail_level() = min | max | integer(X) when X =&lt; 0, X &gt;= 100</span><br>
+<span class="bold_code fun-param-type">detail_level() = min | max | integer(X) when X =&lt; 0, X &gt;= 100</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">trace_client() =  {event_file, file_name()} | {dbg_trace_type(), dbg_trace_parameters()}</span><br>
+<span class="bold_code fun-param-type">trace_client() =  {event_file, file_name()} | {dbg_trace_type(), dbg_trace_parameters()}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">file_name() = string()</span><br>
+<span class="bold_code fun-param-type">file_name() = string()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">collector_fun() = trace_filter_fun() | event_filter_fun()</span><br>
+<span class="bold_code fun-param-type">collector_fun() = trace_filter_fun() | event_filter_fun()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">trace_filter_fun() = fun(TraceData) -&gt; false | true | {true, NewEvent}</span><br>
+<span class="bold_code fun-param-type">trace_filter_fun() = fun(TraceData) -&gt; false | true | {true, NewEvent}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">event_filter_fun() = fun(Event) -&gt; false | true | {true, NewEvent}</span><br>
+<span class="bold_code fun-param-type">event_filter_fun() = fun(Event) -&gt; false | true | {true, NewEvent}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">event_filter_name() = atom()</span><br>
+<span class="bold_code fun-param-type">event_filter_name() = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">TraceData = erlang_trace_data()</span><br>
+<span class="bold_code fun-param-type">TraceData = erlang_trace_data()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Event = NewEvent = record(event)</span><br>
+<span class="bold_code fun-param-type">Event = NewEvent = record(event)</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">dict_key() = term()</span><br>
+<span class="bold_code fun-param-type">dict_key() = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">dict_val() = term()</span><br>
+<span class="bold_code fun-param-type">dict_val() = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CollectorPid = pid()</span><br>
+<span class="bold_code fun-param-type">CollectorPid = pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code fun-param-type">Reason = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -238,42 +238,42 @@
           <li>trace_max_queue - 50.</li>
         </ul>
       </p></div>
-    <p><a name="stop-1"></a><span class="bold_code bc-9">stop(CollectorPid) -&gt; ok</span><br></p>
+    <p><a name="stop-1"></a><span class="bold_code fun-type">stop(CollectorPid) -&gt; ok</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CollectorPid = pid()</span><br>
+<span class="bold_code fun-param-type">CollectorPid = pid()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>Stop a collector process.</p>
       </p></div>
-    <p><a name="save_event_file-3"></a><span class="bold_code bc-9">save_event_file(CollectorPid, FileName, Options) -&gt; ok | {error, Reason}</span><br></p>
+    <p><a name="save_event_file-3"></a><span class="bold_code fun-type">save_event_file(CollectorPid, FileName, Options) -&gt; ok | {error, Reason}</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CollectorPid = pid()</span><br>
+<span class="bold_code fun-param-type">CollectorPid = pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">FileName = string()</span><br>
+<span class="bold_code fun-param-type">FileName = string()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Options = [option()]</span><br>
+<span class="bold_code fun-param-type">Options = [option()]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code fun-param-type">Reason = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">option() = event_option() | file_option() | table_option()</span><br>
+<span class="bold_code fun-param-type">option() = event_option() | file_option() | table_option()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">event_option() = existing</span><br>
+<span class="bold_code fun-param-type">event_option() = existing</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">file_option() = write | append</span><br>
+<span class="bold_code fun-param-type">file_option() = write | append</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">table_option() = keep | clear</span><br>
+<span class="bold_code fun-param-type">table_option() = keep | clear</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -286,66 +286,66 @@
           have successfully written to file (clear).</p>
         <p>The options defaults to existing, write and keep.</p>
       </p></div>
-    <p><a name="load_event_file-2"></a><span class="bold_code bc-9">load_event_file(CollectorPid, FileName) -&gt; {ok, BadBytes} | exit(Reason)</span><br></p>
+    <p><a name="load_event_file-2"></a><span class="bold_code fun-type">load_event_file(CollectorPid, FileName) -&gt; {ok, BadBytes} | exit(Reason)</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CollectorPid = pid()</span><br>
+<span class="bold_code fun-param-type">CollectorPid = pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">FileName = string()</span><br>
+<span class="bold_code fun-param-type">FileName = string()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">BadBytes = integer(X) where X &gt;= 0</span><br>
+<span class="bold_code fun-param-type">BadBytes = integer(X) where X &gt;= 0</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code fun-param-type">Reason = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>Load the event table from a file.</p>
       </p></div>
-    <p><a name="report-2"></a><span class="bold_code bc-9">report(Handle, TraceOrEvent) -&gt; {ok, Continuation} | exit(Reason)</span><br><a name="report_event-5"></a><span class="bold_code bc-9">report_event(Handle, DetailLevel, FromTo, Label, Contents) -&gt; {ok, Continuation} | exit(Reason)</span><br><a name="report_event-6"></a><span class="bold_code bc-9">report_event(Handle, DetailLevel, From, To, Label, Contents) -&gt; {ok, Continuation} | exit(Reason)</span><br></p>
+    <p><a name="report-2"></a><span class="bold_code fun-type">report(Handle, TraceOrEvent) -&gt; {ok, Continuation} | exit(Reason)</span><br><a name="report_event-5"></a><span class="bold_code fun-type">report_event(Handle, DetailLevel, FromTo, Label, Contents) -&gt; {ok, Continuation} | exit(Reason)</span><br><a name="report_event-6"></a><span class="bold_code fun-type">report_event(Handle, DetailLevel, From, To, Label, Contents) -&gt; {ok, Continuation} | exit(Reason)</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Handle = Initial | Continuation</span><br>
+<span class="bold_code fun-param-type">Handle = Initial | Continuation</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Initial = collector_pid()</span><br>
+<span class="bold_code fun-param-type">Initial = collector_pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">collector_pid() = pid()</span><br>
+<span class="bold_code fun-param-type">collector_pid() = pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Continuation = record(table_handle)</span><br>
+<span class="bold_code fun-param-type">Continuation = record(table_handle)</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">TraceOrEvent = record(event) | dbg_trace_tuple() | end_of_trace</span><br>
+<span class="bold_code fun-param-type">TraceOrEvent = record(event) | dbg_trace_tuple() | end_of_trace</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code fun-param-type">Reason = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">DetailLevel = integer(X) when X =&lt; 0, X &gt;= 100</span><br>
+<span class="bold_code fun-param-type">DetailLevel = integer(X) when X =&lt; 0, X &gt;= 100</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">From        = actor()</span><br>
+<span class="bold_code fun-param-type">From        = actor()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">To          = actor()</span><br>
+<span class="bold_code fun-param-type">To          = actor()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">FromTo      = actor()</span><br>
+<span class="bold_code fun-param-type">FromTo      = actor()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Label       = atom() | string() | term()</span><br>
+<span class="bold_code fun-param-type">Label       = atom() | string() | term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Contents    = [{Key, Value}] | term()</span><br>
+<span class="bold_code fun-param-type">Contents    = [{Key, Value}] | term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">actor()  = term()</span><br>
+<span class="bold_code fun-param-type">actor()  = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -356,97 +356,97 @@
           report handle, while subsequent calls should use the
           table handle.</p>
       </p></div>
-    <p><a name="make_key-2"></a><span class="bold_code bc-9">make_key(Type, Stuff) -&gt; Key</span><br></p>
+    <p><a name="make_key-2"></a><span class="bold_code fun-type">make_key(Type, Stuff) -&gt; Key</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Type = record(table_handle) | trace_ts | event_ts</span><br>
+<span class="bold_code fun-param-type">Type = record(table_handle) | trace_ts | event_ts</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Stuff = record(event) | Key</span><br>
+<span class="bold_code fun-param-type">Stuff = record(event) | Key</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Key = record(event_ts) | record(trace_ts)</span><br>
+<span class="bold_code fun-param-type">Key = record(event_ts) | record(trace_ts)</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>Make a key out of an event record or an old key.</p>
       </p></div>
-    <p><a name="get_table_handle-1"></a><span class="bold_code bc-9">get_table_handle(CollectorPid) -&gt; Handle</span><br></p>
+    <p><a name="get_table_handle-1"></a><span class="bold_code fun-type">get_table_handle(CollectorPid) -&gt; Handle</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CollectorPid = pid()</span><br>
+<span class="bold_code fun-param-type">CollectorPid = pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Handle = record(table_handle)</span><br>
+<span class="bold_code fun-param-type">Handle = record(table_handle)</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>Return a table handle.</p>
       </p></div>
-    <p><a name="get_global_pid-0"></a><span class="bold_code bc-9">get_global_pid() -&gt; CollectorPid | exit(Reason)</span><br></p>
+    <p><a name="get_global_pid-0"></a><span class="bold_code fun-type">get_global_pid() -&gt; CollectorPid | exit(Reason)</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CollectorPid = pid()</span><br>
+<span class="bold_code fun-param-type">CollectorPid = pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code fun-param-type">Reason = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>Return a the identity of the globally registered
           collector if there is any.</p>
       </p></div>
-    <p><a name="change_pattern-2"></a><span class="bold_code bc-9">change_pattern(CollectorPid, RawPattern) -&gt; {old_pattern, TracePattern}</span><br></p>
+    <p><a name="change_pattern-2"></a><span class="bold_code fun-type">change_pattern(CollectorPid, RawPattern) -&gt; {old_pattern, TracePattern}</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CollectorPid = pid()</span><br>
+<span class="bold_code fun-param-type">CollectorPid = pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">RawPattern = {report_module(), extended_dbg_match_spec()}</span><br>
+<span class="bold_code fun-param-type">RawPattern = {report_module(), extended_dbg_match_spec()}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">report_module() = atom() | undefined</span><br>
+<span class="bold_code fun-param-type">report_module() = atom() | undefined</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">extended_dbg_match_spec()() = detail_level() | dbg_match_spec()</span><br>
+<span class="bold_code fun-param-type">extended_dbg_match_spec()() = detail_level() | dbg_match_spec()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">RawPattern = detail_level()</span><br>
+<span class="bold_code fun-param-type">RawPattern = detail_level()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">detail_level() = min | max | integer(X) when X =&lt; 0, X &gt;= 100</span><br>
+<span class="bold_code fun-param-type">detail_level() = min | max | integer(X) when X =&lt; 0, X &gt;= 100</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">TracePattern = {report_module(), dbg_match_spec_match_spec()}</span><br>
+<span class="bold_code fun-param-type">TracePattern = {report_module(), dbg_match_spec_match_spec()}</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>Change active trace pattern globally on all trace nodes.</p>
       </p></div>
-    <p><a name="dict_insert-3"></a><span class="bold_code bc-9">dict_insert(CollectorPid, {filter, collector}, FilterFun) -&gt; ok</span><br><a name="dict_insert-3"></a><span class="bold_code bc-9">dict_insert(CollectorPid, {subscriber, SubscriberPid}, Void) -&gt; ok</span><br><a name="dict_insert-3"></a><span class="bold_code bc-9">dict_insert(CollectorPid, Key, Val) -&gt; ok</span><br></p>
+    <p><a name="dict_insert-3"></a><span class="bold_code fun-type">dict_insert(CollectorPid, {filter, collector}, FilterFun) -&gt; ok</span><br><a name="dict_insert-3"></a><span class="bold_code fun-type">dict_insert(CollectorPid, {subscriber, SubscriberPid}, Void) -&gt; ok</span><br><a name="dict_insert-3"></a><span class="bold_code fun-type">dict_insert(CollectorPid, Key, Val) -&gt; ok</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CollectorPid = pid()</span><br>
+<span class="bold_code fun-param-type">CollectorPid = pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">FilterFun = filter_fun() </span><br>
+<span class="bold_code fun-param-type">FilterFun = filter_fun() </span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">SubscriberPid = pid()</span><br>
+<span class="bold_code fun-param-type">SubscriberPid = pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Void = term()</span><br>
+<span class="bold_code fun-param-type">Void = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Key = term()</span><br>
+<span class="bold_code fun-param-type">Key = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Val = term()</span><br>
+<span class="bold_code fun-param-type">Val = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -462,39 +462,39 @@
           will imply that it gets unregistered as with a normal
           dict_delete/2.</p>
       </p></div>
-    <p><a name="dict_lookup-2"></a><span class="bold_code bc-9">dict_lookup(CollectorPid, Key) -&gt; [Val]</span><br></p>
+    <p><a name="dict_lookup-2"></a><span class="bold_code fun-type">dict_lookup(CollectorPid, Key) -&gt; [Val]</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CollectorPid = pid()</span><br>
+<span class="bold_code fun-param-type">CollectorPid = pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">FilterFun = filter_fun() </span><br>
+<span class="bold_code fun-param-type">FilterFun = filter_fun() </span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CollectorPid = pid()</span><br>
+<span class="bold_code fun-param-type">CollectorPid = pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Key = term()</span><br>
+<span class="bold_code fun-param-type">Key = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Val = term()</span><br>
+<span class="bold_code fun-param-type">Val = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>Lookup a dictionary entry and return zero or one value.</p>
       </p></div>
-    <p><a name="dict_delete-2"></a><span class="bold_code bc-9">dict_delete(CollectorPid, Key) -&gt; ok</span><br></p>
+    <p><a name="dict_delete-2"></a><span class="bold_code fun-type">dict_delete(CollectorPid, Key) -&gt; ok</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CollectorPid = pid()</span><br>
+<span class="bold_code fun-param-type">CollectorPid = pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">SubscriberPid = pid()</span><br>
+<span class="bold_code fun-param-type">SubscriberPid = pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Key = {subscriber, SubscriberPid} | term()</span><br>
+<span class="bold_code fun-param-type">Key = {subscriber, SubscriberPid} | term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -505,102 +505,102 @@
           imply that the subscriber process gets is unregistered as
           subscriber as well as it gets it final message.</p>
       </p></div>
-    <p><a name="dict_match-2"></a><span class="bold_code bc-9">dict_match(CollectorPid, Pattern) -&gt; [Match]</span><br></p>
+    <p><a name="dict_match-2"></a><span class="bold_code fun-type">dict_match(CollectorPid, Pattern) -&gt; [Match]</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CollectorPid = pid()</span><br>
+<span class="bold_code fun-param-type">CollectorPid = pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Pattern = '_' | {key_pattern(), val_pattern()}</span><br>
+<span class="bold_code fun-param-type">Pattern = '_' | {key_pattern(), val_pattern()}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">key_pattern() = ets_match_object_pattern()</span><br>
+<span class="bold_code fun-param-type">key_pattern() = ets_match_object_pattern()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">val_pattern() = ets_match_object_pattern()</span><br>
+<span class="bold_code fun-param-type">val_pattern() = ets_match_object_pattern()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Match = {key(), val()}</span><br>
+<span class="bold_code fun-param-type">Match = {key(), val()}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">key() = term()</span><br>
+<span class="bold_code fun-param-type">key() = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">val() = term()</span><br>
+<span class="bold_code fun-param-type">val() = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>Match some dictionary entries</p>
       </p></div>
-    <p><a name="multicast-2"></a><span class="bold_code bc-9">multicast(_CollectorPid, Msg) -&gt; ok</span><br></p>
+    <p><a name="multicast-2"></a><span class="bold_code fun-type">multicast(_CollectorPid, Msg) -&gt; ok</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CollectorPid = pid()</span><br>
+<span class="bold_code fun-param-type">CollectorPid = pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CollectorPid = pid()</span><br>
+<span class="bold_code fun-param-type">CollectorPid = pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Msg = term()</span><br>
+<span class="bold_code fun-param-type">Msg = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>Sends a message to all registered subscribers.</p>
       </p></div>
-    <p><a name="start_trace_client-3"></a><span class="bold_code bc-9">start_trace_client(CollectorPid, Type, Parameters) -&gt; file_loaded | {trace_client_pid, pid()} | exit(Reason)</span><br></p>
+    <p><a name="start_trace_client-3"></a><span class="bold_code fun-type">start_trace_client(CollectorPid, Type, Parameters) -&gt; file_loaded | {trace_client_pid, pid()} | exit(Reason)</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Type       = dbg_trace_client_type()</span><br>
+<span class="bold_code fun-param-type">Type       = dbg_trace_client_type()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Parameters = dbg_trace_client_parameters()</span><br>
+<span class="bold_code fun-param-type">Parameters = dbg_trace_client_parameters()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Pid        = dbg_trace_client_pid()</span><br>
+<span class="bold_code fun-param-type">Pid        = dbg_trace_client_pid()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>Load raw Erlang trace from a file, port or process.</p>
       </p></div>
-    <p><a name="iterate-3"></a><span class="bold_code bc-9">iterate(Handle, Prev, Limit) -&gt; NewAcc</span><br></p>
+    <p><a name="iterate-3"></a><span class="bold_code fun-type">iterate(Handle, Prev, Limit) -&gt; NewAcc</span><br></p>
 <div class="REFBODY rb-7"><p>
         <p>Short for iterate(Handle, Prev, Limit, undefined, Prev) -&gt; NewAcc</p>
       </p></div>
-    <p><a name="iterate-5"></a><span class="bold_code bc-9">iterate(Handle, Prev, Limit, Fun, Acc) -&gt; NewAcc</span><br></p>
+    <p><a name="iterate-5"></a><span class="bold_code fun-type">iterate(Handle, Prev, Limit, Fun, Acc) -&gt; NewAcc</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Handle = collector_pid() | table_handle()</span><br>
+<span class="bold_code fun-param-type">Handle = collector_pid() | table_handle()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Prev = first | last | event_key()</span><br>
+<span class="bold_code fun-param-type">Prev = first | last | event_key()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Limit = done() | forward() | backward()</span><br>
+<span class="bold_code fun-param-type">Limit = done() | forward() | backward()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">collector_pid() = pid()</span><br>
+<span class="bold_code fun-param-type">collector_pid() = pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">table_handle() = record(table_handle)</span><br>
+<span class="bold_code fun-param-type">table_handle() = record(table_handle)</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">event_key() = record(event) | record(event_ts) | record(trace_ts)</span><br>
+<span class="bold_code fun-param-type">event_key() = record(event) | record(event_ts) | record(trace_ts)</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">done() = 0</span><br>
+<span class="bold_code fun-param-type">done() = 0</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">forward() = infinity | integer(X) where X &gt; 0</span><br>
+<span class="bold_code fun-param-type">forward() = infinity | integer(X) where X &gt; 0</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">backward() = '-infinity' | integer(X) where X &lt; 0</span><br>
+<span class="bold_code fun-param-type">backward() = '-infinity' | integer(X) where X &lt; 0</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Fun = fun(Event, Acc) -&gt; NewAcc &lt;v&gt;Acc = NewAcc = term()</span><br>
+<span class="bold_code fun-param-type">Fun = fun(Event, Acc) -&gt; NewAcc &lt;v&gt;Acc = NewAcc = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -610,17 +610,17 @@
           forwards or backwards and may be limited to a maximum
           number of events (abs(Limit)).</p>
       </p></div>
-    <p><a name="clear_table-1"></a><span class="bold_code bc-9">clear_table(Handle) -&gt; ok</span><br></p>
+    <p><a name="clear_table-1"></a><span class="bold_code fun-type">clear_table(Handle) -&gt; ok</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Handle = collector_pid() | table_handle()</span><br>
+<span class="bold_code fun-param-type">Handle = collector_pid() | table_handle()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">collector_pid() = pid()</span><br>
+<span class="bold_code fun-param-type">collector_pid() = pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">table_handle() = record(table_handle)</span><br>
+<span class="bold_code fun-param-type">table_handle() = record(table_handle)</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -631,7 +631,7 @@
 </div>
 <div class="footer">
 <hr>
-<p>Copyright © 2002-2016 Ericsson AB. All Rights Reserved.</p>
+<p>Copyright © 2002-2017 Ericsson AB. All Rights Reserved.</p>
 </div>
 </div>
 </div>

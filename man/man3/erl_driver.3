@@ -1,4 +1,4 @@
-.TH erl_driver 3 "erts 8.1" "Ericsson AB" "C Library Functions"
+.TH erl_driver 3 "erts 8.2.1" "Ericsson AB" "C Library Functions"
 .SH NAME
 erl_driver \- API functions for an Erlang driver.
 .SH DESCRIPTION
@@ -1410,7 +1410,7 @@ Note:
 Some OS (Windows) do not differentiate between read and write events\&. The callback for a fired event then only depends on the value of \fImode\fR\&\&.
 
 .LP
-\fIERL_DRV_USE\fR\& specifies if we are using the event object or if we want to close it\&. On an emulator with SMP support, it is not safe to clear all events and then close the event object after \fIdriver_select\fR\& has returned\&. Another thread can still be using the event object internally\&. To safely close an event object, call \fIdriver_select\fR\& with \fIERL_DRV_USE\fR\& and \fIon==0\fR\&, which clears all events\&. Then call \fB\fIstop_select\fR\&\fR\& when it is safe to close the event object\&. \fIERL_DRV_USE\fR\& is to be set together with the first event for an event object\&. It is harmless to set \fIERL_DRV_USE\fR\& even if it already has been done\&. Clearing all events but keeping \fIERL_DRV_USE\fR\& set indicates that we are using the event object and probably will set events for it again\&.
+\fIERL_DRV_USE\fR\& specifies if we are using the event object or if we want to close it\&. On an emulator with SMP support, it is not safe to clear all events and then close the event object after \fIdriver_select\fR\& has returned\&. Another thread can still be using the event object internally\&. To safely close an event object, call \fIdriver_select\fR\& with \fIERL_DRV_USE\fR\& and \fIon==0\fR\&, which clears all events and then either calls \fB\fIstop_select\fR\&\fR\& or schedules it to be called when it is safe to close the event object\&. \fIERL_DRV_USE\fR\& is to be set together with the first event for an event object\&. It is harmless to set \fIERL_DRV_USE\fR\& even if it already has been done\&. Clearing all events but keeping \fIERL_DRV_USE\fR\& set indicates that we are using the event object and probably will set events for it again\&.
 .LP
 
 .RS -4
@@ -1505,7 +1505,7 @@ void erl_drv_busy_msgq_limits(ErlDrvPort port,
 .br
 .RS
 .LP
-Sets and gets limits that will be used for controling the busy state of the port message queue\&.
+Sets and gets limits that will be used for controlling the busy state of the port message queue\&.
 .LP
 The port message queue is set into a busy state when the amount of command data queued on the message queue reaches the \fIhigh\fR\& limit\&. The port message queue is set into a not busy state when the amount of command data queued on the message queue falls below the \fIlow\fR\& limit\&. Command data is in this context data passed to the port using either \fIPort ! {Owner, {command, Data}}\fR\& or \fIport_command/[2,3]\fR\&\&. Notice that these limits only concerns command data that have not yet reached the port\&. The \fBbusy port\fR\& feature can be used for data that has reached the port\&.
 .LP
@@ -1543,7 +1543,7 @@ Creates a condition variable and returns a pointer to it\&.
 .LP
 \fIname\fR\& is a string identifying the created condition variable\&. It is used to identify the condition variable in planned future debug functionality\&.
 .LP
-Returns \fINULL\fR\& on failure\&. The driver creating the condition variable is responsibile for destroying it before the driver is unloaded\&.
+Returns \fINULL\fR\& on failure\&. The driver creating the condition variable is responsible for destroying it before the driver is unloaded\&.
 .LP
 This function is thread-safe\&.
 .RE

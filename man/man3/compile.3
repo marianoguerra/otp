@@ -1,4 +1,4 @@
-.TH compile 3 "compiler 7.0.2" "Ericsson AB" "Erlang Module Definition"
+.TH compile 3 "compiler 7.0.3" "Ericsson AB" "Erlang Module Definition"
 .SH NAME
 compile \- Erlang Compiler
 .SH DESCRIPTION
@@ -120,6 +120,10 @@ Similar to the \fIdebug_info_key\fR\& option, but the key is read from an \fI\&.
 .LP
 For details, see \fBbeam_lib(3)\fR\&\&.
 .RE
+.TP 2
+.B
+\fIdeterministic\fR\&:
+Omit the \fIoptions\fR\& and \fIsource\fR\& tuples in the list returned by \fIModule:module_info(compile)\fR\&\&. This option will make it easier to achieve reproducible builds\&.
 .TP 2
 .B
 \fImakedep\fR\&:
@@ -378,8 +382,8 @@ To resolve BIF clashes, use explicit module names or the \fI{no_auto_import,[F/A
 
 .TP 2
 .B
-\fIwarn_export_all\fR\&:
-Emits a warning if option \fIexport_all\fR\& is also given\&.
+\fInowarn_export_all\fR\&:
+Turns off warnings for uses of the \fIexport_all\fR\& option\&. Default is to emit a warning if option \fIexport_all\fR\& is also given\&.
 .TP 2
 .B
 \fIwarn_export_vars\fR\&:
@@ -411,7 +415,7 @@ Turns off warnings for use of deprecated types\&. Default is to emit warnings fo
 .TP 2
 .B
 \fIwarn_obsolete_guard\fR\&:
-Emits warnings for calls to old type testing BIFs, such as \fIpid/1\fR\& and \fIlist/1\fR\&\&. See the \fBErlang Reference Manual\fR\& for a complete list of type testing BIFs and their old equivalents\&. Default is to emit no warnings for calls to old type testing BIFs\&.
+Emits warnings for calls to old type testing BIFs, such as \fIpid/1\fR\& and \fIlist/1\fR\&\&. See the \fBErlang Reference Manual\fR\& for a complete list of type testing BIFs and their old equivalents\&. Default is to emit warnings for calls to old type testing BIFs\&.
 .TP 2
 .B
 \fIwarn_unused_import\fR\&:

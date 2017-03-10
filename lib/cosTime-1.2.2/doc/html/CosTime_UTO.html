@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc/index.html"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">cosTime</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 1.2.2</p>
@@ -149,68 +149,68 @@
   </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
 <div class="exports-body">
-    <p><a name="'_get_time'-1"></a><span class="bold_code bc-9">'_get_time'(UTO) -&gt; ulonglong()</span><br></p>
+    <p><a name="'_get_time'-1"></a><span class="bold_code fun-type">'_get_time'(UTO) -&gt; ulonglong()</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">UTO = #objref</span><br>
+<span class="bold_code fun-param-type">UTO = #objref</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>This operation returns the time associated with the target object.</p>
       </p></div>
-    <p><a name="'_get_inaccuracy'-1"></a><span class="bold_code bc-9">'_get_inaccuracy'(UTO) -&gt; ulonglong()</span><br></p>
+    <p><a name="'_get_inaccuracy'-1"></a><span class="bold_code fun-type">'_get_inaccuracy'(UTO) -&gt; ulonglong()</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">UTO = #objref</span><br>
+<span class="bold_code fun-param-type">UTO = #objref</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>This operation returns the inaccuracy associated with the target object.</p>
       </p></div>
-    <p><a name="'_get_tdf'-1"></a><span class="bold_code bc-9">'_get_tdf'(UTO) -&gt; short()</span><br></p>
+    <p><a name="'_get_tdf'-1"></a><span class="bold_code fun-type">'_get_tdf'(UTO) -&gt; short()</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">UTO = #objref</span><br>
+<span class="bold_code fun-param-type">UTO = #objref</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>This operation returns the time displacement factor associated with 
           the target object.</p>
       </p></div>
-    <p><a name="'_get_utc_time'-1"></a><span class="bold_code bc-9">'_get_utc_time'(UTO) -&gt; UtcT</span><br></p>
+    <p><a name="'_get_utc_time'-1"></a><span class="bold_code fun-type">'_get_utc_time'(UTO) -&gt; UtcT</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">UTO = #objref</span><br>
+<span class="bold_code fun-param-type">UTO = #objref</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Utc = #'TimeBase_UtcT'{time, inacclo, inacchi, tdf}</span><br>
+<span class="bold_code fun-param-type">Utc = #'TimeBase_UtcT'{time, inacclo, inacchi, tdf}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">time = ulonglong()</span><br>
+<span class="bold_code fun-param-type">time = ulonglong()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">inacclo = ulong()</span><br>
+<span class="bold_code fun-param-type">inacclo = ulong()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">inacchi = ushort()</span><br>
+<span class="bold_code fun-param-type">inacchi = ushort()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">tdf = short()</span><br>
+<span class="bold_code fun-param-type">tdf = short()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>This operation returns the data associated with the target object in
           Utc form.</p>
       </p></div>
-    <p><a name="absolute_time-1"></a><span class="bold_code bc-9">absolute_time(UTO) -&gt; OtherUTO</span><br></p>
+    <p><a name="absolute_time-1"></a><span class="bold_code fun-type">absolute_time(UTO) -&gt; OtherUTO</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">UTO = OtherUTO = #objref</span><br>
+<span class="bold_code fun-param-type">UTO = OtherUTO = #objref</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -221,17 +221,17 @@
           Raises DATA_CONVERSION if causes an overflow. This operation is only useful
           if the target object represents a relative time.</p>
       </p></div>
-    <p><a name="compare_time-3"></a><span class="bold_code bc-9">compare_time(UTO, ComparisonType, OtherUTO) -&gt; Reply</span><br></p>
+    <p><a name="compare_time-3"></a><span class="bold_code fun-type">compare_time(UTO, ComparisonType, OtherUTO) -&gt; Reply</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">UTO = OtherUTO = #objref</span><br>
+<span class="bold_code fun-param-type">UTO = OtherUTO = #objref</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ComparisonType = 'IntervalC' | 'MidC'</span><br>
+<span class="bold_code fun-param-type">ComparisonType = 'IntervalC' | 'MidC'</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reply = 'TCEqualTo' | 'TCLessThan' | 'TCGreaterThan' | 'TCIndeterminate'</span><br>
+<span class="bold_code fun-param-type">Reply = 'TCEqualTo' | 'TCLessThan' | 'TCGreaterThan' | 'TCIndeterminate'</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -248,11 +248,11 @@
            otherwise the as for 'MidC'.</li>
         </ul>
       </p></div>
-    <p><a name="time_to_interval-2"></a><span class="bold_code bc-9">time_to_interval(UTO, OtherUTO) -&gt; TIO</span><br></p>
+    <p><a name="time_to_interval-2"></a><span class="bold_code fun-type">time_to_interval(UTO, OtherUTO) -&gt; TIO</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">UTO = OtherUTO = TIO = #objref</span><br>
+<span class="bold_code fun-param-type">UTO = OtherUTO = TIO = #objref</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -260,11 +260,11 @@
           object and the given UTO midpoint times. The inaccuracy in the objects are
           not taken into consideration.</p>
       </p></div>
-    <p><a name="interval-1"></a><span class="bold_code bc-9">interval(UTO) -&gt; TIO</span><br></p>
+    <p><a name="interval-1"></a><span class="bold_code fun-type">interval(UTO) -&gt; TIO</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">UTO = TIO = #objref</span><br>
+<span class="bold_code fun-param-type">UTO = TIO = #objref</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -278,7 +278,7 @@
 </div>
 <div class="footer">
 <hr>
-<p>Copyright © 2000-2016 Ericsson AB. All Rights Reserved.</p>
+<p>Copyright © 2000-2017 Ericsson AB. All Rights Reserved.</p>
 </div>
 </div>
 </div>

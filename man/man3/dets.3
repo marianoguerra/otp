@@ -1,4 +1,4 @@
-.TH dets 3 "stdlib 3.1" "Ericsson AB" "Erlang Module Definition"
+.TH dets 3 "stdlib 3.2" "Ericsson AB" "Erlang Module Definition"
 .SH NAME
 dets \- A disk-based term storage.
 .SH DESCRIPTION
@@ -38,9 +38,7 @@ As all operations performed by Dets are disk operations, it is important to real
 .LP
 Dets organizes data as a linear hash list and the hash list grows gracefully as more data is inserted into the table\&. Space management on the file is performed by what is called a buddy system\&. The current implementation keeps the entire buddy system in RAM, which implies that if the table gets heavily fragmented, quite some memory can be used up\&. The only way to defragment a table is to close it and then open it again with option \fIrepair\fR\& set to \fIforce\fR\&\&.
 .LP
-Notice that type \fIordered_set\fR\& in Ets is not yet provided by Dets, neither is the limited support for concurrent updates that makes a sequence of \fIfirst\fR\& and \fInext\fR\& calls safe to use on fixed ETS tables\&. Both these features will be provided by Dets in a future release of Erlang/OTP\&. Until then, the Mnesia application (or some user-implemented method for locking) must be used to implement safe concurrency\&. Currently, no Erlang/OTP library has support for ordered disk-based term storage\&.
-.LP
-Two versions of the format used for storing objects on file are supported by Dets\&. The first version, 8, is the format always used for tables created by Erlang/OTP R7 and earlier\&. The second version, 9, is the default version of tables created by Erlang/OTP R8 (and later releases)\&. Erlang/OTP R8 can create version 8 tables, and convert version 8 tables to version 9, and conversely, upon request\&.
+Notice that type \fIordered_set\fR\& in Ets is not yet provided by Dets, neither is the limited support for concurrent updates that makes a sequence of \fIfirst\fR\& and \fInext\fR\& calls safe to use on fixed ETS tables\&. Both these features may be provided by Dets in a future release of Erlang/OTP\&. Until then, the Mnesia application (or some user-implemented method for locking) must be used to implement safe concurrency\&. Currently, no Erlang/OTP library has support for ordered disk-based term storage\&.
 .LP
 All Dets functions return \fI{error, Reason}\fR\& if an error occurs (\fB\fIfirst/1\fR\&\fR\& and \fB\fInext/2\fR\&\fR\& are exceptions, they exit the process with the error tuple)\&. If badly formed arguments are specified, all functions exit the process with a \fIbadarg\fR\& message\&.
 .SH DATA TYPES
@@ -88,7 +86,7 @@ Match specifications, see section \fB Match Specification in Erlang\fR\& in ERTS
 .RE
 .nf
 
-\fBno_slots()\fR\& = integer() >= 0 | default
+\fBno_slots()\fR\& = default | integer() >= 0
 .br
 .fi
 .nf
@@ -131,11 +129,6 @@ Opaque continuation used by \fB\fIselect/1\fR\&\fR\& and \fB\fIselect/3\fR\&\fR\
 .nf
 
 \fBtype()\fR\& = bag | duplicate_bag | set
-.br
-.fi
-.nf
-
-\fBversion()\fR\& = 8 | 9 | default
 .br
 .fi
 .SH EXPORTS
@@ -483,9 +476,7 @@ Item =
 .br
     size |
 .br
-    type |
-.br
-    version
+    type
 .br
 Value = term()
 .br
@@ -505,16 +496,12 @@ Returns the information associated with \fIItem\fR\& for table \fIName\fR\&\&. I
 .LP
 .TP 2
 *
-\fI{bchunk_format, binary()}\fR\& - An opaque binary describing the format of the objects returned by \fIbchunk/2\fR\&\&. The binary can be used as argument to \fIis_compatible_chunk_format/2\fR\&\&. Only available for version 9 tables\&.
+\fI{bchunk_format, binary()}\fR\& - An opaque binary describing the format of the objects returned by \fIbchunk/2\fR\&\&. The binary can be used as argument to \fIis_compatible_chunk_format/2\fR\&\&.
 .LP
 .TP 2
 *
 \fI{hash, Hash}\fR\& - Describes which BIF is used to calculate the hash values of the objects stored in the Dets table\&. Possible values of \fIHash\fR\&:
 .RS 2
-.TP 2
-*
-\fIhash\fR\& - Implies that the \fIerlang:hash/2\fR\& BIF is used\&.
-.LP
 .TP 2
 *
 \fIphash\fR\& - Implies that the \fIerlang:phash/2\fR\& BIF is used\&.
@@ -532,7 +519,7 @@ Returns the information associated with \fIItem\fR\& for table \fIName\fR\&\&. I
 .LP
 .TP 2
 *
-\fI{no_keys, integer >= 0()}\fR\& - The number of different keys stored in the table\&. Only available for version 9 tables\&.
+\fI{no_keys, integer >= 0()}\fR\& - The number of different keys stored in the table\&.
 .LP
 .TP 2
 *
@@ -540,7 +527,7 @@ Returns the information associated with \fIItem\fR\& for table \fIName\fR\&\&. I
 .LP
 .TP 2
 *
-\fI{no_slots, {Min, Used, Max}}\fR\& - The number of slots of the table\&. \fIMin\fR\& is the minimum number of slots, \fIUsed\fR\& is the number of currently used slots, and \fIMax\fR\& is the maximum number of slots\&. Only available for version 9 tables\&.
+\fI{no_slots, {Min, Used, Max}}\fR\& - The number of slots of the table\&. \fIMin\fR\& is the minimum number of slots, \fIUsed\fR\& is the number of currently used slots, and \fIMax\fR\& is the maximum number of slots\&.
 .LP
 .TP 2
 *
@@ -565,10 +552,6 @@ Returns the information associated with \fIItem\fR\& for table \fIName\fR\&\&. I
 .LP
 \fIFixedAtTime\fR\& corresponds to the result returned by \fB\fIerlang:timestamp/0\fR\&\fR\& at the time of fixation\&. Notice that when the system uses single or multi \fBtime warp modes\fR\&, this can produce strange results\&. This is because the use of \fIsafe_fixed\fR\& is not \fB time warp safe\fR\&\&. Time warp safe code must use \fIsafe_fixed_monotonic_time\fR\& instead\&.
 .RE
-.LP
-.TP 2
-*
-\fI{version, integer()}\fR\& - The version of the format of the table\&.
 .LP
 .RE
 
@@ -880,7 +863,7 @@ Matches some or all objects of table \fIName\fR\& and returns a non-empty list o
 .LP
 A tuple of the bindings and a continuation is returned, unless the table is empty, in which case \fI\&'$end_of_table\&'\fR\& is returned\&. The continuation is to be used when matching further objects by calling \fB\fImatch/1\fR\&\fR\&\&.
 .LP
-If the keypos\&'th element of \fIPattern\fR\& is bound, all table objects are matched\&. If the keypos\&'th element is unbound, all table objects are matched, \fIN\fR\& objects at a time, until at least one object matches or the end of the table is reached\&. The default, indicated by giving \fIN\fR\& the value \fIdefault\fR\&, is to let the number of objects vary depending on the sizes of the objects\&. If \fIName\fR\& is a version 9 table, all objects with the same key are always matched at the same time, which implies that more than N objects can sometimes be matched\&.
+If the keypos\&'th element of \fIPattern\fR\& is bound, all table objects are matched\&. If the keypos\&'th element is unbound, all table objects are matched, \fIN\fR\& objects at a time, until at least one object matches or the end of the table is reached\&. The default, indicated by giving \fIN\fR\& the value \fIdefault\fR\&, is to let the number of objects vary depending on the sizes of the objects\&. All objects with the same key are always matched at the same time, which implies that more than N objects can sometimes be matched\&.
 .LP
 The table is always to be protected using \fB\fIsafe_fixtable/2\fR\&\fR\& before calling \fImatch/3\fR\&, otherwise errors can occur when calling \fImatch/1\fR\&\&.
 .RE
@@ -1014,7 +997,7 @@ Matches some or all objects stored in table \fIName\fR\& and returns a non-empty
 .LP
 A list of objects and a continuation is returned, unless the table is empty, in which case \fI\&'$end_of_table\&'\fR\& is returned\&. The continuation is to be used when matching further objects by calling \fB\fImatch_object/1\fR\&\fR\&\&.
 .LP
-If the keypos\&'th element of \fIPattern\fR\& is bound, all table objects are matched\&. If the keypos\&'th element is unbound, all table objects are matched, \fIN\fR\& objects at a time, until at least one object matches or the end of the table is reached\&. The default, indicated by giving \fIN\fR\& the value \fIdefault\fR\&, is to let the number of objects vary depending on the sizes of the objects\&. If \fIName\fR\& is a version 9 table, all matching objects with the same key are always returned in the same reply, which implies that more than N objects can sometimes be returned\&.
+If the keypos\&'th element of \fIPattern\fR\& is bound, all table objects are matched\&. If the keypos\&'th element is unbound, all table objects are matched, \fIN\fR\& objects at a time, until at least one object matches or the end of the table is reached\&. The default, indicated by giving \fIN\fR\& the value \fIdefault\fR\&, is to let the number of objects vary depending on the sizes of the objects\&. All matching objects with the same key are always returned in the same reply, which implies that more than N objects can sometimes be returned\&.
 .LP
 The table is always to be protected using \fB\fIsafe_fixtable/2\fR\&\fR\& before calling \fImatch_object/3\fR\&, otherwise errors can occur when calling \fImatch_object/1\fR\&\&.
 .RE
@@ -1130,9 +1113,7 @@ OpenArg =
 .br
     {repair, boolean() | force} |
 .br
-    {type, \fBtype()\fR\&} |
-.br
-    {version, \fBversion()\fR\&}
+    {type, \fBtype()\fR\&}
 .br
 Reason = term()
 .br
@@ -1166,7 +1147,7 @@ Argument \fIArgs\fR\& is a list of \fI{Key, Val}\fR\& tuples, where the followin
 .LP
 .TP 2
 *
-\fI{max_no_slots, \fR\&\fB\fIno_slots()\fR\&\fR\&\fI}\fR\& - The maximum number of slots to be used\&. Defaults to 32 M, which is the maximal value\&. Notice that a higher value can increase the table fragmentation, and a smaller value can decrease the fragmentation, at the expense of execution time\&. Only available for version 9 tables\&.
+\fI{max_no_slots, \fR\&\fB\fIno_slots()\fR\&\fR\&\fI}\fR\& - The maximum number of slots to be used\&. Defaults to 32 M, which is the maximal value\&. Notice that a higher value can increase the table fragmentation, and a smaller value can decrease the fragmentation, at the expense of execution time\&.
 .LP
 .TP 2
 *
@@ -1185,7 +1166,7 @@ Argument \fIArgs\fR\& is a list of \fI{Key, Val}\fR\& tuples, where the followin
 \fI{repair, Value}\fR\& - \fIValue\fR\& can be either a \fIboolean()\fR\& or the atom \fIforce\fR\&\&. The flag specifies if the Dets server is to invoke the automatic file reparation algorithm\&. Defaults to \fItrue\fR\&\&. If \fIfalse\fR\& is specified, no attempt is made to repair the file, and \fI{error, {needs_repair, FileName}}\fR\& is returned if the table must be repaired\&.
 .RS 2
 .LP
-Value \fIforce\fR\& means that a reparation is made even if the table is properly closed\&. This is how to convert tables created by older versions of STDLIB\&. An example is tables hashed with the deprecated \fIerlang:hash/2\fR\& BIF\&. Tables created with Dets from STDLIB version 1\&.8\&.2 or later use function \fIerlang:phash/2\fR\& or function \fIerlang:phash2/1\fR\&, which is preferred\&.
+Value \fIforce\fR\& means that a reparation is made even if the table is properly closed\&. This is a seldom needed option\&.
 .RE
 .RS 2
 .LP
@@ -1195,10 +1176,6 @@ Option \fIrepair\fR\& is ignored if the table is already open\&.
 .TP 2
 *
 \fI{type, \fR\&\fB\fItype()\fR\&\fR\&\fI}\fR\& - The table type\&. Defaults to \fIset\fR\&\&.
-.LP
-.TP 2
-*
-\fI{version, \fR\&\fB\fIversion()\fR\&\fR\&\fI}\fR\& - The version of the format used for the table\&. Defaults to \fI9\fR\&\&. Tables on the format used before Erlang/OTP R8 can be created by specifying value \fI8\fR\&\&. A version 8 table can be converted to a version 9 table by specifying options \fI{version,9}\fR\& and \fI{repair,force}\fR\&\&.
 .LP
 .RE
 
@@ -1397,7 +1374,7 @@ Returns the results of applying match specification \fIMatchSpec\fR\& to some or
 .LP
 A tuple of the results of applying the match specification and a continuation is returned, unless the table is empty, in which case \fI\&'$end_of_table\&'\fR\& is returned\&. The continuation is to be used when matching more objects by calling \fB\fIselect/1\fR\&\fR\&\&.
 .LP
-If the keypos\&'th element of \fIMatchSpec\fR\& is bound, the match specification is applied to all objects of the table with the correct key(s)\&. If the keypos\&'th element of \fIMatchSpec\fR\& is unbound, the match specification is applied to all objects of the table, \fIN\fR\& objects at a time, until at least one object matches or the end of the table is reached\&. The default, indicated by giving \fIN\fR\& the value \fIdefault\fR\&, is to let the number of objects vary depending on the sizes of the objects\&. If \fIName\fR\& is a version 9 table, all objects with the same key are always handled at the same time, which implies that the match specification can be applied to more than N objects\&.
+If the keypos\&'th element of \fIMatchSpec\fR\& is bound, the match specification is applied to all objects of the table with the correct key(s)\&. If the keypos\&'th element of \fIMatchSpec\fR\& is unbound, the match specification is applied to all objects of the table, \fIN\fR\& objects at a time, until at least one object matches or the end of the table is reached\&. The default, indicated by giving \fIN\fR\& the value \fIdefault\fR\&, is to let the number of objects vary depending on the sizes of the objects\&. All objects with the same key are always handled at the same time, which implies that the match specification can be applied to more than N objects\&.
 .LP
 The table is always to be protected using \fB\fIsafe_fixtable/2\fR\&\fR\& before calling \fIselect/3\fR\&, otherwise errors can occur when calling \fIselect/1\fR\&\&.
 .RE

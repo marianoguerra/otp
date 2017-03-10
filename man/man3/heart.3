@@ -1,9 +1,9 @@
-.TH heart 3 "kernel 5.1" "Ericsson AB" "Erlang Module Definition"
+.TH heart 3 "kernel 5.1.1" "Ericsson AB" "Erlang Module Definition"
 .SH NAME
 heart \- Heartbeat monitoring of an Erlang runtime system.
 .SH DESCRIPTION
 .LP
-This modules contains the interface to the \fIheart\fR\& process\&. \fIheart\fR\& sends periodic heartbeats to an external port program, which is also named \fIheart\fR\&\&. The purpose of the \fIheart\fR\& port program is to check that the Erlang runtime system it is supervising is still running\&. If the port program has not received any heartbeats within \fIHEART_BEAT_TIMEOUT\fR\& seconds (defaults to 60 seconds), the system can be rebooted\&. Also, if the system is equipped with a hardware watchdog timer and is running Solaris, the watchdog can be used to supervise the entire system\&.
+This modules contains the interface to the \fIheart\fR\& process\&. \fIheart\fR\& sends periodic heartbeats to an external port program, which is also named \fIheart\fR\&\&. The purpose of the \fIheart\fR\& port program is to check that the Erlang runtime system it is supervising is still running\&. If the port program has not received any heartbeats within \fIHEART_BEAT_TIMEOUT\fR\& seconds (defaults to 60 seconds), the system can be rebooted\&.
 .LP
 An Erlang runtime system to be monitored by a heart program is to be started with command-line flag \fI-heart\fR\& (see also \fB\fIerl(1)\fR\&\fR\&)\&. The \fIheart\fR\& process is then started automatically:
 .LP
@@ -12,13 +12,11 @@ An Erlang runtime system to be monitored by a heart program is to be started wit
 % erl -heart \&.\&.\&.
 .fi
 .LP
-If the system is to be rebooted because of missing heartbeats, or a terminated Erlang runtime system, environment variable \fIHEART_COMMAND\fR\& must be set before the system is started\&. If this variable is not set, a warning text is printed but the system does not reboot\&. However, if the hardware watchdog is used, it still triggers a reboot \fIHEART_BEAT_BOOT_DELAY\fR\& seconds later (defaults to 60 seconds)\&.
+If the system is to be rebooted because of missing heartbeats, or a terminated Erlang runtime system, environment variable \fIHEART_COMMAND\fR\& must be set before the system is started\&. If this variable is not set, a warning text is printed but the system does not reboot\&.
 .LP
 To reboot on Windows, \fIHEART_COMMAND\fR\& can be set to \fIheart -shutdown\fR\& (included in the Erlang delivery) or to any other suitable program that can activate a reboot\&.
 .LP
-The hardware watchdog is not started under Solaris if environment variable \fIHW_WD_DISABLE\fR\& is set\&.
-.LP
-The environment variables \fIHEART_BEAT_TIMEOUT\fR\& and \fIHEART_BEAT_BOOT_DELAY\fR\& can be used to configure the heart time-outs; they can be set in the operating system shell before Erlang is started or be specified at the command line:
+The environment variable \fIHEART_BEAT_TIMEOUT\fR\& can be used to configure the heart time-outs; it can be set in the operating system shell before Erlang is started or be specified at the command line:
 .LP
 .nf
 

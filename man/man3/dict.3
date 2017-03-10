@@ -1,4 +1,4 @@
-.TH dict 3 "stdlib 3.1" "Ericsson AB" "Erlang Module Definition"
+.TH dict 3 "stdlib 3.2" "Ericsson AB" "Erlang Module Definition"
 .SH NAME
 dict \- Key-value dictionary.
 .SH DESCRIPTION
@@ -136,6 +136,29 @@ Keys = [Key]
 .RS
 .LP
 Returns a list of all keys in dictionary \fIDict\fR\&\&.
+.RE
+.LP
+.nf
+
+.B
+take(Key, Dict) -> {Value, Dict1} | error
+.br
+.fi
+.br
+.RS
+.LP
+Types:
+
+.RS 3
+Dict = Dict1 = \fBdict\fR\&(Key, Value)
+.br
+Key = Value = term()
+.br
+.RE
+.RE
+.RS
+.LP
+This function returns value from dictionary and a new dictionary without this value\&. Returns \fIerror\fR\& if the key is not present in the dictionary\&.
 .RE
 .LP
 .nf

@@ -1,4 +1,4 @@
-.TH gen_event 3 "stdlib 3.1" "Ericsson AB" "Erlang Module Definition"
+.TH gen_event 3 "stdlib 3.2" "Ericsson AB" "Erlang Module Definition"
 .SH NAME
 gen_event \- Generic event handling behavior.
 .SH DESCRIPTION
@@ -329,7 +329,10 @@ For a description of \fIEventMgrRef\fR\&, see \fB\fIadd_handler/3\fR\&\fR\&\&.
 start() -> Result
 .br
 .B
-start(EventMgrName) -> Result
+start(EventMgrName | Options) -> Result
+.br
+.B
+start(EventMgrName, Options) -> Result
 .br
 .RS
 .LP
@@ -341,6 +344,16 @@ EventMgrName = {local,Name} | {global,GlobalName} | {via,Module,ViaName}
  Name = atom()
 .br
  GlobalName = ViaName = term()
+.br
+Options = [Option]
+.br
+ Option = {debug,Dbgs} | {timeout,Time} | {spawn_opt,SOpts}
+.br
+ Dbgs = [Dbg]
+.br
+ Dbg = trace | log | statistics | {log_to_file,FileName} | {install,{Func,FuncState}}
+.br
+ SOpts = [term()]
 .br
 Result = {ok,Pid} | {error,{already_started,Pid}}
 .br
@@ -359,7 +372,10 @@ For a description of the arguments and return values, see \fB\fIstart_link/0,1\f
 start_link() -> Result
 .br
 .B
-start_link(EventMgrName) -> Result
+start_link(EventMgrName | Options) -> Result
+.br
+.B
+start_link(EventMgrName, Options) -> Result
 .br
 .RS
 .LP
@@ -371,6 +387,16 @@ EventMgrName = {local,Name} | {global,GlobalName} | {via,Module,ViaName}
  Name = atom()
 .br
  GlobalName = ViaName = term()
+.br
+Options = [Option]
+.br
+ Option = {debug,Dbgs} | {timeout,Time} | {spawn_opt,SOpts}
+.br
+ Dbgs = [Dbg]
+.br
+ Dbg = trace | log | statistics | {log_to_file,FileName} | {install,{Func,FuncState}}
+.br
+ SOpts = [term()]
 .br
 Result = {ok,Pid} | {error,{already_started,Pid}}
 .br

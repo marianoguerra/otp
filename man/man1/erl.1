@@ -1,4 +1,4 @@
-.TH erl 1 "erts 8.1" "Ericsson AB" "User Commands"
+.TH erl 1 "erts 8.2.1" "Ericsson AB" "User Commands"
 .SH NAME
 erl \- The Erlang emulator.
 .SH DESCRIPTION
@@ -162,6 +162,10 @@ Sets the host OS environment variable \fIVariable\fR\& to the value \fIValue\fR\
 .LP
 In this example, an Erlang runtime system is started with environment variable \fIDISPLAY\fR\& set to \fIgin:0\fR\&\&.
 .RE
+.TP 2
+.B
+\fI-epmd_module Module\fR\& (init flag):
+Configures the module responsible to communicate to \fBepmd\fR\&\&. Defaults to \fIerl_epmd\fR\&\&.
 .TP 2
 .B
 \fI-eval Expr\fR\& (init flag):
@@ -668,7 +672,7 @@ The amount of dirty CPU schedulers is limited by the amount of normal schedulers
 .RE
 .RS 2
 .LP
-This option is ignored if the emulator does not have threading support enabled\&. \fIThis option is experimental\fR\& and is supported only if the emulator was configured and built with support for dirty schedulers enabled (it is disabled by default)\&.
+This option is ignored if the emulator does not have threading support enabled\&.
 .RE
 .TP 2
 .B
@@ -680,7 +684,7 @@ This option interacts with \fB\fI+SDcpu\fR\&\fR\& settings\&. For example, on a 
 .RE
 .RS 2
 .LP
-This option is ignored if the emulator does not have threading support enabled\&. \fIThis option is experimental\fR\& and is supported only if the emulator was configured and built with support for dirty schedulers enabled (it is disabled by default)\&.
+This option is ignored if the emulator does not have threading support enabled\&.
 .RE
 .TP 2
 .B
@@ -692,7 +696,7 @@ The amount of dirty IO schedulers is not limited by the amount of normal schedul
 .RE
 .RS 2
 .LP
-This option is ignored if the emulator does not have threading support enabled\&. \fIThis option is experimental\fR\& and is supported only if the emulator was configured and built with support for dirty schedulers enabled (it is disabled by default)\&.
+This option is ignored if the emulator does not have threading support enabled\&.
 .RE
 .TP 2
 .B
@@ -1176,6 +1180,14 @@ Waits for \fIS\fR\& seconds to complete the crash dump file and then terminates 
 .RE
 .TP 2
 .B
+\fIERL_CRASH_DUMP_BYTES\fR\&:
+This variable sets the maximum size of a crash dump file in bytes\&. The crash dump will be truncated if this limit is exceeded\&. If the variable is not set, no size limit is enforced by default\&. If the variable is set to \fI0\fR\&, the runtime system does not even attempt to write a crash dump file\&.
+.RS 2
+.LP
+Introduced in ERTS 8\&.1\&.2 (Erlang/OTP 19\&.2)\&.
+.RE
+.TP 2
+.B
 \fIERL_AFLAGS\fR\&:
 The content of this variable is added to the beginning of the command line for \fIerl\fR\&\&.
 .RS 2
@@ -1203,6 +1215,26 @@ Can be set to a comma-separated list of IP addresses, in which case the \fB\fIep
 \fIERL_EPMD_PORT\fR\&:
 Can contain the port number to use when communicating with \fB\fIepmd\fR\&\fR\&\&. The default port works fine in most cases\&. A different port can be specified to allow nodes of independent clusters to co-exist on the same host\&. All nodes in a cluster must use the same \fIepmd\fR\& port number\&.
 .RE
+.SH "SIGNALS"
+
+.LP
+On Unix systems, the Erlang runtime will interpret two types of signals\&.
+.RS 2
+.TP 2
+.B
+\fISIGUSR1\fR\&:
+A \fISIGUSR1\fR\& signal forces a crash dump\&.
+.TP 2
+.B
+\fISIGTERM\fR\&:
+A \fISIGTERM\fR\& will produce a \fIstop\fR\& message to the \fIinit\fR\& process\&. This is equivalent to a \fIinit:stop/0\fR\& call\&.
+.RS 2
+.LP
+Introduced in ERTS 8\&.3 (Erlang/OTP 19\&.3)
+.RE
+.RE
+.LP
+The signal \fISIGUSR2\fR\& is reserved for internal usage\&. No other signals are handled\&.
 .SH "CONFIGURATION"
 
 .LP

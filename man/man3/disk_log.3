@@ -1,4 +1,4 @@
-.TH disk_log 3 "kernel 5.1" "Ericsson AB" "Erlang Module Definition"
+.TH disk_log 3 "kernel 5.1.1" "Ericsson AB" "Erlang Module Definition"
 .SH NAME
 disk_log \- A disk-based term logging facility.
 .SH DESCRIPTION
@@ -10,7 +10,7 @@ Two types of logs are supported:
 .TP 2
 .B
 halt logs:
-Appends items to a single file, which size can be limited by the disk log module\&.
+Appends items to a single file, which size can be limited by the \fIdisk_log\fR\& module\&.
 .TP 2
 .B
 wrap logs:
@@ -28,7 +28,7 @@ Supports automatic repair of log files that are not properly closed and enables 
 .TP 2
 .B
 external format:
-Leaves it up to the user to read the logged deep byte lists\&. The disk log module cannot repair externally formatted logs\&.
+Leaves it up to the user to read and interpret the logged data\&. The \fIdisk_log\fR\& module cannot repair externally formatted logs\&.
 .RE
 .LP
 For each open disk log, one process handles requests made to the disk log\&. This process is created when \fB\fIopen/1\fR\&\fR\& is called, provided there exists no process handling the disk log\&. A process that opens a disk log can be an \fIowner\fR\& or an anonymous \fIuser\fR\& of the disk log\&. Each owner is linked to the disk log process, and an owner can close the disk log either explicitly (by calling \fIclose/1\fR\& or \fIlclose/1,2\fR\&) or by terminating\&.
@@ -39,7 +39,7 @@ For a disk log process to close its file properly and terminate, it must be clos
 .LP
 Items can be logged \fIsynchronously\fR\& by using functions \fB\fIlog/2\fR\&\fR\&, \fB\fIblog/2\fR\&\fR\&, \fB\fIlog_terms/2\fR\&\fR\&, and \fB\fIblog_terms/2\fR\&\fR\&\&. For each of these functions, the caller is put on hold until the items are logged (but not necessarily written, use \fIsync/1\fR\& to ensure that)\&. By adding an \fIa\fR\& to each of the mentioned function names, we get functions that log items \fIasynchronously\fR\&\&. Asynchronous functions do not wait for the disk log process to write the items to the file, but return the control to the caller more or less immediately\&.
 .LP
-When using the internal format for logs, use functions \fB\fIlog/2\fR\&\fR\&, \fB\fIlog_terms/2\fR\&\fR\&, \fB\fIalog/2\fR\&\fR\&, and \fB\fIalog_terms/2\fR\&\fR\&\&. These functions log one or more Erlang terms\&. By prefixing each of the functions with a \fIb\fR\& (for "binary"), we get the corresponding \fIblog()\fR\& functions for the external format\&. These functions log one or more deep lists of bytes or, alternatively, binaries of deep lists of bytes\&. For example, to log the string \fI"hello"\fR\& in ASCII format, you can use \fIdisk_log:blog(Log, "hello")\fR\&, or \fIdisk_log:blog(Log, list_to_binary("hello"))\fR\&\&. The two alternatives are equally efficient\&.
+When using the internal format for logs, use functions \fB\fIlog/2\fR\&\fR\&, \fB\fIlog_terms/2\fR\&\fR\&, \fB\fIalog/2\fR\&\fR\&, and \fB\fIalog_terms/2\fR\&\fR\&\&. These functions log one or more Erlang terms\&. By prefixing each of the functions with a \fIb\fR\& (for "binary"), we get the corresponding \fIblog()\fR\& functions for the external format\&. These functions log one or more chunks of bytes\&. For example, to log the string \fI"hello"\fR\& in ASCII format, you can use \fIdisk_log:blog(Log, "hello")\fR\&, or \fIdisk_log:blog(Log, list_to_binary("hello"))\fR\&\&. The two alternatives are equally efficient\&.
 .LP
 The \fIblog()\fR\& functions can also be used for internally formatted logs, but in this case they must be called with binaries constructed with calls to \fB\fIterm_to_binary/1\fR\&\fR\&\&. There is no check to ensure this, it is entirely the responsibility of the caller\&. If these functions are called with binaries that do not correspond to Erlang terms, the \fB\fIchunk/2,3\fR\&\fR\& and automatic repair functions fail\&. The corresponding terms (not the binaries) are returned when \fIchunk/2,3\fR\& is called\&.
 .LP
@@ -94,12 +94,7 @@ If an attempt to reopen or truncate a log fails (see \fB\fIreopen/2,3\fR\&\fR\& 
 .fi
 .nf
 
-\fBdlog_head_opt()\fR\& = none | term() | binary() | [\fBdlog_byte()\fR\&]
-.br
-.fi
-.nf
-
-\fBdlog_byte()\fR\& = [\fBdlog_byte()\fR\&] | byte()
+\fBdlog_head_opt()\fR\& = none | term() | iodata()
 .br
 .fi
 .nf
@@ -121,11 +116,6 @@ If an attempt to reopen or truncate a log fails (see \fB\fIreopen/2,3\fR\&\fR\& 
 .LP
 Chunk continuation returned by \fIchunk/2,3\fR\&, \fIbchunk/2,3\fR\&, or \fIchunk_step/3\fR\&\&.
 .RE
-.nf
-
-\fBbytes()\fR\& = binary() | [byte()]
-.br
-.fi
 .nf
 
 \fBinvalid_header()\fR\& = term()
@@ -182,7 +172,7 @@ Log = \fBlog()\fR\&
 .br
 Term = term()
 .br
-Bytes = \fBbytes()\fR\&
+Bytes = iodata()
 .br
 .nf
 \fBnotify_ret()\fR\& = ok | {error, no_such_log}
@@ -220,7 +210,7 @@ Log = \fBlog()\fR\&
 .br
 TermList = [term()]
 .br
-ByteList = [\fBbytes()\fR\&]
+ByteList = [iodata()]
 .br
 .nf
 \fBnotify_ret()\fR\& = ok | {error, no_such_log}
@@ -909,7 +899,7 @@ Log = \fBlog()\fR\&
 .br
 Term = term()
 .br
-Bytes = \fBbytes()\fR\&
+Bytes = iodata()
 .br
 .nf
 \fBlog_error_rsn()\fR\& = 
@@ -969,7 +959,7 @@ Log = \fBlog()\fR\&
 .br
 TermList = [term()]
 .br
-BytesList = [\fBbytes()\fR\&]
+BytesList = [iodata()]
 .br
 .nf
 \fBlog_error_rsn()\fR\& = 
@@ -1249,11 +1239,11 @@ Sent when the error status changes\&. The error status is defined by the outcome
 .TP 2
 .B
 \fI{head, Head}\fR\&:
-Specifies a header to be written first on the log file\&. If the log is a wrap log, the item \fIHead\fR\& is written first in each new file\&. \fIHead\fR\& is to be a term if the format is \fIinternal\fR\&, otherwise a deep list of bytes (or a binary)\&. Defaults to \fInone\fR\&, which means that no header is written first on the file\&.
+Specifies a header to be written first on the log file\&. If the log is a wrap log, the item \fIHead\fR\& is written first in each new file\&. \fIHead\fR\& is to be a term if the format is \fIinternal\fR\&, otherwise a sequence of bytes\&. Defaults to \fInone\fR\&, which means that no header is written first on the file\&.
 .TP 2
 .B
 \fI{head_func, {M,F,A}}\fR\&:
-Specifies a function to be called each time a new log file is opened\&. The call \fIM:F(A)\fR\& is assumed to return \fI{ok, Head}\fR\&\&. The item \fIHead\fR\& is written first in each file\&. \fIHead\fR\& is to be a term if the format is \fIinternal\fR\&, otherwise a deep list of bytes (or a binary)\&.
+Specifies a function to be called each time a new log file is opened\&. The call \fIM:F(A)\fR\& is assumed to return \fI{ok, Head}\fR\&\&. The item \fIHead\fR\& is written first in each file\&. \fIHead\fR\& is to be a term if the format is \fIinternal\fR\&, otherwise a sequence of bytes\&.
 .TP 2
 .B
 \fI{mode, Mode}\fR\&:
@@ -1338,7 +1328,7 @@ File = \fBfile:filename()\fR\&
 .br
 Head = term()
 .br
-BHead = \fBbytes()\fR\&
+BHead = iodata()
 .br
 .nf
 \fBreopen_error_rsn()\fR\& = 
@@ -1438,7 +1428,7 @@ Log = \fBlog()\fR\&
 .br
 Head = term()
 .br
-BHead = \fBbytes()\fR\&
+BHead = iodata()
 .br
 .nf
 \fBtrunc_error_rsn()\fR\& = 

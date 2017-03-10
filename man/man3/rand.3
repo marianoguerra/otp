@@ -1,9 +1,11 @@
-.TH rand 3 "stdlib 3.1" "Ericsson AB" "Erlang Module Definition"
+.TH rand 3 "stdlib 3.2" "Ericsson AB" "Erlang Module Definition"
 .SH NAME
 rand \- Pseudo random number generation.
 .SH DESCRIPTION
 .LP
 This module provides a random number generator\&. The module contains a number of algorithms\&. The uniform distribution algorithms use the scrambled Xorshift algorithms by Sebastiano Vigna\&. The normal distribution algorithm uses the Ziggurat Method by Marsaglia and Tsang\&.
+.LP
+For some algorithms, jump functions are provided for generating non-overlapping sequences for parallel computations\&. The jump functions perform calculations equivalent to perform a large number of repeated calls for calculating new states\&.
 .LP
 The following algorithms are provided:
 .RS 2
@@ -11,14 +13,26 @@ The following algorithms are provided:
 .B
 \fIexsplus\fR\&:
 Xorshift116+, 58 bits precision and period of 2^116-1
+.RS 2
+.LP
+Jump function: equivalent to 2^64 calls
+.RE
 .TP 2
 .B
 \fIexs64\fR\&:
 Xorshift64*, 64 bits precision and a period of 2^64-1
+.RS 2
+.LP
+Jump function: not available
+.RE
 .TP 2
 .B
 \fIexs1024\fR\&:
 Xorshift1024*, 64 bits precision and a period of 2^1024-1
+.RS 2
+.LP
+Jump function: equivalent to 2^512 calls
+.RE
 .RE
 .LP
 The default algorithm is \fIexsplus\fR\&\&. If a specific algorithm is required, ensure to always use \fB\fIseed/1\fR\&\fR\& to initialize the state\&.
@@ -127,6 +141,34 @@ export_seed_s(X1 :: state()) -> export_state()
 .RS
 .LP
 Returns the random number generator state in an external format\&. To be used with \fB\fIseed/1\fR\&\fR\&\&.
+.RE
+.LP
+.nf
+
+.B
+jump() -> NewS :: state()
+.br
+.fi
+.br
+.RS
+.LP
+Returns the state after performing jump calculation to the state in the process dictionary\&.
+.LP
+This function generates a \fInot_implemented\fR\& error exception when the jump function is not implemented for the algorithm specified in the state in the process dictionary\&.
+.RE
+.LP
+.nf
+
+.B
+jump(State :: state()) -> NewS :: state()
+.br
+.fi
+.br
+.RS
+.LP
+Returns the state after performing jump calculation to the given state\&.
+.LP
+This function generates a \fInot_implemented\fR\& error exception when the jump function is not implemented for the algorithm specified in the state\&.
 .RE
 .LP
 .nf

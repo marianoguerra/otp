@@ -1,4 +1,4 @@
-.TH gen_server 3 "stdlib 3.1" "Ericsson AB" "Erlang Module Definition"
+.TH gen_server 3 "stdlib 3.2" "Ericsson AB" "Erlang Module Definition"
 .SH NAME
 gen_server \- Generic server behavior.
 .SH DESCRIPTION
@@ -131,14 +131,6 @@ The pid
 The return value \fIReply\fR\& is defined in the return value of \fIModule:handle_call/3\fR\&\&.
 .LP
 The call can fail for many reasons, including time-out and the called \fIgen_server\fR\& process dying before or during the call\&.
-.LP
-
-.RS -4
-.B
-Note:
-.RE
-The ancient behavior of sometimes consuming the server exit message if the server died during the call while linked to the client was removed in Erlang 5\&.6/OTP R12B\&.
-
 .RE
 .LP
 .B

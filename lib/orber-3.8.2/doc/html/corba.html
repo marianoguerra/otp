@@ -448,35 +448,35 @@
   </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
 <div class="exports-body">
-    <p><a name="create-2"></a><span class="bold_code bc-9">create(Module, TypeID) -&gt; Object</span><br><a name="create-3"></a><span class="bold_code bc-9">create(Module, TypeID, Env) -&gt; Object</span><br><a name="create-4"></a><span class="bold_code bc-9">create(Module, TypeID, Env, Optons1) -&gt; Object</span><br><a name="create_link-2"></a><span class="bold_code bc-9">create_link(Module, TypeID) -&gt; Object</span><br><a name="create_link-3"></a><span class="bold_code bc-9">create_link(Module, TypeID, Env) -&gt; Object</span><br><a name="create_link-4"></a><span class="bold_code bc-9">create_link(Module, TypeID, Env, Options2) -&gt; Reply</span><br></p>
+    <p><a name="create-2"></a><span class="bold_code fun-type">create(Module, TypeID) -&gt; Object</span><br><a name="create-3"></a><span class="bold_code fun-type">create(Module, TypeID, Env) -&gt; Object</span><br><a name="create-4"></a><span class="bold_code fun-type">create(Module, TypeID, Env, Optons1) -&gt; Object</span><br><a name="create_link-2"></a><span class="bold_code fun-type">create_link(Module, TypeID) -&gt; Object</span><br><a name="create_link-3"></a><span class="bold_code fun-type">create_link(Module, TypeID, Env) -&gt; Object</span><br><a name="create_link-4"></a><span class="bold_code fun-type">create_link(Module, TypeID, Env, Options2) -&gt; Reply</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Module = atom()</span><br>
+<span class="bold_code fun-param-type">Module = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">TypeID = string()</span><br>
+<span class="bold_code fun-param-type">TypeID = string()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Env = term()</span><br>
+<span class="bold_code fun-param-type">Env = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Options1 = [{persistent, Bool} | {regname, RegName} | {local_typecheck, Bool}]</span><br>
+<span class="bold_code fun-param-type">Options1 = [{persistent, Bool} | {regname, RegName} | {local_typecheck, Bool}]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Options2 = [{sup_child, Bool} | {persistent, Bool} | {regname, RegName} | {pseudo, Bool} | {local_typecheck, Bool}]</span><br>
+<span class="bold_code fun-param-type">Options2 = [{sup_child, Bool} | {persistent, Bool} | {regname, RegName} | {pseudo, Bool} | {local_typecheck, Bool}]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">RegName = {local, atom()} | {global, term()}</span><br>
+<span class="bold_code fun-param-type">RegName = {local, atom()} | {global, term()}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reply = #objref | {ok, Pid, #objref}</span><br>
+<span class="bold_code fun-param-type">Reply = #objref | {ok, Pid, #objref}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Bool = true | false</span><br>
+<span class="bold_code fun-param-type">Bool = true | false</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Object = #objref</span><br>
+<span class="bold_code fun-param-type">Object = #objref</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -525,11 +525,11 @@ Example:
   corba:create('StackModule_Stack', "IDL:StackModule/Stack:1.0", {10, test})
         </pre></div>
       </p></div>
-    <p><a name="dispose-1"></a><span class="bold_code bc-9">dispose(Object) -&gt; ok</span><br></p>
+    <p><a name="dispose-1"></a><span class="bold_code fun-type">dispose(Object) -&gt; ok</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Object = #objref</span><br>
+<span class="bold_code fun-param-type">Object = #objref</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -539,11 +539,11 @@ Example:
           return ok. For valid object references, invoking this operation
           more than once, will result in a system exception.</p>
       </p></div>
-    <p><a name="create_nil_objref-0"></a><span class="bold_code bc-9">create_nil_objref() -&gt; Object</span><br></p>
+    <p><a name="create_nil_objref-0"></a><span class="bold_code fun-type">create_nil_objref() -&gt; Object</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Object = #objref representing NIL.</span><br>
+<span class="bold_code fun-param-type">Object = #objref representing NIL.</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -551,17 +551,17 @@ Example:
           Attempts to invoke operations using the returned object reference
           will return a system exception.</p>
       </p></div>
-    <p><a name="create_subobject_key-2"></a><span class="bold_code bc-9">create_subobject_key(Object, Key) -&gt; Result</span><br></p>
+    <p><a name="create_subobject_key-2"></a><span class="bold_code fun-type">create_subobject_key(Object, Key) -&gt; Result</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Object = #objref</span><br>
+<span class="bold_code fun-param-type">Object = #objref</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Key = term()</span><br>
+<span class="bold_code fun-param-type">Key = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Result = #objref</span><br>
+<span class="bold_code fun-param-type">Result = #objref</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -576,14 +576,14 @@ Example:
           If it is a binary it will be stored as is and otherwise it is 
           converted to a binary before storage.</p>
       </p></div>
-    <p><a name="get_subobject_key-1"></a><span class="bold_code bc-9">get_subobject_key(Object) -&gt; Result</span><br></p>
+    <p><a name="get_subobject_key-1"></a><span class="bold_code fun-type">get_subobject_key(Object) -&gt; Result</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Object = #objref</span><br>
+<span class="bold_code fun-param-type">Object = #objref</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Result = #binary</span><br>
+<span class="bold_code fun-param-type">Result = #binary</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -592,14 +592,14 @@ Example:
           was an Erlang term that was stored with <strong>create_subobject_key/2</strong>
           one can to do <strong>binary_to_term/1</strong> to get the real value. </p>
       </p></div>
-    <p><a name="get_pid-1"></a><span class="bold_code bc-9">get_pid(Object) -&gt; Result</span><br></p>
+    <p><a name="get_pid-1"></a><span class="bold_code fun-type">get_pid(Object) -&gt; Result</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Object = #objref</span><br>
+<span class="bold_code fun-param-type">Object = #objref</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Result = #pid | {error, Reason} | {'EXCEPTION',E}</span><br>
+<span class="bold_code fun-param-type">Result = #pid | {error, Reason} | {'EXCEPTION',E}</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -608,11 +608,11 @@ Example:
           The function will throw exceptions if the key is not found or 
           some other error occurs.</p>
       </p></div>
-    <p><a name="raise-1"></a><span class="bold_code bc-9">raise(Exception)</span><br></p>
+    <p><a name="raise-1"></a><span class="bold_code fun-type">raise(Exception)</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Exception = record()</span><br>
+<span class="bold_code fun-param-type">Exception = record()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -620,14 +620,14 @@ Example:
           Erlang user generated exit signal. It will throw the tuple 
           <span class="code">{'EXCEPTION', </span><strong>Exception</strong><span class="code">}</span>.</p>
       </p></div>
-    <p><a name="reply-2"></a><span class="bold_code bc-9">reply(To, Reply) -&gt; true</span><br></p>
+    <p><a name="reply-2"></a><span class="bold_code fun-type">reply(To, Reply) -&gt; true</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">To = client reference</span><br>
+<span class="bold_code fun-param-type">To = client reference</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reply = IDL type</span><br>
+<span class="bold_code fun-param-type">Reply = IDL type</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -640,38 +640,38 @@ Example:
           callback function, which requires that the IC option <strong>from</strong> 
           was used when compiling the IDL-file.</p>
       </p></div>
-    <p><a name="resolve_initial_references-1"></a><span class="bold_code bc-9">resolve_initial_references(ObjectId) -&gt; Object</span><br><a name="resolve_initial_references-2"></a><span class="bold_code bc-9">resolve_initial_references(ObjectId, Contexts) -&gt; Object</span><br></p>
+    <p><a name="resolve_initial_references-1"></a><span class="bold_code fun-type">resolve_initial_references(ObjectId) -&gt; Object</span><br><a name="resolve_initial_references-2"></a><span class="bold_code fun-type">resolve_initial_references(ObjectId, Contexts) -&gt; Object</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ObjectId = string()</span><br>
+<span class="bold_code fun-param-type">ObjectId = string()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Contexts = [Context]</span><br>
+<span class="bold_code fun-param-type">Contexts = [Context]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Context = #'IOP_ServiceContext'{context_id = CtxId, context_data = CtxData}</span><br>
+<span class="bold_code fun-param-type">Context = #'IOP_ServiceContext'{context_id = CtxId, context_data = CtxData}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CtxId = ?ORBER_GENERIC_CTX_ID</span><br>
+<span class="bold_code fun-param-type">CtxId = ?ORBER_GENERIC_CTX_ID</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CtxData = {interface, Interface} | {userspecific, term()} | {configuration, Options}</span><br>
+<span class="bold_code fun-param-type">CtxData = {interface, Interface} | {userspecific, term()} | {configuration, Options}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Interface = string()</span><br>
+<span class="bold_code fun-param-type">Interface = string()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Options = [{Key, Value}]</span><br>
+<span class="bold_code fun-param-type">Options = [{Key, Value}]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Key = ssl_client_options</span><br>
+<span class="bold_code fun-param-type">Key = ssl_client_options</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Value = allowed value associated with the given key</span><br>
+<span class="bold_code fun-param-type">Value = allowed value associated with the given key</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Object = #objref</span><br>
+<span class="bold_code fun-param-type">Object = #objref</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -682,14 +682,14 @@ Example:
            SSL client side 
            <span class="bold_code bc-15"><a href="ch_install.html#config">configuration</a></span>.</p>
        </p></div>
-    <p><a name="add_initial_service-2"></a><span class="bold_code bc-9">add_initial_service(ObjectId, Object) -&gt; boolean()</span><br></p>
+    <p><a name="add_initial_service-2"></a><span class="bold_code fun-type">add_initial_service(ObjectId, Object) -&gt; boolean()</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ObjectId = string()</span><br>
+<span class="bold_code fun-param-type">ObjectId = string()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Object = #objref</span><br>
+<span class="bold_code fun-param-type">Object = #objref</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -700,11 +700,11 @@ Example:
           <span class="bold_code bc-15"><a href="ch_naming_service.html#interop_ns">Interoperable Naming Service</a></span>.
           Returns <span class="code">false</span> if the given id already exists.</p>
       </p></div>
-    <p><a name="remove_initial_service-1"></a><span class="bold_code bc-9">remove_initial_service(ObjectId) -&gt; boolean()</span><br></p>
+    <p><a name="remove_initial_service-1"></a><span class="bold_code fun-type">remove_initial_service(ObjectId) -&gt; boolean()</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ObjectId = string()</span><br>
+<span class="bold_code fun-param-type">ObjectId = string()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -712,54 +712,54 @@ Example:
           will remove the association. Returns <span class="code">true</span> if able to terminate the
           binding. If no such binding existed <span class="code">false</span> is returned.</p>
       </p></div>
-    <p><a name="list_initial_services-0"></a><span class="bold_code bc-9">list_initial_services() -&gt; [ObjectId]</span><br></p>
+    <p><a name="list_initial_services-0"></a><span class="bold_code fun-type">list_initial_services() -&gt; [ObjectId]</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ObjectId = string()</span><br>
+<span class="bold_code fun-param-type">ObjectId = string()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>This function returns a list of allowed object id's.</p>
       </p></div>
-    <p><a name="resolve_initial_references_remote-2"></a><span class="bold_code bc-9">resolve_initial_references_remote(ObjectId, Address) -&gt; Object</span><br><a name="resolve_initial_references_remote-3"></a><span class="bold_code bc-9">resolve_initial_references_remote(ObjectId, Address, Contexts) -&gt; Object</span><br></p>
+    <p><a name="resolve_initial_references_remote-2"></a><span class="bold_code fun-type">resolve_initial_references_remote(ObjectId, Address) -&gt; Object</span><br><a name="resolve_initial_references_remote-3"></a><span class="bold_code fun-type">resolve_initial_references_remote(ObjectId, Address, Contexts) -&gt; Object</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ObjectId = string()</span><br>
+<span class="bold_code fun-param-type">ObjectId = string()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Address = [RemoteModifier]</span><br>
+<span class="bold_code fun-param-type">Address = [RemoteModifier]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">RemoteModifier = string()</span><br>
+<span class="bold_code fun-param-type">RemoteModifier = string()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Contexts = [Context]</span><br>
+<span class="bold_code fun-param-type">Contexts = [Context]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Context = #'IOP_ServiceContext'{context_id = CtxId, context_data = CtxData}</span><br>
+<span class="bold_code fun-param-type">Context = #'IOP_ServiceContext'{context_id = CtxId, context_data = CtxData}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CtxId = ?ORBER_GENERIC_CTX_ID</span><br>
+<span class="bold_code fun-param-type">CtxId = ?ORBER_GENERIC_CTX_ID</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CtxData = {interface, Interface} | {userspecific, term()} | {configuration, Options}</span><br>
+<span class="bold_code fun-param-type">CtxData = {interface, Interface} | {userspecific, term()} | {configuration, Options}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Interface = string()</span><br>
+<span class="bold_code fun-param-type">Interface = string()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Options = [{Key, Value}]</span><br>
+<span class="bold_code fun-param-type">Options = [{Key, Value}]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Key = ssl_client_options</span><br>
+<span class="bold_code fun-param-type">Key = ssl_client_options</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Value = allowed value associated with the given key</span><br>
+<span class="bold_code fun-param-type">Value = allowed value associated with the given key</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Object = #objref</span><br>
+<span class="bold_code fun-param-type">Object = #objref</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -780,41 +780,41 @@ Example:
         </p></div>
 </div>
       </p></div>
-    <p><a name="list_initial_services_remote-1"></a><span class="bold_code bc-9">list_initial_services_remote(Address) -&gt; [ObjectId]</span><br><a name="list_initial_services_remote-2"></a><span class="bold_code bc-9">list_initial_services_remote(Address, Contexts) -&gt; [ObjectId]</span><br></p>
+    <p><a name="list_initial_services_remote-1"></a><span class="bold_code fun-type">list_initial_services_remote(Address) -&gt; [ObjectId]</span><br><a name="list_initial_services_remote-2"></a><span class="bold_code fun-type">list_initial_services_remote(Address, Contexts) -&gt; [ObjectId]</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Address = [RemoteModifier]</span><br>
+<span class="bold_code fun-param-type">Address = [RemoteModifier]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">RemoteModifier = string()</span><br>
+<span class="bold_code fun-param-type">RemoteModifier = string()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Contexts = [Context]</span><br>
+<span class="bold_code fun-param-type">Contexts = [Context]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Context = #'IOP_ServiceContext'{context_id = CtxId, context_data = CtxData}</span><br>
+<span class="bold_code fun-param-type">Context = #'IOP_ServiceContext'{context_id = CtxId, context_data = CtxData}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CtxId = ?ORBER_GENERIC_CTX_ID</span><br>
+<span class="bold_code fun-param-type">CtxId = ?ORBER_GENERIC_CTX_ID</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CtxData = {interface, Interface} | {userspecific, term()} | {configuration, Options}</span><br>
+<span class="bold_code fun-param-type">CtxData = {interface, Interface} | {userspecific, term()} | {configuration, Options}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Interface = string()</span><br>
+<span class="bold_code fun-param-type">Interface = string()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Options = [{Key, Value}]</span><br>
+<span class="bold_code fun-param-type">Options = [{Key, Value}]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Key = ssl_client_options</span><br>
+<span class="bold_code fun-param-type">Key = ssl_client_options</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Value = allowed value associated with the given key</span><br>
+<span class="bold_code fun-param-type">Value = allowed value associated with the given key</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ObjectId = string()</span><br>
+<span class="bold_code fun-param-type">ObjectId = string()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -834,52 +834,52 @@ Example:
         </p></div>
 </div>
       </p></div>
-    <p><a name="object_to_string-1"></a><span class="bold_code bc-9">object_to_string(Object) -&gt; IOR_string</span><br></p>
+    <p><a name="object_to_string-1"></a><span class="bold_code fun-type">object_to_string(Object) -&gt; IOR_string</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Object = #objref</span><br>
+<span class="bold_code fun-param-type">Object = #objref</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">IOR_string = string()</span><br>
+<span class="bold_code fun-param-type">IOR_string = string()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>This function returns the object reference as the external string 
           representation of an IOR.</p>
       </p></div>
-    <p><a name="string_to_object-1"></a><span class="bold_code bc-9">string_to_object(IOR_string) -&gt; Object</span><br><a name="string_to_object-2"></a><span class="bold_code bc-9">string_to_object(IOR_string, Contexts) -&gt; Object</span><br></p>
+    <p><a name="string_to_object-1"></a><span class="bold_code fun-type">string_to_object(IOR_string) -&gt; Object</span><br><a name="string_to_object-2"></a><span class="bold_code fun-type">string_to_object(IOR_string, Contexts) -&gt; Object</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">IOR_string = string()</span><br>
+<span class="bold_code fun-param-type">IOR_string = string()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Contexts = [Context]</span><br>
+<span class="bold_code fun-param-type">Contexts = [Context]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Context = #'IOP_ServiceContext'{context_id = CtxId, context_data = CtxData}</span><br>
+<span class="bold_code fun-param-type">Context = #'IOP_ServiceContext'{context_id = CtxId, context_data = CtxData}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CtxId = ?ORBER_GENERIC_CTX_ID</span><br>
+<span class="bold_code fun-param-type">CtxId = ?ORBER_GENERIC_CTX_ID</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CtxData = {interface, Interface} | {userspecific, term()} | {configuration, Options}</span><br>
+<span class="bold_code fun-param-type">CtxData = {interface, Interface} | {userspecific, term()} | {configuration, Options}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Interface = string()</span><br>
+<span class="bold_code fun-param-type">Interface = string()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Options = [{Key, Value}]</span><br>
+<span class="bold_code fun-param-type">Options = [{Key, Value}]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Key = ssl_client_options</span><br>
+<span class="bold_code fun-param-type">Key = ssl_client_options</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Value = allowed value associated with the given key</span><br>
+<span class="bold_code fun-param-type">Value = allowed value associated with the given key</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Object = #objref</span><br>
+<span class="bold_code fun-param-type">Object = #objref</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -898,20 +898,20 @@ Example:
            <span class="bold_code bc-15"><a href="ch_install.html#config">configuration</a></span>.</p>
         <p>How to handle the interface context is further described in the User's Guide.</p>
       </p></div>
-    <p><a name="print_object-1"></a><span class="bold_code bc-9">print_object(Data [, Type]) -&gt; ok | {'EXCEPTION', E} |  {'EXIT', R} | string()</span><br></p>
+    <p><a name="print_object-1"></a><span class="bold_code fun-type">print_object(Data [, Type]) -&gt; ok | {'EXCEPTION', E} |  {'EXIT', R} | string()</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Data = IOR_string | #objref (local or external) | corbaloc/corbaname string</span><br>
+<span class="bold_code fun-param-type">Data = IOR_string | #objref (local or external) | corbaloc/corbaname string</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Type = IoDevice | error_report | {error_report, Reason} | info_msg | {info_msg, Comment} | string</span><br>
+<span class="bold_code fun-param-type">Type = IoDevice | error_report | {error_report, Reason} | info_msg | {info_msg, Comment} | string</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">IoDevice = see the io-module</span><br>
+<span class="bold_code fun-param-type">IoDevice = see the io-module</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reason = Comment = string()</span><br>
+<span class="bold_code fun-param-type">Reason = Comment = string()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -924,17 +924,17 @@ Example:
         <p>If the supplied object is a local reference, the output is equivalent
           to an object exported from the node this function is invoked on.</p>
       </p></div>
-    <p><a name="add_alternate_iiop_address-3"></a><span class="bold_code bc-9">add_alternate_iiop_address(Object, Host, Port) -&gt; NewObject | {'EXCEPTION', E}</span><br></p>
+    <p><a name="add_alternate_iiop_address-3"></a><span class="bold_code fun-type">add_alternate_iiop_address(Object, Host, Port) -&gt; NewObject | {'EXCEPTION', E}</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Object = NewObject = local #objref</span><br>
+<span class="bold_code fun-param-type">Object = NewObject = local #objref</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Host = string()</span><br>
+<span class="bold_code fun-param-type">Host = string()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Port = integer()</span><br>
+<span class="bold_code fun-param-type">Port = integer()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -959,17 +959,17 @@ Example:
         </p></div>
 </div>
       </p></div>
-    <p><a name="orb_init-1"></a><span class="bold_code bc-9">orb_init(KeyValueList) -&gt; ok | {'EXIT', Reason}</span><br></p>
+    <p><a name="orb_init-1"></a><span class="bold_code fun-type">orb_init(KeyValueList) -&gt; ok | {'EXIT', Reason}</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">KeyValueList = [{Key, Value}]</span><br>
+<span class="bold_code fun-param-type">KeyValueList = [{Key, Value}]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Key = any key listed in the configuration chapter</span><br>
+<span class="bold_code fun-param-type">Key = any key listed in the configuration chapter</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Value = allowed value associated with the given key</span><br>
+<span class="bold_code fun-param-type">Value = allowed value associated with the given key</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -984,7 +984,7 @@ Example:
 </div>
 <div class="footer">
 <hr>
-<p>Copyright © 1997-2016 Ericsson AB. All Rights Reserved.</p>
+<p>Copyright © 1997-2017 Ericsson AB. All Rights Reserved.</p>
 </div>
 </div>
 </div>

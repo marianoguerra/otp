@@ -1,9 +1,9 @@
-.TH orddict 3 "stdlib 3.1" "Ericsson AB" "Erlang Module Definition"
+.TH orddict 3 "stdlib 3.2" "Ericsson AB" "Erlang Module Definition"
 .SH NAME
 orddict \- Key-value dictionary as ordered list.
 .SH DESCRIPTION
 .LP
-This module provides a \fIKey\fR\&-\fIValue\fR\& dictionary\&. An \fIorddict\fR\& is a representation of a dictionary, where a list of pairs is used to store the keys and values\&. The list is ordered after the keys\&.
+This module provides a \fIKey\fR\&-\fIValue\fR\& dictionary\&. An \fIorddict\fR\& is a representation of a dictionary, where a list of pairs is used to store the keys and values\&. The list is ordered after the keys in the \fIErlang term order\fR\&\&.
 .LP
 This module provides the same interface as the \fB\fIdict(3)\fR\&\fR\& module but with a defined representation\&. One difference is that while \fIdict\fR\& considers two keys as different if they do not match (\fI=:=\fR\&), this module considers two keys as different if and only if they do not compare equal (\fI==\fR\&)\&.
 .SH DATA TYPES
@@ -136,6 +136,29 @@ Keys = [Key]
 .RS
 .LP
 Returns a list of all keys in a dictionary\&.
+.RE
+.LP
+.nf
+
+.B
+take(Key, Orddict) -> {Value, Orddict1} | error
+.br
+.fi
+.br
+.RS
+.LP
+Types:
+
+.RS 3
+Orddict = Orddict1 = \fBorddict\fR\&(Key, Value)
+.br
+Key = Value = term()
+.br
+.RE
+.RE
+.RS
+.LP
+This function returns value from dictionary and new dictionary without this value\&. Returns \fIerror\fR\& if the key is not present in the dictionary\&.
 .RE
 .LP
 .nf

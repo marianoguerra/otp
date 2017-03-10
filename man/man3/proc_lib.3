@@ -1,4 +1,4 @@
-.TH proc_lib 3 "stdlib 3.1" "Ericsson AB" "Erlang Module Definition"
+.TH proc_lib 3 "stdlib 3.2" "Ericsson AB" "Erlang Module Definition"
 .SH NAME
 proc_lib \- Functions for asynchronous and synchronous start of processes
     adhering to the OTP design principles.
@@ -11,6 +11,8 @@ Some useful information is initialized when a process starts\&. The registered n
 While in "plain Erlang", a process is said to terminate normally only for exit reason \fInormal\fR\&, a process started using \fIproc_lib\fR\& is also said to terminate normally if it exits with reason \fIshutdown\fR\& or \fI{shutdown,Term}\fR\&\&. \fIshutdown\fR\& is the reason used when an application (supervision tree) is stopped\&.
 .LP
 When a process that is started using \fIproc_lib\fR\& terminates abnormally (that is, with another exit reason than \fInormal\fR\&, \fIshutdown\fR\&, or \fI{shutdown,Term}\fR\&), a \fIcrash report\fR\& is generated, which is written to terminal by the default SASL event handler\&. That is, the crash report is normally only visible if the SASL application is started; see \fB\fIsasl(6)\fR\&\fR\& and section \fBSASL Error Logging\fR\& in the SASL User\&'s Guide\&.
+.LP
+Unlike in "plain Erlang", \fIproc_lib\fR\& processes will not generate \fIerror reports\fR\&, which are written to the terminal by the emulator and do not require SASL to be started\&. All exceptions are converted to \fIexits\fR\& which are ignored by the default \fIerror_logger\fR\& handler\&.
 .LP
 The crash report contains the previously stored information, such as ancestors and initial function, the termination reason, and information about other processes that terminate as a result of this process terminating\&.
 .SH DATA TYPES

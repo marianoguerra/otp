@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc/index.html"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">cosNotification</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 1.2.2</p>
@@ -429,101 +429,101 @@
   </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
 <div class="exports-body">
-    <p><a name="_get_constraint_grammar-1"></a><span class="bold_code bc-9">_get_constraint_grammar(Filter) -&gt; Grammar</span><br></p>
+    <p><a name="_get_constraint_grammar-1"></a><span class="bold_code fun-type">_get_constraint_grammar(Filter) -&gt; Grammar</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Filter = #objref</span><br>
+<span class="bold_code fun-param-type">Filter = #objref</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Grammar = string()</span><br>
+<span class="bold_code fun-param-type">Grammar = string()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>This operation returns which type of Grammar the Filter uses. Currently, only <span class="code">"EXTENDED_TCL"</span> is supported.</p>
       </p></div>
-    <p><a name="add_constraints-2"></a><span class="bold_code bc-9">add_constraints(Filter, ConstraintExpSeq) -&gt; Reply</span><br></p>
+    <p><a name="add_constraints-2"></a><span class="bold_code fun-type">add_constraints(Filter, ConstraintExpSeq) -&gt; Reply</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Filter = #objref</span><br>
+<span class="bold_code fun-param-type">Filter = #objref</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ConstraintExpSeq = [Constraint]</span><br>
+<span class="bold_code fun-param-type">ConstraintExpSeq = [Constraint]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ConstraintExp = #'CosNotifyFilter_ConstraintExp'{event_types, constraint_expr}</span><br>
+<span class="bold_code fun-param-type">ConstraintExp = #'CosNotifyFilter_ConstraintExp'{event_types, constraint_expr}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">event_types = #'CosNotification_EventTypeSeq'{}</span><br>
+<span class="bold_code fun-param-type">event_types = #'CosNotification_EventTypeSeq'{}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">constraint_expr = string()</span><br>
+<span class="bold_code fun-param-type">constraint_expr = string()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reply = ConstraintInfoSeq | {'EXCEPTION', #'CosNotifyFilter_InvalidConstraint'{constr}}</span><br>
+<span class="bold_code fun-param-type">Reply = ConstraintInfoSeq | {'EXCEPTION', #'CosNotifyFilter_InvalidConstraint'{constr}}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">constr = ConstraintExp</span><br>
+<span class="bold_code fun-param-type">constr = ConstraintExp</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ConstraintInfoSeq = [ConstraintInfo]</span><br>
+<span class="bold_code fun-param-type">ConstraintInfoSeq = [ConstraintInfo]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ConstraintInfo = #'CosNotifyFilter_ConstraintInfo'{constraint_expression, constraint_id}</span><br>
+<span class="bold_code fun-param-type">ConstraintInfo = #'CosNotifyFilter_ConstraintInfo'{constraint_expression, constraint_id}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">constraint_expression = ConstraintExp</span><br>
+<span class="bold_code fun-param-type">constraint_expression = ConstraintExp</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">constraint_id = long()</span><br>
+<span class="bold_code fun-param-type">constraint_id = long()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>Initially, Filters do not contain any constraints, hence, all events will be forwarded.
           The <span class="code">add_constraints/2</span> operation allow us to add constraints to the target object.</p>
       </p></div>
-    <p><a name="modify_constraints-3"></a><span class="bold_code bc-9">modify_constraints(Filter, ConstraintIDSeq, ConstraintInfoSeq) -&gt; Reply</span><br></p>
+    <p><a name="modify_constraints-3"></a><span class="bold_code fun-type">modify_constraints(Filter, ConstraintIDSeq, ConstraintInfoSeq) -&gt; Reply</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Filter = #objref</span><br>
+<span class="bold_code fun-param-type">Filter = #objref</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ConstraintIDSeq = [ConstraintID]</span><br>
+<span class="bold_code fun-param-type">ConstraintIDSeq = [ConstraintID]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ConstraintID = long()</span><br>
+<span class="bold_code fun-param-type">ConstraintID = long()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ConstraintInfoSeq = [ConstraintInfo]</span><br>
+<span class="bold_code fun-param-type">ConstraintInfoSeq = [ConstraintInfo]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ConstraintInfo = #'CosNotifyFilter_ConstraintInfo'{constraint_expression, constraint_id}</span><br>
+<span class="bold_code fun-param-type">ConstraintInfo = #'CosNotifyFilter_ConstraintInfo'{constraint_expression, constraint_id}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">constraint_expression = ConstraintExp</span><br>
+<span class="bold_code fun-param-type">constraint_expression = ConstraintExp</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">constraint_id = long()</span><br>
+<span class="bold_code fun-param-type">constraint_id = long()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reply = ok | {'EXCEPTION', #'CosNotifyFilter_InvalidConstraint'{constr}} | {'EXCEPTION', #'CosNotifyFilter_ConstraintNotFound'{id}}</span><br>
+<span class="bold_code fun-param-type">Reply = ok | {'EXCEPTION', #'CosNotifyFilter_InvalidConstraint'{constr}} | {'EXCEPTION', #'CosNotifyFilter_ConstraintNotFound'{id}}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">constr = ConstraintExp</span><br>
+<span class="bold_code fun-param-type">constr = ConstraintExp</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">id = long()</span><br>
+<span class="bold_code fun-param-type">id = long()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ConstraintExp = #'CosNotifyFilter_ConstraintExp'{event_types, constraint_expr}</span><br>
+<span class="bold_code fun-param-type">ConstraintExp = #'CosNotifyFilter_ConstraintExp'{event_types, constraint_expr}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">event_types = #'CosNotification_EventTypeSeq'{}</span><br>
+<span class="bold_code fun-param-type">event_types = #'CosNotification_EventTypeSeq'{}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">constraint_expr = string()</span><br>
+<span class="bold_code fun-param-type">constraint_expr = string()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -534,65 +534,65 @@
           Id's will, if all input values are correct, be updated. If the parameters contain incorrect
           data en exception will be raised.</p>
       </p></div>
-    <p><a name="get_constraints-2"></a><span class="bold_code bc-9">get_constraints(Filter, ConstraintIDSeq) -&gt; Reply</span><br></p>
+    <p><a name="get_constraints-2"></a><span class="bold_code fun-type">get_constraints(Filter, ConstraintIDSeq) -&gt; Reply</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Filter = #objref</span><br>
+<span class="bold_code fun-param-type">Filter = #objref</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ConstraintIDSeq = [ConstraintID]</span><br>
+<span class="bold_code fun-param-type">ConstraintIDSeq = [ConstraintID]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ConstraintID = long()</span><br>
+<span class="bold_code fun-param-type">ConstraintID = long()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reply = ConstraintInfoSeq | {'EXCEPTION', #'CosNotifyFilter_ConstraintNotFound'{id}}</span><br>
+<span class="bold_code fun-param-type">Reply = ConstraintInfoSeq | {'EXCEPTION', #'CosNotifyFilter_ConstraintNotFound'{id}}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ConstraintInfoSeq = [ConstraintInfo]</span><br>
+<span class="bold_code fun-param-type">ConstraintInfoSeq = [ConstraintInfo]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ConstraintInfo = #'CosNotifyFilter_ConstraintInfo'{constraint_expression, constraint_id}</span><br>
+<span class="bold_code fun-param-type">ConstraintInfo = #'CosNotifyFilter_ConstraintInfo'{constraint_expression, constraint_id}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">constraint_expression = ConstraintExp</span><br>
+<span class="bold_code fun-param-type">constraint_expression = ConstraintExp</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">constraint_id = id = long()</span><br>
+<span class="bold_code fun-param-type">constraint_id = id = long()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>This operation return a sequence of ConstraintInfo's, related to the given ConstraintID's,
           associated with the target object.</p>
       </p></div>
-    <p><a name="get_all_constraints-1"></a><span class="bold_code bc-9">get_all_constraints(Filter) -&gt; ConstraintInfoSeq</span><br></p>
+    <p><a name="get_all_constraints-1"></a><span class="bold_code fun-type">get_all_constraints(Filter) -&gt; ConstraintInfoSeq</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Filter = #objref</span><br>
+<span class="bold_code fun-param-type">Filter = #objref</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ConstraintInfoSeq = [ConstraintInfo]</span><br>
+<span class="bold_code fun-param-type">ConstraintInfoSeq = [ConstraintInfo]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ConstraintInfo = #'CosNotifyFilter_ConstraintInfo'{constraint_expression, constraint_id}</span><br>
+<span class="bold_code fun-param-type">ConstraintInfo = #'CosNotifyFilter_ConstraintInfo'{constraint_expression, constraint_id}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">constraint_expression = ConstraintExp</span><br>
+<span class="bold_code fun-param-type">constraint_expression = ConstraintExp</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">constraint_id = long()</span><br>
+<span class="bold_code fun-param-type">constraint_id = long()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>All constraints, and their unique Id, associated with the target object will be returned by this operation.</p>
       </p></div>
-    <p><a name="remove_all_constraints-1"></a><span class="bold_code bc-9">remove_all_constraints(Filter) -&gt; ok</span><br></p>
+    <p><a name="remove_all_constraints-1"></a><span class="bold_code fun-type">remove_all_constraints(Filter) -&gt; ok</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Filter = #objref</span><br>
+<span class="bold_code fun-param-type">Filter = #objref</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -600,27 +600,27 @@
           the the target object no longer contain any constraints, true will always be the result of
           any match operation.</p>
       </p></div>
-    <p><a name="destroy-1"></a><span class="bold_code bc-9">destroy(Filter) -&gt; ok</span><br></p>
+    <p><a name="destroy-1"></a><span class="bold_code fun-type">destroy(Filter) -&gt; ok</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Filter = #objref</span><br>
+<span class="bold_code fun-param-type">Filter = #objref</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>This operation terminates the target object.</p>
       </p></div>
-    <p><a name="match-2"></a><span class="bold_code bc-9">match(Filter, Event) -&gt; Reply</span><br></p>
+    <p><a name="match-2"></a><span class="bold_code fun-type">match(Filter, Event) -&gt; Reply</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Filter = #objref</span><br>
+<span class="bold_code fun-param-type">Filter = #objref</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Event = #any</span><br>
+<span class="bold_code fun-param-type">Event = #any</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reply = boolean() | {'EXCEPTION', #'CosNotifyFilter_UnsupportedFilterableData'{}}</span><br>
+<span class="bold_code fun-param-type">Reply = boolean() | {'EXCEPTION', #'CosNotifyFilter_UnsupportedFilterableData'{}}</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -628,34 +628,34 @@
           at least one constraint. If the event contains data of the wrong type, e.g., should be 
           a string() but in fact i a short(), an exception is raised.</p>
       </p></div>
-    <p><a name="match_structured-2"></a><span class="bold_code bc-9">match_structured(Filter, Event) -&gt; Reply</span><br></p>
+    <p><a name="match_structured-2"></a><span class="bold_code fun-type">match_structured(Filter, Event) -&gt; Reply</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Filter = #objref</span><br>
+<span class="bold_code fun-param-type">Filter = #objref</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Event = #'CosNotification_StructuredEvent'{}</span><br>
+<span class="bold_code fun-param-type">Event = #'CosNotification_StructuredEvent'{}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reply = boolean() | {'EXCEPTION', #'CosNotifyFilter_UnsupportedFilterableData'{}}</span><br>
+<span class="bold_code fun-param-type">Reply = boolean() | {'EXCEPTION', #'CosNotifyFilter_UnsupportedFilterableData'{}}</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>This operation is similar to the <span class="code">match</span> operation but accepts structured
           events instead.</p>
       </p></div>
-    <p><a name="attach_callback-2"></a><span class="bold_code bc-9">attach_callback(Filter, NotifySubscribe) -&gt; CallbackID</span><br></p>
+    <p><a name="attach_callback-2"></a><span class="bold_code fun-type">attach_callback(Filter, NotifySubscribe) -&gt; CallbackID</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Filter = #objref</span><br>
+<span class="bold_code fun-param-type">Filter = #objref</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">NotifySubscribe = #objref</span><br>
+<span class="bold_code fun-param-type">NotifySubscribe = #objref</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CallbackID = long()</span><br>
+<span class="bold_code fun-param-type">CallbackID = long()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -663,17 +663,17 @@
           when the target object's constraints are updated. A unique Id is returned
           which must be stored if we ever want to detach the callback object in the future.</p>
       </p></div>
-    <p><a name="detach_callback-2"></a><span class="bold_code bc-9">detach_callback(Filter, CallbackID) -&gt; Reply</span><br></p>
+    <p><a name="detach_callback-2"></a><span class="bold_code fun-type">detach_callback(Filter, CallbackID) -&gt; Reply</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Filter = #objref</span><br>
+<span class="bold_code fun-param-type">Filter = #objref</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CallbackID = long()</span><br>
+<span class="bold_code fun-param-type">CallbackID = long()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reply = ok | {'EXCEPTION', #'CosNotifyFilter_CallbackNotFound'{}}</span><br>
+<span class="bold_code fun-param-type">Reply = ok | {'EXCEPTION', #'CosNotifyFilter_CallbackNotFound'{}}</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -681,17 +681,17 @@
           Id it will be removed and longer informed of any updates. If no object 
           with a matching Id is found an exception is raised.</p>
       </p></div>
-    <p><a name="get_callbacks-1"></a><span class="bold_code bc-9">get_callbacks(Filter) -&gt; CallbackIDSeq</span><br></p>
+    <p><a name="get_callbacks-1"></a><span class="bold_code fun-type">get_callbacks(Filter) -&gt; CallbackIDSeq</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Filter = #objref</span><br>
+<span class="bold_code fun-param-type">Filter = #objref</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CallbackIDSeq = [CallbackID]</span><br>
+<span class="bold_code fun-param-type">CallbackIDSeq = [CallbackID]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CallbackID = long()</span><br>
+<span class="bold_code fun-param-type">CallbackID = long()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -703,7 +703,7 @@
 </div>
 <div class="footer">
 <hr>
-<p>Copyright © 2000-2016 Ericsson AB. All Rights Reserved.</p>
+<p>Copyright © 2000-2017 Ericsson AB. All Rights Reserved.</p>
 </div>
 </div>
 </div>

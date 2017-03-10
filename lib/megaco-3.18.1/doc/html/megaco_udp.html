@@ -45,7 +45,7 @@
              addEvent(window, 'load', setscrollpos);
 
              //--></script><div id="leftnav"><div class="innertube">
-<div class="erlang-logo-wrapper"><a href="../../../../doc"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
+<div class="erlang-logo-wrapper"><a href="../../../../doc/index.html"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
 <p class="section-title">Megaco/H.248</p>
 <p class="section-subtitle">Reference Manual</p>
 <p class="section-version">Version 3.18.1</p>
@@ -284,40 +284,40 @@
   </p></div>
   <h3><a name="exports" href="#exports">Exports</a></h3>
 <div class="exports-body">
-    <p><a name="start_transport-0"></a><span class="bold_code bc-9">start_transport() -&gt; {ok, TransportRef}</span><br></p>
+    <p><a name="start_transport-0"></a><span class="bold_code fun-type">start_transport() -&gt; {ok, TransportRef}</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">TransportRef = pid()</span><br>
+<span class="bold_code fun-param-type">TransportRef = pid()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>This function is used for starting the UDP/IP transport service.
           Use exit(TransportRef, Reason) to stop the transport service.</p>
       </p></div>
-    <p><a name="open-2"></a><span class="bold_code bc-9">open(TransportRef, OptionList) -&gt;  {ok, Handle, ControlPid} |  {error, Reason}</span><br></p>
+    <p><a name="open-2"></a><span class="bold_code fun-type">open(TransportRef, OptionList) -&gt;  {ok, Handle, ControlPid} |  {error, Reason}</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">TransportRef = pid() | regname()</span><br>
+<span class="bold_code fun-param-type">TransportRef = pid() | regname()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">OptionList = [option()]</span><br>
+<span class="bold_code fun-param-type">OptionList = [option()]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">option() = {port, integer()} |{options, list()} |{receive_handle, receive_handle()} |{module, atom()}</span><br>
+<span class="bold_code fun-param-type">option() = {port, integer()} |{options, list()} |{receive_handle, receive_handle()} |{module, atom()}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Handle = socket_handle()</span><br>
+<span class="bold_code fun-param-type">Handle = socket_handle()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">receive_handle() = term()</span><br>
+<span class="bold_code fun-param-type">receive_handle() = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ControlPid = pid()</span><br>
+<span class="bold_code fun-param-type">ControlPid = pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code fun-param-type">Reason = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -329,27 +329,27 @@
           small - receive_message, large - process_received_message). 
           Default value is <strong>megaco</strong>.</p>
       </p></div>
-    <p><a name="close-2"></a><span class="bold_code bc-9">close(Handle, Msg) -&gt; ok</span><br></p>
+    <p><a name="close-2"></a><span class="bold_code fun-type">close(Handle, Msg) -&gt; ok</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Handle = socket_handle()</span><br>
+<span class="bold_code fun-param-type">Handle = socket_handle()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Msg</span><br>
+<span class="bold_code fun-param-type">Msg</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>This function is used for closing an active UDP socket.</p>
       </p></div>
-    <p><a name="socket-1"></a><span class="bold_code bc-9">socket(Handle) -&gt; Socket</span><br></p>
+    <p><a name="socket-1"></a><span class="bold_code fun-type">socket(Handle) -&gt; Socket</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Handle = socket_handle()</span><br>
+<span class="bold_code fun-param-type">Handle = socket_handle()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Socket = inet_socket()</span><br>
+<span class="bold_code fun-param-type">Socket = inet_socket()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -357,31 +357,31 @@
           a inet_socket(). inet_socket() is a plain socket,
           see the inet module for more info.</p>
       </p></div>
-    <p><a name="create_send_handle-3"></a><span class="bold_code bc-9">create_send_handle(Handle, Host, Port) -&gt; send_handle()</span><br></p>
+    <p><a name="create_send_handle-3"></a><span class="bold_code fun-type">create_send_handle(Handle, Host, Port) -&gt; send_handle()</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Handle = socket_handle()</span><br>
+<span class="bold_code fun-param-type">Handle = socket_handle()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Host = {A,B,C,D} | string()</span><br>
+<span class="bold_code fun-param-type">Host = {A,B,C,D} | string()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Port = integer()</span><br>
+<span class="bold_code fun-param-type">Port = integer()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>Creates a send handle from a transport handle.  The send
           handle is intended to be used by megaco_udp:send_message/2.</p>
       </p></div>
-    <p><a name="send_message-2"></a><span class="bold_code bc-9">send_message(SendHandle, Msg) -&gt; ok</span><br></p>
+    <p><a name="send_message-2"></a><span class="bold_code fun-type">send_message(SendHandle, Msg) -&gt; ok</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">SendHandle = send_handle()</span><br>
+<span class="bold_code fun-param-type">SendHandle = send_handle()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Message = binary() | iolist()</span><br>
+<span class="bold_code fun-param-type">Message = binary() | iolist()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -391,38 +391,38 @@
           of a failure to send, the NumErrors counter is <strong>not</strong>
           incremented. This is done elsewhere in the megaco app.</p>
       </p></div>
-    <p><a name="block-1"></a><span class="bold_code bc-9">block(Handle) -&gt; ok</span><br></p>
+    <p><a name="block-1"></a><span class="bold_code fun-type">block(Handle) -&gt; ok</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Handle = socket_handle()</span><br>
+<span class="bold_code fun-param-type">Handle = socket_handle()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>Stop receiving incoming messages on the socket.</p>
       </p></div>
-    <p><a name="unblock-1"></a><span class="bold_code bc-9">unblock(Handle) -&gt; ok</span><br></p>
+    <p><a name="unblock-1"></a><span class="bold_code fun-type">unblock(Handle) -&gt; ok</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Handle = socket_handle()</span><br>
+<span class="bold_code fun-param-type">Handle = socket_handle()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>Starting to receive incoming messages from the socket again.</p>
         <a name="upgrade_receive_handle"></a>
       </p></div>
-    <p><a name="upgrade_receive_handle-2"></a><span class="bold_code bc-9">upgrade_receive_handle(ControlPid, NewHandle) -&gt; ok</span><br></p>
+    <p><a name="upgrade_receive_handle-2"></a><span class="bold_code fun-type">upgrade_receive_handle(ControlPid, NewHandle) -&gt; ok</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ControlPid = pid()</span><br>
+<span class="bold_code fun-param-type">ControlPid = pid()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">NewHandle = receive_handle()</span><br>
+<span class="bold_code fun-param-type">NewHandle = receive_handle()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">receive_handle() = term()</span><br>
+<span class="bold_code fun-param-type">receive_handle() = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -430,45 +430,45 @@
           having changed protocol version).</p>
         <a name="stats"></a>
       </p></div>
-    <p><a name="get_stats-0"></a><span class="bold_code bc-9">get_stats() -&gt; {ok, TotalStats} | {error, Reason}</span><br><a name="get_stats-1"></a><span class="bold_code bc-9">get_stats(SendHandle) -&gt; {ok, SendHandleStats} | {error, Reason}</span><br><a name="get_stats-2"></a><span class="bold_code bc-9">get_stats(SendHandle, Counter) -&gt; {ok, CounterStats} | {error, Reason}</span><br></p>
+    <p><a name="get_stats-0"></a><span class="bold_code fun-type">get_stats() -&gt; {ok, TotalStats} | {error, Reason}</span><br><a name="get_stats-1"></a><span class="bold_code fun-type">get_stats(SendHandle) -&gt; {ok, SendHandleStats} | {error, Reason}</span><br><a name="get_stats-2"></a><span class="bold_code fun-type">get_stats(SendHandle, Counter) -&gt; {ok, CounterStats} | {error, Reason}</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">TotalStats = [total_stats()]</span><br>
+<span class="bold_code fun-param-type">TotalStats = [total_stats()]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">total_stats() = {send_handle(), [stats()]}</span><br>
+<span class="bold_code fun-param-type">total_stats() = {send_handle(), [stats()]}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">SendHandle = send_handle()</span><br>
+<span class="bold_code fun-param-type">SendHandle = send_handle()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">SendHandleStats = [stats()]</span><br>
+<span class="bold_code fun-param-type">SendHandleStats = [stats()]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Counter = udp_stats_counter()</span><br>
+<span class="bold_code fun-param-type">Counter = udp_stats_counter()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CounterStats = integer()</span><br>
+<span class="bold_code fun-param-type">CounterStats = integer()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">stats() = {udp_stats_counter(), integer()}</span><br>
+<span class="bold_code fun-param-type">stats() = {udp_stats_counter(), integer()}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">tcp_stats_counter() = medGwyGatewayNumInMessages |  medGwyGatewayNumInOctets | medGwyGatewayNumOutMessages | medGwyGatewayNumOutOctets | medGwyGatewayNumErrors</span><br>
+<span class="bold_code fun-param-type">tcp_stats_counter() = medGwyGatewayNumInMessages |  medGwyGatewayNumInOctets | medGwyGatewayNumOutMessages | medGwyGatewayNumOutOctets | medGwyGatewayNumErrors</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code fun-param-type">Reason = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
         <p>Retreive the UDP related (SNMP) statistics counters.</p>
       </p></div>
-    <p><a name="reset_stats-0"></a><span class="bold_code bc-9">reset_stats() -&gt; void()</span><br><a name="reset_stats-1"></a><span class="bold_code bc-9">reset_stats(SendHandle) -&gt; void()</span><br></p>
+    <p><a name="reset_stats-0"></a><span class="bold_code fun-type">reset_stats() -&gt; void()</span><br><a name="reset_stats-1"></a><span class="bold_code fun-type">reset_stats(SendHandle) -&gt; void()</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">SendHandle = send_handle()</span><br>
+<span class="bold_code fun-param-type">SendHandle = send_handle()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -479,7 +479,7 @@
 </div>
 <div class="footer">
 <hr>
-<p>Copyright © 2000-2016 Ericsson AB. All Rights Reserved.</p>
+<p>Copyright © 2000-2017 Ericsson AB. All Rights Reserved.</p>
 </div>
 </div>
 </div>

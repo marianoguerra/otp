@@ -1,4 +1,4 @@
-.TH rpc 3 "kernel 5.1" "Ericsson AB" "Erlang Module Definition"
+.TH rpc 3 "kernel 5.1.1" "Ericsson AB" "Erlang Module Definition"
 .SH NAME
 rpc \- Remote Procedure Call services.
 .SH DESCRIPTION
@@ -93,6 +93,14 @@ Key = \fBkey()\fR\&
 Implements \fIcall streams with promises\fR\&, a type of RPC that does not suspend the caller until the result is finished\&. Instead, a key is returned, which can be used later to collect the value\&. The key can be viewed as a promise to deliver the answer\&.
 .LP
 In this case, the key \fIKey\fR\& is returned, which can be used in a subsequent call to \fB\fIyield/1\fR\&\fR\& or \fB\fInb_yield/1,2\fR\&\fR\& to retrieve the value of evaluating \fIapply(Module, Function, Args)\fR\& on node \fINode\fR\&\&.
+.LP
+
+.RS -4
+.B
+Note:
+.RE
+\fB\fIyield/1\fR\&\fR\& and \fB\fInb_yield/1,2\fR\&\fR\& must be called by the same process from which this function was made otherwise they will never yield correctly\&.
+
 .RE
 .LP
 .nf
@@ -554,6 +562,14 @@ Val = (Res :: term()) | {badrpc, Reason :: term()}
 .RS
 .LP
 Non-blocking version of \fB\fIyield/1\fR\&\fR\&\&. It returns the tuple \fI{value, Val}\fR\& when the computation is finished, or \fItimeout\fR\& when \fITimeout\fR\& milliseconds has elapsed\&.
+.LP
+
+.RS -4
+.B
+Note:
+.RE
+This function must be called by the same process from which \fB\fIasync_call/4\fR\&\fR\& was made otherwise it will only return \fItimeout\fR\&\&.
+
 .RE
 .LP
 .nf
@@ -781,4 +797,12 @@ Res = Reason = term()
 .RS
 .LP
 Returns the promised answer from a previous \fB\fIasync_call/4\fR\&\fR\&\&. If the answer is available, it is returned immediately\&. Otherwise, the calling process is suspended until the answer arrives from \fINode\fR\&\&.
+.LP
+
+.RS -4
+.B
+Note:
+.RE
+This function must be called by the same process from which \fB\fIasync_call/4\fR\&\fR\& was made otherwise it will never return\&.
+
 .RE

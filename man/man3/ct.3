@@ -1,4 +1,4 @@
-.TH ct 3 "common_test 1.12.3" "Ericsson AB" "Erlang Module Definition"
+.TH ct 3 "common_test 1.13" "Ericsson AB" "Erlang Module Definition"
 .SH NAME
 ct \- Main user interface for the Common Test framework.
 .SH DESCRIPTION
@@ -802,7 +802,7 @@ FormatArgs = list()
 .br
 Opts = [Opt]
 .br
-Opt = no_css | esc_chars
+Opt = {heading,string()} | no_css | esc_chars
 .br
 .RE
 .RE
@@ -862,7 +862,7 @@ pal(Format) -> ok
 .br
 .RS
 .LP
-Equivalent to \fB\fIct:pal(default, 50, Format, [])\fR\&\fR\&\&.
+Equivalent to \fB\fIct:pal(default, 50, Format, [], [])\fR\&\fR\&\&.
 .RE
 .LP
 .B
@@ -881,7 +881,7 @@ X2 = Format | FormatArgs
 .RE
 .RS
 .LP
-Equivalent to \fB\fIct:pal(Category, Importance, Format, FormatArgs)\fR\&\fR\&\&.
+Equivalent to \fB\fIct:pal(Category, Importance, Format, FormatArgs, [])\fR\&\fR\&\&.
 .RE
 .LP
 .B
@@ -896,17 +896,40 @@ X1 = Category | Importance
 .br
 X2 = Importance | Format
 .br
-X3 = Format | FormatArgs
+X3 = Format | FormatArgs | Opts
 .br
 .RE
 .RE
 .RS
 .LP
-Equivalent to \fB\fIct:pal(Category, Importance, Format, FormatArgs)\fR\&\fR\&\&.
+Equivalent to \fB\fIct:pal(Category, Importance, Format, FormatArgs, Opts)\fR\&\fR\&\&.
 .RE
 .LP
 .B
-pal(Category, Importance, Format, FormatArgs) -> ok
+pal(X1, X2, X3, X4) -> ok
+.br
+.RS
+.LP
+Types:
+
+.RS 3
+X1 = Category | Importance
+.br
+X2 = Importance | Format
+.br
+X3 = Format | FormatArgs
+.br
+X4 = FormatArgs | Opts
+.br
+.RE
+.RE
+.RS
+.LP
+Equivalent to \fB\fIct:pal(Category, Importance, Format, FormatArgs, Opts)\fR\&\fR\&\&.
+.RE
+.LP
+.B
+pal(Category, Importance, Format, FormatArgs, Opts) -> ok
 .br
 .RS
 .LP
@@ -920,6 +943,10 @@ Importance = integer()
 Format = string()
 .br
 FormatArgs = list()
+.br
+Opts = [Opt]
+.br
+Opt = {heading,string()} | no_css
 .br
 .RE
 .RE
@@ -966,7 +993,7 @@ print(Format) -> ok
 .br
 .RS
 .LP
-Equivalent to \fB\fIct:print(default, 50, Format, [])\fR\&\fR\&\&.
+Equivalent to \fB\fIct:print(default, 50, Format, [], [])\fR\&\fR\&\&.
 .RE
 .LP
 .B
@@ -985,7 +1012,7 @@ X2 = Format | FormatArgs
 .RE
 .RS
 .LP
-Equivalent to \fB\fIct:print(Category, Importance, Format, FormatArgs)\fR\&\fR\&\&.
+Equivalent to \fB\fIct:print(Category, Importance, Format, FormatArgs, [])\fR\&\fR\&\&.
 .RE
 .LP
 .B
@@ -1000,17 +1027,40 @@ X1 = Category | Importance
 .br
 X2 = Importance | Format
 .br
-X3 = Format | FormatArgs
+X3 = Format | FormatArgs | Opts
 .br
 .RE
 .RE
 .RS
 .LP
-Equivalent to \fB\fIct:print(Category, Importance, Format, FormatArgs)\fR\&\fR\&\&.
+Equivalent to \fB\fIct:print(Category, Importance, Format, FormatArgs, Opts)\fR\&\fR\&\&.
 .RE
 .LP
 .B
-print(Category, Importance, Format, FormatArgs) -> ok
+print(X1, X2, X3, X4) -> ok
+.br
+.RS
+.LP
+Types:
+
+.RS 3
+X1 = Category | Importance
+.br
+X2 = Importance | Format
+.br
+X3 = Format | FormatArgs
+.br
+X4 = FormatArgs | Opts
+.br
+.RE
+.RE
+.RS
+.LP
+Equivalent to \fB\fIct:print(Category, Importance, Format, FormatArgs, Opts)\fR\&\fR\&\&.
+.RE
+.LP
+.B
+print(Category, Importance, Format, FormatArgs, Opts) -> ok
 .br
 .RS
 .LP
@@ -1024,6 +1074,10 @@ Importance = integer()
 Format = string()
 .br
 FormatArgs = list()
+.br
+Opts = [Opt]
+.br
+Opt = {heading,string()}
 .br
 .RE
 .RE

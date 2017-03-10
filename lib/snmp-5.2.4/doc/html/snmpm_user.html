@@ -848,7 +848,7 @@
     <a name="types"></a>
   </p></div>
 
-  <h3><a name="idm46261600870432">DATA TYPES</a></h3>
+  <h3><a name="idm45384627620512">DATA TYPES</a></h3>
 <div class="REFBODY rb-3">
     
     <div class="example"><pre>
@@ -866,29 +866,29 @@ snmp_v1_trap_info() :: {Enteprise :: snmp:oid(),
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
 <div class="exports-body">
-    <p><a name="handle_error-3"></a><span class="bold_code bc-9">handle_error(ReqId, Reason, UserData) -&gt; void()</span><br></p>
+    <p><a name="handle_error-3"></a><span class="bold_code fun-type">handle_error(ReqId, Reason, UserData) -&gt; void()</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ReqId = integer()</span><br>
+<span class="bold_code fun-param-type">ReqId = integer()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reason = {unexpected_pdu, SnmpInfo} | {invalid_sec_info, SecInfo, SnmpInfo} | {empty_message, Addr, Port} | term()</span><br>
+<span class="bold_code fun-param-type">Reason = {unexpected_pdu, SnmpInfo} | {invalid_sec_info, SecInfo, SnmpInfo} | {empty_message, Addr, Port} | term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">SnmpInfo = snmp_gen_info()</span><br>
+<span class="bold_code fun-param-type">SnmpInfo = snmp_gen_info()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">SecInfo = term()</span><br>
+<span class="bold_code fun-param-type">SecInfo = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Addr = ip_address()</span><br>
+<span class="bold_code fun-param-type">Addr = ip_address()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Port = integer()</span><br>
+<span class="bold_code fun-param-type">Port = integer()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">UserData = term()</span><br>
+<span class="bold_code fun-param-type">UserData = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -907,47 +907,47 @@ snmp_v1_trap_info() :: {Enteprise :: snmp:oid(),
         <a name="handle_agent"></a>
       </p></div>
 
-    <p><a name="handle_agent-5"></a><span class="bold_code bc-9">handle_agent(Domain, Addr, Type, SnmpInfo, UserData) -&gt; Reply</span><br></p>
+    <p><a name="handle_agent-5"></a><span class="bold_code fun-type">handle_agent(Domain, Addr, Type, SnmpInfo, UserData) -&gt; Reply</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Domain = transportDomainUdpIpv4 | transportDomainUdpIpv6</span><br>
+<span class="bold_code fun-param-type">Domain = transportDomainUdpIpv4 | transportDomainUdpIpv6</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Addr = {<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#type-ip_address');">inet:ip_address(), inet:port_number()</a></span>} </span><br>
+<span class="bold_code fun-param-type">Addr = {<span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','inet.html#type-ip_address');">inet:ip_address(), inet:port_number()</a></span>} </span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Type = pdu | trap | report | inform</span><br>
+<span class="bold_code fun-param-type">Type = pdu | trap | report | inform</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">SnmpInfo = SnmpPduInfo | SnmpTrapInfo | SnmpReportInfo | SnmpInformInfo</span><br>
+<span class="bold_code fun-param-type">SnmpInfo = SnmpPduInfo | SnmpTrapInfo | SnmpReportInfo | SnmpInformInfo</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">SnmpPduInfo = snmp_gen_info()</span><br>
+<span class="bold_code fun-param-type">SnmpPduInfo = snmp_gen_info()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">SnmpTrapInfo = snmp_v1_trap_info()</span><br>
+<span class="bold_code fun-param-type">SnmpTrapInfo = snmp_v1_trap_info()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">SnmpReportInfo = snmp_gen_info()</span><br>
+<span class="bold_code fun-param-type">SnmpReportInfo = snmp_gen_info()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">SnmpInformInfo = snmp_gen_info()</span><br>
+<span class="bold_code fun-param-type">SnmpInformInfo = snmp_gen_info()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">UserData = term()</span><br>
+<span class="bold_code fun-param-type">UserData = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reply = ignore | {register, UserId, TargetName, AgentConfig}</span><br>
+<span class="bold_code fun-param-type">Reply = ignore | {register, UserId, TargetName, AgentConfig}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">UserId = term()</span><br>
+<span class="bold_code fun-param-type">UserId = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">TargetName = target_name()</span><br>
+<span class="bold_code fun-param-type">TargetName = target_name()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">AgentConfig = [agent_config()]</span><br>
+<span class="bold_code fun-param-type">AgentConfig = [agent_config()]</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -990,20 +990,20 @@ snmp_v1_trap_info() :: {Enteprise :: snmp:oid(),
         <a name="handle_pdu"></a>
       </p></div>
 
-    <p><a name="handle_pdu-4"></a><span class="bold_code bc-9">handle_pdu(TargetName, ReqId, SnmpPduInfo, UserData) -&gt; void()</span><br></p>
+    <p><a name="handle_pdu-4"></a><span class="bold_code fun-type">handle_pdu(TargetName, ReqId, SnmpPduInfo, UserData) -&gt; void()</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">TargetName = target_name()</span><br>
+<span class="bold_code fun-param-type">TargetName = target_name()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ReqId = term()</span><br>
+<span class="bold_code fun-param-type">ReqId = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">SnmpPduInfo = snmp_gen_info()</span><br>
+<span class="bold_code fun-param-type">SnmpPduInfo = snmp_gen_info()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">UserData = term()</span><br>
+<span class="bold_code fun-param-type">UserData = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -1017,26 +1017,26 @@ snmp_v1_trap_info() :: {Enteprise :: snmp:oid(),
         <a name="handle_trap"></a>
       </p></div>
 
-    <p><a name="handle_trap-3"></a><span class="bold_code bc-9">handle_trap(TargetName, SnmpTrapInfo, UserData) -&gt; Reply</span><br></p>
+    <p><a name="handle_trap-3"></a><span class="bold_code fun-type">handle_trap(TargetName, SnmpTrapInfo, UserData) -&gt; Reply</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">TargetName = TargetName2 = target_name()</span><br>
+<span class="bold_code fun-param-type">TargetName = TargetName2 = target_name()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">SnmpTrapInfo = snmp_v1_trap_info() | snmp_gen_info()</span><br>
+<span class="bold_code fun-param-type">SnmpTrapInfo = snmp_v1_trap_info() | snmp_gen_info()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">UserData = term()</span><br>
+<span class="bold_code fun-param-type">UserData = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reply = ignore | unregister | {register, UserId, TargetName2, AgentConfig}</span><br>
+<span class="bold_code fun-param-type">Reply = ignore | unregister | {register, UserId, TargetName2, AgentConfig}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">UserId = term()</span><br>
+<span class="bold_code fun-param-type">UserId = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">AgentConfig = [agent_config()]</span><br>
+<span class="bold_code fun-param-type">AgentConfig = [agent_config()]</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -1050,26 +1050,26 @@ snmp_v1_trap_info() :: {Enteprise :: snmp:oid(),
         <a name="handle_inform"></a>
       </p></div>
 
-    <p><a name="handle_inform-3"></a><span class="bold_code bc-9">handle_inform(TargetName, SnmpInformInfo, UserData) -&gt; Reply</span><br></p>
+    <p><a name="handle_inform-3"></a><span class="bold_code fun-type">handle_inform(TargetName, SnmpInformInfo, UserData) -&gt; Reply</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">TargetName = TargetName2 = target_name()</span><br>
+<span class="bold_code fun-param-type">TargetName = TargetName2 = target_name()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">SnmpInformInfo = snmp_gen_info()</span><br>
+<span class="bold_code fun-param-type">SnmpInformInfo = snmp_gen_info()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">UserData = term()</span><br>
+<span class="bold_code fun-param-type">UserData = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reply = ignore | no_reply | unregister | {register, UserId, TargetName2, AgentConfig}</span><br>
+<span class="bold_code fun-param-type">Reply = ignore | no_reply | unregister | {register, UserId, TargetName2, AgentConfig}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">UserId = term()</span><br>
+<span class="bold_code fun-param-type">UserId = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">AgentConfig = [agent_config()]</span><br>
+<span class="bold_code fun-param-type">AgentConfig = [agent_config()]</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -1088,32 +1088,32 @@ snmp_v1_trap_info() :: {Enteprise :: snmp:oid(),
         <a name="handle_report"></a>
       </p></div>
 
-    <p><a name="handle_report-3"></a><span class="bold_code bc-9">handle_report(TargetName, SnmpReportInfo, UserData) -&gt; Reply</span><br></p>
+    <p><a name="handle_report-3"></a><span class="bold_code fun-type">handle_report(TargetName, SnmpReportInfo, UserData) -&gt; Reply</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">TargetName = TargetName2 = target_name()</span><br>
+<span class="bold_code fun-param-type">TargetName = TargetName2 = target_name()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Addr = ip_address()</span><br>
+<span class="bold_code fun-param-type">Addr = ip_address()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Port = integer()</span><br>
+<span class="bold_code fun-param-type">Port = integer()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">SnmpReportInfo = snmp_gen_info()</span><br>
+<span class="bold_code fun-param-type">SnmpReportInfo = snmp_gen_info()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">UserData = term()</span><br>
+<span class="bold_code fun-param-type">UserData = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reply = ignore | unregister | {register, UserId, TargetName2, AgentConfig}</span><br>
+<span class="bold_code fun-param-type">Reply = ignore | unregister | {register, UserId, TargetName2, AgentConfig}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">UserId = term()</span><br>
+<span class="bold_code fun-param-type">UserId = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">AgentConfig = [agent_config()]</span><br>
+<span class="bold_code fun-param-type">AgentConfig = [agent_config()]</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -1127,35 +1127,35 @@ snmp_v1_trap_info() :: {Enteprise :: snmp:oid(),
         <a name="handle_invalid_result"></a>
       </p></div>
 
-    <p><a name="handle_invalid_result-2"></a><span class="bold_code bc-9">handle_invalid_result(IN, OUT) -&gt; void()</span><br></p>
+    <p><a name="handle_invalid_result-2"></a><span class="bold_code fun-type">handle_invalid_result(IN, OUT) -&gt; void()</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">IN = {Func, Args}</span><br>
+<span class="bold_code fun-param-type">IN = {Func, Args}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Func = atom()</span><br>
+<span class="bold_code fun-param-type">Func = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Args = list()</span><br>
+<span class="bold_code fun-param-type">Args = list()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">OUT = {crash, CrashInfo} | {result, InvalidResult}</span><br>
+<span class="bold_code fun-param-type">OUT = {crash, CrashInfo} | {result, InvalidResult}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">CrashInfo = {ErrorType, Error, Stacktrace}</span><br>
+<span class="bold_code fun-param-type">CrashInfo = {ErrorType, Error, Stacktrace}</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ErrorType = atom()</span><br>
+<span class="bold_code fun-param-type">ErrorType = atom()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Error = term()</span><br>
+<span class="bold_code fun-param-type">Error = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Stacktrace = list()</span><br>
+<span class="bold_code fun-param-type">Stacktrace = list()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">InvalidResult = term()</span><br>
+<span class="bold_code fun-param-type">InvalidResult = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -1172,7 +1172,7 @@ snmp_v1_trap_info() :: {Enteprise :: snmp:oid(),
 </div>
 <div class="footer">
 <hr>
-<p>Copyright © 1997-2016 Ericsson AB. All Rights Reserved.</p>
+<p>Copyright © 1997-2017 Ericsson AB. All Rights Reserved.</p>
 </div>
 </div>
 </div>

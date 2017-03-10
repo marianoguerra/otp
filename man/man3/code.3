@@ -1,4 +1,4 @@
-.TH code 3 "kernel 5.1" "Ericsson AB" "Erlang Module Definition"
+.TH code 3 "kernel 5.1.1" "Ericsson AB" "Erlang Module Definition"
 .SH NAME
 code \- Erlang code server.
 .SH DESCRIPTION
@@ -111,7 +111,7 @@ For more information about old and current code, and how to make a process switc
 .LP
 Module and application names are atoms, while file and directory names are strings\&. For backward compatibility reasons, some functions accept both strings and atoms, but a future release will probably only allow the arguments that are documented\&.
 .LP
-As from Erlang/OTP R12B, functions in this module generally fail with an exception if they are passed an incorrect type (for example, an integer or a tuple where an atom is expected)\&. An error tuple is returned if the argument type is correct, but there are some other errors (for example, a non-existing directory is specified to \fIset_path/1\fR\&)\&.
+Functions in this module generally fail with an exception if they are passed an incorrect type (for example, an integer or a tuple where an atom is expected)\&. An error tuple is returned if the argument type is correct, but there are some other errors (for example, a non-existing directory is specified to \fIset_path/1\fR\&)\&.
 .SH "ERROR REASONS FOR CODE-LOADING FUNCTIONS"
 
 .LP
@@ -1267,6 +1267,56 @@ clash() -> ok
 .RS
 .LP
 Searches all directories in the code path for module names with identical names and writes a report to \fIstdout\fR\&\&.
+.RE
+.LP
+.nf
+
+.B
+module_status(Module :: module()) ->
+.B
+                 not_loaded | loaded | modified | removed
+.br
+.fi
+.br
+.RS
+.LP
+Returns:
+.RS 2
+.TP 2
+.B
+\fInot_loaded\fR\&:
+If \fIModule\fR\& is not currently loaded\&.
+.TP 2
+.B
+\fIloaded\fR\&:
+If \fIModule\fR\& is loaded and the object file exists and contains the same code\&.
+.TP 2
+.B
+\fIremoved\fR\&:
+If \fIModule\fR\& is loaded but no corresponding object file can be found in the code path\&.
+.TP 2
+.B
+\fImodified\fR\&:
+If \fIModule\fR\& is loaded but the object file contains code with a different MD5 checksum\&.
+.RE
+.LP
+Preloaded modules are always reported as \fIloaded\fR\&, without inspecting the contents on disk\&. Cover compiled modules will always be reported as \fImodified\fR\& if an object file exists, or as \fIremoved\fR\& otherwise\&. Modules whose load path is an empty string (which is the convention for auto-generated code) will only be reported as \fIloaded\fR\& or \fInot_loaded\fR\&\&.
+.LP
+For modules that have native code loaded (see \fB\fIis_module_native/1\fR\&\fR\&), the MD5 sum of the native code in the object file is used for the comparison, if it exists; the Beam code in the file is ignored\&. Reversely, for modules that do not currently have native code loaded, any native code in the file will be ignored\&.
+.LP
+See also \fB\fImodified_modules/0\fR\&\fR\&\&.
+.RE
+.LP
+.nf
+
+.B
+modified_modules() -> [module()]
+.br
+.fi
+.br
+.RS
+.LP
+Returns the list of all currently loaded modules for which \fB\fImodule_status/1\fR\&\fR\& returns \fImodified\fR\&\&. See also \fB\fIall_loaded/0\fR\&\fR\&\&.
 .RE
 .LP
 .nf

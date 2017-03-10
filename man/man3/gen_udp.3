@@ -1,4 +1,4 @@
-.TH gen_udp 3 "kernel 5.1" "Ericsson AB" "Erlang Module Definition"
+.TH gen_udp 3 "kernel 5.1.1" "Ericsson AB" "Erlang Module Definition"
 .SH NAME
 gen_udp \- Interface to UDP sockets.
 .SH DESCRIPTION
@@ -166,13 +166,13 @@ Socket = \fBsocket()\fR\&
 .br
 Pid = pid()
 .br
-Reason = closed | not_owner | \fBinet:posix()\fR\&
+Reason = closed | not_owner | badarg | \fBinet:posix()\fR\&
 .br
 .RE
 .RE
 .RS
 .LP
-Assigns a new controlling process \fIPid\fR\& to \fISocket\fR\&\&. The controlling process is the process that receives messages from the socket\&. If called by any other process than the current controlling process, \fI{error, not_owner}\fR\& is returned\&.
+Assigns a new controlling process \fIPid\fR\& to \fISocket\fR\&\&. The controlling process is the process that receives messages from the socket\&. If called by any other process than the current controlling process, \fI{error, not_owner}\fR\& is returned\&. If the process identified by \fIPid\fR\& is not an existing local pid, \fI{error, badarg}\fR\& is returned\&. \fI{error, badarg}\fR\& may also be returned in some cases when \fISocket\fR\& is closed during the execution of this function\&.
 .RE
 .LP
 .nf

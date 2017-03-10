@@ -238,7 +238,7 @@
     algorithms and unicode support.</p>
   </p></div>
 
-  <h3><a name="idm45293862282592">OPTIONS</a></h3>
+  <h3><a name="idm45983827049088">OPTIONS</a></h3>
 <div class="REFBODY rb-3">
     
     <p>The exact behaviour of some functions can be adjusted with the use of options which are documented together
@@ -262,7 +262,7 @@
     </dl>
   </div>
 
-  <h3><a name="idm45293861960880">DATA TYPES</a></h3>
+  <h3><a name="idm45983826229696">DATA TYPES</a></h3>
 <div class="REFBODY rb-3">
     
     <p>Type definitions that are used more than once in
@@ -318,39 +318,39 @@
  <h3><a name="exports" href="#exports">Exports</a></h3>
 <div class="exports-body">
    
-   <p><a name="close-1"></a><span class="bold_code bc-9">close(ConnectionRef) -&gt; ok </span><br></p>
+   <p><a name="close-1"></a><span class="bold_code fun-type">close(ConnectionRef) -&gt; ok </span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">ConnectionRef = ssh_connection_ref()</span><br>
+<span class="bold_code fun-param-type">ConnectionRef = ssh_connection_ref()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p><p>Closes an SSH connection.</p>
       </p></div>
     
-    <p><a name="connect-3"></a><span class="bold_code bc-9">connect(Host, Port, Options) -&gt; </span><br><a name="connect-4"></a><span class="bold_code bc-9">connect(Host, Port, Options, Timeout) -&gt; </span><br><a name="connect-2"></a><span class="bold_code bc-9">connect(TcpSocket, Options) -&gt; </span><br><a name="connect-3"></a><span class="bold_code bc-9">connect(TcpSocket, Options, Timeout) -&gt; 
+    <p><a name="connect-3"></a><span class="bold_code fun-type">connect(Host, Port, Options) -&gt; </span><br><a name="connect-4"></a><span class="bold_code fun-type">connect(Host, Port, Options, Timeout) -&gt; </span><br><a name="connect-2"></a><span class="bold_code fun-type">connect(TcpSocket, Options) -&gt; </span><br><a name="connect-3"></a><span class="bold_code fun-type">connect(TcpSocket, Options, Timeout) -&gt; 
       {ok, ssh_connection_ref()} | {error, Reason}</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Host = string()</span><br>
+<span class="bold_code fun-param-type">Host = string()</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Port = integer()</span><br>
+<span class="bold_code fun-param-type">Port = integer()</span><br>
 </div>
 	<div class="REFBODY rb-6">
 <span class="code">22</span> is default, the assigned well-known port
 	number for SSH.</div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Options = [{Option, Value}]</span><br>
+<span class="bold_code fun-param-type">Options = [{Option, Value}]</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Timeout = infinity | integer()</span><br>
+<span class="bold_code fun-param-type">Timeout = infinity | integer()</span><br>
 </div>
 	<div class="REFBODY rb-6">Negotiation time-out in milli-seconds. The default value is <span class="code">infinity</span>.
 	For connection time-out, use option <span class="code">{connect_timeout, timeout()}</span>.</div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">TcpSocket = port()</span><br>
+<span class="bold_code fun-param-type">TcpSocket = port()</span><br>
 </div>
 	<div class="REFBODY rb-6">The socket is supposed to be from <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html#connect-3');">gen_tcp:connect</a></span> or <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html#accept-1');">gen_tcp:accept</a></span> with option <span class="code">{active,false}</span>
 </div>
@@ -550,18 +550,18 @@
 	</dl>
       </p></div>
 
-    <p><a name="connection_info-2"></a><span class="bold_code bc-9">connection_info(ConnectionRef, [Option]) -&gt;[{Option,
+    <p><a name="connection_info-2"></a><span class="bold_code fun-type">connection_info(ConnectionRef, [Option]) -&gt;[{Option,
       Value}]</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Option = client_version | server_version | user | peer | sockname </span><br>
+<span class="bold_code fun-param-type">Option = client_version | server_version | user | peer | sockname </span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Value = [option_value()] </span><br>
+<span class="bold_code fun-param-type">Value = [option_value()] </span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">option_value() = {{Major::integer(), Minor::integer()}, VersionString::string()} |
+<span class="bold_code fun-param-type">option_value() = {{Major::integer(), Minor::integer()}, VersionString::string()} |
 	User::string() |  Peer::{inet:hostname(), {inet::ip_adress(), inet::port_number()}} |
 	Sockname::{inet::ip_adress(), inet::port_number()}</span><br>
 </div>
@@ -570,26 +570,26 @@
         <p>Retrieves information about a connection.</p>
       </p></div>
     
-    <p><a name="daemon-1"></a><span class="bold_code bc-9">daemon(Port) -&gt; </span><br><a name="daemon-2"></a><span class="bold_code bc-9">daemon(Port, Options) -&gt; </span><br><a name="daemon-3"></a><span class="bold_code bc-9">daemon(HostAddress, Port, Options) -&gt; </span><br><a name="daemon-1"></a><span class="bold_code bc-9">daemon(TcpSocket) -&gt; </span><br><a name="daemon-2"></a><span class="bold_code bc-9">daemon(TcpSocket, Options) -&gt; {ok, ssh_daemon_ref()} | {error, atom()}</span><br></p>
+    <p><a name="daemon-1"></a><span class="bold_code fun-type">daemon(Port) -&gt; </span><br><a name="daemon-2"></a><span class="bold_code fun-type">daemon(Port, Options) -&gt; </span><br><a name="daemon-3"></a><span class="bold_code fun-type">daemon(HostAddress, Port, Options) -&gt; </span><br><a name="daemon-1"></a><span class="bold_code fun-type">daemon(TcpSocket) -&gt; </span><br><a name="daemon-2"></a><span class="bold_code fun-type">daemon(TcpSocket, Options) -&gt; {ok, ssh_daemon_ref()} | {error, atom()}</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Port = integer()</span><br>
+<span class="bold_code fun-param-type">Port = integer()</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">HostAddress = ip_address() | any</span><br>
+<span class="bold_code fun-param-type">HostAddress = ip_address() | any</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Options = [{Option, Value}]</span><br>
+<span class="bold_code fun-param-type">Options = [{Option, Value}]</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Option = atom()</span><br>
+<span class="bold_code fun-param-type">Option = atom()</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Value = term()</span><br>
+<span class="bold_code fun-param-type">Value = term()</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">TcpSocket = port()</span><br>
+<span class="bold_code fun-param-type">TcpSocket = port()</span><br>
 </div>
 	<div class="REFBODY rb-6">The socket is supposed to be from <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html#connect-3');">gen_tcp:connect</a></span> or <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html#accept-1');">gen_tcp:accept</a></span> with option <span class="code">{active,false}</span>
 </div>
@@ -928,21 +928,21 @@
 	</dl>
       </p></div>
 
-    <p><a name="daemon_info-1"></a><span class="bold_code bc-9">daemon_info(Daemon) -&gt; {ok, [{port,Port}]} | {error,Error}</span><br></p>
+    <p><a name="daemon_info-1"></a><span class="bold_code fun-type">daemon_info(Daemon) -&gt; {ok, [{port,Port}]} | {error,Error}</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Port = integer()</span><br>
+<span class="bold_code fun-param-type">Port = integer()</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Error = bad_daemon_ref</span><br>
+<span class="bold_code fun-param-type">Error = bad_daemon_ref</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
 	<p>Returns a key-value list with information about the daemon. For now, only the listening port is returned. This is intended for the case the daemon is started with the port set to 0.</p>
       </p></div>
 
-    <p><a name="default_algorithms-0"></a><span class="bold_code bc-9">default_algorithms() -&gt; algs_list()</span><br></p>
+    <p><a name="default_algorithms-0"></a><span class="bold_code fun-type">default_algorithms() -&gt; algs_list()</span><br></p>
 <div class="REFBODY rb-7"><p>
 	<p>Returns a key-value list, where the keys are the different types of algorithms and the values are the
 	algorithms themselves. An example:</p>
@@ -960,20 +960,20 @@
 </pre></div>
       </p></div>
 
-    <p><a name="shell-1"></a><span class="bold_code bc-9">shell(Host) -&gt; </span><br><a name="shell-2"></a><span class="bold_code bc-9">shell(Host, Option) -&gt; </span><br><a name="shell-3"></a><span class="bold_code bc-9">shell(Host, Port, Option) -&gt; </span><br><a name="shell-1"></a><span class="bold_code bc-9">shell(TcpSocket) -&gt; _</span><br></p>
+    <p><a name="shell-1"></a><span class="bold_code fun-type">shell(Host) -&gt; </span><br><a name="shell-2"></a><span class="bold_code fun-type">shell(Host, Option) -&gt; </span><br><a name="shell-3"></a><span class="bold_code fun-type">shell(Host, Port, Option) -&gt; </span><br><a name="shell-1"></a><span class="bold_code fun-type">shell(TcpSocket) -&gt; _</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Host = string()</span><br>
+<span class="bold_code fun-param-type">Host = string()</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Port = integer()</span><br>
+<span class="bold_code fun-param-type">Port = integer()</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Options - see ssh:connect/3</span><br>
+<span class="bold_code fun-param-type">Options - see ssh:connect/3</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">TcpSocket = port()</span><br>
+<span class="bold_code fun-param-type">TcpSocket = port()</span><br>
 </div>
 	<div class="REFBODY rb-6">The socket is supposed to be from <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html#connect-3');">gen_tcp:connect</a></span> or <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','gen_tcp.html#accept-1');">gen_tcp:accept</a></span> with option <span class="code">{active,false}</span>
 </div>
@@ -986,14 +986,14 @@
 	</p>
       </p></div>
 
-    <p><a name="start-0"></a><span class="bold_code bc-9">start() -&gt; </span><br><a name="start-1"></a><span class="bold_code bc-9">start(Type) -&gt; ok | {error, Reason}</span><br></p>
+    <p><a name="start-0"></a><span class="bold_code fun-type">start() -&gt; </span><br><a name="start-1"></a><span class="bold_code fun-type">start(Type) -&gt; ok | {error, Reason}</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Type =  permanent | transient | temporary</span><br>
+<span class="bold_code fun-param-type">Type =  permanent | transient | temporary</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reason = term() </span><br>
+<span class="bold_code fun-param-type">Reason = term() </span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -1003,11 +1003,11 @@
 	manual page in Kernel.</p>
       </p></div>
 
-    <p><a name="stop-0"></a><span class="bold_code bc-9">stop() -&gt; ok | {error, Reason}</span><br></p>
+    <p><a name="stop-0"></a><span class="bold_code fun-type">stop() -&gt; ok | {error, Reason}</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Reason = term()</span><br>
+<span class="bold_code fun-param-type">Reason = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -1016,17 +1016,17 @@
 	manual page in Kernel.</p>
       </p></div>
     
-    <p><a name="stop_daemon-1"></a><span class="bold_code bc-9">stop_daemon(DaemonRef) -&gt; </span><br><a name="stop_daemon-2"></a><span class="bold_code bc-9">stop_daemon(Address, Port) -&gt; ok </span><br></p>
+    <p><a name="stop_daemon-1"></a><span class="bold_code fun-type">stop_daemon(DaemonRef) -&gt; </span><br><a name="stop_daemon-2"></a><span class="bold_code fun-type">stop_daemon(Address, Port) -&gt; ok </span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">DaemonRef = ssh_daemon_ref()</span><br>
+<span class="bold_code fun-param-type">DaemonRef = ssh_daemon_ref()</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Address = ip_address()</span><br>
+<span class="bold_code fun-param-type">Address = ip_address()</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Port = integer()</span><br>
+<span class="bold_code fun-param-type">Port = integer()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -1034,17 +1034,17 @@
 	the listener.</p>
       </p></div>
 
-    <p><a name="stop_listener-1"></a><span class="bold_code bc-9">stop_listener(DaemonRef) -&gt; </span><br><a name="stop_listener-2"></a><span class="bold_code bc-9">stop_listener(Address, Port) -&gt; ok </span><br></p>
+    <p><a name="stop_listener-1"></a><span class="bold_code fun-type">stop_listener(DaemonRef) -&gt; </span><br><a name="stop_listener-2"></a><span class="bold_code fun-type">stop_listener(Address, Port) -&gt; ok </span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">DaemonRef = ssh_daemon_ref()</span><br>
+<span class="bold_code fun-param-type">DaemonRef = ssh_daemon_ref()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Address = ip_address()</span><br>
+<span class="bold_code fun-param-type">Address = ip_address()</span><br>
 </div>
 	<div class="REFTYPES rt-4">
-<span class="bold_code bc-11">Port = integer()</span><br>
+<span class="bold_code fun-param-type">Port = integer()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -1057,7 +1057,7 @@
 </div>
 <div class="footer">
 <hr>
-<p>Copyright © 2005-2016 Ericsson AB. All Rights Reserved.</p>
+<p>Copyright © 2005-2017 Ericsson AB. All Rights Reserved.</p>
 </div>
 </div>
 </div>

@@ -1,13 +1,13 @@
-.TH erl_call 1 "erl_interface 3.9.1" "Ericsson AB" "User Commands"
+.TH erl_call 1 "erl_interface 3.9.2" "Ericsson AB" "User Commands"
 .SH NAME
-erl_call \- Call/Start a Distributed Erlang Node
+erl_call \- Call/start a distributed Erlang node.
 .SH DESCRIPTION
 .LP
-\fIerl_call\fR\& makes it possible to start and/or communicate with a distributed Erlang node\&. It is built upon the \fIerl_interface\fR\& library as an example application\&. Its purpose is to use an Unix shell script to interact with a distributed Erlang node\&. It performs all communication with the Erlang \fIrex server\fR\&, using the standard Erlang RPC facility\&. It does not require any special software to be run at the Erlang target node\&.
+\fIerl_call\fR\& makes it possible to start and/or communicate with a distributed Erlang node\&. It is built upon the \fIErl_Interface\fR\& library as an example application\&. Its purpose is to use a Unix shell script to interact with a distributed Erlang node\&. It performs all communication with the Erlang \fIrex server\fR\&, using the standard Erlang RPC facility\&. It does not require any special software to be run at the Erlang target node\&.
 .LP
 The main use is to either start a distributed Erlang node or to make an ordinary function call\&. However, it is also possible to pipe an Erlang module to \fIerl_call\fR\& and have it compiled, or to pipe a sequence of Erlang expressions to be evaluated (similar to the Erlang shell)\&.
 .LP
-Options, which cause \fIstdin\fR\& to be read, can be used with advantage as scripts from within (Unix) shell scripts\&. Another nice use of \fIerl_call\fR\& could be from (http) CGI-bin scripts\&.
+Options, which cause \fIstdin\fR\& to be read, can be used with advantage, as scripts from within (Unix) shell scripts\&. Another nice use of \fIerl_call\fR\& could be from (HTTP) CGI-bin scripts\&.
 .SH EXPORTS
 .LP
 .B
@@ -15,118 +15,76 @@ erl_call <options>
 .br
 .RS
 .LP
-Each option flag is described below with its name, type and meaning\&.
+Starts/calls Erlang\&.
+.LP
+Each option flag is described below with its name, type, and meaning\&.
 .RS 2
 .TP 2
 .B
--a [Mod [Fun [Args]]]]:
-(\fIoptional\fR\&): Applies the specified function and returns the result\&. \fIMod\fR\& must be specified, however \fIstart\fR\& and \fI[]\fR\& are assumed for unspecified \fIFun\fR\& and \fIArgs\fR\&, respectively\&. \fIArgs\fR\& should be in the same format as for \fIerlang:apply/3\fR\&\&. Note that this flag takes exactly one argument, so quoting may be necessary in order to group \fIMod\fR\&, \fIFun\fR\& and \fIArgs\fR\&, in a manner dependent on the behavior of your command shell\&.
+\fI-a [Mod [Fun [Args]]]]\fR\&:
+(\fIOptional\&.\fR\&) Applies the specified function and returns the result\&. \fIMod\fR\& must be specified\&. However, \fIstart\fR\& and \fI[]\fR\& are assumed for unspecified \fIFun\fR\& and \fIArgs\fR\&, respectively\&. \fIArgs\fR\& is to be in the same format as for \fB\fIerlang:apply/3\fR\&\fR\& in \fIERTS\fR\&\&.
 .RS 2
 .LP
-
+Notice that this flag takes exactly one argument, so quoting can be necessary to group \fIMod\fR\&, \fIFun\fR\&, and \fIArgs\fR\& in a manner dependent on the behavior of your command shell\&.
 .RE
 .TP 2
 .B
--c Cookie:
-(\fIoptional\fR\&): Use this option to specify a certain cookie\&. If no cookie is specified, the \fI~/\&.erlang\&.cookie\fR\& file is read and its content are used as cookie\&. The Erlang node we want to communicate with must have the same cookie\&.
+\fI-c Cookie\fR\&:
+(\fIOptional\&.\fR\&) Use this option to specify a certain cookie\&. If no cookie is specified, the \fI~/\&.erlang\&.cookie\fR\& file is read and its content is used as cookie\&. The Erlang node we want to communicate with must have the same cookie\&.
 .TP 2
 .B
--d:
-(\fIoptional\fR\&): Debug mode\&. This causes all IO to be output to the file \fI~/\&.erl_call\&.out\&.Nodename\fR\&, where \fINodename\fR\& is the node name of the Erlang node in question\&.
-.RS 2
-.LP
-
-.RE
+\fI-d\fR\&:
+(\fIOptional\&.\fR\&) Debug mode\&. This causes all I/O to be output to the \fI~/\&.erl_call\&.out\&.Nodename\fR\& file, where \fINodename\fR\& is the node name of the Erlang node in question\&.
 .TP 2
 .B
--e:
-(\fIoptional\fR\&): Reads a sequence of Erlang expressions, separated by \&'\fI,\fR\&\&' and ended with a \&'\fI\&.\fR\&\&', from \fIstdin\fR\& until EOF (Control-D)\&. Evaluates the expressions and returns the result from the last expression\&. Returns \fI{ok,Result}\fR\& if successful\&.
-.RS 2
-.LP
-
-.RE
+\fI-e\fR\&:
+(\fIOptional\&.\fR\&) Reads a sequence of Erlang expressions, separated by comma (,) and ended with a full stop (\&.), from \fIstdin\fR\& until EOF (Control-D)\&. Evaluates the expressions and returns the result from the last expression\&. Returns \fI{ok,Result}\fR\& on success\&.
 .TP 2
 .B
--h HiddenName:
-(\fIoptional\fR\&): Specifies the name of the hidden node that \fIerl_call\fR\& represents\&.
-.RS 2
-.LP
-
-.RE
+\fI-h HiddenName\fR\&:
+(\fIOptional\&.\fR\&) Specifies the name of the hidden node that \fIerl_call\fR\& represents\&.
 .TP 2
 .B
--m:
-(\fIoptional\fR\&): Reads an Erlang module from \fIstdin\fR\& and compiles it\&.
-.RS 2
-.LP
-
-.RE
+\fI-m\fR\&:
+(\fIOptional\&.\fR\&) Reads an Erlang module from \fIstdin\fR\& and compiles it\&.
 .TP 2
 .B
--n Node:
-(one of \fI-n, -name, -sname\fR\& is required): Has the same meaning as \fI-name\fR\& and can still be used for backwards compatibility reasons\&.
-.RS 2
-.LP
-
-.RE
+\fI-n Node\fR\&:
+(One of \fI-n, -name, -sname\fR\& is required\&.) Has the same meaning as \fI-name\fR\& and can still be used for backward compatibility reasons\&.
 .TP 2
 .B
--name Node:
-(one of \fI-n, -name, -sname\fR\& is required): \fINode\fR\& is the name of the node to be started or communicated with\&. It is assumed that \fINode\fR\& is started with \fIerl -name\fR\&, which means that fully qualified long node names are used\&. If the \fI-s\fR\& option is given, an Erlang node will (if necessary) be started with \fIerl -name\fR\&\&.
-.RS 2
-.LP
-
-.RE
+\fI-name Node\fR\&:
+(One of \fI-n, -name, -sname\fR\& is required\&.) \fINode\fR\& is the name of the node to be started or communicated with\&. It is assumed that \fINode\fR\& is started with \fIerl -name\fR\&, which means that fully qualified long node names are used\&. If option \fI-s\fR\& is specified, an Erlang node will (if necessary) be started with \fIerl -name\fR\&\&.
 .TP 2
 .B
--q:
-(\fIoptional\fR\&): Halts the Erlang node specified with the -n switch\&. This switch overrides the -s switch\&.
-.RS 2
-.LP
-
-.RE
+\fI-q\fR\&:
+(\fIOptional\&.\fR\&) Halts the Erlang node specified with switch \fI-n\fR\&\&. This switch overrides switch \fI-s\fR\&\&.
 .TP 2
 .B
--r:
-(\fIoptional\fR\&): Generates a random name of the hidden node that \fIerl_call\fR\& represents\&.
-.RS 2
-.LP
-
-.RE
+\fI-r\fR\&:
+(\fIOptional\&.\fR\&) Generates a random name of the hidden node that \fIerl_call\fR\& represents\&.
 .TP 2
 .B
--s:
-(\fIoptional\fR\&): Starts a distributed Erlang node if necessary\&. This means that in a sequence of calls, where the \&'\fI-s\fR\&\&' and \&'\fI-n Node\fR\&\&' are constant, only the first call will start the Erlang node\&. This makes the rest of the communication very fast\&. This flag is currently only available on the Unix platform\&.
-.RS 2
-.LP
-
-.RE
+\fI-s\fR\&:
+(\fIOptional\&.\fR\&) Starts a distributed Erlang node if necessary\&. This means that in a sequence of calls, where \&'\fI-s\fR\&\&' and \&'\fI-n Node\fR\&\&' are constant, only the first call starts the Erlang node\&. This makes the rest of the communication very fast\&. This flag is currently only available on Unix-like platforms (Linux, Mac OS X, Solaris, and so on)\&.
 .TP 2
 .B
--sname Node:
-(one of \fI-n, -name, -sname\fR\& is required): \fINode\fR\& is the name of the node to be started or communicated with\&. It is assumed that \fINode\fR\& is started with \fIerl -sname\fR\& which means that short node names are used\&. If \fI-s\fR\& option is given, an Erlang node will be started (if necessary) with \fIerl -sname\fR\&\&.
-.RS 2
-.LP
-
-.RE
+\fI-sname Node\fR\&:
+(One of \fI-n, -name, -sname\fR\& is required\&.) \fINode\fR\& is the name of the node to be started or communicated with\&. It is assumed that \fINode\fR\& is started with \fIerl -sname\fR\&, which means that short node names are used\&. If option \fI-s\fR\& is specified, an Erlang node is started (if necessary) with \fIerl -sname\fR\&\&.
 .TP 2
 .B
--v:
-(\fIoptional\fR\&): Prints a lot of \fIverbose\fR\& information\&. This is only useful for the developer and maintainer of \fIerl_call\fR\&\&.
-.RS 2
-.LP
-
-.RE
+\fI-v\fR\&:
+(\fIOptional\&.\fR\&) Prints a lot of \fIverbose\fR\& information\&. This is only useful for the developer and maintainer of \fIerl_call\fR\&\&.
 .TP 2
 .B
--x ErlScript:
-(\fIoptional\fR\&): Specifies another name of the Erlang start-up script to be used\&. If not specified, the standard \fIerl\fR\& start-up script is used\&.
+\fI-x ErlScript\fR\&:
+(\fIOptional\&.\fR\&) Specifies another name of the Erlang startup script to be used\&. If not specified, the standard \fIerl\fR\& startup script is used\&.
 .RE
 .RE
 .SH "EXAMPLES"
 
 .LP
-Starts an Erlang node and calls \fIerlang:time/0\fR\&\&.
+To start an Erlang node and call \fIerlang:time/0\fR\&:
 .LP
 .nf
 
@@ -135,7 +93,7 @@ erl_call -s -a 'erlang time' -n madonna
     
 .fi
 .LP
-Terminates an Erlang node by calling \fIerlang:halt/0\fR\&\&.
+To terminate an Erlang node by calling \fIerlang:halt/0\fR\&:
 .LP
 .nf
 
@@ -143,7 +101,7 @@ erl_call -s -a 'erlang halt' -n madonna
     
 .fi
 .LP
-An apply with several arguments\&.
+To apply with many arguments:
 .LP
 .nf
 
@@ -151,7 +109,7 @@ erl_call -s -a 'lists map [{math,sqrt},[1,4,9,16,25]]' -n madonna
     
 .fi
 .LP
-Evaluates a couple of expressions\&. \fIThe input ends with EOF (Control-D)\fR\&\&.
+To evaluate some expressions (\fIthe input ends with EOF (Control-D)\fR\&):
 .LP
 .nf
 
@@ -166,12 +124,14 @@ Y=2,
     
 .fi
 .LP
-Compiles a module and runs it\&. \fIAgain, the input ends with EOF (Control-D)\fR\&\&. (In the example shown, the output has been formatted afterwards)\&.
+To compile a module and run it (\fIagain, the input ends with EOF (Control-D)\fR\&):
+.LP
+(In the example, the output has been formatted afterwards\&.)
 .LP
 .nf
 
-erl_call -s -m -a lolita -n madonna
--module(lolita).
+erl_call -s -m -a procnames -n madonna
+-module(procnames).
 -compile(export_all).
 start() ->
         P = processes(),
