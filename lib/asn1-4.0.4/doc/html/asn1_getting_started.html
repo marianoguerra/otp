@@ -66,40 +66,40 @@
 <li><a href="asn1_introduction.html">
               Top of chapter
             </a></li>
-<li title="Scope"><a href="asn1_introduction.html#idm45605664707296">Scope</a></li>
-<li title="Prerequisites"><a href="asn1_introduction.html#idm45605664717968">Prerequisites</a></li>
+<li title="Scope"><a href="asn1_introduction.html#idm45722924056848">Scope</a></li>
+<li title="Prerequisites"><a href="asn1_introduction.html#idm45722924067520">Prerequisites</a></li>
 </ul>
 </li>
 <li id="no" title="ASN.1" expanded="false">ASN.1<ul>
 <li><a href="asn1_overview.html">
               Top of chapter
             </a></li>
-<li title="Introduction"><a href="asn1_overview.html#idm45605664728288">Introduction</a></li>
+<li title="Introduction"><a href="asn1_overview.html#idm45722924077776">Introduction</a></li>
 </ul>
 </li>
 <li id="loadscrollpos" title="Getting Started" expanded="true">Getting Started<ul>
 <li><a href="asn1_getting_started.html">
               Top of chapter
             </a></li>
-<li title="Example"><a href="asn1_getting_started.html#idm45605664591104">Example</a></li>
-<li title="ASN.1 Application User Interface"><a href="asn1_getting_started.html#idm45605664614368">ASN.1 Application User Interface</a></li>
-<li title="Multi-File Compilation"><a href="asn1_getting_started.html#idm45605664575712">Multi-File Compilation</a></li>
-<li title="Remark about Tags"><a href="asn1_getting_started.html#idm45605664834288">Remark about Tags</a></li>
-<li title="ASN.1 Types"><a href="asn1_getting_started.html#idm45605664839440">ASN.1 Types</a></li>
-<li title="Naming of Records in .hrl Files"><a href="asn1_getting_started.html#idm45605664532048">Naming of Records in .hrl Files</a></li>
-<li title="ASN.1 Values"><a href="asn1_getting_started.html#idm45605663971552">ASN.1 Values</a></li>
-<li title="Macros"><a href="asn1_getting_started.html#idm45605664898144">Macros</a></li>
-<li title="ASN.1 Information Objects (X.681)"><a href="asn1_getting_started.html#idm45605665014752">ASN.1 Information Objects (X.681)</a></li>
-<li title="Parameterization (X.683)"><a href="asn1_getting_started.html#idm45605663963040">Parameterization (X.683)</a></li>
+<li title="Example"><a href="asn1_getting_started.html#idm45722924086208">Example</a></li>
+<li title="ASN.1 Application User Interface"><a href="asn1_getting_started.html#idm45722924216592">ASN.1 Application User Interface</a></li>
+<li title="Multi-File Compilation"><a href="asn1_getting_started.html#idm45722924152352">Multi-File Compilation</a></li>
+<li title="Remark about Tags"><a href="asn1_getting_started.html#idm45722924159376">Remark about Tags</a></li>
+<li title="ASN.1 Types"><a href="asn1_getting_started.html#idm45722924164576">ASN.1 Types</a></li>
+<li title="Naming of Records in .hrl Files"><a href="asn1_getting_started.html#idm45722923470720">Naming of Records in .hrl Files</a></li>
+<li title="ASN.1 Values"><a href="asn1_getting_started.html#idm45722924401568">ASN.1 Values</a></li>
+<li title="Macros"><a href="asn1_getting_started.html#idm45722924331840">Macros</a></li>
+<li title="ASN.1 Information Objects (X.681)"><a href="asn1_getting_started.html#idm45722924354304">ASN.1 Information Objects (X.681)</a></li>
+<li title="Parameterization (X.683)"><a href="asn1_getting_started.html#idm45722923435424">Parameterization (X.683)</a></li>
 </ul>
 </li>
 <li id="no" title="Specialized Decodes" expanded="false">Specialized Decodes<ul>
 <li><a href="asn1_spec.html">
               Top of chapter
             </a></li>
-<li title="Exclusive Decode"><a href="asn1_spec.html#idm45605663944768">Exclusive Decode</a></li>
-<li title="Selective Decode"><a href="asn1_spec.html#idm45605663896816">Selective Decode</a></li>
-<li title="Performance"><a href="asn1_spec.html#idm45605663844336">Performance</a></li>
+<li title="Exclusive Decode"><a href="asn1_spec.html#idm45722923417152">Exclusive Decode</a></li>
+<li title="Selective Decode"><a href="asn1_spec.html#idm45722923369200">Selective Decode</a></li>
+<li title="Performance"><a href="asn1_spec.html#idm45722923315680">Performance</a></li>
 </ul>
 </li>
 </ul>
@@ -109,7 +109,7 @@
 <h1>3 Getting Started</h1>
   
 
-  <h3><a name="idm45605664591104">3.1 
+  <h3><a name="idm45722924086208">3.1 
         Example</a></h3>
     
       <p>The following example demonstrates the basic functionality used to
@@ -211,7 +211,7 @@ receive
     
   
 
-  <h3><a name="idm45605664614368">3.2 
+  <h3><a name="idm45722924216592">3.2 
         ASN.1 Application User Interface</a></h3>
     
     <p>The <span class="code">ASN.1</span> application provides the following two
@@ -267,6 +267,13 @@ erlc -o ../asnfiles -I ../asnfiles -I /usr/local/standards/asn1 Person.asn</pre>
         <dt><strong><span class="code">+der</span></strong></dt>
         <dd>
           <p>DER encoding rule. Only when using option <span class="code">-ber</span>.</p>
+        </dd>
+        <dt><strong><span class="code">+maps</span></strong></dt>
+        <dd>
+          <p>Use maps instead of records to represent the <span class="code">SEQUENCE</span> and
+	  <span class="code">SET</span> types. No <span class="code">.hrl</span> files will be generated.
+	  See the Section <span class="bold_code bc-15"><a href="asn1_getting_started.html#MAP_SEQ_SET">Map representation for SEQUENCE and SET</a></span>
+	  for more information.</p>
         </dd>
         <dt><strong><span class="code">+asn1config</span></strong></dt>
         <dd>
@@ -339,11 +346,15 @@ asn1ct:compile("H323-MESSAGES.asn1",[per]).      </pre></div>
         <span class="code">{error, {asn1, Description}}</span> where
         <span class="code">Description</span> is
         an Erlang term describing the error.</p>
+	<p>Currently, <span class="code">Description</span> looks like this:
+	<span class="code">{ErrorDescription, StackTrace}</span>. Applications should
+	not depend on the exact contents of <span class="code">Description</span> as it
+	could change in the future.</p>
     
   
 
   <h3>
-<a name="inlineExamples"></a><a name="idm45605664575712">3.3 
+<a name="inlineExamples"></a><a name="idm45722924152352">3.3 
         Multi-File Compilation</a>
 </h3>
     
@@ -371,7 +382,7 @@ File3.asn    </pre></div>
 ~&gt; erlc MyModule.set.asn    </pre></div>
   
 
-  <h3><a name="idm45605664834288">3.4 
+  <h3><a name="idm45722924159376">3.4 
         Remark about Tags</a></h3>
     
 
@@ -406,7 +417,7 @@ END </pre></div>
   
 
   <h3>
-<a name="ASN1Types"></a><a name="idm45605664839440">3.5 
+<a name="ASN1Types"></a><a name="idm45722924164576">3.5 
         ASN.1 Types</a>
 </h3>
     
@@ -874,8 +885,10 @@ Pdu ::= SEQUENCE {
    b REAL,
    c OBJECT IDENTIFIER,
    d NULL }      </pre></div>
-      <p>This is a 4-component structure called <span class="code">Pdu</span>. The record format
-        is the major format for representation of <span class="code">SEQUENCE</span> in Erlang.
+      <p>This is a 4-component structure called <span class="code">Pdu</span>. By default,
+        a <span class="code">SEQUENCE</span> is represented by a record in Erlang.
+	It can also be represented as a map; see
+	<span class="bold_code bc-15"><a href="asn1_getting_started.html#MAP_SEQ_SET">Map representation for SEQUENCE and SET</a></span>.
         For each <span class="code">SEQUENCE</span> and <span class="code">SET</span> in an ASN.1 module an Erlang
         record declaration is generated. For <span class="code">Pdu</span>, a record
         like the following is defined:</p>
@@ -984,6 +997,52 @@ SExt ::= SEQUENCE {
       <p>During decoding, the <span class="code">b</span> field of the record gets the decoded
         value of the <span class="code">b</span>
         component, if present, otherwise the value <span class="code">asn1_NOVALUE</span>.</p>
+    
+
+    <h4>
+<a name="MAP_SEQ_SET"></a>Map representation for SEQUENCE and SET</h4>
+      
+      
+      <p>If the ASN.1 module has been compiled with option <span class="code">maps</span>,
+      the types <span class="code">SEQUENCE</span> and <span class="code">SET</span> are represented as maps.</p>
+      <p>In the following example, this ASN.1 specification is used:</p>
+      <div class="example"><pre>
+File DEFINITIONS AUTOMATIC TAGS ::=
+BEGIN
+Seq1 ::= SEQUENCE {
+    a INTEGER DEFAULT 42,
+    b BOOLEAN OPTIONAL,
+    c IA5String
+}
+END   </pre></div>
+
+      <p>Optional fields are to be omitted from the map if they have
+      no value:</p>
+
+      <div class="example"><pre>
+1&gt; <span class="bold_code bc-12">asn1ct:compile('File', [per,maps]).</span>
+ok
+2&gt; <span class="bold_code bc-12">{ok,E} = 'File':encode('Seq1', #{a=&gt;0,c=&gt;"string"}).</span>
+{ok,&lt;&lt;128,1,0,6,115,116,114,105,110,103&gt;&gt;} </pre></div>
+
+      <p>When decoding, optional fields will be omitted from the map:</p>
+
+      <div class="example"><pre>
+3&gt; <span class="bold_code bc-12">'File':decode('Seq1', E).</span>
+{ok,#{a =&gt; 0,c =&gt; "string"}}   </pre></div>
+
+      <p>Default values can be omitted from the map:</p>
+      <div class="example"><pre>
+4&gt; <span class="bold_code bc-12">{ok,E2} = 'File':encode('Seq1', #{c=&gt;"string"}).</span>
+{ok,&lt;&lt;0,6,115,116,114,105,110,103&gt;&gt;}
+5&gt; <span class="bold_code bc-12">'File':decode('Seq1', E2).</span>
+{ok,#{a =&gt; 42,c =&gt; "string"}}   </pre></div>
+
+    <div class="note">
+<div class="label">Note</div>
+<div class="content"><p><p>It is not allowed to use the atoms <span class="code">asn1_VALUE</span> and
+    <span class="code">asn1_DEFAULT</span> with maps.</p></p></div>
+</div>
     
 
     <h4>
@@ -1115,14 +1174,19 @@ T ::= CHOICE {
     
   
 
-  <h3><a name="idm45605664532048">3.6 
+  <h3><a name="idm45722923470720">3.6 
         Naming of Records in .hrl Files</a></h3>
     
+    <p>When the option <span class="code">maps</span> is given, no <span class="code">.hrl</span> files
+    will be generated. The rest of this section describes the behavior
+    of the compiler when <span class="code">maps</span> is not used.</p>
+
     <p>When an ASN.1 specification is compiled, all defined types of type
-      <span class="code">SET</span> or <span class="code">SEQUENCE</span> result in a corresponding record in the
-      generated <span class="code">.hrl</span> file. This is because the values for
-      <span class="code">SET</span> and <span class="code">SEQUENCE</span> are represented as records as
-      mentioned earlier.</p>
+    <span class="code">SET</span> or <span class="code">SEQUENCE</span> result in a corresponding record in the
+    generated <span class="code">.hrl</span> file. This is because the values for
+    <span class="code">SET</span> and <span class="code">SEQUENCE</span> are represented as records
+    by default.</p>
+
     <p>Some special cases of this functionality are presented in the
       next section.</p>
 
@@ -1223,7 +1287,7 @@ V = {something,#'Rec_something'{a = 77,
     
   
 
-  <h3><a name="idm45605663971552">3.7 
+  <h3><a name="idm45722924401568">3.7 
         ASN.1 Values</a></h3>
     
     <p>Values can be assigned to an ASN.1 type within the ASN.1 code
@@ -1259,12 +1323,13 @@ SS ::= SET {
     <p>This example shows that a function is generated by the compiler
       that returns a valid Erlang representation of the value, although
       the value is of a complex type.</p>
-    <p>Furthermore, a macro is generated for each value in the <span class="code">.hrl</span>
-      file. So, the defined value <span class="code">tt</span> can also be extracted by
-      <span class="code">?tt</span> in application code.</p>
+    <p>Furthermore, if the option <span class="code">maps</span> is not used,
+    a macro is generated for each value in the <span class="code">.hrl</span>
+    file. So, the defined value <span class="code">tt</span> can also be extracted by
+    <span class="code">?tt</span> in application code.</p>
   
 
-  <h3><a name="idm45605664898144">3.8 
+  <h3><a name="idm45722924331840">3.8 
         Macros</a></h3>
     
     <p>The type <span class="code">MACRO</span> is not supported. It is no longer part of
@@ -1272,7 +1337,7 @@ SS ::= SET {
   
 
   <h3>
-<a name="Information%20Object"></a><a name="idm45605665014752">3.9 
+<a name="Information%20Object"></a><a name="idm45722924354304">3.9 
         ASN.1 Information Objects (X.681)</a>
 </h3>
     
@@ -1374,7 +1439,7 @@ GENERAL-PROCEDURES GENERAL-PROCEDURE ::= {
      only the binary is returned.)</p>
   
 
-  <h3><a name="idm45605663963040">3.10 
+  <h3><a name="idm45722923435424">3.10 
         Parameterization (X.683)</a></h3>
     
     <p>Parameterization, which is defined in X.683, can be used when

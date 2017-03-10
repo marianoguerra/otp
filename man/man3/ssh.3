@@ -181,22 +181,56 @@ If the user DSA key is protected by a passphrase, it can be supplied with this o
 If the user RSA key is protected by a passphrase, it can be supplied with this option\&.
 .TP 2
 .B
-\fI{silently_accept_hosts, boolean() | accept_fun() | {crypto:digest_type(), accept_fun()} }\fR\&
+\fI{silently_accept_hosts, boolean()}\fR\&
 .br
-\fIaccept_fun() :: fun(PeerName::string(), FingerPrint::string()) -> boolean()\fR\&:
-When \fItrue\fR\&, hosts are added to the file \fIknown_hosts\fR\& without asking the user\&. Defaults to \fIfalse\fR\& which will give a user question on stdio of whether to accept or reject a previously unseen host\&.
+\fI{silently_accept_hosts, CallbackFun}\fR\&
+.br
+\fI{silently_accept_hosts, {HashAlgoSpec, CallbackFun} }\fR\&
+.br
+
+.br
+\fIHashAlgoSpec = crypto:digest_type() | [ crypto:digest_type() ] \fR\&
+.br
+\fICallbackFun = fun(PeerName, FingerPrint) -> boolean()\fR\&
+.br
+\fIPeerName = string()\fR\&
+.br
+\fIFingerPrint = string() | [ string() ] \fR\&:
+This option guides the \fIconnect\fR\& function how to act when the connected server presents a Host Key that the client has not seen before\&. The default is to ask the user with a question on stdio of whether to accept or reject the new Host Key\&. See also the option \fB\fIuser_dir\fR\&\fR\& for the path to the file \fIknown_hosts\fR\& where previously accepted Host Keys are recorded\&.
 .RS 2
 .LP
-If the option value is has an \fIaccept_fun()\fR\&, that fun will called with the arguments \fI(PeerName, PeerHostKeyFingerPrint)\fR\&\&. The fingerprint is calculated on the Peer\&'s Host Key with \fBpublic_key:ssh_hostkey_fingerprint/1\fR\&\&.
+The option can be given in three different forms as seen above:
 .RE
 .RS 2
+.TP 2
+*
+The value is a \fIboolean()\fR\&\&. The value \fItrue\fR\& will make the client accept any unknown Host Key without any user interaction\&. The value \fIfalse\fR\& keeps the default behaviour of asking the the user on stdio\&. 
 .LP
-If the \fIcrypto:digest_type()\fR\& is present, the fingerprint is calculated with that digest type by the function \fBpublic_key:ssh_hostkey_fingerprint/2\fR\&\&.
+.TP 2
+*
+A \fICallbackFun\fR\& will be called and the boolean return value \fItrue\fR\& will make the client accept the Host Key\&. A return value of \fIfalse\fR\& will make the client to reject the Host Key and therefore also the connection will be closed\&. The arguments to the fun are: 
+.RS 2
+.TP 2
+*
+\fIPeerName\fR\& - a string with the name or address of the remote host\&.
+.LP
+.TP 2
+*
+\fIFingerPrint\fR\& - the fingerprint of the Host Key as \fBpublic_key:ssh_hostkey_fingerprint/1\fR\& calculates it\&. 
+.LP
 .RE
+
+.LP
+.TP 2
+*
+A tuple \fI{HashAlgoSpec, CallbackFun}\fR\&\&. The \fIHashAlgoSpec\fR\& specifies which hash algorithm shall be used to calculate the fingerprint used in the call of the \fICallbackFun\fR\&\&. The \fIHashALgoSpec\fR\& is either an atom or a list of atoms as the first argument in \fBpublic_key:ssh_hostkey_fingerprint/2\fR\&\&. If it is a list of hash algorithm names, the \fIFingerPrint\fR\& argument in the \fICallbackFun\fR\& will be a list of fingerprints in the same order as the corresponding name in the \fIHashAlgoSpec\fR\& list\&. 
+.LP
+.RE
+
 .TP 2
 .B
 \fI{user_interaction, boolean()}\fR\&:
-If \fIfalse\fR\&, disables the client to connect to the server if any user interaction is needed, such as accepting the server to be added to the \fIknown_hosts\fR\& file, or supplying a password\&. Defaults to \fItrue\fR\&\&. Even if user interaction is allowed it can be suppressed by other options, such as \fIsilently_accept_hosts\fR\& and \fIpassword\fR\&\&. However, those optins are not always desirable to use from a security point of view\&.
+If \fIfalse\fR\&, disables the client to connect to the server if any user interaction is needed, such as accepting the server to be added to the \fIknown_hosts\fR\& file, or supplying a password\&. Defaults to \fItrue\fR\&\&. Even if user interaction is allowed it can be suppressed by other options, such as \fIsilently_accept_hosts\fR\& and \fIpassword\fR\&\&. However, those options are not always desirable to use from a security point of view\&.
 .TP 2
 .B
 \fI{disconnectfun, fun(Reason:term()) -> _}\fR\&:
@@ -671,13 +705,15 @@ The default behaviour is ignore the message\&. To get a printout for each messag
 .RE
 .LP
 .B
-daemon_info(Daemon) -> {ok, [{port,Port}]} | {error,Error}
+daemon_info(Daemon) -> {ok, [DaemonInfo]} | {error,Error}
 .br
 .RS
 .LP
 Types:
 
 .RS 3
+DaemonInfo = {port,Port::pos_integer()} | {listen_address, any|ip_address()} | {profile,atom()}
+.br
 Port = integer()
 .br
 Error = bad_daemon_ref

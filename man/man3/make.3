@@ -19,13 +19,13 @@ Types:
 .RS 3
 Options = [Option]
 .br
- Option = noexec | load | netload | <compiler option>
+ Option = noexec | load | netload | {emake, Emake} | <compiler option>
 .br
 .RE
 .RE
 .RS
 .LP
-This function first looks in the current working directory for a file named \fIEmakefile\fR\& (see below) specifying the set of modules to compile and the compile options to use\&. If no such file is found, the set of modules to compile defaults to all modules in the current working directory\&.
+This function determines the set of modules to compile and the compile options to use, by first looking for the \fIemake\fR\& make option, if not present reads the configuration from a file named \fIEmakefile\fR\& (see below)\&. If no such file is found, the set of modules to compile defaults to all modules in the current working directory\&.
 .LP
 Traversing the set of modules, it then recompiles every module for which at least one of the following conditions apply:
 .RS 2
@@ -66,6 +66,12 @@ As a side effect, the function prints the name of each module it tries to compil
 .br
  Net load mode\&. Loads all recompiled modules on all known nodes\&.
 .LP
+.TP 2
+*
+\fI{emake, Emake}\fR\&
+.br
+ Rather than reading the \fIEmakefile\fR\& specify configuration explicitly\&.
+.LP
 .RE
 
 .LP
@@ -104,7 +110,7 @@ The \fIEmakefile\fR\& (if it exists) in the current directory is searched for co
 .SH "EMAKEFILE"
 
 .LP
-\fImake:all/0,1\fR\& and \fImake:files/1,2\fR\& looks in the current working directory for a file named \fIEmakefile\fR\&\&. If it exists, \fIEmakefile\fR\& should contain elements like this:
+\fImake:all/0,1\fR\& and \fImake:files/1,2\fR\& first looks for \fI{emake, Emake}\fR\& in options, then in the current working directory for a file named \fIEmakefile\fR\&\&. If present \fIEmake\fR\& should contain elements like this:
 .LP
 .nf
 

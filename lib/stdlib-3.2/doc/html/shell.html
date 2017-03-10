@@ -174,6 +174,7 @@
     <li title="bt-1"><a href="c.html#bt-1">bt/1</a></li>
     <li title="c-1"><a href="c.html#c-1">c/1</a></li>
     <li title="c-2"><a href="c.html#c-2">c/2</a></li>
+    <li title="c-3"><a href="c.html#c-3">c/3</a></li>
     <li title="cd-1"><a href="c.html#cd-1">cd/1</a></li>
     <li title="flush-0"><a href="c.html#flush-0">flush/0</a></li>
     <li title="help-0"><a href="c.html#help-0">help/0</a></li>
@@ -657,6 +658,11 @@
                 </a></li>
     <li title="ensure_dir-1"><a href="filelib.html#ensure_dir-1">ensure_dir/1</a></li>
     <li title="file_size-1"><a href="filelib.html#file_size-1">file_size/1</a></li>
+    <li title="find_file-2"><a href="filelib.html#find_file-2">find_file/2</a></li>
+    <li title="find_file-3"><a href="filelib.html#find_file-3">find_file/3</a></li>
+    <li title="find_source-1"><a href="filelib.html#find_source-1">find_source/1</a></li>
+    <li title="find_source-2"><a href="filelib.html#find_source-2">find_source/2</a></li>
+    <li title="find_source-3"><a href="filelib.html#find_source-3">find_source/3</a></li>
     <li title="fold_files-5"><a href="filelib.html#fold_files-5">fold_files/5</a></li>
     <li title="is_dir-1"><a href="filelib.html#is_dir-1">is_dir/1</a></li>
     <li title="is_file-1"><a href="filelib.html#is_file-1">is_file/1</a></li>
@@ -688,6 +694,7 @@
     <li title="pathtype-1"><a href="filename.html#pathtype-1">pathtype/1</a></li>
     <li title="rootname-1"><a href="filename.html#rootname-1">rootname/1</a></li>
     <li title="rootname-2"><a href="filename.html#rootname-2">rootname/2</a></li>
+    <li title="safe_relative_path-1"><a href="filename.html#safe_relative_path-1">safe_relative_path/1</a></li>
     <li title="split-1"><a href="filename.html#split-1">split/1</a></li>
     </ul>
 </li>
@@ -1814,7 +1821,7 @@
     <p>Only the currently connected job can 'talk' to the shell.</p>
   </p></div>
 
-  <h3><a name="idm45915377363744">Shell Commands</a></h3>
+  <h3><a name="idm46047510625152">Shell Commands</a></h3>
 <div class="REFBODY rb-3">
     
     <dl>
@@ -1863,12 +1870,12 @@
       <dd>
         <p>Evaluates <span class="code">shell_default:help()</span>.</p>
       </dd>
-      <dt><strong><span class="code">c(File)</span></strong></dt>
+      <dt><strong><span class="code">c(Mod)</span></strong></dt>
       <dd>
-        <p>Evaluates <span class="code">shell_default:c(File)</span>. This compiles
-          and loads code in <span class="code">File</span> and purges old versions of
-          code, if necessary. Assumes that the file and module names
-          are the same.</p>
+        <p>Evaluates <span class="code">shell_default:c(Mod)</span>. This compiles and
+          loads the module <span class="code">Mod</span> and purges old versions of the
+          code, if necessary. <span class="code">Mod</span> can be either a module name or a
+          a source file path, with or without <span class="code">.erl</span> extension.</p>
       </dd>
       <dt><strong><span class="code">catch_exception(Bool)</span></strong></dt>
       <dd>
@@ -1951,7 +1958,7 @@
     </dl>
   </div>
 
-  <h3><a name="idm45915377313312">Example</a></h3>
+  <h3><a name="idm46047510573824">Example</a></h3>
 <div class="REFBODY rb-3">
     
     <p>The following example is a long dialog with the shell. Commands
@@ -2321,7 +2328,7 @@ strider 2&gt;</pre></div>
     <p>Command 50 exits the Erlang runtime system.</p>
   </div>
 
-  <h3><a name="idm45915377218400">JCL Mode</a></h3>
+  <h3><a name="idm46047510478912">JCL Mode</a></h3>
 <div class="REFBODY rb-3">
     
     <p>When the shell starts, it starts a single evaluator
@@ -2430,7 +2437,7 @@ q                 - quit erlang
       <span class="code">erl -sname this_node -remsh other_node@other_host</span></p>
   </div>
 
-  <h3><a name="idm45915377183472">Restricted Shell</a></h3>
+  <h3><a name="idm46047510443984">Restricted Shell</a></h3>
 <div class="REFBODY rb-3">
     
     <p>The shell can be started in a
@@ -2535,7 +2542,7 @@ q                 - quit erlang
     </ul>
   </div>
 
-  <h3><a name="idm45915377151344">Prompting</a></h3>
+  <h3><a name="idm46047510411856">Prompting</a></h3>
 <div class="REFBODY rb-3">
     
     <p>The default shell prompt function displays the name of the node

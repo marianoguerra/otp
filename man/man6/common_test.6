@@ -212,7 +212,7 @@ Reason = term()
 .RE
 .RS
 .LP
-OPTIONAL
+OPTIONAL; if this function is defined, then \fB\fIend_per_suite/1\fR\&\fR\& must also be defined\&.
 .LP
 This configuration function is called as the first function in the suite\&. It typically contains initializations that are common for all test cases in the suite, and that must only be done once\&. Parameter \fIConfig\fR\& is the configuration data that can be modified\&. Whatever is returned from this function is specified as \fIConfig\fR\& to all configuration functions and test cases in the suite\&.
 .LP
@@ -239,7 +239,7 @@ Value = term()
 .RE
 .RS
 .LP
-OPTIONAL
+OPTIONAL; if this function is defined, then \fB\fIinit_per_suite/1\fR\&\fR\& must also be defined\&.
 .LP
 This function is called as the last test case in the suite\&. It is meant to be used for cleaning up after \fB\fIinit_per_suite/1\fR\&\fR\&\&.
 .LP
@@ -341,7 +341,7 @@ Reason = term()
 .RE
 .RS
 .LP
-OPTIONAL
+OPTIONAL; if this function is defined, then \fB\fIend_per_group/2\fR\&\fR\& must also be defined\&.
 .LP
 This configuration function is called before execution of a test case group\&. It typically contains initializations that are common for all test cases and subgroups in the group, and that must only be performed once\&. \fIGroupName\fR\& is the name of the group, as specified in the group definition (see \fB\fIgroups/0\fR\&\fR\&)\&. Parameter \fIConfig\fR\& is the configuration data that can be modified\&. The return value of this function is given as \fIConfig\fR\& to all test cases and subgroups in the group\&.
 .LP
@@ -372,7 +372,7 @@ Status = ok | skipped | failed
 .RE
 .RS
 .LP
-OPTIONAL
+OPTIONAL; if this function is defined, then \fB\fIinit_per_group/2\fR\&\fR\& must also be defined\&.
 .LP
 This function is called after the execution of a test case group is finished\&. It is meant to be used for cleaning up after \fB\fIinit_per_group/2\fR\&\fR\&\&. A status value for a nested subgroup can be returned with \fI{return_group_result,Status}\fR\&\&. The status can be retrieved in \fB\fIend_per_group/2\fR\&\fR\& for the group on the level above\&. The status is also used by \fICommon Test\fR\& for deciding if execution of a group is to proceed if property \fIsequence\fR\& or \fIrepeat_until_*\fR\& is set\&.
 .LP
@@ -401,7 +401,7 @@ Types:
 .RE
 .RS
 .LP
-OPTIONAL
+OPTIONAL; if this function is defined, then \fB\fIend_per_testcase/2\fR\&\fR\& must also be defined\&.
 .LP
 This function is called before each test case\&. Argument \fITestCase\fR\& is the test case name, and \fIConfig\fR\& (list of key-value tuples) is the configuration data that can be modified\&. The \fINewConfig\fR\& list returned from this function is given as \fIConfig\fR\& to the test case\&. If \fI{fail,Reason}\fR\& is returned, the test case is marked as failed without being executed\&.
 .LP
@@ -430,7 +430,7 @@ Reason = term()
 .RE
 .RS
 .LP
-OPTIONAL
+OPTIONAL; if this function is defined, then \fB\fIinit_per_testcase/2\fR\&\fR\& must also be defined\&.
 .LP
 This function is called after each test case, and can be used to clean up after \fB\fIinit_per_testcase/2\fR\&\fR\& and the test case\&. Any return value (besides \fI{fail,Reason}\fR\& and \fI{save_config,SaveConfig}\fR\&) is ignored\&. By returning \fI{fail,Reason}\fR\&, \fITestCase\fR\& is marked as faulty (even though it was successful in the sense that it returned a value instead of terminating)\&.
 .LP

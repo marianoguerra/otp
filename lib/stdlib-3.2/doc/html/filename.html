@@ -174,6 +174,7 @@
     <li title="bt-1"><a href="c.html#bt-1">bt/1</a></li>
     <li title="c-1"><a href="c.html#c-1">c/1</a></li>
     <li title="c-2"><a href="c.html#c-2">c/2</a></li>
+    <li title="c-3"><a href="c.html#c-3">c/3</a></li>
     <li title="cd-1"><a href="c.html#cd-1">cd/1</a></li>
     <li title="flush-0"><a href="c.html#flush-0">flush/0</a></li>
     <li title="help-0"><a href="c.html#help-0">help/0</a></li>
@@ -657,6 +658,11 @@
                 </a></li>
     <li title="ensure_dir-1"><a href="filelib.html#ensure_dir-1">ensure_dir/1</a></li>
     <li title="file_size-1"><a href="filelib.html#file_size-1">file_size/1</a></li>
+    <li title="find_file-2"><a href="filelib.html#find_file-2">find_file/2</a></li>
+    <li title="find_file-3"><a href="filelib.html#find_file-3">find_file/3</a></li>
+    <li title="find_source-1"><a href="filelib.html#find_source-1">find_source/1</a></li>
+    <li title="find_source-2"><a href="filelib.html#find_source-2">find_source/2</a></li>
+    <li title="find_source-3"><a href="filelib.html#find_source-3">find_source/3</a></li>
     <li title="fold_files-5"><a href="filelib.html#fold_files-5">fold_files/5</a></li>
     <li title="is_dir-1"><a href="filelib.html#is_dir-1">is_dir/1</a></li>
     <li title="is_file-1"><a href="filelib.html#is_file-1">is_file/1</a></li>
@@ -688,6 +694,7 @@
     <li title="pathtype-1"><a href="filename.html#pathtype-1">pathtype/1</a></li>
     <li title="rootname-1"><a href="filename.html#rootname-1">rootname/1</a></li>
     <li title="rootname-2"><a href="filename.html#rootname-2">rootname/2</a></li>
+    <li title="safe_relative_path-1"><a href="filename.html#safe_relative_path-1">safe_relative_path/1</a></li>
     <li title="split-1"><a href="filename.html#split-1">split/1</a></li>
     </ul>
 </li>
@@ -2085,10 +2092,11 @@ true
           The result can be fed to <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','compiler','compile.html#file-2');"><span class="code">compile:file/2</span></a></span> to compile the file again.</p>
         <div class="warning">
 <div class="label">Warning</div>
-<div class="content"><p><p>It is not recommended to use this function. If possible,
-          use the <span class="bold_code bc-19"><a href="beam_lib.html"><span class="code">beam_lib(3)</span></a></span>
-          module to extract the abstract code format from the Beam file and
-          compile that instead.</p></p></div>
+<div class="content"><p>
+          <p>This function is deprecated. Use <span class="bold_code bc-15"><a href="filelib.html#find_source-1"><span class="code">filelib:find_source/1</span></a></span> instead for finding source files.</p>
+          <p>If possible, use the <span class="bold_code bc-19"><a href="beam_lib.html"><span class="code">beam_lib(3)</span></a></span>
+          module to extract the compiler options and the abstract code
+          format from the Beam file and compile that instead.</p></p></div>
 </div>
         <p>Argument <span class="code">Beam</span>, which can be a string or an atom,
           specifies either the module name or the path to the source
@@ -2243,6 +2251,34 @@ true
 23&gt; <span class="bold_code bc-12">filename:rootname("/beam.src/foo.beam", ".erl").</span>
 "/beam.src/foo.beam"</pre></div>
       </p></div>
+
+    <p><a name="safe_relative_path-1"></a><div class="bold_code func-head">safe_relative_path(Filename) -&gt; unsafe | SafeFilename</div><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Filename = SafeFilename = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2"></span></div>
+</div></p>
+<div class="REFBODY rb-7"><p>
+        <p>Sanitizes the relative path by eliminating ".." and "."
+        components to protect against directory traversal attacks.
+        Either returns the sanitized path name, or the atom
+        <span class="code">unsafe</span> if the path is unsafe.
+        The path is considered unsafe in the following circumstances:</p>
+        <ul>
+          <li><p>The path is not relative.</p></li>
+          <li><p>A ".." component would climb up above the root of
+          the relative path.</p></li>
+        </ul>
+        <p><strong>Examples:</strong></p>
+        <div class="example"><pre>
+1&gt; <span class="bold_code bc-12">filename:safe_relative_path("dir/sub_dir/..").</span>
+"dir"
+2&gt; <span class="bold_code bc-12">filename:safe_relative_path("dir/..").</span>
+[]
+3&gt; <span class="bold_code bc-12">filename:safe_relative_path("dir/../..").</span>
+unsafe
+4&gt; <span class="bold_code bc-12">filename:safe_relative_path("/abs/path").</span>
+unsafe</pre></div>
+       </p></div>
 
     <p><a name="split-1"></a><div class="bold_code func-head">split(Filename) -&gt; Components</div><div class="REFBODY fun-types">
 <h3 class="func-types-title">Types</h3>

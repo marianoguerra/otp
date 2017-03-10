@@ -1,4 +1,4 @@
-.TH erl_nif 3 "erts 8.2.1" "Ericsson AB" "C Library Functions"
+.TH erl_nif 3 "erts 9.0" "Ericsson AB" "C Library Functions"
 .SH NAME
 erl_nif \- API functions for an Erlang NIF library.
 .SH DESCRIPTION
@@ -487,6 +487,14 @@ When receiving data from untrusted sources, use option \fIERL_NIF_BIN2TERM_SAFE\
 .RE
 .TP 2
 .B
+\fIErlNifMonitor\fR\&:
+This is an opaque data type that identifies a monitor\&.
+.RS 2
+.LP
+The nif writer is to provide the memory for storing the monitor when calling \fB\fIenif_monitor_process\fR\&\fR\&\&. The address of the data is not stored by the runtime system, so \fIErlNifMonitor\fR\& can be used as any other data, it can be copied, moved in memory, forgotten, and so on\&. To compare two monitors, \fB\fIenif_compare_monitors\fR\&\fR\& must be used\&.
+.RE
+.TP 2
+.B
 \fIErlNifPid\fR\&:
 A process identifier (pid)\&. In contrast to pid terms (instances of \fIERL_NIF_TERM\fR\&), \fIErlNifPid\fR\&s are self-contained and not bound to any \fBenvironment\fR\&\&. \fIErlNifPid\fR\& is an opaque type\&.
 .TP 2
@@ -499,6 +507,22 @@ A port identifier\&. In contrast to port ID terms (instances of \fIERL_NIF_TERM\
 Each instance of \fIErlNifResourceType\fR\& represents a class of memory-managed resource objects that can be garbage collected\&. Each resource type has a unique name and a destructor function that is called when objects of its type are released\&.
 .TP 2
 .B
+\fIErlNifResourceTypeInit\fR\&:
+
+.LP
+.nf
+
+typedef struct {
+    ErlNifResourceDtor* dtor;
+    ErlNifResourceStop* stop;
+} ErlNifResourceTypeInit;
+.fi
+.RS 2
+.LP
+Initialization structure read by \fB enif_open_resource_type_x\fR\&\&.
+.RE
+.TP 2
+.B
 \fIErlNifResourceDtor\fR\&:
 
 .LP
@@ -509,6 +533,36 @@ typedef void ErlNifResourceDtor(ErlNifEnv* env, void* obj);
 .RS 2
 .LP
 The function prototype of a resource destructor function\&.
+.RE
+.RS 2
+.LP
+The \fIobj\fR\& argument is a pointer to the resource\&. The only allowed use for the resource in the destructor is to access its user data one final time\&. The destructor is guaranteed to be the last callback before the resource is deallocated\&.
+.RE
+.TP 2
+.B
+\fIErlNifResourceDown\fR\&:
+
+.LP
+.nf
+
+typedef void ErlNifResourceDown(ErlNifEnv* env, void* obj, const ErlNifPid* pid, const ErlNifMonitor* mon);
+.fi
+.RS 2
+.LP
+The function prototype of a resource down function, called on the behalf of \fB enif_monitor_process\fR\&\&. \fIobj\fR\& is the resource, \fIpid\fR\& is the identity of the monitored process that is exiting, and \fImon\fR\& is the identity of the monitor\&.
+.RE
+.TP 2
+.B
+\fIErlNifResourceStop\fR\&:
+
+.LP
+.nf
+
+typedef void ErlNifResourceStop(ErlNifEnv* env, void* obj, ErlNifEvent event, int is_direct_call);
+.fi
+.RS 2
+.LP
+The function prototype of a resource stop function, called on the behalf of \fB enif_select\fR\&\&. \fIobj\fR\& is the resource, \fIevent\fR\& is OS event, \fIis_direct_call\fR\& is true if the call is made directly from \fIenif_select\fR\& or false if it is a scheduled call (potentially from another thread)\&.
 .RE
 .TP 2
 .B
@@ -650,6 +704,17 @@ Returns an integer < \fI0\fR\& if \fIlhs\fR\& < \fIrhs\fR\&, \fI0\fR\& if \fIlhs
 .RE
 .LP
 .B
+int enif_compare_monitors(const ErlNifMonitor
+        *monitor1, const ErlNifMonitor *monitor2)
+.br
+.RS
+.LP
+Compares two \fB\fIErlNifMonitor\fR\&\fR\&s\&. Can also be used to imply some artificial order on monitors, for whatever reason\&.
+.LP
+Returns \fI0\fR\& if \fImonitor1\fR\& and \fImonitor2\fR\& are equal, < \fI0\fR\& if \fImonitor1\fR\& < \fImonitor2\fR\&, and > \fI0\fR\& if \fImonitor1\fR\& > \fImonitor2\fR\&\&.
+.RE
+.LP
+.B
 void enif_cond_broadcast(ErlNifCond *cnd)
 .br
 .RS
@@ -740,6 +805,38 @@ ERL_NIF_TERM enif_cpu_time(ErlNifEnv *)
 .RS
 .LP
 Returns the CPU time in the same format as \fB\fIerlang:timestamp()\fR\&\fR\&\&. The CPU time is the time the current logical CPU has spent executing since some arbitrary point in the past\&. If the OS does not support fetching this value, \fIenif_cpu_time\fR\& invokes \fB\fIenif_make_badarg\fR\&\fR\&\&.
+.RE
+.LP
+.B
+int enif_demonitor_process(ErlNifEnv* env, void* obj,
+      const ErlNifMonitor* mon)
+.br
+.RS
+.LP
+Cancels a monitor created earlier with \fB\fIenif_monitor_process\fR\&\fR\&\&. Argument \fIobj\fR\& is a pointer to the resource holding the monitor and \fI*mon\fR\& identifies the monitor\&.
+.LP
+Returns \fI0\fR\& if the monitor was successfully identified and removed\&. Returns a non-zero value if the monitor could not be identified, which means it was either
+.RS 2
+.TP 2
+*
+never created for this resource
+.LP
+.TP 2
+*
+already cancelled
+.LP
+.TP 2
+*
+already triggered
+.LP
+.TP 2
+*
+just about to be triggered by a concurrent thread
+.LP
+.RE
+
+.LP
+This function is only thread-safe when the emulator with SMP support is used\&. It can only be used in a non-SMP emulator from a NIF-calling thread\&.
 .RE
 .LP
 .B
@@ -1685,6 +1782,23 @@ Returns \fItrue\fR\& if the iterator is now positioned at a valid key-value entr
 .RE
 .LP
 .B
+int enif_monitor_process(ErlNifEnv* env, void* obj,
+      const ErlNifPid* target_pid, ErlNifMonitor* mon)
+.br
+.RS
+.LP
+Starts monitoring a process from a resource\&. When a process is monitored, a process exit results in a call to the provided \fB\fIdown\fR\&\fR\& callback associated with the resource type\&.
+.LP
+Argument \fIobj\fR\& is pointer to the resource to hold the monitor and \fI*target_pid\fR\& identifies the local process to be monitored\&.
+.LP
+If \fImon\fR\& is not \fINULL\fR\&, a successful call stores the identity of the monitor in the \fB\fIErlNifMonitor\fR\&\fR\& struct pointed to by \fImon\fR\&\&. This identifier is used to refer to the monitor for later removal with \fB\fIenif_demonitor_process\fR\&\fR\& or compare with \fB\fIenif_compare_monitors\fR\&\fR\&\&. A monitor is automatically removed when it triggers or when the resource is deallocated\&.
+.LP
+Returns \fI0\fR\& on success, < 0 if no \fIdown\fR\& callback is provided, and > 0 if the process is no longer alive\&.
+.LP
+This function is only thread-safe when the emulator with SMP support is used\&. It can only be used in a non-SMP emulator from a NIF-calling thread\&.
+.RE
+.LP
+.B
 ErlNifTime enif_monotonic_time(ErlNifTimeUnit time_unit)
 .br
 .RS
@@ -1772,6 +1886,18 @@ The two flag values can be combined with bitwise OR\&. The resource type name is
 On success, the function returns a pointer to the resource type and \fI*tried\fR\& is set to either \fIERL_NIF_RT_CREATE\fR\& or \fIERL_NIF_RT_TAKEOVER\fR\& to indicate what was done\&. On failure, returns \fINULL\fR\& and sets \fI*tried\fR\& to \fIflags\fR\&\&. It is allowed to set \fItried\fR\& to \fINULL\fR\&\&.
 .LP
 Notice that \fIenif_open_resource_type\fR\& is only allowed to be called in the two callbacks \fB\fIload\fR\&\fR\& and \fB\fIupgrade\fR\&\fR\&\&.
+.RE
+.LP
+.B
+ErlNifResourceType *enif_open_resource_type_x(ErlNifEnv* env, const char* name,
+	ErlNifResourceTypeInit* init,
+        ErlNifResourceFlags flags, ErlNifResourceFlags* tried)
+.br
+.RS
+.LP
+Same as \fB\fIenif_open_resource_type\fR\&\fR\& except is also accept a \fIstop\fR\& callback for resource types that are used together with \fB\fIenif_select\fR\&\fR\&\&.
+.LP
+Argument \fIinit\fR\& is a pointer to an \fB\fIErlNifResourceTypeInit\fR\&\fR\& structure that contains the function pointers for destructor, down and stop callbacks for the resource type\&.
 .RE
 .LP
 .B
@@ -1866,7 +1992,7 @@ void enif_release_resource(void* obj)
 .br
 .RS
 .LP
-Removes a reference to resource object \fIobj\fR\&obtained from \fB\fIenif_alloc_resource\fR\&\fR\&\&. The resource object is destructed when the last reference is removed\&. Each call to \fIenif_release_resource\fR\& must correspond to a previous call to \fIenif_alloc_resource\fR\& or \fB\fIenif_keep_resource\fR\&\fR\&\&. References made by \fB\fIenif_make_resource\fR\&\fR\& can only be removed by the garbage collector\&.
+Removes a reference to resource object \fIobj\fR\& obtained from \fB\fIenif_alloc_resource\fR\&\fR\&\&. The resource object is destructed when the last reference is removed\&. Each call to \fIenif_release_resource\fR\& must correspond to a previous call to \fIenif_alloc_resource\fR\& or \fB\fIenif_keep_resource\fR\&\fR\&\&. References made by \fB\fIenif_make_resource\fR\&\fR\& can only be removed by the garbage collector\&.
 .RE
 .LP
 .B
@@ -1960,6 +2086,82 @@ Can either be the originals passed into the calling NIF, or can be values create
 The calling NIF must use the return value of \fIenif_schedule_nif\fR\& as its own return value\&.
 .LP
 Be aware that \fIenif_schedule_nif\fR\&, as its name implies, only schedules the NIF for future execution\&. The calling NIF does not block waiting for the scheduled NIF to execute and return\&. This means that the calling NIF cannot expect to receive the scheduled NIF return value and use it for further operations\&.
+.RE
+.LP
+.B
+int enif_select(ErlNifEnv* env, ErlNifEvent event, enum ErlNifSelectFlags mode,
+	void* obj, const ErlNifPid* pid, ERL_NIF_TERM ref)
+.br
+.RS
+.LP
+This function can be used to receive asynchronous notifications when OS-specific event objects become ready for either read or write operations\&.
+.LP
+Argument \fIevent\fR\& identifies the event object\&. On Unix systems, the functions \fIselect\fR\&/\fIpoll\fR\& are used\&. The event object must be a socket, pipe or other file descriptor object that \fIselect\fR\&/\fIpoll\fR\& can use\&.
+.LP
+Argument \fImode\fR\& describes the type of events to wait for\&. It can be \fIERL_NIF_SELECT_READ\fR\&, \fIERL_NIF_SELECT_WRITE\fR\& or a bitwise OR combination to wait for both\&. It can also be \fIERL_NIF_SELECT_STOP\fR\& which is described further below\&. When a read or write event is triggerred, a notification message like this is sent to the process identified by \fIpid\fR\&:
+.LP
+.nf
+{select, Obj, Ref, ready_input | ready_output}
+.fi
+.LP
+\fIready_input\fR\& or \fIready_output\fR\& indicates if the event object is ready for reading or writing\&.
+.LP
+Argument \fIpid\fR\& may be \fINULL\fR\& to indicate the calling process\&.
+.LP
+Argument \fIobj\fR\& is a resource object obtained from \fB\fIenif_alloc_resource\fR\&\fR\&\&. The purpose of the resource objects is as a container of the event object to manage its state and lifetime\&. A handle to the resource is received in the notification message as \fIObj\fR\&\&.
+.LP
+Argument \fIref\fR\& must be either a reference obtained from \fB\fIerlang:make_ref/0\fR\&\fR\& or the atom \fIundefined\fR\&\&. It will be passed as \fIRef\fR\& in the notifications\&. If a selective \fIreceive\fR\& statement is used to wait for the notification then a reference created just before the \fIreceive\fR\& will exploit a runtime optimization that bypasses all earlier received messages in the queue\&.
+.LP
+The notifications are one-shot only\&. To receive further notifications of the same type (read or write), repeated calls to \fIenif_select\fR\& must be made after receiving each notification\&.
+.LP
+Use \fIERL_NIF_SELECT_STOP\fR\& as \fImode\fR\& in order to safely close an event object that has been passed to \fIenif_select\fR\&\&. The \fB\fIstop\fR\&\fR\& callback of the resource \fIobj\fR\& will be called when it is safe to close the event object\&. This safe way of closing event objects must be used even if all notifications have been received and no further calls to \fIenif_select\fR\& have been made\&.
+.LP
+Returns a non-negative value on success where the following bits can be set:
+.RS 2
+.TP 2
+.B
+\fIERL_NIF_SELECT_STOP_CALLED\fR\&:
+The stop callback was called directly by \fIenif_select\fR\&\&.
+.TP 2
+.B
+\fIERL_NIF_SELECT_STOP_SCHEDULED\fR\&:
+The stop callback was scheduled to run on some other thread or later by this thread\&.
+.RE
+.LP
+Returns a negative value if the call failed where the follwing bits can be set:
+.RS 2
+.TP 2
+.B
+\fIERL_NIF_SELECT_INVALID_EVENT\fR\&:
+Argument \fIevent\fR\& is not a valid OS event object\&.
+.TP 2
+.B
+\fIERL_NIF_SELECT_FAILED\fR\&:
+The system call failed to add the event object to the poll set\&.
+.RE
+.LP
+
+.RS -4
+.B
+Note:
+.RE
+Use bitwise AND to test for specific bits in the return vaue\&. New significant bits may be added in future releases to give more detailed information for both failed and successful calls\&. Do NOT use equallity tests like \fI==\fR\&, as that may cause your application to stop working\&.
+.LP
+Example:
+.LP
+.nf
+
+retval = enif_select(env, fd, ERL_NIF_SELECT_STOP, resource, ref);
+if (retval < 0) {
+    /* handle error */
+}
+/* Success! */
+if (retval & ERL_NIF_SELECT_STOP_CALLED) {
+    /* ... */
+}
+
+.fi
+
 .RE
 .LP
 .B

@@ -174,6 +174,7 @@
     <li title="bt-1"><a href="c.html#bt-1">bt/1</a></li>
     <li title="c-1"><a href="c.html#c-1">c/1</a></li>
     <li title="c-2"><a href="c.html#c-2">c/2</a></li>
+    <li title="c-3"><a href="c.html#c-3">c/3</a></li>
     <li title="cd-1"><a href="c.html#cd-1">cd/1</a></li>
     <li title="flush-0"><a href="c.html#flush-0">flush/0</a></li>
     <li title="help-0"><a href="c.html#help-0">help/0</a></li>
@@ -657,6 +658,11 @@
                 </a></li>
     <li title="ensure_dir-1"><a href="filelib.html#ensure_dir-1">ensure_dir/1</a></li>
     <li title="file_size-1"><a href="filelib.html#file_size-1">file_size/1</a></li>
+    <li title="find_file-2"><a href="filelib.html#find_file-2">find_file/2</a></li>
+    <li title="find_file-3"><a href="filelib.html#find_file-3">find_file/3</a></li>
+    <li title="find_source-1"><a href="filelib.html#find_source-1">find_source/1</a></li>
+    <li title="find_source-2"><a href="filelib.html#find_source-2">find_source/2</a></li>
+    <li title="find_source-3"><a href="filelib.html#find_source-3">find_source/3</a></li>
     <li title="fold_files-5"><a href="filelib.html#fold_files-5">fold_files/5</a></li>
     <li title="is_dir-1"><a href="filelib.html#is_dir-1">is_dir/1</a></li>
     <li title="is_file-1"><a href="filelib.html#is_file-1">is_file/1</a></li>
@@ -688,6 +694,7 @@
     <li title="pathtype-1"><a href="filename.html#pathtype-1">pathtype/1</a></li>
     <li title="rootname-1"><a href="filename.html#rootname-1">rootname/1</a></li>
     <li title="rootname-2"><a href="filename.html#rootname-2">rootname/2</a></li>
+    <li title="safe_relative_path-1"><a href="filename.html#safe_relative_path-1">safe_relative_path/1</a></li>
     <li title="split-1"><a href="filename.html#split-1">split/1</a></li>
     </ul>
 </li>
@@ -1763,6 +1770,14 @@
       <span class="bold_code bc-4"><a name="type-filename_all">filename_all()</a> = <span class="bold_code bc-14"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#type-name_all');">file:name_all()</a></span></span><br>
 </div>
 <div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-find_file_rule">find_file_rule()</a> = <br>    {ObjDirSuffix :: string(), SrcDirSuffix :: string()}</span><br>
+</div>
+<div class="data-type-desc"></div>
+    <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-find_source_rule">find_source_rule()</a> = <br>    {ObjExtension :: string(),<br>     SrcExtension :: string(),<br>     [<span class="bold_code bc-17"><a href="#type-find_file_rule">find_file_rule()</a></span>]}</span><br>
+</div>
+<div class="data-type-desc"></div>
   </div>
 
   <h3><a name="exports" href="#exports">Exports</a></h3>
@@ -1932,6 +1947,38 @@ filelib:wildcard("lib/**/*.{erl,hrl}")</pre></div>
         <p>Same as <span class="bold_code bc-17"><a href="#wildcard-1"><span class="code">wildcard/1</span></a></span>,
           except that <span class="code">Cwd</span> is used instead of the working
           directory.</p>
+      </p></div>
+
+    <p><a name="find_file-2"></a><div class="bold_code func-head">find_file(Filename :: <span class="bold_code bc-17"><a href="#type-filename">filename()</a></span>, Dir :: <span class="bold_code bc-17"><a href="#type-filename">filename()</a></span>) -&gt;<br>             {ok, <span class="bold_code bc-17"><a href="#type-filename">filename()</a></span>} | {error, not_found}</div><a name="find_file-3"></a><div class="bold_code func-head">find_file(Filename :: <span class="bold_code bc-17"><a href="#type-filename">filename()</a></span>,<br>          Dir :: <span class="bold_code bc-17"><a href="#type-filename">filename()</a></span>,<br>          Rules :: [<span class="bold_code bc-17"><a href="#type-find_file_rule">find_file_rule()</a></span>]) -&gt;<br>             {ok, <span class="bold_code bc-17"><a href="#type-filename">filename()</a></span>} | {error, not_found}</div></p>
+<div class="REFBODY rb-7"><p>
+        <p>Looks for a file of the given name by applying suffix rules to
+        the given directory path. For example, a rule <span class="code">{"ebin", "src"}</span>
+        means that if the directory path ends with <span class="code">"ebin"</span>, the
+        corresponding path ending in <span class="code">"src"</span> should be searched.</p>
+        <p>If <span class="code">Rules</span> is left out or is an empty list, the
+        default system rules are used. See also the Kernel application
+        parameter <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','kernel_app.html#source_search_rules');"><span class="code">source_search_rules</span></a></span>.</p>
+      </p></div>
+    <p><a name="find_source-1"></a><div class="bold_code func-head">find_source(FilePath :: <span class="bold_code bc-17"><a href="#type-filename">filename()</a></span>) -&gt;<br>               {ok, <span class="bold_code bc-17"><a href="#type-filename">filename()</a></span>} | {error, not_found}</div></p>
+<div class="REFBODY rb-7"><p>
+        <p>Equivalent to <span class="code">find_source(Base, Dir)</span>, where <span class="code">Dir</span> is
+        <span class="code">filename:dirname(FilePath)</span> and <span class="code">Base</span> is
+        <span class="code">filename:basename(FilePath)</span>.</p>
+      </p></div>
+    <p><a name="find_source-2"></a><div class="bold_code func-head">find_source(Filename :: <span class="bold_code bc-17"><a href="#type-filename">filename()</a></span>, Dir :: <span class="bold_code bc-17"><a href="#type-filename">filename()</a></span>) -&gt;<br>               {ok, <span class="bold_code bc-17"><a href="#type-filename">filename()</a></span>} | {error, not_found}</div><a name="find_source-3"></a><div class="bold_code func-head">find_source(Filename :: <span class="bold_code bc-17"><a href="#type-filename">filename()</a></span>,<br>            Dir :: <span class="bold_code bc-17"><a href="#type-filename">filename()</a></span>,<br>            Rules :: [<span class="bold_code bc-17"><a href="#type-find_source_rule">find_source_rule()</a></span>]) -&gt;<br>               {ok, <span class="bold_code bc-17"><a href="#type-filename">filename()</a></span>} | {error, not_found}</div></p>
+<div class="REFBODY rb-7"><p>
+        <p>Applies file extension specific rules to find the source file for
+        a given object file relative to the object directory. For example,
+        for a file with the extension <span class="code">.beam</span>, the default rule is to
+        look for a file with a corresponding extension <span class="code">.erl</span> by
+        replacing the suffix <span class="code">"ebin"</span> of the object directory path with
+        <span class="code">"src"</span>.
+        The file search is done through <span class="bold_code bc-17"><a href="#find_file-3"><span class="code">find_file/3</span></a></span>. The directory of
+        the object file is always tried before any other directory specified
+        by the rules.</p>
+        <p>If <span class="code">Rules</span> is left out or is an empty list, the
+        default system rules are used. See also the Kernel application
+        parameter <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','kernel_app.html#source_search_rules');"><span class="code">source_search_rules</span></a></span>.</p>
       </p></div>
   </div>
 </div>

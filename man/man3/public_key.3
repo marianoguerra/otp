@@ -1115,6 +1115,9 @@ ssh_hostkey_fingerprint(HostKey) -> string()
 .B
 ssh_hostkey_fingerprint(DigestType, HostKey) -> string()
 .br
+.B
+ssh_hostkey_fingerprint([DigestType], HostKey) -> [string()]
+.br
 .RS
 .LP
 Types:
@@ -1147,6 +1150,10 @@ Examples:
 
  5> public_key:ssh_hostkey_fingerprint(sha256,Key).
  "SHA256:aZGXhabfbf4oxglxltItWeHU7ub3Dc31NcNw2cMJePQ"
+
+ 6> public_key:ssh_hostkey_fingerprint([sha,sha256],Key).
+ ["SHA1:bSLY/C4QXLDL/Iwmhyg0PGW9UbY",
+  "SHA256:aZGXhabfbf4oxglxltItWeHU7ub3Dc31NcNw2cMJePQ"]
     
 .fi
 .RE

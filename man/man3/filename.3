@@ -567,7 +567,9 @@ Finds the source filename and compiler options for a module\&. The result can be
 .B
 Warning:
 .RE
-It is not recommended to use this function\&. If possible, use the \fB\fIbeam_lib(3)\fR\&\fR\& module to extract the abstract code format from the Beam file and compile that instead\&.
+This function is deprecated\&. Use \fB\fIfilelib:find_source/1\fR\&\fR\& instead for finding source files\&.
+.LP
+If possible, use the \fB\fIbeam_lib(3)\fR\&\fR\& module to extract the compiler options and the abstract code format from the Beam file and compile that instead\&.
 
 .LP
 Argument \fIBeam\fR\&, which can be a string or an atom, specifies either the module name or the path to the source code, with or without extension \fI"\&.erl"\fR\&\&. In either case, the module must be known by the code server, that is, \fIcode:which(Module)\fR\& must succeed\&.
@@ -801,6 +803,52 @@ Removes a filename extension\&. \fIrootname/2\fR\& works as \fIrootname/1\fR\&, 
 "/beam.src/foo"
 23> filename:rootname("/beam\&.src/foo\&.beam", "\&.erl")\&.
 "/beam.src/foo.beam"
+.fi
+.RE
+.LP
+.nf
+
+.B
+safe_relative_path(Filename) -> unsafe | SafeFilename
+.br
+.fi
+.br
+.RS
+.LP
+Types:
+
+.RS 3
+Filename = SafeFilename = \fBfile:name_all()\fR\&
+.br
+.RE
+.RE
+.RS
+.LP
+Sanitizes the relative path by eliminating "\&.\&." and "\&." components to protect against directory traversal attacks\&. Either returns the sanitized path name, or the atom \fIunsafe\fR\& if the path is unsafe\&. The path is considered unsafe in the following circumstances:
+.RS 2
+.TP 2
+*
+The path is not relative\&.
+.LP
+.TP 2
+*
+A "\&.\&." component would climb up above the root of the relative path\&.
+.LP
+.RE
+
+.LP
+\fIExamples:\fR\&
+.LP
+.nf
+
+1> filename:safe_relative_path("dir/sub_dir/\&.\&.")\&.
+"dir"
+2> filename:safe_relative_path("dir/\&.\&.")\&.
+[]
+3> filename:safe_relative_path("dir/\&.\&./\&.\&.")\&.
+unsafe
+4> filename:safe_relative_path("/abs/path")\&.
+unsafe
 .fi
 .RE
 .LP

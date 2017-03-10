@@ -330,17 +330,17 @@
         <div class="REFTYPES rt-4">
 <span class="bold_code fun-param-type">Options = [Option]</span><br>
 </div>
-        <div class="REFTYPES rt-4">
-<span class="bold_code fun-param-type"> Option = noexec | load | netload | &lt;compiler option&gt;</span><br>
+	<div class="REFTYPES rt-4">
+<span class="bold_code fun-param-type"> Option = noexec | load | netload | {emake, Emake} | &lt;compiler option&gt;</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
-        <p>This function first looks in the current working directory
-          for a file named <span class="code">Emakefile</span> (see below) specifying the
-          set of modules to compile and the compile options to use. If
-          no such file is found, the set of modules to compile
-          defaults to all modules in the current working
-          directory.</p>
+      <p>This function determines the set of modules to compile and the
+          compile options to use, by first looking for the <span class="code">emake</span> make
+          option, if not present reads the configuration from a file named
+          <span class="code">Emakefile</span> (see below). If no such file is found, the
+          set of modules to compile defaults to all modules in the
+          current working directory.</p>
         <p>Traversing the set of modules, it then recompiles every module for
           which at least one of the following conditions apply:</p>
         <ul>
@@ -369,6 +369,10 @@
 <span class="code">netload</span>          <br>
 
            Net load mode. Loads all recompiled modules on all known nodes.</li>
+          <li>
+<span class="code">{emake, Emake}</span>          <br>
+
+           Rather than reading the <span class="code">Emakefile</span> specify configuration explicitly.</li>
         </ul>
         <p>All items in <span class="code">Options</span> that are not make options are assumed
           to be compiler options and are passed as-is to
@@ -404,12 +408,13 @@
       </p></div>
   </div>
 
-  <h3><a name="idm45524540906896">Emakefile</a></h3>
+  <h3><a name="idm45515614593744">Emakefile</a></h3>
 <div class="REFBODY rb-3">
     
-    <p><span class="code">make:all/0,1</span> and <span class="code">make:files/1,2</span> looks in the
-      current working directory for a file named <span class="code">Emakefile</span>. If
-      it exists, <span class="code">Emakefile</span> should contain elements like this:</p>
+    <p><span class="code">make:all/0,1</span> and <span class="code">make:files/1,2</span> first looks for
+      <span class="code">{emake, Emake}</span> in options, then in the current working directory
+      for a file named <span class="code">Emakefile</span>. If present <span class="code">Emake</span> should
+      contain elements like this:</p>
     <div class="example"><pre>
 Modules.
 {Modules,Options}.    </pre></div>

@@ -418,7 +418,7 @@
 <span class="bold_code fun-param-type">Name = string()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code fun-param-type">Opt = {dirs,[IncDir]} | {path,[Dir]} | {variables,[Var]} | {var_tar,VarTar} | {erts,Dir} | src_tests | exref | {exref,[App]} | silent | {outdir,Dir}</span><br>
+<span class="bold_code fun-param-type">Opt = {dirs,[IncDir]} | {path,[Dir]} | {variables,[Var]} | {var_tar,VarTar} | {erts,Dir} | src_tests | exref | {exref,[App]} | silent | {outdir,Dir} | | no_warn_sasl | warnings_as_errors</span><br>
 </div>
         <div class="REFTYPES rt-4">
 <span class="bold_code fun-param-type"> Dir = string()</span><br>
@@ -468,6 +468,10 @@
           directory unless <span class="code">Name</span> contains a path. If option
           <span class="code">{outdir,Dir}</span> is specified, it is located in <span class="code">Dir</span>
           instead.</p>
+        <p>If SASL is not included as an application in
+          the <span class="code">.rel</span> file, a warning is issued because such a
+          release cannot be used in an upgrade. To turn off this
+          warning, add option <span class="code">no_warn_sasl</span>.</p>
         <p>By default, the release package contains the directories
           <span class="code">lib/App-Vsn/ebin</span> and <span class="code">lib/App-Vsn/priv</span> for each
           included application. If more directories are to be included,
@@ -552,7 +556,7 @@ myapp-1/ebin/myapp.app
       </p></div>
   </div>
 
-  <h3><a name="idm45660517889024">See Also</a></h3>
+  <h3><a name="idm45742109596592">See Also</a></h3>
 <div class="REFBODY rb-3">
     
     <p><span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','kernel','app.html');"><span class="code">app(4)</span></a></span>,

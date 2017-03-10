@@ -288,7 +288,7 @@ Makes the function \fIF/A\fR\& no longer being auto-imported from the \fIerlang\
 .B
 Note:
 .RE
-As from R14A and forward, the compiler resolves calls without module prefix to local or imported functions before trying with auto-imported BIFs\&. If the BIF is to be called, use the \fIerlang\fR\& module prefix in the call, not \fI{ no_auto_import,[{F,A}, \&.\&.\&.]}\fR\&\&.
+As from R14A and forward, the compiler resolves calls without module prefix to local or imported functions before trying with auto-imported BIFs\&. If the BIF is to be called, use the \fIerlang\fR\& module prefix in the call, not \fI{no_auto_import,[{F,A}, \&.\&.\&.]}\fR\&\&.
 
 .RS 2
 .LP
@@ -306,6 +306,10 @@ Do not auto-import any functions from \fIerlang\fR\& module\&.
 .B
 \fIno_line_info\fR\&:
 Omits line number information to produce a slightly smaller output file\&.
+.TP 2
+.B
+\fI{extra_chunks, [{binary(), binary()}]}\fR\&:
+Pass extra chunks to be stored in the \fI\&.beam\fR\& file\&. The extra chunks must be a list of tuples with a four byte binary as chunk name followed by a binary with the chunk contents\&. See \fBbeam_lib\fR\& for more information\&.
 .RE
 .LP
 If warnings are turned on (option \fIreport_warnings\fR\& described earlier), the following options control what type of warnings that are generated\&. Except from \fI{warn_format,Verbosity}\fR\&, the following options have two forms:
@@ -485,7 +489,7 @@ forms(Forms)
 .br
 .RS
 .LP
-Is the same as \fIforms(File, [verbose,report_errors,report_warnings])\fR\&\&.
+Is the same as \fIforms(Forms, [verbose,report_errors,report_warnings])\fR\&\&.
 .RE
 .LP
 .B

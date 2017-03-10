@@ -101,8 +101,9 @@
 {"c.html", {function, {"stdlib", "c"}},
 [
   {"bt", "bt(Pid)", "bt-1"},
-  {"c", "c(File)", "c-1"},
-  {"c", "c(File, Options)", "c-2"},
+  {"c", "c(Module)", "c-1"},
+  {"c", "c(Module, Options)", "c-2"},
+  {"c", "c(Module, Options, Filter)", "c-3"},
   {"cd", "cd(Dir)", "cd-1"},
   {"flush", "flush()", "flush-0"},
   {"help", "help()", "help-0"},
@@ -560,7 +561,12 @@
   {"is_regular", "is_regular(Name)", "is_regular-1"},
   {"last_modified", "last_modified(Name)", "last_modified-1"},
   {"wildcard", "wildcard(Wildcard)", "wildcard-1"},
-  {"wildcard", "wildcard(Wildcard, Cwd)", "wildcard-2"}
+  {"wildcard", "wildcard(Wildcard, Cwd)", "wildcard-2"},
+  {"find_file", "find_file(Filename :: filename(), Dir :: filename())", "find_file-2"},
+  {"find_file", "find_file(Filename :: filename(),Dir :: filename(),Rules :: [find_file_rule()])", "find_file-3"},
+  {"find_source", "find_source(FilePath :: filename())", "find_source-1"},
+  {"find_source", "find_source(Filename :: filename(), Dir :: filename())", "find_source-2"},
+  {"find_source", "find_source(Filename :: filename(),Dir :: filename(),Rules :: [find_source_rule()])", "find_source-3"}
 ]}.
 {"filelib.html", {module, "stdlib"}, ["filelib"]}.
 {"filename.html", {function, {"stdlib", "filename"}},
@@ -583,6 +589,7 @@
   {"pathtype", "pathtype(Path)", "pathtype-1"},
   {"rootname", "rootname(Filename)", "rootname-1"},
   {"rootname", "rootname(Filename, Ext)", "rootname-2"},
+  {"safe_relative_path", "safe_relative_path(Filename)", "safe_relative_path-1"},
   {"split", "split(Filename)", "split-1"}
 ]}.
 {"filename.html", {module, "stdlib"}, ["filename"]}.

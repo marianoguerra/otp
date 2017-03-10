@@ -328,18 +328,18 @@
   {"Module:init", "Module:init(Id, Opts)", "Module:init-2"},
   {"Module:pre_init_per_suite", "Module:pre_init_per_suite(SuiteName, InitData, CTHState)", "Module:pre_init_per_suite-3"},
   {"Module:post_init_per_suite", "Module:post_init_per_suite(SuiteName, Config, Return, CTHState)", "Module:post_init_per_suite-4"},
-  {"Module:pre_init_per_group", "Module:pre_init_per_group(GroupName, InitData, CTHState)", "Module:pre_init_per_group-3"},
-  {"Module:post_init_per_group", "Module:post_init_per_group(GroupName, Config, Return, CTHState)", "Module:post_init_per_group-4"},
-  {"Module:pre_init_per_testcase", "Module:pre_init_per_testcase(TestcaseName, InitData, CTHState)", "Module:pre_init_per_testcase-3"},
-  {"Module:post_init_per_testcase", "Module:post_init_per_testcase(TestcaseName, Config, Return, CTHState)", "Module:post_init_per_testcase-4"},
-  {"Module:pre_end_per_testcase", "Module:pre_end_per_testcase(TestcaseName, InitData, CTHState)", "Module:pre_end_per_testcase-3"},
-  {"Module:post_end_per_testcase", "Module:post_end_per_testcase(TestcaseName, Config, Return, CTHState)", "Module:post_end_per_testcase-4"},
-  {"Module:pre_end_per_group", "Module:pre_end_per_group(GroupName, EndData, CTHState)", "Module:pre_end_per_group-3"},
-  {"Module:post_end_per_group", "Module:post_end_per_group(GroupName, Config, Return, CTHState)", "Module:post_end_per_group-4"},
+  {"Module:pre_init_per_group", "Module:pre_init_per_group(SuiteName, GroupName, InitData, CTHState)", "Module:pre_init_per_group-4"},
+  {"Module:post_init_per_group", "Module:post_init_per_group(SuiteName, GroupName, Config, Return, CTHState)", "Module:post_init_per_group-5"},
+  {"Module:pre_init_per_testcase", "Module:pre_init_per_testcase(SuiteName, TestcaseName, InitData, CTHState)", "Module:pre_init_per_testcase-4"},
+  {"Module:post_init_per_testcase", "Module:post_init_per_testcase(SuiteName, TestcaseName, Config, Return, CTHState)", "Module:post_init_per_testcase-5"},
+  {"Module:pre_end_per_testcase", "Module:pre_end_per_testcase(SuiteName, TestcaseName, EndData, CTHState)", "Module:pre_end_per_testcase-4"},
+  {"Module:post_end_per_testcase", "Module:post_end_per_testcase(SuiteName, TestcaseName, Config, Return, CTHState)", "Module:post_end_per_testcase-5"},
+  {"Module:pre_end_per_group", "Module:pre_end_per_group(SuiteName, GroupName, EndData, CTHState)", "Module:pre_end_per_group-4"},
+  {"Module:post_end_per_group", "Module:post_end_per_group(SuiteName, GroupName, Config, Return, CTHState)", "Module:post_end_per_group-5"},
   {"Module:pre_end_per_suite", "Module:pre_end_per_suite(SuiteName, EndData, CTHState)", "Module:pre_end_per_suite-3"},
   {"Module:post_end_per_suite", "Module:post_end_per_suite(SuiteName, Config, Return, CTHState)", "Module:post_end_per_suite-4"},
-  {"Module:on_tc_fail", "Module:on_tc_fail(TestName, Reason, CTHState)", "Module:on_tc_fail-3"},
-  {"Module:on_tc_skip", "Module:on_tc_skip(TestName, Reason, CTHState)", "Module:on_tc_skip-3"},
+  {"Module:on_tc_fail", "Module:on_tc_fail(SuiteName, TestName, Reason, CTHState)", "Module:on_tc_fail-4"},
+  {"Module:on_tc_skip", "Module:on_tc_skip(SuiteName, TestName, Reason, CTHState)", "Module:on_tc_skip-4"},
   {"Module:terminate", "Module:terminate(", "Module:terminate-1"},
   {"Module:id", "Module:id(Opts)", "Module:id-1"}
 ]}.
@@ -350,4 +350,9 @@
   {"quickcheck", "quickcheck(Property, Config)", "quickcheck-2"}
 ]}.
 {"ct_property_test.html", {module, "common_test"}, ["ct_property_test"]}.
+{"ct_testspec.html", {function, {"common_test", "ct_testspec"}},
+[
+  {"get_tests", "get_tests(SpecsIn)", "get_tests-1"}
+]}.
+{"ct_testspec.html", {module, "common_test"}, ["ct_testspec"]}.
 {notused, application, ["common_test"]}.

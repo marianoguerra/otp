@@ -185,7 +185,7 @@ Types:
 .RS 3
 Name = string()
 .br
-Opt = {dirs,[IncDir]} | {path,[Dir]} | {variables,[Var]} | {var_tar,VarTar} | {erts,Dir} | src_tests | exref | {exref,[App]} | silent | {outdir,Dir}
+Opt = {dirs,[IncDir]} | {path,[Dir]} | {variables,[Var]} | {var_tar,VarTar} | {erts,Dir} | src_tests | exref | {exref,[App]} | silent | {outdir,Dir} | | no_warn_sasl | warnings_as_errors
 .br
  Dir = string()
 .br
@@ -216,6 +216,8 @@ Creates a release package file \fIName\&.tar\&.gz\fR\&\&. This file must be unco
 The release resource file \fIName\&.rel\fR\& is read to determine which applications are included in the release\&. Then the relevant application resource files \fIApp\&.app\fR\& are read to determine the version and modules of each application (keys \fIvsn\fR\& and \fImodules\fR\&, see \fB\fIapp(4)\fR\&\fR\&)\&.
 .LP
 By default, the release package file is located in the same directory as \fIName\&.rel\fR\&\&. That is, in the current working directory unless \fIName\fR\& contains a path\&. If option \fI{outdir,Dir}\fR\& is specified, it is located in \fIDir\fR\& instead\&.
+.LP
+If SASL is not included as an application in the \fI\&.rel\fR\& file, a warning is issued because such a release cannot be used in an upgrade\&. To turn off this warning, add option \fIno_warn_sasl\fR\&\&.
 .LP
 By default, the release package contains the directories \fIlib/App-Vsn/ebin\fR\& and \fIlib/App-Vsn/priv\fR\& for each included application\&. If more directories are to be included, option \fIdirs\fR\& is specified, for example, \fI{dirs,[src,examples]}\fR\&\&.
 .LP

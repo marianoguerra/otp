@@ -45,6 +45,72 @@ Operating system interface
 
 .LP
 Two standard error logger event handlers are defined in the Kernel application\&. These are described in \fB\fIerror_logger(3)\fR\&\fR\&\&.
+.SH "OS SIGNAL EVENT HANDLER"
+
+.LP
+Asynchronous OS signals may be subscribed to via the Kernel applications event manager (see \fBOTP Design Principles\fR\& and \fB\fIgen_event(3)\fR\&\fR\&) registered as \fIerl_signal_server\fR\&\&. A default signal handler is installed which handles the following signals:
+.RS 2
+.TP 2
+.B
+\fIsigusr1\fR\&:
+The default handler will halt Erlang and produce a crashdump with slogan "Received SIGUSR1"\&. This is equivalent to calling \fIerlang:halt("Received SIGUSR1")\fR\&\&.
+.TP 2
+.B
+\fIsigquit\fR\&:
+The default handler will halt Erlang immediately\&. This is equivalent to calling \fIerlang:halt()\fR\&\&.
+.TP 2
+.B
+\fIsigterm\fR\&:
+The default handler will terminate Erlang normally\&. This is equivalent to calling \fIinit:stop()\fR\&\&.
+.RE
+.SS "Events"
+
+.LP
+Any event handler added to \fIerl_signal_server\fR\& must handle the following events\&.
+.RS 2
+.TP 2
+.B
+\fIsighup\fR\&:
+Hangup detected on controlling terminal or death of controlling process
+.TP 2
+.B
+\fIsigquit\fR\&:
+Quit from keyboard
+.TP 2
+.B
+\fIsigabrt\fR\&:
+Abort signal from abort
+.TP 2
+.B
+\fIsigalrm\fR\&:
+Timer signal from alarm
+.TP 2
+.B
+\fIsigterm\fR\&:
+Termination signal
+.TP 2
+.B
+\fIsigusr1\fR\&:
+User-defined signal 1
+.TP 2
+.B
+\fIsigusr2\fR\&:
+User-defined signal 2
+.TP 2
+.B
+\fIsigchld\fR\&:
+Child process stopped or terminated
+.TP 2
+.B
+\fIsigstop\fR\&:
+Stop process
+.TP 2
+.B
+\fIsigtstp\fR\&:
+Stop typed at terminal
+.RE
+.LP
+Setting OS signals are described in \fB\fIos:set_signal/2\fR\&\fR\&\&.
 .SH "CONFIGURATION"
 
 .LP
@@ -391,6 +457,45 @@ Where:
 .RS 2
 .LP
 Sets a function that \fIapplication_controller\fR\& calls when it starts to terminate\&. The function is called as \fIMod:Func(Reason)\fR\&, where \fIReason\fR\& is the terminate reason for \fIapplication_controller\fR\&, and it must return as soon as possible for \fIapplication_controller\fR\& to terminate properly\&.
+.RE
+.TP 2
+.B
+\fIsource_search_rules = [DirRule] | [SuffixRule] \fR\&:
+
+.RS 2
+.LP
+Where:
+.RE
+.RS 2
+.TP 2
+*
+\fIDirRule = {ObjDirSuffix,SrcDirSuffix}\fR\&
+.LP
+.TP 2
+*
+\fISuffixRule = {ObjSuffix,SrcSuffix,[DirRule]}\fR\&
+.LP
+.TP 2
+*
+\fIObjDirSuffix = string()\fR\&
+.LP
+.TP 2
+*
+\fISrcDirSuffix = string()\fR\&
+.LP
+.TP 2
+*
+\fIObjSuffix = string()\fR\&
+.LP
+.TP 2
+*
+\fISrcSuffix = string()\fR\&
+.LP
+.RE
+
+.RS 2
+.LP
+Specifies a list of rules for use by \fIfilelib:find_file/2\fR\& and \fIfilelib:find_source/2\fR\&\&. If this is set to some other value than the empty list, it replaces the default rules\&. Rules can be simple pairs of directory suffixes, such as \fI{"ebin", "src"}\fR\&, which are used by \fIfilelib:find_file/2\fR\&, or triples specifying separate directory suffix rules depending on file name extensions, for example \fI[{"\&.beam", "\&.erl", [{"ebin", "src"}]}\fR\&, which are used by \fIfilelib:find_source/2\fR\&\&. Both kinds of rules can be mixed in the list\&.
 .RE
 .RE
 .SH "SEE ALSO"

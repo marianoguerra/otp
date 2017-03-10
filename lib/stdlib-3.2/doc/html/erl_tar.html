@@ -174,6 +174,7 @@
     <li title="bt-1"><a href="c.html#bt-1">bt/1</a></li>
     <li title="c-1"><a href="c.html#c-1">c/1</a></li>
     <li title="c-2"><a href="c.html#c-2">c/2</a></li>
+    <li title="c-3"><a href="c.html#c-3">c/3</a></li>
     <li title="cd-1"><a href="c.html#cd-1">cd/1</a></li>
     <li title="flush-0"><a href="c.html#flush-0">flush/0</a></li>
     <li title="help-0"><a href="c.html#help-0">help/0</a></li>
@@ -657,6 +658,11 @@
                 </a></li>
     <li title="ensure_dir-1"><a href="filelib.html#ensure_dir-1">ensure_dir/1</a></li>
     <li title="file_size-1"><a href="filelib.html#file_size-1">file_size/1</a></li>
+    <li title="find_file-2"><a href="filelib.html#find_file-2">find_file/2</a></li>
+    <li title="find_file-3"><a href="filelib.html#find_file-3">find_file/3</a></li>
+    <li title="find_source-1"><a href="filelib.html#find_source-1">find_source/1</a></li>
+    <li title="find_source-2"><a href="filelib.html#find_source-2">find_source/2</a></li>
+    <li title="find_source-3"><a href="filelib.html#find_source-3">find_source/3</a></li>
     <li title="fold_files-5"><a href="filelib.html#fold_files-5">fold_files/5</a></li>
     <li title="is_dir-1"><a href="filelib.html#is_dir-1">is_dir/1</a></li>
     <li title="is_file-1"><a href="filelib.html#is_file-1">is_file/1</a></li>
@@ -688,6 +694,7 @@
     <li title="pathtype-1"><a href="filename.html#pathtype-1">pathtype/1</a></li>
     <li title="rootname-1"><a href="filename.html#rootname-1">rootname/1</a></li>
     <li title="rootname-2"><a href="filename.html#rootname-2">rootname/2</a></li>
+    <li title="safe_relative_path-1"><a href="filename.html#safe_relative_path-1">safe_relative_path/1</a></li>
     <li title="split-1"><a href="filename.html#split-1">split/1</a></li>
     </ul>
 </li>
@@ -1735,12 +1742,13 @@
   <h3><a name="description" href="#description">Description</a></h3>
 <div class="REFBODY description-body"><p>
     <p>This module archives and extract files to and from
-      a tar file. This module supports the <span class="code">ustar</span> format
-      (IEEE Std 1003.1 and ISO/IEC 9945-1). All modern <span class="code">tar</span>
-      programs (including GNU tar) can read this format. To ensure that
-      that GNU tar produces a tar file that <span class="code">erl_tar</span> can read,
-      specify option <span class="code">--format=ustar</span> to GNU tar.</p>
-
+    a tar file. This module supports reading most common tar formats,
+    namely v7, STAR, USTAR, and PAX, as well as some of GNU tar's extensions
+    to the USTAR format (sparse files most notably). It produces tar archives
+    in USTAR format, unless the files being archived require PAX format due to
+    restrictions in USTAR (such as unicode metadata, filename length, and more).
+    As such, <span class="code">erl_tar</span> supports tar archives produced by most all modern
+    tar utilities, and produces tarballs which should be similarly portable.</p>
     <p>By convention, the name of a tar file is to end in "<span class="code">.tar</span>".
       To abide to the convention, add "<span class="code">.tar</span>" to the name.</p>
 
@@ -1770,7 +1778,7 @@
       <span class="bold_code bc-17"><a href="#format_error-1"><span class="code">format_error/1</span></a></span>.</p>
   </p></div>
 
-  <h3><a name="idm45915384990544">Unicode Support</a></h3>
+  <h3><a name="idm46047518311760">Unicode Support</a></h3>
 <div class="REFBODY rb-3">
     
     <p>If <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#native_name_encoding-0');"><span class="code">file:native_name_encoding/0</span></a></span>
@@ -1780,9 +1788,11 @@
 
     <p>If <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','kernel','file.html#native_name_encoding-0');"><span class="code">file:native_name_encoding/0</span></a></span>
       returns <span class="code">latin1</span>, no translation of path names is done.</p>
+
+    <p>Unicode metadata stored in PAX headers is preserved</p>
   </div>
 
-  <h3><a name="idm45915384985632">Other Storage Media</a></h3>
+  <h3><a name="idm46047518306368">Other Storage Media</a></h3>
 <div class="REFBODY rb-3">
     
     <p>The <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','inets','ftp.html');"><span class="code">ftp</span></a></span>
@@ -1797,26 +1807,25 @@
       on a remote machine using an SFTP channel.</p>
   </div>
 
-  <h3><a name="idm45915384979968">Limitations</a></h3>
+  <h3><a name="idm46047518300704">Limitations</a></h3>
 <div class="REFBODY rb-3">
     
     <ul>
       <li>
-        <p>For maximum compatibility, it is safe to archive files with names
-          up to 100 characters in length. Such tar files can generally be
-          extracted by any <span class="code">tar</span> program.</p>
+        <p>If you must remain compatible with the USTAR tar format, you must ensure file paths being
+        stored are less than 255 bytes in total, with a maximum filename component
+        length of 100 bytes. USTAR uses a header field (prefix) in addition to the name field, and
+        splits file paths longer than 100 bytes into two parts. This split is done on a directory boundary,
+        and is done in such a way to make the best use of the space available in those two fields, but in practice
+        this will often mean that you have less than 255 bytes for a path. <span class="code">erl_tar</span> will
+        automatically upgrade the format to PAX to handle longer filenames, so this is only an issue if you
+        need to extract the archive with an older implementation of <span class="code">erl_tar</span> or <span class="code">tar</span> which does
+        not support PAX. In this case, the PAX headers will be extracted as regular files, and you will need to
+        apply them manually.</p>
       </li>
       <li>
-        <p>For filenames exceeding 100 characters in length, the resulting tar
-          file can only be correctly extracted by a POSIX-compatible <span class="code">tar</span>
-          program (such as Solaris <span class="code">tar</span> or a modern GNU <span class="code">tar</span>).</p>
-      </li>
-      <li>
-        <p>Files with longer names than 256 bytes cannot be stored.</p>
-      </li>
-      <li>
-        <p>The file name a symbolic link points is always limited
-          to 100 characters.</p>
+        <p>Like the above, if you must remain USTAR compatible, you must also ensure than paths for
+        symbolic/hard links are no more than 100 bytes, otherwise PAX headers will be used.</p>
       </li>
     </ul>
   </div>
@@ -1830,7 +1839,13 @@
 <span class="bold_code fun-param-type">TarDescriptor = term()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code fun-param-type">Filename = filename()</span><br>
+<span class="bold_code fun-param-type">FilenameOrBin = filename()|binary()</span><br>
+</div>
+        <div class="REFTYPES rt-4">
+<span class="bold_code fun-param-type">NameInArchive = filename()</span><br>
+</div>
+        <div class="REFTYPES rt-4">
+<span class="bold_code fun-param-type">Filename = filename()|{NameInArchive,FilenameOrBin}</span><br>
 </div>
         <div class="REFTYPES rt-4">
 <span class="bold_code fun-param-type">Options = [Option]</span><br>
@@ -1851,6 +1866,9 @@
 <div class="REFBODY rb-7"><p>
         <p>Adds a file to a tar file that has been opened for writing by
           <span class="bold_code bc-17"><a href="#open-2"><span class="code">open/1</span></a></span>.</p>
+        <p><span class="code">NameInArchive</span> is the name under which the file becomes
+          stored in the tar file. The file gets this name when it is
+          extracted from the tar file.</p>
         <p>Options:</p>
         <dl>
           <dt><strong><span class="code">dereference</span></strong></dt>
@@ -1908,9 +1926,6 @@
           <span class="bold_code bc-17"><a href="#open-2"><span class="code">open/2</span></a></span>. This function
           accepts the same options as
           <span class="bold_code bc-17"><a href="#add-3"><span class="code">add/3</span></a></span>.</p>
-        <p><span class="code">NameInArchive</span> is the name under which the file becomes
-          stored in the tar file. The file gets this name when it is
-          extracted from the tar file.</p>
       </p></div>
 
     <p><a name="close-1"></a><span class="bold_code fun-type">close(TarDescriptor)</span><br></p>
@@ -1932,8 +1947,10 @@
 <span class="bold_code fun-param-type">Name = filename()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code fun-param-type">FileList = [Filename|{NameInArchive, binary()},{NameInArchive,
-          Filename}]</span><br>
+<span class="bold_code fun-param-type">FileList = [Filename|{NameInArchive, FilenameOrBin}]</span><br>
+</div>
+        <div class="REFTYPES rt-4">
+<span class="bold_code fun-param-type">FilenameOrBin = filename()|binary()</span><br>
 </div>
         <div class="REFTYPES rt-4">
 <span class="bold_code fun-param-type">Filename = filename()</span><br>
@@ -1961,8 +1978,10 @@
 <span class="bold_code fun-param-type">Name = filename()</span><br>
 </div>
         <div class="REFTYPES rt-4">
-<span class="bold_code fun-param-type">FileList = [Filename|{NameInArchive, binary()},{NameInArchive,
-          Filename}]</span><br>
+<span class="bold_code fun-param-type">FileList = [Filename|{NameInArchive, FilenameOrBin}]</span><br>
+</div>
+        <div class="REFTYPES rt-4">
+<span class="bold_code fun-param-type">FilenameOrBin = filename()|binary()</span><br>
 </div>
         <div class="REFTYPES rt-4">
 <span class="bold_code fun-param-type">Filename = filename()</span><br>
@@ -2023,7 +2042,10 @@
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code fun-param-type">Name = filename()</span><br>
+<span class="bold_code fun-param-type">Name = filename() | {binary,binary()} | {file,Fd}</span><br>
+</div>
+        <div class="REFTYPES rt-4">
+<span class="bold_code fun-param-type">Fd = file_descriptor()</span><br>
 </div>
         <div class="REFTYPES rt-4">
 <span class="bold_code fun-param-type">RetValue = ok|{error,{Name,Reason}}</span><br>
@@ -2046,10 +2068,7 @@
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code fun-param-type">Name = filename() | {binary,Binary} | {file,Fd}</span><br>
-</div>
-        <div class="REFTYPES rt-4">
-<span class="bold_code fun-param-type">Binary = binary()</span><br>
+<span class="bold_code fun-param-type">Name = filename() | {binary,binary()} | {file,Fd}</span><br>
 </div>
         <div class="REFTYPES rt-4">
 <span class="bold_code fun-param-type">Fd = file_descriptor()</span><br>
@@ -2319,7 +2338,7 @@ erl_tar:close(TarDesc)</pre></div>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code fun-param-type">Name = filename()</span><br>
+<span class="bold_code fun-param-type">Name = filename()|{binary,binary()}|{file,file_descriptor()}</span><br>
 </div>
         <div class="REFTYPES rt-4">
 <span class="bold_code fun-param-type">RetValue = {ok,[string()]}|{error,{Name,Reason}}</span><br>
@@ -2336,7 +2355,7 @@ erl_tar:close(TarDesc)</pre></div>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code fun-param-type">Name = filename()</span><br>
+<span class="bold_code fun-param-type">Name = filename()|{binary,binary()}|{file,file_descriptor()}</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -2347,7 +2366,7 @@ erl_tar:close(TarDesc)</pre></div>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code fun-param-type">Name = filename()</span><br>
+<span class="bold_code fun-param-type">Name = filename()|{binary,binary()}|{file,file_descriptor()}</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -2359,7 +2378,7 @@ erl_tar:close(TarDesc)</pre></div>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
-<span class="bold_code fun-param-type">Name = filename()</span><br>
+<span class="bold_code fun-param-type">Name = filename()|{binary,binary()}|{file,file_descriptor()}</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>

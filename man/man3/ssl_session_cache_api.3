@@ -1,4 +1,4 @@
-.TH ssl_session_cache_api 3 "ssl 8.1" "Ericsson AB" "Erlang Module Definition"
+.TH ssl_session_cache_api 3 "ssl 8.1.1" "Ericsson AB" "Erlang Module Definition"
 .SH NAME
 ssl_session_cache_api \- TLS session cache API
 .SH DESCRIPTION
@@ -127,6 +127,23 @@ Session = session()
 .RS
 .LP
 Selects sessions that can be reused\&. Is to be callable from any process\&.
+.RE
+.LP
+.B
+size(Cache) -> integer()
+.br
+.RS
+.LP
+Types:
+
+.RS 3
+Cache = cache_ref()
+.br
+.RE
+.RE
+.RS
+.LP
+Returns the number of sessions in the cache\&. If size exceeds the maximum number of sessions, the current cache entries will be invalidated regardless of their remaining lifetime\&. Is to be callable from any process\&.
 .RE
 .LP
 .B

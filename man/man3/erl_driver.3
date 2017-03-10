@@ -1,4 +1,4 @@
-.TH erl_driver 3 "erts 8.2.1" "Ericsson AB" "C Library Functions"
+.TH erl_driver 3 "erts 9.0" "Ericsson AB" "C Library Functions"
 .SH NAME
 erl_driver \- API functions for an Erlang driver.
 .SH DESCRIPTION
@@ -804,7 +804,7 @@ long driver_binary_dec_refc(ErlDrvBinary *bin)
 .LP
 Decrements the reference count on \fIbin\fR\& and returns the reference count reached after the decrement\&.
 .LP
-This function is only thread-safe when the emulator with SMP support is used\&.
+This function is thread-safe\&.
 .LP
 
 .RS -4
@@ -824,7 +824,7 @@ long driver_binary_get_refc(ErlDrvBinary *bin)
 .LP
 Returns the current reference count on \fIbin\fR\&\&.
 .LP
-This function is only thread-safe when the emulator with SMP support is used\&.
+This function is thread-safe\&.
 .RE
 .LP
 .B
@@ -834,7 +834,7 @@ long driver_binary_inc_refc(ErlDrvBinary *bin)
 .LP
 Increments the reference count on \fIbin\fR\& and returns the reference count reached after the increment\&.
 .LP
-This function is only thread-safe when the emulator with SMP support is used\&.
+This function is thread-safe\&.
 .RE
 .LP
 .B
@@ -1048,7 +1048,7 @@ void driver_free_binary(ErlDrvBinary *bin)
 .LP
 Frees a driver binary \fIbin\fR\&, allocated previously with \fB\fIdriver_alloc_binary\fR\&\fR\&\&. As binaries in Erlang are reference counted, the binary can still be around\&.
 .LP
-This function is only thread-safe when the emulator with SMP support is used\&.
+This function is thread-safe\&.
 .RE
 .LP
 .B
@@ -1385,7 +1385,7 @@ Resizes a driver binary, while keeping the data\&.
 .LP
 Returns the resized driver binary on success\&. Returns \fINULL\fR\& on failure (out of memory)\&.
 .LP
-This function is only thread-safe when the emulator with SMP support is used\&.
+This function is thread-safe\&.
 .RE
 .LP
 .B

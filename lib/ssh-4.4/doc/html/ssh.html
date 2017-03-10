@@ -238,7 +238,7 @@
     algorithms and unicode support.</p>
   </p></div>
 
-  <h3><a name="idm45180398436416">OPTIONS</a></h3>
+  <h3><a name="idm45633360862544">OPTIONS</a></h3>
 <div class="REFBODY rb-3">
     
     <p>The exact behaviour of some functions can be adjusted with the use of options which are documented together
@@ -262,7 +262,7 @@
     </dl>
   </div>
 
-  <h3><a name="idm45180398031152">DATA TYPES</a></h3>
+  <h3><a name="idm45633360447872">DATA TYPES</a></h3>
 <div class="REFBODY rb-3">
     
     <p>Type definitions that are used more than once in
@@ -365,7 +365,7 @@
 	  <dd>
 	  <p>IP version to use.</p>
 	  </dd>
-          <dt><strong><span class="code">{user_dir, string()}</span></strong></dt>
+          <dt><strong><a name="opt_user_dir"></a><span class="code">{user_dir, string()}</span></strong></dt>
 	  <dd>
 	    <p>Sets the user directory, that is, the directory containing
 	    <span class="code">ssh</span> configuration files for the user, such as
@@ -387,22 +387,50 @@
 	    supplied with this option.
 	    </p>
 	  </dd>
-          <dt><strong><span class="code">{silently_accept_hosts, boolean() | accept_fun() | {crypto:digest_type(), accept_fun()} }</span>
-	  <br>
-	  <span class="code">accept_fun() :: fun(PeerName::string(), FingerPrint::string()) -&gt; boolean()</span>
+          <dt><strong>
+            <span class="code">{silently_accept_hosts, boolean()}</span> <br>
+            <span class="code">{silently_accept_hosts, CallbackFun}</span> <br>
+            <span class="code">{silently_accept_hosts, {HashAlgoSpec, CallbackFun} }</span> <br>
+            <br>
+	    <span class="code">HashAlgoSpec = crypto:digest_type() | [ crypto:digest_type() ] </span><br>
+	    <span class="code">CallbackFun = fun(PeerName, FingerPrint) -&gt; boolean()</span><br>
+	    <span class="code">PeerName = string()</span><br>
+	    <span class="code">FingerPrint = string() | [ string() ] </span>
 	  </strong></dt>
 	  <dd>
-	    <p>When <span class="code">true</span>, hosts are added to the
-	    file <span class="code">known_hosts</span> without asking the user.
-	    Defaults to <span class="code">false</span> which will give a user question on stdio of whether to accept or reject a previously
-	    unseen host.</p>
-	    <p>If the option value is has an <span class="code">accept_fun()</span>, that fun will called with the arguments
-	    <span class="code">(PeerName, PeerHostKeyFingerPrint)</span>.  The fingerprint is calculated on the Peer's Host Key with
-	    <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html#ssh_hostkey_fingerprint-1');">public_key:ssh_hostkey_fingerprint/1</a></span>.
-	    </p>
-	    <p>If the <span class="code">crypto:digest_type()</span> is present, the fingerprint is calculated with that digest type by the function
-	    <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html#ssh_hostkey_fingerprint-2');">public_key:ssh_hostkey_fingerprint/2</a></span>.
-	    </p>
+            <p>This option guides the <span class="code">connect</span> function how to act when the connected server presents a Host 
+            Key that the client has not seen before. The default is to ask the user with a question on stdio of whether to
+            accept or reject the new Host Key.
+            See also the option <span class="bold_code bc-17"><a href="#opt_user_dir"><span class="code">user_dir</span></a></span>
+            for the path to the file <span class="code">known_hosts</span> where previously accepted Host Keys are recorded.
+            </p>
+            <p>The option can be given in three different forms as seen above:</p>
+	    <ul>
+	      <li>The value is a <span class="code">boolean()</span>.  The value <span class="code">true</span> will make the client accept any unknown
+              Host Key without any user interaction.  The value <span class="code">false</span> keeps the default behaviour of asking the
+              the user on stdio.
+              </li>
+              <li>A <span class="code">CallbackFun</span> will be called and the boolean return value <span class="code">true</span> will make the client
+              accept the Host Key. A return value of <span class="code">false</span> will make the client to reject the Host Key and therefore
+              also the connection will be closed. The arguments to the fun are:
+              <ul>
+	        <li>
+<span class="code">PeerName</span> - a string with the name or address of the remote host.</li>
+                <li>
+<span class="code">FingerPrint</span> - the fingerprint of the Host Key as 
+                <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html#ssh_hostkey_fingerprint-1');">public_key:ssh_hostkey_fingerprint/1</a></span>
+                calculates it.
+                </li>
+              </ul>
+              </li>
+              <li>A tuple <span class="code">{HashAlgoSpec, CallbackFun}</span>. The <span class="code">HashAlgoSpec</span> specifies which hash algorithm
+                shall be used to calculate the fingerprint used in the call of the <span class="code">CallbackFun</span>. The <span class="code">HashALgoSpec</span>
+                is either an atom or a list of atoms as the first argument in
+                <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','public_key','public_key.html#ssh_hostkey_fingerprint-2');">public_key:ssh_hostkey_fingerprint/2</a></span>.
+                If it is a list of hash algorithm names, the <span class="code">FingerPrint</span> argument in the <span class="code">CallbackFun</span> will be 
+                a list of fingerprints in the same order as the corresponding name in the <span class="code">HashAlgoSpec</span> list.
+              </li>
+            </ul>
 	  </dd>
 	  <dt><strong><span class="code">{user_interaction, boolean()}</span></strong></dt>
 	  <dd>
@@ -412,7 +440,7 @@
 	    supplying a password. Defaults to <span class="code">true</span>.
 	    Even if user interaction is allowed it can be
 	    suppressed by other options, such as <span class="code">silently_accept_hosts</span>
-	    and <span class="code">password</span>. However, those optins are not always desirable
+	    and <span class="code">password</span>. However, those options are not always desirable
 	    to use from a security point of view.</p>
 	  </dd>
 
@@ -938,9 +966,12 @@
 	</dl>
       </p></div>
 
-    <p><a name="daemon_info-1"></a><span class="bold_code fun-type">daemon_info(Daemon) -&gt; {ok, [{port,Port}]} | {error,Error}</span><br></p>
+    <p><a name="daemon_info-1"></a><span class="bold_code fun-type">daemon_info(Daemon) -&gt; {ok, [DaemonInfo]} | {error,Error}</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
+	<div class="REFTYPES rt-4">
+<span class="bold_code fun-param-type">DaemonInfo = {port,Port::pos_integer()} | {listen_address, any|ip_address()} | {profile,atom()}</span><br>
+</div>
         <div class="REFTYPES rt-4">
 <span class="bold_code fun-param-type">Port = integer()</span><br>
 </div>

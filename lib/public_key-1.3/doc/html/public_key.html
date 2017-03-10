@@ -111,6 +111,7 @@
     <li title="ssh_encode-2"><a href="public_key.html#ssh_encode-2">ssh_encode/2</a></li>
     <li title="ssh_hostkey_fingerprint-2"><a href="public_key.html#ssh_hostkey_fingerprint-2">ssh_hostkey_fingerprint/2</a></li>
     <li title="ssh_hostkey_fingerprint-1"><a href="public_key.html#ssh_hostkey_fingerprint-1">ssh_hostkey_fingerprint/1</a></li>
+    <li title="ssh_hostkey_fingerprint-2"><a href="public_key.html#ssh_hostkey_fingerprint-2">ssh_hostkey_fingerprint/2</a></li>
     <li title="verify-4"><a href="public_key.html#verify-4">verify/4</a></li>
     </ul>
 </li>
@@ -132,7 +133,7 @@
     </p>
   </p></div>
 
-  <h3><a name="idm45850244347744">DATA TYPES</a></h3>
+  <h3><a name="idm45590361294832">DATA TYPES</a></h3>
 <div class="REFBODY rb-3">
      
     
@@ -1045,7 +1046,7 @@ fun(#'DistributionPoint'{}, #'CertificateList'{},
     attributes depend on the file type, see <span class="bold_code bc-17"><a href="#ssh_decode-2">ssh_decode/2</a></span>.</p>
   </p></div>
 
-  <p><a name="ssh_hostkey_fingerprint-1"></a><span class="bold_code fun-type">ssh_hostkey_fingerprint(HostKey) -&gt; string()</span><br><a name="ssh_hostkey_fingerprint-2"></a><span class="bold_code fun-type">ssh_hostkey_fingerprint(DigestType, HostKey) -&gt; string()</span><br></p>
+  <p><a name="ssh_hostkey_fingerprint-1"></a><span class="bold_code fun-type">ssh_hostkey_fingerprint(HostKey) -&gt; string()</span><br><a name="ssh_hostkey_fingerprint-2"></a><span class="bold_code fun-type">ssh_hostkey_fingerprint(DigestType, HostKey) -&gt; string()</span><br><a name="ssh_hostkey_fingerprint-2"></a><span class="bold_code fun-type">ssh_hostkey_fingerprint([DigestType], HostKey) -&gt; [string()]</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
       <div class="REFTYPES rt-4">
@@ -1073,6 +1074,10 @@ fun(#'DistributionPoint'{}, #'CertificateList'{},
 
  5&gt; public_key:ssh_hostkey_fingerprint(sha256,Key).
  "SHA256:aZGXhabfbf4oxglxltItWeHU7ub3Dc31NcNw2cMJePQ"
+
+ 6&gt; public_key:ssh_hostkey_fingerprint([sha,sha256],Key).
+ ["SHA1:bSLY/C4QXLDL/Iwmhyg0PGW9UbY",
+  "SHA256:aZGXhabfbf4oxglxltItWeHU7ub3Dc31NcNw2cMJePQ"]
     </pre></div>
   </p></div>
 

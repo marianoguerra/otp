@@ -1,4 +1,4 @@
-.TH erlang 3 "erts 8.2.1" "Ericsson AB" "Erlang Module Definition"
+.TH erlang 3 "erts 9.0" "Ericsson AB" "Erlang Module Definition"
 .SH NAME
 erlang \- The Erlang BIFs.
 .SH DESCRIPTION
@@ -6971,7 +6971,7 @@ All messages in the message queue will eventually be placed on heap\&. They can 
 .LP
 The default \fImessage_queue_data\fR\& process flag is determined by command-line argument \fB\fI+hmqd\fR\&\fR\& in \fIerl(1)\fR\&\&.
 .LP
-If the process potentially can get many messages, you are advised to set the flag to \fIoff_heap\fR\&\&. This because a garbage collection with many messages placed on the heap can become extremly expensive and the process can consume large amounts of memory\&. Performance of the actual message passing is however generally better when not using flag \fIoff_heap\fR\&\&.
+If the process potentially can get many messages, you are advised to set the flag to \fIoff_heap\fR\&\&. This because a garbage collection with many messages placed on the heap can become extremely expensive and the process can consume large amounts of memory\&. Performance of the actual message passing is however generally better when not using flag \fIoff_heap\fR\&\&.
 .LP
 When changing this flag messages will be moved\&. This work has been initiated but not completed when this function call returns\&.
 .LP
@@ -7716,7 +7716,7 @@ Binary \fIBin\fR\& contains the same information as the output from \fIerlang:pr
 .TP 2
 .B
 \fI{binary, BinInfo}\fR\&:
-\fIBinInfo\fR\& is a list containing miscellaneous information about binaries currently referred to by this process\&. This \fIInfoTuple\fR\& can be changed or removed without prior notice\&.
+\fIBinInfo\fR\& is a list containing miscellaneous information about binaries currently referred to by this process\&. This \fIInfoTuple\fR\& can be changed or removed without prior notice\&. In the current implementation \fIBinInfo\fR\& is a list of tuples\&. The tuples contain; \fIBinaryId\fR\&, \fIBinarySize\fR\&, \fIBinaryRefcCount\fR\&\&.
 .TP 2
 .B
 \fI{catchlevel, CatchLevel}\fR\&:
@@ -9808,7 +9808,7 @@ Returns the total length of the run-queues\&. That is, the number of processes a
 .nf
 
 .B
-statistics(Item :: run_queue_lengths) -> [RunQueueLenght]
+statistics(Item :: run_queue_lengths) -> [RunQueueLength]
 .br
 .fi
 .br
@@ -9817,7 +9817,7 @@ statistics(Item :: run_queue_lengths) -> [RunQueueLenght]
 Types:
 
 .RS 3
-RunQueueLenght = integer() >= 0
+RunQueueLength = integer() >= 0
 .br
 .RE
 .RE
@@ -10049,7 +10049,7 @@ See also \fB\fIstatistics(active_tasks)\fR\&\fR\&, \fB\fIstatistics(run_queue_le
 .B
 statistics(Item :: total_run_queue_lengths) ->
 .B
-              TotalRunQueueLenghts
+              TotalRunQueueLengths
 .br
 .fi
 .br
@@ -10058,7 +10058,7 @@ statistics(Item :: total_run_queue_lengths) ->
 Types:
 
 .RS 3
-TotalRunQueueLenghts = integer() >= 0
+TotalRunQueueLengths = integer() >= 0
 .br
 .RE
 .RE

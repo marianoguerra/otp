@@ -66,24 +66,24 @@
 <li><a href="introduction.html">
               Top of chapter
             </a></li>
-<li title="Scope and Purpose"><a href="introduction.html#idm45180399333152">Scope and Purpose</a></li>
-<li title="Prerequisites"><a href="introduction.html#idm45180399339248">Prerequisites</a></li>
-<li title="SSH Protocol Overview"><a href="introduction.html#idm45180399341184">SSH Protocol Overview</a></li>
-<li title="Where to Find More Information"><a href="introduction.html#idm45180398796144">Where to Find More Information</a></li>
+<li title="Scope and Purpose"><a href="introduction.html#idm45633361767696">Scope and Purpose</a></li>
+<li title="Prerequisites"><a href="introduction.html#idm45633361773856">Prerequisites</a></li>
+<li title="SSH Protocol Overview"><a href="introduction.html#idm45633361775792">SSH Protocol Overview</a></li>
+<li title="Where to Find More Information"><a href="introduction.html#idm45633361663712">Where to Find More Information</a></li>
 </ul>
 </li>
 <li id="loadscrollpos" title="Getting Started" expanded="true">Getting Started<ul>
 <li><a href="using_ssh.html">
               Top of chapter
             </a></li>
-<li title="General Information"><a href="using_ssh.html#idm45180398812768">General Information</a></li>
-<li title="Using the Erlang ssh Terminal Client"><a href="using_ssh.html#idm45180399247424">Using the Erlang ssh Terminal Client</a></li>
-<li title="Running an Erlang ssh Daemon"><a href="using_ssh.html#idm45180399242784">Running an Erlang ssh Daemon</a></li>
-<li title="One-Time Execution"><a href="using_ssh.html#idm45180398788976">One-Time Execution</a></li>
-<li title="SFTP Server"><a href="using_ssh.html#idm45180398827888">SFTP Server</a></li>
-<li title="SFTP Client"><a href="using_ssh.html#idm45180398801584">SFTP Client</a></li>
-<li title="SFTP Client with TAR Compression and Encryption"><a href="using_ssh.html#idm45180399016208">SFTP Client with TAR Compression and Encryption</a></li>
-<li title="Creating a Subsystem"><a href="using_ssh.html#idm45180398785616">Creating a Subsystem</a></li>
+<li title="General Information"><a href="using_ssh.html#idm45633361213264">General Information</a></li>
+<li title="Using the Erlang ssh Terminal Client"><a href="using_ssh.html#idm45633361661680">Using the Erlang ssh Terminal Client</a></li>
+<li title="Running an Erlang ssh Daemon"><a href="using_ssh.html#idm45633361694000">Running an Erlang ssh Daemon</a></li>
+<li title="One-Time Execution"><a href="using_ssh.html#idm45633361272704">One-Time Execution</a></li>
+<li title="SFTP Server"><a href="using_ssh.html#idm45633361822720">SFTP Server</a></li>
+<li title="SFTP Client"><a href="using_ssh.html#idm45633361794320">SFTP Client</a></li>
+<li title="SFTP Client with TAR Compression and Encryption"><a href="using_ssh.html#idm45633361206064">SFTP Client with TAR Compression and Encryption</a></li>
+<li title="Creating a Subsystem"><a href="using_ssh.html#idm45633361492656">Creating a Subsystem</a></li>
 </ul>
 </li>
 </ul>
@@ -93,7 +93,7 @@
 <h1>2 Getting Started</h1>
   
 
-  <h3><a name="idm45180398812768">2.1 
+  <h3><a name="idm45633361213264">2.1 
         General Information</a></h3>
     
     <p>The following examples use the utility function
@@ -113,7 +113,7 @@
     </p>
   
 
-  <h3><a name="idm45180399247424">2.2 
+  <h3><a name="idm45633361661680">2.2 
         Using the Erlang ssh Terminal Client</a></h3>
     
 
@@ -134,7 +134,7 @@
   
 
   <h3>
-<a name="Running%20an%20Erlang%20ssh%20Daemon"></a><a name="idm45180399242784">2.3 
+<a name="Running%20an%20Erlang%20ssh%20Daemon"></a><a name="idm45633361694000">2.3 
         Running an Erlang ssh Daemon</a>
 </h3>
     
@@ -215,7 +215,7 @@
 
   
 
-  <h3><a name="idm45180398788976">2.4 
+  <h3><a name="idm45633361272704">2.4 
         One-Time Execution</a></h3>
     
 
@@ -259,7 +259,7 @@
     </pre></div>
   
 
-  <h3><a name="idm45180398827888">2.5 
+  <h3><a name="idm45633361822720">2.5 
         SFTP Server</a></h3>
     
 
@@ -288,7 +288,7 @@
     </pre></div>
   
 
-  <h3><a name="idm45180398801584">2.6 
+  <h3><a name="idm45633361794320">2.6 
         SFTP Client</a></h3>
     
 
@@ -304,7 +304,7 @@
     </pre></div>
   
 
-  <h3><a name="idm45180399016208">2.7 
+  <h3><a name="idm45633361206064">2.7 
         SFTP Client with TAR Compression and Encryption</a></h3>
     
 
@@ -372,7 +372,7 @@ ok = erl_tar:close(HandleRead),
     </pre></div>
   
 
-  <h3><a name="idm45180398785616">2.8 
+  <h3><a name="idm45633361492656">2.8 
         Creating a Subsystem</a></h3>
     
 
@@ -381,7 +381,7 @@ ok = erl_tar:close(HandleRead),
 
     <div class="example"><pre>
 -module(ssh_echo_server).
--behaviour(ssh_subsystem).
+-behaviour(ssh_daemon_channel).
 -record(state, {
 	  n,
 	  id,

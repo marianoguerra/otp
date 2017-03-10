@@ -474,7 +474,7 @@ module.beam: module.erl \
 	  without module prefix to local or imported functions before
 	  trying with auto-imported BIFs. If the BIF is to be
 	  called, use the <span class="code">erlang</span> module prefix in the call, not
-	  <span class="code">{ no_auto_import,[{F,A}, ...]}</span>.</p>
+	  <span class="code">{no_auto_import,[{F,A}, ...]}</span>.</p>
 	  </p></div>
 </div>
 	  <p>If this option is written in the source code, as a 
@@ -496,6 +496,15 @@ module.beam: module.erl \
 	    </p>
           </dd>
 
+          <dt><strong><span class="code">{extra_chunks, [{binary(), binary()}]}</span></strong></dt>
+          <dd>
+            <p>Pass extra chunks to be stored in the <span class="code">.beam</span> file.
+              The extra chunks must be a list of tuples with a four byte
+              binary as chunk name followed by a binary with the chunk contents.
+              See <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','beam_lib.html');">beam_lib</a></span> for
+              more information.
+	    </p>
+          </dd>
         </dl>
 
         <p>If warnings are turned on (option <span class="code">report_warnings</span>
@@ -754,7 +763,7 @@ module.beam: module.erl \
     <p><a name="forms-1"></a><span class="bold_code fun-type">forms(Forms)</span><br></p>
 <div class="REFBODY rb-7"><p>
         <p>Is the same as
-	  <span class="code">forms(File, [verbose,report_errors,report_warnings])</span>.
+	  <span class="code">forms(Forms, [verbose,report_errors,report_warnings])</span>.
 	</p>
       </p></div>
 
@@ -847,7 +856,7 @@ module.beam: module.erl \
 
   </div>
 
-  <h3><a name="idm46585744243392">Default Compiler Options</a></h3>
+  <h3><a name="idm45671172902640">Default Compiler Options</a></h3>
 <div class="REFBODY rb-3">
     
     <p>The (host operating system) environment variable
@@ -872,7 +881,7 @@ module.beam: module.erl \
       <span class="bold_code bc-17"><a href="#env_compiler_options-0">env_compiler_options/0</a></span>.</p>
   </div>
 
-  <h3><a name="idm46585744206672">Inlining</a></h3>
+  <h3><a name="idm45671172911168">Inlining</a></h3>
 <div class="REFBODY rb-3">
     
     <p>The compiler can do function inlining within an Erlang
@@ -930,7 +939,7 @@ pi() -&gt; 3.1416.
 -compile({inline_size,100}).</pre></div>
   </div>
 
-  <h3><a name="idm46585744217120">Inlining of List Functions</a></h3>
+  <h3><a name="idm45671173323712">Inlining of List Functions</a></h3>
 <div class="REFBODY rb-3">
     
     <p>The compiler can also inline various list manipulation functions
@@ -956,7 +965,7 @@ pi() -&gt; 3.1416.
     </ul>
   </div>
 
-  <h3><a name="idm46585744027392">Parse Transformations</a></h3>
+  <h3><a name="idm45671173018976">Parse Transformations</a></h3>
 <div class="REFBODY rb-3">
     
 
@@ -966,7 +975,7 @@ pi() -&gt; 3.1416.
   </div>
 
   <h3>
-<a name="error_information"></a><a name="idm46585743858976">Error Information</a>
+<a name="error_information"></a><a name="idm45671173021312">Error Information</a>
 </h3>
 <div class="REFBODY rb-3">
     
@@ -988,7 +997,7 @@ pi() -&gt; 3.1416.
 Module:format_error(ErrorDescriptor)</pre></div>
   </div>
 
-  <h3><a name="idm46585743862144">See Also</a></h3>
+  <h3><a name="idm45671173057408">See Also</a></h3>
 <div class="REFBODY rb-3">
     
     <p>

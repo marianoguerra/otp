@@ -101,8 +101,16 @@ The generated Erlang module always gets the same name as the \fIASN\&.1\fR\& mod
 With this option the Distinguished Encoding Rules (DER) is chosen\&. DER is regarded as a specialized variant of the BER encoding rule\&. Therefore, this option only makes sense together with option \fIber\fR\&\&. This option sometimes adds sorting and value checks when encoding, which implies a slower encoding\&. The decoding routines are the same as for \fIber\fR\&\&.
 .TP 2
 .B
+\fImaps\fR\&:
+This option changes the representation of the types \fISEQUENCE\fR\& and \fISET\fR\& to use maps (instead of records)\&. This option also suppresses the generation of \fI\&.hrl\fR\& files\&.
+.RS 2
+.LP
+For details, see Section \fB Map representation for SEQUENCE and SET\fR\& in the User\&'s Guide\&.
+.RE
+.TP 2
+.B
 \fIcompact_bit_string\fR\&:
-The \fIBIT STRING\fR\& type is decoded to "compact notation"\&. \fIThis option is not recommended for new code\&.\fR\& 
+The \fIBIT STRING\fR\& type is decoded to "compact notation"\&. \fIThis option is not recommended for new code\&.\fR\& This option cannot be combined with the option \fImaps\fR\&\&.
 .RS 2
 .LP
 For details, see Section \fB BIT STRING\fR\& in the User\&'s Guide\&.
@@ -114,7 +122,7 @@ This option implies option \fIlegacy_erlang_types\fR\&\&.
 .TP 2
 .B
 \fIlegacy_bit_string\fR\&:
-The \fIBIT STRING\fR\& type is decoded to the legacy format, that is, a list of zeroes and ones\&. \fIThis option is not recommended for new code\&.\fR\& 
+The \fIBIT STRING\fR\& type is decoded to the legacy format, that is, a list of zeroes and ones\&. \fIThis option is not recommended for new code\&.\fR\& This option cannot be combined with the option \fImaps\fR\&\&.
 .RS 2
 .LP
 For details, see Section \fBBIT STRING\fR\& in the User\&'s Guide
@@ -133,7 +141,7 @@ For details, see Section \fBBIT STRING\fR\& and Section \fBOCTET STRING\fR\& in 
 .RE
 .RS 2
 .LP
-\fIThis option is not recommended for new code\&.\fR\&
+\fIThis option is not recommended for new code\&.\fR\& This option cannot be combined with the option \fImaps\fR\&\&.
 .RE
 .TP 2
 .B

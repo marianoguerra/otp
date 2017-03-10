@@ -38,14 +38,21 @@ Stack backtrace for a process\&. Equivalent to \fIerlang:process_display(Pid, ba
 .nf
 
 .B
-c(File) -> {ok, Module} | error
+c(Module) -> {ok, ModuleName} | error
 .br
 .fi
 .br
 .nf
 
 .B
-c(File, Options) -> {ok, Module} | error
+c(Module, Options) -> {ok, ModuleName} | error
+.br
+.fi
+.br
+.nf
+
+.B
+c(Module, Options, Filter) -> {ok, ModuleName} | error
 .br
 .fi
 .br
@@ -54,22 +61,23 @@ c(File, Options) -> {ok, Module} | error
 Types:
 
 .RS 3
-File = \fBfile:name()\fR\&
+Module = atom()
 .br
 Options = [\fBcompile:option()\fR\&]
 .br
-Module = module()
+Filter = fun((\fBcompile:option()\fR\&) -> boolean())
+.br
+ModuleName = module()
 .br
 .RE
 .RE
 .RS
 .LP
-Compiles and then purges and loads the code for a file\&. \fIOptions\fR\& defaults to \fI[]\fR\&\&. Compilation is equivalent to:
+Compiles and then purges and loads the code for a module\&. \fIModule\fR\& can be either a module name or a source file path, with or without \fI\&.erl\fR\& extension\&. \fIOptions\fR\& defaults to \fI[]\fR\&\&.
 .LP
-.nf
-
-compile:file(File, Options ++ [report_errors, report_warnings])
-.fi
+If \fIModule\fR\& is an atom and is not the path of a source file, then the code path is searched to locate the object file for the module and extract its original compiler options and source path\&. If the source file is not found in the original location, \fB\fIfilelib:find_source/1\fR\&\fR\& is used to search for it relative to the directory of the object file\&.
+.LP
+The source file is compiled with the the original options appended to the given \fIOptions\fR\&, the output replacing the old object file if and only if compilation succeeds\&. A function \fIFilter\fR\& can be specified for removing elements from from the original compiler options before the new options are added\&.
 .LP
 Notice that purging the code means that any processes lingering in old code for the module are killed without warning\&. For more information, see \fIcode/3\fR\&\&.
 .RE

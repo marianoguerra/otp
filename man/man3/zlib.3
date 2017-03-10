@@ -1,4 +1,4 @@
-.TH zlib 3 "erts 8.2.1" "Ericsson AB" "Erlang Module Definition"
+.TH zlib 3 "erts 9.0" "Ericsson AB" "Erlang Module Definition"
 .SH NAME
 zlib \- zlib compression interface.
 .SH DESCRIPTION
@@ -542,6 +542,16 @@ Compression method to use, currently the only supported method is \fIdeflated\fR
 .B
 \fIWindowBits\fR\&:
 The base two logarithm of the window size (the size of the history buffer)\&. It is to be in the range 8 through 15\&. Larger values result in better compression at the expense of memory usage\&. Defaults to 15 if \fB\fIdeflateInit/2\fR\&\fR\& is used\&. A negative \fIWindowBits\fR\& value suppresses the zlib header (and checksum) from the stream\&. Notice that the zlib source mentions this only as a undocumented feature\&.
+.LP
+
+.RS -4
+.B
+Warning:
+.RE
+Due to a known bug in the underlying zlib library, \fIWindowBits\fR\& values 8 and -8 do not work as expected\&. In zlib versions before 1\&.2\&.9 values 8 and -8 are automatically changed to 9 and -9\&. \fIFrom zlib version 1\&.2\&.9 value -8 is rejected\fR\& causing \fIzlib:deflateInit/6\fR\& to fail (8 is still changed to 9)\&. It also seem possible that future versions of zlib may fix this bug and start accepting 8 and -8 as is\&.
+.LP
+Conclusion: Avoid values 8 and -8 unless you know your zlib version supports them\&.
+
 .TP 2
 .B
 \fIMemLevel\fR\&:

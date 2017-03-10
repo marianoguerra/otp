@@ -234,11 +234,23 @@ File3.asn</pre></div>
               as for <span class="code">ber</span>.
 	    </p>
           </dd>
+          <dt><strong><span class="code">maps</span></strong></dt>
+          <dd>
+	    <p>This option changes the representation of the types
+	    <span class="code">SEQUENCE</span> and <span class="code">SET</span> to use maps (instead of
+	    records).  This option also suppresses the generation of
+	    <span class="code">.hrl</span> files.</p>
+	    <p>For details, see Section
+	      <span class="bold_code bc-15"><a href="asn1_getting_started.html#MAP_SEQ_SET">Map representation for SEQUENCE and SET</a></span>
+		in the User's Guide.
+	    </p>
+	  </dd>
           <dt><strong><span class="code">compact_bit_string</span></strong></dt>
           <dd>
             <p>
 	      The <span class="code">BIT STRING</span> type is decoded to "compact notation".
 	      <strong>This option is not recommended for new code.</strong>
+	      This option cannot be combined with the option <span class="code">maps</span>.
 	    </p>
 	    <p>For details, see Section
 	      <span class="bold_code bc-15"><a href="asn1_getting_started.html#BIT%20STRING">BIT STRING</a></span> in the User's Guide.
@@ -251,6 +263,7 @@ File3.asn</pre></div>
 	      The <span class="code">BIT STRING</span> type is decoded to the legacy
 	      format, that is, a list of zeroes and ones.
 	      <strong>This option is not recommended for new code.</strong>
+	      This option cannot be combined with the option <span class="code">maps</span>.
 	    </p>
 	    <p>For details, see Section
 	      <span class="bold_code bc-15"><a href="asn1_getting_started.html#BIT%20STRING">BIT STRING</a></span>
@@ -263,7 +276,8 @@ File3.asn</pre></div>
             <span class="code">OCTET STRING</span> as in OTP R16.</p>
 	    <p>For details, see Section <span class="bold_code bc-15"><a href="asn1_getting_started.html#BIT%20STRING">BIT STRING</a></span> and Section
             <span class="bold_code bc-15"><a href="asn1_getting_started.html#OCTET%20STRING">OCTET STRING</a></span> in the User's Guide.</p>
-	    <p><strong>This option is not recommended for new code.</strong></p>
+	    <p><strong>This option is not recommended for new code.</strong>
+	    This option cannot be combined with the option <span class="code">maps</span>.</p>
 	  </dd>
           <dt><strong><span class="code">{n2n, EnumTypeName}</span></strong></dt>
           <dd>

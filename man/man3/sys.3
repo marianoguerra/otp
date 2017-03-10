@@ -25,7 +25,7 @@ Shutdown messages\&. If the process traps exits, it must be able to handle a shu
 .LP
 .TP 2
 *
-If the modules used to implement the process change dynamically during runtime, the process must understand one more message\&. An example is the \fB\fIgen_event\fR\&\fR\& processes\&. The message is \fI{get_modules, From}\fR\&\&. The reply to this message is \fIFrom ! {modules, Modules}\fR\&, where \fIModules\fR\& is a list of the currently active modules in the process\&.
+If the modules used to implement the process change dynamically during runtime, the process must understand one more message\&. An example is the \fB\fIgen_event\fR\&\fR\& processes\&. The message is \fI{_Label, {From, Ref}, get_modules}\fR\&\&. The reply to this message is \fIFrom ! {Ref, Modules}\fR\&, where \fIModules\fR\& is a list of the currently active modules in the process\&.
 .RS 2
 .LP
 This message is used by the release handler to find which processes that execute a certain module\&. The process can later be suspended and ordered to perform a code change for one of its modules\&.

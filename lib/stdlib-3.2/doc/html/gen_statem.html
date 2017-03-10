@@ -174,6 +174,7 @@
     <li title="bt-1"><a href="c.html#bt-1">bt/1</a></li>
     <li title="c-1"><a href="c.html#c-1">c/1</a></li>
     <li title="c-2"><a href="c.html#c-2">c/2</a></li>
+    <li title="c-3"><a href="c.html#c-3">c/3</a></li>
     <li title="cd-1"><a href="c.html#cd-1">cd/1</a></li>
     <li title="flush-0"><a href="c.html#flush-0">flush/0</a></li>
     <li title="help-0"><a href="c.html#help-0">help/0</a></li>
@@ -657,6 +658,11 @@
                 </a></li>
     <li title="ensure_dir-1"><a href="filelib.html#ensure_dir-1">ensure_dir/1</a></li>
     <li title="file_size-1"><a href="filelib.html#file_size-1">file_size/1</a></li>
+    <li title="find_file-2"><a href="filelib.html#find_file-2">find_file/2</a></li>
+    <li title="find_file-3"><a href="filelib.html#find_file-3">find_file/3</a></li>
+    <li title="find_source-1"><a href="filelib.html#find_source-1">find_source/1</a></li>
+    <li title="find_source-2"><a href="filelib.html#find_source-2">find_source/2</a></li>
+    <li title="find_source-3"><a href="filelib.html#find_source-3">find_source/3</a></li>
     <li title="fold_files-5"><a href="filelib.html#fold_files-5">fold_files/5</a></li>
     <li title="is_dir-1"><a href="filelib.html#is_dir-1">is_dir/1</a></li>
     <li title="is_file-1"><a href="filelib.html#is_file-1">is_file/1</a></li>
@@ -688,6 +694,7 @@
     <li title="pathtype-1"><a href="filename.html#pathtype-1">pathtype/1</a></li>
     <li title="rootname-1"><a href="filename.html#rootname-1">rootname/1</a></li>
     <li title="rootname-2"><a href="filename.html#rootname-2">rootname/2</a></li>
+    <li title="safe_relative_path-1"><a href="filename.html#safe_relative_path-1">safe_relative_path/1</a></li>
     <li title="split-1"><a href="filename.html#split-1">split/1</a></li>
     </ul>
 </li>
@@ -1957,7 +1964,7 @@ erlang:'!'            -----&gt; Module:StateName/3
     </p>
   </p></div>
 
-  <h3><a name="idm45915382135632">Example</a></h3>
+  <h3><a name="idm46047515422752">Example</a></h3>
 <div class="REFBODY rb-3">
     
     <p>
@@ -2298,8 +2305,8 @@ handle_event(_, _, State, Data) -&gt;
 </div>
 <div class="data-type-desc"><div class="REFBODY rb-7"><p>
 	<p>
-	  If the state machine should use <strong>state enter calls</strong>
-	  is selected when starting the  <span class="code">gen_statem</span>
+	  Whether the state machine should use <strong>state enter calls</strong>
+	  or not is selected when starting the  <span class="code">gen_statem</span>
 	  and after code change using the return value from
 	  <span class="bold_code bc-17"><a href="#Module:callback_mode-0"><span class="code">Module:callback_mode/0</span></a></span>.
 	</p>
@@ -2317,7 +2324,12 @@ handle_event(_, _, State, Data) -&gt;
 	  See
 	  <span class="bold_code bc-17"><a href="#Module:StateName-3"><span class="code">Module:StateName/3</span></a></span>
 	  and
-	      <span class="bold_code bc-17"><a href="#Module:handle_event-4"><span class="code">Module:handle_event/4</span></a></span>.
+	  <span class="bold_code bc-17"><a href="#Module:handle_event-4"><span class="code">Module:handle_event/4</span></a></span>.
+	  Such a call can be repeated by returning a
+	  <span class="bold_code bc-17"><a href="#type-state_callback_result"><span class="code">repeat_state</span></a></span>
+	  or
+	  <span class="bold_code bc-17"><a href="#type-state_callback_result"><span class="code">repeat_state_and_data</span></a></span>
+	  tuple from the state callback.
 	</p>
 	<p>
 	  If 
@@ -2336,7 +2348,8 @@ handle_event(_, _, State, Data) -&gt;
 	  right before entering the initial state even though this
 	  formally is not a state change.
 	  In this case <span class="code">OldState</span> will be the same as <span class="code">State</span>,
-	  which can not happen for a subsequent state change.
+	  which can not happen for a subsequent state change,
+	  but will happen when repeating the state enter call.
 	</p>
       </p></div></div>
     <div class="data-type-name">
@@ -2351,7 +2364,11 @@ handle_event(_, _, State, Data) -&gt;
 	<ul>
 	  <li>
             <p>
-	      If the state changes or is the initial state, and
+	      If the state changes, is the initial state,
+	      <span class="bold_code bc-17"><a href="#type-state_callback_result"><span class="code">repeat_state</span></a></span>
+	      or
+	      <span class="bold_code bc-17"><a href="#type-state_callback_result"><span class="code">repeat_state_and_data</span></a></span>
+	      is used, and also
 	      <span class="bold_code bc-17"><a href="#type-state_enter"><strong>state enter calls</strong></a></span>
 	      are used, the <span class="code">gen_statem</span> calls
 	      the new state callback with arguments
@@ -2693,6 +2710,33 @@ handle_event(_, _, State, Data) -&gt;
 	</p>
       </p></div></div>
     <div class="data-type-name">
+      <span class="bold_code bc-4"><a name="type-init_result">init_result(StateType)</a> = <br>    {ok, State :: StateType, Data :: <span class="bold_code bc-17"><a href="#type-data">data()</a></span>} |<br>    {ok,<br>     State :: StateType,<br>     Data :: <span class="bold_code bc-17"><a href="#type-data">data()</a></span>,<br>     Actions :: [<span class="bold_code bc-17"><a href="#type-action">action()</a></span>] | <span class="bold_code bc-17"><a href="#type-action">action()</a></span>} |<br>    ignore |<br>    {stop, Reason :: term()}</span><br>
+</div>
+<div class="data-type-desc"><div class="REFBODY rb-7"><p>
+	<p>
+	  For a succesful initialization,
+	  <span class="code">State</span> is the initial
+	  <span class="bold_code bc-17"><a href="#type-state"><span class="code">state()</span></a></span>
+	  and <span class="code">Data</span> the initial server
+	  <span class="bold_code bc-17"><a href="#type-data"><span class="code">data()</span></a></span>
+	  of the <span class="code">gen_statem</span>.
+	</p>
+	<p>
+	  The <span class="bold_code bc-17"><a href="#type-action"><span class="code">Actions</span></a></span>
+	  are executed when entering the first
+	  <span class="bold_code bc-17"><a href="#type-state">state</a></span> just as for a
+	  <span class="bold_code bc-17"><a href="#state%20callback">state callback</a></span>,
+	  except that the action <span class="code">postpone</span> is forced to
+	  <span class="code">false</span> since there is no event to postpone.
+	</p>
+	<p>
+	  For an unsuccesful initialization,
+          <span class="code">{stop,Reason}</span>
+	  or <span class="code">ignore</span> should be used; see
+          <span class="bold_code bc-17"><a href="#start_link-3"><span class="code">start_link/3,4</span></a></span>.
+	</p>
+      </p></div></div>
+    <div class="data-type-name">
       <span class="bold_code bc-4"><a name="type-state_enter_result">state_enter_result(State)</a> = <br>    {next_state, State, NewData :: <span class="bold_code bc-17"><a href="#type-data">data()</a></span>} |<br>    {next_state,<br>     State,<br>     NewData :: <span class="bold_code bc-17"><a href="#type-data">data()</a></span>,<br>     Actions :: [<span class="bold_code bc-17"><a href="#type-enter_action">enter_action()</a></span>] | <span class="bold_code bc-17"><a href="#type-enter_action">enter_action()</a></span>} |<br>    <span class="bold_code bc-17"><a href="#type-state_callback_result">state_callback_result</a></span>(<span class="bold_code bc-17"><a href="#type-enter_action">enter_action()</a></span>)</span><br>
 </div>
 <div class="data-type-desc"><div class="REFBODY rb-7"><p>
@@ -2744,7 +2788,7 @@ handle_event(_, _, State, Data) -&gt;
 	</dl>
       </p></div></div>
     <div class="data-type-name">
-      <span class="bold_code bc-4"><a name="type-state_callback_result">state_callback_result(ActionType)</a> = <br>    {keep_state, NewData :: <span class="bold_code bc-17"><a href="#type-data">data()</a></span>} |<br>    {keep_state,<br>     NewData :: <span class="bold_code bc-17"><a href="#type-data">data()</a></span>,<br>     Actions :: [ActionType] | ActionType} |<br>    keep_state_and_data |<br>    {keep_state_and_data, Actions :: [ActionType] | ActionType} |<br>    stop |<br>    {stop, Reason :: term()} |<br>    {stop, Reason :: term(), NewData :: <span class="bold_code bc-17"><a href="#type-data">data()</a></span>} |<br>    {stop_and_reply,<br>     Reason :: term(),<br>     Replies :: [<span class="bold_code bc-17"><a href="#type-reply_action">reply_action()</a></span>] | <span class="bold_code bc-17"><a href="#type-reply_action">reply_action()</a></span>} |<br>    {stop_and_reply,<br>     Reason :: term(),<br>     Replies :: [<span class="bold_code bc-17"><a href="#type-reply_action">reply_action()</a></span>] | <span class="bold_code bc-17"><a href="#type-reply_action">reply_action()</a></span>,<br>     NewData :: <span class="bold_code bc-17"><a href="#type-data">data()</a></span>}</span><br>
+      <span class="bold_code bc-4"><a name="type-state_callback_result">state_callback_result(ActionType)</a> = <br>    {keep_state, NewData :: <span class="bold_code bc-17"><a href="#type-data">data()</a></span>} |<br>    {keep_state,<br>     NewData :: <span class="bold_code bc-17"><a href="#type-data">data()</a></span>,<br>     Actions :: [ActionType] | ActionType} |<br>    keep_state_and_data |<br>    {keep_state_and_data, Actions :: [ActionType] | ActionType} |<br>    {repeat_state, NewData :: <span class="bold_code bc-17"><a href="#type-data">data()</a></span>} |<br>    {repeat_state,<br>     NewData :: <span class="bold_code bc-17"><a href="#type-data">data()</a></span>,<br>     Actions :: [ActionType] | ActionType} |<br>    repeat_state_and_data |<br>    {repeat_state_and_data, Actions :: [ActionType] | ActionType} |<br>    stop |<br>    {stop, Reason :: term()} |<br>    {stop, Reason :: term(), NewData :: <span class="bold_code bc-17"><a href="#type-data">data()</a></span>} |<br>    {stop_and_reply,<br>     Reason :: term(),<br>     Replies :: [<span class="bold_code bc-17"><a href="#type-reply_action">reply_action()</a></span>] | <span class="bold_code bc-17"><a href="#type-reply_action">reply_action()</a></span>} |<br>    {stop_and_reply,<br>     Reason :: term(),<br>     Replies :: [<span class="bold_code bc-17"><a href="#type-reply_action">reply_action()</a></span>] | <span class="bold_code bc-17"><a href="#type-reply_action">reply_action()</a></span>,<br>     NewData :: <span class="bold_code bc-17"><a href="#type-data">data()</a></span>}</span><br>
 </div>
 <div class="data-type-desc"><div class="REFBODY rb-7"><p>
 	<p>
@@ -2777,6 +2821,37 @@ handle_event(_, _, State, Data) -&gt;
 	      and executes all <span class="code">Actions</span>.
 	      This is the same as
 	      <span class="code">{next_state,CurrentState,CurrentData,Actions}</span>.
+	    </p>
+	  </dd>
+	  <dt><strong><span class="code">repeat_state</span></strong></dt>
+	  <dd>
+	    <p>
+	      The <span class="code">gen_statem</span> keeps the current state, or
+	      does a state transition to the current state if you like,
+	      sets <span class="code">NewData</span>,
+	      and executes all <span class="code">Actions</span>.
+	      If the <span class="code">gen_statem</span> runs with
+	      <span class="bold_code bc-17"><a href="#type-state_enter"><strong>state enter calls</strong></a></span>,
+	      the state enter call is repeated, see type
+	      <span class="bold_code bc-17"><a href="#type-transition_option"><span class="code">transition_option()</span></a></span>,
+	      otherwise <span class="code">repeat_state</span> is the same as
+	      <span class="code">keep_state</span>.
+	    </p>
+	  </dd>
+	  <dt><strong><span class="code">repeat_state_and_data</span></strong></dt>
+	  <dd>
+	    <p>
+	      The <span class="code">gen_statem</span> keeps the current state and data, or
+	      does a state transition to the current state if you like,
+	      and executes all <span class="code">Actions</span>.
+	      This is the same as
+	      <span class="code">{repeat_state,CurrentData,Actions}</span>.
+	      If the <span class="code">gen_statem</span> runs with
+	      <span class="bold_code bc-17"><a href="#type-state_enter"><strong>state enter calls</strong></a></span>,
+	      the state enter call is repeated, see type
+	      <span class="bold_code bc-17"><a href="#type-transition_option"><span class="code">transition_option()</span></a></span>,
+	      otherwise <span class="code">repeat_state_and_data</span> is the same as
+	      <span class="code">keep_state_and_data</span>.
 	    </p>
 	  </dd>
 	  <dt><strong><span class="code">stop</span></strong></dt>
@@ -3179,7 +3254,7 @@ handle_event(_, _, State, Data) -&gt;
       </p></div>
   </div>
 
-  <h3><a name="idm45915381746880">Callback Functions</a></h3>
+  <h3><a name="idm46047515004624">Callback Functions</a></h3>
 <div class="REFBODY rb-3">
     
     <p>
@@ -3322,40 +3397,32 @@ handle_event(_, _, State, Data) -&gt;
 	  It is recommended to use an atom as <span class="code">Reason</span> since
 	  it will be wrapped in an <span class="code">{error,Reason}</span> tuple.
 	</p>
+	<p>
+	  Also note when upgrading a <span class="code">gen_statem</span>,
+	  this function and hence
+	  the <span class="code">Change={advanced,Extra}</span> parameter in the
+	  <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','sasl','appup.html');"><span class="code">appup</span></a></span> file
+	  is not only needed to update the internal state
+	  or to act on the <span class="code">Extra</span> argument.
+	  It is also needed if an upgrade or downgrade should change 
+	  <span class="bold_code bc-17"><a href="#type-callback_mode"><strong>callback mode</strong></a></span>,
+	  or else the callback mode after the code change
+	  will not be honoured,
+	  most probably causing a server crash.
+	</p>
       </p></div>
 
-    <p><a name="Module:init-1"></a><span class="bold_code fun-type">Module:init(Args) -&gt; Result</span><br></p>
+    <p><a name="Module:init-1"></a><span class="bold_code fun-type">Module:init(Args) -&gt; Result(StateType)</span><br></p>
 <div class="REFBODY rb-5">
 <h3 class="func-types-title">Types</h3>
         <div class="REFTYPES rt-4">
 <span class="bold_code fun-param-type">Args = term()</span><br>
 </div>
-        <div class="REFTYPES rt-4">
-<span class="bold_code fun-param-type">Result = {ok,State,Data}</span><br>
-</div>
-	<div class="REFTYPES rt-4">
-<span class="bold_code fun-param-type"> | {ok,State,Data,Actions}</span><br>
-</div>
-        <div class="REFTYPES rt-4">
-<span class="bold_code fun-param-type"> | {stop,Reason} | ignore</span><br>
-</div>
-	<div class="REFTYPES rt-4">
-<span class="bold_code fun-param-type">State = <span class="bold_code bc-17"><a href="#type-state">state()</a></span></span><br>
-</div>
 	<div class="REFTYPES rt-4">
 <span class="bold_code fun-param-type">
-	  Data = <span class="bold_code bc-17"><a href="#type-data">data()</a></span>
+	  Result(StateType) =
+	  <span class="bold_code bc-17"><a href="#type-init_result">init_result(StateType)</a></span>
 	</span><br>
-</div>
-	<div class="REFTYPES rt-4">
-<span class="bold_code fun-param-type">
-	  Actions =
-	  [<span class="bold_code bc-17"><a href="#type-action">action()</a></span>] |
-	  <span class="bold_code bc-17"><a href="#type-action">action()</a></span>
-	</span><br>
-</div>
-	<div class="REFTYPES rt-4">
-<span class="bold_code fun-param-type">Reason = term()</span><br>
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
@@ -3369,29 +3436,8 @@ handle_event(_, _, State, Data) -&gt;
 	  the implementation state and server data.
 	</p>
 	<p>
-	  <span class="code">Args</span> is the <span class="code">Args</span> argument provided to the start
+	  <span class="code">Args</span> is the <span class="code">Args</span> argument provided to that start
 	  function.
-	</p>
-	<p>
-	  If the initialization is successful, the function is to
-	  return <span class="code">{ok,State,Data}</span> or
-	  <span class="code">{ok,State,Data,Actions}</span>.
-	  <span class="code">State</span> is the initial
-	  <span class="bold_code bc-17"><a href="#type-state"><span class="code">state()</span></a></span>
-	  and <span class="code">Data</span> the initial server
-	  <span class="bold_code bc-17"><a href="#type-data"><span class="code">data()</span></a></span>.
-	</p>
-	<p>
-	  The <span class="bold_code bc-17"><a href="#type-action"><span class="code">Actions</span></a></span>
-	  are executed when entering the first
-	  <span class="bold_code bc-17"><a href="#type-state">state</a></span> just as for a
-	  <span class="bold_code bc-17"><a href="#state%20callback">state callback</a></span>.
-	</p>
-	<p>
-	  If the initialization fails,
-          the function is to return <span class="code">{stop,Reason}</span>
-	  or <span class="code">ignore</span>; see
-          <span class="bold_code bc-17"><a href="#start_link-3"><span class="code">start_link/3,4</span></a></span>.
 	</p>
         <div class="note">
 <div class="label">Note</div>
@@ -3626,22 +3672,33 @@ handle_event(_, _, State, Data) -&gt;
 	  <span class="bold_code bc-17"><a href="#type-enter_action">actions</a></span>
 	  that may be returned:
 	  <span class="bold_code bc-17"><a href="#type-postpone"><span class="code">postpone()</span></a></span>
-	  and 
+	  is not allowed since a <strong>state enter call</strong> is not
+	  an event so there is no event to postpone, and 
 	  <span class="bold_code bc-17"><a href="#type-action"><span class="code">{next_event,_,_}</span></a></span>
-	  are not allowed.
+	  is not allowed since using <strong>state enter calls</strong>
+	  should not affect how events are consumed and produced.
 	  You may also not change states from this call.
 	  Should you return <span class="code">{next_state,NextState, ...}</span>
 	  with <span class="code">NextState =/= State</span> the <span class="code">gen_statem</span> crashes.
-	  You are advised to use <span class="code">{keep_state,...}</span> or
-	  <span class="code">keep_state_and_data</span>.
+	  It is possible to use <span class="code">{repeat_state, ...}</span>,
+	  <span class="code">{repeat_state_and_data,_}</span> or
+	  <span class="code">repeat_state_and_data</span> but all of them makes little
+	  sense since you immediately will be called again with a new
+	  <strong>state enter call</strong> making this just a weird way
+	  of looping, and there are better ways to loop in Erlang.
+	  You are advised to use <span class="code">{keep_state,...}</span>,
+	  <span class="code">{keep_state_and_data,_}</span> or
+	  <span class="code">keep_state_and_data</span> since you can not change states
+	  from a <strong>state enter call</strong> anyway.
 	</p>
 	<p>
 	  Note the fact that you can use
 	  <span class="bold_code bc-13"><a href="javascript:erlhref('../../../../doc/../','erts','erlang.html#throw-1');"><span class="code">throw</span></a></span>
 	  to return the result, which can be useful.
 	  For example to bail out with <span class="code">throw(keep_state_and_data)</span>
-	  from deep within complex code that is in no position to
-	  return <span class="code">{next_state,State,Data}</span>.
+	  from deep within complex code that can not
+	  return <span class="code">{next_state,State,Data}</span> because
+	  <span class="code">State</span> or <span class="code">Data</span> is no longer in scope.
 	</p>
       </p></div>
 
@@ -3662,6 +3719,14 @@ handle_event(_, _, State, Data) -&gt;
 </div>
       </div>
 <div class="REFBODY rb-7"><p>
+        <div class="note">
+<div class="label">Note</div>
+<div class="content"><p>
+          <p>This callback is optional, so callback modules need not
+          export it. The <span class="code">gen_statem</span> module provides a default
+          implementation without cleanup.</p>
+        </p></div>
+</div>
 	<p>
 	  This function is called by a <span class="code">gen_statem</span>
 	  when it is about to terminate. It is to be the opposite of
@@ -3723,7 +3788,7 @@ handle_event(_, _, State, Data) -&gt;
       </p></div>
   </div>
 
-  <h3><a name="idm45915381582272">See Also</a></h3>
+  <h3><a name="idm46047514843680">See Also</a></h3>
 <div class="REFBODY rb-3">
     
     <p>

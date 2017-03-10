@@ -157,13 +157,15 @@ This function is called only if the CTH is added before or in \fIinit_per_suite\
 .RE
 .LP
 .B
-Module:pre_init_per_group(GroupName, InitData, CTHState) -> Result
+Module:pre_init_per_group(SuiteName, GroupName, InitData, CTHState) -> Result
 .br
 .RS
 .LP
 Types:
 
 .RS 3
+SuiteName = atom()
+.br
 GroupName = atom()
 .br
 InitData = Config | SkipOrFail
@@ -189,16 +191,20 @@ Reason = term()
 OPTIONAL
 .LP
 This function is called before \fB\fIinit_per_group\fR\&\fR\& if it exists\&. It behaves the same way as \fB\fIpre_init_per_suite\fR\&\fR\&, but for function \fB\fIinit_per_group\fR\&\fR\& instead\&.
+.LP
+If \fIModule:pre_init_per_group/4\fR\& is not exported, common_test will attempt to call \fIModule:pre_init_per_group(GroupName, InitData, CTHState)\fR\& instead\&. This is for backwards compatibility\&.
 .RE
 .LP
 .B
-Module:post_init_per_group(GroupName, Config, Return, CTHState) -> Result
+Module:post_init_per_group(SuiteName, GroupName, Config, Return, CTHState) -> Result
 .br
 .RS
 .LP
 Types:
 
 .RS 3
+SuiteName = atom()
+.br
 GroupName = atom()
 .br
 Config = [{Key,Value}]
@@ -224,16 +230,20 @@ Reason = term()
 OPTIONAL
 .LP
 This function is called after \fB\fIinit_per_group\fR\&\fR\& if it exists\&. It behaves the same way as \fB\fIpost_init_per_suite\fR\&\fR\&, but for function \fB\fIinit_per_group\fR\&\fR\& instead\&.
+.LP
+If \fIModule:post_init_per_group/5\fR\& is not exported, common_test will attempt to call \fIModule:post_init_per_group(GroupName, Config, Return, CTHState)\fR\& instead\&. This is for backwards compatibility\&.
 .RE
 .LP
 .B
-Module:pre_init_per_testcase(TestcaseName, InitData, CTHState) -> Result
+Module:pre_init_per_testcase(SuiteName, TestcaseName, InitData, CTHState) -> Result
 .br
 .RS
 .LP
 Types:
 
 .RS 3
+SuiteName = atom()
+.br
 TestcaseName = atom()
 .br
 InitData = Config | SkipOrFail
@@ -260,17 +270,21 @@ OPTIONAL
 .LP
 This function is called before \fB\fIinit_per_testcase\fR\&\fR\& if it exists\&. It behaves the same way as \fB\fIpre_init_per_suite\fR\&\fR\&, but for function \fB\fIinit_per_testcase\fR\&\fR\& instead\&.
 .LP
+If \fIModule:pre_init_per_testcase/4\fR\& is not exported, common_test will attempt to call \fIModule:pre_init_per_testcase(TestcaseName, InitData, CTHState)\fR\& instead\&. This is for backwards compatibility\&.
+.LP
 CTHs cannot be added here right now\&. That feature may be added in a later release, but it would right now break backwards compatibility\&.
 .RE
 .LP
 .B
-Module:post_init_per_testcase(TestcaseName, Config, Return, CTHState) -> Result
+Module:post_init_per_testcase(SuiteName, TestcaseName, Config, Return, CTHState) -> Result
 .br
 .RS
 .LP
 Types:
 
 .RS 3
+SuiteName = atom()
+.br
 TestcaseName = atom()
 .br
 Config = [{Key,Value}]
@@ -296,19 +310,23 @@ Reason = term()
 OPTIONAL
 .LP
 This function is called after \fB\fIinit_per_testcase\fR\&\fR\& if it exists\&. It behaves the same way as \fB\fIpost_init_per_suite\fR\&\fR\&, but for function \fB\fIinit_per_testcase\fR\&\fR\& instead\&.
+.LP
+If \fIModule:post_init_per_testcase/5\fR\& is not exported, common_test will attempt to call \fIModule:post_init_per_testcase(TestcaseName, Config, Return, CTHState)\fR\& instead\&. This is for backwards compatibility\&.
 .RE
 .LP
 .B
-Module:pre_end_per_testcase(TestcaseName, InitData, CTHState) -> Result
+Module:pre_end_per_testcase(SuiteName, TestcaseName, EndData, CTHState) -> Result
 .br
 .RS
 .LP
 Types:
 
 .RS 3
+SuiteName = atom()
+.br
 TestcaseName = atom()
 .br
-InitData = Config
+EndData = Config
 .br
 Config = NewConfig = [{Key,Value}]
 .br
@@ -330,17 +348,21 @@ OPTIONAL
 .LP
 This function is called before \fB\fIend_per_testcase\fR\&\fR\& if it exists\&. It behaves the same way as \fB\fIpre_end_per_suite\fR\&\fR\&, but for function \fB\fIend_per_testcase\fR\&\fR\& instead\&.
 .LP
-This function can not change the result of the test case by returning skip or fail tuples, but it may insert items in \fIConfig\fR\& that can be read in \fIend_per_testcase/2\fR\& or in \fIpost_end_per_testcase/4\fR\&\&.
+This function can not change the result of the test case by returning skip or fail tuples, but it may insert items in \fIConfig\fR\& that can be read in \fIend_per_testcase/2\fR\& or in \fIpost_end_per_testcase/5\fR\&\&.
+.LP
+If \fIModule:pre_end_per_testcase/4\fR\& is not exported, common_test will attempt to call \fIModule:pre_end_per_testcase(TestcaseName, EndData, CTHState)\fR\& instead\&. This is for backwards compatibility\&.
 .RE
 .LP
 .B
-Module:post_end_per_testcase(TestcaseName, Config, Return, CTHState) -> Result
+Module:post_end_per_testcase(SuiteName, TestcaseName, Config, Return, CTHState) -> Result
 .br
 .RS
 .LP
 Types:
 
 .RS 3
+SuiteName = atom()
+.br
 TestcaseName = atom()
 .br
 Config = [{Key,Value}]
@@ -366,16 +388,20 @@ Reason = term()
 OPTIONAL
 .LP
 This function is called after \fB\fIend_per_testcase\fR\&\fR\& if it exists\&. It behaves the same way as \fB\fIpost_end_per_suite\fR\&\fR\&, but for function \fB\fIend_per_testcase\fR\&\fR\& instead\&.
+.LP
+If \fIModule:post_end_per_testcase/5\fR\& is not exported, common_test will attempt to call \fIModule:post_end_per_testcase(TestcaseName, Config, Return, CTHState)\fR\& instead\&. This is for backwards compatibility\&.
 .RE
 .LP
 .B
-Module:pre_end_per_group(GroupName, EndData, CTHState) -> Result
+Module:pre_end_per_group(SuiteName, GroupName, EndData, CTHState) -> Result
 .br
 .RS
 .LP
 Types:
 
 .RS 3
+SuiteName = atom()
+.br
 GroupName = atom()
 .br
 EndData = Config | SkipOrFail
@@ -401,16 +427,20 @@ Reason = term()
 OPTIONAL
 .LP
 This function is called before \fB\fIend_per_group\fR\&\fR\& if it exists\&. It behaves the same way as \fB\fIpre_init_per_suite\fR\&\fR\&, but for function \fB\fIend_per_group\fR\&\fR\& instead\&.
+.LP
+If \fIModule:pre_end_per_group/4\fR\& is not exported, common_test will attempt to call \fIModule:pre_end_per_group(GroupName, EndData, CTHState)\fR\& instead\&. This is for backwards compatibility\&.
 .RE
 .LP
 .B
-Module:post_end_per_group(GroupName, Config, Return, CTHState) -> Result
+Module:post_end_per_group(SuiteName, GroupName, Config, Return, CTHState) -> Result
 .br
 .RS
 .LP
 Types:
 
 .RS 3
+SuiteName = atom()
+.br
 GroupName = atom()
 .br
 Config = [{Key,Value}]
@@ -436,6 +466,8 @@ Reason = term()
 OPTIONAL
 .LP
 This function is called after \fB\fIend_per_group\fR\&\fR\& if it exists\&. It behaves the same way as \fB\fIpost_init_per_suite\fR\&\fR\&, but for function \fBend_per_group\fR\& instead\&.
+.LP
+If \fIModule:post_end_per_group/5\fR\& is not exported, common_test will attempt to call \fIModule:post_end_per_group(GroupName, Config, Return, CTHState)\fR\& instead\&. This is for backwards compatibility\&.
 .RE
 .LP
 .B
@@ -509,13 +541,15 @@ This function is called after \fB\fIend_per_suite\fR\&\fR\& if it exists\&. It b
 .RE
 .LP
 .B
-Module:on_tc_fail(TestName, Reason, CTHState) -> NewCTHState
+Module:on_tc_fail(SuiteName, TestName, Reason, CTHState) -> NewCTHState
 .br
 .RS
 .LP
 Types:
 
 .RS 3
+SuiteName = atom()
+.br
 TestName = init_per_suite | end_per_suite | {init_per_group,GroupName} | {end_per_group,GroupName} | {FuncName,GroupName} | FuncName
 .br
 FuncName = atom()
@@ -548,16 +582,20 @@ If a test case fails, this funcion is called after \fB\fIpost_end_per_testcase\f
 If the failed test case belongs to a test case group, the first argument is a tuple \fI{FuncName,GroupName}\fR\&, otherwise only the function name\&.
 .LP
 The data that comes with \fIReason\fR\& follows the same format as \fB\fIFailReason\fR\&\fR\& in event \fB\fItc_done\fR\&\fR\&\&. For details, see section \fBEvent Handling\fR\& in the User\&'s Guide\&.
+.LP
+If \fIModule:on_tc_fail/4\fR\& is not exported, common_test will attempt to call \fIModule:on_tc_fail(TestName, Reason, CTHState)\fR\& instead\&. This is for backwards compatibility\&.
 .RE
 .LP
 .B
-Module:on_tc_skip(TestName, Reason, CTHState) -> NewCTHState
+Module:on_tc_skip(SuiteName, TestName, Reason, CTHState) -> NewCTHState
 .br
 .RS
 .LP
 Types:
 
 .RS 3
+SuiteName = atom()
+.br
 TestName = init_per_suite | end_per_suite | {init_per_group,GroupName} | {end_per_group,GroupName} | {FuncName,GroupName} | FuncName
 .br
 FuncName = atom()
@@ -590,6 +628,8 @@ If a test case is skipped, this function is called after \fB\fIpost_end_per_test
 If the skipped test case belongs to a test case group, the first argument is a tuple \fI{FuncName,GroupName}\fR\&, otherwise only the function name\&.
 .LP
 The data that comes with \fIReason\fR\& follows the same format as events \fB\fItc_auto_skip\fR\&\fR\& and \fB\fItc_user_skip\fR\&\fR\& For details, see section \fBEvent Handling\fR\& in the User\&'s Guide\&.
+.LP
+If \fIModule:on_tc_skip/4\fR\& is not exported, common_test will attempt to call \fIModule:on_tc_skip(TestName, Reason, CTHState)\fR\& instead\&. This is for backwards compatibility\&.
 .RE
 .LP
 .B

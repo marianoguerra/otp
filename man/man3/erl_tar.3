@@ -4,7 +4,7 @@ erl_tar \- Unix 'tar' utility for reading and writing tar archives.
   
 .SH DESCRIPTION
 .LP
-This module archives and extract files to and from a tar file\&. This module supports the \fIustar\fR\& format (IEEE Std 1003\&.1 and ISO/IEC 9945-1)\&. All modern \fItar\fR\& programs (including GNU tar) can read this format\&. To ensure that that GNU tar produces a tar file that \fIerl_tar\fR\& can read, specify option \fI--format=ustar\fR\& to GNU tar\&.
+This module archives and extract files to and from a tar file\&. This module supports reading most common tar formats, namely v7, STAR, USTAR, and PAX, as well as some of GNU tar\&'s extensions to the USTAR format (sparse files most notably)\&. It produces tar archives in USTAR format, unless the files being archived require PAX format due to restrictions in USTAR (such as unicode metadata, filename length, and more)\&. As such, \fIerl_tar\fR\& supports tar archives produced by most all modern tar utilities, and produces tarballs which should be similarly portable\&.
 .LP
 By convention, the name of a tar file is to end in "\fI\&.tar\fR\&"\&. To abide to the convention, add "\fI\&.tar\fR\&" to the name\&.
 .LP
@@ -23,6 +23,8 @@ To convert an error term returned from one of the functions above to a readable 
 If \fB\fIfile:native_name_encoding/0\fR\&\fR\& returns \fIutf8\fR\&, path names are encoded in UTF-8 when creating tar files, and path names are assumed to be encoded in UTF-8 when extracting tar files\&.
 .LP
 If \fB\fIfile:native_name_encoding/0\fR\&\fR\& returns \fIlatin1\fR\&, no translation of path names is done\&.
+.LP
+Unicode metadata stored in PAX headers is preserved
 .SH "OTHER STORAGE MEDIA"
 
 .LP
@@ -34,19 +36,11 @@ An example of this is the SFTP support in \fB\fIssh_sftp:open_tar/3\fR\&\fR\&\&.
 .RS 2
 .TP 2
 *
-For maximum compatibility, it is safe to archive files with names up to 100 characters in length\&. Such tar files can generally be extracted by any \fItar\fR\& program\&.
+If you must remain compatible with the USTAR tar format, you must ensure file paths being stored are less than 255 bytes in total, with a maximum filename component length of 100 bytes\&. USTAR uses a header field (prefix) in addition to the name field, and splits file paths longer than 100 bytes into two parts\&. This split is done on a directory boundary, and is done in such a way to make the best use of the space available in those two fields, but in practice this will often mean that you have less than 255 bytes for a path\&. \fIerl_tar\fR\& will automatically upgrade the format to PAX to handle longer filenames, so this is only an issue if you need to extract the archive with an older implementation of \fIerl_tar\fR\& or \fItar\fR\& which does not support PAX\&. In this case, the PAX headers will be extracted as regular files, and you will need to apply them manually\&.
 .LP
 .TP 2
 *
-For filenames exceeding 100 characters in length, the resulting tar file can only be correctly extracted by a POSIX-compatible \fItar\fR\& program (such as Solaris \fItar\fR\& or a modern GNU \fItar\fR\&)\&.
-.LP
-.TP 2
-*
-Files with longer names than 256 bytes cannot be stored\&.
-.LP
-.TP 2
-*
-The file name a symbolic link points is always limited to 100 characters\&.
+Like the above, if you must remain USTAR compatible, you must also ensure than paths for symbolic/hard links are no more than 100 bytes, otherwise PAX headers will be used\&.
 .LP
 .RE
 
@@ -62,7 +56,11 @@ Types:
 .RS 3
 TarDescriptor = term()
 .br
-Filename = filename()
+FilenameOrBin = filename()|binary()
+.br
+NameInArchive = filename()
+.br
+Filename = filename()|{NameInArchive,FilenameOrBin}
 .br
 Options = [Option]
 .br
@@ -79,6 +77,8 @@ Reason = term()
 .RS
 .LP
 Adds a file to a tar file that has been opened for writing by \fB\fIopen/1\fR\&\fR\&\&.
+.LP
+\fINameInArchive\fR\& is the name under which the file becomes stored in the tar file\&. The file gets this name when it is extracted from the tar file\&.
 .LP
 Options:
 .RS 2
@@ -126,8 +126,6 @@ Reason = term()
 .RS
 .LP
 Adds a file to a tar file that has been opened for writing by \fB\fIopen/2\fR\&\fR\&\&. This function accepts the same options as \fB\fIadd/3\fR\&\fR\&\&.
-.LP
-\fINameInArchive\fR\& is the name under which the file becomes stored in the tar file\&. The file gets this name when it is extracted from the tar file\&.
 .RE
 .LP
 .B
@@ -157,7 +155,9 @@ Types:
 .RS 3
 Name = filename()
 .br
-FileList = [Filename|{NameInArchive, binary()},{NameInArchive, Filename}]
+FileList = [Filename|{NameInArchive, FilenameOrBin}]
+.br
+FilenameOrBin = filename()|binary()
 .br
 Filename = filename()
 .br
@@ -184,7 +184,9 @@ Types:
 .RS 3
 Name = filename()
 .br
-FileList = [Filename|{NameInArchive, binary()},{NameInArchive, Filename}]
+FileList = [Filename|{NameInArchive, FilenameOrBin}]
+.br
+FilenameOrBin = filename()|binary()
 .br
 Filename = filename()
 .br
@@ -233,7 +235,9 @@ extract(Name) -> RetValue
 Types:
 
 .RS 3
-Name = filename()
+Name = filename() | {binary,binary()} | {file,Fd}
+.br
+Fd = file_descriptor()
 .br
 RetValue = ok|{error,{Name,Reason}}
 .br
@@ -260,9 +264,7 @@ extract(Name, OptionList)
 Types:
 
 .RS 3
-Name = filename() | {binary,Binary} | {file,Fd}
-.br
-Binary = binary()
+Name = filename() | {binary,binary()} | {file,Fd}
 .br
 Fd = file_descriptor()
 .br
@@ -503,7 +505,7 @@ table(Name) -> RetValue
 Types:
 
 .RS 3
-Name = filename()
+Name = filename()|{binary,binary()}|{file,file_descriptor()}
 .br
 RetValue = {ok,[string()]}|{error,{Name,Reason}}
 .br
@@ -524,7 +526,7 @@ table(Name, Options)
 Types:
 
 .RS 3
-Name = filename()
+Name = filename()|{binary,binary()}|{file,file_descriptor()}
 .br
 .RE
 .RE
@@ -541,7 +543,7 @@ t(Name)
 Types:
 
 .RS 3
-Name = filename()
+Name = filename()|{binary,binary()}|{file,file_descriptor()}
 .br
 .RE
 .RE
@@ -558,7 +560,7 @@ tt(Name)
 Types:
 
 .RS 3
-Name = filename()
+Name = filename()|{binary,binary()}|{file,file_descriptor()}
 .br
 .RE
 .RE

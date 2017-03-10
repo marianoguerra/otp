@@ -556,6 +556,7 @@
     <li title="perf_counter-0"><a href="os.html#perf_counter-0">perf_counter/0</a></li>
     <li title="perf_counter-1"><a href="os.html#perf_counter-1">perf_counter/1</a></li>
     <li title="putenv-2"><a href="os.html#putenv-2">putenv/2</a></li>
+    <li title="set_signal-2"><a href="os.html#set_signal-2">set_signal/2</a></li>
     <li title="system_time-0"><a href="os.html#system_time-0">system_time/0</a></li>
     <li title="system_time-1"><a href="os.html#system_time-1">system_time/1</a></li>
     <li title="timestamp-0"><a href="os.html#timestamp-0">timestamp/0</a></li>
@@ -773,6 +774,33 @@ DirOut = os:cmd("dir"), % on Win32 platform</pre></div>
 	<p>On Unix platforms, the environment is set using UTF-8 encoding
 	  if Unicode filename translation is in effect. On Windows, the
 	  environment is set using wide character interfaces.</p>
+      </p></div>
+
+    <p><a name="set_signal-2"></a><div class="bold_code func-head">set_signal(Signal, Option) -&gt; ok</div><div class="REFBODY fun-types">
+<h3 class="func-types-title">Types</h3>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Signal = <br>    sighup |<br>    sigquit |<br>    sigabrt |<br>    sigalrm |<br>    sigterm |<br>    sigusr1 |<br>    sigusr2 |<br>    sigchld |<br>    sigstop |<br>    sigtstp</span></div>
+<div class="REFTYPES rt-1"><span class="bold_code bc-2">Option = default | handle | ignore</span></div>
+</div></p>
+<div class="REFBODY rb-7"><p>
+          <p>Enables or disables OS signals.</p>
+          <p>Each signal my be set to one of the following options:</p>
+          <dl>
+              <dt><strong><span class="code">ignore</span></strong></dt>
+              <dd>
+                  This signal will be ignored.
+              </dd>
+
+              <dt><strong><span class="code">default</span></strong></dt>
+              <dd>
+                  This signal will use the default signal handler for the operating system.
+              </dd>
+
+              <dt><strong><span class="code">handle</span></strong></dt>
+              <dd>
+                  This signal will notify <span class="code">erl_signal_server</span> when it is received by
+                  the Erlang runtime system.
+              </dd>
+          </dl>
       </p></div>
 
     <p><a name="system_time-0"></a><div class="bold_code func-head">system_time() -&gt; integer()</div></p>

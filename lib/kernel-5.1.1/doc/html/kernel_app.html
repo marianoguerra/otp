@@ -556,6 +556,7 @@
     <li title="perf_counter-0"><a href="os.html#perf_counter-0">perf_counter/0</a></li>
     <li title="perf_counter-1"><a href="os.html#perf_counter-1">perf_counter/1</a></li>
     <li title="putenv-2"><a href="os.html#putenv-2">putenv/2</a></li>
+    <li title="set_signal-2"><a href="os.html#set_signal-2">set_signal/2</a></li>
     <li title="system_time-0"><a href="os.html#system_time-0">system_time/0</a></li>
     <li title="system_time-1"><a href="os.html#system_time-1">system_time/1</a></li>
     <li title="timestamp-0"><a href="os.html#timestamp-0">timestamp/0</a></li>
@@ -672,7 +673,7 @@
     </ul>
   </p></div>
 
-  <h3><a name="idm46003595397344">Error Logger Event Handlers</a></h3>
+  <h3><a name="idm45691330215120">Error Logger Event Handlers</a></h3>
 <div class="REFBODY rb-3">
     
     <p>Two standard error logger event handlers are defined in
@@ -680,7 +681,63 @@
       <span class="bold_code bc-19"><a href="error_logger.html"><span class="code">error_logger(3)</span></a></span>.</p>
   </div>
 
-  <h3><a name="idm46003595399632">Configuration</a></h3>
+  <h3><a name="idm45691329695680">OS Signal Event Handler</a></h3>
+<div class="REFBODY rb-3">
+      
+      <p>Asynchronous OS signals may be subscribed to via the Kernel applications event manager
+          (see <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','doc/design_principles','des_princ.html');">OTP Design Principles</a></span> and
+          <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','stdlib','gen_event.html');"><span class="code">gen_event(3)</span></a></span>) registered as <span class="code">erl_signal_server</span>.
+          A default signal handler is installed which handles the following signals:</p>
+          <dl>
+              <dt><strong><span class="code">sigusr1</span></strong></dt>
+              <dd><p>The default handler will halt Erlang and produce a crashdump
+                      with slogan "Received SIGUSR1".
+                      This is equivalent to calling <span class="code">erlang:halt("Received SIGUSR1")</span>.
+              </p></dd>
+
+              <dt><strong><span class="code">sigquit</span></strong></dt>
+              <dd><p>The default handler will halt Erlang immediately.
+                      This is equivalent to calling <span class="code">erlang:halt()</span>.
+              </p></dd>
+
+              <dt><strong><span class="code">sigterm</span></strong></dt>
+              <dd><p>The default handler will terminate Erlang normally.
+                      This is equivalent to calling <span class="code">init:stop()</span>.
+              </p></dd>
+          </dl>
+
+          <h4>Events</h4>
+<div class="REFBODY rb-4">
+              
+              <p>Any event handler added to <span class="code">erl_signal_server</span> must handle the following events.</p>
+              <dl>
+                  <dt><strong><span class="code">sighup</span></strong></dt>
+                  <dd><p>Hangup detected on controlling terminal or death of controlling process</p></dd>
+                  <dt><strong><span class="code">sigquit</span></strong></dt>
+                  <dd><p>Quit from keyboard</p></dd>
+                  <dt><strong><span class="code">sigabrt</span></strong></dt>
+                  <dd><p>Abort signal from abort</p></dd>
+                  <dt><strong><span class="code">sigalrm</span></strong></dt>
+                  <dd><p>Timer signal from alarm</p></dd>
+                  <dt><strong><span class="code">sigterm</span></strong></dt>
+                  <dd><p>Termination signal</p></dd>
+                  <dt><strong><span class="code">sigusr1</span></strong></dt>
+                  <dd><p>User-defined signal 1</p></dd>
+                  <dt><strong><span class="code">sigusr2</span></strong></dt>
+                  <dd><p>User-defined signal 2</p></dd>
+                  <dt><strong><span class="code">sigchld</span></strong></dt>
+                  <dd><p>Child process stopped or terminated</p></dd>
+                  <dt><strong><span class="code">sigstop</span></strong></dt>
+                  <dd><p>Stop process</p></dd>
+                  <dt><strong><span class="code">sigtstp</span></strong></dt>
+                  <dd><p>Stop typed at terminal</p></dd>
+              </dl>
+
+              <p>Setting OS signals are described in <span class="bold_code bc-15"><a href="os.html#set_signal-2"><span class="code">os:set_signal/2</span></a></span>.</p>
+          </div>
+  </div>
+
+  <h3><a name="idm45691330975088">Configuration</a></h3>
 <div class="REFBODY rb-3">
     
     <p>The following configuration parameters are defined for the Kernel
@@ -1009,10 +1066,32 @@ MaxT = TickTime + TickTime / 4</pre></div>
           return as soon as possible for <span class="code">application_controller</span>
           to terminate properly.</p>
       </dd>
+      <dt><strong><span class="code">source_search_rules = [DirRule] | [SuffixRule] </span></strong></dt>
+      <dd>
+	<a name="source_search_rules"></a>
+        <p>Where:</p>
+        <ul>
+          <li><span class="code">DirRule = {ObjDirSuffix,SrcDirSuffix}</span></li>
+          <li><span class="code">SuffixRule = {ObjSuffix,SrcSuffix,[DirRule]}</span></li>
+          <li><span class="code">ObjDirSuffix = string()</span></li>
+          <li><span class="code">SrcDirSuffix = string()</span></li>
+          <li><span class="code">ObjSuffix = string()</span></li>
+          <li><span class="code">SrcSuffix = string()</span></li>
+        </ul>
+        <p>Specifies a list of rules for use by <span class="code">filelib:find_file/2</span> and
+          <span class="code">filelib:find_source/2</span>. If this is set to some other value
+          than the empty list, it replaces the default rules. Rules can be
+          simple pairs of directory suffixes, such as <span class="code">{"ebin",
+          "src"}</span>, which are used by <span class="code">filelib:find_file/2</span>, or
+          triples specifying separate directory suffix rules depending on
+          file name extensions, for example <span class="code">[{".beam", ".erl", [{"ebin",
+          "src"}]}</span>, which are used by <span class="code">filelib:find_source/2</span>. Both
+          kinds of rules can be mixed in the list.</p>
+      </dd>
     </dl>
   </div>
 
-  <h3><a name="idm46003592613616">See Also</a></h3>
+  <h3><a name="idm45691325576272">See Also</a></h3>
 <div class="REFBODY rb-3">
     
     <p><span class="bold_code bc-19"><a href="app.html"><span class="code">app(4)</span></a></span>,
